@@ -16,10 +16,10 @@ Each step is sized to fit in one or two working sessions. Statuses (`pending`, `
 1. **Repository Setup** — `pending`
    - [x] Initialize Git repository and push to GitHub
    - [x] Setup Vite, React, TypeScript
-   - Configure Tailwind from the Vite template, ESLint, Prettier and Conventional Commits tooling
-   - Adopt branch naming with the `SFT-` prefix, for example `SFT-001-initial-setup`
-   - Decide on merge strategy (squash or rebase)
-   - Create `CLAUDE.md` with operational technical rules for Claude Code
+   - [x] Configure Tailwind from the Vite template, ESLint, Prettier and Conventional Commits tooling
+   - [x] Adopt branch naming with the `SFT-` prefix, for example `SFT-001-initial-setup`
+   - [x] Decide on merge strategy (squash or rebase)
+   - [x] Create `CLAUDE.md` with operational technical rules for Claude Code
 
 2. **Type System Foundation** — `pending`
    - Define foundational TypeScript types: `Champion`, `Item`, `Trait`, `Augment`, `Stat`, `SpellContext`
