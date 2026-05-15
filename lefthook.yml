@@ -1,0 +1,14 @@
+commit-msg:
+  jobs:
+    - name: commitlint
+      run: PATH="$HOME/.bun/bin:$PATH" bunx commitlint --edit {1}
+
+pre-commit:
+  parallel: true
+  jobs:
+    - name: eslint
+      glob: "*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"
+      run: PATH="$HOME/.bun/bin:$PATH" bunx eslint {staged_files}
+    - name: prettier
+      glob: "*.{js,mjs,cjs,ts,mts,cts,jsx,tsx,json,jsonc,md,css,html,yml,yaml}"
+      run: PATH="$HOME/.bun/bin:$PATH" bunx prettier --check {staged_files}
