@@ -272,6 +272,7 @@ Spell modeling is the largest and least compressible workload of the project. Ea
 | Set 17 used as technical validation target; release planned on set 18 or later | Decouples architecture maturation from time pressure of an aging set; allows rehearsal of the full pipeline before user exposure |
 | Git branches prefixed with `SFT-`, Conventional Commits | Standard professional convention, ticket traceability, CI-friendly |
 | Documentation split into three files: `PROJECT_CONTEXT.md` (strategy), `ROADMAP.md` (execution), `COLLABORATION.md` (session protocol) | Different natures and different lifecycles. Git diffs stay readable, version bumps stay meaningful, the file pasted at session opening matches the session's actual purpose. |
+| Bun adopted as runtime + package manager, Vite kept as build tool | 2026 consensus: Bun + Vite together is the recommended stack. Bun runs TypeScript natively (relevant for the data pipeline update script of section 8), `bun install` is 6-9x faster than `npm install`, and the toolchain is unified (one binary instead of Node + npm + ts-node). Vite kept because Bun's bundler lacks React Fast Refresh, which is irreplaceable for React frontend development. |
 
 ## 11. Open Questions
 
