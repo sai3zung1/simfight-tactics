@@ -14,7 +14,7 @@ Each step is sized to fit in one or two working sessions. Statuses (`pending`, `
 ## Sequenced Steps
 
 1. **Repository Setup** — `pending`
-    - Initialize Git repository and push to GitHub
+    - [x] Initialize Git repository and push to GitHub
     - Setup Vite, React, TypeScript, Tailwind from the Vite template
     - Configure ESLint, Prettier, and Conventional Commits tooling
     - Adopt branch naming with the `SFT-` prefix, for example `SFT-001-initial-setup`
@@ -27,7 +27,7 @@ Each step is sized to fit in one or two working sessions. Statuses (`pending`, `
 
 3. **Data Pipeline, Phase 1: Acquisition** — `pending`
     - Identify the relevant bin files in Community Dragon for the current patch
-    - Write the TypeScript download script, executed via Node
+    - Write the TypeScript download script, executed via Bun
     - Test acquisition on the current set 17 patch
     - Document the exact Community Dragon paths used
 
