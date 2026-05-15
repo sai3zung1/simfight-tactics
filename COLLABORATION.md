@@ -9,13 +9,13 @@ description: "Collaboration protocol between the founder and Claude / Claude Cod
 
 ## 1. Documentation Set Overview
 
-| File | Nature | Lifecycle |
-| --- | --- | --- |
-| `PROJECT_CONTEXT.md` | Strategic constitution: identity, market, scope, principles, stack, architecture, risks, acted decisions, open questions | Stable. Meaningful version bumps only. |
-| `ROADMAP.md` | Sequenced steps, statuses, parking lot | Live. Updated each session. |
-| `COLLABORATION.md` (this file) | Session protocol, request taxonomy, closing ritual | Evolves as the working method matures. |
-| `DECISIONS_LOG.md` (later) | Chronological journal of decisions that contradict or refine earlier ones | Append-only. Created at the first such decision. |
-| `CLAUDE.md` (later) | Operational technical rules for Claude Code | Stable once set. Created during step 1 of `ROADMAP.md`. |
+| File                           | Nature                                                                                                                   | Lifecycle                                               |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| `PROJECT_CONTEXT.md`           | Strategic constitution: identity, market, scope, principles, stack, architecture, risks, acted decisions, open questions | Stable. Meaningful version bumps only.                  |
+| `ROADMAP.md`                   | Sequenced steps, statuses, parking lot                                                                                   | Live. Updated each session.                             |
+| `COLLABORATION.md` (this file) | Session protocol, request taxonomy, closing ritual                                                                       | Evolves as the working method matures.                  |
+| `DECISIONS_LOG.md` (later)     | Chronological journal of decisions that contradict or refine earlier ones                                                | Append-only. Created at the first such decision.        |
+| `CLAUDE.md` (later)            | Operational technical rules for Claude Code                                                                              | Stable once set. Created during step 1 of `ROADMAP.md`. |
 
 ## 2. Session Opening
 

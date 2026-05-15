@@ -55,14 +55,14 @@ The product is not positioned in direct competition with existing stats tools. I
 
 ### Competition
 
-| Tool | Type | Threat Level |
-| --- | --- | --- |
-| Tactician's Calculator | DPS simulator | Low. Dormant project, unedited Nextra placeholder docs, no community presence, no visible updates for recent sets. |
-| tacticians-academy/teamfight-simulator | Open-source TFT combat simulator in TypeScript | Low. Abandoned since March 2024 (stuck around set 11). Conceptually adjacent to Simfight Tactics. Built on Community Dragon. |
-| TFTactics (Overwolf) | Overlay and item builder | Adjacent. Does not perform simulation. |
-| Tactical Toolkit (iOS) | Positioning sandbox and tier list | Adjacent. Does not perform simulation. |
-| TFTAcademy | Pro recommendations, in-game planner | Adjacent. Different approach. |
-| Metatft, tactics.tools, lolchess, OP.GG TFT | Global stats | Complementary, not competitive. |
+| Tool                                        | Type                                           | Threat Level                                                                                                                 |
+| ------------------------------------------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Tactician's Calculator                      | DPS simulator                                  | Low. Dormant project, unedited Nextra placeholder docs, no community presence, no visible updates for recent sets.           |
+| tacticians-academy/teamfight-simulator      | Open-source TFT combat simulator in TypeScript | Low. Abandoned since March 2024 (stuck around set 11). Conceptually adjacent to Simfight Tactics. Built on Community Dragon. |
+| TFTactics (Overwolf)                        | Overlay and item builder                       | Adjacent. Does not perform simulation.                                                                                       |
+| Tactical Toolkit (iOS)                      | Positioning sandbox and tier list              | Adjacent. Does not perform simulation.                                                                                       |
+| TFTAcademy                                  | Pro recommendations, in-game planner           | Adjacent. Different approach.                                                                                                |
+| Metatft, tactics.tools, lolchess, OP.GG TFT | Global stats                                   | Complementary, not competitive.                                                                                              |
 
 No tool occupies the exact "fast 1v1 simulator, decision-first" niche. The ecosystem is dense, but a clear window exists.
 
@@ -99,9 +99,9 @@ The target is symmetric to the attacker in terms of modeled mechanics. The same 
 #### Simulation Parameters
 
 - `stop_condition` — user-defined before each simulation run. Three modes:
-    - `time_to_kill`: target is mortal, no time limit. The simulation stops at target death. A hard safety cap of 60 simulated seconds applies; if reached, the run ends with a `timeout` flag and an explanatory message (insufficient DPS, regeneration loop, or potential bug).
-    - `fixed_duration`: target is immortal, simulation runs for a user-defined duration. Output focuses on total damage exchanged.
-    - `first_event`: both stop triggers active. The simulation ends at whichever occurs first (kill or timer expiration). Default mode.
+  - `time_to_kill`: target is mortal, no time limit. The simulation stops at target death. A hard safety cap of 60 simulated seconds applies; if reached, the run ends with a `timeout` flag and an explanatory message (insufficient DPS, regeneration loop, or potential bug).
+  - `fixed_duration`: target is immortal, simulation runs for a user-defined duration. Output focuses on total damage exchanged.
+  - `first_event`: both stop triggers active. The simulation ends at whichever occurs first (kill or timer expiration). Default mode.
 - Configurable simulation duration for `fixed_duration` and `first_event` modes (default value to be defined).
 - Fixed implicit assumptions: in-range from `t=0`, no movement, no retargeting, logical target dummy positioning.
 
@@ -148,17 +148,17 @@ The stack is chosen to minimize cost, maintenance burden, and friction during th
 
 ### Stack Components
 
-| Layer | Choice | Annual Cost |
-| --- | --- | --- |
-| Language | TypeScript | 0 |
-| UI framework | React | 0 |
-| Build tool | Vite | 0 |
-| Styling | Tailwind CSS | 0 |
-| Backend | None in MVP; 100% client-side single-page application | 0 |
-| Data source | Community Dragon, normalized into typed TypeScript data files committed to the repository | 0 |
-| Hosting | Cloudflare Pages or Vercel, free tier | 0 |
-| Domain | Registrar of choice | ~12 EUR |
-| Versioning | Git, GitHub | 0 |
+| Layer        | Choice                                                                                    | Annual Cost |
+| ------------ | ----------------------------------------------------------------------------------------- | ----------- |
+| Language     | TypeScript                                                                                | 0           |
+| UI framework | React                                                                                     | 0           |
+| Build tool   | Vite                                                                                      | 0           |
+| Styling      | Tailwind CSS                                                                              | 0           |
+| Backend      | None in MVP; 100% client-side single-page application                                     | 0           |
+| Data source  | Community Dragon, normalized into typed TypeScript data files committed to the repository | 0           |
+| Hosting      | Cloudflare Pages or Vercel, free tier                                                     | 0           |
+| Domain       | Registrar of choice                                                                       | ~12 EUR     |
+| Versioning   | Git, GitHub                                                                               | 0           |
 
 ### Architectural Principles
 
@@ -249,30 +249,30 @@ Spell modeling is the largest and least compressible workload of the project. Ea
 
 ## 10. Acted Decisions
 
-| Decision | Rationale |
-| --- | --- |
-| Focus on the DPS simulator, drop the Kovaaks-style training hub | Riot IP legal risk and a development horizon over 12 months, incompatible with the solo founder constraint |
-| MVP is a 1v1 duel, not a full board | Scope tenable solo, covers the central use case |
-| No hex grid in v1 | UX and development cost disproportionate to the value added for the target use case |
-| No configurable range, assume in-range from `t=0` | A clear assumption is better than a fuzzy half-parameter |
-| Traits and augments included in Circle 1, on both sides | Without them the calculations are wrong; essential for post-game precision |
-| Spells modeled for all champions on both sides, no role-based shortcut | Role-based exclusion would silently falsify outputs (e.g. carry with defensive spell); symmetry is simpler to reason about and more correct |
-| No verdict, just a raw result | User respect and Riot policy compliance |
-| Side-by-side comparison in Circle 2, not MVP | Technically equivalent to running the simulation twice; UX, not engine |
-| Circle 3 left empty | No long-term planning before having shipped and measured |
-| Smart defaults with a warning, not blocking | Speed of use is the priority; the user remains master of their inputs |
-| Technical stack: React, Vite, TypeScript, Tailwind, no backend in MVP, hosted on Cloudflare Pages or Vercel | Founder velocity on React, frictionless distribution via URL, near-zero infrastructure cost, minimal technical surface to maintain solo. See section 6. |
-| Stop condition is a user-defined parameter with three modes: `time_to_kill`, `fixed_duration`, `first_event` (default) | Each mode answers a different question type; the user knows what they want to measure |
-| Hard safety cap of 60 simulated seconds on `time_to_kill` | Protects against edge cases (regeneration > damage, infinite shields) and bugs without restricting normal use |
-| Engine architecture: modifier-based composition, event-driven resolution | Data-driven extensibility, no engine changes for new sets, atomically testable. See section 7. |
-| Data source: Community Dragon, not Data Dragon | Data Dragon TFT exposes only nominal metadata; Community Dragon is the canonical source for combat statistics |
-| Build from scratch, no fork of tacticians-academy or other prior simulator | Founder choice for architectural alignment and zero hereditary tech debt; cost in time accepted consciously |
-| Market validation deprioritized in favor of building | Founder choice; risk accepted and named |
-| Modifier taxonomy derived from observation, not postulated in advance | Designing the taxonomy before having seen the real set data risks producing a structure that does not match reality. Cartography first, taxonomy second. See step 5 of `ROADMAP.md`. |
-| Set 17 used as technical validation target; release planned on set 18 or later | Decouples architecture maturation from time pressure of an aging set; allows rehearsal of the full pipeline before user exposure |
-| Git branches prefixed with `SFT-`, Conventional Commits | Standard professional convention, ticket traceability, CI-friendly |
-| Documentation split into three files: `PROJECT_CONTEXT.md` (strategy), `ROADMAP.md` (execution), `COLLABORATION.md` (session protocol) | Different natures and different lifecycles. Git diffs stay readable, version bumps stay meaningful, the file pasted at session opening matches the session's actual purpose. |
-| Bun adopted as runtime + package manager, Vite kept as build tool | 2026 consensus: Bun + Vite together is the recommended stack. Bun runs TypeScript natively (relevant for the data pipeline update script of section 8), `bun install` is 6-9x faster than `npm install`, and the toolchain is unified (one binary instead of Node + npm + ts-node). Vite kept because Bun's bundler lacks React Fast Refresh, which is irreplaceable for React frontend development. |
+| Decision                                                                                                                               | Rationale                                                                                                                                                                                                                                                                                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Focus on the DPS simulator, drop the Kovaaks-style training hub                                                                        | Riot IP legal risk and a development horizon over 12 months, incompatible with the solo founder constraint                                                                                                                                                                                                                                                                                           |
+| MVP is a 1v1 duel, not a full board                                                                                                    | Scope tenable solo, covers the central use case                                                                                                                                                                                                                                                                                                                                                      |
+| No hex grid in v1                                                                                                                      | UX and development cost disproportionate to the value added for the target use case                                                                                                                                                                                                                                                                                                                  |
+| No configurable range, assume in-range from `t=0`                                                                                      | A clear assumption is better than a fuzzy half-parameter                                                                                                                                                                                                                                                                                                                                             |
+| Traits and augments included in Circle 1, on both sides                                                                                | Without them the calculations are wrong; essential for post-game precision                                                                                                                                                                                                                                                                                                                           |
+| Spells modeled for all champions on both sides, no role-based shortcut                                                                 | Role-based exclusion would silently falsify outputs (e.g. carry with defensive spell); symmetry is simpler to reason about and more correct                                                                                                                                                                                                                                                          |
+| No verdict, just a raw result                                                                                                          | User respect and Riot policy compliance                                                                                                                                                                                                                                                                                                                                                              |
+| Side-by-side comparison in Circle 2, not MVP                                                                                           | Technically equivalent to running the simulation twice; UX, not engine                                                                                                                                                                                                                                                                                                                               |
+| Circle 3 left empty                                                                                                                    | No long-term planning before having shipped and measured                                                                                                                                                                                                                                                                                                                                             |
+| Smart defaults with a warning, not blocking                                                                                            | Speed of use is the priority; the user remains master of their inputs                                                                                                                                                                                                                                                                                                                                |
+| Technical stack: React, Vite, TypeScript, Tailwind, no backend in MVP, hosted on Cloudflare Pages or Vercel                            | Founder velocity on React, frictionless distribution via URL, near-zero infrastructure cost, minimal technical surface to maintain solo. See section 6.                                                                                                                                                                                                                                              |
+| Stop condition is a user-defined parameter with three modes: `time_to_kill`, `fixed_duration`, `first_event` (default)                 | Each mode answers a different question type; the user knows what they want to measure                                                                                                                                                                                                                                                                                                                |
+| Hard safety cap of 60 simulated seconds on `time_to_kill`                                                                              | Protects against edge cases (regeneration > damage, infinite shields) and bugs without restricting normal use                                                                                                                                                                                                                                                                                        |
+| Engine architecture: modifier-based composition, event-driven resolution                                                               | Data-driven extensibility, no engine changes for new sets, atomically testable. See section 7.                                                                                                                                                                                                                                                                                                       |
+| Data source: Community Dragon, not Data Dragon                                                                                         | Data Dragon TFT exposes only nominal metadata; Community Dragon is the canonical source for combat statistics                                                                                                                                                                                                                                                                                        |
+| Build from scratch, no fork of tacticians-academy or other prior simulator                                                             | Founder choice for architectural alignment and zero hereditary tech debt; cost in time accepted consciously                                                                                                                                                                                                                                                                                          |
+| Market validation deprioritized in favor of building                                                                                   | Founder choice; risk accepted and named                                                                                                                                                                                                                                                                                                                                                              |
+| Modifier taxonomy derived from observation, not postulated in advance                                                                  | Designing the taxonomy before having seen the real set data risks producing a structure that does not match reality. Cartography first, taxonomy second. See step 5 of `ROADMAP.md`.                                                                                                                                                                                                                 |
+| Set 17 used as technical validation target; release planned on set 18 or later                                                         | Decouples architecture maturation from time pressure of an aging set; allows rehearsal of the full pipeline before user exposure                                                                                                                                                                                                                                                                     |
+| Git branches prefixed with `SFT-`, Conventional Commits                                                                                | Standard professional convention, ticket traceability, CI-friendly                                                                                                                                                                                                                                                                                                                                   |
+| Documentation split into three files: `PROJECT_CONTEXT.md` (strategy), `ROADMAP.md` (execution), `COLLABORATION.md` (session protocol) | Different natures and different lifecycles. Git diffs stay readable, version bumps stay meaningful, the file pasted at session opening matches the session's actual purpose.                                                                                                                                                                                                                         |
+| Bun adopted as runtime + package manager, Vite kept as build tool                                                                      | 2026 consensus: Bun + Vite together is the recommended stack. Bun runs TypeScript natively (relevant for the data pipeline update script of section 8), `bun install` is 6-9x faster than `npm install`, and the toolchain is unified (one binary instead of Node + npm + ts-node). Vite kept because Bun's bundler lacks React Fast Refresh, which is irreplaceable for React frontend development. |
 
 ## 11. Open Questions
 
