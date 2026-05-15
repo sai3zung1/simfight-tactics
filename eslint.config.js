@@ -23,8 +23,8 @@ export default defineConfig([
     files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
     plugins: { js },
     extends: [js.configs.recommended],
-    languageOptions: { 
-      globals: { ...globals.browser, ...globals.node } 
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.node },
     },
   },
   ...tseslint.configs.recommended,
@@ -57,7 +57,7 @@ export default defineConfig([
     extends: ["markdown/recommended"],
     rules: {
       "markdown/no-missing-label-refs": "off", // Autorise tes [...] de template
-    }
+    },
   },
 
   {
