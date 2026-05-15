@@ -19,7 +19,7 @@ description: "Collaboration protocol between the founder and Claude / Claude Cod
 
 ## 2. Session Opening
 
-At the start of a session with Claude, paste `PROJECT_CONTEXT.md`, `ROADMAP.md`, and this file as the first message, followed by a short directive of the form:
+At the start of a session with Claude, load at least `PROJECT_CONTEXT.md`, `ROADMAP.md` with a short directive of the following form:
 
 > Context files attached below. Resuming on step X of `ROADMAP.md`.
 > **Type**: decision | execution | exploration | validation

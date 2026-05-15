@@ -13,7 +13,7 @@ Each step is sized to fit in one or two working sessions. Statuses (`pending`, `
 
 ## Sequenced Steps
 
-1. **Repository Setup** — `pending`
+1. **Repository Setup** — `done`
    - [x] Initialize Git repository and push to GitHub
    - [x] Setup Vite, React, TypeScript
    - [x] Configure Tailwind from the Vite template, ESLint, Prettier and Conventional Commits tooling
@@ -22,7 +22,7 @@ Each step is sized to fit in one or two working sessions. Statuses (`pending`, `
    - [x] Create `CLAUDE.md` with operational technical rules for Claude Code
 
 2. **Type System Foundation** — `pending`
-   - Define foundational TypeScript types: `Champion`, `Item`, `Trait`, `Augment`, `Stat`, `SpellContext`
+   - Define foundational TypeScript types.
    - The precise modifier taxonomy is intentionally deferred to step 5, after real set data has been observed
 
 3. **Data Pipeline, Phase 1: Acquisition** — `pending`
