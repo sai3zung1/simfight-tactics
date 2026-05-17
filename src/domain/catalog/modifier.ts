@@ -1,5 +1,4 @@
 /**
- * TODO!!!
  * Opaque slot for modifier definitions. The actual shape — discriminated
  * union, fields, composition rules — is derived from cdragon observation
  * at step 5 (PROJECT_CONTEXT §10). Until then, this placeholder lets

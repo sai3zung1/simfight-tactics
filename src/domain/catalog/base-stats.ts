@@ -9,8 +9,11 @@
 import type { ScalingByStar } from "../primitives";
 
 export type BaseStats = {
+  /** Hitpoints, per star level. */
   readonly hp: ScalingByStar;
+  /** Flat physical resistance. */
   readonly armor: number;
+  /** Flat magic resistance. */
   readonly magicResist: number;
   /** Damage reduction in range 0 to 1. */
   readonly durability: number;
@@ -24,7 +27,9 @@ export type BaseStats = {
     readonly max: number;
   };
 
+  /** Per-attack damage, per star level. */
   readonly attackDamage: ScalingByStar;
+  /** Reference value for spell-scaling formulas. */
   readonly abilityPower: number;
   /** In attacks per second. */
   readonly attackSpeed: number;
