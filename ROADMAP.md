@@ -1,7 +1,7 @@
 ---
 date: 2026-05-17
 status: active
-version: 0.7.0
+version: 0.8.0
 description: "Execution journal of the Simfight Tactics project. Sequenced roadmap, updated each session."
 ---
 
@@ -21,12 +21,13 @@ Each step is sized to fit in one or two working sessions. Statuses (`pending`, `
    - [x] Decide on merge strategy (squash or rebase)
    - [x] Create `CLAUDE.md` with operational technical rules for Claude Code
 
-2. **Type System Foundation: Catalog Layer** — `in_progress`
+2. **Type System Foundation: Domain Layer** — `done`
    - [x] Primitives (branded IDs, `ScalingByStar`, `StarLevel`)
    - [x] Foundational types (`BaseStats`, `Modifier` opaque slot deferred to step 5)
-   - [x] Catalog entities (`Unit`, `Item`, `Trait`, `Augment`, `Spell`)
+   - [x] Catalog entities (`Unit`, `Item`, `Trait`, `Augment`, `Spell`) under `src/domain/catalog/`
+   - [x] Combat input types (`BoardSide`, `StopCondition`, `CombatConfig`) under `src/domain/combat/`
    - [x] Code-quality conventions captured in `CONVENTIONS.md`
-   - Runtime types (`Event`, `CombatState`, `SimulationResult`) and input config types (`BoardSide`, `CombatConfig`) are explicitly deferred to the steps where they naturally fit (Engine MVP, UI)
+   - Runtime engine types (`Event`, `CombatState`, `SimulationResult`) are deferred to step 9-11 where their shape is fixed by the event-loop implementation. `SimulationResult` will land in `src/domain/combat/` when its shape is fixed.
    - The precise modifier taxonomy is intentionally deferred to step 5, after real set data has been observed
 
 3. **Data Pipeline, Phase 1: Acquisition** — `pending`
@@ -129,3 +130,4 @@ Topics surfaced in passing during sessions, to explore later without polluting t
 - UUID-based identifier strategy for result-sharing post-MVP — independent layer above catalog IDs (URL shortening, persistence). Out of scope for MVP catalog work.
 - Pipeline-omits-key invariant — when `pipeline/normalize.ts` is written, document that the `4` key of `ScalingByStar` is omitted for ineligible units, not emitted as `4: undefined`.
 - Augment category tagging — if the simulation needs to discriminate hero / trait / standard augments, add a `category: AugmentCategory` field. Re-evaluate at step 5 when cdragon reveals patterns.
+- UI star-level constraint — selector must hide ineligible star options based on the unit's `ScalingByStar` keys (e.g., no star 4 when `unit.stats.hp[4]` is absent). Cross-field invariant not encodable in the type system; enforced at the UI boundary in step 14-15.

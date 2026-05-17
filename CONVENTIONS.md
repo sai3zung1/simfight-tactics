@@ -1,7 +1,7 @@
 ---
-date: 2026-05-16
+date: 2026-05-17
 status: active
-version: 0.1.0
+version: 0.2.0
 description: "Code-quality conventions and principles for the Simfight Tactics codebase."
 ---
 
@@ -11,7 +11,7 @@ description: "Code-quality conventions and principles for the Simfight Tactics c
 
 ## 1. Entity File Conventions
 
-Rules for writing entity files in `src/domain/`. Reference template: `src/domain/unit.ts`.
+Rules for writing entity files in `src/domain/`. Reference template: `src/domain/catalog/unit.ts`.
 
 1. **`type` over `interface`.** Closed shape, no declaration merging. Use `interface` only where third-party extensibility is intended — rare in this codebase.
 
@@ -100,3 +100,13 @@ Every comment is **debt** because the compiler does not verify it. Write few, wr
 Corollary — describe **shape**, not concrete values. A comment that enumerates "stats A and B scale per star, stats X/Y/Z don't" hardcodes a Riot design that can shift between sets. It rots silently. Prefer "some stats scale per star, others are flat" — accurate as the data evolves. Specific values belong in code (types, constants) where the compiler enforces them.
 
 Kernighan & Pike: _"Comments are most useful when they say why."_
+
+## 4. Domain Layer Organization
+
+`src/domain/` is split into two conceptual layers, each a sub-folder, plus a shared root.
+
+- `src/domain/primitives.ts` — shared leaf: branded IDs, `ScalingByStar`, `StarLevel`. Imported by both layers, depends on nothing.
+- `src/domain/catalog/` — static templates loaded from the data pipeline. What exists in the game. Read-only, no state. Contains: `Unit`, `Item`, `Trait`, `Augment`, `Spell`, `BaseStats`, `Modifier`.
+- `src/domain/combat/` — declarative input describing one combat run. Bridges catalog (templates) and engine (consumer). References catalog entities by branded id. Contains: `BoardSide`, `StopCondition`, `CombatConfig`. `SimulationResult` joins this folder when step 9-11 fixes its shape.
+
+Runtime engine internals (`Event`, `CombatState`) belong in `src/engine/`, not in `src/domain/`. Their shape depends on event-loop implementation choices and is not declarative.
