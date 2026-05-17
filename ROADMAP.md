@@ -27,8 +27,8 @@ Each step is sized to fit in one or two working sessions. Statuses (`pending`, `
    - [x] Catalog entities (`Unit`, `Item`, `Trait`, `Augment`, `Spell`) under `src/domain/catalog/`
    - [x] Combat input types (`BoardSide`, `StopCondition`, `CombatConfig`) under `src/domain/combat/`
    - [x] Code-quality conventions captured in `CONVENTIONS.md`
-   - Runtime engine types (`Event`, `CombatState`, `SimulationResult`) are deferred to step 9-11 where their shape is fixed by the event-loop implementation. `SimulationResult` will land in `src/domain/combat/` when its shape is fixed.
-   - The precise modifier taxonomy is intentionally deferred to step 5, after real set data has been observed
+   - [x] Runtime engine types (`Event`, `CombatState`, `SimulationResult`) are deferred to step 9-11 where their shape is fixed by the event-loop implementation. `SimulationResult` will land in `src/domain/combat/` when its shape is fixed.
+   - [x] The precise modifier taxonomy is intentionally deferred to step 5, after real set data has been observed
 
 3. **Data Pipeline, Phase 1: Acquisition** — `pending`
    - Identify the relevant bin files in Community Dragon for the current patch

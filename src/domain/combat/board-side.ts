@@ -7,7 +7,8 @@
  *
  * Item and augment slot counts are encoded as tuple unions so the 0-to-3
  * cap (PROJECT_CONTEXT §4) is enforced at the type level, without runtime
- * validation past the UI boundary.
+ * validation past the UI boundary. Trait activations use a Record keyed
+ * by TraitId so the same trait cannot be declared twice on a side.
  */
 
 import type {
@@ -17,12 +18,6 @@ import type {
   TraitId,
   StarLevel,
 } from "../primitives";
-
-export type TraitActivation = {
-  readonly id: TraitId;
-  /** Raw number of trait-bearing units on the side, mapped to the matching breakpoint by the engine. */
-  readonly count: number;
-};
 
 export type ItemSlots =
   | readonly []
@@ -40,6 +35,7 @@ export type BoardSide = {
   readonly unitId: UnitId;
   readonly starLevel: StarLevel;
   readonly itemIds: ItemSlots;
-  readonly traits: readonly TraitActivation[];
+  /** Raw active-unit count per trait; mapped to the matching breakpoint by the engine. */
+  readonly traits: Readonly<Record<TraitId, number>>;
   readonly augmentIds: AugmentSlots;
 };

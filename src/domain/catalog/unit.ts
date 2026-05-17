@@ -33,7 +33,6 @@ export type Unit = {
   readonly description: string;
   readonly cost: UnitCost;
   readonly role: UnitRole;
-  /** Physical, Magical or Hybrid */
   readonly damageProfile: DamageProfile;
   readonly traitIds: readonly TraitId[];
   readonly spellId: SpellId;
