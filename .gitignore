@@ -47,3 +47,6 @@ Desktop.ini
 
 # Obsidian
 .obsidian/
+
+# Claude Code
+.claude/

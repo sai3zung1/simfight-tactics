@@ -1,7 +1,7 @@
 ---
-date: 2026-05-15
+date: 2026-05-17
 status: active
-version: 0.6.0
+version: 0.6.1
 description: "Strategic constitution of the Simfight Tactics project. Stable layer of the documentation set."
 ---
 
@@ -273,9 +273,13 @@ Spell modeling is the largest and least compressible workload of the project. Ea
 | Git branches prefixed with `SFT-`, Conventional Commits                                                                                | Standard professional convention, ticket traceability, CI-friendly                                                                                                                                                                                                                                                                                                                                   |
 | Documentation split into three files: `PROJECT_CONTEXT.md` (strategy), `ROADMAP.md` (execution), `COLLABORATION.md` (session protocol) | Different natures and different lifecycles. Git diffs stay readable, version bumps stay meaningful, the file pasted at session opening matches the session's actual purpose.                                                                                                                                                                                                                         |
 | Bun adopted as runtime + package manager, Vite kept as build tool                                                                      | 2026 consensus: Bun + Vite together is the recommended stack. Bun runs TypeScript natively (relevant for the data pipeline update script of section 8), `bun install` is 6-9x faster than `npm install`, and the toolchain is unified (one binary instead of Node + npm + ts-node). Vite kept because Bun's bundler lacks React Fast Refresh, which is irreplaceable for React frontend development. |
+| Catalog ID strategy: branded TypeScript strings whose runtime value is the cdragon entity key (e.g., `TFT17_Jinx`)                     | 1:1 alignment with the source of truth, debuggability in URLs/logs/fixtures, stability across builds. UUIDs, numerics, and hashes rejected — they introduce indirection without combat benefit and break debuggability of the data layer.                                                                                                                                                            |
+| `CONVENTIONS.md` created at the repo root as the code-quality reference                                                                | Centralizes entity-file rules (type vs interface, readonly, branded IDs, sub-structure rules), code-quality principles (illegal states unrepresentable, parse don't validate, total functions, domain purity, YAGNI on Modifier, `as const` at data boundaries) and comment semantics (corollary: describe shape, not concrete values). Read once at onboarding, referenced in code review.          |
 
 ## 11. Open Questions
 
 - Advanced metrics for Circle 2: precise list to define
 - Default combat duration for `fixed_duration` and `first_event` modes: initial value to determine
 - Merge strategy on the Git workflow: squash merge or rebase merge, to be decided during step 1 of `ROADMAP.md`
+- Set 17 set mechanic (Anima Tech, Gods, or whatever set-specific mechanic surfaces): shape and integration to be determined after cdragon observation at step 3 of `ROADMAP.md`
+- Augment category discriminator (`hero` / `trait` / `standard`): whether the simulator needs to differentiate augment categories; non-actionable until an engine consumer requires it, revisit at step 5 of `ROADMAP.md`
