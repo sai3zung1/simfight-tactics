@@ -4,7 +4,7 @@
  * step 5 (PROJECT_CONTEXT §10).
  */
 
-import type { AugmentId } from "./primitives";
+import type { AugmentId } from "../primitives";
 import type { Modifier } from "./modifier";
 
 /** Power tier of an augment in the shop draft. */

@@ -5,7 +5,7 @@
  * parameters. Parameter taxonomy is deferred to step 5 (PROJECT_CONTEXT §10).
  */
 
-import type { SpellId } from "./primitives";
+import type { SpellId } from "../primitives";
 
 /** Opaque placeholder for spell parameter data; deferred to step 5. */
 export type SpellParameter = {

@@ -4,7 +4,7 @@
  * §10).
  */
 
-import type { ItemId } from "./primitives";
+import type { ItemId } from "../primitives";
 import type { Modifier } from "./modifier";
 
 /** Category of item in the data registry. */

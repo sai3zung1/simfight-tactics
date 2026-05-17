@@ -7,7 +7,7 @@
  * at runtime — the canonical shape lives in `BaseStats`.
  */
 
-import type { UnitId, SpellId, TraitId } from "./primitives";
+import type { UnitId, SpellId, TraitId } from "../primitives";
 import type { BaseStats } from "./base-stats";
 
 /** Gold cost tier of a unit in the shop. */

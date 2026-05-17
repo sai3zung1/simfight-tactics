@@ -1,12 +1,12 @@
 /**
  * Per-unit combat statistics, loaded once from the data pipeline.
  *
- * Stats that scale per star level use `ScalingByStar` (from `./primitives`);
+ * Stats that scale per star level use `ScalingByStar` (from `../primitives`);
  * the pipeline (ROADMAP §5) resolves their values at normalization time.
  * Other stats are flat. The engine performs no scaling math at runtime.
  */
 
-import type { ScalingByStar } from "./primitives";
+import type { ScalingByStar } from "../primitives";
 
 export type BaseStats = {
   readonly hp: ScalingByStar;

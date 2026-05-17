@@ -4,7 +4,7 @@
  * effects internals are deferred to step 5 (PROJECT_CONTEXT §10).
  */
 
-import type { TraitId } from "./primitives";
+import type { TraitId } from "../primitives";
 import type { Modifier } from "./modifier";
 
 /** A single activation level of a trait. */
