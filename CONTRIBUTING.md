@@ -62,6 +62,18 @@ bun run format     # prettier --write
 
 ## Code conventions
 
+### Naming & structure
+
+- **Files / folders**: kebab-case (`base-stats.ts`, `combat-config.ts`; folders
+  `catalog/`, `combat/`).
+- **Types, interfaces, branded IDs**: PascalCase (`Unit`, `BaseStats`, `UnitId`).
+- **Variables, functions**: camelCase. JSON keys mirror the TS types
+  (`attackDamage`, `damageProfile`).
+- **Data files**: one per entity type, plural (`champions.json`, `items.json`) —
+  never split by a sub-property (cost, trait); those stay queryable fields.
+- **Docs vs data**: prose lives in `docs/` (ADRs, data dictionary); values live
+  in `data/` and `src/data/`.
+
 ### Domain entities (`src/domain/`)
 
 - `type` over `interface` — closed shapes, no declaration merging.
