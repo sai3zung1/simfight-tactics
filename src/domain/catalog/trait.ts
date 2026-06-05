@@ -1,7 +1,7 @@
 /**
- * Trait — modifier container activated when enough trait-bearing units are
- * on the board. The catalog carries identity, description and breakpoints;
- * effects internals are deferred to step 5 (PROJECT_CONTEXT §10).
+ * Trait — a modifier container activated when enough trait-bearing units are on
+ * the board. Effects internals are deferred until the modifier taxonomy is
+ * finalized.
  */
 
 import type { TraitId } from "../primitives";
@@ -14,7 +14,6 @@ export type TraitBreakpoint = {
   readonly effects: readonly Modifier[];
 };
 
-/** A trait as it exists in the data registry. */
 export type Trait = {
   readonly id: TraitId;
   readonly name: string;

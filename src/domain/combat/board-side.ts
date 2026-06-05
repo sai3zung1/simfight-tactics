@@ -6,7 +6,7 @@
  * branded id; the engine resolves them at simulation time.
  *
  * Item and augment slot counts are encoded as tuple unions so the 0-to-3
- * cap (PROJECT_CONTEXT §4) is enforced at the type level, without runtime
+ * cap is enforced at the type level, without runtime
  * validation past the UI boundary. Trait activations use a Record keyed
  * by TraitId so the same trait cannot be declared twice on a side.
  */

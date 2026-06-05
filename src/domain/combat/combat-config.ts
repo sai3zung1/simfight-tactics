@@ -1,7 +1,7 @@
 /**
  * CombatConfig — full declarative input of one simulation run.
  *
- * Aggregates two symmetric BoardSides (PROJECT_CONTEXT §7) and the stop
+ * Aggregates two symmetric BoardSides and the stop
  * condition. Pure declarative data: no runtime state, no engine internals.
  * The engine signature is `simulate(config: CombatConfig) => SimulationResult`.
  */

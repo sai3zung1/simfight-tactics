@@ -10,7 +10,6 @@ export type TraitId = string & { readonly __brand: "TraitId" };
 export type AugmentId = string & { readonly __brand: "AugmentId" };
 export type ItemId = string & { readonly __brand: "ItemId" };
 
-/** `ScalingByStar` is a table shape — one value per star */
 export type ScalingByStar = {
   readonly 1: number;
   readonly 2: number;
@@ -18,5 +17,4 @@ export type ScalingByStar = {
   readonly 4?: number;
 };
 
-/** `StarLevel` is a single value — a unit's current star */
 export type StarLevel = keyof ScalingByStar;
