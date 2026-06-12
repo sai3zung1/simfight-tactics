@@ -63,10 +63,29 @@ effect (damage | heal | shield | damage-reduction | stat-mod | cc)
 × count × space × threshold
 — star-level value arrays as the instantiation axis.
 
+## Items & augments cartography (Set 17 active pools, cross-checked vs 15/16)
+
+Cartographed 2026-06-12 from the same snapshots. Per-set scoping comes from
+`setData.items` / `setData.augments` (apiName lists resolved against the
+global `items` array).
+
+- **Families close.** No new combat family beyond the spell-derived skeleton.
+  Reinforced: cadence (ICD, Interval, Period), threshold (StackCap, Tier).
+  New out-of-scope marker: **economy** (Gold, XP, Rerolls) — dominant in
+  augments, no DPS impact. Generic `Amount` is a naming convention, not a
+  family. Effect keys are 10–11% hashed (vs 0% for spells); `tags` are mostly
+  hashed → item cuts use apiName prefixes, not tags.
+- **Stability, quantified.** Items: 262 of Set 17's 687 active refs exist in
+  all three sets; the 401 set-only refs are mechanic props (MarketOffering,
+  ChampionItem, trait items), not gameplay items — the durable core is
+  components/craftables/radiants/artifacts (#13 scope). Augments: 68% of the
+  active pool predates Set 17; 35 entries are set-bound (#28 keeps the
+  durable, combat-impacting core).
+
 ## Open before freeze (#14)
 
 1. Resolve "flat" vs interpolated scaling in ability descriptions.
-2. Items/augments cartography (same method) to confirm the families close.
+2. ~~Items/augments cartography~~ — done above; families close.
 
 ## Sources
 
