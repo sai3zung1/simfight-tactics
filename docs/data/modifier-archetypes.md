@@ -88,10 +88,31 @@ global `items` array).
   damage-reduction (`DR`) recur. Hashing rises to 21–27% (spells 0%, items
   10–11%) — a data-quality gradient to carry into the freeze.
 
+## Scaling: where the truth lives
+
+Scanned 2026-06-12: the 227 ability description templates across the corpus.
+
+- A variable's name does NOT encode its scaling: 170 flat-named amounts render
+  as `@ModifiedX@` — stat-scaled despite the name. Marker-named variables
+  (APDamage…) are mostly never displayed: they are inputs to computed values.
+- The template encodes the truth: `@X@` = true flat; `@ModifiedX@` = scaled,
+  stat(s) given by adjacent `%i:scaleY%` icons; `@X*100@` / `@TotalX@` =
+  computed displays.
+- Empirical stat census (icons): AP 353, AD 144, Health 48, Armor 18, MR 14,
+  AS 9, plus crit, range and set-mechanic resources (Souls). The
+  scaling-source axis is an open stat enumeration, not an AD/AP enum.
+- Limit: templates give the scaling source, not the multiplier formula. The
+  dictionary freezes the shape (amount = per-star base × stat refs); exact
+  ratios are resolved at composition time and checked by the sim-vs-game
+  calibration (#39).
+
 ## Open before freeze (#14)
 
-1. Resolve "flat" vs interpolated scaling in ability descriptions.
-2. ~~Items/augments cartography~~ — done above; families close.
+1. ~~Resolve "flat" vs interpolated scaling~~ — resolved above
+   (template-derived).
+2. ~~Items/augments cartography~~ — done; families close.
+
+Nothing remains open: #14 can freeze.
 
 ## Sources
 
