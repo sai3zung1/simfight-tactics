@@ -63,7 +63,7 @@ effect (damage | heal | shield | damage-reduction | stat-mod | cc)
 × count × space × threshold
 — star-level value arrays as the instantiation axis.
 
-## Items & augments cartography (Set 17 active pools, cross-checked vs 15/16)
+## Items, augments & traits cartography (Set 17 active pools, cross-checked vs 15/16)
 
 Cartographed 2026-06-12 from the same snapshots. Per-set scoping comes from
 `setData.items` / `setData.augments` (apiName lists resolved against the
@@ -81,6 +81,12 @@ global `items` array).
   components/craftables/radiants/artifacts (#13 scope). Augments: 68% of the
   active pool predates Set 17; 35 entries are set-bound (#28 keeps the
   durable, combat-impacting core).
+- **Traits confirm the closure.** 0 of Set 17's 44 traits exist in all three
+  sets (100% churn — #40's premise, verified). Their effect variables fold
+  into known families under a trait-prefixed naming convention
+  (`Mountain_AS`, `Serpent_DR`, `GodhoodCadence`); damage-amp (`DA`) and
+  damage-reduction (`DR`) recur. Hashing rises to 21–27% (spells 0%, items
+  10–11%) — a data-quality gradient to carry into the freeze.
 
 ## Open before freeze (#14)
 
