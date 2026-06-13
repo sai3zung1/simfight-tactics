@@ -1,7 +1,8 @@
 # Modifier cartography (sets 15/16/17)
 
-> Cross-set cartography of effect patterns across spells, items, augments and
-> traits. Names churn ~90% per set; archetypes do not.
+> Cross-set cartography of the modifier patterns in champion spells — the
+> richest and most complex modifier category. Names churn ~90% per set;
+> archetypes do not.
 
 ## Scope
 
@@ -63,30 +64,6 @@ effect (damage | heal | shield | damage-reduction | stat-mod | cc)
 × temporality (instant | duration | cadence)
 × count × space × threshold
 — star-level value arrays as the instantiation axis.
-
-## Items, augments & traits cartography (Set 17 active pools, cross-checked vs 15/16)
-
-Cartographed 2026-06-12 from the same snapshots. Per-set scoping comes from
-`setData.items` / `setData.augments` (apiName lists resolved against the
-global `items` array).
-
-- **Families close.** No new combat family beyond the spell-derived skeleton.
-  Reinforced: cadence (ICD, Interval, Period), threshold (StackCap, Tier).
-  New out-of-scope marker: **economy** (Gold, XP, Rerolls) — dominant in
-  augments, no DPS impact. Generic `Amount` is a naming convention, not a
-  family. Effect keys are 10–11% hashed (vs 0% for spells); `tags` are mostly
-  hashed → item cuts use apiName prefixes, not tags.
-- **Stability, quantified.** Items: 262 of Set 17's 687 active refs exist in
-  all three sets; the 401 set-only refs are mechanic props (MarketOffering,
-  ChampionItem, trait items), not gameplay items — the durable core is
-  components/craftables/radiants/artifacts. Augments: 68% of the active pool
-  predates Set 17; only 35 entries are set-bound.
-- **Traits confirm the closure.** 0 of Set 17's 44 traits exist in all three
-  sets (100% churn). Their effect variables fold into known families under a
-  trait-prefixed naming convention (`Mountain_AS`, `Serpent_DR`,
-  `GodhoodCadence`); damage-amp (`DA`) and damage-reduction (`DR`) recur.
-  Hashing rises to 21–27% (spells 0%, items 10–11%) — a data-quality gradient
-  across categories.
 
 ## Scaling: where the truth lives
 
