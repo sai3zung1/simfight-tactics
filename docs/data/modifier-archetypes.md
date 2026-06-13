@@ -1,7 +1,7 @@
-# Modifier archetypes — spell cartography (sets 15/16/17)
+# Modifier cartography (sets 15/16/17)
 
-> Empirical input for the taxonomy freeze (#14): cross-set cartography of
-> ability-variable patterns. Names churn ~90% per set; archetypes do not.
+> Cross-set cartography of effect patterns across spells, items, augments and
+> traits. Names churn ~90% per set; archetypes do not.
 
 ## Scope
 
@@ -40,8 +40,9 @@ ordered rule list.
 | heal   | 35   | —   | 12  | 52  | 4          |
 | shield | 42   | —   | 5   | 7   | 5          |
 
-"Flat" means the _name_ carries no scaling marker; actual scaling may live in
-the description interpolation (`@ModifiedDamage@`). To resolve before freeze.
+"Flat" means the _name_ carries no scaling marker; the actual scaling source is
+read from the description templates, not the name — see
+[Scaling: where the truth lives](#scaling-where-the-truth-lives).
 
 ## Archetypes hidden in the unclassified tail
 
@@ -78,15 +79,14 @@ global `items` array).
 - **Stability, quantified.** Items: 262 of Set 17's 687 active refs exist in
   all three sets; the 401 set-only refs are mechanic props (MarketOffering,
   ChampionItem, trait items), not gameplay items — the durable core is
-  components/craftables/radiants/artifacts (#13 scope). Augments: 68% of the
-  active pool predates Set 17; 35 entries are set-bound (#28 keeps the
-  durable, combat-impacting core).
+  components/craftables/radiants/artifacts. Augments: 68% of the active pool
+  predates Set 17; only 35 entries are set-bound.
 - **Traits confirm the closure.** 0 of Set 17's 44 traits exist in all three
-  sets (100% churn — #40's premise, verified). Their effect variables fold
-  into known families under a trait-prefixed naming convention
-  (`Mountain_AS`, `Serpent_DR`, `GodhoodCadence`); damage-amp (`DA`) and
-  damage-reduction (`DR`) recur. Hashing rises to 21–27% (spells 0%, items
-  10–11%) — a data-quality gradient to carry into the freeze.
+  sets (100% churn). Their effect variables fold into known families under a
+  trait-prefixed naming convention (`Mountain_AS`, `Serpent_DR`,
+  `GodhoodCadence`); damage-amp (`DA`) and damage-reduction (`DR`) recur.
+  Hashing rises to 21–27% (spells 0%, items 10–11%) — a data-quality gradient
+  across categories.
 
 ## Scaling: where the truth lives
 
@@ -101,18 +101,9 @@ Scanned 2026-06-12: the 227 ability description templates across the corpus.
 - Empirical stat census (icons): AP 353, AD 144, Health 48, Armor 18, MR 14,
   AS 9, plus crit, range and set-mechanic resources (Souls). The
   scaling-source axis is an open stat enumeration, not an AD/AP enum.
-- Limit: templates give the scaling source, not the multiplier formula. The
-  dictionary freezes the shape (amount = per-star base × stat refs); exact
-  ratios are resolved at composition time and checked by the sim-vs-game
-  calibration (#39).
-
-## Open before freeze (#14)
-
-1. ~~Resolve "flat" vs interpolated scaling~~ — resolved above
-   (template-derived).
-2. ~~Items/augments cartography~~ — done; families close.
-
-Nothing remains open: #14 can freeze.
+- Limit: the templates give the scaling source (which stat), not the
+  multiplier ratio. The exact coefficients are not recoverable from the
+  templates alone.
 
 ## Sources
 
