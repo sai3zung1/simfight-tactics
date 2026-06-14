@@ -15,6 +15,10 @@ companion to [ADR 0004](../adr/0004-modifier-taxonomy-resolution.md).
 - Armor and magic resist floor at 0; reduced to 0 is effectively true damage.
 - Resist reduction (shred, sunder) is ~30% and does not stack with itself.
 
+_Example:_ against 100 armor, a 100 physical hit lands as
+`100 × 100/(100+100) = 50`; shredding that armor 30% (→ 70) raises it to
+`100 × 100/170 = 59`.
+
 Source: community references. Confirm at calibration.
 
 ## Mana generation
@@ -24,11 +28,16 @@ Source: community references. Confirm at calibration.
 - From damage taken: 1% of pre-mitigation plus 7% of post-mitigation, capped
   ~42.5 per source.
 
+_Example:_ a caster taking a 200 pre-mitigation hit that lands as 100 gains
+`1%×200 + 7%×100 = 9` mana from it, plus 7 from its next attack.
+
 Source: community references; patch-sensitive. Confirm at calibration.
 
 ## Critical strike
 
 - Base 25% chance, +30% bonus critical damage; multiplies the damage instance.
+
+_Example:_ a 1000-damage instance that crits deals `1000 × 1.30 = 1300`.
 
 Source: community references. Confirm at calibration.
 
@@ -49,6 +58,10 @@ per-champion calculations are reached through `__linked` references. The `mStat`
 enum is partly decoded — `mStat=2` appears in the basic-attack calculation with
 coefficient 1, consistent with attack damage.
 
+_Example:_ the extracted `TotalDamage` sums `StatByCoefficient(mStat=2, ×1)` (a
+unit stat, here AD) and `SubPartScaledProportionalToStat(APRatio, ratio ~0.01)`
+(an AP term); the `%i:scaleAP%` tag in the description marks the same AP link.
+
 Source: cdragon bin (extracted). Structure confirmed; the full per-champion
 store is not yet walked.
 
@@ -58,6 +71,10 @@ The per-kind pipeline shapes are fixed in ADR 0004 (damage: bonus,
 amplification, critical strike, mitigation; heal: amplification, anti-heal;
 shield: amplification; mana: per-attack and from damage-taken). Their internal
 ordering and coefficients are pinned by calibration against the live game.
+
+_Example_ (illustrative; the stage order is the candidate to confirm at
+calibration): a 300-damage spell with +50% amp, critting, on a 100-armor target
+resolves as `300 × 1.5 × 1.30 × 100/(100+100) = 293`.
 
 ## Sources
 
