@@ -15,9 +15,10 @@ companion to [ADR 0004](../adr/0004-modifier-taxonomy-resolution.md).
 - Armor and magic resist floor at 0; reduced to 0 is effectively true damage.
 - Resist reduction (shred, sunder) is ~30% and does not stack with itself.
 
-> **Example** — against 100 armor, a 100 physical hit lands as
-> `100 × 100/(100+100) = 50`; shredding that armor 30% (→ 70) raises it to
-> `100 × 100/170 = 59`.
+> **Example** — a 100-damage physical hit:
+>
+> - into 100 armor: `100 × 100/(100+100)` = **50 taken**
+> - after a 30% shred (armor 70): `100 × 100/(100+70)` = **59 taken**
 
 Source: community references. Confirm at calibration.
 
@@ -28,8 +29,10 @@ Source: community references. Confirm at calibration.
 - From damage taken: 1% of pre-mitigation plus 7% of post-mitigation, capped
   ~42.5 per source.
 
-> **Example** — a caster taking a 200 pre-mitigation hit that lands as 100 gains
-> `1%×200 + 7%×100 = 9` mana from it, plus 7 from its next attack.
+> **Example** — a caster takes a 200 hit (100 after mitigation):
+>
+> - from the hit: `1%×200 + 7%×100` = **+9 mana**
+> - from its next attack: **+7 mana**
 
 Source: community references; patch-sensitive. Confirm at calibration.
 
@@ -37,7 +40,7 @@ Source: community references; patch-sensitive. Confirm at calibration.
 
 - Base 25% chance, +30% bonus critical damage; multiplies the damage instance.
 
-> **Example** — a 1000-damage instance that crits deals `1000 × 1.30 = 1300`.
+> **Example** — a 1000-damage hit that crits: `1000 × 1.30` = **1300 dealt**.
 
 Source: community references. Confirm at calibration.
 
@@ -58,10 +61,13 @@ per-champion calculations are reached through `__linked` references. The `mStat`
 enum is partly decoded — `mStat=2` appears in the basic-attack calculation with
 coefficient 1, consistent with attack damage.
 
-> **Example** — the extracted `TotalDamage` sums
-> `StatByCoefficient(mStat=2, ×1)` (a unit stat, here AD) and
-> `SubPartScaledProportionalToStat(APRatio, ratio ~0.01)` (an AP term); the
-> `%i:scaleAP%` tag in the description marks the same AP link.
+> **Example** — an ability reading `@ModifiedDamage@ (%i:scaleAP%)` has a
+> `GameCalculation` of two summed parts:
+>
+> - stat part: `mStat × coefficient` — here `AD × 1`
+> - AP part: `APRatio × 0.01 × AP`
+>
+> The `scaleAP` tag in the text marks the AP part.
 
 Source: cdragon bin (extracted). Structure confirmed; the full per-champion
 store is not yet walked.
@@ -73,9 +79,13 @@ amplification, critical strike, mitigation; heal: amplification, anti-heal;
 shield: amplification; mana: per-attack and from damage-taken). Their internal
 ordering and coefficients are pinned by calibration against the live game.
 
-> **Example** (illustrative; the stage order is the candidate to confirm at
-> calibration) — a 300-damage spell with +50% amp, critting, on a 100-armor
-> target resolves as `300 × 1.5 × 1.30 × 100/(100+100) = 293`.
+> **Example** — illustrative; the stage order is the candidate to confirm at
+> calibration. A 300 base hit, +50% amp, a crit, into 100 armor:
+>
+> - base: **300**
+> - amplification (×1.5): **450**
+> - critical strike (×1.30): **585**
+> - mitigation (×100/200): **293 dealt**
 
 ## Sources
 
