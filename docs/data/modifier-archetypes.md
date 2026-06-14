@@ -1,5 +1,8 @@
 # Modifier cartography (sets 15/16/17)
 
+**Status:** Research note · 2026-06 · empirical input to
+[ADR 0004](../adr/0004-modifier-taxonomy-resolution.md).
+
 > Cross-set cartography of the modifier patterns in champion spells — the
 > richest and most complex modifier category. Names churn ~90% per set;
 > archetypes do not.
