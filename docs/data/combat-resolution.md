@@ -15,10 +15,11 @@ companion to [ADR 0004](../adr/0004-modifier-taxonomy-resolution.md).
 - Armor and magic resist floor at 0; reduced to 0 is effectively true damage.
 - Resist reduction (shred, sunder) is ~30% and does not stack with itself.
 
-> **Example** — a 100-damage physical hit:
+> **Example** — a 200-damage physical hit (the `100` is a fixed game constant;
+> more armor means less damage taken):
 >
-> - into 100 armor: `100 × 100/(100+100)` = **50 taken**
-> - after a 30% shred (armor 70): `100 × 100/(100+70)` = **59 taken**
+> - target armor 50: `200 × 100/(100+50)` = **133 taken**
+> - after a 30% armor shred (50 → 35): `200 × 100/(100+35)` = **148 taken**
 
 Source: community references. Confirm at calibration.
 
@@ -29,9 +30,11 @@ Source: community references. Confirm at calibration.
 - From damage taken: 1% of pre-mitigation plus 7% of post-mitigation, capped
   ~42.5 per source.
 
-> **Example** — a caster takes a 200 hit (100 after mitigation):
+> **Example** — a caster (7 mana per attack) takes a 200 hit, reduced to 100 by
+> mitigation:
 >
-> - from the hit: `1%×200 + 7%×100` = **+9 mana**
+> - from the hit: `1%×200 + 7%×100` = **+9 mana** (1% of pre-, 7% of
+>   post-mitigation)
 > - from its next attack: **+7 mana**
 
 Source: community references; patch-sensitive. Confirm at calibration.
@@ -40,7 +43,8 @@ Source: community references; patch-sensitive. Confirm at calibration.
 
 - Base 25% chance, +30% bonus critical damage; multiplies the damage instance.
 
-> **Example** — a 1000-damage hit that crits: `1000 × 1.30` = **1300 dealt**.
+> **Example** — a 1000-damage hit that crits: `1000 × 1.30` = **1300 dealt**
+> (1.30 = 1 + the 30% bonus crit damage).
 
 Source: community references. Confirm at calibration.
 
@@ -49,25 +53,24 @@ Source: community references. Confirm at calibration.
 The `@ModifiedX@` displayed in an ability is a `GameCalculation`: a sum of
 subparts.
 
-- `StatByCoefficientCalculationPart { mStat, mCoefficient }` — coefficient × a
-  unit stat.
-- `SubPartScaledProportionalToStat { mDataValue, mRatio }` — a data value scaled
-  to a stat (e.g. an `APRatio` value with ratio ~0.01, scaled to AP).
-- The scaling stat is tied to the description's `%i:scaleY%` tag through
-  `mStyleTagIfScaled`.
+- `StatByCoefficientCalculationPart` — a unit stat × a multiplier (`mStat` =
+  which stat, `mCoefficient` = the multiplier).
+- `SubPartScaledProportionalToStat` — a named value scaled to a stat
+  (`mDataValue` = the value, e.g. an AP ratio; `mRatio` ≈ 0.01).
+- The scaling stat is named by the description's `%i:scaleY%` tag (via
+  `mStyleTagIfScaled`).
 
 Location: the TFT map bin (`map22.bin.json`) holds shared calculations;
 per-champion calculations are reached through `__linked` references. The `mStat`
 enum is partly decoded — `mStat=2` appears in the basic-attack calculation with
 coefficient 1, consistent with attack damage.
 
-> **Example** — an ability reading `@ModifiedDamage@ (%i:scaleAP%)` has a
-> `GameCalculation` of two summed parts:
+> **Example** — an ability's `@ModifiedDamage@` is a calculation that sums two
+> parts (`%i:scaleAP%` in the text flags the scaled one):
 >
-> - stat part: `mStat × coefficient` — here `AD × 1`
-> - AP part: `APRatio × 0.01 × AP`
->
-> The `scaleAP` tag in the text marks the AP part.
+> - **base part** — a unit stat × a multiplier, here `AD × 1` (attack damage × 1)
+> - **scaled part** — a ratio × a unit stat, here `0.01 × AP` (1% of ability
+>   power)
 
 Source: cdragon bin (extracted). Structure confirmed; the full per-champion
 store is not yet walked.
@@ -80,12 +83,12 @@ shield: amplification; mana: per-attack and from damage-taken). Their internal
 ordering and coefficients are pinned by calibration against the live game.
 
 > **Example** — illustrative; the stage order is the candidate to confirm at
-> calibration. A 300 base hit, +50% amp, a crit, into 100 armor:
+> calibration. A 300 base hit, +50% amplification, a crit, into 100 armor:
 >
 > - base: **300**
-> - amplification (×1.5): **450**
-> - critical strike (×1.30): **585**
-> - mitigation (×100/200): **293 dealt**
+> - amplification (+50%, ×1.5): **450**
+> - critical strike (+30%, ×1.30): **585**
+> - mitigation (100 armor → ×0.5): **293 dealt**
 
 ## Sources
 
