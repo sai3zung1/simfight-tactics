@@ -1,6 +1,6 @@
 # ADR 0001 — Community Dragon as the combat data source
 
-**Status:** Accepted · 2026-05
+**Status:** Accepted · 2026-05 · source-of-truth framing superseded by [ADR 0005](./0005-data-ownership.md)
 
 ## Context
 
