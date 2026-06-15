@@ -92,8 +92,8 @@ bun run format     # prettier --write
 - **Total functions.** Defined for every input — return `T | undefined`, never
   throw on a valid input.
 - **Pure domain.** `src/domain/` has no I/O, no React, no side effects.
-- **YAGNI.** No speculative structure (e.g. `Modifier` stays opaque until the
-  real data dictates its shape).
+- **YAGNI.** No speculative structure (e.g. the `Modifier` shape was derived
+  from observed data, not postulated up front).
 - **`as const`** on generated data literals, so the type contract survives.
 
 ### Comments
