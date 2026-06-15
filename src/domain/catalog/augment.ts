@@ -1,6 +1,5 @@
 /**
- * Augment — a board-level modifier applied at combat start. Effects internals
- * are deferred until the modifier taxonomy is finalized.
+ * Augment — a board-level modifier the player picks, applied at combat start.
  */
 
 import type { AugmentId } from "../primitives";

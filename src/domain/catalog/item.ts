@@ -1,6 +1,6 @@
 /**
- * Item — equipped on a unit. Effects internals are deferred until the modifier
- * taxonomy is finalized.
+ * Item — combat equipment carried by a unit; its effects are modifiers applied
+ * during a fight.
  */
 
 import type { ItemId } from "../primitives";
