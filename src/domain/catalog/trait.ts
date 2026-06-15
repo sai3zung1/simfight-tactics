@@ -1,13 +1,12 @@
 /**
- * Trait — a modifier container activated when enough trait-bearing units are on
- * the board. Effects internals are deferred until the modifier taxonomy is
- * finalized.
+ * Trait — the effects granted at each activation breakpoint. Which breakpoint is
+ * live is chosen per side at configuration time (`BoardSide`), not simulated
+ * from units on the board.
  */
 
 import type { TraitId } from "../primitives";
 import type { Modifier } from "./modifier";
 
-/** A single activation level of a trait. */
 export type TraitBreakpoint = {
   readonly count: number;
   readonly description: string;

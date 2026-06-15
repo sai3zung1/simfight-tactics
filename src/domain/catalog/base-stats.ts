@@ -1,9 +1,8 @@
 /**
- * Per-unit combat statistics, loaded once from the data pipeline.
- *
- * Stats that scale per star level use `ScalingByStar` (from `../primitives`);
- * the data pipeline resolves their values at normalization time.
- * Other stats are flat. The engine performs no scaling math at runtime.
+ * The canonical combat numbers for one unit — the stats the engine reads to
+ * simulate a fight. Populated once by the data pipeline: values that vary by
+ * star level are stored as explicit per-star tables (`ScalingByStar`), the rest
+ * are flat, so the engine never does scaling math at runtime.
  */
 
 import type { ScalingByStar } from "../primitives";
@@ -12,7 +11,7 @@ export type BaseStats = {
   readonly hp: ScalingByStar;
   readonly armor: number;
   readonly magicResist: number;
-  /** Damage reduction in range 0 to 1. */
+  /** Damage reduction. */
   readonly durability: number;
 
   readonly mana: {
@@ -24,16 +23,14 @@ export type BaseStats = {
   };
 
   readonly attackDamage: ScalingByStar;
-  /** Reference value for spell-scaling formulas. */
+  /** Ability power — the stat that spell damage and other AP effects scale from. */
   readonly abilityPower: number;
   /** In attacks per second. */
   readonly attackSpeed: number;
-  /** In range 0 to 1. */
   readonly critChance: number;
-  /** Damage multiplier applied on a crit hit. */
   readonly critDamage: number;
   /** Measured in hexes. */
   readonly range: number;
-  /** Outgoing damage bonus, expressed as a decimal. */
+  /** Outgoing damage bonus. */
   readonly damageAmp: number;
 };
