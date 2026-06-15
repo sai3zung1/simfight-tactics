@@ -72,7 +72,7 @@ bun run format     # prettier --write
 - **Data files**: one per entity type, plural (`champions.json`, `items.json`) —
   never split by a sub-property (cost, trait); those stay queryable fields.
 - **Docs vs data**: prose lives in `docs/` (ADRs, data dictionary); values live
-  in `data/` and `src/data/`.
+  in `src/data/`.
 
 ### Domain entities (`src/domain/`)
 

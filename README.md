@@ -71,14 +71,11 @@ docs/adr/          # architecture decision records
 ```bash
 bun install
 bun run dev        # start the dev server
-bun run build      # typecheck + production build
-bun run lint       # eslint
-bun run format     # prettier --write
 ```
 
 ## Contributing
 
-Conventions, workflow, and code standards live in
+Conventions, workflow, commands, and code standards live in
 [`CONTRIBUTING.md`](./CONTRIBUTING.md).
 
 ## License
