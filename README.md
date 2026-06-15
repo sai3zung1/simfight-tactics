@@ -47,8 +47,8 @@ pipeline, simulation engine, and UI are in progress. Work is tracked on the
   specific set — a new set is _data_, not code.
 - **Event-driven resolution.** Combat advances as discrete events (attacks,
   casts, procs, ticks), not on a fixed time-step.
-- **Static data pipeline.** Community Dragon is parsed and normalized into typed
-  TS files at build time — no runtime dependency on external services.
+- **Static data pipeline.** Source data is parsed and normalized into typed TS
+  files at build time — no runtime dependency on external services.
 - **Pure domain layer.** `src/domain/` is types and pure functions only: no I/O,
   no React.
 

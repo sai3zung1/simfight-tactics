@@ -3,7 +3,7 @@
  * sibling modules — leaf of the dependency graph.
  */
 
-// Runtime values are cdragon entity keys.
+// Runtime values are source entity keys (cdragon today).
 export type UnitId = string & { readonly __brand: "UnitId" };
 export type SpellId = string & { readonly __brand: "SpellId" };
 export type TraitId = string & { readonly __brand: "TraitId" };
