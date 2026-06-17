@@ -4,7 +4,7 @@
     "target": "es2023",
     "lib": ["ES2023"],
     "module": "esnext",
-    //    @types/bun → "bun"   |   bun-types → "bun-types"
+    // bun test globals + the `bun:test` module (from @types/bun)
     "types": ["bun"],
     "skipLibCheck": true,
 
