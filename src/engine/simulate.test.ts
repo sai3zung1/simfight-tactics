@@ -26,12 +26,12 @@ const config = (stopCondition: StopCondition): CombatConfig => ({
 
 const event = (time: number): CombatEvent => ({ time: time as Ticks });
 
-test("runLoop processes events in order, ignoring those past endTime", () => {
+test("runLoop processes events in order, ignoring those past timeLimit", () => {
   const q = createEventQueue();
   q.push(event(30));
   q.push(event(10));
   q.push(event(20));
-  q.push(event(999)); // beyond endTime → must be skipped
+  q.push(event(999)); // beyond timeLimit → must be skipped
   const seen: number[] = [];
   runLoop(q, 100 as Ticks, (e) => seen.push(e.time));
   expect(seen).toEqual([10, 20, 30]);

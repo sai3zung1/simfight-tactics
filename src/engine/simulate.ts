@@ -12,44 +12,45 @@ import { secondsToTicks, ticksToSeconds, type Ticks } from "./time";
 const HARD_CAP_SECONDS = 60;
 
 /**
- * Drive the queue in event order up to `endTime`, handing each event to
- * `process`. Events past `endTime` are not processed — the run has ended.
+ * Drive the queue in event order up to `timeLimit` — the latest tick the run is
+ * allowed to reach. Events past it are not processed; an earlier event can still
+ * end the run sooner.
  *
  * `process` is the seam: a no-op in this skeleton, damage resolution in #47.
  */
 export function runLoop(
   queue: EventQueue,
-  endTime: Ticks,
+  timeLimit: Ticks,
   process: (event: CombatEvent) => void,
 ): void {
   for (
     let e = queue.popNext();
-    e !== undefined && e.time <= endTime;
+    e !== undefined && e.time <= timeLimit;
     e = queue.popNext()
   ) {
     process(e);
   }
 }
 
-/** Map the user's stop mode to the run's end boundary and reported reason. */
+/** Map the user's stop mode to the run's time limit and reported reason. */
 function resolveStop(stop: StopCondition): {
-  endTime: Ticks;
+  timeLimit: Ticks;
   stopReason: StopReason;
 } {
   switch (stop.mode) {
     case "time_to_kill":
       return {
-        endTime: secondsToTicks(HARD_CAP_SECONDS),
+        timeLimit: secondsToTicks(HARD_CAP_SECONDS),
         stopReason: "timeout",
       };
     case "fixed_duration":
       return {
-        endTime: secondsToTicks(stop.durationSeconds),
+        timeLimit: secondsToTicks(stop.durationSeconds),
         stopReason: "timer",
       };
     case "first_trigger":
       return {
-        endTime: secondsToTicks(stop.durationSeconds),
+        timeLimit: secondsToTicks(stop.durationSeconds),
         stopReason: "timer",
       };
     default: {
@@ -60,22 +61,22 @@ function resolveStop(stop: StopCondition): {
 }
 
 /**
- * simulate — one deterministic combat run. The stop condition fixes how long
- * the run lasts; the loop processes whatever events fall before that boundary.
+ * simulate — one deterministic combat run. The stop condition fixes how long the
+ * run may last; the loop processes whatever events fall before that limit.
  *
  * #46 has no event producers yet: the queue stays empty and the result carries
  * zero damage — only the duration and stop reason are exercised.
  */
 export function simulate(config: CombatConfig): SimulationResult {
-  const { endTime, stopReason } = resolveStop(config.stopCondition);
+  const { timeLimit, stopReason } = resolveStop(config.stopCondition);
 
   const queue = createEventQueue();
-  runLoop(queue, endTime, () => {});
+  runLoop(queue, timeLimit, () => {});
 
   return {
     totalDamageDealt: 0,
     totalDamageTaken: 0,
-    effectiveDurationSeconds: ticksToSeconds(endTime),
+    effectiveDurationSeconds: ticksToSeconds(timeLimit),
     stopReason,
   };
 }
