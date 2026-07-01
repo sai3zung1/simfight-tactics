@@ -10,7 +10,7 @@ import type { CombatState } from "./combat-state";
 import type { CombatantId } from "./combatant-id";
 import { createProcess, shouldAutoAttack } from "./auto-attack";
 import { resolveCombatant } from "./combatant";
-import { PROVISIONAL_STATS } from "./provisional-stats";
+import { resolveUnitStats } from "./provisional-stats";
 import { createEventQueue, type EventQueue } from "./event-queue";
 import { secondsToTicks, ticksToSeconds, type Ticks } from "./time";
 
@@ -86,20 +86,20 @@ function resolveStop(stop: StopCondition): {
  * simulate — one deterministic combat run. The stop condition fixes how long the
  * run may last; the loop processes whatever events fall before that limit.
  *
- * Both sides resolve against `PROVISIONAL_STATS` (only `starLevel` matters
- * today) until the real catalog lands. #47 is unidirectional: the target
- * never attacks, so `totalDamageTaken` stays 0.
+ * Both sides resolve against a provisional profile picked via `unitId`
+ * (`resolveUnitStats`) until the real catalog lands. #47 is unidirectional:
+ * the target never attacks, so `totalDamageTaken` stays 0.
  */
 export function simulate(config: CombatConfig): SimulationResult {
   const { timeLimit, stopReason, lethal } = resolveStop(config.stopCondition);
 
   const attacker = resolveCombatant(
-    PROVISIONAL_STATS,
+    resolveUnitStats(config.attacker.unitId),
     config.attacker.starLevel,
     "attacker" as CombatantId,
   );
   const target = resolveCombatant(
-    PROVISIONAL_STATS,
+    resolveUnitStats(config.target.unitId),
     config.target.starLevel,
     "target" as CombatantId,
   );

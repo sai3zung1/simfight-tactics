@@ -8,6 +8,7 @@ import type { StopCondition } from "../domain/combat/stop-condition";
 import type { BoardSide } from "../domain/combat/board-side";
 import type { UnitId } from "../domain/primitives";
 import type { CombatantId } from "./combatant-id";
+import { PROVISIONAL_TANKY_UNIT_ID } from "./provisional-stats";
 
 // Fixtures: a minimal CombatConfig. `simulate` resolves both sides against a
 // fixed provisional stat profile (provisional-stats.ts) — only `starLevel`
@@ -58,6 +59,18 @@ test("time_to_kill ends on the target's death, reporting the kill instant", () =
   expect(r.effectiveDurationSeconds).toBeLessThan(60);
 });
 
+test("time_to_kill runs to the 60s cap when the target can't be killed in time -> timeout", () => {
+  const c: CombatConfig = {
+    attacker: side(),
+    target: { ...side(), unitId: PROVISIONAL_TANKY_UNIT_ID },
+    stopCondition: { mode: "time_to_kill" },
+  };
+  const r = simulate(c);
+  expect(r.stopReason).toBe("timeout");
+  expect(r.effectiveDurationSeconds).toBe(60);
+  expect(r.totalDamageDealt).toBeGreaterThan(0);
+});
+
 test("fixed_duration runs the full duration -> timer, target treated as immortal", () => {
   const r = simulate(config({ mode: "fixed_duration", durationSeconds: 8 }));
   expect(r.stopReason).toBe("timer");
@@ -69,6 +82,12 @@ test("first_trigger runs to the timer when the target survives that long -> time
   const r = simulate(config({ mode: "first_trigger", durationSeconds: 5 }));
   expect(r.stopReason).toBe("timer");
   expect(r.effectiveDurationSeconds).toBe(5);
+});
+
+test("first_trigger ends on the target's death when it dies before the timer -> kill", () => {
+  const r = simulate(config({ mode: "first_trigger", durationSeconds: 30 }));
+  expect(r.stopReason).toBe("kill");
+  expect(r.effectiveDurationSeconds).toBeLessThan(30);
 });
 
 test("deterministic: same config yields an identical result", () => {
