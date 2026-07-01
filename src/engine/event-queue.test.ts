@@ -1,11 +1,18 @@
 import { test, expect } from "bun:test";
 import { createEventQueue, type EventQueue } from "./event-queue";
 import type { CombatEvent } from "./combat-event";
+import type { CombatantId } from "./combatant-id";
 import type { Ticks } from "./time";
 
 // Fixtures build a CombatEvent at a given tick. Tests cast directly; the engine's
-// real producer of `Ticks` is `secondsToTicks`.
-const event = (time: number): CombatEvent => ({ time: time as Ticks });
+// real producer of `Ticks` is `secondsToTicks`. The queue only ever looks at
+// `time`, so attacker/target are placeholders.
+const event = (time: number): CombatEvent => ({
+  kind: "auto-attack",
+  time: time as Ticks,
+  attacker: "attacker" as CombatantId,
+  target: "target" as CombatantId,
+});
 
 // Drain the queue, collecting the popped times in order.
 const drainTimes = (q: EventQueue): number[] => {

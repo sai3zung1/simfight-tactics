@@ -7,6 +7,7 @@ import type { CombatConfig } from "../domain/combat/combat-config";
 import type { StopCondition } from "../domain/combat/stop-condition";
 import type { BoardSide } from "../domain/combat/board-side";
 import type { UnitId } from "../domain/primitives";
+import type { CombatantId } from "./combatant-id";
 
 // Fixtures: a minimal CombatConfig. `simulate` ignores attacker/target content
 // in #46 — they only need to satisfy the types.
@@ -24,7 +25,14 @@ const config = (stopCondition: StopCondition): CombatConfig => ({
   stopCondition,
 });
 
-const event = (time: number): CombatEvent => ({ time: time as Ticks });
+// This slice's tests only exercise timing, not who is involved — attacker
+// and target are placeholders, not read by anything yet.
+const event = (time: number): CombatEvent => ({
+  kind: "auto-attack",
+  time: time as Ticks,
+  attacker: "attacker" as CombatantId,
+  target: "target" as CombatantId,
+});
 
 test("runLoop processes events in order, ignoring those past timeLimit", () => {
   const q = createEventQueue();
@@ -33,7 +41,10 @@ test("runLoop processes events in order, ignoring those past timeLimit", () => {
   q.push(event(20));
   q.push(event(999)); // beyond timeLimit → must be skipped
   const seen: number[] = [];
-  runLoop(q, 100 as Ticks, (e) => seen.push(e.time));
+  runLoop(q, 100 as Ticks, (e) => {
+    seen.push(e.time);
+    return undefined;
+  });
   expect(seen).toEqual([10, 20, 30]);
 });
 
