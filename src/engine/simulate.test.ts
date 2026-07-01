@@ -9,8 +9,9 @@ import type { BoardSide } from "../domain/combat/board-side";
 import type { UnitId } from "../domain/primitives";
 import type { CombatantId } from "./combatant-id";
 
-// Fixtures: a minimal CombatConfig. `simulate` ignores attacker/target content
-// in #46 — they only need to satisfy the types.
+// Fixtures: a minimal CombatConfig. `simulate` resolves both sides against a
+// fixed provisional stat profile (provisional-stats.ts) — only `starLevel`
+// matters here; items/traits/augments aren't read yet.
 const side = (): BoardSide => ({
   unitId: "dummy" as UnitId,
   starLevel: 1,
@@ -48,21 +49,23 @@ test("runLoop processes events in order, ignoring those past timeLimit", () => {
   expect(seen).toEqual([10, 20, 30]);
 });
 
-test("time_to_kill runs to the 60s cap -> timeout", () => {
+test("time_to_kill ends on the target's death, reporting the kill instant", () => {
   const r = simulate(config({ mode: "time_to_kill" }));
-  expect(r.stopReason).toBe("timeout");
-  expect(r.effectiveDurationSeconds).toBe(60);
-  expect(r.totalDamageDealt).toBe(0);
+  expect(r.stopReason).toBe("kill");
+  expect(r.totalDamageDealt).toBeGreaterThan(0);
   expect(r.totalDamageTaken).toBe(0);
+  expect(r.effectiveDurationSeconds).toBeGreaterThan(0);
+  expect(r.effectiveDurationSeconds).toBeLessThan(60);
 });
 
-test("fixed_duration runs the full duration -> timer", () => {
+test("fixed_duration runs the full duration -> timer, target treated as immortal", () => {
   const r = simulate(config({ mode: "fixed_duration", durationSeconds: 8 }));
   expect(r.stopReason).toBe("timer");
   expect(r.effectiveDurationSeconds).toBe(8);
+  expect(r.totalDamageDealt).toBeGreaterThan(0);
 });
 
-test("first_trigger runs to the timer -> timer", () => {
+test("first_trigger runs to the timer when the target survives that long -> timer", () => {
   const r = simulate(config({ mode: "first_trigger", durationSeconds: 5 }));
   expect(r.stopReason).toBe("timer");
   expect(r.effectiveDurationSeconds).toBe(5);
