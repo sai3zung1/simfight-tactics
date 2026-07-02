@@ -9,10 +9,15 @@ import type { BoardSide } from "../domain/combat/board-side";
 import type { UnitId } from "../domain/primitives";
 import type { CombatantId } from "./combatant-id";
 import { PROVISIONAL_TANKY_UNIT_ID } from "./provisional-stats";
+import {
+  PROVISIONAL_SWORD_ITEM_ID,
+  PROVISIONAL_PLATING_ITEM_ID,
+} from "./provisional-modifiers";
 
 // Fixtures: a minimal CombatConfig. `simulate` resolves both sides against a
-// fixed provisional stat profile (provisional-stats.ts) — only `starLevel`
-// matters here; items/traits/augments aren't read yet.
+// fixed provisional stat profile (provisional-stats.ts) and provisional item
+// modifiers (provisional-modifiers.ts) — only `starLevel` and `itemIds`
+// matter here; traits/augments aren't read yet.
 const side = (): BoardSide => ({
   unitId: "dummy" as UnitId,
   starLevel: 1,
@@ -27,8 +32,8 @@ const config = (stopCondition: StopCondition): CombatConfig => ({
   stopCondition,
 });
 
-// This slice's tests only exercise timing, not who is involved — attacker
-// and target are placeholders, not read by anything yet.
+// The runLoop test below exercises ordering only — its process callback
+// never reads who is involved, so attacker and target are placeholders.
 const event = (time: number): CombatEvent => ({
   kind: "auto-attack",
   time: time as Ticks,
@@ -93,4 +98,26 @@ test("first_trigger ends on the target's death when it dies before the timer -> 
 test("deterministic: same config yields an identical result", () => {
   const c = config({ mode: "fixed_duration", durationSeconds: 8 });
   expect(simulate(c)).toEqual(simulate(c));
+});
+
+test("an attack-damage item on the attacker raises the damage dealt", () => {
+  const bare = config({ mode: "fixed_duration", durationSeconds: 8 });
+  const armed: CombatConfig = {
+    ...bare,
+    attacker: { ...side(), itemIds: [PROVISIONAL_SWORD_ITEM_ID] },
+  };
+  expect(simulate(armed).totalDamageDealt).toBeGreaterThan(
+    simulate(bare).totalDamageDealt,
+  );
+});
+
+test("a reduction item on the target lowers the damage dealt to it", () => {
+  const bare = config({ mode: "fixed_duration", durationSeconds: 8 });
+  const plated: CombatConfig = {
+    ...bare,
+    target: { ...side(), itemIds: [PROVISIONAL_PLATING_ITEM_ID] },
+  };
+  expect(simulate(plated).totalDamageDealt).toBeLessThan(
+    simulate(bare).totalDamageDealt,
+  );
 });

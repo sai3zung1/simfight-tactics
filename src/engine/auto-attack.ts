@@ -8,17 +8,26 @@ import { resolveDamage } from "./resolve-damage";
 import { expected } from "./crit-policy";
 import { secondsToTicks, type Ticks } from "./time";
 
-/** Interval between two auto-attacks, from attacks-per-second to ticks. */
+/**
+ * Interval between two auto-attacks, from attacks-per-second to ticks.
+ * Assumes a positive attack speed: units that never attack are filtered by
+ * `shouldAutoAttack` before anything gets scheduled, so the division cannot
+ * misbehave here.
+ */
 export function attackInterval(attackSpeed: number): Ticks {
   return secondsToTicks(1 / attackSpeed);
 }
 
-/** A non-positive attack speed means the unit never auto-attacks (D6). */
+/**
+ * A non-positive attack speed encodes a unit that never auto-attacks: no
+ * first event gets scheduled at all, and the interval math never divides
+ * by zero.
+ */
 export function shouldAutoAttack(attacker: Combatant): boolean {
   return attacker.stats.attackSpeed > 0;
 }
 
-/** #47 only ever has these two combatants — no lookup miss is possible. */
+/** A run holds exactly two combatants, so an id always resolves — no miss branch. */
 function combatantById(state: CombatState, id: CombatantId): Combatant {
   return id === state.attacker.id ? state.attacker : state.target;
 }
@@ -26,7 +35,7 @@ function combatantById(state: CombatState, id: CombatantId): Combatant {
 /**
  * Resolve one auto-attack: damage the target, tally it, then either signal a
  * kill (when lethal hits are allowed to end the run) or reprogram the next
- * attack. Order matters (D6): damage first, kill check second, reprogram
+ * attack. Order matters: damage first, kill check second, reprogram
  * last — a lethal hit never gets a follow-up scheduled.
  */
 function processAutoAttack(
@@ -45,8 +54,7 @@ function processAutoAttack(
       armor: target.stats.armor,
       magicResist: target.stats.magicResist,
       durability: target.stats.durability,
-      // The damage-reduction modifier lane lands with the combatant wiring (S5).
-      damageReductions: [],
+      damageReductions: target.damageReductions,
     },
     expected(attacker.stats.critChance, attacker.stats.critDamage),
   );

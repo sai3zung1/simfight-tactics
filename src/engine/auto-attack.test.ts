@@ -15,6 +15,7 @@ const makeCombatant = (
 ): Combatant => ({
   id: id as CombatantId,
   currentHp,
+  damageReductions: [],
   stats: {
     hp: 1000,
     armor: 0,

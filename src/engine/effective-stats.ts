@@ -129,12 +129,32 @@ function applyStatMod(
 }
 
 /**
+ * Each `damage-reduction` modifier resolved to its plain amount, one entry
+ * per source. Deliberately kept apart from the durability stat: the two
+ * reduce damage under different stacking rules (`reductionFactor` in damage
+ * resolution).
+ */
+export function resolveDamageReductions(
+  modifiers: readonly Modifier[],
+  starLevel: StarLevel,
+  base: ResolvedStats,
+): readonly number[] {
+  const reductions: number[] = [];
+  for (const modifier of modifiers) {
+    if (modifier.kind === "damage-reduction") {
+      reductions.push(resolveMagnitude(modifier.amount, starLevel, base));
+    }
+  }
+  return reductions;
+}
+
+/**
  * Fold the active modifiers into the base view — one pass, pure. Only
  * `stat-mod` lands here: every other kind is resolved by its own pipeline
- * (damage-reduction in damage resolution, mana-generation in #49,
- * crowd-control in #50, damage/heal/shield by spell effects), never by stat
- * folding. The exhaustive switch makes a future kind a compile break, not a
- * silent skip.
+ * (damage-reduction in damage resolution; mana-generation, crowd-control and
+ * the damage/heal/shield of spells by pipelines still to come, #49/#50),
+ * never by stat folding. The exhaustive switch makes a future kind a compile
+ * break, not a silent skip.
  */
 export function applyModifiers(
   base: ResolvedStats,
