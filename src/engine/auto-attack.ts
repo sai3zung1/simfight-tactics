@@ -41,7 +41,13 @@ function processAutoAttack(
   const dealt = resolveDamage(
     { amount: attacker.stats.attackDamage, damageType: "physical" },
     { damageAmp: attacker.stats.damageAmp },
-    { armor: target.stats.armor, magicResist: target.stats.magicResist },
+    {
+      armor: target.stats.armor,
+      magicResist: target.stats.magicResist,
+      durability: target.stats.durability,
+      // The damage-reduction modifier lane lands with the combatant wiring (S5).
+      damageReductions: [],
+    },
     expected(attacker.stats.critChance, attacker.stats.critDamage),
   );
 
