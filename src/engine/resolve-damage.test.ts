@@ -122,6 +122,13 @@ describe("mitigationFactor — routing by damage type", () => {
   test("zero resist is neutral", () => {
     expect(mitigationFactor("physical", { armor: 0, magicResist: 0 })).toBe(1);
   });
+
+  test("a negative resist floors at zero — mitigation never amplifies", () => {
+    expect(mitigationFactor("physical", { armor: -50, magicResist: 0 })).toBe(
+      1,
+    );
+    expect(mitigationFactor("magic", { armor: 0, magicResist: -50 })).toBe(1);
+  });
 });
 
 describe("reductionFactor — the two damage-reduction lanes", () => {
