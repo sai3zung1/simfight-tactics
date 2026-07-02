@@ -3,15 +3,16 @@ import type { ScalingByStar, StarLevel } from "../domain/primitives";
 
 /**
  * A combatant's stats for one specific star level — `BaseStats` with the
- * per-star fields collapsed to plain numbers, narrowed to the fields #47's
- * pipeline actually reads. Resolved once here so nothing downstream (damage
- * resolution, crit, cadence) needs to know the combatant's star level or
- * unpack a per-star table again.
+ * per-star fields collapsed to plain numbers, narrowed to the fields the
+ * combat pipeline actually reads. Resolved once here so nothing downstream
+ * (damage resolution, crit, cadence) needs to know the combatant's star level
+ * or unpack a per-star table again.
  */
 export type ResolvedStats = {
   readonly hp: number;
   readonly armor: number;
   readonly magicResist: number;
+  readonly durability: number;
   readonly attackDamage: number;
   readonly attackSpeed: number;
   readonly critChance: number;
@@ -39,6 +40,7 @@ export function resolveStats(
     hp: resolveScaling(stats.hp, starLevel),
     armor: stats.armor,
     magicResist: stats.magicResist,
+    durability: stats.durability,
     attackDamage: resolveScaling(stats.attackDamage, starLevel),
     attackSpeed: stats.attackSpeed,
     critChance: stats.critChance,
