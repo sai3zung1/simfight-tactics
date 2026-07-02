@@ -27,7 +27,10 @@ export type ResolvedStats = {
  * Ice-Box "Pipeline invariant: ScalingByStar omits key 4 for ineligible
  * units".
  */
-function resolveScaling(scaling: ScalingByStar, starLevel: StarLevel): number {
+export function resolveScaling(
+  scaling: ScalingByStar,
+  starLevel: StarLevel,
+): number {
   return scaling[starLevel] as number;
 }
 
