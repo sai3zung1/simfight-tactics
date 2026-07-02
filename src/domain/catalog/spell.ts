@@ -16,7 +16,7 @@ import type { SpellId } from "../primitives";
  * engine.
  */
 export type SpellParameter = {
-  readonly __kind: "TODO_STEP_5";
+  readonly __kind: "TODO_SPELL_PARAMETERS";
 };
 
 export type Spell = {
