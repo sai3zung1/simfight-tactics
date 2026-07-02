@@ -17,7 +17,8 @@ export type EventQueue = {
  * Order is total and deterministic: ascending `time`, then ascending `seq`
  * (arrival order) for events on the same tick. `seq` is the bedrock tiebreaker —
  * it guarantees a total order whatever the structure; game-semantic priority
- * (e.g. cast before auto-attack) layers on top in later tickets, never below.
+ * (e.g. cast before auto-attack) layers on top the day a kind needs it,
+ * never below.
  *
  * `seq` is per-instance: each queue owns its counter, so the engine keeps no
  * module-level mutable state (a global counter would be a side effect on every

@@ -2,11 +2,11 @@ import type { BaseStats } from "../domain/catalog/base-stats";
 import type { UnitId } from "../domain/primitives";
 
 /**
- * Stand-in combat stats used until the real catalog composition lands (#39,
- * blocked, wired later via engine fixtures). Not real game data — a fixed
- * profile so #47's own pipeline (damage, crit, cadence, kill) has something
- * concrete to run against. HP is low enough that a `time_to_kill` run
- * reaches a kill well inside the 60s hard cap.
+ * Stand-in combat stats used until the real unit catalog lands (#39). Not
+ * real game data — a fixed profile so the combat pipeline (damage, crit,
+ * cadence, kill) has something concrete to run against. HP is low enough
+ * that a `time_to_kill` run reaches a kill well inside the engine's hard
+ * cap.
  */
 export const PROVISIONAL_STATS: BaseStats = {
   hp: { 1: 550, 2: 990, 3: 1780 },
@@ -24,8 +24,8 @@ export const PROVISIONAL_STATS: BaseStats = {
 };
 
 /**
- * A second provisional profile, HP high enough to survive a full 60s of
- * attacks from `PROVISIONAL_STATS` — exists so the `time_to_kill` hard-cap
+ * A second provisional profile, HP high enough to survive hard-cap-long
+ * attacks from `PROVISIONAL_STATS` — exists so the `time_to_kill` timeout
  * path is reachable by a real end-to-end test, not just by construction.
  */
 export const PROVISIONAL_TANKY_STATS: BaseStats = {

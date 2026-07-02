@@ -3,7 +3,8 @@
  * sibling modules — leaf of the dependency graph.
  */
 
-// Runtime values are source entity keys (cdragon today).
+// Runtime values are the extraction source's entity keys (Community Dragon
+// today — a swappable adapter, ADR 0005).
 export type UnitId = string & { readonly __brand: "UnitId" };
 export type SpellId = string & { readonly __brand: "SpellId" };
 export type TraitId = string & { readonly __brand: "TraitId" };
@@ -12,7 +13,8 @@ export type ItemId = string & { readonly __brand: "ItemId" };
 
 /**
  * A numeric value resolved per star level by the data pipeline.
- * Key `4` is optional: only 2-cost units are eligible at 4 stars.
+ * Key `4` is optional: only a set-defined subset of units is ever eligible
+ * at four stars, so most entries stop at 3.
  */
 export type ScalingByStar = {
   readonly 1: number;

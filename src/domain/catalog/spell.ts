@@ -1,8 +1,9 @@
 /**
- * Spell — catalog data of a champion's ability. The cast behavior lives
- * in `src/spells/set-17/<champion>.ts` and is resolved at runtime via
- * `SpellId`; this domain type carries only identity and numerical
- * parameters. Parameter taxonomy is deferred until finalized.
+ * Spell — catalog data of a champion's ability. Cast behavior will live in
+ * hand-written per-champion spell functions (one module per set, not in the
+ * tree yet), resolved at runtime via `SpellId`; this domain type carries
+ * only identity and numerical parameters. Parameter taxonomy is deferred
+ * until finalized.
  */
 
 import type { SpellId } from "../primitives";
