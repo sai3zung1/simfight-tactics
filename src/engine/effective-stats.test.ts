@@ -2,6 +2,7 @@ import { test, expect } from "bun:test";
 import { applyModifiers } from "./effective-stats";
 import type { ResolvedStats } from "./resolved-stats";
 import type {
+  Magnitude,
   ModifiableStat,
   Modifier,
   StarValue,
@@ -23,6 +24,16 @@ const statMod = (target: ModifiableStat, amount: StarValue): Modifier => ({
   kind: "stat-mod",
   target,
   amount: { base: amount },
+  temporality: { kind: "instant" },
+});
+
+const scaledStatMod = (
+  target: ModifiableStat,
+  amount: Magnitude,
+): Modifier => ({
+  kind: "stat-mod",
+  target,
+  amount,
   temporality: { kind: "instant" },
 });
 
@@ -81,6 +92,43 @@ test("skips stats without an effective landing field", () => {
     1,
   );
   expect(view).toEqual(base);
+});
+
+test("scales a magnitude from the wearer's stat", () => {
+  const tenPercentAttackSpeed = scaledStatMod("attackSpeed", {
+    base: 0.1,
+    sources: ["attackSpeed"],
+  });
+  const view = applyModifiers(base, [tenPercentAttackSpeed], 1);
+  expect(view.attackSpeed).toBeCloseTo(0.88);
+});
+
+test("scales from the pre-fold base, whatever the application order", () => {
+  const flat = statMod("attackDamage", 100);
+  const scaled = scaledStatMod("attackDamage", {
+    base: 0.5,
+    sources: ["attackDamage"],
+  });
+  // Both orders read the scaled part on base AD (100 -> +50), never on the
+  // other modifier's output.
+  expect(applyModifiers(base, [flat, scaled], 1).attackDamage).toBe(250);
+  expect(applyModifiers(base, [scaled, flat], 1).attackDamage).toBe(250);
+});
+
+test("sums the stats of a multi-source magnitude", () => {
+  const resists = scaledStatMod("armor", {
+    base: 0.1,
+    sources: ["armor", "magicResist"],
+  });
+  expect(applyModifiers(base, [resists], 1).armor).toBe(36);
+});
+
+test("scaling sources without a resolved field contribute zero", () => {
+  const apScaled = scaledStatMod("attackDamage", {
+    base: 0.5,
+    sources: ["abilityPower"],
+  });
+  expect(applyModifiers(base, [apScaled], 1)).toEqual(base);
 });
 
 test("leaves kinds owned by other pipelines untouched", () => {

@@ -2,6 +2,7 @@ import type {
   Magnitude,
   ModifiableStat,
   Modifier,
+  ScalingSource,
   StarValue,
 } from "../domain/catalog/modifier";
 import type { StarLevel } from "../domain/primitives";
@@ -22,12 +23,69 @@ function resolveStarValue(value: StarValue, starLevel: StarLevel): number {
 }
 
 /**
- * A magnitude's concrete value for one star level — the flat normalized
- * `base` (units are the adapter's job, ADR 0005). The stat-scaled part
- * (`sources`) lands in the next slice.
+ * Sum of the stats a magnitude scales from, read on the pre-fold base — a
+ * scaled amount never sees another modifier's output, so application order
+ * cannot matter. Several sources sum; that is the natural reading of the
+ * taxonomy, not a sourced game rule — revisit if calibration (#51) proves
+ * otherwise. `abilityPower` and `range` have no resolved field to read yet
+ * and contribute zero, explicitly — the ticket that carries them adds the
+ * read. A new `ScalingSource` is a compile break here.
  */
-function resolveMagnitude(amount: Magnitude, starLevel: StarLevel): number {
-  return resolveStarValue(amount.base, starLevel);
+function scalingBasis(
+  sources: readonly ScalingSource[],
+  base: ResolvedStats,
+): number {
+  let sum = 0;
+  for (const source of sources) {
+    switch (source) {
+      case "hp":
+        sum += base.hp;
+        break;
+      case "armor":
+        sum += base.armor;
+        break;
+      case "magicResist":
+        sum += base.magicResist;
+        break;
+      case "attackDamage":
+        sum += base.attackDamage;
+        break;
+      case "attackSpeed":
+        sum += base.attackSpeed;
+        break;
+      case "critChance":
+        sum += base.critChance;
+        break;
+      case "critDamage":
+        sum += base.critDamage;
+        break;
+      case "abilityPower":
+      case "range":
+        break;
+      default: {
+        const _exhaustive: never = source;
+        return _exhaustive;
+      }
+    }
+  }
+  return sum;
+}
+
+/**
+ * A magnitude's concrete value for one star level: the flat normalized
+ * `base` (units are the adapter's job, ADR 0005), multiplied by the summed
+ * source stats when the amount is stat-scaled — `{ base: 0.10, sources:
+ * ["attackSpeed"] }` reads as one tenth of the wearer's attack speed.
+ */
+function resolveMagnitude(
+  amount: Magnitude,
+  starLevel: StarLevel,
+  base: ResolvedStats,
+): number {
+  const value = resolveStarValue(amount.base, starLevel);
+  return amount.sources === undefined
+    ? value
+    : value * scalingBasis(amount.sources, base);
 }
 
 /**
@@ -90,7 +148,7 @@ export function applyModifiers(
         stats = applyStatMod(
           stats,
           modifier.target,
-          resolveMagnitude(modifier.amount, starLevel),
+          resolveMagnitude(modifier.amount, starLevel, base),
         );
         break;
       case "damage":
