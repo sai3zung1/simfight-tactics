@@ -3,15 +3,18 @@
  * stats. Computed upstream (by the producer) and passed to `resolveDamage` as a ready
  * number: the pipeline stays unaware of the crit mechanic.
  *
- * Three faces: `expected` (deterministic, current mode) and the bounds `neverCrit` /
- * `alwaysCrit` — a test guardrail today, the extremes of the stochastic roll later.
+ * Three faces: `expected` — the deterministic policy the engine runs on — and
+ * the bounds `neverCrit` / `alwaysCrit`, which bracket it in tests and become
+ * the extremes of the roll if a stochastic mode is ever added.
  */
 export type CritPolicy = (critChance: number, critDamage: number) => number;
 
 /**
  * Expected value: the weighted average between a nominal and a critical hit.
- * `critDamage` is a bonus (schema convention — source encoding to confirm, #36).
- * Provisional shape; coefficient to be set by calibration (docs/data/combat-resolution.md).
+ * `critDamage` is stored as the bonus over a nominal hit, not the full
+ * multiplier — whether the extraction source encodes it the same way is
+ * confirmed once extraction is owned end-to-end (#36). Provisional shape;
+ * coefficient to be set by calibration (docs/data/combat-resolution.md).
  */
 export const expected: CritPolicy = (critChance, critDamage) =>
   1 + critChance * critDamage;

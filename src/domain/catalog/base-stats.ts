@@ -11,7 +11,10 @@ export type BaseStats = {
   readonly hp: ScalingByStar;
   readonly armor: number;
   readonly magicResist: number;
-  /** Damage reduction. */
+  /**
+   * Reduction on damage taken, combined with (not part of) armor and
+   * magic-resist mitigation; one additive pool that stat-mod modifiers raise.
+   */
   readonly durability: number;
 
   readonly mana: {
@@ -27,7 +30,9 @@ export type BaseStats = {
   readonly abilityPower: number;
   /** In attacks per second. */
   readonly attackSpeed: number;
+  /** Probability in [0, 1] that a hit crits. */
   readonly critChance: number;
+  /** Bonus over a nominal hit, not the full multiplier. */
   readonly critDamage: number;
   /** Measured in hexes. */
   readonly range: number;

@@ -15,10 +15,12 @@ const makeCombatant = (
 ): Combatant => ({
   id: id as CombatantId,
   currentHp,
+  damageReductions: [],
   stats: {
     hp: 1000,
     armor: 0,
     magicResist: 0,
+    durability: 0,
     attackDamage: 100,
     attackSpeed: 1,
     critChance: 0,

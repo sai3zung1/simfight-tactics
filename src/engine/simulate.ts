@@ -10,6 +10,7 @@ import type { CombatState } from "./combat-state";
 import type { CombatantId } from "./combatant-id";
 import { createProcess, shouldAutoAttack } from "./auto-attack";
 import { resolveCombatant } from "./combatant";
+import { resolveModifiers } from "./provisional-modifiers";
 import { resolveUnitStats } from "./provisional-stats";
 import { createEventQueue, type EventQueue } from "./event-queue";
 import { secondsToTicks, ticksToSeconds, type Ticks } from "./time";
@@ -22,7 +23,8 @@ const HARD_CAP_SECONDS = 60;
  * allowed to reach. Events past it are not processed; an earlier event can still
  * end the run sooner.
  *
- * `process` is the seam: a no-op in this skeleton, damage resolution in #47.
+ * `process` is the seam that keeps the loop a pure scheduler: what an event
+ * does to the combat state is injected, never known here.
  * If it returns a `StopSignal`, the loop stops pulling further events and
  * relays that signal upward unchanged — deciding why a run ends early is not
  * the loop's job, only honoring that decision is.
@@ -87,8 +89,9 @@ function resolveStop(stop: StopCondition): {
  * run may last; the loop processes whatever events fall before that limit.
  *
  * Both sides resolve against a provisional profile picked via `unitId`
- * (`resolveUnitStats`) until the real catalog lands. #47 is unidirectional:
- * the target never attacks, so `totalDamageTaken` stays 0.
+ * (`resolveUnitStats`) and provisional item modifiers (`resolveModifiers`)
+ * until the real catalogs land. The run is still unidirectional: the target
+ * never attacks, so `totalDamageTaken` stays 0.
  */
 export function simulate(config: CombatConfig): SimulationResult {
   const { timeLimit, stopReason, lethal } = resolveStop(config.stopCondition);
@@ -97,16 +100,20 @@ export function simulate(config: CombatConfig): SimulationResult {
     resolveUnitStats(config.attacker.unitId),
     config.attacker.starLevel,
     "attacker" as CombatantId,
+    resolveModifiers(config.attacker),
   );
   const target = resolveCombatant(
     resolveUnitStats(config.target.unitId),
     config.target.starLevel,
     "target" as CombatantId,
+    resolveModifiers(config.target),
   );
   const state: CombatState = { attacker, target, totalDamageDealt: 0 };
 
   const queue = createEventQueue();
   if (shouldAutoAttack(attacker)) {
+    // The opening attack fires at combat start, not one interval in — a
+    // provisional cadence choice, confirmed at calibration (#51).
     queue.push({
       kind: "auto-attack",
       time: 0 as Ticks,
