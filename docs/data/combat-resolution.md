@@ -23,21 +23,49 @@ companion to [ADR 0004](../adr/0004-modifier-taxonomy-resolution.md).
 
 Source: community references. Confirm at calibration.
 
-## Mana generation
+## Mana generation (Set 15 roles revamp)
 
-- Per attack, flat by role: 10 (assassin, marksman, fighter), 7 (caster), 5
-  (tank).
-- From damage taken: 1% of pre-mitigation plus 7% of post-mitigation, capped
-  ~42.5 per source.
+In force since TFT15.1 (2025-07-29, Set 15) and unchanged through the current
+set (Set 17, patch 16.13). It replaced the pre-Set-15 system where every unit
+generated mana from damage taken (1% pre- plus 7% post-mitigation).
 
-> **Example** — a caster (7 mana per attack) takes a 200 hit, reduced to 100 by
-> mitigation:
->
-> - from the hit: `1%×200 + 7%×100` = **+9 mana** (1% of pre-, 7% of
->   post-mitigation)
-> - from its next attack: **+7 mana**
+The role is per-champion data (`role` in cdragon `en_us.json`: damage-type
+prefix x role, e.g. `APCaster`, `ADTank`; a few special units carry `null`).
 
-Source: community references; patch-sensitive. Confirm at calibration.
+- Per attack, flat by role: 10 (Fighter, Marksman/"Carry", Assassin/"Reaper"),
+  7 (Caster), 5 (Tank).
+- Per second: Casters generate 2 (role perk). Since Set 15, items grant a
+  distinct `ManaRegen` stat — read as per-second, pinned at calibration.
+- From damage taken: Tanks only — 1% of pre-mitigation plus 3% of
+  post-mitigation, capped ~42.5 per instance.
+- Specialist: unique generation (some units have no mana at all).
+- After casting: mana empties; overflow past the threshold carries into the
+  next bar. No generation for ~1s after a cast (mana lock; per-champion
+  exceptions). Wiki-sourced, undated — patch-sensitive.
+
+Item channels. The cdragon `items` array spans every set (`apiName` prefix
+`TFTn_` = Set n, `TFT_` = core namespace reused across sets): presence in the
+data is not liveness in the current set; liveness resolves at composition.
+
+- Live at patch 16.13 (Set 17, cross-checked vs wiki): per-attack flat
+  (`FlatManaRestore` — Shojin 5), regen stat (`ManaRegen` — Shojin 1,
+  Blue Buff 5).
+- Historical, recurring across sets (the post-cast family): post-cast refund
+  (`ManaRefund`, Blue Buff of the sets 10-14 era; `PostCastMana`, Set 5
+  shadow Blue Buff), post-cast refill over time (`ManaRefill`, Set 16
+  Piltover item), max-mana reduction (`ManaReduction`, same eras), flat
+  starting mana (`Mana`; champion `initialMana` is the structural
+  counterpart, all sets).
+
+> **Example** — at patch 16.13, a Caster (7 per attack, 2 per second) holding
+> Spear of Shojin (`FlatManaRestore` 5, `ManaRegen` 1): +12 mana per attack,
+> +3 mana per second.
+
+Source: Riot "Roles Revamped" article (official — roles, per-attack values,
+Tank-only damage generation, Set 15 scope); cdragon `en_us.json` patch 16.13
+(role field, item variables, apiName set prefixes); wiki cross-check
+(damage-taken coefficients, overflow, mana lock — patch-sensitive).
+Coefficients and the regen unit confirm at calibration.
 
 ## Critical strike
 
@@ -92,10 +120,15 @@ ordering and coefficients are pinned by calibration against the live game.
 
 ## Sources
 
-- Mitigation, mana, crit (community references, patch-sensitive):
-  [TFT:Mana](https://wiki.leagueoflegends.com/en-us/TFT:Mana),
+- Mitigation, crit (community references, patch-sensitive):
   [TFT:Critical strike](https://wiki.leagueoflegends.com/en-us/TFT:Critical_strike),
   [armor & magic resist](https://www.tacter.com/tft/guides/how-armor-and-magic-resistance-works-in-teamfight-tactics-eecf98c2).
+- Mana:
+  [Roles Revamped](https://teamfighttactics.leagueoflegends.com/en-us/news/game-updates/roles-revamped-and-item-changes/)
+  (Riot, official), cdragon `cdragon/tft/en_us.json` patch 16.13 (roles, item
+  variables); cross-check
+  [TFT:Mana](https://wiki.leagueoflegends.com/en-us/TFT:Mana) (community,
+  patch-sensitive).
 - Scaling formula (game data): cdragon
   `game/data/maps/shipping/map22/map22.bin.json` and
   `game/data/characters/<champ>/skins/*.bin.json`.
