@@ -63,6 +63,20 @@ export type Temporality =
 
 export type DamageType = "physical" | "magic" | "true";
 
+/**
+ * The holder event that fires a mana gain. Effects of the holder's own
+ * spell never come through modifiers (they belong to the hand-written spell
+ * functions), so a cast-related trigger always means an equipped source
+ * reacting to the holder's cast — "post-cast" names that timing, after the
+ * cast resolves. The trigger says what fires a gain; `Temporality` says how
+ * long the granting effect lives — the two compose freely.
+ */
+export type ManaTrigger =
+  | "on-attack"
+  | "per-second"
+  | "post-cast"
+  | "on-damage-taken";
+
 export type CrowdControl = "silence" | "stun" | "disarm" | "fear";
 
 export type Modifier =
@@ -100,6 +114,7 @@ export type Modifier =
     }
   | {
       readonly kind: "mana-generation";
+      readonly trigger: ManaTrigger;
       readonly amount: Magnitude;
       readonly temporality: Temporality;
     };

@@ -8,7 +8,7 @@ import type { StopCondition } from "../domain/combat/stop-condition";
 import type { BoardSide } from "../domain/combat/board-side";
 import type { UnitId } from "../domain/primitives";
 import type { CombatantId } from "./combatant-id";
-import { PROVISIONAL_TANKY_UNIT_ID } from "./provisional-stats";
+import { PROVISIONAL_IMMORTAL_UNIT_ID } from "./provisional-stats";
 import {
   PROVISIONAL_SWORD_ITEM_ID,
   PROVISIONAL_PLATING_ITEM_ID,
@@ -67,7 +67,7 @@ test("time_to_kill ends on the target's death, reporting the kill instant", () =
 test("time_to_kill runs to the 60s cap when the target can't be killed in time -> timeout", () => {
   const c: CombatConfig = {
     attacker: side(),
-    target: { ...side(), unitId: PROVISIONAL_TANKY_UNIT_ID },
+    target: { ...side(), unitId: PROVISIONAL_IMMORTAL_UNIT_ID },
     stopCondition: { mode: "time_to_kill" },
   };
   const r = simulate(c);

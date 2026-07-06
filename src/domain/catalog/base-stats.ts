@@ -7,6 +7,19 @@
 
 import type { ScalingByStar } from "../primitives";
 
+/**
+ * How a unit generates mana — its role resolved to plain values at
+ * composition (Set 15 roles revamp: the role fixes these; the engine reads
+ * the values and never knows roles, ADR 0002). `perAttack` lands on each
+ * auto-attack, `perSecond` is a steady flow (Casters), and
+ * `gainsFromDamageTaken` gates the generation on hits taken (Tanks).
+ */
+export type ManaGeneration = {
+  readonly perAttack: number;
+  readonly perSecond: number;
+  readonly gainsFromDamageTaken: boolean;
+};
+
 export type BaseStats = {
   readonly hp: ScalingByStar;
   readonly armor: number;
@@ -21,9 +34,13 @@ export type BaseStats = {
     /** Floor below which mana cannot drop. */
     readonly min: number;
     readonly start: number;
-    /** Threshold required to cast the spell. */
+    /**
+     * Threshold required to cast the spell. Non-positive encodes a unit
+     * with no mana bar at all — it never casts (Specialist role).
+     */
     readonly max: number;
   };
+  readonly manaGeneration: ManaGeneration;
 
   readonly attackDamage: ScalingByStar;
   /** Ability power — the stat that spell damage and other AP effects scale from. */

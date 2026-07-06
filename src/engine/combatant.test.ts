@@ -9,6 +9,7 @@ const stats: BaseStats = {
   magicResist: 30,
   durability: 0,
   mana: { min: 0, start: 0, max: 100 },
+  manaGeneration: { perAttack: 0, perSecond: 0, gainsFromDamageTaken: false },
   attackDamage: { 1: 50, 2: 90, 3: 160 },
   abilityPower: 0,
   attackSpeed: 0.7,

@@ -157,6 +157,7 @@ test("leaves kinds owned by other pipelines untouched", () => {
     },
     {
       kind: "mana-generation",
+      trigger: "on-attack",
       amount: { base: 10 },
       temporality: { kind: "instant" },
     },
