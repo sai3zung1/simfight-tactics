@@ -40,8 +40,9 @@ prefix x role, e.g. `APCaster`, `ADTank`; a few special units carry `null`).
   post-mitigation, capped ~42.5 per instance.
 - Specialist: unique generation (some units have no mana at all).
 - After casting: mana empties; overflow past the threshold carries into the
-  next bar. No generation for ~1s after a cast (mana lock; per-champion
-  exceptions). Wiki-sourced, undated — patch-sensitive.
+  next bar — a Set 12 introduction (excess mana was simply lost before). No
+  generation for ~1s after a cast (mana lock; per-champion exceptions).
+  Carry dated by Set 12 coverage; the rest wiki-sourced — patch-sensitive.
 
 Item channels. The cdragon `items` array spans every set (`apiName` prefix
 `TFTn_` = Set n, `TFT_` = core namespace reused across sets): presence in the
@@ -128,7 +129,8 @@ ordering and coefficients are pinned by calibration against the live game.
   (Riot, official), cdragon `cdragon/tft/en_us.json` patch 16.13 (roles, item
   variables); cross-check
   [TFT:Mana](https://wiki.leagueoflegends.com/en-us/TFT:Mana) (community,
-  patch-sensitive).
+  patch-sensitive); overflow carry dating:
+  [Set 12 mana overflow](https://www.zleague.gg/theportal/team-fight-tactics-tft-huge-mana-change-explained/).
 - Scaling formula (game data): cdragon
   `game/data/maps/shipping/map22/map22.bin.json` and
   `game/data/characters/<champ>/skins/*.bin.json`.
