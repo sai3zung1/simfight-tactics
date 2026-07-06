@@ -1,12 +1,12 @@
-import type { CombatEvent } from "./combat-event";
-import type { CombatState } from "./combat-state";
-import type { Combatant } from "./combatant";
-import type { CombatantId } from "./combatant-id";
-import type { EventQueue } from "./event-queue";
-import type { StopSignal } from "./stop-signal";
+import type { CombatEvent } from "../loop/combat-event";
+import type { CombatState } from "../loop/combat-state";
+import type { Combatant } from "../stats/combatant";
+import type { CombatantId } from "../stats/combatant-id";
+import type { EventQueue } from "../loop/event-queue";
+import type { StopSignal } from "../loop/stop-signal";
 import { resolveDamage } from "./resolve-damage";
 import { expected } from "./crit-policy";
-import { secondsToTicks, type Ticks } from "./time";
+import { secondsToTicks, type Ticks } from "../loop/time";
 
 /**
  * Interval between two auto-attacks, from attacks-per-second to ticks.

@@ -3,16 +3,16 @@ import { simulate, runLoop } from "./simulate";
 import { createEventQueue } from "./event-queue";
 import type { CombatEvent } from "./combat-event";
 import type { Ticks } from "./time";
-import type { CombatConfig } from "../domain/combat/combat-config";
-import type { StopCondition } from "../domain/combat/stop-condition";
-import type { BoardSide } from "../domain/combat/board-side";
-import type { UnitId } from "../domain/primitives";
-import type { CombatantId } from "./combatant-id";
-import { PROVISIONAL_IMMORTAL_UNIT_ID } from "./provisional-stats";
+import type { CombatConfig } from "../../domain/combat/combat-config";
+import type { StopCondition } from "../../domain/combat/stop-condition";
+import type { BoardSide } from "../../domain/combat/board-side";
+import type { UnitId } from "../../domain/primitives";
+import type { CombatantId } from "../stats/combatant-id";
+import { PROVISIONAL_IMMORTAL_UNIT_ID } from "../provisional/provisional-stats";
 import {
   PROVISIONAL_SWORD_ITEM_ID,
   PROVISIONAL_PLATING_ITEM_ID,
-} from "./provisional-modifiers";
+} from "../provisional/provisional-modifiers";
 
 // Fixtures: a minimal CombatConfig. `simulate` resolves both sides against a
 // fixed provisional stat profile (provisional-stats.ts) and provisional item

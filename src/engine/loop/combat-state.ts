@@ -1,4 +1,4 @@
-import type { Combatant } from "./combatant";
+import type { Combatant } from "../stats/combatant";
 
 /**
  * The full runtime state of one simulation: both combatants plus counters

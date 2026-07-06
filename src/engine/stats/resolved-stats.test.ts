@@ -1,6 +1,6 @@
 import { test, expect } from "bun:test";
 import { resolveStats } from "./resolved-stats";
-import type { BaseStats } from "../domain/catalog/base-stats";
+import type { BaseStats } from "../../domain/catalog/base-stats";
 
 const stats: BaseStats = {
   hp: { 1: 500, 2: 900, 3: 1600 },

@@ -1,4 +1,4 @@
-import type { DamageType } from "../domain/catalog/modifier";
+import type { DamageType } from "../../domain/catalog/modifier";
 
 /**
  * resolveDamage — a hit's damage pipeline: amplification → crit → mitigation

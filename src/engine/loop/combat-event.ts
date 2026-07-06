@@ -1,5 +1,5 @@
 import type { Ticks } from "./time";
-import type { CombatantId } from "./combatant-id";
+import type { CombatantId } from "../stats/combatant-id";
 
 /**
  * CombatEvent — one scheduled occurrence the loop orders and processes.

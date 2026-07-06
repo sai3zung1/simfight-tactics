@@ -1,17 +1,17 @@
-import type { CombatConfig } from "../domain/combat/combat-config";
-import type { StopCondition } from "../domain/combat/stop-condition";
+import type { CombatConfig } from "../../domain/combat/combat-config";
+import type { StopCondition } from "../../domain/combat/stop-condition";
 import type {
   SimulationResult,
   StopReason,
-} from "../domain/combat/simulation-result";
+} from "../../domain/combat/simulation-result";
 import type { CombatEvent } from "./combat-event";
 import type { StopSignal } from "./stop-signal";
 import type { CombatState } from "./combat-state";
-import type { CombatantId } from "./combatant-id";
-import { createProcess, shouldAutoAttack } from "./auto-attack";
-import { resolveCombatant } from "./combatant";
-import { resolveModifiers } from "./provisional-modifiers";
-import { resolveUnitStats } from "./provisional-stats";
+import type { CombatantId } from "../stats/combatant-id";
+import { createProcess, shouldAutoAttack } from "../mechanics/auto-attack";
+import { resolveCombatant } from "../stats/combatant";
+import { resolveModifiers } from "../provisional/provisional-modifiers";
+import { resolveUnitStats } from "../provisional/provisional-stats";
 import { createEventQueue, type EventQueue } from "./event-queue";
 import { secondsToTicks, ticksToSeconds, type Ticks } from "./time";
 

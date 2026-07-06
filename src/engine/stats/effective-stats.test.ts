@@ -6,7 +6,7 @@ import type {
   ModifiableStat,
   Modifier,
   StarValue,
-} from "../domain/catalog/modifier";
+} from "../../domain/catalog/modifier";
 
 const base: ResolvedStats = {
   hp: 1000,

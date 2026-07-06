@@ -1,6 +1,6 @@
-import type { BaseStats } from "../domain/catalog/base-stats";
-import type { Modifier } from "../domain/catalog/modifier";
-import type { StarLevel } from "../domain/primitives";
+import type { BaseStats } from "../../domain/catalog/base-stats";
+import type { Modifier } from "../../domain/catalog/modifier";
+import type { StarLevel } from "../../domain/primitives";
 import type { CombatantId } from "./combatant-id";
 import {
   applyModifiers,

@@ -1,5 +1,5 @@
-import type { BaseStats } from "../domain/catalog/base-stats";
-import type { ScalingByStar, StarLevel } from "../domain/primitives";
+import type { BaseStats } from "../../domain/catalog/base-stats";
+import type { ScalingByStar, StarLevel } from "../../domain/primitives";
 
 /**
  * A combatant's stats for one specific star level — `BaseStats` with the

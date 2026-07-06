@@ -1,12 +1,12 @@
 import { test, expect } from "bun:test";
 import { attackInterval, shouldAutoAttack, createProcess } from "./auto-attack";
-import { createEventQueue } from "./event-queue";
-import type { Combatant } from "./combatant";
-import type { ResolvedStats } from "./resolved-stats";
-import type { CombatState } from "./combat-state";
-import type { CombatantId } from "./combatant-id";
-import type { CombatEvent } from "./combat-event";
-import type { Ticks } from "./time";
+import { createEventQueue } from "../loop/event-queue";
+import type { Combatant } from "../stats/combatant";
+import type { ResolvedStats } from "../stats/resolved-stats";
+import type { CombatState } from "../loop/combat-state";
+import type { CombatantId } from "../stats/combatant-id";
+import type { CombatEvent } from "../loop/combat-event";
+import type { Ticks } from "../loop/time";
 
 const makeCombatant = (
   id: string,
