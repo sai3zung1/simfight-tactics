@@ -109,8 +109,9 @@ store is not yet walked.
 
 The per-kind pipeline shapes are fixed in ADR 0004 (damage: bonus,
 amplification, critical strike, mitigation; heal: amplification, anti-heal;
-shield: amplification; mana: per-attack and from damage-taken). Their internal
-ordering and coefficients are pinned by calibration against the live game.
+shield: amplification; mana: per-attack, per-second, from damage-taken, and
+post-cast). Their internal ordering and coefficients are pinned by calibration
+against the live game.
 
 > **Example** — illustrative; the stage order is the candidate to confirm at
 > calibration. A 300 base hit, +50% amplification, a crit, into 100 armor:
