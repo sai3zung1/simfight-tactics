@@ -1,18 +1,21 @@
 import { test, expect } from "bun:test";
-import { applyModifiers } from "./effective-stats";
+import { applyModifiers, resolveManaGains } from "./effective-stats";
 import type { ResolvedStats } from "./resolved-stats";
 import type {
   Magnitude,
+  ManaTrigger,
   ModifiableStat,
   Modifier,
   StarValue,
-} from "../domain/catalog/modifier";
+} from "../../domain/catalog/modifier";
 
 const base: ResolvedStats = {
   hp: 1000,
   armor: 30,
   magicResist: 30,
   durability: 0,
+  mana: { min: 0, start: 0, max: 100 },
+  manaGeneration: { perAttack: 0, perSecond: 0, gainsFromDamageTaken: false },
   attackDamage: 100,
   attackSpeed: 0.8,
   critChance: 0.25,
@@ -35,6 +38,42 @@ const scaledStatMod = (
   target,
   amount,
   temporality: { kind: "instant" },
+});
+
+const manaGen = (trigger: ManaTrigger, amount: number): Modifier => ({
+  kind: "mana-generation",
+  trigger,
+  amount: { base: amount },
+  temporality: { kind: "instant" },
+});
+
+test("resolveManaGains buckets each modifier under its trigger", () => {
+  const gains = resolveManaGains(
+    [
+      manaGen("on-attack", 5),
+      manaGen("on-attack", 2),
+      manaGen("per-second", 1),
+      manaGen("post-cast", 20),
+    ],
+    1,
+    base,
+  );
+  expect(gains).toEqual({
+    "on-attack": 7,
+    "per-second": 1,
+    "post-cast": 20,
+    "on-damage-taken": 0,
+  });
+});
+
+test("resolveManaGains ignores every other modifier kind", () => {
+  const gains = resolveManaGains([statMod("armor", 10)], 1, base);
+  expect(gains).toEqual({
+    "on-attack": 0,
+    "per-second": 0,
+    "post-cast": 0,
+    "on-damage-taken": 0,
+  });
 });
 
 test("returns the base view untouched when no modifiers are active", () => {
@@ -157,6 +196,7 @@ test("leaves kinds owned by other pipelines untouched", () => {
     },
     {
       kind: "mana-generation",
+      trigger: "on-attack",
       amount: { base: 10 },
       temporality: { kind: "instant" },
     },

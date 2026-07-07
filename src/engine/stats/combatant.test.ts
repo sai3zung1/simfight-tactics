@@ -1,7 +1,8 @@
 import { test, expect } from "bun:test";
 import { resolveCombatant } from "./combatant";
 import type { CombatantId } from "./combatant-id";
-import type { BaseStats } from "../domain/catalog/base-stats";
+import type { Ticks } from "../loop/time";
+import type { BaseStats } from "../../domain/catalog/base-stats";
 
 const stats: BaseStats = {
   hp: { 1: 500, 2: 900, 3: 1600 },
@@ -9,6 +10,7 @@ const stats: BaseStats = {
   magicResist: 30,
   durability: 0,
   mana: { min: 0, start: 0, max: 100 },
+  manaGeneration: { perAttack: 0, perSecond: 0, gainsFromDamageTaken: false },
   attackDamage: { 1: 50, 2: 90, 3: 160 },
   abilityPower: 0,
   attackSpeed: 0.7,
@@ -22,6 +24,21 @@ test("starts at full resolved HP for its star level", () => {
   const combatant = resolveCombatant(stats, 3, "attacker" as CombatantId, []);
   expect(combatant.currentHp).toBe(1600);
   expect(combatant.stats.hp).toBe(1600);
+});
+
+test("starts at its starting mana with the generation lock open", () => {
+  const withStartMana: BaseStats = {
+    ...stats,
+    mana: { min: 0, start: 30, max: 100 },
+  };
+  const combatant = resolveCombatant(
+    withStartMana,
+    1,
+    "attacker" as CombatantId,
+    [],
+  );
+  expect(combatant.currentMana).toBe(30);
+  expect(combatant.manaLockedUntil).toBe(0 as Ticks);
 });
 
 test("carries the id it was given", () => {
@@ -51,6 +68,19 @@ test("starts at full effective HP when a modifier raises max HP", () => {
     },
   ]);
   expect(combatant.currentHp).toBe(700);
+});
+
+test("resolves mana-generation modifiers into per-trigger gains", () => {
+  const combatant = resolveCombatant(stats, 1, "attacker" as CombatantId, [
+    {
+      kind: "mana-generation",
+      trigger: "on-attack",
+      amount: { base: 5 },
+      temporality: { kind: "instant" },
+    },
+  ]);
+  expect(combatant.manaGains["on-attack"]).toBe(5);
+  expect(combatant.manaGains["post-cast"]).toBe(0);
 });
 
 test("carries damage-reduction modifiers as their own lane, apart from durability", () => {

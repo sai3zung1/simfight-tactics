@@ -1,6 +1,6 @@
 import { test, expect } from "bun:test";
 import { resolveStats } from "./resolved-stats";
-import type { BaseStats } from "../domain/catalog/base-stats";
+import type { BaseStats } from "../../domain/catalog/base-stats";
 
 const stats: BaseStats = {
   hp: { 1: 500, 2: 900, 3: 1600 },
@@ -8,6 +8,7 @@ const stats: BaseStats = {
   magicResist: 30,
   durability: 0.15,
   mana: { min: 0, start: 0, max: 100 },
+  manaGeneration: { perAttack: 0, perSecond: 0, gainsFromDamageTaken: false },
   attackDamage: { 1: 50, 2: 90, 3: 160 },
   abilityPower: 0,
   attackSpeed: 0.7,
@@ -23,6 +24,8 @@ test("resolves the per-star fields to the chosen star level", () => {
     armor: 30,
     magicResist: 30,
     durability: 0.15,
+    mana: { min: 0, start: 0, max: 100 },
+    manaGeneration: { perAttack: 0, perSecond: 0, gainsFromDamageTaken: false },
     attackDamage: 90,
     attackSpeed: 0.7,
     critChance: 0.25,

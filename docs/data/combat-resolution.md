@@ -39,9 +39,11 @@ prefix x role, e.g. `APCaster`, `ADTank`; a few special units carry `null`).
 - From damage taken: Tanks only — 1% of pre-mitigation plus 3% of
   post-mitigation, capped ~42.5 per instance.
 - Specialist: unique generation (some units have no mana at all).
-- After casting: mana empties; overflow past the threshold carries into the
-  next bar. No generation for ~1s after a cast (mana lock; per-champion
-  exceptions). Wiki-sourced, undated — patch-sensitive.
+- After casting: mana empties. A Set 12 overflow carry (excess past the
+  threshold carried into the next bar; simply lost before) is not confirmed
+  for the current system — no Set 15+ source mentions it; resolve in-game at
+  calibration. No generation for ~1s after a cast (mana lock; per-champion
+  exceptions) — wiki-sourced, patch-sensitive.
 
 Item channels. The cdragon `items` array spans every set (`apiName` prefix
 `TFTn_` = Set n, `TFT_` = core namespace reused across sets): presence in the
@@ -107,8 +109,9 @@ store is not yet walked.
 
 The per-kind pipeline shapes are fixed in ADR 0004 (damage: bonus,
 amplification, critical strike, mitigation; heal: amplification, anti-heal;
-shield: amplification; mana: per-attack and from damage-taken). Their internal
-ordering and coefficients are pinned by calibration against the live game.
+shield: amplification; mana: per-attack, per-second, from damage-taken, and
+post-cast). Their internal ordering and coefficients are pinned by calibration
+against the live game.
 
 > **Example** — illustrative; the stage order is the candidate to confirm at
 > calibration. A 300 base hit, +50% amplification, a crit, into 100 armor:
@@ -128,7 +131,8 @@ ordering and coefficients are pinned by calibration against the live game.
   (Riot, official), cdragon `cdragon/tft/en_us.json` patch 16.13 (roles, item
   variables); cross-check
   [TFT:Mana](https://wiki.leagueoflegends.com/en-us/TFT:Mana) (community,
-  patch-sensitive).
+  patch-sensitive); overflow carry dating:
+  [Set 12 mana overflow](https://www.zleague.gg/theportal/team-fight-tactics-tft-huge-mana-change-explained/).
 - Scaling formula (game data): cdragon
   `game/data/maps/shipping/map22/map22.bin.json` and
   `game/data/characters/<champ>/skins/*.bin.json`.

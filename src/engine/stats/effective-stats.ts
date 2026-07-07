@@ -1,19 +1,24 @@
 import type {
   Magnitude,
+  ManaTrigger,
   ModifiableStat,
   Modifier,
   ScalingSource,
   StarValue,
-} from "../domain/catalog/modifier";
-import type { StarLevel } from "../domain/primitives";
+} from "../../domain/catalog/modifier";
+import type { StarLevel } from "../../domain/primitives";
 import { resolveScaling, type ResolvedStats } from "./resolved-stats";
 
 /**
- * EffectiveStats — the only stats view the loop reads: the star-resolved base
- * with the active modifiers folded in (ADR 0002: neutral base state plus
- * applied modifiers). A derived view, never a source of truth — recomputable
- * from (base, active set) at any moment. Structurally the base view today;
- * the distinct name keeps pre-fold and post-fold values apart in signatures.
+ * A unit's stats once the active modifiers are applied — the view the
+ * combat loop reads (ADR 0002: every effect is a modifier applied to a
+ * neutral base state). Comments in this file call that one-pass
+ * application "the fold".
+ *
+ * Second of the two stat views: same shape as `ResolvedStats`
+ * (resolved-stats.ts), distinct name so a signature declares "modifiers
+ * already applied". This is a derived view: when the active set changes,
+ * recompute it. Nothing edits it in place.
  */
 export type EffectiveStats = ResolvedStats;
 
@@ -23,7 +28,7 @@ function resolveStarValue(value: StarValue, starLevel: StarLevel): number {
 }
 
 /**
- * Sum of the stats a magnitude scales from, read on the pre-fold base — a
+ * Sum of the stats a magnitude scales from, read on the pre-fold base. A
  * scaled amount never sees another modifier's output, so application order
  * cannot matter. Several sources sum; that is the natural reading of the
  * taxonomy, not a sourced game rule — revisit if calibration (#51) proves
@@ -132,7 +137,8 @@ function applyStatMod(
  * Each `damage-reduction` modifier resolved to its plain amount, one entry
  * per source. Deliberately kept apart from the durability stat: the two
  * reduce damage under different stacking rules (`reductionFactor` in damage
- * resolution).
+ * resolution). `Temporality` is not read yet: every reduction behaves as
+ * combat-long (durations arrive with spell modeling).
  */
 export function resolveDamageReductions(
   modifiers: readonly Modifier[],
@@ -149,12 +155,50 @@ export function resolveDamageReductions(
 }
 
 /**
+ * One resolved amount per mana trigger. Built once at combat start; the
+ * mana pipeline (mechanics/mana.ts) reads the bucket matching the event it
+ * processes. The `Record` is exhaustive by construction: a new
+ * `ManaTrigger` breaks compilation here, never a silent zero.
+ */
+export type ManaGains = Readonly<Record<ManaTrigger, number>>;
+
+/**
+ * Each `mana-generation` modifier resolved to its plain amount and
+ * bucketed by trigger — the same combat-start, one-pass resolution as
+ * `resolveDamageReductions`. `Temporality` is not read yet: every gain
+ * behaves as combat-long (durations arrive with spell modeling).
+ */
+export function resolveManaGains(
+  modifiers: readonly Modifier[],
+  starLevel: StarLevel,
+  base: ResolvedStats,
+): ManaGains {
+  const gains: Record<ManaTrigger, number> = {
+    "on-attack": 0,
+    "per-second": 0,
+    "post-cast": 0,
+    "on-damage-taken": 0,
+  };
+  for (const modifier of modifiers) {
+    if (modifier.kind === "mana-generation") {
+      gains[modifier.trigger] += resolveMagnitude(
+        modifier.amount,
+        starLevel,
+        base,
+      );
+    }
+  }
+  return gains;
+}
+
+/**
  * Fold the active modifiers into the base view — one pass, pure. Only
  * `stat-mod` lands here: every other kind is resolved by its own pipeline
- * (damage-reduction in damage resolution; mana-generation, crowd-control and
- * the damage/heal/shield of spells by pipelines still to come, #49/#50),
- * never by stat folding. The exhaustive switch makes a future kind a compile
- * break, not a silent skip.
+ * (damage-reduction in damage resolution, mana-generation in the mana
+ * pipeline via `resolveManaGains`; crowd-control comes with #50, the
+ * damage/heal/shield of spells with spell modeling), never by stat
+ * folding. The exhaustive switch makes a future kind a compile break, not
+ * a silent skip.
  */
 export function applyModifiers(
   base: ResolvedStats,

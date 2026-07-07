@@ -1,7 +1,7 @@
 import { test, expect } from "bun:test";
 import { createEventQueue, type EventQueue } from "./event-queue";
 import type { CombatEvent } from "./combat-event";
-import type { CombatantId } from "./combatant-id";
+import type { CombatantId } from "../stats/combatant-id";
 import type { Ticks } from "./time";
 
 // Fixtures build a CombatEvent at a given tick. Tests cast directly; the engine's

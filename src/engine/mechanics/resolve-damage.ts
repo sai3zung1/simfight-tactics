@@ -1,16 +1,28 @@
-import type { DamageType } from "../domain/catalog/modifier";
+import type { DamageType } from "../../domain/catalog/modifier";
+
+/**
+ * The two numbers one hit produces: `preMitigated` is the damage heading
+ * into mitigation (amplification and crit applied), `dealt` is what lands
+ * after mitigation and reduction. The damage-taken mana conversion reads
+ * both; where exactly the pre-mitigation boundary sits is provisional
+ * until calibration (#51).
+ */
+export type ResolvedHit = {
+  readonly preMitigated: number;
+  readonly dealt: number;
+};
 
 /**
  * resolveDamage — a hit's damage pipeline: amplification → crit → mitigation
- * → reduction. Returns the damage dealt, mutates nothing. `critFactor` arrives
- * pre-computed (the CritPolicy is applied upstream); the other factors are
- * derived here from the attacker's and target's stats.
+ * → reduction. Returns the hit's two numbers, mutates nothing. `critFactor`
+ * arrives pre-computed (the CritPolicy is applied upstream); the other factors
+ * are derived here from the attacker's and target's stats.
  *
  * Order is provisional: the shape (bonus → amp → crit → mitigation) comes from ADR 0004,
  * extended here with the reduction stage; the internal order and coefficients are still
- * to be set by calibration. While every stage is a factor of one product the order is
- * commutative — it becomes significant the day `bonus` (flat, no source yet) slots in
- * before amplification.
+ * to be set by calibration. Today every stage multiplies into one product, so their
+ * order cannot change the result. Order starts to matter the day the flat `bonus`
+ * stage (no source yet) lands.
  */
 export function resolveDamage(
   hit: { amount: number; damageType: DamageType },
@@ -22,11 +34,11 @@ export function resolveDamage(
     damageReductions: readonly number[];
   },
   critFactor: number,
-): number {
-  const amplified = amplify(attacker.damageAmp);
+): ResolvedHit {
+  const preMitigated = hit.amount * amplify(attacker.damageAmp) * critFactor;
   const mitigated = mitigationFactor(hit.damageType, target);
   const reduced = reductionFactor(target.durability, target.damageReductions);
-  return hit.amount * amplified * critFactor * mitigated * reduced;
+  return { preMitigated, dealt: preMitigated * mitigated * reduced };
 }
 
 /** Fixed game constant of the mitigation formula, not a stat (combat-resolution.md). */

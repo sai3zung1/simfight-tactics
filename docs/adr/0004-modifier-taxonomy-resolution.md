@@ -30,10 +30,11 @@ families recurs while variable names change almost entirely each set.
 
 3. **Resolution.** Each effect kind has its own resolution pipeline — for damage:
    bonus, amplification, critical strike, mitigation; for heal: amplification,
-   anti-heal; for shield: amplification; for mana: per-attack and from
-   damage-taken. The pipeline shapes are fixed here. The ordering and
-   coefficients within each pipeline are determined by calibration against the
-   live game and are not fixed by this record.
+   anti-heal; for shield: amplification; for mana: per-attack, per-second, from
+   damage-taken, and post-cast (amended with the Set 15 roles revamp, verified
+   against the official announcement and the game data). The pipeline shapes are
+   fixed here. The ordering and coefficients within each pipeline are determined
+   by calibration against the live game and are not fixed by this record.
 
 4. **Extension.** The taxonomy is extended when a later-implemented category
    presents an effect it cannot express.

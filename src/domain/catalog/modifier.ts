@@ -51,6 +51,7 @@ export type Magnitude = {
   readonly sources?: readonly ScalingSource[];
 };
 
+/** How long a modifier's effect lives once it applies. */
 export type Temporality =
   | { readonly kind: "instant" }
   | { readonly kind: "duration"; readonly seconds: StarValue }
@@ -63,8 +64,29 @@ export type Temporality =
 
 export type DamageType = "physical" | "magic" | "true";
 
+/**
+ * The holder event that fires a mana gain. The trigger says what fires a
+ * gain; `Temporality` says how long the granting effect lives.
+ *
+ * A spell refunding its own caster never comes through modifiers (spell
+ * effects live in hand-written spell functions), so "post-cast" always
+ * means an equipped source reacting to the holder's finished cast.
+ */
+export type ManaTrigger =
+  | "on-attack"
+  | "per-second"
+  | "post-cast"
+  | "on-damage-taken";
+
 export type CrowdControl = "silence" | "stun" | "disarm" | "fear";
 
+/**
+ * The engine's whole vocabulary of combat effects: every item, trait,
+ * augment or spell effect is expressed as one of these kinds, applied to a
+ * neutral base state (ADR 0002). One kind per resolution pipeline; the set
+ * is frozen by ADR 0004 and only grows when real data presents an effect
+ * it cannot express.
+ */
 export type Modifier =
   | {
       readonly kind: "damage";
@@ -100,6 +122,7 @@ export type Modifier =
     }
   | {
       readonly kind: "mana-generation";
+      readonly trigger: ManaTrigger;
       readonly amount: Magnitude;
       readonly temporality: Temporality;
     };

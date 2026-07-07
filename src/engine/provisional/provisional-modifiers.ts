@@ -1,6 +1,6 @@
-import type { BoardSide } from "../domain/combat/board-side";
-import type { Modifier } from "../domain/catalog/modifier";
-import type { ItemId } from "../domain/primitives";
+import type { BoardSide } from "../../domain/combat/board-side";
+import type { Modifier } from "../../domain/catalog/modifier";
+import type { ItemId } from "../../domain/primitives";
 
 /**
  * Stand-in modifier source until the item, augment, unit and trait catalogs

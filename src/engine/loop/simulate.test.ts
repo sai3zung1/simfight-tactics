@@ -3,16 +3,21 @@ import { simulate, runLoop } from "./simulate";
 import { createEventQueue } from "./event-queue";
 import type { CombatEvent } from "./combat-event";
 import type { Ticks } from "./time";
-import type { CombatConfig } from "../domain/combat/combat-config";
-import type { StopCondition } from "../domain/combat/stop-condition";
-import type { BoardSide } from "../domain/combat/board-side";
-import type { UnitId } from "../domain/primitives";
-import type { CombatantId } from "./combatant-id";
-import { PROVISIONAL_TANKY_UNIT_ID } from "./provisional-stats";
+import type { CombatConfig } from "../../domain/combat/combat-config";
+import type { StopCondition } from "../../domain/combat/stop-condition";
+import type { BoardSide } from "../../domain/combat/board-side";
+import type { UnitId } from "../../domain/primitives";
+import type { CombatantId } from "../stats/combatant-id";
+import {
+  PROVISIONAL_CASTER_UNIT_ID,
+  PROVISIONAL_IMMORTAL_UNIT_ID,
+  PROVISIONAL_NO_MANA_UNIT_ID,
+  PROVISIONAL_TANK_UNIT_ID,
+} from "../provisional/provisional-stats";
 import {
   PROVISIONAL_SWORD_ITEM_ID,
   PROVISIONAL_PLATING_ITEM_ID,
-} from "./provisional-modifiers";
+} from "../provisional/provisional-modifiers";
 
 // Fixtures: a minimal CombatConfig. `simulate` resolves both sides against a
 // fixed provisional stat profile (provisional-stats.ts) and provisional item
@@ -67,7 +72,7 @@ test("time_to_kill ends on the target's death, reporting the kill instant", () =
 test("time_to_kill runs to the 60s cap when the target can't be killed in time -> timeout", () => {
   const c: CombatConfig = {
     attacker: side(),
-    target: { ...side(), unitId: PROVISIONAL_TANKY_UNIT_ID },
+    target: { ...side(), unitId: PROVISIONAL_IMMORTAL_UNIT_ID },
     stopCondition: { mode: "time_to_kill" },
   };
   const r = simulate(c);
@@ -98,6 +103,45 @@ test("first_trigger ends on the target's death when it dies before the timer -> 
 test("deterministic: same config yields an identical result", () => {
   const c = config({ mode: "fixed_duration", durationSeconds: 8 });
   expect(simulate(c)).toEqual(simulate(c));
+});
+
+test("the attacker casts from attacking: the per-attack path end to end", () => {
+  const r = simulate(config({ mode: "fixed_duration", durationSeconds: 15 }));
+  expect(r.attackerCasts).toBeGreaterThanOrEqual(1);
+  // The default fighter profile gains nothing from hits taken.
+  expect(r.targetCasts).toBe(0);
+});
+
+test("a tank target casts from taking hits: the damage-taken path end to end", () => {
+  const c: CombatConfig = {
+    attacker: side(),
+    target: { ...side(), unitId: PROVISIONAL_TANK_UNIT_ID },
+    stopCondition: { mode: "fixed_duration", durationSeconds: 60 },
+  };
+  const r = simulate(c);
+  expect(r.targetCasts).toBeGreaterThanOrEqual(1);
+});
+
+test("a caster target casts without ever attacking: the regen path end to end", () => {
+  const c: CombatConfig = {
+    attacker: side(),
+    target: { ...side(), unitId: PROVISIONAL_CASTER_UNIT_ID },
+    stopCondition: { mode: "fixed_duration", durationSeconds: 60 },
+  };
+  const r = simulate(c);
+  // The caster profile gains nothing from hits taken: only its 2/s flow
+  // can have filled the gauge.
+  expect(r.targetCasts).toBeGreaterThanOrEqual(1);
+});
+
+test("a unit with no mana bar never casts, however long the run", () => {
+  const c: CombatConfig = {
+    attacker: { ...side(), unitId: PROVISIONAL_NO_MANA_UNIT_ID },
+    target: side(),
+    stopCondition: { mode: "fixed_duration", durationSeconds: 30 },
+  };
+  const r = simulate(c);
+  expect(r.attackerCasts).toBe(0);
 });
 
 test("an attack-damage item on the attacker raises the damage dealt", () => {

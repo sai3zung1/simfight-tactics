@@ -7,7 +7,6 @@
  * - `fixed_duration` — immortal target; runs the full user duration to
  *   measure total damage over a window.
  * - `first_trigger`  — mortal target; ends at the first of {death, timer}.
- *   The default mode.
  *
  * The 60-second hard cap on `time_to_kill` lives inside the engine and is
  * not surfaced in this input shape.

@@ -1,11 +1,12 @@
 /**
- * CritPolicy — the crit multiplier applied to a hit, derived from the attacker's crit
- * stats. Computed upstream (by the producer) and passed to `resolveDamage` as a ready
- * number: the pipeline stays unaware of the crit mechanic.
+ * The crit multiplier applied to a hit, derived from the attacker's crit
+ * stats. Computed by the caller and passed to `resolveDamage` as a ready
+ * number, so the damage pipeline stays unaware of the crit mechanic.
  *
- * Three faces: `expected` — the deterministic policy the engine runs on — and
- * the bounds `neverCrit` / `alwaysCrit`, which bracket it in tests and become
- * the extremes of the roll if a stochastic mode is ever added.
+ * `expected` is the deterministic policy the engine runs on; `neverCrit`
+ * and `alwaysCrit` are its lower and upper bounds, used to bracket it in
+ * tests. They would become the extremes of the roll if a stochastic mode
+ * is ever added.
  */
 export type CritPolicy = (critChance: number, critDamage: number) => number;
 

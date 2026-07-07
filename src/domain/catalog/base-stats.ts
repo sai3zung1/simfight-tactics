@@ -7,6 +7,19 @@
 
 import type { ScalingByStar } from "../primitives";
 
+/**
+ * How a unit generates mana. In the game the amounts follow the unit's
+ * role; the data pipeline resolves that role to these plain numbers, so
+ * the engine reads values and never knows roles (ADR 0002).
+ * `gainsFromDamageTaken` gates the hits-taken generation — only Tanks
+ * have it.
+ */
+export type ManaGeneration = {
+  readonly perAttack: number;
+  readonly perSecond: number;
+  readonly gainsFromDamageTaken: boolean;
+};
+
 export type BaseStats = {
   readonly hp: ScalingByStar;
   readonly armor: number;
@@ -21,12 +34,16 @@ export type BaseStats = {
     /** Floor below which mana cannot drop. */
     readonly min: number;
     readonly start: number;
-    /** Threshold required to cast the spell. */
+    /**
+     * Threshold required to cast the spell. Non-positive encodes a unit
+     * with no mana bar at all — it never casts (Specialist role).
+     */
     readonly max: number;
   };
+  readonly manaGeneration: ManaGeneration;
 
   readonly attackDamage: ScalingByStar;
-  /** Ability power — the stat that spell damage and other AP effects scale from. */
+  /** The stat that spell damage and other ability-power effects scale from. */
   readonly abilityPower: number;
   /** In attacks per second. */
   readonly attackSpeed: number;
