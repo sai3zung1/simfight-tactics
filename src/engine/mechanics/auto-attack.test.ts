@@ -15,12 +15,16 @@ const makeCombatant = (
 ): Combatant => ({
   id: id as CombatantId,
   currentHp,
+  currentMana: 0,
+  manaLockedUntil: 0 as Ticks,
   damageReductions: [],
   stats: {
     hp: 1000,
     armor: 0,
     magicResist: 0,
     durability: 0,
+    mana: { min: 0, start: 0, max: 100 },
+    manaGeneration: { perAttack: 0, perSecond: 0, gainsFromDamageTaken: false },
     attackDamage: 100,
     attackSpeed: 1,
     critChance: 0,

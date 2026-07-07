@@ -9,11 +9,15 @@ import type { StarLevel } from "../../domain/primitives";
 import { resolveScaling, type ResolvedStats } from "./resolved-stats";
 
 /**
- * EffectiveStats — the only stats view the loop reads: the star-resolved base
- * with the active modifiers folded in (ADR 0002: neutral base state plus
- * applied modifiers). A derived view, never a source of truth — recomputable
- * from (base, active set) at any moment. Structurally the base view today;
- * the distinct name keeps pre-fold and post-fold values apart in signatures.
+ * A unit's stats once the active modifiers are applied — the view the
+ * combat loop reads (ADR 0002: every effect is a modifier applied to a
+ * neutral base state). Comments in this file call that one-pass
+ * application "the fold".
+ *
+ * Second of the two stat views: same shape as `ResolvedStats`
+ * (resolved-stats.ts), distinct name so a signature declares "modifiers
+ * already applied". This is a derived view: when the active set changes,
+ * recompute it. Nothing edits it in place.
  */
 export type EffectiveStats = ResolvedStats;
 
@@ -23,7 +27,7 @@ function resolveStarValue(value: StarValue, starLevel: StarLevel): number {
 }
 
 /**
- * Sum of the stats a magnitude scales from, read on the pre-fold base — a
+ * Sum of the stats a magnitude scales from, read on the pre-fold base. A
  * scaled amount never sees another modifier's output, so application order
  * cannot matter. Several sources sum; that is the natural reading of the
  * taxonomy, not a sourced game rule — revisit if calibration (#51) proves

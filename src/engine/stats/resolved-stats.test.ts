@@ -24,6 +24,8 @@ test("resolves the per-star fields to the chosen star level", () => {
     armor: 30,
     magicResist: 30,
     durability: 0.15,
+    mana: { min: 0, start: 0, max: 100 },
+    manaGeneration: { perAttack: 0, perSecond: 0, gainsFromDamageTaken: false },
     attackDamage: 90,
     attackSpeed: 0.7,
     critChance: 0.25,

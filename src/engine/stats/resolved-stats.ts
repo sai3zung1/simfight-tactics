@@ -1,18 +1,25 @@
-import type { BaseStats } from "../../domain/catalog/base-stats";
+import type {
+  BaseStats,
+  ManaGeneration,
+} from "../../domain/catalog/base-stats";
 import type { ScalingByStar, StarLevel } from "../../domain/primitives";
 
 /**
- * A combatant's stats for one specific star level — `BaseStats` with the
- * per-star fields collapsed to plain numbers, narrowed to the fields the
- * combat pipeline actually reads. Resolved once here so nothing downstream
- * (damage resolution, crit, cadence) needs to know the combatant's star level
- * or unpack a per-star table again.
+ * Collapse the per-star tables of `BaseStats` into plain numbers, once, so
+ * nothing downstream ever asks "which star level?" again.
+ *
+ * First of the two stat views: `ResolvedStats` holds a unit's numbers
+ * before modifiers; `EffectiveStats` (effective-stats.ts) is the same
+ * shape after them.
  */
 export type ResolvedStats = {
   readonly hp: number;
   readonly armor: number;
   readonly magicResist: number;
   readonly durability: number;
+  /** Both pass through as-is: mana does not vary by star in the game data. */
+  readonly mana: BaseStats["mana"];
+  readonly manaGeneration: ManaGeneration;
   readonly attackDamage: number;
   readonly attackSpeed: number;
   readonly critChance: number;
@@ -44,6 +51,8 @@ export function resolveStats(
     armor: stats.armor,
     magicResist: stats.magicResist,
     durability: stats.durability,
+    mana: stats.mana,
+    manaGeneration: stats.manaGeneration,
     attackDamage: resolveScaling(stats.attackDamage, starLevel),
     attackSpeed: stats.attackSpeed,
     critChance: stats.critChance,
