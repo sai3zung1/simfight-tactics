@@ -8,11 +8,11 @@
 import type { ScalingByStar } from "../primitives";
 
 /**
- * How a unit generates mana — its role resolved to plain values at
- * composition (Set 15 roles revamp: the role fixes these; the engine reads
- * the values and never knows roles, ADR 0002). `perAttack` lands on each
- * auto-attack, `perSecond` is a steady flow (Casters), and
- * `gainsFromDamageTaken` gates the generation on hits taken (Tanks).
+ * How a unit generates mana. In the game the amounts follow the unit's
+ * role; the data pipeline resolves that role to these plain numbers, so
+ * the engine reads values and never knows roles (ADR 0002).
+ * `gainsFromDamageTaken` gates the hits-taken generation — only Tanks
+ * have it.
  */
 export type ManaGeneration = {
   readonly perAttack: number;
@@ -43,7 +43,7 @@ export type BaseStats = {
   readonly manaGeneration: ManaGeneration;
 
   readonly attackDamage: ScalingByStar;
-  /** Ability power — the stat that spell damage and other AP effects scale from. */
+  /** The stat that spell damage and other ability-power effects scale from. */
   readonly abilityPower: number;
   /** In attacks per second. */
   readonly attackSpeed: number;

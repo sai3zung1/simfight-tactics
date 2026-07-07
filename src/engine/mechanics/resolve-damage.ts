@@ -8,9 +8,9 @@ import type { DamageType } from "../../domain/catalog/modifier";
  *
  * Order is provisional: the shape (bonus → amp → crit → mitigation) comes from ADR 0004,
  * extended here with the reduction stage; the internal order and coefficients are still
- * to be set by calibration. While every stage is a factor of one product the order is
- * commutative — it becomes significant the day `bonus` (flat, no source yet) slots in
- * before amplification.
+ * to be set by calibration. Today every stage multiplies into one product, so their
+ * order cannot change the result. Order starts to matter the day the flat `bonus`
+ * stage (no source yet) lands.
  */
 export function resolveDamage(
   hit: { amount: number; damageType: DamageType },

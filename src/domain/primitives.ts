@@ -1,6 +1,6 @@
 /**
- * Foundational types reused across the domain layer. No imports from
- * sibling modules — leaf of the dependency graph.
+ * Foundational types reused across the domain layer. Imports nothing from
+ * its siblings, so any module can import it without creating a cycle.
  */
 
 // Runtime values are the extraction source's entity keys (Community Dragon
