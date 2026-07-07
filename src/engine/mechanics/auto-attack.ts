@@ -1,11 +1,13 @@
-import type { CombatEvent } from "../loop/combat-event";
+import type { AutoAttackEvent } from "../loop/combat-event";
 import type { CombatState } from "../loop/combat-state";
+import { combatantById } from "../loop/combat-state";
 import type { Combatant } from "../stats/combatant";
-import type { CombatantId } from "../stats/combatant-id";
 import type { EventQueue } from "../loop/event-queue";
 import type { StopSignal } from "../loop/stop-signal";
 import { resolveDamage } from "./resolve-damage";
 import { expected } from "./crit-policy";
+import { attackManaGain, damageTakenManaGain, gainMana } from "./mana";
+import { pushCastIfReady } from "./casting";
 import { secondsToTicks, type Ticks } from "../loop/time";
 
 /**
@@ -27,19 +29,15 @@ export function shouldAutoAttack(attacker: Combatant): boolean {
   return attacker.stats.attackSpeed > 0;
 }
 
-/** A run holds exactly two combatants, so an id always resolves — no miss branch. */
-function combatantById(state: CombatState, id: CombatantId): Combatant {
-  return id === state.attacker.id ? state.attacker : state.target;
-}
-
 /**
- * Resolve one auto-attack: damage the target, tally it, then either signal a
- * kill (when lethal hits are allowed to end the run) or reprogram the next
- * attack. Order matters: damage first, kill check second, reprogram
- * last — a lethal hit never gets a follow-up scheduled.
+ * Resolve one auto-attack: damage the target, tally it, then hand out the
+ * mana the exchange generated and reprogram the next attack. Order
+ * matters: a lethal hit (when kills may end the run) returns before any
+ * mana bookkeeping — nothing after the run's end is observable — and
+ * never gets a follow-up scheduled.
  */
-function processAutoAttack(
-  event: CombatEvent,
+export function processAutoAttack(
+  event: AutoAttackEvent,
   state: CombatState,
   queue: EventQueue,
   lethal: boolean,
@@ -47,7 +45,7 @@ function processAutoAttack(
   const attacker = combatantById(state, event.attacker);
   const target = combatantById(state, event.target);
 
-  const dealt = resolveDamage(
+  const hit = resolveDamage(
     { amount: attacker.stats.attackDamage, damageType: "physical" },
     { damageAmp: attacker.stats.damageAmp },
     {
@@ -59,12 +57,23 @@ function processAutoAttack(
     expected(attacker.stats.critChance, attacker.stats.critDamage),
   );
 
-  target.currentHp -= dealt;
-  state.totalDamageDealt += dealt;
+  target.currentHp -= hit.dealt;
+  state.totalDamageDealt += hit.dealt;
 
   if (lethal && target.currentHp <= 0) {
     return { time: event.time };
   }
+
+  // The attacker earns its per-attack mana, the target converts the hit;
+  // either gauge may fill — the cast then fires as its own same-tick event.
+  gainMana(attacker, attackManaGain(attacker), event.time);
+  gainMana(
+    target,
+    damageTakenManaGain(target, hit.preMitigated, hit.dealt),
+    event.time,
+  );
+  pushCastIfReady(attacker, event.time, queue);
+  pushCastIfReady(target, event.time, queue);
 
   queue.push({
     kind: "auto-attack",
@@ -73,28 +82,4 @@ function processAutoAttack(
     target: event.target,
   });
   return undefined;
-}
-
-/**
- * Build `runLoop`'s `process` for one run: a closure over this run's queue
- * and state, so `process` keeps the narrow `(event) => StopSignal | undefined`
- * shape `runLoop` expects while still reaching the mutable state it needs.
- * `lethal` comes from the stop condition (fixed_duration treats the target
- * as immortal) and is fixed for the whole run.
- */
-export function createProcess(
-  queue: EventQueue,
-  state: CombatState,
-  lethal: boolean,
-): (event: CombatEvent) => StopSignal | undefined {
-  return (event) => {
-    switch (event.kind) {
-      case "auto-attack":
-        return processAutoAttack(event, state, queue, lethal);
-      default: {
-        const _exhaustive: never = event.kind;
-        return _exhaustive;
-      }
-    }
-  };
 }

@@ -8,7 +8,8 @@ import type { CombatEvent } from "./combat-event";
 import type { StopSignal } from "./stop-signal";
 import type { CombatState } from "./combat-state";
 import type { CombatantId } from "../stats/combatant-id";
-import { createProcess, shouldAutoAttack } from "../mechanics/auto-attack";
+import { shouldAutoAttack } from "../mechanics/auto-attack";
+import { createProcess } from "../mechanics/process-event";
 import { resolveCombatant } from "../stats/combatant";
 import { resolveModifiers } from "../provisional/provisional-modifiers";
 import { resolveUnitStats } from "../provisional/provisional-stats";
@@ -108,7 +109,13 @@ export function simulate(config: CombatConfig): SimulationResult {
     "target" as CombatantId,
     resolveModifiers(config.target),
   );
-  const state: CombatState = { attacker, target, totalDamageDealt: 0 };
+  const state: CombatState = {
+    attacker,
+    target,
+    totalDamageDealt: 0,
+    attackerCasts: 0,
+    targetCasts: 0,
+  };
 
   const queue = createEventQueue();
   if (shouldAutoAttack(attacker)) {

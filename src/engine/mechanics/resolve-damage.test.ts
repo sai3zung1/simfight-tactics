@@ -20,26 +20,36 @@ describe("resolveDamage", () => {
   test("applies amplification, crit and mitigation", () => {
     // 100 × 1.2 × 1.10 × 0.667 ≈ 88
     expect(
-      resolveDamage(hit, attacker, target, expected(CRIT_CHANCE, CRIT_DAMAGE)),
+      resolveDamage(hit, attacker, target, expected(CRIT_CHANCE, CRIT_DAMAGE))
+        .dealt,
     ).toBeCloseTo(88);
+  });
+
+  test("exposes the pre-mitigation number the mana conversion reads", () => {
+    const resolved = resolveDamage(
+      hit,
+      attacker,
+      target,
+      expected(CRIT_CHANCE, CRIT_DAMAGE),
+    );
+    // 100 × 1.2 × 1.10 — mitigation not applied yet
+    expect(resolved.preMitigated).toBeCloseTo(132);
+    expect(resolved.dealt).toBeLessThan(resolved.preMitigated);
   });
 
   test("no crit yields the lower damage", () => {
     // 100 × 1.2 × 1 × 0.667 ≈ 80
     expect(
-      resolveDamage(hit, attacker, target, neverCrit(CRIT_CHANCE, CRIT_DAMAGE)),
+      resolveDamage(hit, attacker, target, neverCrit(CRIT_CHANCE, CRIT_DAMAGE))
+        .dealt,
     ).toBeCloseTo(80);
   });
 
   test("guaranteed crit yields the upper damage", () => {
     // 100 × 1.2 × 1.4 × 0.667 ≈ 112
     expect(
-      resolveDamage(
-        hit,
-        attacker,
-        target,
-        alwaysCrit(CRIT_CHANCE, CRIT_DAMAGE),
-      ),
+      resolveDamage(hit, attacker, target, alwaysCrit(CRIT_CHANCE, CRIT_DAMAGE))
+        .dealt,
     ).toBeCloseTo(112);
   });
 
@@ -47,14 +57,14 @@ describe("resolveDamage", () => {
     const magicHit = { amount: 100, damageType: "magic" } as const;
     const magicTarget = { armor: 0, magicResist: 50, ...noReduction }; // 100/150 ≈ 0.667
     expect(
-      resolveDamage(magicHit, { damageAmp: 0 }, magicTarget, 1),
+      resolveDamage(magicHit, { damageAmp: 0 }, magicTarget, 1).dealt,
     ).toBeCloseTo(66.67);
   });
 
   test("true damage ignores resists entirely", () => {
     const trueHit = { amount: 100, damageType: "true" } as const;
     const tanky = { armor: 999, magicResist: 999, ...noReduction };
-    expect(resolveDamage(trueHit, { damageAmp: 0 }, tanky, 1)).toBe(100);
+    expect(resolveDamage(trueHit, { damageAmp: 0 }, tanky, 1).dealt).toBe(100);
   });
 
   test("durability reduces the dealt damage", () => {
@@ -65,7 +75,7 @@ describe("resolveDamage", () => {
       damageReductions: [],
     };
     // 100 × 1 × 1 × 1 × 0.5
-    expect(resolveDamage(hit, { damageAmp: 0 }, durable, 1)).toBe(50);
+    expect(resolveDamage(hit, { damageAmp: 0 }, durable, 1).dealt).toBe(50);
   });
 
   test("both reduction lanes apply to the same hit", () => {
@@ -76,7 +86,9 @@ describe("resolveDamage", () => {
       damageReductions: [0.5],
     };
     // 100 × (1 − 0.2) × (1 − 0.5)
-    expect(resolveDamage(hit, { damageAmp: 0 }, shielded, 1)).toBeCloseTo(40);
+    expect(resolveDamage(hit, { damageAmp: 0 }, shielded, 1).dealt).toBeCloseTo(
+      40,
+    );
   });
 
   test("guardrail: neverCrit ≤ expected ≤ alwaysCrit, fed by the policies", () => {
@@ -85,19 +97,19 @@ describe("resolveDamage", () => {
       attacker,
       target,
       neverCrit(CRIT_CHANCE, CRIT_DAMAGE),
-    );
+    ).dealt;
     const mid = resolveDamage(
       hit,
       attacker,
       target,
       expected(CRIT_CHANCE, CRIT_DAMAGE),
-    );
+    ).dealt;
     const high = resolveDamage(
       hit,
       attacker,
       target,
       alwaysCrit(CRIT_CHANCE, CRIT_DAMAGE),
-    );
+    ).dealt;
 
     expect(low).toBeLessThanOrEqual(mid);
     expect(mid).toBeLessThanOrEqual(high);

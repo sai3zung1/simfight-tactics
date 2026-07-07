@@ -1,5 +1,6 @@
 import { test, expect } from "bun:test";
-import { attackInterval, shouldAutoAttack, createProcess } from "./auto-attack";
+import { attackInterval, shouldAutoAttack } from "./auto-attack";
+import { createProcess } from "./process-event";
 import { createEventQueue } from "../loop/event-queue";
 import type { Combatant } from "../stats/combatant";
 import type { ResolvedStats } from "../stats/resolved-stats";
@@ -40,6 +41,14 @@ const makeCombatant = (
   },
 });
 
+const makeState = (attacker: Combatant, target: Combatant): CombatState => ({
+  attacker,
+  target,
+  totalDamageDealt: 0,
+  attackerCasts: 0,
+  targetCasts: 0,
+});
+
 const autoAttack = (
   attacker: Combatant,
   target: Combatant,
@@ -68,7 +77,7 @@ test("deals damage, tallies it, and reprograms the next attack when the target s
     critChance: 0,
   });
   const target = makeCombatant("target", {}, 1000);
-  const state: CombatState = { attacker, target, totalDamageDealt: 0 };
+  const state = makeState(attacker, target);
   const queue = createEventQueue();
   const process = createProcess(queue, state, true);
 
@@ -85,7 +94,7 @@ test("deals damage, tallies it, and reprograms the next attack when the target s
 test("signals a kill, with no follow-up scheduled, when the hit is lethal and allowed to stop the run", () => {
   const attacker = makeCombatant("attacker", { attackDamage: 9999 });
   const target = makeCombatant("target", {}, 10);
-  const state: CombatState = { attacker, target, totalDamageDealt: 0 };
+  const state = makeState(attacker, target);
   const queue = createEventQueue();
   const process = createProcess(queue, state, true);
 
@@ -98,7 +107,7 @@ test("signals a kill, with no follow-up scheduled, when the hit is lethal and al
 test("still deals damage but never signals when lethal hits aren't allowed to stop the run", () => {
   const attacker = makeCombatant("attacker", { attackDamage: 9999 });
   const target = makeCombatant("target", {}, 10);
-  const state: CombatState = { attacker, target, totalDamageDealt: 0 };
+  const state = makeState(attacker, target);
   const queue = createEventQueue();
   const process = createProcess(queue, state, false);
 
@@ -107,4 +116,88 @@ test("still deals damage but never signals when lethal hits aren't allowed to st
   expect(signal).toBeUndefined();
   expect(target.currentHp).toBeLessThan(0);
   expect(queue.popNext()).not.toBeUndefined();
+});
+
+test("the attacker earns its per-attack mana on a surviving hit", () => {
+  const attacker = makeCombatant("attacker", {
+    manaGeneration: {
+      perAttack: 10,
+      perSecond: 0,
+      gainsFromDamageTaken: false,
+    },
+  });
+  const target = makeCombatant("target", {}, 1000);
+  const state = makeState(attacker, target);
+  const process = createProcess(createEventQueue(), state, true);
+
+  process(autoAttack(attacker, target, 0));
+
+  expect(attacker.currentMana).toBe(10);
+});
+
+test("an eligible target converts the hit into mana", () => {
+  const attacker = makeCombatant("attacker", {
+    attackDamage: 100,
+    critChance: 0,
+  });
+  const target = makeCombatant("target", {
+    manaGeneration: { perAttack: 5, perSecond: 0, gainsFromDamageTaken: true },
+  });
+  const state = makeState(attacker, target);
+  const process = createProcess(createEventQueue(), state, true);
+
+  process(autoAttack(attacker, target, 0));
+
+  // No defenses: dealt = pre-mitigated = 100 -> 1% × 100 + 3% × 100
+  expect(target.currentMana).toBeCloseTo(4);
+});
+
+test("an ineligible target gains nothing from the same hit", () => {
+  const attacker = makeCombatant("attacker", { attackDamage: 100 });
+  const target = makeCombatant("target");
+  const state = makeState(attacker, target);
+  const process = createProcess(createEventQueue(), state, true);
+
+  process(autoAttack(attacker, target, 0));
+
+  expect(target.currentMana).toBe(0);
+});
+
+test("a gain that fills the gauge emits a cast event on the same tick", () => {
+  const attacker = makeCombatant("attacker", {
+    manaGeneration: {
+      perAttack: 10,
+      perSecond: 0,
+      gainsFromDamageTaken: false,
+    },
+  });
+  const target = makeCombatant("target", {}, 1000);
+  attacker.currentMana = 95;
+  const state = makeState(attacker, target);
+  const queue = createEventQueue();
+  const process = createProcess(queue, state, true);
+
+  process(autoAttack(attacker, target, 500));
+
+  const first = queue.popNext();
+  expect(first?.kind).toBe("cast");
+  expect(first?.time).toBe(500 as Ticks);
+});
+
+test("a lethal hit ends the run before any mana bookkeeping", () => {
+  const attacker = makeCombatant("attacker", {
+    attackDamage: 9999,
+    manaGeneration: {
+      perAttack: 10,
+      perSecond: 0,
+      gainsFromDamageTaken: false,
+    },
+  });
+  const target = makeCombatant("target", {}, 10);
+  const state = makeState(attacker, target);
+  const process = createProcess(createEventQueue(), state, true);
+
+  process(autoAttack(attacker, target, 0));
+
+  expect(attacker.currentMana).toBe(0);
 });
