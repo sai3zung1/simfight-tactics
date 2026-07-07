@@ -6,7 +6,9 @@ import type { CombatantId } from "./combatant-id";
 import {
   applyModifiers,
   resolveDamageReductions,
+  resolveManaGains,
   type EffectiveStats,
+  type ManaGains,
 } from "./effective-stats";
 import { resolveStats } from "./resolved-stats";
 
@@ -28,6 +30,11 @@ export type Combatant = {
    * shrink damage under different stacking rules (`reductionFactor`).
    */
   readonly damageReductions: readonly number[];
+  /**
+   * Equipped `mana-generation` modifiers resolved to plain amounts per
+   * trigger; mechanics/mana.ts adds them onto each matching gain.
+   */
+  readonly manaGains: ManaGains;
   currentHp: number;
   /** Gauge toward the cast threshold (`stats.mana.max`). */
   currentMana: number;
@@ -51,6 +58,7 @@ export function resolveCombatant(
     id,
     stats: effective,
     damageReductions: resolveDamageReductions(modifiers, starLevel, resolved),
+    manaGains: resolveManaGains(modifiers, starLevel, resolved),
     currentHp: effective.hp,
     currentMana: effective.mana.start,
     manaLockedUntil: 0 as Ticks,

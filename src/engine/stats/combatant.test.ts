@@ -70,6 +70,19 @@ test("starts at full effective HP when a modifier raises max HP", () => {
   expect(combatant.currentHp).toBe(700);
 });
 
+test("resolves mana-generation modifiers into per-trigger gains", () => {
+  const combatant = resolveCombatant(stats, 1, "attacker" as CombatantId, [
+    {
+      kind: "mana-generation",
+      trigger: "on-attack",
+      amount: { base: 5 },
+      temporality: { kind: "instant" },
+    },
+  ]);
+  expect(combatant.manaGains["on-attack"]).toBe(5);
+  expect(combatant.manaGains["post-cast"]).toBe(0);
+});
+
 test("carries damage-reduction modifiers as their own lane, apart from durability", () => {
   const combatant = resolveCombatant(stats, 1, "target" as CombatantId, [
     {

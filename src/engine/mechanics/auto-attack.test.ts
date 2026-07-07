@@ -18,6 +18,12 @@ const makeCombatant = (
   currentMana: 0,
   manaLockedUntil: 0 as Ticks,
   damageReductions: [],
+  manaGains: {
+    "on-attack": 0,
+    "per-second": 0,
+    "post-cast": 0,
+    "on-damage-taken": 0,
+  },
   stats: {
     hp: 1000,
     armor: 0,

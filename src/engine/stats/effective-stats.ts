@@ -1,5 +1,6 @@
 import type {
   Magnitude,
+  ManaTrigger,
   ModifiableStat,
   Modifier,
   ScalingSource,
@@ -150,6 +151,42 @@ export function resolveDamageReductions(
     }
   }
   return reductions;
+}
+
+/**
+ * One resolved amount per mana trigger. Built once at combat start; the
+ * mana pipeline (mechanics/mana.ts) reads the bucket matching the event it
+ * processes. The `Record` is exhaustive by construction: a new
+ * `ManaTrigger` breaks compilation here, never a silent zero.
+ */
+export type ManaGains = Readonly<Record<ManaTrigger, number>>;
+
+/**
+ * Each `mana-generation` modifier resolved to its plain amount and
+ * bucketed by trigger — the same combat-start, one-pass resolution as
+ * `resolveDamageReductions`.
+ */
+export function resolveManaGains(
+  modifiers: readonly Modifier[],
+  starLevel: StarLevel,
+  base: ResolvedStats,
+): ManaGains {
+  const gains: Record<ManaTrigger, number> = {
+    "on-attack": 0,
+    "per-second": 0,
+    "post-cast": 0,
+    "on-damage-taken": 0,
+  };
+  for (const modifier of modifiers) {
+    if (modifier.kind === "mana-generation") {
+      gains[modifier.trigger] += resolveMagnitude(
+        modifier.amount,
+        starLevel,
+        base,
+      );
+    }
+  }
+  return gains;
 }
 
 /**
