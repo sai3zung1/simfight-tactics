@@ -9,6 +9,10 @@ import type { StopSignal } from "./stop-signal";
 import type { CombatState } from "./combat-state";
 import type { CombatantId } from "../stats/combatant-id";
 import { shouldAutoAttack } from "../mechanics/auto-attack";
+import {
+  MANA_REGEN_INTERVAL_SECONDS,
+  shouldScheduleManaRegen,
+} from "../mechanics/casting";
 import { createProcess } from "../mechanics/process-event";
 import { resolveCombatant } from "../stats/combatant";
 import { resolveModifiers } from "../provisional/provisional-modifiers";
@@ -128,12 +132,25 @@ export function simulate(config: CombatConfig): SimulationResult {
       target: target.id,
     });
   }
+  // The first regen tick lands one interval in — nothing has accrued at
+  // combat start. Both sides may tick: steady generation does not attack.
+  for (const combatant of [attacker, target]) {
+    if (shouldScheduleManaRegen(combatant)) {
+      queue.push({
+        kind: "mana-regen",
+        time: secondsToTicks(MANA_REGEN_INTERVAL_SECONDS),
+        combatant: combatant.id,
+      });
+    }
+  }
 
   const signal = runLoop(queue, timeLimit, createProcess(queue, state, lethal));
 
   return {
     totalDamageDealt: state.totalDamageDealt,
     totalDamageTaken: 0,
+    attackerCasts: state.attackerCasts,
+    targetCasts: state.targetCasts,
     effectiveDurationSeconds:
       signal !== undefined
         ? ticksToSeconds(signal.time)
