@@ -35,6 +35,14 @@ export type Combatant = {
    * trigger; mechanics/mana.ts adds them onto each matching gain.
    */
   readonly manaGains: ManaGains;
+  /**
+   * Whether this combatant's death is possible, resolved once at run setup:
+   * the attacker never dies (product rule — a run measures the attacker's
+   * build, so only the target's death may end one), the target's mortality
+   * follows the stop condition. Mechanics read this through `applyDamage`
+   * and never know sides or stop modes.
+   */
+  readonly canDie: boolean;
   currentHp: number;
   /** Gauge toward the cast threshold (`stats.mana.max`). */
   currentMana: number;
@@ -51,6 +59,7 @@ export function resolveCombatant(
   starLevel: StarLevel,
   id: CombatantId,
   modifiers: readonly Modifier[],
+  canDie: boolean,
 ): Combatant {
   const resolved = resolveStats(stats, starLevel);
   const effective = applyModifiers(resolved, modifiers, starLevel);
@@ -59,8 +68,33 @@ export function resolveCombatant(
     stats: effective,
     damageReductions: resolveDamageReductions(modifiers, starLevel, resolved),
     manaGains: resolveManaGains(modifiers, starLevel, resolved),
+    canDie,
     currentHp: effective.hp,
     currentMana: effective.mana.start,
     manaLockedUntil: TICK_ZERO,
   };
+}
+
+/**
+ * HP floor for a combatant that cannot die: still alive by definition, and
+ * a legal reading for anything that inspects an opponent's HP (the
+ * threshold/execute spell patterns of the cast contract). The exact floor
+ * value is a product choice, revisited only if a survivability metric ever
+ * needs it.
+ */
+const IMMORTAL_HP_FLOOR = 1;
+
+/**
+ * The single point where damage lands on HP; reports whether it killed.
+ * Immortality clamps the HP write and nothing else — the hit's numbers are
+ * never truncated, so tallies and the mana conversion read the same values
+ * whether the victim floors or dies. Only a `canDie` combatant can reach
+ * zero, so a `true` return needs no further checks.
+ */
+export function applyDamage(combatant: Combatant, amount: number): boolean {
+  const next = combatant.currentHp - amount;
+  combatant.currentHp = combatant.canDie
+    ? next
+    : Math.max(IMMORTAL_HP_FLOOR, next);
+  return combatant.currentHp <= 0;
 }

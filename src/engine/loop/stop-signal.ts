@@ -2,9 +2,9 @@ import type { Ticks } from "./time";
 
 /**
  * Tells `runLoop` to stop pulling further events right now. Carries only the
- * tick it happened at — `reason` and which combatant died are deferred until
- * bilateral combat needs to tell causes apart; for now `process` only ever
- * produces this on a kill.
+ * tick it happened at: the attacker can never die (`Combatant.canDie`), so
+ * the only stop a process can produce is the target's death — which
+ * combatant died, and why, need no encoding even with both sides fighting.
  */
 export type StopSignal = {
   readonly time: Ticks;

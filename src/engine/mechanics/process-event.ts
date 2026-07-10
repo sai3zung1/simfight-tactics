@@ -10,19 +10,18 @@ import { processCast, processManaRegen } from "./casting";
  * queue and state, so `process` keeps the narrow shape `runLoop` expects
  * while still reaching the mutable state it needs. The switch is the
  * single point routing an event kind to its mechanic — a new kind is a
- * compile break here, never a silent skip. `lethal` comes from the stop
- * condition (fixed-duration treats the target as immortal) and is fixed
- * for the whole run.
+ * compile break here, never a silent skip. Mortality is not plumbed
+ * through here: each combatant carries its own `canDie`, applied where
+ * damage lands.
  */
 export function createProcess(
   queue: EventQueue,
   state: CombatState,
-  lethal: boolean,
 ): (event: CombatEvent) => StopSignal | undefined {
   return (event) => {
     switch (event.kind) {
       case "auto-attack":
-        return processAutoAttack(event, state, queue, lethal);
+        return processAutoAttack(event, state, queue);
       case "mana-regen":
         processManaRegen(event, state, queue);
         return undefined;

@@ -54,33 +54,32 @@ export function runLoop(
 
 /**
  * Map the user's stop mode to the run's time limit, reported reason, and
- * whether a kill is allowed to end the run early. Only `fixed-duration`
- * treats the target as immortal (`lethal: false`) — the other two modes
- * exist precisely to end on a kill.
+ * the target's mortality. Only `fixed-duration` pins the target immortal —
+ * the other two modes exist precisely to end on a kill.
  */
 function resolveStop(stop: StopCondition): {
   timeLimit: Ticks;
   stopReason: StopReason;
-  lethal: boolean;
+  targetCanDie: boolean;
 } {
   switch (stop.mode) {
     case "time-to-kill":
       return {
         timeLimit: secondsToTicks(HARD_CAP_SECONDS),
         stopReason: "timeout",
-        lethal: true,
+        targetCanDie: true,
       };
     case "fixed-duration":
       return {
         timeLimit: secondsToTicks(stop.durationSeconds),
         stopReason: "timer",
-        lethal: false,
+        targetCanDie: false,
       };
     case "first-trigger":
       return {
         timeLimit: secondsToTicks(stop.durationSeconds),
         stopReason: "timer",
-        lethal: true,
+        targetCanDie: true,
       };
     default: {
       const _exhaustive: never = stop;
@@ -99,19 +98,25 @@ function resolveStop(stop: StopCondition): {
  * never attacks, so `totalDamageTaken` stays 0.
  */
 export function simulate(config: CombatConfig): SimulationResult {
-  const { timeLimit, stopReason, lethal } = resolveStop(config.stopCondition);
+  const { timeLimit, stopReason, targetCanDie } = resolveStop(
+    config.stopCondition,
+  );
 
   const attacker = resolveCombatant(
     resolveUnitStats(config.attacker.unitId),
     config.attacker.starLevel,
     "attacker" as CombatantId,
     resolveModifiers(config.attacker),
+    // The attacker never dies — product rule: a run measures the attacker's
+    // build, so only the target's death may end one.
+    false,
   );
   const target = resolveCombatant(
     resolveUnitStats(config.target.unitId),
     config.target.starLevel,
     "target" as CombatantId,
     resolveModifiers(config.target),
+    targetCanDie,
   );
   const state: CombatState = {
     attacker,
@@ -144,7 +149,7 @@ export function simulate(config: CombatConfig): SimulationResult {
     }
   }
 
-  const signal = runLoop(queue, timeLimit, createProcess(queue, state, lethal));
+  const signal = runLoop(queue, timeLimit, createProcess(queue, state));
 
   return {
     totalDamageDealt: state.totalDamageDealt,
