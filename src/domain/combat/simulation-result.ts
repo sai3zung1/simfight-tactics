@@ -1,6 +1,6 @@
 /**
  * Why a run ended — `kill` (target died), `timer` (user duration elapsed),
- * `timeout` (the engine's hard cap on `time_to_kill` was reached).
+ * `timeout` (the engine's hard cap on `time-to-kill` was reached).
  */
 export type StopReason = "kill" | "timer" | "timeout";
 

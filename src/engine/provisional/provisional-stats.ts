@@ -8,7 +8,7 @@ import type { UnitId } from "../../domain/primitives";
  * per mana-generation shape of the role system
  * (docs/data/combat-resolution.md); combat stats stay identical across the
  * mana profiles on purpose, so comparing two profiles isolates the mana
- * axis. HP is low enough that a `time_to_kill` run reaches a kill well
+ * axis. HP is low enough that a `time-to-kill` run reaches a kill well
  * inside the engine's hard cap.
  */
 export const PROVISIONAL_FIGHTER_STATS: BaseStats = {
@@ -52,7 +52,7 @@ export const PROVISIONAL_NO_MANA_STATS: BaseStats = {
 
 /**
  * HP high enough to survive hard-cap-long attacks from any other profile —
- * exists so the `time_to_kill` timeout path is reachable by a real
+ * exists so the `time-to-kill` timeout path is reachable by a real
  * end-to-end test, not just by construction.
  */
 export const PROVISIONAL_IMMORTAL_STATS: BaseStats = {
