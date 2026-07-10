@@ -8,7 +8,10 @@ import type { UnitId } from "../../domain/primitives";
  * per mana-generation shape of the role system
  * (docs/data/combat-resolution.md); combat stats stay identical across the
  * mana profiles on purpose, so comparing two profiles isolates the mana
- * axis. HP is low enough that a `time-to-kill` run reaches a kill well
+ * axis. The no-attack caster is the one deliberate exception: bidirectional
+ * combat made every attacking profile feed its own gauge per swing, so
+ * observing the steady flow alone requires a profile that never swings.
+ * HP is low enough that a `time-to-kill` run reaches a kill well
  * inside the engine's hard cap.
  */
 export const PROVISIONAL_FIGHTER_STATS: BaseStats = {
@@ -40,6 +43,16 @@ export const PROVISIONAL_CASTER_STATS: BaseStats = {
 };
 
 /**
+ * Caster-shaped profile that never attacks (`attackSpeed` 0 is filtered by
+ * `shouldAutoAttack`): isolates the steady per-second flow from the
+ * per-swing gains every attacking profile generates.
+ */
+export const PROVISIONAL_NO_ATTACK_CASTER_STATS: BaseStats = {
+  ...PROVISIONAL_CASTER_STATS,
+  attackSpeed: 0,
+};
+
+/**
  * Specialist-shaped profile: no mana bar (`max` 0), so it never casts.
  * Deliberately generic — real Specialists carry per-unit resource
  * mechanics, modeled only when a set brings them.
@@ -63,6 +76,8 @@ export const PROVISIONAL_IMMORTAL_STATS: BaseStats = {
 /** Ids selecting each non-default profile as a `BoardSide.unitId`. */
 export const PROVISIONAL_TANK_UNIT_ID = "provisional-tank" as UnitId;
 export const PROVISIONAL_CASTER_UNIT_ID = "provisional-caster" as UnitId;
+export const PROVISIONAL_NO_ATTACK_CASTER_UNIT_ID =
+  "provisional-no-attack-caster" as UnitId;
 export const PROVISIONAL_NO_MANA_UNIT_ID = "provisional-no-mana" as UnitId;
 export const PROVISIONAL_IMMORTAL_UNIT_ID = "provisional-immortal" as UnitId;
 
@@ -78,6 +93,8 @@ export function resolveUnitStats(unitId: UnitId): BaseStats {
       return PROVISIONAL_TANK_STATS;
     case PROVISIONAL_CASTER_UNIT_ID:
       return PROVISIONAL_CASTER_STATS;
+    case PROVISIONAL_NO_ATTACK_CASTER_UNIT_ID:
+      return PROVISIONAL_NO_ATTACK_CASTER_STATS;
     case PROVISIONAL_NO_MANA_UNIT_ID:
       return PROVISIONAL_NO_MANA_STATS;
     case PROVISIONAL_IMMORTAL_UNIT_ID:

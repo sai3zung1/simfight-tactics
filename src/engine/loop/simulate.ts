@@ -94,8 +94,8 @@ function resolveStop(stop: StopCondition): {
  *
  * Both sides resolve against a provisional profile picked via `unitId`
  * (`resolveUnitStats`) and provisional item modifiers (`resolveModifiers`)
- * until the real catalogs land. The run is still unidirectional: the target
- * never attacks, so `totalDamageTaken` stays 0.
+ * until the real catalogs land. The duel is bidirectional — the target
+ * fights back with the same mechanics; only the target can die.
  */
 export function simulate(config: CombatConfig): SimulationResult {
   const { timeLimit, stopReason, targetCanDie } = resolveStop(
@@ -126,15 +126,23 @@ export function simulate(config: CombatConfig): SimulationResult {
   };
 
   const queue = createEventQueue();
-  if (shouldAutoAttack(attacker)) {
-    // The opening attack fires at combat start, not one interval in — a
-    // provisional cadence choice, confirmed at calibration (#51).
-    queue.push({
-      kind: "auto-attack",
-      time: TICK_ZERO,
-      attacker: attacker.id,
-      target: target.id,
-    });
+  // Both openings fire at combat start, not one interval in — a provisional
+  // cadence choice, confirmed at calibration (#51). The push order is the
+  // same-tick tie-break (the queue resolves ties by arrival): the attacker
+  // swings first, an intentional pick that #51 may revisit — on every shared
+  // tick, including the killing one, its hit resolves before the target's.
+  for (const [swinger, victim] of [
+    [attacker, target],
+    [target, attacker],
+  ] as const) {
+    if (shouldAutoAttack(swinger)) {
+      queue.push({
+        kind: "auto-attack",
+        time: TICK_ZERO,
+        attacker: swinger.id,
+        target: victim.id,
+      });
+    }
   }
   // The first regen tick lands one interval in — nothing has accrued at
   // combat start. Both sides may tick: steady generation does not attack.
