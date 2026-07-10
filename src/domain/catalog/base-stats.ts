@@ -31,7 +31,11 @@ export type BaseStats = {
   readonly durability: number;
 
   readonly mana: {
-    /** Floor below which mana cannot drop. */
+    /**
+     * Floor below which mana cannot drop. Declarative today: no effect
+     * drains mana yet, so no code enforces it — the clamp enters
+     * `gainMana` with the first draining effect.
+     */
     readonly min: number;
     readonly start: number;
     /**

@@ -27,3 +27,14 @@ export function secondsToTicks(s: number): Ticks {
 export function ticksToSeconds(t: Ticks): number {
   return t / TICKS_PER_SECOND;
 }
+
+/** Tick zero: combat start, and the neutral value for tick-typed cursors. */
+export const TICK_ZERO = 0 as Ticks;
+
+/**
+ * Tick arithmetic that keeps the brand, so scheduling code never casts:
+ * `as Ticks` stays confined to this file, the brand's only door.
+ */
+export function addTicks(a: Ticks, b: Ticks): Ticks {
+  return (a + b) as Ticks;
+}

@@ -1,7 +1,7 @@
 import type { BaseStats } from "../../domain/catalog/base-stats";
 import type { Modifier } from "../../domain/catalog/modifier";
 import type { StarLevel } from "../../domain/primitives";
-import type { Ticks } from "../loop/time";
+import { TICK_ZERO, type Ticks } from "../loop/time";
 import type { CombatantId } from "./combatant-id";
 import {
   applyModifiers,
@@ -61,6 +61,6 @@ export function resolveCombatant(
     manaGains: resolveManaGains(modifiers, starLevel, resolved),
     currentHp: effective.hp,
     currentMana: effective.mana.start,
-    manaLockedUntil: 0 as Ticks,
+    manaLockedUntil: TICK_ZERO,
   };
 }

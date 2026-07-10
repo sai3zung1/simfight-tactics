@@ -5,10 +5,10 @@ import type { Combatant } from "../stats/combatant";
 import type { EventQueue } from "../loop/event-queue";
 import type { StopSignal } from "../loop/stop-signal";
 import { resolveDamage } from "./resolve-damage";
-import { expected } from "./crit-policy";
+import { expectedCrit } from "./crit-policy";
 import { attackManaGain, damageTakenManaGain, gainMana } from "./mana";
 import { pushCastIfReady } from "./casting";
-import { secondsToTicks, type Ticks } from "../loop/time";
+import { addTicks, secondsToTicks, type Ticks } from "../loop/time";
 
 /**
  * Interval between two auto-attacks, from attacks-per-second to ticks.
@@ -54,7 +54,7 @@ export function processAutoAttack(
       durability: target.stats.durability,
       damageReductions: target.damageReductions,
     },
-    expected(attacker.stats.critChance, attacker.stats.critDamage),
+    expectedCrit(attacker.stats.critChance, attacker.stats.critDamage),
   );
 
   target.currentHp -= hit.dealt;
@@ -77,7 +77,7 @@ export function processAutoAttack(
 
   queue.push({
     kind: "auto-attack",
-    time: (event.time + attackInterval(attacker.stats.attackSpeed)) as Ticks,
+    time: addTicks(event.time, attackInterval(attacker.stats.attackSpeed)),
     attacker: event.attacker,
     target: event.target,
   });

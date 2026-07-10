@@ -3,13 +3,13 @@ import type { CombatState } from "../loop/combat-state";
 import { combatantById } from "../loop/combat-state";
 import type { Combatant } from "../stats/combatant";
 import type { EventQueue } from "../loop/event-queue";
-import { secondsToTicks, type Ticks } from "../loop/time";
+import { addTicks, secondsToTicks, type Ticks } from "../loop/time";
 import {
   MANA_LOCK_SECONDS,
   gainMana,
   readyToCast,
   regenManaGain,
-  shouldCast,
+  hasManaBar,
 } from "./mana";
 
 /**
@@ -28,7 +28,7 @@ export const MANA_REGEN_INTERVAL_SECONDS = 1;
 
 /** A combatant joins the regen schedule only if ticking can ever pay out. */
 export function shouldScheduleManaRegen(combatant: Combatant): boolean {
-  return shouldCast(combatant) && regenManaGain(combatant) > 0;
+  return hasManaBar(combatant) && regenManaGain(combatant) > 0;
 }
 
 /**
@@ -61,7 +61,7 @@ export function processManaRegen(
   pushCastIfReady(combatant, event.time, queue);
   queue.push({
     kind: "mana-regen",
-    time: (event.time + secondsToTicks(MANA_REGEN_INTERVAL_SECONDS)) as Ticks,
+    time: addTicks(event.time, secondsToTicks(MANA_REGEN_INTERVAL_SECONDS)),
     combatant: event.combatant,
   });
 }
@@ -88,6 +88,8 @@ export function processCast(event: CastEvent, state: CombatState): void {
     state.targetCasts++;
   }
   caster.currentMana = caster.manaGains["post-cast"];
-  caster.manaLockedUntil = (event.time +
-    secondsToTicks(MANA_LOCK_SECONDS)) as Ticks;
+  caster.manaLockedUntil = addTicks(
+    event.time,
+    secondsToTicks(MANA_LOCK_SECONDS),
+  );
 }
