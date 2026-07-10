@@ -30,7 +30,7 @@ const MAX_MANA_PER_HIT = 42.5;
 export const MANA_LOCK_SECONDS = 1;
 
 /** A unit with no mana bar (`mana.max` at or below zero) never casts. */
-export function shouldCast(combatant: Combatant): boolean {
+export function hasManaBar(combatant: Combatant): boolean {
   return combatant.stats.mana.max > 0;
 }
 
@@ -49,7 +49,7 @@ export function gainMana(
   amount: number,
   now: Ticks,
 ): void {
-  if (!shouldCast(combatant) || isManaLocked(combatant, now)) {
+  if (!hasManaBar(combatant) || isManaLocked(combatant, now)) {
     return;
   }
   combatant.currentMana += amount;
@@ -92,6 +92,6 @@ export function regenManaGain(combatant: Combatant): number {
 /** The gauge reached the threshold — the caller emits the cast event. */
 export function readyToCast(combatant: Combatant): boolean {
   return (
-    shouldCast(combatant) && combatant.currentMana >= combatant.stats.mana.max
+    hasManaBar(combatant) && combatant.currentMana >= combatant.stats.mana.max
   );
 }

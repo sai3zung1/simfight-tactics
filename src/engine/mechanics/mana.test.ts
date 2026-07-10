@@ -1,6 +1,6 @@
 import { test, expect } from "bun:test";
 import {
-  shouldCast,
+  hasManaBar,
   isManaLocked,
   gainMana,
   attackManaGain,
@@ -54,8 +54,8 @@ const makeCombatant = (
 
 test("a unit with no mana bar never casts", () => {
   const noBar = makeCombatant({ mana: { min: 0, start: 0, max: 0 } });
-  expect(shouldCast(noBar)).toBe(false);
-  expect(shouldCast(makeCombatant())).toBe(true);
+  expect(hasManaBar(noBar)).toBe(false);
+  expect(hasManaBar(makeCombatant())).toBe(true);
 });
 
 test("attack gain sums the role value and on-attack bonuses", () => {

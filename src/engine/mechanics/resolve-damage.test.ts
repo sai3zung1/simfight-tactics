@@ -5,7 +5,7 @@ import {
   amplify,
   reductionFactor,
 } from "./resolve-damage";
-import { expected, neverCrit, alwaysCrit } from "./crit-policy";
+import { expectedCrit, neverCrit, alwaysCrit } from "./crit-policy";
 
 const CRIT_CHANCE = 0.25;
 const CRIT_DAMAGE = 0.4;
@@ -20,8 +20,12 @@ describe("resolveDamage", () => {
   test("applies amplification, crit and mitigation", () => {
     // 100 × 1.2 × 1.10 × 0.667 ≈ 88
     expect(
-      resolveDamage(hit, attacker, target, expected(CRIT_CHANCE, CRIT_DAMAGE))
-        .dealt,
+      resolveDamage(
+        hit,
+        attacker,
+        target,
+        expectedCrit(CRIT_CHANCE, CRIT_DAMAGE),
+      ).dealt,
     ).toBeCloseTo(88);
   });
 
@@ -30,7 +34,7 @@ describe("resolveDamage", () => {
       hit,
       attacker,
       target,
-      expected(CRIT_CHANCE, CRIT_DAMAGE),
+      expectedCrit(CRIT_CHANCE, CRIT_DAMAGE),
     );
     // 100 × 1.2 × 1.10 — mitigation not applied yet
     expect(resolved.preMitigated).toBeCloseTo(132);
@@ -91,7 +95,7 @@ describe("resolveDamage", () => {
     );
   });
 
-  test("guardrail: neverCrit ≤ expected ≤ alwaysCrit, fed by the policies", () => {
+  test("guardrail: neverCrit ≤ expectedCrit ≤ alwaysCrit, fed by the policies", () => {
     const low = resolveDamage(
       hit,
       attacker,
@@ -102,7 +106,7 @@ describe("resolveDamage", () => {
       hit,
       attacker,
       target,
-      expected(CRIT_CHANCE, CRIT_DAMAGE),
+      expectedCrit(CRIT_CHANCE, CRIT_DAMAGE),
     ).dealt;
     const high = resolveDamage(
       hit,

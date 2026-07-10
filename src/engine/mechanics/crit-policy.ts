@@ -3,7 +3,7 @@
  * stats. Computed by the caller and passed to `resolveDamage` as a ready
  * number, so the damage pipeline stays unaware of the crit mechanic.
  *
- * `expected` is the deterministic policy the engine runs on; `neverCrit`
+ * `expectedCrit` is the deterministic policy the engine runs on; `neverCrit`
  * and `alwaysCrit` are its lower and upper bounds, used to bracket it in
  * tests. They would become the extremes of the roll if a stochastic mode
  * is ever added.
@@ -17,7 +17,7 @@ export type CritPolicy = (critChance: number, critDamage: number) => number;
  * confirmed once extraction is owned end-to-end (#36). Provisional shape;
  * coefficient to be set by calibration (docs/data/combat-resolution.md).
  */
-export const expected: CritPolicy = (critChance, critDamage) =>
+export const expectedCrit: CritPolicy = (critChance, critDamage) =>
   1 + critChance * critDamage;
 
 /** Lower bound: no crit → nominal hit. */

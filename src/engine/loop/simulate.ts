@@ -18,7 +18,7 @@ import { resolveCombatant } from "../stats/combatant";
 import { resolveModifiers } from "../provisional/provisional-modifiers";
 import { resolveUnitStats } from "../provisional/provisional-stats";
 import { createEventQueue, type EventQueue } from "./event-queue";
-import { secondsToTicks, ticksToSeconds, type Ticks } from "./time";
+import { TICK_ZERO, secondsToTicks, ticksToSeconds, type Ticks } from "./time";
 
 /** Hard safety cap for `time_to_kill`: a build that cannot kill still terminates. */
 const HARD_CAP_SECONDS = 60;
@@ -127,7 +127,7 @@ export function simulate(config: CombatConfig): SimulationResult {
     // provisional cadence choice, confirmed at calibration (#51).
     queue.push({
       kind: "auto-attack",
-      time: 0 as Ticks,
+      time: TICK_ZERO,
       attacker: attacker.id,
       target: target.id,
     });
