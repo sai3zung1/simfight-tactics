@@ -141,7 +141,10 @@ test("a tank target casts from taking hits: the damage-taken path end to end", (
   const c: CombatConfig = {
     attacker: side(),
     target: { ...side(), unitId: PROVISIONAL_TANK_UNIT_ID },
-    stopCondition: { mode: "fixed-duration", durationSeconds: 60 },
+    // 18 s discriminates the mana source: the tank's own swings alone (5 per
+    // attack at 0.85/s) cannot fill the 100 gauge before ~22 s; with the
+    // hits it takes converting on top, the first cast lands by ~17 s.
+    stopCondition: { mode: "fixed-duration", durationSeconds: 18 },
   };
   const r = simulate(c);
   expect(r.targetCasts).toBeGreaterThanOrEqual(1);
