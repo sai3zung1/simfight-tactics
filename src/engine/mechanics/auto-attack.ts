@@ -58,7 +58,7 @@ export function processAutoAttack(
   );
 
   const killed = applyDamage(target, hit.dealt);
-  state.totalDamageDealt += hit.dealt;
+  state.damageDealtBy[event.attacker] += hit.dealt;
 
   if (killed) {
     return { time: event.time };

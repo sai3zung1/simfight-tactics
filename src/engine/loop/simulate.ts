@@ -121,9 +121,8 @@ export function simulate(config: CombatConfig): SimulationResult {
   const state: CombatState = {
     attacker,
     target,
-    totalDamageDealt: 0,
-    attackerCasts: 0,
-    targetCasts: 0,
+    damageDealtBy: { [attacker.id]: 0, [target.id]: 0 },
+    castsBy: { [attacker.id]: 0, [target.id]: 0 },
   };
 
   const queue = createEventQueue();
@@ -151,11 +150,14 @@ export function simulate(config: CombatConfig): SimulationResult {
 
   const signal = runLoop(queue, timeLimit, createProcess(queue, state));
 
+  // The attacker-centric reading of the per-combatant tallies, produced
+  // only here: in a 1v1, what the attacker takes is exactly what the
+  // target dealt.
   return {
-    totalDamageDealt: state.totalDamageDealt,
-    totalDamageTaken: 0,
-    attackerCasts: state.attackerCasts,
-    targetCasts: state.targetCasts,
+    totalDamageDealt: state.damageDealtBy[attacker.id],
+    totalDamageTaken: state.damageDealtBy[target.id],
+    attackerCasts: state.castsBy[attacker.id],
+    targetCasts: state.castsBy[target.id],
     effectiveDurationSeconds:
       signal !== undefined
         ? ticksToSeconds(signal.time)

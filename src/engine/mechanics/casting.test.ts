@@ -55,9 +55,8 @@ const CASTER_GENERATION = {
 const makeState = (attacker: Combatant, target: Combatant): CombatState => ({
   attacker,
   target,
-  totalDamageDealt: 0,
-  attackerCasts: 0,
-  targetCasts: 0,
+  damageDealtBy: { [attacker.id]: 0, [target.id]: 0 },
+  castsBy: { [attacker.id]: 0, [target.id]: 0 },
 });
 
 const regenTick = (combatant: Combatant, time: number): ManaRegenEvent => ({
@@ -140,27 +139,27 @@ test("a regen tick during the lock pays nothing but keeps ticking", () => {
   expect(queue.popNext()?.kind).toBe("mana-regen");
 });
 
-test("a cast counts for its side, spends the gauge and starts the lock", () => {
+test("a cast credits its caster, spends the gauge and starts the lock", () => {
   const attacker = makeCombatant("attacker", {}, { currentMana: 120 });
   const state = makeState(attacker, makeCombatant("target"));
 
   processCast(cast(attacker, 500), state);
 
-  expect(state.attackerCasts).toBe(1);
-  expect(state.targetCasts).toBe(0);
+  expect(state.castsBy[attacker.id]).toBe(1);
+  expect(state.castsBy[state.target.id]).toBe(0);
   // Excess above the threshold is lost (no overflow carry, #51).
   expect(attacker.currentMana).toBe(0);
   expect(attacker.manaLockedUntil).toBe(1500 as Ticks);
 });
 
-test("the target's cast counts on the target side", () => {
+test("a cast credits only its caster, never the other combatant", () => {
   const target = makeCombatant("target", {}, { currentMana: 100 });
   const state = makeState(makeCombatant("attacker"), target);
 
   processCast(cast(target, 0), state);
 
-  expect(state.targetCasts).toBe(1);
-  expect(state.attackerCasts).toBe(0);
+  expect(state.castsBy[target.id]).toBe(1);
+  expect(state.castsBy[state.attacker.id]).toBe(0);
 });
 
 test("post-cast bonuses land despite the fresh lock", () => {
@@ -190,7 +189,7 @@ test("a cast event finding an already-spent gauge is dropped", () => {
 
   processCast(cast(attacker, 500), state);
 
-  expect(state.attackerCasts).toBe(0);
+  expect(state.castsBy[attacker.id]).toBe(0);
   expect(attacker.currentMana).toBe(50);
   expect(attacker.manaLockedUntil).toBe(0 as Ticks);
 });

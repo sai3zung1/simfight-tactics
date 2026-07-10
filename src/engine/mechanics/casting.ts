@@ -82,11 +82,7 @@ export function processCast(event: CastEvent, state: CombatState): void {
   if (!readyToCast(caster)) {
     return;
   }
-  if (caster.id === state.attacker.id) {
-    state.attackerCasts++;
-  } else {
-    state.targetCasts++;
-  }
+  state.castsBy[event.caster]++;
   caster.currentMana = caster.manaGains["post-cast"];
   caster.manaLockedUntil = addTicks(
     event.time,
