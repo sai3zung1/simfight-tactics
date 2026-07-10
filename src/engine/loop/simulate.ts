@@ -20,7 +20,7 @@ import { resolveUnitStats } from "../provisional/provisional-stats";
 import { createEventQueue, type EventQueue } from "./event-queue";
 import { secondsToTicks, ticksToSeconds, type Ticks } from "./time";
 
-/** Hard safety cap for `time_to_kill`: a build that cannot kill still terminates. */
+/** Hard safety cap for `time-to-kill`: a build that cannot kill still terminates. */
 const HARD_CAP_SECONDS = 60;
 
 /**
@@ -54,7 +54,7 @@ export function runLoop(
 
 /**
  * Map the user's stop mode to the run's time limit, reported reason, and
- * whether a kill is allowed to end the run early. Only `fixed_duration`
+ * whether a kill is allowed to end the run early. Only `fixed-duration`
  * treats the target as immortal (`lethal: false`) — the other two modes
  * exist precisely to end on a kill.
  */
@@ -64,19 +64,19 @@ function resolveStop(stop: StopCondition): {
   lethal: boolean;
 } {
   switch (stop.mode) {
-    case "time_to_kill":
+    case "time-to-kill":
       return {
         timeLimit: secondsToTicks(HARD_CAP_SECONDS),
         stopReason: "timeout",
         lethal: true,
       };
-    case "fixed_duration":
+    case "fixed-duration":
       return {
         timeLimit: secondsToTicks(stop.durationSeconds),
         stopReason: "timer",
         lethal: false,
       };
-    case "first_trigger":
+    case "first-trigger":
       return {
         timeLimit: secondsToTicks(stop.durationSeconds),
         stopReason: "timer",

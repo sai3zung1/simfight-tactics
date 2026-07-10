@@ -60,8 +60,8 @@ test("runLoop processes events in order, ignoring those past timeLimit", () => {
   expect(seen).toEqual([10, 20, 30]);
 });
 
-test("time_to_kill ends on the target's death, reporting the kill instant", () => {
-  const r = simulate(config({ mode: "time_to_kill" }));
+test("time-to-kill ends on the target's death, reporting the kill instant", () => {
+  const r = simulate(config({ mode: "time-to-kill" }));
   expect(r.stopReason).toBe("kill");
   expect(r.totalDamageDealt).toBeGreaterThan(0);
   expect(r.totalDamageTaken).toBe(0);
@@ -69,11 +69,11 @@ test("time_to_kill ends on the target's death, reporting the kill instant", () =
   expect(r.effectiveDurationSeconds).toBeLessThan(60);
 });
 
-test("time_to_kill runs to the 60s cap when the target can't be killed in time -> timeout", () => {
+test("time-to-kill runs to the 60s cap when the target can't be killed in time -> timeout", () => {
   const c: CombatConfig = {
     attacker: side(),
     target: { ...side(), unitId: PROVISIONAL_IMMORTAL_UNIT_ID },
-    stopCondition: { mode: "time_to_kill" },
+    stopCondition: { mode: "time-to-kill" },
   };
   const r = simulate(c);
   expect(r.stopReason).toBe("timeout");
@@ -81,32 +81,32 @@ test("time_to_kill runs to the 60s cap when the target can't be killed in time -
   expect(r.totalDamageDealt).toBeGreaterThan(0);
 });
 
-test("fixed_duration runs the full duration -> timer, target treated as immortal", () => {
-  const r = simulate(config({ mode: "fixed_duration", durationSeconds: 8 }));
+test("fixed-duration runs the full duration -> timer, target treated as immortal", () => {
+  const r = simulate(config({ mode: "fixed-duration", durationSeconds: 8 }));
   expect(r.stopReason).toBe("timer");
   expect(r.effectiveDurationSeconds).toBe(8);
   expect(r.totalDamageDealt).toBeGreaterThan(0);
 });
 
-test("first_trigger runs to the timer when the target survives that long -> timer", () => {
-  const r = simulate(config({ mode: "first_trigger", durationSeconds: 5 }));
+test("first-trigger runs to the timer when the target survives that long -> timer", () => {
+  const r = simulate(config({ mode: "first-trigger", durationSeconds: 5 }));
   expect(r.stopReason).toBe("timer");
   expect(r.effectiveDurationSeconds).toBe(5);
 });
 
-test("first_trigger ends on the target's death when it dies before the timer -> kill", () => {
-  const r = simulate(config({ mode: "first_trigger", durationSeconds: 30 }));
+test("first-trigger ends on the target's death when it dies before the timer -> kill", () => {
+  const r = simulate(config({ mode: "first-trigger", durationSeconds: 30 }));
   expect(r.stopReason).toBe("kill");
   expect(r.effectiveDurationSeconds).toBeLessThan(30);
 });
 
 test("deterministic: same config yields an identical result", () => {
-  const c = config({ mode: "fixed_duration", durationSeconds: 8 });
+  const c = config({ mode: "fixed-duration", durationSeconds: 8 });
   expect(simulate(c)).toEqual(simulate(c));
 });
 
 test("the attacker casts from attacking: the per-attack path end to end", () => {
-  const r = simulate(config({ mode: "fixed_duration", durationSeconds: 15 }));
+  const r = simulate(config({ mode: "fixed-duration", durationSeconds: 15 }));
   expect(r.attackerCasts).toBeGreaterThanOrEqual(1);
   // The default fighter profile gains nothing from hits taken.
   expect(r.targetCasts).toBe(0);
@@ -116,7 +116,7 @@ test("a tank target casts from taking hits: the damage-taken path end to end", (
   const c: CombatConfig = {
     attacker: side(),
     target: { ...side(), unitId: PROVISIONAL_TANK_UNIT_ID },
-    stopCondition: { mode: "fixed_duration", durationSeconds: 60 },
+    stopCondition: { mode: "fixed-duration", durationSeconds: 60 },
   };
   const r = simulate(c);
   expect(r.targetCasts).toBeGreaterThanOrEqual(1);
@@ -126,7 +126,7 @@ test("a caster target casts without ever attacking: the regen path end to end", 
   const c: CombatConfig = {
     attacker: side(),
     target: { ...side(), unitId: PROVISIONAL_CASTER_UNIT_ID },
-    stopCondition: { mode: "fixed_duration", durationSeconds: 60 },
+    stopCondition: { mode: "fixed-duration", durationSeconds: 60 },
   };
   const r = simulate(c);
   // The caster profile gains nothing from hits taken: only its 2/s flow
@@ -138,14 +138,14 @@ test("a unit with no mana bar never casts, however long the run", () => {
   const c: CombatConfig = {
     attacker: { ...side(), unitId: PROVISIONAL_NO_MANA_UNIT_ID },
     target: side(),
-    stopCondition: { mode: "fixed_duration", durationSeconds: 30 },
+    stopCondition: { mode: "fixed-duration", durationSeconds: 30 },
   };
   const r = simulate(c);
   expect(r.attackerCasts).toBe(0);
 });
 
 test("an attack-damage item on the attacker raises the damage dealt", () => {
-  const bare = config({ mode: "fixed_duration", durationSeconds: 8 });
+  const bare = config({ mode: "fixed-duration", durationSeconds: 8 });
   const armed: CombatConfig = {
     ...bare,
     attacker: { ...side(), itemIds: [PROVISIONAL_SWORD_ITEM_ID] },
@@ -156,7 +156,7 @@ test("an attack-damage item on the attacker raises the damage dealt", () => {
 });
 
 test("a reduction item on the target lowers the damage dealt to it", () => {
-  const bare = config({ mode: "fixed_duration", durationSeconds: 8 });
+  const bare = config({ mode: "fixed-duration", durationSeconds: 8 });
   const plated: CombatConfig = {
     ...bare,
     target: { ...side(), itemIds: [PROVISIONAL_PLATING_ITEM_ID] },

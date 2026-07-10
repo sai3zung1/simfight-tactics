@@ -11,7 +11,7 @@ import { processCast, processManaRegen } from "./casting";
  * while still reaching the mutable state it needs. The switch is the
  * single point routing an event kind to its mechanic — a new kind is a
  * compile break here, never a silent skip. `lethal` comes from the stop
- * condition (fixed_duration treats the target as immortal) and is fixed
+ * condition (fixed-duration treats the target as immortal) and is fixed
  * for the whole run.
  */
 export function createProcess(
