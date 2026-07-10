@@ -63,7 +63,7 @@ export function attackManaGain(attacker: Combatant): number {
 }
 
 /**
- * One hit's worth for the defender. The role formula applies only to
+ * One hit's worth for the hit's target. The role formula applies only to
  * units that generate from damage taken; on-damage-taken bonuses apply to
  * any holder.
  */

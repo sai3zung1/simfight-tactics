@@ -11,11 +11,11 @@ import type { ItemId } from "../../domain/primitives";
  * catalogs land.
  */
 
-/** Attacker-side fixture: one flat attack-damage stat-mod. */
+/** Offense fixture: one flat attack-damage stat-mod. */
 export const PROVISIONAL_SWORD_ITEM_ID = "provisional-sword" as ItemId;
 
 /**
- * Defender-side fixture, carrying two modifiers on purpose — a stat-mod
+ * Defense fixture, carrying two modifiers on purpose — a stat-mod
  * raising the durability stat and a standalone damage-reduction effect — so
  * one item exercises both reduction paths of `reductionFactor` end to end.
  */

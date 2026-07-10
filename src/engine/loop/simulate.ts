@@ -54,33 +54,32 @@ export function runLoop(
 
 /**
  * Map the user's stop mode to the run's time limit, reported reason, and
- * whether a kill is allowed to end the run early. Only `fixed-duration`
- * treats the target as immortal (`lethal: false`) — the other two modes
- * exist precisely to end on a kill.
+ * the target's mortality. Only `fixed-duration` pins the target immortal —
+ * the other two modes exist precisely to end on a kill.
  */
 function resolveStop(stop: StopCondition): {
   timeLimit: Ticks;
   stopReason: StopReason;
-  lethal: boolean;
+  targetCanDie: boolean;
 } {
   switch (stop.mode) {
     case "time-to-kill":
       return {
         timeLimit: secondsToTicks(HARD_CAP_SECONDS),
         stopReason: "timeout",
-        lethal: true,
+        targetCanDie: true,
       };
     case "fixed-duration":
       return {
         timeLimit: secondsToTicks(stop.durationSeconds),
         stopReason: "timer",
-        lethal: false,
+        targetCanDie: false,
       };
     case "first-trigger":
       return {
         timeLimit: secondsToTicks(stop.durationSeconds),
         stopReason: "timer",
-        lethal: true,
+        targetCanDie: true,
       };
     default: {
       const _exhaustive: never = stop;
@@ -95,42 +94,55 @@ function resolveStop(stop: StopCondition): {
  *
  * Both sides resolve against a provisional profile picked via `unitId`
  * (`resolveUnitStats`) and provisional item modifiers (`resolveModifiers`)
- * until the real catalogs land. The run is still unidirectional: the target
- * never attacks, so `totalDamageTaken` stays 0.
+ * until the real catalogs land. The duel is bidirectional — the target
+ * fights back with the same mechanics; only the target can die.
  */
 export function simulate(config: CombatConfig): SimulationResult {
-  const { timeLimit, stopReason, lethal } = resolveStop(config.stopCondition);
+  const { timeLimit, stopReason, targetCanDie } = resolveStop(
+    config.stopCondition,
+  );
 
   const attacker = resolveCombatant(
     resolveUnitStats(config.attacker.unitId),
     config.attacker.starLevel,
     "attacker" as CombatantId,
     resolveModifiers(config.attacker),
+    // The attacker never dies — product rule: a run measures the attacker's
+    // build, so only the target's death may end one.
+    false,
   );
   const target = resolveCombatant(
     resolveUnitStats(config.target.unitId),
     config.target.starLevel,
     "target" as CombatantId,
     resolveModifiers(config.target),
+    targetCanDie,
   );
   const state: CombatState = {
     attacker,
     target,
-    totalDamageDealt: 0,
-    attackerCasts: 0,
-    targetCasts: 0,
+    damageDealtBy: { [attacker.id]: 0, [target.id]: 0 },
+    castsBy: { [attacker.id]: 0, [target.id]: 0 },
   };
 
   const queue = createEventQueue();
-  if (shouldAutoAttack(attacker)) {
-    // The opening attack fires at combat start, not one interval in — a
-    // provisional cadence choice, confirmed at calibration (#51).
-    queue.push({
-      kind: "auto-attack",
-      time: TICK_ZERO,
-      attacker: attacker.id,
-      target: target.id,
-    });
+  // Both openings fire at combat start, not one interval in — a provisional
+  // cadence choice, confirmed at calibration (#51). The push order is the
+  // same-tick tie-break (the queue resolves ties by arrival): the attacker
+  // swings first, an intentional pick that #51 may revisit — on every shared
+  // tick, including the killing one, its hit resolves before the target's.
+  for (const [swinger, victim] of [
+    [attacker, target],
+    [target, attacker],
+  ] as const) {
+    if (shouldAutoAttack(swinger)) {
+      queue.push({
+        kind: "auto-attack",
+        time: TICK_ZERO,
+        attacker: swinger.id,
+        target: victim.id,
+      });
+    }
   }
   // The first regen tick lands one interval in — nothing has accrued at
   // combat start. Both sides may tick: steady generation does not attack.
@@ -144,13 +156,16 @@ export function simulate(config: CombatConfig): SimulationResult {
     }
   }
 
-  const signal = runLoop(queue, timeLimit, createProcess(queue, state, lethal));
+  const signal = runLoop(queue, timeLimit, createProcess(queue, state));
 
+  // The attacker-centric reading of the per-combatant tallies, produced
+  // only here: in a 1v1, what the attacker takes is exactly what the
+  // target dealt.
   return {
-    totalDamageDealt: state.totalDamageDealt,
-    totalDamageTaken: 0,
-    attackerCasts: state.attackerCasts,
-    targetCasts: state.targetCasts,
+    totalDamageDealt: state.damageDealtBy[attacker.id],
+    totalDamageTaken: state.damageDealtBy[target.id],
+    attackerCasts: state.castsBy[attacker.id],
+    targetCasts: state.castsBy[target.id],
     effectiveDurationSeconds:
       signal !== undefined
         ? ticksToSeconds(signal.time)

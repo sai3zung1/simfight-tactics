@@ -6,6 +6,10 @@ import type { CombatantId } from "../stats/combatant-id";
  * union on `kind`. `time` repeats on every member since the queue orders
  * on it regardless of kind; same-tick ordering is the queue's concern (a
  * sequence number), not a field carried here.
+ *
+ * Combatant fields name the event's own roles — who acts, who receives —
+ * never the run's sides: with both sides fighting, an event's `attacker`
+ * may well be the run's `target` (`CombatState`).
  */
 
 /** A unit swings at its target; the exchange also generates mana. */

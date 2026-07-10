@@ -26,6 +26,7 @@ const makeCombatant = (
   overrides: Partial<Combatant> = {},
 ): Combatant => ({
   id: "attacker" as CombatantId,
+  canDie: true,
   currentHp: 1000,
   currentMana: 0,
   manaLockedUntil: 0 as Ticks,

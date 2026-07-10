@@ -1,7 +1,7 @@
 import type { AutoAttackEvent } from "../loop/combat-event";
 import type { CombatState } from "../loop/combat-state";
 import { combatantById } from "../loop/combat-state";
-import type { Combatant } from "../stats/combatant";
+import { applyDamage, type Combatant } from "../stats/combatant";
 import type { EventQueue } from "../loop/event-queue";
 import type { StopSignal } from "../loop/stop-signal";
 import { resolveDamage } from "./resolve-damage";
@@ -31,8 +31,9 @@ export function shouldAutoAttack(attacker: Combatant): boolean {
 
 /**
  * Resolve one auto-attack: damage the target, tally it, then hand out the
- * mana the exchange generated and reprogram the next attack. Order
- * matters: a lethal hit (when kills may end the run) returns before any
+ * mana the exchange generated and reprogram the next attack. Whether the
+ * victim can die at all is its own `canDie`, applied by `applyDamage`
+ * where the hit lands. Order matters: a killing hit returns before any
  * mana bookkeeping — nothing after the run's end is observable — and
  * never gets a follow-up scheduled.
  */
@@ -40,7 +41,6 @@ export function processAutoAttack(
   event: AutoAttackEvent,
   state: CombatState,
   queue: EventQueue,
-  lethal: boolean,
 ): StopSignal | undefined {
   const attacker = combatantById(state, event.attacker);
   const target = combatantById(state, event.target);
@@ -57,10 +57,10 @@ export function processAutoAttack(
     expectedCrit(attacker.stats.critChance, attacker.stats.critDamage),
   );
 
-  target.currentHp -= hit.dealt;
-  state.totalDamageDealt += hit.dealt;
+  const killed = applyDamage(target, hit.dealt);
+  state.damageDealtBy[event.attacker] += hit.dealt;
 
-  if (lethal && target.currentHp <= 0) {
+  if (killed) {
     return { time: event.time };
   }
 

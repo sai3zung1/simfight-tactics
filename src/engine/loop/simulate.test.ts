@@ -9,8 +9,8 @@ import type { BoardSide } from "../../domain/combat/board-side";
 import type { UnitId } from "../../domain/primitives";
 import type { CombatantId } from "../stats/combatant-id";
 import {
-  PROVISIONAL_CASTER_UNIT_ID,
   PROVISIONAL_IMMORTAL_UNIT_ID,
+  PROVISIONAL_NO_ATTACK_CASTER_UNIT_ID,
   PROVISIONAL_NO_MANA_UNIT_ID,
   PROVISIONAL_TANK_UNIT_ID,
 } from "../provisional/provisional-stats";
@@ -64,7 +64,8 @@ test("time-to-kill ends on the target's death, reporting the kill instant", () =
   const r = simulate(config({ mode: "time-to-kill" }));
   expect(r.stopReason).toBe("kill");
   expect(r.totalDamageDealt).toBeGreaterThan(0);
-  expect(r.totalDamageTaken).toBe(0);
+  // The target fought back until it died: what it landed is reported.
+  expect(r.totalDamageTaken).toBeGreaterThan(0);
   expect(r.effectiveDurationSeconds).toBeGreaterThan(0);
   expect(r.effectiveDurationSeconds).toBeLessThan(60);
 });
@@ -79,6 +80,9 @@ test("time-to-kill runs to the 60s cap when the target can't be killed in time -
   expect(r.stopReason).toBe("timeout");
   expect(r.effectiveDurationSeconds).toBe(60);
   expect(r.totalDamageDealt).toBeGreaterThan(0);
+  // Free witness of the attacker's immortality: it absorbs 60 s of hits —
+  // far beyond its own HP — and the run still reaches the cap.
+  expect(r.totalDamageTaken).toBeGreaterThan(0);
 });
 
 test("fixed-duration runs the full duration -> timer, target treated as immortal", () => {
@@ -106,17 +110,41 @@ test("deterministic: same config yields an identical result", () => {
 });
 
 test("the attacker casts from attacking: the per-attack path end to end", () => {
-  const r = simulate(config({ mode: "fixed-duration", durationSeconds: 15 }));
+  const c: CombatConfig = {
+    attacker: side(),
+    // A no-mana target keeps the negative witness: whatever it does, its
+    // gauge cannot fill.
+    target: { ...side(), unitId: PROVISIONAL_NO_MANA_UNIT_ID },
+    stopCondition: { mode: "fixed-duration", durationSeconds: 15 },
+  };
+  const r = simulate(c);
   expect(r.attackerCasts).toBeGreaterThanOrEqual(1);
-  // The default fighter profile gains nothing from hits taken.
   expect(r.targetCasts).toBe(0);
+});
+
+test("the target casts from its own attacks: the per-attack path, reversed", () => {
+  const r = simulate(config({ mode: "fixed-duration", durationSeconds: 15 }));
+  // The fighter profile gains neither from hits taken nor per second: its
+  // casts can only come from its own swings.
+  expect(r.targetCasts).toBeGreaterThanOrEqual(1);
+});
+
+test("mirror duel: totalDamageDealt equals totalDamageTaken", () => {
+  const r = simulate(config({ mode: "fixed-duration", durationSeconds: 10 }));
+  // Identical fighters, same opening rule, no kill: the duel is symmetric
+  // by construction, so the two totals must match exactly.
+  expect(r.totalDamageDealt).toBeGreaterThan(0);
+  expect(r.totalDamageTaken).toBe(r.totalDamageDealt);
 });
 
 test("a tank target casts from taking hits: the damage-taken path end to end", () => {
   const c: CombatConfig = {
     attacker: side(),
     target: { ...side(), unitId: PROVISIONAL_TANK_UNIT_ID },
-    stopCondition: { mode: "fixed-duration", durationSeconds: 60 },
+    // 18 s discriminates the mana source: the tank's own swings alone (5 per
+    // attack at 0.85/s) cannot fill the 100 gauge before ~22 s; with the
+    // hits it takes converting on top, the first cast lands by ~17 s.
+    stopCondition: { mode: "fixed-duration", durationSeconds: 18 },
   };
   const r = simulate(c);
   expect(r.targetCasts).toBeGreaterThanOrEqual(1);
@@ -125,13 +153,26 @@ test("a tank target casts from taking hits: the damage-taken path end to end", (
 test("a caster target casts without ever attacking: the regen path end to end", () => {
   const c: CombatConfig = {
     attacker: side(),
-    target: { ...side(), unitId: PROVISIONAL_CASTER_UNIT_ID },
+    target: { ...side(), unitId: PROVISIONAL_NO_ATTACK_CASTER_UNIT_ID },
     stopCondition: { mode: "fixed-duration", durationSeconds: 60 },
   };
   const r = simulate(c);
-  // The caster profile gains nothing from hits taken: only its 2/s flow
-  // can have filled the gauge.
+  // No swings (attackSpeed 0) and no gain from hits taken: only the 2/s
+  // flow can have filled the gauge.
   expect(r.targetCasts).toBeGreaterThanOrEqual(1);
+});
+
+test("a tank attacker casts from taking hits: the damage-taken path, reversed", () => {
+  const c: CombatConfig = {
+    attacker: { ...side(), unitId: PROVISIONAL_TANK_UNIT_ID },
+    target: side(),
+    // 18 s discriminates the mana source: the tank's own swings alone (5 per
+    // attack at 0.85/s) cannot fill the 100 gauge before ~22 s; with the
+    // hits it takes converting on top, the first cast lands by ~17 s.
+    stopCondition: { mode: "fixed-duration", durationSeconds: 18 },
+  };
+  const r = simulate(c);
+  expect(r.attackerCasts).toBeGreaterThanOrEqual(1);
 });
 
 test("a unit with no mana bar never casts, however long the run", () => {
