@@ -13,9 +13,9 @@ export type CritPolicy = (critChance: number, critDamage: number) => number;
 /**
  * Expected value: the weighted average between a nominal and a critical hit.
  * `critDamage` is stored as the bonus over a nominal hit, not the full
- * multiplier — whether the extraction source encodes it the same way is
- * confirmed once extraction is owned end-to-end (#36). Provisional shape;
- * coefficient to be set by calibration (docs/data/combat-resolution.md).
+ * multiplier — the game data stores the full multiplier, so the adapter
+ * subtracts one on the way in (docs/data/calibration-log.md, C5). Base
+ * values are confirmed in the game data (log C4).
  */
 export const expectedCrit: CritPolicy = (critChance, critDamage) =>
   1 + critChance * critDamage;

@@ -1,7 +1,6 @@
 import type { BaseStats } from "../../domain/catalog/base-stats";
 import type { Modifier } from "../../domain/catalog/modifier";
 import type { StarLevel } from "../../domain/primitives";
-import { TICK_ZERO, type Ticks } from "../loop/time";
 import type { CombatantId } from "./combatant-id";
 import {
   applyModifiers,
@@ -46,13 +45,11 @@ export type Combatant = {
   currentHp: number;
   /** Gauge toward the cast threshold (`stats.mana.max`). */
   currentMana: number;
-  /** Tick until which mana generation stays blocked after a cast; 0 = open. */
-  manaLockedUntil: Ticks;
 };
 
 /**
  * Build a combatant's starting state: stats resolved and modifiers
- * applied, full HP, mana at its starting value, generation lock open.
+ * applied, full HP, mana at its starting value.
  */
 export function resolveCombatant(
   stats: BaseStats,
@@ -71,7 +68,6 @@ export function resolveCombatant(
     canDie,
     currentHp: effective.hp,
     currentMana: effective.mana.start,
-    manaLockedUntil: TICK_ZERO,
   };
 }
 

@@ -126,11 +126,13 @@ export function simulate(config: CombatConfig): SimulationResult {
   };
 
   const queue = createEventQueue();
-  // Both openings fire at combat start, not one interval in — a provisional
-  // cadence choice, confirmed at calibration (#51). The push order is the
-  // same-tick tie-break (the queue resolves ties by arrival): the attacker
-  // swings first, an intentional pick that #51 may revisit — on every shared
-  // tick, including the killing one, its hit resolves before the target's.
+  // Both openings fire at combat start, not one interval in — measured, and a
+  // model commitment: no walk phase exists, combat starts at the first swing
+  // (docs/data/calibration-log.md, C7). The push order is the same-tick
+  // tie-break (the queue resolves ties by arrival): the attacker swings first,
+  // an engine convention no live read can arbitrate (calibration log,
+  // same-tick tie-break) — on every shared tick, including the killing one,
+  // its hit resolves before the target's.
   for (const [swinger, victim] of [
     [attacker, target],
     [target, attacker],

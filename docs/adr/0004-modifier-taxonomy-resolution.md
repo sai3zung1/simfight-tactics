@@ -33,8 +33,14 @@ families recurs while variable names change almost entirely each set.
    anti-heal; for shield: amplification; for mana: per-attack, per-second, from
    damage-taken, and post-cast (amended with the Set 15 roles revamp, verified
    against the official announcement and the game data). The pipeline shapes are
-   fixed here. The ordering and coefficients within each pipeline are determined
-   by calibration against the live game and are not fixed by this record.
+   fixed here. Coefficients within each pipeline are determined by calibration
+   against the live game and are not fixed by this record.
+   Ordering is not calibration-determined the way this record originally framed
+   it: every stage resolves as one multiplicative product, so no live
+   observation can distinguish an order (#51, 2026-07-12). Ordering becomes a
+   live question — and a calibration target — only once a non-multiplicative
+   (e.g. flat additive) stage exists; #74 (spell pipeline calibration) is the
+   natural point to revisit it.
 
 4. **Extension.** The taxonomy is extended when a later-implemented category
    presents an effect it cannot express.
@@ -42,8 +48,12 @@ families recurs while variable names change almost entirely each set.
 ## Consequences
 
 - A new set is data: the engine encodes effect kinds, not champions.
-- Vocabulary traces to the cartography, coefficients to the bin calculations,
-  resolution ordering to game calibration.
-- Resolution ordering and coefficients stay open until calibration; the engine
-  carries provisional pipelines until then.
+- Vocabulary traces to the cartography, coefficients to the bin calculations.
+- Coefficients stay open until calibration; the engine carries provisional
+  values until then. Ordering stays open indefinitely under an
+  all-multiplicative pipeline — it is not a pending calibration, it is a
+  non-question until a non-multiplicative stage lands.
 - The cartography becomes a dated research note referencing this record.
+- Calibration results live in `docs/data/calibration-log.md` (#51), dated and
+  graded by evidence source; this record's coefficients are illustrative until
+  that log resolves them.

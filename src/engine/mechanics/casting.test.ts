@@ -21,7 +21,6 @@ const makeCombatant = (
   canDie: true,
   currentHp: 1000,
   currentMana: 0,
-  manaLockedUntil: 0 as Ticks,
   damageReductions: [],
   manaGains: {
     "on-attack": 0,
@@ -124,22 +123,7 @@ test("a regen tick that fills the gauge emits a same-tick cast", () => {
   expect(first?.time).toBe(1000 as Ticks);
 });
 
-test("a regen tick during the lock pays nothing but keeps ticking", () => {
-  const caster = makeCombatant(
-    "attacker",
-    { manaGeneration: CASTER_GENERATION },
-    { manaLockedUntil: 5000 as Ticks },
-  );
-  const state = makeState(caster, makeCombatant("target"));
-  const queue = createEventQueue();
-
-  processManaRegen(regenTick(caster, 1000), state, queue);
-
-  expect(caster.currentMana).toBe(0);
-  expect(queue.popNext()?.kind).toBe("mana-regen");
-});
-
-test("a cast credits its caster, spends the gauge and starts the lock", () => {
+test("a cast credits its caster and spends the gauge", () => {
   const attacker = makeCombatant("attacker", {}, { currentMana: 120 });
   const state = makeState(attacker, makeCombatant("target"));
 
@@ -147,9 +131,9 @@ test("a cast credits its caster, spends the gauge and starts the lock", () => {
 
   expect(state.castsBy[attacker.id]).toBe(1);
   expect(state.castsBy[state.target.id]).toBe(0);
-  // Excess above the threshold is lost (no overflow carry, #51).
+  // Pins the measured post-cast bar state: excess lost, restart at exactly
+  // zero (docs/data/calibration-log.md, A1).
   expect(attacker.currentMana).toBe(0);
-  expect(attacker.manaLockedUntil).toBe(1500 as Ticks);
 });
 
 test("a cast credits only its caster, never the other combatant", () => {
@@ -162,7 +146,7 @@ test("a cast credits only its caster, never the other combatant", () => {
   expect(state.castsBy[state.attacker.id]).toBe(0);
 });
 
-test("post-cast bonuses land despite the fresh lock", () => {
+test("post-cast bonuses set the gauge's landing value", () => {
   const attacker = makeCombatant(
     "attacker",
     {},
@@ -191,5 +175,4 @@ test("a cast event finding an already-spent gauge is dropped", () => {
 
   expect(state.castsBy[attacker.id]).toBe(0);
   expect(attacker.currentMana).toBe(50);
-  expect(attacker.manaLockedUntil).toBe(0 as Ticks);
 });

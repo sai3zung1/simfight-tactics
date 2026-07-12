@@ -1,7 +1,6 @@
 import { test, expect } from "bun:test";
 import {
   hasManaBar,
-  isManaLocked,
   gainMana,
   attackManaGain,
   damageTakenManaGain,
@@ -12,7 +11,6 @@ import type { Combatant } from "../stats/combatant";
 import type { CombatantId } from "../stats/combatant-id";
 import type { ResolvedStats } from "../stats/resolved-stats";
 import type { ManaGains } from "../stats/effective-stats";
-import type { Ticks } from "../loop/time";
 
 const NO_GAINS: ManaGains = {
   "on-attack": 0,
@@ -29,7 +27,6 @@ const makeCombatant = (
   canDie: true,
   currentHp: 1000,
   currentMana: 0,
-  manaLockedUntil: 0 as Ticks,
   damageReductions: [],
   manaGains: NO_GAINS,
   stats: {
@@ -68,6 +65,9 @@ test("damage-taken gain is zero for roles without it, whatever the hit", () => {
   expect(damageTakenManaGain(makeCombatant(), 200, 100)).toBe(0);
 });
 
+// The two tests below pin the adopted damage-taken coefficients and cap
+// (docs/data/calibration-log.md, C2) — a drift here is a calibration break,
+// not a refactor.
 test("damage-taken gain applies the formula for eligible roles", () => {
   const tank = makeCombatant({
     manaGeneration: { perAttack: 5, perSecond: 0, gainsFromDamageTaken: true },
@@ -107,30 +107,16 @@ test("regen gain sums the role flow and per-second bonuses", () => {
 
 test("gains land on the gauge until the threshold is crossed", () => {
   const c = makeCombatant();
-  gainMana(c, 40, 0 as Ticks);
+  gainMana(c, 40);
   expect(c.currentMana).toBe(40);
   expect(readyToCast(c)).toBe(false);
-  gainMana(c, 60, 100 as Ticks);
+  gainMana(c, 60);
   expect(readyToCast(c)).toBe(true);
-});
-
-test("the post-cast lock blocks every gain, then reopens", () => {
-  const c = makeCombatant({}, { manaLockedUntil: 1000 as Ticks });
-  gainMana(c, 10, 999 as Ticks);
-  expect(c.currentMana).toBe(0);
-  gainMana(c, 10, 1000 as Ticks);
-  expect(c.currentMana).toBe(10);
-});
-
-test("the lock is open exactly at the unlock tick", () => {
-  const c = makeCombatant({}, { manaLockedUntil: 1000 as Ticks });
-  expect(isManaLocked(c, 999 as Ticks)).toBe(true);
-  expect(isManaLocked(c, 1000 as Ticks)).toBe(false);
 });
 
 test("a unit with no mana bar accumulates nothing", () => {
   const c = makeCombatant({ mana: { min: 0, start: 0, max: 0 } });
-  gainMana(c, 50, 0 as Ticks);
+  gainMana(c, 50);
   expect(c.currentMana).toBe(0);
   expect(readyToCast(c)).toBe(false);
 });
