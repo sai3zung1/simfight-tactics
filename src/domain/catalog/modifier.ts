@@ -78,7 +78,13 @@ export type ManaTrigger =
   | "post-cast"
   | "on-damage-taken";
 
-export type CrowdControl = "silence" | "stun" | "disarm" | "fear";
+/**
+ * Fear and root are out of scope: both need a notion of position/movement
+ * this engine does not model (a static 1v1 duel, no space dimension).
+ * Revisit only if the engine ever models unit positioning — nothing on the
+ * board plans that today (#50).
+ */
+export type CrowdControl = "silence" | "stun" | "disarm";
 
 /**
  * The engine's whole vocabulary of combat effects: every item, trait,
@@ -107,6 +113,13 @@ export type Modifier =
   | {
       readonly kind: "crowd-control";
       readonly cc: CrowdControl;
+      /**
+       * Only `duration` is meaningful here — a crowd-control effect with no
+       * length (`instant`) or that repeats (`periodic`, DoT's territory,
+       * #72) doesn't correspond to anything real. Whoever resolves this kind
+       * (the spell cast contract, #68) treats the other two as unreachable,
+       * not silently ignored (#50, D5).
+       */
       readonly temporality: Temporality;
     }
   | {

@@ -2,6 +2,7 @@ import { test, expect } from "bun:test";
 import {
   processCast,
   processManaRegen,
+  pushCastIfReady,
   shouldScheduleManaRegen,
 } from "./casting";
 import { createEventQueue } from "../loop/event-queue";
@@ -22,6 +23,7 @@ const makeCombatant = (
   currentHp: 1000,
   currentMana: 0,
   damageReductions: [],
+  activeCrowdControl: [],
   manaGains: {
     "on-attack": 0,
     "per-second": 0,
@@ -121,6 +123,68 @@ test("a regen tick that fills the gauge emits a same-tick cast", () => {
   const first = queue.popNext();
   expect(first?.kind).toBe("cast");
   expect(first?.time).toBe(1000 as Ticks);
+});
+
+test("a stunned combatant's full gauge does not get a cast pushed", () => {
+  const c = makeCombatant(
+    "attacker",
+    {},
+    {
+      currentMana: 100,
+      activeCrowdControl: [{ cc: "stun", blockedThrough: 1000 as Ticks }],
+    },
+  );
+  const queue = createEventQueue();
+
+  pushCastIfReady(c, 500 as Ticks, queue);
+
+  expect(queue.popNext()).toBeUndefined();
+});
+
+test("a silenced combatant's full gauge does not get a cast pushed", () => {
+  const c = makeCombatant(
+    "attacker",
+    {},
+    {
+      currentMana: 100,
+      activeCrowdControl: [{ cc: "silence", blockedThrough: 1000 as Ticks }],
+    },
+  );
+  const queue = createEventQueue();
+
+  pushCastIfReady(c, 500 as Ticks, queue);
+
+  expect(queue.popNext()).toBeUndefined();
+});
+
+test("a disarmed combatant's full gauge still casts normally", () => {
+  const c = makeCombatant(
+    "attacker",
+    {},
+    {
+      currentMana: 100,
+      activeCrowdControl: [{ cc: "disarm", blockedThrough: 1000 as Ticks }],
+    },
+  );
+  const queue = createEventQueue();
+
+  pushCastIfReady(c, 500 as Ticks, queue);
+
+  expect(queue.popNext()?.kind).toBe("cast");
+});
+
+test("a stunned combatant still perceives mana normally — only its own attack and cast are gated", () => {
+  const caster = makeCombatant(
+    "attacker",
+    { manaGeneration: CASTER_GENERATION },
+    { activeCrowdControl: [{ cc: "stun", blockedThrough: 5000 as Ticks }] },
+  );
+  const state = makeState(caster, makeCombatant("target"));
+  const queue = createEventQueue();
+
+  processManaRegen(regenTick(caster, 1000), state, queue);
+
+  expect(caster.currentMana).toBe(2);
 });
 
 test("a cast credits its caster and spends the gauge", () => {

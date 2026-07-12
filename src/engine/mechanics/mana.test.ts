@@ -28,6 +28,7 @@ const makeCombatant = (
   currentHp: 1000,
   currentMana: 0,
   damageReductions: [],
+  activeCrowdControl: [],
   manaGains: NO_GAINS,
   stats: {
     hp: 1000,
