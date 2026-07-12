@@ -1,5 +1,6 @@
 import type { Ticks } from "./time";
 import type { CombatantId } from "../stats/combatant-id";
+import type { CrowdControl } from "../../domain/catalog/modifier";
 
 /**
  * One scheduled occurrence the loop orders and processes — a discriminated
@@ -37,4 +38,21 @@ export type CastEvent = {
   readonly caster: CombatantId;
 };
 
-export type CombatEvent = AutoAttackEvent | ManaRegenEvent | CastEvent;
+/**
+ * One combatant's crowd-control ends. Carries `cc` so the handler knows
+ * whether this specific effect was the one blocking the attack — silence
+ * expiring must never restart a chain it never stopped (mechanics/
+ * crowd-control.ts, #50).
+ */
+export type CrowdControlExpiryEvent = {
+  readonly kind: "crowd-control-expiry";
+  readonly time: Ticks;
+  readonly combatant: CombatantId;
+  readonly cc: CrowdControl;
+};
+
+export type CombatEvent =
+  | AutoAttackEvent
+  | ManaRegenEvent
+  | CastEvent
+  | CrowdControlExpiryEvent;
