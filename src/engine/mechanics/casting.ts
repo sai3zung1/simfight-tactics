@@ -1,7 +1,7 @@
 import type { CastEvent, ManaRegenEvent } from "../loop/combat-event";
 import type { CombatState } from "../loop/combat-state";
 import { combatantById } from "../loop/combat-state";
-import type { Combatant } from "../stats/combatant";
+import { canCast, type Combatant } from "../stats/combatant";
 import type { EventQueue } from "../loop/event-queue";
 import { addTicks, secondsToTicks, type Ticks } from "../loop/time";
 import { gainMana, readyToCast, regenManaGain, hasManaBar } from "./mana";
@@ -29,13 +29,19 @@ export function shouldScheduleManaRegen(combatant: Combatant): boolean {
  * Emit the cast as its own event, on the same tick as the gain that
  * filled the gauge — the queue's arrival order resolves it right after,
  * so a cast stays a first-class, ordered occurrence (ADR 0002).
+ *
+ * A gated caster (stun, silence) never gets the event pushed at all — the
+ * gauge keeps filling underneath (mana generation is never blocked, #50),
+ * so this check alone is enough to catch up the moment the block lifts,
+ * whether that recheck comes from a later attack/regen tick or from the
+ * effect's own expiry (mechanics/crowd-control.ts).
  */
 export function pushCastIfReady(
   combatant: Combatant,
   time: Ticks,
   queue: EventQueue,
 ): void {
-  if (readyToCast(combatant)) {
+  if (readyToCast(combatant) && canCast(combatant, time)) {
     queue.push({ kind: "cast", time, caster: combatant.id });
   }
 }
