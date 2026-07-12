@@ -14,6 +14,12 @@ const event = (time: number): CombatEvent => ({
   target: "target" as CombatantId,
 });
 
+const castEvent = (time: number): CombatEvent => ({
+  kind: "cast",
+  time: time as Ticks,
+  caster: "attacker" as CombatantId,
+});
+
 // Drain the queue, collecting the popped times in order.
 const drainTimes = (q: EventQueue): number[] => {
   const out: number[] = [];
@@ -46,6 +52,61 @@ test("same-tick events pop in push order (seq tiebreaker)", () => {
   q.push(second);
   expect(q.popNext()).toBe(first);
   expect(q.popNext()).toBe(second);
+});
+
+test("a cast pre-empts any other kind scheduled on the same tick", () => {
+  const q = createEventQueue();
+  const attack = event(30);
+  const cast = castEvent(30);
+  q.push(attack); // pushed first — would win a plain arrival-order tie
+  q.push(cast);
+  expect(q.popNext()).toBe(cast);
+  expect(q.popNext()).toBe(attack);
+});
+
+test("same-tick, same-kind events still tie on arrival order", () => {
+  const q = createEventQueue();
+  const first = castEvent(30);
+  const second = castEvent(30);
+  q.push(first);
+  q.push(second);
+  expect(q.popNext()).toBe(first);
+  expect(q.popNext()).toBe(second);
+});
+
+test("cancel drops every pending event the predicate matches", () => {
+  const q = createEventQueue();
+  const keep = event(10);
+  const drop1 = event(20);
+  const drop2 = event(30);
+  q.push(keep);
+  q.push(drop1);
+  q.push(drop2);
+
+  q.cancel((e) => e.time === (20 as Ticks) || e.time === (30 as Ticks));
+
+  expect(q.popNext()).toBe(keep);
+  expect(q.popNext()).toBeUndefined();
+});
+
+test("cancel matching nothing leaves the queue untouched", () => {
+  const q = createEventQueue();
+  q.push(event(10));
+  q.push(event(20));
+
+  q.cancel((e) => e.time === (999 as Ticks));
+
+  expect(drainTimes(q)).toEqual([10, 20]);
+});
+
+test("has reports whether a pending event matches, without consuming it", () => {
+  const q = createEventQueue();
+  q.push(event(10));
+
+  expect(q.has((e) => e.time === (10 as Ticks))).toBe(true);
+  expect(q.has((e) => e.time === (999 as Ticks))).toBe(false);
+  // Purely a lookup: the matching event is still there afterwards.
+  expect(q.popNext()?.time).toBe(10 as Ticks);
 });
 
 test("deterministic: identical pushes yield identical pop order", () => {
