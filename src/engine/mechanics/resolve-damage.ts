@@ -4,8 +4,9 @@ import type { DamageType } from "../../domain/catalog/modifier";
  * The two numbers one hit produces: `preMitigated` is the damage heading
  * into mitigation (amplification and crit applied), `dealt` is what lands
  * after mitigation and reduction. The damage-taken mana conversion reads
- * both; where exactly the pre-mitigation boundary sits is provisional
- * until calibration (#51).
+ * both; where exactly the pre-mitigation boundary sits is an adopted
+ * convention the live upgrade pass checks (docs/data/calibration-log.md,
+ * C2).
  */
 export type ResolvedHit = {
   readonly preMitigated: number;
@@ -18,11 +19,11 @@ export type ResolvedHit = {
  * arrives pre-computed (the CritPolicy is applied upstream); the other factors
  * are derived here from the attacker's and target's stats.
  *
- * Order is provisional: the shape (bonus → amp → crit → mitigation) comes from ADR 0004,
- * extended here with the reduction stage; the internal order and coefficients are still
- * to be set by calibration. Today every stage multiplies into one product, so their
- * order cannot change the result. Order starts to matter the day the flat `bonus`
- * stage (no source yet) lands.
+ * The shape (bonus → amp → crit → mitigation) comes from ADR 0004, extended here
+ * with the reduction stage. Ordering is descoped from calibration: every stage
+ * multiplies into one product, so order cannot change the result and cannot be
+ * observed in-game (docs/data/calibration-log.md, scope) — it becomes real the
+ * day the flat `bonus` stage (no source yet) lands.
  */
 export function resolveDamage(
   hit: { amount: number; damageType: DamageType },
@@ -97,8 +98,9 @@ function reductionTerm(reduction: number): number {
  * Reduction factor from the two damage-reduction lanes: the target's effective
  * `durability` — one additive pool, fed by the stat-mod fold — and the
  * `damage-reduction` modifiers, one factor per source. The lanes stack
- * multiplicatively, so their rules stay distinct by construction. Formula and
- * pipeline slot are community-sourced, provisional until calibration (#51).
+ * multiplicatively, so their rules stay distinct by construction — an adopted
+ * engine convention (additive stacking degenerates into immunity), checked at
+ * the live upgrade pass (docs/data/calibration-log.md, C3).
  */
 export function reductionFactor(
   durability: number,

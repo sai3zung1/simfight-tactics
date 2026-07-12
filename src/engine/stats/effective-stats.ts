@@ -31,8 +31,9 @@ function resolveStarValue(value: StarValue, starLevel: StarLevel): number {
  * Sum of the stats a magnitude scales from, read on the pre-fold base. A
  * scaled amount never sees another modifier's output, so application order
  * cannot matter. Several sources sum; that is the natural reading of the
- * taxonomy, not a sourced game rule — revisit if calibration (#51) proves
- * otherwise. `abilityPower` and `range` have no resolved field to read yet
+ * taxonomy, not a sourced game rule — revisit if spell calibration (#74)
+ * proves otherwise. `abilityPower` and `range` have no resolved field to read
+ * yet
  * and contribute zero, explicitly — the ticket that carries them adds the
  * read. A new `ScalingSource` is a compile break here.
  */

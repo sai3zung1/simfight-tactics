@@ -13,7 +13,9 @@ companion to [ADR 0004](../adr/0004-modifier-taxonomy-resolution.md).
 - Damage-taken multiplier: `100 / (100 + resist)`, identical for armor and magic
   resist.
 - Armor and magic resist floor at 0; reduced to 0 is effectively true damage.
-- Resist reduction (shred, sunder) is ~30% and does not stack with itself.
+- Resist reduction (shred, sunder) is ~30% and does not stack with itself —
+  not modelled in the engine yet; the value is illustrative until an item or
+  spell that shreds lands (docs/data/calibration-log.md, gaps).
 
 > **Example** — a 200-damage physical hit (the `100` is a fixed game constant;
 > more armor means less damage taken):
@@ -21,7 +23,9 @@ companion to [ADR 0004](../adr/0004-modifier-taxonomy-resolution.md).
 > - target armor 50: `200 × 100/(100+50)` = **133 taken**
 > - after a 30% armor shred (50 → 35): `200 × 100/(100+35)` = **148 taken**
 
-Source: community references. Confirm at calibration.
+Source: community references, corroborated (calibration log, C1). Adopted at
+calibration — engine already implements it; the live upgrade pass spot-checks
+it (docs/data/calibration-log.md, C1).
 
 ## Mana generation (Set 15 roles revamp)
 
@@ -35,15 +39,17 @@ prefix x role, e.g. `APCaster`, `ADTank`; a few special units carry `null`).
 - Per attack, flat by role: 10 (Fighter, Marksman/"Carry", Assassin/"Reaper"),
   7 (Caster), 5 (Tank).
 - Per second: Casters generate 2 (role perk). Since Set 15, items grant a
-  distinct `ManaRegen` stat — read as per-second, pinned at calibration.
+  distinct `ManaRegen` stat — per-second, per the official in-game tooltip
+  ("recovers this amount of mana every second passively"; sourced 2026-07-11).
 - From damage taken: Tanks only — 1% of pre-mitigation plus 3% of
   post-mitigation, capped ~42.5 per instance.
 - Specialist: unique generation (some units have no mana at all).
-- After casting: mana empties. A Set 12 overflow carry (excess past the
-  threshold carried into the next bar; simply lost before) is not confirmed
-  for the current system — no Set 15+ source mentions it; resolve in-game at
-  calibration. No generation for ~1s after a cast (mana lock; per-champion
-  exceptions) — wiki-sourced, patch-sensitive.
+- After casting: mana empties to exactly 0 — no overflow carry; the Set 12
+  carry did not survive (measured in-game 2026-07-11, calibration log A1).
+  No global post-cast mana lock either: the no-gain window is the cast itself
+  and gains resume at cast end, every role (measured 2026-07-11, log A2 — the
+  ~1s "default" traces to a Set 1 era statement); some units carry per-unit
+  extended locks (official, patch 15.4).
 
 Item channels. The cdragon `items` array spans every set (`apiName` prefix
 `TFTn_` = Set n, `TFT_` = core namespace reused across sets): presence in the
@@ -66,17 +72,25 @@ data is not liveness in the current set; liveness resolves at composition.
 Source: Riot "Roles Revamped" article (official — roles, per-attack values,
 Tank-only damage generation, Set 15 scope); cdragon `en_us.json` patch 16.13
 (role field, item variables, apiName set prefixes); wiki cross-check
-(damage-taken coefficients, overflow, mana lock — patch-sensitive).
-Coefficients and the regen unit confirm at calibration.
+(damage-taken coefficients, overflow, mana lock — patch-sensitive). The regen
+unit is confirmed (official tooltip, above). The damage-taken coefficients are
+adopted at wiki-lineage grade, not yet live-confirmed — the live upgrade pass
+discriminates them (docs/data/calibration-log.md, C2). Per-item values
+(Shojin, Blue Buff) are the items dictionary's concern (#13), not calibration.
 
 ## Critical strike
 
-- Base 25% chance, +30% bonus critical damage; multiplies the damage instance.
+- Base 25% chance, +40% bonus critical damage; multiplies the damage instance.
+  (+30% was the V11.12 (2021) value, carried here stale; the current wiki reads
+  +40%, undated — corrected 2026-07-12.)
 
-> **Example** — a 1000-damage hit that crits: `1000 × 1.30` = **1300 dealt**
-> (1.30 = 1 + the 30% bonus crit damage).
+> **Example** — a 1000-damage hit that crits: `1000 × 1.40` = **1400 dealt**
+> (1.40 = 1 + the 40% bonus crit damage).
 
-Source: community references. Confirm at calibration.
+Source: community references; base values confirmed in the game data —
+champion stats carry `critChance: 0.25` and `critMultiplier: 1.4` (cdragon
+latest, 2026-07-12). cdragon stores the **full multiplier**, the engine stores
+the bonus: the adapter maps `critMultiplier − 1 → critDamage` (ADR 0005).
 
 ## Scaling formula (from the game data)
 
@@ -110,16 +124,20 @@ store is not yet walked.
 The per-kind pipeline shapes are fixed in ADR 0004 (damage: bonus,
 amplification, critical strike, mitigation; heal: amplification, anti-heal;
 shield: amplification; mana: per-attack, per-second, from damage-taken, and
-post-cast). Their internal ordering and coefficients are pinned by calibration
-against the live game.
+post-cast). Coefficients within each pipeline are pinned by calibration
+against the live game (docs/data/calibration-log.md). Ordering is descoped,
+not merely unconfirmed: every stage resolves as one multiplicative product,
+so no live observation can distinguish an order — it stays a non-question
+until a non-multiplicative (e.g. flat additive) stage exists (ADR 0004).
 
-> **Example** — illustrative; the stage order is the candidate to confirm at
-> calibration. A 300 base hit, +50% amplification, a crit, into 100 armor:
+> **Example** — illustrative; the order shown has no effect on the result
+> while every stage is multiplicative (see above). A 300 base hit, +50%
+> amplification, a crit, into 100 armor:
 >
 > - base: **300**
 > - amplification (+50%, ×1.5): **450**
-> - critical strike (+30%, ×1.30): **585**
-> - mitigation (100 armor → ×0.5): **293 dealt**
+> - critical strike (+40%, ×1.40): **630**
+> - mitigation (100 armor → ×0.5): **315 dealt**
 
 ## Sources
 
@@ -129,7 +147,9 @@ against the live game.
 - Mana:
   [Roles Revamped](https://teamfighttactics.leagueoflegends.com/en-us/news/game-updates/roles-revamped-and-item-changes/)
   (Riot, official), cdragon `cdragon/tft/en_us.json` patch 16.13 (roles, item
-  variables); cross-check
+  variables);
+  [ManaRegen tooltip](https://wiki.leagueoflegends.com/en-us/Template:Tip_data/Tft_mana_regen)
+  (official — the stat is per-second); cross-check
   [TFT:Mana](https://wiki.leagueoflegends.com/en-us/TFT:Mana) (community,
   patch-sensitive); overflow carry dating:
   [Set 12 mana overflow](https://www.zleague.gg/theportal/team-fight-tactics-tft-huge-mana-change-explained/).

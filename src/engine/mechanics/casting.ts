@@ -4,13 +4,7 @@ import { combatantById } from "../loop/combat-state";
 import type { Combatant } from "../stats/combatant";
 import type { EventQueue } from "../loop/event-queue";
 import { addTicks, secondsToTicks, type Ticks } from "../loop/time";
-import {
-  MANA_LOCK_SECONDS,
-  gainMana,
-  readyToCast,
-  regenManaGain,
-  hasManaBar,
-} from "./mana";
+import { gainMana, readyToCast, regenManaGain, hasManaBar } from "./mana";
 
 /**
  * The casting side of the mana pipeline: emit a cast when a gauge is full,
@@ -20,9 +14,9 @@ import {
  */
 
 /**
- * Seconds between two ticks of steady generation. The game communicates
- * per-second values; whether they accrue continuously or in discrete
- * ticks is pinned at calibration (#51).
+ * Seconds between two ticks of steady generation. Measured: the live game
+ * pays per-second values in discrete one-second steps, the first one
+ * interval in (docs/data/calibration-log.md, B1).
  */
 export const MANA_REGEN_INTERVAL_SECONDS = 1;
 
@@ -57,7 +51,7 @@ export function processManaRegen(
   queue: EventQueue,
 ): void {
   const combatant = combatantById(state, event.combatant);
-  gainMana(combatant, regenManaGain(combatant), event.time);
+  gainMana(combatant, regenManaGain(combatant));
   pushCastIfReady(combatant, event.time, queue);
   queue.push({
     kind: "mana-regen",
@@ -67,12 +61,10 @@ export function processManaRegen(
 }
 
 /**
- * Resolve one cast: count it, spend the gauge, land post-cast bonuses and
- * start the generation lock. Two provisional choices, both pinned at
- * calibration (#51): the gauge restarts at zero (excess above the
- * threshold is lost — the Set 12 overflow carry is unconfirmed for the
- * current system), and post-cast bonuses land despite the lock (a refund
- * blocked by the lock would never pay out).
+ * Resolve one cast: count it and spend the gauge. The gauge restarts at
+ * the post-cast modifier sum — zero without items: measured, the excess
+ * above the threshold is lost and there is no floor
+ * (docs/data/calibration-log.md, A1).
  *
  * A cast event whose gauge is no longer full is dropped: two same-tick
  * gains can each emit a cast, and the first to resolve spends the bar.
@@ -84,8 +76,4 @@ export function processCast(event: CastEvent, state: CombatState): void {
   }
   state.castsBy[event.caster]++;
   caster.currentMana = caster.manaGains["post-cast"];
-  caster.manaLockedUntil = addTicks(
-    event.time,
-    secondsToTicks(MANA_LOCK_SECONDS),
-  );
 }

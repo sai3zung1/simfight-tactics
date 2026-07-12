@@ -19,7 +19,6 @@ const makeCombatant = (
   canDie,
   currentHp,
   currentMana: 0,
-  manaLockedUntil: 0 as Ticks,
   damageReductions: [],
   manaGains: {
     "on-attack": 0,

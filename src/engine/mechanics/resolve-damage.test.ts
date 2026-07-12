@@ -120,6 +120,8 @@ describe("resolveDamage", () => {
   });
 });
 
+// Pins the adopted mitigation formula and its zero floor
+// (docs/data/calibration-log.md, C1).
 describe("mitigationFactor — routing by damage type", () => {
   const target = { armor: 50, magicResist: 30 };
 
@@ -147,6 +149,8 @@ describe("mitigationFactor — routing by damage type", () => {
   });
 });
 
+// Pins the adopted multiplicative stacking of the reduction lanes
+// (docs/data/calibration-log.md, C3).
 describe("reductionFactor — the two damage-reduction lanes", () => {
   test("no reduction is neutral", () => {
     expect(reductionFactor(0, [])).toBe(1);

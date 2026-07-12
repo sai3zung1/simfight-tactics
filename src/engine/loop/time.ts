@@ -9,9 +9,9 @@
 export type Ticks = number & { readonly __brand: "Ticks" };
 
 /**
- * Grid granularity (ticks per simulated second). Provisional and NOT calibrated
- * against the live game — only the converters depend on it, so the value can
- * change without touching consumers.
+ * Grid granularity (ticks per simulated second). Calibrated: nothing measured
+ * needs finer than 1 ms (docs/data/calibration-log.md, grid check). Only the
+ * converters depend on it, so the value can change without touching consumers.
  */
 export const TICKS_PER_SECOND = 1000;
 

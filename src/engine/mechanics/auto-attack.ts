@@ -66,12 +66,8 @@ export function processAutoAttack(
 
   // The attacker earns its per-attack mana, the target converts the hit;
   // either gauge may fill — the cast then fires as its own same-tick event.
-  gainMana(attacker, attackManaGain(attacker), event.time);
-  gainMana(
-    target,
-    damageTakenManaGain(target, hit.preMitigated, hit.dealt),
-    event.time,
-  );
+  gainMana(attacker, attackManaGain(attacker));
+  gainMana(target, damageTakenManaGain(target, hit.preMitigated, hit.dealt));
   pushCastIfReady(attacker, event.time, queue);
   pushCastIfReady(target, event.time, queue);
 

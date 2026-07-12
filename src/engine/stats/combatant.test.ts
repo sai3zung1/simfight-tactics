@@ -1,7 +1,6 @@
 import { test, expect } from "bun:test";
 import { applyDamage, resolveCombatant } from "./combatant";
 import type { CombatantId } from "./combatant-id";
-import type { Ticks } from "../loop/time";
 import type { BaseStats } from "../../domain/catalog/base-stats";
 
 const stats: BaseStats = {
@@ -32,7 +31,7 @@ test("starts at full resolved HP for its star level", () => {
   expect(combatant.stats.hp).toBe(1600);
 });
 
-test("starts at its starting mana with the generation lock open", () => {
+test("starts at its starting mana", () => {
   const withStartMana: BaseStats = {
     ...stats,
     mana: { min: 0, start: 30, max: 100 },
@@ -45,7 +44,6 @@ test("starts at its starting mana with the generation lock open", () => {
     true,
   );
   expect(combatant.currentMana).toBe(30);
-  expect(combatant.manaLockedUntil).toBe(0 as Ticks);
 });
 
 test("carries the id it was given", () => {
