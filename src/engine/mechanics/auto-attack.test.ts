@@ -231,6 +231,62 @@ test("a gain that fills the gauge emits a cast event on the same tick", () => {
   expect(first?.time).toBe(500 as Ticks);
 });
 
+test("a stunned attacker deals no damage and does not reprogram the next attack", () => {
+  const attacker = makeCombatant("attacker", {
+    attackDamage: 100,
+    critChance: 0,
+  });
+  attacker.activeCrowdControl.push({
+    cc: "stun",
+    blockedThrough: 1000 as Ticks,
+  });
+  const target = makeCombatant("target", {}, 1000);
+  const state = makeState(attacker, target);
+  const queue = createEventQueue();
+  const process = createProcess(queue, state);
+
+  const signal = process(autoAttack(attacker, target, 0));
+
+  expect(signal).toBeUndefined();
+  expect(target.currentHp).toBe(1000);
+  expect(state.damageDealtBy[attacker.id]).toBe(0);
+  expect(queue.popNext()).toBeUndefined();
+});
+
+test("a disarmed attacker is gated the same way a stunned one is", () => {
+  const attacker = makeCombatant("attacker", { attackDamage: 100 });
+  attacker.activeCrowdControl.push({
+    cc: "disarm",
+    blockedThrough: 1000 as Ticks,
+  });
+  const target = makeCombatant("target", {}, 1000);
+  const state = makeState(attacker, target);
+  const process = createProcess(createEventQueue(), state);
+
+  process(autoAttack(attacker, target, 0));
+
+  expect(target.currentHp).toBe(1000);
+  expect(state.damageDealtBy[attacker.id]).toBe(0);
+});
+
+test("a silenced attacker attacks completely normally", () => {
+  const attacker = makeCombatant("attacker", {
+    attackDamage: 100,
+    critChance: 0,
+  });
+  attacker.activeCrowdControl.push({
+    cc: "silence",
+    blockedThrough: 1000 as Ticks,
+  });
+  const target = makeCombatant("target", {}, 1000);
+  const state = makeState(attacker, target);
+  const process = createProcess(createEventQueue(), state);
+
+  process(autoAttack(attacker, target, 0));
+
+  expect(state.damageDealtBy[attacker.id]).toBe(100);
+});
+
 test("a lethal hit ends the run before any mana bookkeeping", () => {
   const attacker = makeCombatant("attacker", {
     attackDamage: 9999,

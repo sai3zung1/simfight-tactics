@@ -1,7 +1,7 @@
 import type { AutoAttackEvent } from "../loop/combat-event";
 import type { CombatState } from "../loop/combat-state";
 import { combatantById } from "../loop/combat-state";
-import { applyDamage, type Combatant } from "../stats/combatant";
+import { applyDamage, canAttack, type Combatant } from "../stats/combatant";
 import type { EventQueue } from "../loop/event-queue";
 import type { StopSignal } from "../loop/stop-signal";
 import { resolveDamage } from "./resolve-damage";
@@ -36,6 +36,11 @@ export function shouldAutoAttack(attacker: Combatant): boolean {
  * where the hit lands. Order matters: a killing hit returns before any
  * mana bookkeeping — nothing after the run's end is observable — and
  * never gets a follow-up scheduled.
+ *
+ * A gated attacker (stun, disarm) does nothing here, and — unlike a
+ * survived hit — does not reprogram the next attack either: the chain
+ * stops rather than loop through wasted ticks, restarted only when the
+ * blocking effect expires (mechanics/crowd-control.ts, #50).
  */
 export function processAutoAttack(
   event: AutoAttackEvent,
@@ -44,6 +49,10 @@ export function processAutoAttack(
 ): StopSignal | undefined {
   const attacker = combatantById(state, event.attacker);
   const target = combatantById(state, event.target);
+
+  if (!canAttack(attacker, event.time)) {
+    return undefined;
+  }
 
   const hit = resolveDamage(
     { amount: attacker.stats.attackDamage, damageType: "physical" },
