@@ -31,6 +31,9 @@ export function ticksToSeconds(t: Ticks): number {
 /** Tick zero: combat start, and the neutral value for tick-typed cursors. */
 export const TICK_ZERO = 0 as Ticks;
 
+/** One tick — the smallest step, e.g. the first free tick after a blocked one (#50). */
+export const ONE_TICK = 1 as Ticks;
+
 /**
  * Tick arithmetic that keeps the brand, so scheduling code never casts:
  * `as Ticks` stays confined to this file, the brand's only door.

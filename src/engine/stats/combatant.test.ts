@@ -1,7 +1,8 @@
 import { test, expect } from "bun:test";
-import { applyDamage, resolveCombatant } from "./combatant";
+import { applyDamage, canAttack, canCast, resolveCombatant } from "./combatant";
 import type { CombatantId } from "./combatant-id";
 import type { BaseStats } from "../../domain/catalog/base-stats";
+import type { Ticks } from "../loop/time";
 
 const stats: BaseStats = {
   hp: { 1: 500, 2: 900, 3: 1600 },
@@ -133,6 +134,40 @@ test("applyDamage floors an immortal combatant at 1 and never reports a kill", (
   // Already at the floor: hits keep landing without moving HP any further.
   expect(applyDamage(immortal, 9999)).toBe(false);
   expect(immortal.currentHp).toBe(1);
+});
+
+test("an empty crowd-control list never blocks anything", () => {
+  const c = resolveCombatant(stats, 1, "attacker" as CombatantId, [], true);
+  expect(canAttack(c, 0 as Ticks)).toBe(true);
+  expect(canCast(c, 0 as Ticks)).toBe(true);
+});
+
+test("stun blocks both attack and cast", () => {
+  const c = resolveCombatant(stats, 1, "attacker" as CombatantId, [], true);
+  c.activeCrowdControl.push({ cc: "stun", blockedThrough: 3000 as Ticks });
+  expect(canAttack(c, 1000 as Ticks)).toBe(false);
+  expect(canCast(c, 1000 as Ticks)).toBe(false);
+});
+
+test("disarm blocks attack only", () => {
+  const c = resolveCombatant(stats, 1, "attacker" as CombatantId, [], true);
+  c.activeCrowdControl.push({ cc: "disarm", blockedThrough: 3000 as Ticks });
+  expect(canAttack(c, 1000 as Ticks)).toBe(false);
+  expect(canCast(c, 1000 as Ticks)).toBe(true);
+});
+
+test("silence blocks cast only", () => {
+  const c = resolveCombatant(stats, 1, "attacker" as CombatantId, [], true);
+  c.activeCrowdControl.push({ cc: "silence", blockedThrough: 3000 as Ticks });
+  expect(canAttack(c, 1000 as Ticks)).toBe(true);
+  expect(canCast(c, 1000 as Ticks)).toBe(false);
+});
+
+test("blocked through its last tick inclusive, free the very next one", () => {
+  const c = resolveCombatant(stats, 1, "attacker" as CombatantId, [], true);
+  c.activeCrowdControl.push({ cc: "stun", blockedThrough: 3000 as Ticks });
+  expect(canAttack(c, 3000 as Ticks)).toBe(false);
+  expect(canAttack(c, 3001 as Ticks)).toBe(true);
 });
 
 test("carries damage-reduction modifiers as their own lane, apart from durability", () => {

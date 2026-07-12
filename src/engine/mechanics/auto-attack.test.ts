@@ -20,6 +20,7 @@ const makeCombatant = (
   currentHp,
   currentMana: 0,
   damageReductions: [],
+  activeCrowdControl: [],
   manaGains: {
     "on-attack": 0,
     "per-second": 0,

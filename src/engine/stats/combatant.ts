@@ -1,6 +1,7 @@
 import type { BaseStats } from "../../domain/catalog/base-stats";
-import type { Modifier } from "../../domain/catalog/modifier";
+import type { CrowdControl, Modifier } from "../../domain/catalog/modifier";
 import type { StarLevel } from "../../domain/primitives";
+import type { Ticks } from "../loop/time";
 import type { CombatantId } from "./combatant-id";
 import {
   applyModifiers,
@@ -12,6 +13,48 @@ import {
 import { resolveStats } from "./resolved-stats";
 
 /**
+ * One active crowd-control effect: which capability it takes away, and the
+ * last tick it still does — inclusive, so the combatant is free starting
+ * the following tick (#50).
+ */
+export type CrowdControlEntry = {
+  readonly cc: CrowdControl;
+  readonly blockedThrough: Ticks;
+};
+
+/** Stun and disarm take away the attack. */
+export function blocksAttack(cc: CrowdControl): boolean {
+  return cc === "stun" || cc === "disarm";
+}
+
+/** Stun and silence take away the cast. */
+function blocksCast(cc: CrowdControl): boolean {
+  return cc === "stun" || cc === "silence";
+}
+
+function isBlockedBy(
+  entry: CrowdControlEntry,
+  now: Ticks,
+  blocks: (cc: CrowdControl) => boolean,
+): boolean {
+  return entry.blockedThrough >= now && blocks(entry.cc);
+}
+
+/** Whether `combatant` may auto-attack at `now` — free unless an active entry blocks it. */
+export function canAttack(combatant: Combatant, now: Ticks): boolean {
+  return !combatant.activeCrowdControl.some((entry) =>
+    isBlockedBy(entry, now, blocksAttack),
+  );
+}
+
+/** Whether `combatant` may cast at `now` — free unless an active entry blocks it. */
+export function canCast(combatant: Combatant, now: Ticks): boolean {
+  return !combatant.activeCrowdControl.some((entry) =>
+    isBlockedBy(entry, now, blocksCast),
+  );
+}
+
+/**
  * One participant's state while a simulation runs: identity, the stats the
  * loop reads, and the values the fight changes as it plays out.
  */
@@ -19,9 +62,9 @@ export type Combatant = {
   readonly id: CombatantId;
   /**
    * Computed once at combat start; effective-stats.ts owns the how and
-   * why. The active modifier set cannot change mid-run yet. When spell
-   * effects and crowd-control (#50) bring that, the computation simply
-   * runs again.
+   * why. The active modifier set cannot change mid-run yet — a spell buff
+   * with a duration will need this to run again (#70). Crowd control (#50)
+   * never touches this fold: it gates actions, not stats.
    */
   readonly stats: EffectiveStats;
   /**
@@ -45,6 +88,13 @@ export type Combatant = {
   currentHp: number;
   /** Gauge toward the cast threshold (`stats.mana.max`). */
   currentMana: number;
+  /**
+   * Crowd-control currently affecting this combatant. Empty until a spell
+   * applies one (#68) — never resolved from combat-start modifiers, since a
+   * cast (the only real producer) can only fire from inside the running
+   * loop, never from the combat-start fold (mechanics/crowd-control.ts, #50).
+   */
+  readonly activeCrowdControl: CrowdControlEntry[];
 };
 
 /**
@@ -68,6 +118,7 @@ export function resolveCombatant(
     canDie,
     currentHp: effective.hp,
     currentMana: effective.mana.start,
+    activeCrowdControl: [],
   };
 }
 
