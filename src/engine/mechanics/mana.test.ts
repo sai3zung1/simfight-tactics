@@ -7,6 +7,7 @@ import {
   regenManaGain,
   readyToCast,
 } from "./mana";
+import { NO_SPELL_ID } from "../spell/contract";
 import type { Combatant } from "../stats/combatant";
 import type { CombatantId } from "../stats/combatant-id";
 import type { ResolvedStats } from "../stats/resolved-stats";
@@ -29,6 +30,8 @@ const makeCombatant = (
   currentMana: 0,
   damageReductions: [],
   activeCrowdControl: [],
+  spellId: NO_SPELL_ID,
+  params: {},
   manaGains: NO_GAINS,
   stats: {
     hp: 1000,

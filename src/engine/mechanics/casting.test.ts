@@ -6,6 +6,7 @@ import {
   shouldScheduleManaRegen,
 } from "./casting";
 import { createEventQueue } from "../loop/event-queue";
+import { NO_SPELL_ID } from "../spell/contract";
 import type { CombatState } from "../loop/combat-state";
 import type { Combatant } from "../stats/combatant";
 import type { CombatantId } from "../stats/combatant-id";
@@ -24,6 +25,8 @@ const makeCombatant = (
   currentMana: 0,
   damageReductions: [],
   activeCrowdControl: [],
+  spellId: NO_SPELL_ID,
+  params: {},
   manaGains: {
     "on-attack": 0,
     "per-second": 0,

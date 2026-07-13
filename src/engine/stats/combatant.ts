@@ -1,8 +1,13 @@
 import type { BaseStats } from "../../domain/catalog/base-stats";
 import type { CrowdControl, Modifier } from "../../domain/catalog/modifier";
-import type { StarLevel } from "../../domain/primitives";
+import type { SpellId, StarLevel } from "../../domain/primitives";
+import type {
+  ParameterName,
+  SpellParameters,
+} from "../../domain/catalog/spell";
 import type { Ticks } from "../loop/time";
 import type { CombatantId } from "./combatant-id";
+import { NO_SPELL_ID, type ResolvedSpellParameters } from "../spell/contract";
 import {
   applyModifiers,
   resolveDamageReductions,
@@ -10,7 +15,7 @@ import {
   type EffectiveStats,
   type ManaGains,
 } from "./effective-stats";
-import { resolveStats } from "./resolved-stats";
+import { resolveScaling, resolveStats } from "./resolved-stats";
 
 /**
  * One active crowd-control effect: which capability it takes away, and the
@@ -78,6 +83,17 @@ export type Combatant = {
    */
   readonly manaGains: ManaGains;
   /**
+   * The caster's spell, resolved once at setup and read at cast time so the
+   * dispatch always sees the current spell. `NO_SPELL_ID` means no modeled
+   * spell — a no-op cast. The cast event carries who casts, never which spell.
+   */
+  readonly spellId: SpellId;
+  /**
+   * The spell's tuning numbers collapsed to this combatant's star level (fixed
+   * for the run), read by the spell function.
+   */
+  readonly params: ResolvedSpellParameters;
+  /**
    * Whether this combatant's death is possible, resolved once at run setup:
    * the attacker never dies (product rule — a run measures the attacker's
    * build, so only the target's death may end one), the target's mortality
@@ -98,8 +114,25 @@ export type Combatant = {
 };
 
 /**
- * Build a combatant's starting state: stats resolved and modifiers
- * applied, full HP, mana at its starting value.
+ * Collapse a spell's per-star parameters to the caster's star level, once. The
+ * spell function reads plain numbers and never a star level — the star is fixed
+ * for the run, so nothing recomputes these mid-cast.
+ */
+function resolveSpellParameters(
+  parameters: SpellParameters,
+  starLevel: StarLevel,
+): ResolvedSpellParameters {
+  const resolved: Record<ParameterName, number> = {};
+  for (const [name, value] of Object.entries(parameters)) {
+    resolved[name] =
+      typeof value === "number" ? value : resolveScaling(value, starLevel);
+  }
+  return resolved;
+}
+
+/**
+ * Build a combatant's starting state: stats resolved and modifiers applied, full
+ * HP, mana at its starting value, spell parameters collapsed to its star level.
  */
 export function resolveCombatant(
   stats: BaseStats,
@@ -107,6 +140,8 @@ export function resolveCombatant(
   id: CombatantId,
   modifiers: readonly Modifier[],
   canDie: boolean,
+  spellId: SpellId = NO_SPELL_ID,
+  spellParameters: SpellParameters = {},
 ): Combatant {
   const resolved = resolveStats(stats, starLevel);
   const effective = applyModifiers(resolved, modifiers, starLevel);
@@ -118,6 +153,8 @@ export function resolveCombatant(
     canDie,
     currentHp: effective.hp,
     currentMana: effective.mana.start,
+    spellId,
+    params: resolveSpellParameters(spellParameters, starLevel),
     activeCrowdControl: [],
   };
 }
