@@ -1,28 +1,37 @@
 /**
- * Spell — catalog data of a champion's ability. Cast behavior will live in
+ * Spell — catalog data of a champion's ability. Cast behavior lives in
  * hand-written per-champion spell functions (one module per set, not in the
- * tree yet), resolved at runtime via `SpellId`; this domain type carries
- * only identity and numerical parameters. Parameter taxonomy is deferred
- * until finalized.
+ * tree yet), resolved at runtime via `SpellId`; this domain type carries only
+ * identity and tuning numbers.
  */
 
-import type { SpellId } from "../primitives";
+import type { ScalingByStar, SpellId } from "../primitives";
 
 /**
- * Opaque placeholder for spell parameter data; deferred until finalized.
- *
- * Distinct from `Modifier`: parameters are numerical inputs read by the
- * hand-written spell function, not composable effects applied by the
- * engine.
+ * One spell tuning number: flat, or one value per star level. Distinct from a
+ * `Modifier` — a parameter is a numerical input the hand-written spell function
+ * reads, never a composable effect the engine applies.
  */
-export type SpellParameter = {
-  readonly __kind: "TODO_SPELL_PARAMETERS";
-};
+export type SpellParameter = number | ScalingByStar;
+
+/**
+ * An owned parameter name. The adapter maps the source's per-set variable names
+ * onto these, so the churn lives in the data (which names a spell fills), never
+ * in this type.
+ */
+export type ParameterName = string;
+
+/**
+ * A spell's tuning numbers, keyed by owned name and read by its hand-written
+ * function. Frozen shape: a new spell adds keys (data), it never changes the
+ * type — the registry stays uniform (one `SpellFn` signature for every spell).
+ */
+export type SpellParameters = Readonly<Record<ParameterName, SpellParameter>>;
 
 export type Spell = {
   readonly id: SpellId;
   readonly name: string;
   readonly description: string;
   readonly iconPath: string;
-  readonly parameters: readonly SpellParameter[];
+  readonly parameters: SpellParameters;
 };
