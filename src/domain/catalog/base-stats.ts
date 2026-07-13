@@ -47,7 +47,11 @@ export type BaseStats = {
   readonly manaGeneration: ManaGeneration;
 
   readonly attackDamage: ScalingByStar;
-  /** The stat that spell damage and other ability-power effects scale from. */
+  /**
+   * The most common scaling source for spell effects, one among many: an
+   * effect's amount may scale from any base stat
+   * (docs/data/modifier-archetypes.md, "open stat enumeration").
+   */
   readonly abilityPower: number;
   /** In attacks per second. */
   readonly attackSpeed: number;
