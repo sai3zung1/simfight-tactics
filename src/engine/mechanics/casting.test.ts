@@ -12,6 +12,12 @@ import type { Combatant } from "../stats/combatant";
 import type { CombatantId } from "../stats/combatant-id";
 import type { ResolvedStats } from "../stats/resolved-stats";
 import type { CastEvent, ManaRegenEvent } from "../loop/combat-event";
+import type { SpellId } from "../../domain/primitives";
+import type {
+  ResolvedSpellParameters,
+  SpellContext,
+  SpellRegistry,
+} from "../spell/contract";
 import type { Ticks } from "../loop/time";
 
 const makeCombatant = (
@@ -242,4 +248,71 @@ test("a cast event finding an already-spent gauge is dropped", () => {
 
   expect(state.castsBy[attacker.id]).toBe(0);
   expect(attacker.currentMana).toBe(50);
+});
+
+test("dispatches the registered spell with a read-only view and resolved params", () => {
+  let seen: { ctx: SpellContext; params: ResolvedSpellParameters } | undefined;
+  const spellId = "fixture" as SpellId;
+  const registry: SpellRegistry = {
+    [spellId]: (ctx, params) => {
+      seen = { ctx, params };
+      return [];
+    },
+  };
+  const attacker = makeCombatant(
+    "attacker",
+    { attackDamage: 120 },
+    { currentMana: 100, spellId, params: { base: 42 } },
+  );
+  const target = makeCombatant("target", {}, { currentHp: 300 });
+  const state = makeState(attacker, target);
+
+  processCast(cast(attacker, 500), state, registry);
+
+  expect(seen?.ctx.caster.stats.attackDamage).toBe(120);
+  expect(seen?.ctx.opponent.hp.current).toBe(300);
+  expect(seen?.ctx.opponent.hp.max).toBe(1000);
+  expect(seen?.params.base).toBe(42);
+});
+
+test("a cast whose spell is not registered is a no-op — counted, gauge spent, nothing applied", () => {
+  const attacker = makeCombatant(
+    "attacker",
+    {},
+    { currentMana: 100, spellId: "unregistered" as SpellId },
+  );
+  const target = makeCombatant("target", {}, { currentHp: 300 });
+  const state = makeState(attacker, target);
+
+  // Empty registry (the default): the miss is the steady state, never an error.
+  processCast(cast(attacker, 500), state);
+
+  expect(state.castsBy[attacker.id]).toBe(1);
+  expect(attacker.currentMana).toBe(0);
+  expect(target.currentHp).toBe(300);
+});
+
+test("produces effects but applies none — resolution is #69, so the opponent's HP is untouched", () => {
+  const spellId = "burst" as SpellId;
+  const registry: SpellRegistry = {
+    [spellId]: () => [
+      {
+        target: "opponent",
+        modifier: {
+          kind: "damage",
+          damageType: "magic",
+          amount: { base: 500 },
+          temporality: { kind: "instant" },
+        },
+      },
+    ],
+  };
+  const attacker = makeCombatant("attacker", {}, { currentMana: 100, spellId });
+  const target = makeCombatant("target", {}, { currentHp: 300 });
+  const state = makeState(attacker, target);
+
+  processCast(cast(attacker, 500), state, registry);
+
+  expect(state.castsBy[attacker.id]).toBe(1);
+  expect(target.currentHp).toBe(300);
 });
