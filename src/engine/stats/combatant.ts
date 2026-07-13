@@ -92,7 +92,7 @@ export type Combatant = {
    * The spell's tuning numbers collapsed to this combatant's star level (fixed
    * for the run), read by the spell function.
    */
-  readonly params: ResolvedSpellParameters;
+  readonly spellParameters: ResolvedSpellParameters;
   /**
    * Whether this combatant's death is possible, resolved once at run setup:
    * the attacker never dies (product rule — a run measures the attacker's
@@ -118,7 +118,7 @@ export type Combatant = {
  * spell function reads plain numbers and never a star level — the star is fixed
  * for the run, so nothing recomputes these mid-cast.
  */
-function resolveSpellParameters(
+function resolveParametersToStar(
   parameters: SpellParameters,
   starLevel: StarLevel,
 ): ResolvedSpellParameters {
@@ -154,7 +154,7 @@ export function resolveCombatant(
     currentHp: effective.hp,
     currentMana: effective.mana.start,
     spellId,
-    params: resolveSpellParameters(spellParameters, starLevel),
+    spellParameters: resolveParametersToStar(spellParameters, starLevel),
     activeCrowdControl: [],
   };
 }

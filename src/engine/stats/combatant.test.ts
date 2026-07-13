@@ -207,6 +207,6 @@ test("collapses per-star spell parameters to the caster's star level", () => {
   );
   expect(combatant.spellId).toBe("test-spell" as SpellId);
   // Per-star value picked at the caster's star; flat value passes through.
-  expect(combatant.params.baseDamage).toBe(150);
-  expect(combatant.params.adRatio).toBe(1.5);
+  expect(combatant.spellParameters.baseDamage).toBe(150);
+  expect(combatant.spellParameters.adRatio).toBe(1.5);
 });

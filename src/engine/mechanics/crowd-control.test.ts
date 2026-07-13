@@ -23,7 +23,7 @@ const makeCombatant = (
   damageReductions: [],
   activeCrowdControl: [],
   spellId: NO_SPELL_ID,
-  params: {},
+  spellParameters: {},
   manaGains: {
     "on-attack": 0,
     "per-second": 0,

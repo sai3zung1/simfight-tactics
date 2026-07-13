@@ -4,9 +4,8 @@ import type {
   ModifiableStat,
   Modifier,
   ScalingSource,
-  StarValue,
 } from "../../domain/catalog/modifier";
-import type { StarLevel } from "../../domain/primitives";
+import type { StarLevel, StarValue } from "../../domain/primitives";
 import { resolveScaling, type ResolvedStats } from "./resolved-stats";
 
 /**

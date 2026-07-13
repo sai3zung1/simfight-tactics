@@ -5,14 +5,14 @@
  * identity and tuning numbers.
  */
 
-import type { ScalingByStar, SpellId } from "../primitives";
+import type { SpellId, StarValue } from "../primitives";
 
 /**
- * One spell tuning number: flat, or one value per star level. Distinct from a
- * `Modifier` — a parameter is a numerical input the hand-written spell function
- * reads, never a composable effect the engine applies.
+ * One spell tuning number — a `StarValue` (flat, or one value per star level).
+ * Distinct from a `Modifier`: a parameter is a numerical input the hand-written
+ * spell function reads, never a composable effect the engine applies.
  */
-export type SpellParameter = number | ScalingByStar;
+export type SpellParameter = StarValue;
 
 /**
  * An owned parameter name. The adapter maps the source's per-set variable names

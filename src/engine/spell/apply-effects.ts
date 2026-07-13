@@ -1,4 +1,4 @@
-import type { TargetedModifier } from "./contract";
+import type { SpellEffect } from "./contract";
 
 /**
  * Deliver a cast's produced effects to combat state — the seam the first real
@@ -9,7 +9,7 @@ import type { TargetedModifier } from "./contract";
  * `Modifier` kind a compile break here, so #69's resolution cannot silently
  * skip one.
  */
-export function applyEffects(effects: readonly TargetedModifier[]): void {
+export function applyEffects(effects: readonly SpellEffect[]): void {
   for (const { modifier } of effects) {
     switch (modifier.kind) {
       case "damage":

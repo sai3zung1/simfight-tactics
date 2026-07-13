@@ -32,7 +32,7 @@ const makeCombatant = (
   damageReductions: [],
   activeCrowdControl: [],
   spellId: NO_SPELL_ID,
-  params: {},
+  spellParameters: {},
   manaGains: {
     "on-attack": 0,
     "per-second": 0,
@@ -262,7 +262,7 @@ test("dispatches the registered spell with a read-only view and resolved params"
   const attacker = makeCombatant(
     "attacker",
     { attackDamage: 120 },
-    { currentMana: 100, spellId, params: { base: 42 } },
+    { currentMana: 100, spellId, spellParameters: { base: 42 } },
   );
   const target = makeCombatant("target", {}, { currentHp: 300 });
   const state = makeState(attacker, target);
@@ -297,7 +297,7 @@ test("produces effects but applies none — resolution is #69, so the opponent's
   const registry: SpellRegistry = {
     [spellId]: () => [
       {
-        target: "opponent",
+        recipient: "opponent",
         modifier: {
           kind: "damage",
           damageType: "magic",

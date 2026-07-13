@@ -4,23 +4,23 @@ import type { SpellId } from "../../domain/primitives";
 import type { EffectiveStats } from "../stats/effective-stats";
 
 /**
- * Who a spell effect lands on. Two values under the 1v1 MVP; multi-target (#53)
- * widens this — and decides the selection rule — with the roster model in hand.
- * The seam is this type, never a board index.
+ * Who a spell effect lands on, relative to the caster. Two values under the 1v1
+ * MVP; multi-target (#53) widens this — and decides the selection rule — with
+ * the roster model in hand. The seam is this type, never a board index.
  */
-export type SpellTarget = "self" | "opponent";
+export type SpellRecipient = "self" | "opponent";
 
 /**
- * One sub-effect of a cast: a `Modifier` plus the side it lands on. A cast
- * returns an ordered list of these — the tooltip's reading order — so a single
- * cast can hit both sides (self buff + opponent damage) in one list.
+ * One sub-effect of a cast: a `Modifier` plus who it lands on. A cast returns an
+ * ordered list of these — the tooltip's reading order — so a single cast can hit
+ * both sides (self buff + opponent damage) in one list.
  */
-export type TargetedModifier = {
-  readonly target: SpellTarget;
+export type SpellEffect = {
+  readonly recipient: SpellRecipient;
   readonly modifier: Modifier;
 };
 
-/** The read-only slice of one combatant a spell may inspect: its stats and HP. */
+/** A read-only projection of one combatant — the only surface a spell may read: stats and HP. */
 export type CombatantView = {
   readonly stats: EffectiveStats;
   readonly hp: { readonly current: number; readonly max: number };
@@ -51,7 +51,7 @@ export type ResolvedSpellParameters = Readonly<Record<ParameterName, number>>;
 export type SpellFn = (
   ctx: SpellContext,
   params: ResolvedSpellParameters,
-) => readonly TargetedModifier[];
+) => readonly SpellEffect[];
 
 /**
  * Dispatch table: one spell function per `SpellId`, assembled per set and

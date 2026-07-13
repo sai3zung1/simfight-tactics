@@ -74,7 +74,7 @@ export function processManaRegen(
   });
 }
 
-/** The read-only view of a combatant a spell reads: its stats and current/max HP. */
+/** Project a combatant onto the read-only `CombatantView` a spell is allowed to read. */
 function viewOf(combatant: Combatant): CombatantView {
   return {
     stats: combatant.stats,
@@ -118,5 +118,5 @@ export function processCast(
     caster: viewOf(caster),
     opponent: viewOf(opponent),
   };
-  applyEffects(spellFn(ctx, caster.params));
+  applyEffects(spellFn(ctx, caster.spellParameters));
 }
