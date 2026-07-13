@@ -5,6 +5,7 @@ import type { StopSignal } from "../loop/stop-signal";
 import { processAutoAttack } from "./auto-attack";
 import { processCast, processManaRegen } from "./casting";
 import { processCrowdControlExpiry } from "./crowd-control";
+import { EMPTY_SPELL_REGISTRY, type SpellRegistry } from "../spell/contract";
 
 /**
  * Build `runLoop`'s `process` for one run: a closure over this run's
@@ -18,6 +19,7 @@ import { processCrowdControlExpiry } from "./crowd-control";
 export function createProcess(
   queue: EventQueue,
   state: CombatState,
+  registry: SpellRegistry = EMPTY_SPELL_REGISTRY,
 ): (event: CombatEvent) => StopSignal | undefined {
   return (event) => {
     switch (event.kind) {
@@ -27,7 +29,7 @@ export function createProcess(
         processManaRegen(event, state, queue);
         return undefined;
       case "cast":
-        processCast(event, state);
+        processCast(event, state, registry);
         return undefined;
       case "crowd-control-expiry":
         processCrowdControlExpiry(event, state, queue);
