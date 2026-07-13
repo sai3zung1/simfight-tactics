@@ -6,8 +6,8 @@ import type {
   ManaTrigger,
   ModifiableStat,
   Modifier,
-  StarValue,
 } from "../../domain/catalog/modifier";
+import type { StarValue } from "../../domain/primitives";
 
 const base: ResolvedStats = {
   hp: 1000,

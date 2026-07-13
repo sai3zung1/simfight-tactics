@@ -2,6 +2,7 @@ import { test, expect } from "bun:test";
 import { attackInterval, shouldAutoAttack } from "./auto-attack";
 import { createProcess } from "./process-event";
 import { createEventQueue } from "../loop/event-queue";
+import { NO_SPELL_ID } from "../spell/contract";
 import type { Combatant } from "../stats/combatant";
 import type { ResolvedStats } from "../stats/resolved-stats";
 import type { CombatState } from "../loop/combat-state";
@@ -21,6 +22,8 @@ const makeCombatant = (
   currentMana: 0,
   damageReductions: [],
   activeCrowdControl: [],
+  spellId: NO_SPELL_ID,
+  spellParameters: {},
   manaGains: {
     "on-attack": 0,
     "per-second": 0,

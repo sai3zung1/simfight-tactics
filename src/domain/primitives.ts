@@ -24,3 +24,6 @@ export type ScalingByStar = {
 };
 
 export type StarLevel = keyof ScalingByStar;
+
+/** A value that is flat, or varies per star level. */
+export type StarValue = number | ScalingByStar;

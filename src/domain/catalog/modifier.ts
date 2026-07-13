@@ -1,4 +1,4 @@
-import type { ScalingByStar } from "../primitives";
+import type { StarValue } from "../primitives";
 import type { BaseStats } from "./base-stats";
 
 /**
@@ -36,9 +36,6 @@ export const MODIFIABLE_STATS = [
   "durability",
 ] as const satisfies readonly (keyof BaseStats)[];
 export type ModifiableStat = (typeof MODIFIABLE_STATS)[number];
-
-/** A value that is flat, or varies per star level. */
-export type StarValue = number | ScalingByStar;
 
 /**
  * How much a modifier applies. `base` alone is a flat, normalized amount.

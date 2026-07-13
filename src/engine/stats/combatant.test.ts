@@ -2,6 +2,7 @@ import { test, expect } from "bun:test";
 import { applyDamage, canAttack, canCast, resolveCombatant } from "./combatant";
 import type { CombatantId } from "./combatant-id";
 import type { BaseStats } from "../../domain/catalog/base-stats";
+import type { SpellId } from "../../domain/primitives";
 import type { Ticks } from "../loop/time";
 
 const stats: BaseStats = {
@@ -192,4 +193,20 @@ test("carries damage-reduction modifiers as their own lane, apart from durabilit
   );
   expect(combatant.stats.durability).toBeCloseTo(0.1);
   expect(combatant.damageReductions).toEqual([0.2]);
+});
+
+test("collapses per-star spell parameters to the caster's star level", () => {
+  const combatant = resolveCombatant(
+    stats,
+    2,
+    "attacker" as CombatantId,
+    [],
+    true,
+    "test-spell" as SpellId,
+    { baseDamage: { 1: 100, 2: 150, 3: 200 }, adRatio: 1.5 },
+  );
+  expect(combatant.spellId).toBe("test-spell" as SpellId);
+  // Per-star value picked at the caster's star; flat value passes through.
+  expect(combatant.spellParameters.baseDamage).toBe(150);
+  expect(combatant.spellParameters.adRatio).toBe(1.5);
 });

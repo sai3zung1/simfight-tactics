@@ -5,6 +5,14 @@ import { canCast, type Combatant } from "../stats/combatant";
 import type { EventQueue } from "../loop/event-queue";
 import { addTicks, secondsToTicks, type Ticks } from "../loop/time";
 import { gainMana, readyToCast, regenManaGain, hasManaBar } from "./mana";
+import { applyEffects } from "../spell/apply-effects";
+import {
+  EMPTY_SPELL_REGISTRY,
+  type CombatantView,
+  type SpellContext,
+  type SpellFn,
+  type SpellRegistry,
+} from "../spell/contract";
 
 /**
  * The casting side of the mana pipeline: emit a cast when a gauge is full,
@@ -66,20 +74,49 @@ export function processManaRegen(
   });
 }
 
+/** Project a combatant onto the read-only `CombatantView` a spell is allowed to read. */
+function viewOf(combatant: Combatant): CombatantView {
+  return {
+    stats: combatant.stats,
+    hp: { current: combatant.currentHp, max: combatant.stats.hp },
+  };
+}
+
 /**
- * Resolve one cast: count it and spend the gauge. The gauge restarts at
- * the post-cast modifier sum — zero without items: measured, the excess
- * above the threshold is lost and there is no floor
+ * Resolve one cast: count it, spend the gauge, then dispatch the caster's spell.
+ * The gauge restarts at the post-cast modifier sum — zero without items:
+ * measured, the excess above the threshold is lost and there is no floor
  * (docs/data/calibration-log.md, A1).
  *
- * A cast event whose gauge is no longer full is dropped: two same-tick
- * gains can each emit a cast, and the first to resolve spends the bar.
+ * A cast event whose gauge is no longer full is dropped: two same-tick gains can
+ * each emit a cast, and the first to resolve spends the bar.
+ *
+ * The spell is looked up by the caster's `spellId` in the injected registry; a
+ * caster with no registered spell casts for nothing (partial coverage is the
+ * norm, #68). The spell reads a read-only view and returns targeted effects;
+ * applying them onto combat state is `applyEffects`' job, filled by #69.
  */
-export function processCast(event: CastEvent, state: CombatState): void {
+export function processCast(
+  event: CastEvent,
+  state: CombatState,
+  registry: SpellRegistry = EMPTY_SPELL_REGISTRY,
+): void {
   const caster = combatantById(state, event.caster);
   if (!readyToCast(caster)) {
     return;
   }
   state.castsBy[event.caster]++;
   caster.currentMana = caster.manaGains["post-cast"];
+
+  const spellFn: SpellFn | undefined = registry[caster.spellId];
+  if (spellFn === undefined) {
+    return;
+  }
+  const opponent =
+    caster.id === state.attacker.id ? state.target : state.attacker;
+  const ctx: SpellContext = {
+    caster: viewOf(caster),
+    opponent: viewOf(opponent),
+  };
+  applyEffects(spellFn(ctx, caster.spellParameters));
 }

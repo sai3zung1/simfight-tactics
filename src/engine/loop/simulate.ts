@@ -17,6 +17,10 @@ import { createProcess } from "../mechanics/process-event";
 import { resolveCombatant } from "../stats/combatant";
 import { resolveModifiers } from "../provisional/provisional-modifiers";
 import { resolveUnitStats } from "../provisional/provisional-stats";
+import {
+  resolveUnitSpellId,
+  resolveUnitSpellParameters,
+} from "../provisional/provisional-spell";
 import { createEventQueue, type EventQueue } from "./event-queue";
 import { TICK_ZERO, secondsToTicks, ticksToSeconds, type Ticks } from "./time";
 
@@ -110,6 +114,8 @@ export function simulate(config: CombatConfig): SimulationResult {
     // The attacker never dies — product rule: a run measures the attacker's
     // build, so only the target's death may end one.
     false,
+    resolveUnitSpellId(config.attacker.unitId),
+    resolveUnitSpellParameters(config.attacker.unitId),
   );
   const target = resolveCombatant(
     resolveUnitStats(config.target.unitId),
@@ -117,6 +123,8 @@ export function simulate(config: CombatConfig): SimulationResult {
     "target" as CombatantId,
     resolveModifiers(config.target),
     targetCanDie,
+    resolveUnitSpellId(config.target.unitId),
+    resolveUnitSpellParameters(config.target.unitId),
   );
   const state: CombatState = {
     attacker,
