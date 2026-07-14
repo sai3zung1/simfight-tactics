@@ -29,8 +29,7 @@ export function createProcess(
         processManaRegen(event, state, queue);
         return undefined;
       case "cast":
-        processCast(event, state, registry);
-        return undefined;
+        return processCast(event, state, queue, registry);
       case "crowd-control-expiry":
         processCrowdControlExpiry(event, state, queue);
         return undefined;

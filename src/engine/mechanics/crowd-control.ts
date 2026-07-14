@@ -10,10 +10,9 @@ import { pushCastIfReady } from "./casting";
 
 /**
  * Land a crowd-control effect on `combatant`, starting at `now` for
- * `durationTicks`. The only real producer will be a spell's cast resolving
- * (#68, not built yet) — a cast is a mid-loop occurrence, so this can never
- * run from the combat-start fold (`resolveCombatant`); this ticket's own
- * tests call it directly (#50, D1/D4).
+ * `durationTicks`. The real producer is a spell's cast resolving
+ * (engine/spell/apply-effects.ts) — a cast is a mid-loop occurrence, so this
+ * can never run from the combat-start fold (`resolveCombatant`).
  *
  * If the effect takes away the attack, any auto-attack this combatant
  * already has pending is cancelled outright — left to fire, it would do

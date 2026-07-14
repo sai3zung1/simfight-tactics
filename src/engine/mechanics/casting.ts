@@ -1,6 +1,7 @@
 import type { CastEvent, ManaRegenEvent } from "../loop/combat-event";
 import type { CombatState } from "../loop/combat-state";
 import { combatantById } from "../loop/combat-state";
+import type { StopSignal } from "../loop/stop-signal";
 import { canCast, type Combatant } from "../stats/combatant";
 import type { EventQueue } from "../loop/event-queue";
 import { addTicks, secondsToTicks, type Ticks } from "../loop/time";
@@ -17,8 +18,8 @@ import {
 /**
  * The casting side of the mana pipeline: emit a cast when a gauge is full,
  * spend the gauge when the cast resolves, and drive the steady per-second
- * generation. A cast is the trigger only — the spell's effects come with
- * spell modeling.
+ * generation. A resolved cast hands its spell's effects to delivery
+ * (engine/spell/apply-effects.ts) on the spot.
  */
 
 /**
@@ -94,23 +95,25 @@ function viewOf(combatant: Combatant): CombatantView {
  * The spell is looked up by the caster's `spellId` in the injected registry; a
  * caster with no registered spell casts for nothing (partial coverage is the
  * norm, #68). The spell reads a read-only view and returns targeted effects;
- * applying them onto combat state is `applyEffects`' job, filled by #69.
+ * delivering them onto combat state — and reporting a kill, relayed here —
+ * is `applyEffects`' job.
  */
 export function processCast(
   event: CastEvent,
   state: CombatState,
+  queue: EventQueue,
   registry: SpellRegistry = EMPTY_SPELL_REGISTRY,
-): void {
+): StopSignal | undefined {
   const caster = combatantById(state, event.caster);
   if (!readyToCast(caster)) {
-    return;
+    return undefined;
   }
   state.castsBy[event.caster]++;
   caster.currentMana = caster.manaGains["post-cast"];
 
   const spellFn: SpellFn | undefined = registry[caster.spellId];
   if (spellFn === undefined) {
-    return;
+    return undefined;
   }
   const opponent =
     caster.id === state.attacker.id ? state.target : state.attacker;
@@ -118,5 +121,12 @@ export function processCast(
     caster: viewOf(caster),
     opponent: viewOf(opponent),
   };
-  applyEffects(spellFn(ctx, caster.spellParameters));
+  return applyEffects(
+    spellFn(ctx, caster.spellParameters),
+    caster,
+    opponent,
+    state,
+    queue,
+    event.time,
+  );
 }
