@@ -45,8 +45,9 @@ export type ResolvedSpellParameters = Readonly<Record<ParameterName, number>>;
 
 /**
  * A hand-written spell: reads the combat view and its resolved parameters,
- * returns the ordered targeted effects it produces. Resolving those onto combat
- * state is the engine's job (#69), never the spell's.
+ * returns the ordered targeted effects it produces. Resolving those onto
+ * combat state is the engine's job (engine/spell/apply-effects.ts), never
+ * the spell's.
  */
 export type SpellFn = (
   ctx: SpellContext,

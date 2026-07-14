@@ -162,7 +162,7 @@ function applyStatMod(
  * per source. Deliberately kept apart from the durability stat: the two
  * reduce damage under different stacking rules (`reductionFactor` in damage
  * resolution). `Temporality` is not read yet: every reduction behaves as
- * combat-long (durations arrive with spell modeling).
+ * combat-long (durations arrive with the timed machinery, #70).
  */
 export function resolveDamageReductions(
   modifiers: readonly Modifier[],
@@ -190,7 +190,7 @@ export type ManaGains = Readonly<Record<ManaTrigger, number>>;
  * Each `mana-generation` modifier resolved to its plain amount and
  * bucketed by trigger — the same combat-start, one-pass resolution as
  * `resolveDamageReductions`. `Temporality` is not read yet: every gain
- * behaves as combat-long (durations arrive with spell modeling).
+ * behaves as combat-long (durations arrive with the timed machinery, #70).
  */
 export function resolveManaGains(
   modifiers: readonly Modifier[],
@@ -219,10 +219,10 @@ export function resolveManaGains(
  * Fold the active modifiers into the base view — one pass, pure. Only
  * `stat-mod` lands here: every other kind is resolved by its own pipeline
  * (damage-reduction in damage resolution, mana-generation in the mana
- * pipeline via `resolveManaGains`; crowd-control comes with #50, the
- * damage/heal/shield of spells with spell modeling), never by stat
- * folding. The exhaustive switch makes a future kind a compile break, not
- * a silent skip.
+ * pipeline via `resolveManaGains`, spell-emitted damage and crowd-control
+ * in cast delivery — engine/spell/apply-effects.ts; heal and shield with
+ * #71), never by stat folding. The exhaustive switch makes a future kind a
+ * compile break, not a silent skip.
  */
 export function applyModifiers(
   base: ResolvedStats,

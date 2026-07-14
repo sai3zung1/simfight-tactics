@@ -29,8 +29,8 @@ export type ManaRegenEvent = {
 };
 
 /**
- * A full mana gauge resolves into a cast — the trigger only, the spell's
- * effects come with spell modeling.
+ * A full mana gauge resolves into a cast; the caster's spell effects
+ * deliver as it resolves (engine/spell/apply-effects.ts).
  */
 export type CastEvent = {
   readonly kind: "cast";

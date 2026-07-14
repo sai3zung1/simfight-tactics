@@ -113,9 +113,9 @@ export type Modifier =
       /**
        * Only `duration` is meaningful here — a crowd-control effect with no
        * length (`instant`) or that repeats (`periodic`, DoT's territory,
-       * #72) doesn't correspond to anything real. Whoever resolves this kind
-       * (the spell cast contract, #68) treats the other two as unreachable,
-       * not silently ignored (#50, D5).
+       * #72) doesn't correspond to anything real. Cast delivery
+       * (engine/spell/apply-effects.ts) treats the other two as unreachable,
+       * not silently ignored.
        */
       readonly temporality: Temporality;
     }

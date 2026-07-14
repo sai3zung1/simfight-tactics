@@ -37,6 +37,11 @@ function starCollapsed(value: StarValue): number {
  * returns its stop signal immediately: nothing after a run's end is
  * observable, later effects included. The exhaustive switch makes a new
  * `Modifier` kind a compile break here, never a silent skip.
+ *
+ * `casting.ts` and this module depend on each other — a cast delivers
+ * effects, a delivered hit can push the victim's response cast. Safe by
+ * construction: each side only calls the other at run time, never while
+ * modules load.
  */
 export function applyEffects(
   effects: readonly SpellEffect[],
