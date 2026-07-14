@@ -27,44 +27,48 @@ function resolveStarValue(value: StarValue, starLevel: StarLevel): number {
 }
 
 /**
- * Sum of the stats a magnitude scales from, read on the pre-fold base. A
- * scaled amount never sees another modifier's output, so application order
- * cannot matter. Several sources sum; that is the natural reading of the
- * taxonomy, not a sourced game rule — revisit if spell calibration (#74)
- * proves otherwise. `abilityPower` and `range` have no resolved field to read
- * yet
- * and contribute zero, explicitly — the ticket that carries them adds the
- * read. A new `ScalingSource` is a compile break here.
+ * Sum of the stats a magnitude scales from, read on the view the caller
+ * passes: the combat-start fold reads the pre-fold base — a scaled amount
+ * never sees another modifier's output, so application order cannot
+ * matter — while a cast-time resolution (`resolveSpellMagnitude`) reads the
+ * caster's effective view, where the fold is long settled. Several sources
+ * sum; that is the natural reading of the taxonomy, not a sourced game
+ * rule — revisit if spell calibration (#74) proves otherwise. `range` has
+ * no resolved field and contributes zero, explicitly — the first composed
+ * kit that scales from it adds the read (#96 holds the trigger). A new
+ * `ScalingSource` is a compile break here.
  */
 function scalingBasis(
   sources: readonly ScalingSource[],
-  base: ResolvedStats,
+  stats: ResolvedStats,
 ): number {
   let sum = 0;
   for (const source of sources) {
     switch (source) {
       case "hp":
-        sum += base.hp;
+        sum += stats.hp;
         break;
       case "armor":
-        sum += base.armor;
+        sum += stats.armor;
         break;
       case "magicResist":
-        sum += base.magicResist;
+        sum += stats.magicResist;
         break;
       case "attackDamage":
-        sum += base.attackDamage;
-        break;
-      case "attackSpeed":
-        sum += base.attackSpeed;
-        break;
-      case "critChance":
-        sum += base.critChance;
-        break;
-      case "critDamage":
-        sum += base.critDamage;
+        sum += stats.attackDamage;
         break;
       case "abilityPower":
+        sum += stats.abilityPower;
+        break;
+      case "attackSpeed":
+        sum += stats.attackSpeed;
+        break;
+      case "critChance":
+        sum += stats.critChance;
+        break;
+      case "critDamage":
+        sum += stats.critDamage;
+        break;
       case "range":
         break;
       default: {
@@ -74,6 +78,25 @@ function scalingBasis(
     }
   }
   return sum;
+}
+
+/**
+ * A spell effect's concrete amount, resolved at cast time against the
+ * caster's effective stats — the fold is settled by then, so an
+ * ability-power item moves the spell, unlike the combat-start fold which
+ * reads pre-fold values. The base is a plain number by contract: a spell's
+ * per-star values are collapsed into the caster's parameters at combat
+ * setup, so nothing at cast time ever resolves a star
+ * (engine/spell/apply-effects.ts guards that contract).
+ */
+export function resolveSpellMagnitude(
+  base: number,
+  sources: readonly ScalingSource[] | undefined,
+  casterStats: EffectiveStats,
+): number {
+  return sources === undefined
+    ? base
+    : base * scalingBasis(sources, casterStats);
 }
 
 /**
@@ -94,10 +117,10 @@ function resolveMagnitude(
 }
 
 /**
- * Land one stat-mod on its effective field. `abilityPower` and `range` have
- * no landing field yet: the loop doesn't read them, so they skip explicitly —
- * the ticket that reads them adds the field. A new `ModifiableStat` is a
- * compile break here, never a silent no-op.
+ * Land one stat-mod on its effective field. `range` has no landing field
+ * yet: the loop doesn't read it, so it skips explicitly — the first
+ * composed kit that reads it adds the field (#96 holds the trigger). A new
+ * `ModifiableStat` is a compile break here, never a silent no-op.
  */
 function applyStatMod(
   stats: EffectiveStats,
@@ -115,6 +138,8 @@ function applyStatMod(
       return { ...stats, durability: stats.durability + amount };
     case "attackDamage":
       return { ...stats, attackDamage: stats.attackDamage + amount };
+    case "abilityPower":
+      return { ...stats, abilityPower: stats.abilityPower + amount };
     case "attackSpeed":
       return { ...stats, attackSpeed: stats.attackSpeed + amount };
     case "critChance":
@@ -123,7 +148,6 @@ function applyStatMod(
       return { ...stats, critDamage: stats.critDamage + amount };
     case "damageAmp":
       return { ...stats, damageAmp: stats.damageAmp + amount };
-    case "abilityPower":
     case "range":
       return stats;
     default: {
@@ -138,7 +162,7 @@ function applyStatMod(
  * per source. Deliberately kept apart from the durability stat: the two
  * reduce damage under different stacking rules (`reductionFactor` in damage
  * resolution). `Temporality` is not read yet: every reduction behaves as
- * combat-long (durations arrive with spell modeling).
+ * combat-long (durations arrive with the timed machinery, #70).
  */
 export function resolveDamageReductions(
   modifiers: readonly Modifier[],
@@ -166,7 +190,7 @@ export type ManaGains = Readonly<Record<ManaTrigger, number>>;
  * Each `mana-generation` modifier resolved to its plain amount and
  * bucketed by trigger — the same combat-start, one-pass resolution as
  * `resolveDamageReductions`. `Temporality` is not read yet: every gain
- * behaves as combat-long (durations arrive with spell modeling).
+ * behaves as combat-long (durations arrive with the timed machinery, #70).
  */
 export function resolveManaGains(
   modifiers: readonly Modifier[],
@@ -195,10 +219,10 @@ export function resolveManaGains(
  * Fold the active modifiers into the base view — one pass, pure. Only
  * `stat-mod` lands here: every other kind is resolved by its own pipeline
  * (damage-reduction in damage resolution, mana-generation in the mana
- * pipeline via `resolveManaGains`; crowd-control comes with #50, the
- * damage/heal/shield of spells with spell modeling), never by stat
- * folding. The exhaustive switch makes a future kind a compile break, not
- * a silent skip.
+ * pipeline via `resolveManaGains`, spell-emitted damage and crowd-control
+ * in cast delivery — engine/spell/apply-effects.ts; heal and shield with
+ * #71), never by stat folding. The exhaustive switch makes a future kind a
+ * compile break, not a silent skip.
  */
 export function applyModifiers(
   base: ResolvedStats,

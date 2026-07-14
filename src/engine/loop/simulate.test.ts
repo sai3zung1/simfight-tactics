@@ -9,6 +9,7 @@ import type { BoardSide } from "../../domain/combat/board-side";
 import type { UnitId } from "../../domain/primitives";
 import type { CombatantId } from "../stats/combatant-id";
 import {
+  PROVISIONAL_CASTER_UNIT_ID,
   PROVISIONAL_IMMORTAL_UNIT_ID,
   PROVISIONAL_NO_ATTACK_CASTER_UNIT_ID,
   PROVISIONAL_NO_MANA_UNIT_ID,
@@ -17,7 +18,9 @@ import {
 import {
   PROVISIONAL_SWORD_ITEM_ID,
   PROVISIONAL_PLATING_ITEM_ID,
+  PROVISIONAL_ROD_ITEM_ID,
 } from "../provisional/provisional-modifiers";
+import { FIXTURE_SPELL_REGISTRY } from "../../sets/fixture/registry";
 
 // Fixtures: a minimal CombatConfig. `simulate` resolves both sides against a
 // fixed provisional stat profile (provisional-stats.ts) and provisional item
@@ -205,4 +208,58 @@ test("a reduction item on the target lowers the damage dealt to it", () => {
   expect(simulate(plated).totalDamageDealt).toBeLessThan(
     simulate(bare).totalDamageDealt,
   );
+});
+
+// The three runs below inject the fixture set's registry: the end-to-end
+// proof of the cast-to-damage chain (cast -> spell function -> damage
+// modifier -> resolve-damage -> target HP -> SimulationResult).
+
+test("spell damage end to end, hand-derivable: casts × per-cast damage", () => {
+  const c: CombatConfig = {
+    // The no-attack caster isolates the spell: no swings, mana from the 2/s
+    // flow alone, so the whole tally is the spell's.
+    attacker: { ...side(), unitId: PROVISIONAL_NO_ATTACK_CASTER_UNIT_ID },
+    target: side(),
+    stopCondition: { mode: "fixed-duration", durationSeconds: 120 },
+  };
+  const r = simulate(c, FIXTURE_SPELL_REGISTRY);
+  // Gauge fills at 2/s: casts at t=50s and t=100s. Each burst: 230 base
+  // × ability power 1, into 25 magic resist (× 0.8) → 184 dealt.
+  expect(r.attackerCasts).toBe(2);
+  expect(r.totalDamageDealt).toBe(368);
+  expect(r.stopReason).toBe("timer");
+});
+
+test("a lethal spell ends the run: the kill lands earlier than by attacks alone", () => {
+  const c: CombatConfig = {
+    attacker: { ...side(), unitId: PROVISIONAL_CASTER_UNIT_ID },
+    target: side(),
+    stopCondition: { mode: "time-to-kill" },
+  };
+  const bare = simulate(c);
+  const armed = simulate(c, FIXTURE_SPELL_REGISTRY);
+  // Same config, same mechanics: only the registry differs. Both runs kill;
+  // the burst replaces several swings' worth of damage, so the armed kill
+  // lands sooner.
+  expect(bare.stopReason).toBe("kill");
+  expect(armed.stopReason).toBe("kill");
+  expect(armed.effectiveDurationSeconds).toBeLessThan(
+    bare.effectiveDurationSeconds,
+  );
+});
+
+test("an ability-power item raises spell damage: the cast reads the effective view", () => {
+  const bare: CombatConfig = {
+    attacker: { ...side(), unitId: PROVISIONAL_NO_ATTACK_CASTER_UNIT_ID },
+    target: side(),
+    stopCondition: { mode: "fixed-duration", durationSeconds: 60 },
+  };
+  const armed: CombatConfig = {
+    ...bare,
+    attacker: { ...bare.attacker, itemIds: [PROVISIONAL_ROD_ITEM_ID] },
+  };
+  // One cast each (t=50s). Bare: 230 × 1.0 × 0.8 = 184. With the rod's
+  // +0.25 ability power: 230 × 1.25 × 0.8 = 230.
+  expect(simulate(bare, FIXTURE_SPELL_REGISTRY).totalDamageDealt).toBe(184);
+  expect(simulate(armed, FIXTURE_SPELL_REGISTRY).totalDamageDealt).toBe(230);
 });

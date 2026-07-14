@@ -21,6 +21,7 @@ export type ResolvedStats = {
   readonly mana: BaseStats["mana"];
   readonly manaGeneration: ManaGeneration;
   readonly attackDamage: number;
+  readonly abilityPower: number;
   readonly attackSpeed: number;
   readonly critChance: number;
   readonly critDamage: number;
@@ -54,6 +55,7 @@ export function resolveStats(
     mana: stats.mana,
     manaGeneration: stats.manaGeneration,
     attackDamage: resolveScaling(stats.attackDamage, starLevel),
+    abilityPower: stats.abilityPower,
     attackSpeed: stats.attackSpeed,
     critChance: stats.critChance,
     critDamage: stats.critDamage,

@@ -1,8 +1,8 @@
 /**
  * Spell — catalog data of a champion's ability. Cast behavior lives in
- * hand-written per-champion spell functions (one module per set, not in the
- * tree yet), resolved at runtime via `SpellId`; this domain type carries only
- * identity and tuning numbers.
+ * hand-written per-champion spell functions (one module per set, under
+ * `src/sets/`), resolved at runtime via `SpellId`; this domain type carries
+ * only identity and tuning numbers.
  */
 
 import type { SpellId, StarValue } from "../primitives";

@@ -38,6 +38,7 @@ const makeCombatant = (
     mana: { min: 0, start: 0, max: 100 },
     manaGeneration: { perAttack: 0, perSecond: 0, gainsFromDamageTaken: false },
     attackDamage: 100,
+    abilityPower: 1,
     attackSpeed: 1,
     critChance: 0,
     critDamage: 0,
@@ -259,7 +260,7 @@ test("two effects that both find the gauge full on the same tick still resolve o
   processCrowdControlExpiry(expiry(attacker, "stun", 3001), state, queue);
 
   for (let e = queue.popNext(); e !== undefined; e = queue.popNext()) {
-    if (e.kind === "cast") processCast(e, state);
+    if (e.kind === "cast") processCast(e, state, queue);
   }
 
   expect(state.castsBy[attacker.id]).toBe(1);

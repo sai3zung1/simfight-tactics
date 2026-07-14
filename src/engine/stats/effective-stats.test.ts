@@ -1,5 +1,9 @@
 import { test, expect } from "bun:test";
-import { applyModifiers, resolveManaGains } from "./effective-stats";
+import {
+  applyModifiers,
+  resolveManaGains,
+  resolveSpellMagnitude,
+} from "./effective-stats";
 import type { ResolvedStats } from "./resolved-stats";
 import type {
   Magnitude,
@@ -17,6 +21,7 @@ const base: ResolvedStats = {
   mana: { min: 0, start: 0, max: 100 },
   manaGeneration: { perAttack: 0, perSecond: 0, gainsFromDamageTaken: false },
   attackDamage: 100,
+  abilityPower: 1,
   attackSpeed: 0.8,
   critChance: 0.25,
   critDamage: 0.4,
@@ -108,6 +113,7 @@ test("lands every stat the effective view carries", () => {
     "magicResist",
     "durability",
     "attackDamage",
+    "abilityPower",
     "attackSpeed",
     "critChance",
     "critDamage",
@@ -124,12 +130,8 @@ test("resolves a per-star amount to the combatant's star level", () => {
   expect(applyModifiers(base, [perStar], 2).attackDamage).toBe(125);
 });
 
-test("skips stats without an effective landing field", () => {
-  const view = applyModifiers(
-    base,
-    [statMod("abilityPower", 40), statMod("range", 1)],
-    1,
-  );
+test("skips a range stat-mod — the one stat with no landing field", () => {
+  const view = applyModifiers(base, [statMod("range", 1)], 1);
   expect(view).toEqual(base);
 });
 
@@ -162,12 +164,39 @@ test("sums the stats of a multi-source magnitude", () => {
   expect(applyModifiers(base, [resists], 1).armor).toBe(36);
 });
 
-test("scaling sources without a resolved field contribute zero", () => {
+test("a magnitude scaling from ability power reads the resolved field", () => {
   const apScaled = scaledStatMod("attackDamage", {
     base: 0.5,
     sources: ["abilityPower"],
   });
-  expect(applyModifiers(base, [apScaled], 1)).toEqual(base);
+  // Half the wearer's ability power (1) lands on attack damage.
+  expect(applyModifiers(base, [apScaled], 1).attackDamage).toBe(100.5);
+});
+
+test("a magnitude scaling from range still contributes zero", () => {
+  const rangeScaled = scaledStatMod("attackDamage", {
+    base: 0.5,
+    sources: ["range"],
+  });
+  expect(applyModifiers(base, [rangeScaled], 1)).toEqual(base);
+});
+
+test("resolveSpellMagnitude multiplies the flat base by the summed sources", () => {
+  expect(resolveSpellMagnitude(230, ["abilityPower"], base)).toBe(230);
+  expect(
+    resolveSpellMagnitude(230, ["abilityPower"], {
+      ...base,
+      abilityPower: 1.25,
+    }),
+  ).toBe(287.5);
+});
+
+test("resolveSpellMagnitude reads any declared stat — armor scales like ability power", () => {
+  expect(resolveSpellMagnitude(2, ["armor"], base)).toBe(60);
+});
+
+test("resolveSpellMagnitude without sources is the flat amount", () => {
+  expect(resolveSpellMagnitude(230, undefined, base)).toBe(230);
 });
 
 test("leaves kinds owned by other pipelines untouched", () => {

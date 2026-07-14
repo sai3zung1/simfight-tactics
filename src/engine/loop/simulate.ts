@@ -21,6 +21,7 @@ import {
   resolveUnitSpellId,
   resolveUnitSpellParameters,
 } from "../provisional/provisional-spell";
+import { EMPTY_SPELL_REGISTRY, type SpellRegistry } from "../spell/contract";
 import { createEventQueue, type EventQueue } from "./event-queue";
 import { TICK_ZERO, secondsToTicks, ticksToSeconds, type Ticks } from "./time";
 
@@ -100,8 +101,14 @@ function resolveStop(stop: StopCondition): {
  * (`resolveUnitStats`) and provisional item modifiers (`resolveModifiers`)
  * until the real catalogs land. The duel is bidirectional — the target
  * fights back with the same mechanics; only the target can die.
+ *
+ * The caller injects the active set's spell registry; without one, every
+ * cast is a no-op (the default) — partial coverage is the steady state.
  */
-export function simulate(config: CombatConfig): SimulationResult {
+export function simulate(
+  config: CombatConfig,
+  registry: SpellRegistry = EMPTY_SPELL_REGISTRY,
+): SimulationResult {
   const { timeLimit, stopReason, targetCanDie } = resolveStop(
     config.stopCondition,
   );
@@ -166,7 +173,11 @@ export function simulate(config: CombatConfig): SimulationResult {
     }
   }
 
-  const signal = runLoop(queue, timeLimit, createProcess(queue, state));
+  const signal = runLoop(
+    queue,
+    timeLimit,
+    createProcess(queue, state, registry),
+  );
 
   // The attacker-centric reading of the per-combatant tallies, produced
   // only here: in a 1v1, what the attacker takes is exactly what the

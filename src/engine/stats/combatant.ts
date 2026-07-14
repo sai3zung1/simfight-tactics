@@ -106,9 +106,10 @@ export type Combatant = {
   currentMana: number;
   /**
    * Crowd-control currently affecting this combatant. Empty until a spell
-   * applies one (#68) — never resolved from combat-start modifiers, since a
-   * cast (the only real producer) can only fire from inside the running
-   * loop, never from the combat-start fold (mechanics/crowd-control.ts, #50).
+   * applies one (engine/spell/apply-effects.ts) — never resolved from
+   * combat-start modifiers, since a cast (the only real producer) can only
+   * fire from inside the running loop, never from the combat-start fold
+   * (mechanics/crowd-control.ts, #50).
    */
   readonly activeCrowdControl: CrowdControlEntry[];
 };

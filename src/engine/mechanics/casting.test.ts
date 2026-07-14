@@ -47,6 +47,7 @@ const makeCombatant = (
     mana: { min: 0, start: 0, max: 100 },
     manaGeneration: { perAttack: 0, perSecond: 0, gainsFromDamageTaken: false },
     attackDamage: 100,
+    abilityPower: 1,
     attackSpeed: 1,
     critChance: 0,
     critDamage: 0,
@@ -200,7 +201,7 @@ test("a cast credits its caster and spends the gauge", () => {
   const attacker = makeCombatant("attacker", {}, { currentMana: 120 });
   const state = makeState(attacker, makeCombatant("target"));
 
-  processCast(cast(attacker, 500), state);
+  processCast(cast(attacker, 500), state, createEventQueue());
 
   expect(state.castsBy[attacker.id]).toBe(1);
   expect(state.castsBy[state.target.id]).toBe(0);
@@ -213,7 +214,7 @@ test("a cast credits only its caster, never the other combatant", () => {
   const target = makeCombatant("target", {}, { currentMana: 100 });
   const state = makeState(makeCombatant("attacker"), target);
 
-  processCast(cast(target, 0), state);
+  processCast(cast(target, 0), state, createEventQueue());
 
   expect(state.castsBy[target.id]).toBe(1);
   expect(state.castsBy[state.attacker.id]).toBe(0);
@@ -235,7 +236,7 @@ test("post-cast bonuses set the gauge's landing value", () => {
   );
   const state = makeState(attacker, makeCombatant("target"));
 
-  processCast(cast(attacker, 500), state);
+  processCast(cast(attacker, 500), state, createEventQueue());
 
   expect(attacker.currentMana).toBe(10);
 });
@@ -244,7 +245,7 @@ test("a cast event finding an already-spent gauge is dropped", () => {
   const attacker = makeCombatant("attacker", {}, { currentMana: 50 });
   const state = makeState(attacker, makeCombatant("target"));
 
-  processCast(cast(attacker, 500), state);
+  processCast(cast(attacker, 500), state, createEventQueue());
 
   expect(state.castsBy[attacker.id]).toBe(0);
   expect(attacker.currentMana).toBe(50);
@@ -267,7 +268,7 @@ test("dispatches the registered spell with a read-only view and resolved params"
   const target = makeCombatant("target", {}, { currentHp: 300 });
   const state = makeState(attacker, target);
 
-  processCast(cast(attacker, 500), state, registry);
+  processCast(cast(attacker, 500), state, createEventQueue(), registry);
 
   expect(seen?.ctx.caster.stats.attackDamage).toBe(120);
   expect(seen?.ctx.opponent.hp.current).toBe(300);
@@ -285,14 +286,46 @@ test("a cast whose spell is not registered is a no-op — counted, gauge spent, 
   const state = makeState(attacker, target);
 
   // Empty registry (the default): the miss is the steady state, never an error.
-  processCast(cast(attacker, 500), state);
+  processCast(cast(attacker, 500), state, createEventQueue());
 
   expect(state.castsBy[attacker.id]).toBe(1);
   expect(attacker.currentMana).toBe(0);
   expect(target.currentHp).toBe(300);
 });
 
-test("produces effects but applies none — resolution is #69, so the opponent's HP is untouched", () => {
+test("a produced damage effect lands on the opponent through the shared pipeline", () => {
+  const spellId = "burst" as SpellId;
+  const registry: SpellRegistry = {
+    [spellId]: () => [
+      {
+        recipient: "opponent",
+        modifier: {
+          kind: "damage",
+          damageType: "magic",
+          amount: { base: 500 },
+          temporality: { kind: "instant" },
+        },
+      },
+    ],
+  };
+  const attacker = makeCombatant("attacker", {}, { currentMana: 100, spellId });
+  const target = makeCombatant("target", {}, { currentHp: 1000 });
+  const state = makeState(attacker, target);
+
+  const signal = processCast(
+    cast(attacker, 500),
+    state,
+    createEventQueue(),
+    registry,
+  );
+
+  expect(signal).toBeUndefined();
+  expect(state.castsBy[attacker.id]).toBe(1);
+  // No magic resist on the target: the flat 500 lands whole.
+  expect(target.currentHp).toBe(500);
+});
+
+test("a lethal cast relays the kill signal, dated at the cast", () => {
   const spellId = "burst" as SpellId;
   const registry: SpellRegistry = {
     [spellId]: () => [
@@ -311,8 +344,12 @@ test("produces effects but applies none — resolution is #69, so the opponent's
   const target = makeCombatant("target", {}, { currentHp: 300 });
   const state = makeState(attacker, target);
 
-  processCast(cast(attacker, 500), state, registry);
+  const signal = processCast(
+    cast(attacker, 500),
+    state,
+    createEventQueue(),
+    registry,
+  );
 
-  expect(state.castsBy[attacker.id]).toBe(1);
-  expect(target.currentHp).toBe(300);
+  expect(signal).toEqual({ time: 500 as Ticks });
 });
