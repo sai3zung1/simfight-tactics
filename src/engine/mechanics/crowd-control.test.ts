@@ -38,6 +38,7 @@ const makeCombatant = (
     mana: { min: 0, start: 0, max: 100 },
     manaGeneration: { perAttack: 0, perSecond: 0, gainsFromDamageTaken: false },
     attackDamage: 100,
+    abilityPower: 1,
     attackSpeed: 1,
     critChance: 0,
     critDamage: 0,

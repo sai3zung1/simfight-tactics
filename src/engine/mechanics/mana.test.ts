@@ -45,6 +45,7 @@ const makeCombatant = (
       gainsFromDamageTaken: false,
     },
     attackDamage: 100,
+    abilityPower: 1,
     attackSpeed: 1,
     critChance: 0,
     critDamage: 0,

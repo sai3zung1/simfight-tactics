@@ -51,6 +51,8 @@ export type BaseStats = {
    * The most common scaling source for spell effects, one among many: an
    * effect's amount may scale from any base stat
    * (docs/data/modifier-archetypes.md, "open stat enumeration").
+   * Stored normalized: 1 is the at-rest baseline the game displays as 100;
+   * the unit conversion is the adapter's job (ADR 0005).
    */
   readonly abilityPower: number;
   /** In attacks per second. */

@@ -22,7 +22,7 @@ export const PROVISIONAL_FIGHTER_STATS: BaseStats = {
   mana: { min: 0, start: 0, max: 100 },
   manaGeneration: { perAttack: 10, perSecond: 0, gainsFromDamageTaken: false },
   attackDamage: { 1: 55, 2: 90, 3: 150 },
-  abilityPower: 0,
+  abilityPower: 1,
   attackSpeed: 0.85,
   critChance: 0.25,
   critDamage: 0.4,
