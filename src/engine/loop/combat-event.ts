@@ -51,8 +51,22 @@ export type CrowdControlExpiryEvent = {
   readonly cc: CrowdControl;
 };
 
+/**
+ * One combatant's timed modifiers reach an expiry tick. Carries only
+ * `combatant`, never which modifier: the handler prunes every entry whose
+ * window has closed and refolds (mechanics/timed-modifiers.ts, #70). Fired at
+ * the entry's `expiresAt` — the active window is half-open, so the modifier is
+ * gone from that tick on (D6).
+ */
+export type ModifierExpiryEvent = {
+  readonly kind: "modifier-expiry";
+  readonly time: Ticks;
+  readonly combatant: CombatantId;
+};
+
 export type CombatEvent =
   | AutoAttackEvent
   | ManaRegenEvent
   | CastEvent
-  | CrowdControlExpiryEvent;
+  | CrowdControlExpiryEvent
+  | ModifierExpiryEvent;

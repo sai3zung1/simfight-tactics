@@ -5,6 +5,7 @@ import type { StopSignal } from "../loop/stop-signal";
 import { processAutoAttack } from "./auto-attack";
 import { processCast, processManaRegen } from "./casting";
 import { processCrowdControlExpiry } from "./crowd-control";
+import { processModifierExpiry } from "./timed-modifiers";
 import { EMPTY_SPELL_REGISTRY, type SpellRegistry } from "../spell/contract";
 
 /**
@@ -32,6 +33,9 @@ export function createProcess(
         return processCast(event, state, queue, registry);
       case "crowd-control-expiry":
         processCrowdControlExpiry(event, state, queue);
+        return undefined;
+      case "modifier-expiry":
+        processModifierExpiry(event, state);
         return undefined;
       default: {
         const _exhaustive: never = event;
