@@ -381,15 +381,6 @@ test("kinds without a delivery yet are deliberate no-ops", () => {
       },
     },
     {
-      recipient: "opponent",
-      modifier: {
-        kind: "stat-mod",
-        target: "armor",
-        amount: { base: -10 },
-        temporality: { kind: "duration", seconds: 4 },
-      },
-    },
-    {
       recipient: "self",
       modifier: {
         kind: "damage-reduction",

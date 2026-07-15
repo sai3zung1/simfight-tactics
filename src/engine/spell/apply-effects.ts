@@ -5,6 +5,7 @@ import type { StopSignal } from "../loop/stop-signal";
 import { secondsToTicks, type Ticks } from "../loop/time";
 import { pushCastIfReady } from "../mechanics/casting";
 import { applyCrowdControl } from "../mechanics/crowd-control";
+import { applyTimedModifier } from "../mechanics/timed-modifiers";
 import { neverCrit } from "../mechanics/crit-policy";
 import { damageTakenManaGain, gainMana } from "../mechanics/mana";
 import { resolveDamage } from "../mechanics/resolve-damage";
@@ -110,13 +111,40 @@ export function applyEffects(
         );
         break;
       }
+      case "stat-mod": {
+        // A stat-mod folds into the recipient's stats, timed via the machinery
+        // #70 builds. Only a duration is deliverable here: an instant one is a
+        // permanent-for-combat buff (#71); periodic has no meaning for a
+        // stat-mod. A timed mod on `hp` would move max HP without reconciling
+        // currentHp — that pool relationship is #71's, so it is guarded out
+        // rather than left to desync silently. The amount stays raw in the
+        // entry and is resolved by the fold (refoldStats), not here — so a
+        // self-buff resolves at the caster's own star, the setup star.
+        if (modifier.temporality.kind !== "duration") {
+          throw new Error(
+            "a spell stat-mod is timed (duration); instant buffs land with #71",
+          );
+        }
+        if (modifier.target === "hp") {
+          throw new Error(
+            "a timed hp stat-mod needs currentHp/max reconciliation (#71)",
+          );
+        }
+        applyTimedModifier(
+          target,
+          modifier,
+          time,
+          secondsToTicks(starCollapsed(modifier.temporality.seconds)),
+          queue,
+        );
+        break;
+      }
       case "heal":
       case "shield":
-      case "stat-mod":
       case "damage-reduction":
       case "mana-generation":
-        // Not deliverable yet: spell-emitted stat kits (buffs, debuffs,
-        // shields, heals) are #71's work, their timing #70's. Deliberate
+        // Not deliverable yet: spell-emitted heals, shields and the
+        // damage-reduction / mana-generation kits are #71's work. Deliberate
         // no-op, never a bug.
         break;
       default: {
