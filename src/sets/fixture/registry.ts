@@ -1,5 +1,6 @@
 import type { SpellRegistry } from "../../engine/spell/contract";
 import { burst, FIXTURE_BURST_SPELL_ID } from "./spells/burst";
+import { rally, FIXTURE_RALLY_SPELL_ID } from "./spells/rally";
 
 /**
  * The fixture set's dispatch table — the per-set assembly gesture every real
@@ -9,4 +10,5 @@ import { burst, FIXTURE_BURST_SPELL_ID } from "./spells/burst";
  */
 export const FIXTURE_SPELL_REGISTRY: SpellRegistry = {
   [FIXTURE_BURST_SPELL_ID]: burst,
+  [FIXTURE_RALLY_SPELL_ID]: rally,
 };

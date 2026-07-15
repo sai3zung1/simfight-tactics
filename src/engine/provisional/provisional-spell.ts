@@ -6,8 +6,13 @@ import {
   FIXTURE_BURST_SPELL_ID,
 } from "../../sets/fixture/spells/burst";
 import {
+  FIXTURE_RALLY_PARAMETERS,
+  FIXTURE_RALLY_SPELL_ID,
+} from "../../sets/fixture/spells/rally";
+import {
   PROVISIONAL_CASTER_UNIT_ID,
   PROVISIONAL_NO_ATTACK_CASTER_UNIT_ID,
+  PROVISIONAL_RALLY_CASTER_UNIT_ID,
 } from "./provisional-stats";
 
 /**
@@ -27,12 +32,14 @@ import {
 const PROVISIONAL_UNIT_SPELLS: Readonly<Record<UnitId, SpellId>> = {
   [PROVISIONAL_CASTER_UNIT_ID]: FIXTURE_BURST_SPELL_ID,
   [PROVISIONAL_NO_ATTACK_CASTER_UNIT_ID]: FIXTURE_BURST_SPELL_ID,
+  [PROVISIONAL_RALLY_CASTER_UNIT_ID]: FIXTURE_RALLY_SPELL_ID,
 };
 const PROVISIONAL_UNIT_SPELL_PARAMETERS: Readonly<
   Record<UnitId, SpellParameters>
 > = {
   [PROVISIONAL_CASTER_UNIT_ID]: FIXTURE_BURST_PARAMETERS,
   [PROVISIONAL_NO_ATTACK_CASTER_UNIT_ID]: FIXTURE_BURST_PARAMETERS,
+  [PROVISIONAL_RALLY_CASTER_UNIT_ID]: FIXTURE_RALLY_PARAMETERS,
 };
 
 /** Resolve a unit to its spell identity — `NO_SPELL_ID` (no-op cast) for units without a fixture kit. */

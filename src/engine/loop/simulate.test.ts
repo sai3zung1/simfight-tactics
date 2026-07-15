@@ -13,6 +13,7 @@ import {
   PROVISIONAL_IMMORTAL_UNIT_ID,
   PROVISIONAL_NO_ATTACK_CASTER_UNIT_ID,
   PROVISIONAL_NO_MANA_UNIT_ID,
+  PROVISIONAL_RALLY_CASTER_UNIT_ID,
   PROVISIONAL_TANK_UNIT_ID,
 } from "../provisional/provisional-stats";
 import {
@@ -262,4 +263,21 @@ test("an ability-power item raises spell damage: the cast reads the effective vi
   // +0.25 ability power: 230 × 1.25 × 0.8 = 230.
   expect(simulate(bare, FIXTURE_SPELL_REGISTRY).totalDamageDealt).toBe(184);
   expect(simulate(armed, FIXTURE_SPELL_REGISTRY).totalDamageDealt).toBe(230);
+});
+
+test("a timed self-buff raises the caster's own auto-attack damage over the run (#70)", () => {
+  const c: CombatConfig = {
+    attacker: { ...side(), unitId: PROVISIONAL_RALLY_CASTER_UNIT_ID },
+    target: side(),
+    stopCondition: { mode: "fixed-duration", durationSeconds: 60 },
+  };
+  // Same config, same swings; only the registry differs. Without it the cast is
+  // a no-op; with it, rally folds a timed attack-damage buff into the caster
+  // each cast, so its auto-attacks land harder for the window — the run's whole
+  // damage tally is strictly higher. This is the mid-run apply + refold + expiry
+  // machinery observed end to end (its revert is pinned in timed-modifiers.test).
+  const bare = simulate(c);
+  const armed = simulate(c, FIXTURE_SPELL_REGISTRY);
+  expect(armed.attackerCasts).toBeGreaterThan(0);
+  expect(armed.totalDamageDealt).toBeGreaterThan(bare.totalDamageDealt);
 });
