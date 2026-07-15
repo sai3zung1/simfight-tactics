@@ -6,7 +6,7 @@ import type { CombatState } from "../loop/combat-state";
 import type { Combatant } from "../stats/combatant";
 import type { CombatantId } from "../stats/combatant-id";
 import type { ResolvedStats } from "../stats/resolved-stats";
-import type { Ticks } from "../loop/time";
+import { addTicks, secondsToTicks, type Ticks } from "../loop/time";
 
 const makeCombatant = (
   id: string,
@@ -405,4 +405,79 @@ test("kinds without a delivery yet are deliberate no-ops", () => {
   expect(caster.currentHp).toBe(1000);
   expect(opponent.currentHp).toBe(1000);
   expect(queue.popNext()).toBeUndefined();
+});
+
+test("a duration stat-mod is delivered to its recipient: folded now, expiry scheduled", () => {
+  const caster = makeCombatant("attacker");
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+  const queue = createEventQueue();
+  const base = caster.stats.attackDamage;
+
+  const buff: SpellEffect = {
+    recipient: "self",
+    modifier: {
+      kind: "stat-mod",
+      target: "attackDamage",
+      amount: { base: 40 },
+      temporality: { kind: "duration", seconds: 4 },
+    },
+  };
+
+  applyEffects([buff], caster, opponent, state, queue, NOW);
+
+  expect(caster.stats.attackDamage).toBe(base + 40);
+  expect(caster.timedModifiers).toHaveLength(1);
+  expect(queue.popNext()).toEqual({
+    kind: "modifier-expiry",
+    time: addTicks(NOW, secondsToTicks(4)),
+    combatant: caster.id,
+  });
+});
+
+test("an instant stat-mod from a spell is a loud spell-author bug (permanent buffs are #71)", () => {
+  const caster = makeCombatant("attacker");
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  const instantBuff: SpellEffect = {
+    recipient: "self",
+    modifier: {
+      kind: "stat-mod",
+      target: "attackDamage",
+      amount: { base: 40 },
+      temporality: { kind: "instant" },
+    },
+  };
+
+  expect(() =>
+    applyEffects(
+      [instantBuff],
+      caster,
+      opponent,
+      state,
+      createEventQueue(),
+      NOW,
+    ),
+  ).toThrow();
+});
+
+test("a timed hp stat-mod is guarded out until currentHp reconciliation lands (#71)", () => {
+  const caster = makeCombatant("attacker");
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  const hpBuff: SpellEffect = {
+    recipient: "self",
+    modifier: {
+      kind: "stat-mod",
+      target: "hp",
+      amount: { base: 200 },
+      temporality: { kind: "duration", seconds: 4 },
+    },
+  };
+
+  expect(() =>
+    applyEffects([hpBuff], caster, opponent, state, createEventQueue(), NOW),
+  ).toThrow();
 });
