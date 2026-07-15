@@ -80,6 +80,13 @@ export const PROVISIONAL_NO_ATTACK_CASTER_UNIT_ID =
   "provisional-no-attack-caster" as UnitId;
 export const PROVISIONAL_NO_MANA_UNIT_ID = "provisional-no-mana" as UnitId;
 export const PROVISIONAL_IMMORTAL_UNIT_ID = "provisional-immortal" as UnitId;
+/**
+ * A caster-shaped profile carrying the `rally` self-buff instead of `burst`
+ * (wired in provisional-spell.ts): it auto-attacks, so a mid-run attack-damage
+ * buff is observable in the damage it deals (#70's demonstrator).
+ */
+export const PROVISIONAL_RALLY_CASTER_UNIT_ID =
+  "provisional-rally-caster" as UnitId;
 
 /**
  * Resolve a `BoardSide.unitId` to its provisional profile. Distinguishes
@@ -92,6 +99,7 @@ export function resolveUnitStats(unitId: UnitId): BaseStats {
     case PROVISIONAL_TANK_UNIT_ID:
       return PROVISIONAL_TANK_STATS;
     case PROVISIONAL_CASTER_UNIT_ID:
+    case PROVISIONAL_RALLY_CASTER_UNIT_ID:
       return PROVISIONAL_CASTER_STATS;
     case PROVISIONAL_NO_ATTACK_CASTER_UNIT_ID:
       return PROVISIONAL_NO_ATTACK_CASTER_STATS;
