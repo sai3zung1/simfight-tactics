@@ -15,7 +15,11 @@ import {
   type EffectiveStats,
   type ManaGains,
 } from "./effective-stats";
-import { resolveScaling, resolveStats } from "./resolved-stats";
+import {
+  resolveScaling,
+  resolveStats,
+  type ResolvedStats,
+} from "./resolved-stats";
 
 /**
  * One active crowd-control effect: which capability it takes away, and the
@@ -25,6 +29,20 @@ import { resolveScaling, resolveStats } from "./resolved-stats";
 export type CrowdControlEntry = {
   readonly cc: CrowdControl;
   readonly blockedThrough: Ticks;
+};
+
+/**
+ * One timed modifier currently folded into `stats`: the modifier, and the tick
+ * it is removed on. The active window is half-open `[appliedAt, expiresAt)` —
+ * the entry is pruned when its `modifier-expiry` fires at `expiresAt`, so the
+ * fold no longer carries it from that tick on (#70, D6). Unlike a
+ * `CrowdControlEntry` — which stays inert in its list and is read through a
+ * live time check — a folded modifier is baked into `stats` and must be
+ * physically removed, or it keeps applying.
+ */
+export type TimedModifierEntry = {
+  readonly modifier: Modifier;
+  readonly expiresAt: Ticks;
 };
 
 /** Stun and disarm take away the attack. */
@@ -66,12 +84,29 @@ export function canCast(combatant: Combatant, now: Ticks): boolean {
 export type Combatant = {
   readonly id: CombatantId;
   /**
-   * Computed once at combat start; effective-stats.ts owns the how and
-   * why. The active modifier set cannot change mid-run yet — a spell buff
-   * with a duration will need this to run again (#70). Crowd control (#50)
+   * The stats the loop reads, folded from `resolvedStats` over the active
+   * modifier set; effective-stats.ts owns the how and why. Recomputed in place
+   * by `refoldStats` whenever a timed modifier is applied or expires (#70) —
+   * reassigned wholesale, never mutated field by field. Crowd control (#50)
    * never touches this fold: it gates actions, not stats.
    */
-  readonly stats: EffectiveStats;
+  stats: EffectiveStats;
+  /**
+   * The three inputs `refoldStats` needs to rebuild `stats` from scratch: the
+   * pre-fold view, the combat-long modifier set (items/traits), and the star
+   * level. Kept because a mid-run fold re-runs the same one-pass application as
+   * combat setup, over `permanentModifiers` plus the active `timedModifiers`.
+   */
+  readonly resolvedStats: ResolvedStats;
+  readonly permanentModifiers: readonly Modifier[];
+  readonly starLevel: StarLevel;
+  /**
+   * Timed modifiers currently folded into `stats`. Empty until a cast applies
+   * one (engine/spell/apply-effects.ts); each entry is pruned when its
+   * `modifier-expiry` fires (mechanics/timed-modifiers.ts, #70). The reference
+   * is fixed; the entries mutate in place, as with `activeCrowdControl`.
+   */
+  readonly timedModifiers: TimedModifierEntry[];
   /**
    * Damage-reduction amounts kept apart from the `durability` stat: the two
    * shrink damage under different stacking rules (`reductionFactor`).
@@ -149,6 +184,10 @@ export function resolveCombatant(
   return {
     id,
     stats: effective,
+    resolvedStats: resolved,
+    permanentModifiers: modifiers,
+    starLevel,
+    timedModifiers: [],
     damageReductions: resolveDamageReductions(modifiers, starLevel, resolved),
     manaGains: resolveManaGains(modifiers, starLevel, resolved),
     canDie,
@@ -158,6 +197,27 @@ export function resolveCombatant(
     spellParameters: resolveParametersToStar(spellParameters, starLevel),
     activeCrowdControl: [],
   };
+}
+
+/**
+ * Rebuild `combatant.stats` from its pre-fold view over the active modifier
+ * set — the same one-pass fold as combat setup, re-run over `permanentModifiers`
+ * plus the currently-active `timedModifiers`. Called whenever that timed set
+ * changes (apply or expiry, #70). Reassigns `stats` wholesale: consumers read
+ * it live per event, so the next event sees the new value with no further
+ * plumbing. Only the fold (`stat-mod`) is recomputed here; damage-reduction and
+ * mana-generation keep their combat-start resolution — their timed recompute
+ * arrives with #71.
+ */
+export function refoldStats(combatant: Combatant): void {
+  combatant.stats = applyModifiers(
+    combatant.resolvedStats,
+    [
+      ...combatant.permanentModifiers,
+      ...combatant.timedModifiers.map((entry) => entry.modifier),
+    ],
+    combatant.starLevel,
+  );
 }
 
 /**

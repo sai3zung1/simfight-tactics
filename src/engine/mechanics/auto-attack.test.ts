@@ -15,22 +15,8 @@ const makeCombatant = (
   stats: Partial<ResolvedStats> = {},
   currentHp = 1000,
   canDie = true,
-): Combatant => ({
-  id: id as CombatantId,
-  canDie,
-  currentHp,
-  currentMana: 0,
-  damageReductions: [],
-  activeCrowdControl: [],
-  spellId: NO_SPELL_ID,
-  spellParameters: {},
-  manaGains: {
-    "on-attack": 0,
-    "per-second": 0,
-    "post-cast": 0,
-    "on-damage-taken": 0,
-  },
-  stats: {
+): Combatant => {
+  const resolvedStats: ResolvedStats = {
     hp: 1000,
     armor: 0,
     magicResist: 0,
@@ -44,8 +30,29 @@ const makeCombatant = (
     critDamage: 0,
     damageAmp: 0,
     ...stats,
-  },
-});
+  };
+  return {
+    id: id as CombatantId,
+    canDie,
+    currentHp,
+    currentMana: 0,
+    damageReductions: [],
+    activeCrowdControl: [],
+    spellId: NO_SPELL_ID,
+    spellParameters: {},
+    manaGains: {
+      "on-attack": 0,
+      "per-second": 0,
+      "post-cast": 0,
+      "on-damage-taken": 0,
+    },
+    stats: resolvedStats,
+    resolvedStats,
+    permanentModifiers: [],
+    starLevel: 1,
+    timedModifiers: [],
+  };
+};
 
 const makeState = (attacker: Combatant, target: Combatant): CombatState => ({
   attacker,

@@ -24,22 +24,8 @@ const makeCombatant = (
   id: string,
   stats: Partial<ResolvedStats> = {},
   overrides: Partial<Combatant> = {},
-): Combatant => ({
-  id: id as CombatantId,
-  canDie: true,
-  currentHp: 1000,
-  currentMana: 0,
-  damageReductions: [],
-  activeCrowdControl: [],
-  spellId: NO_SPELL_ID,
-  spellParameters: {},
-  manaGains: {
-    "on-attack": 0,
-    "per-second": 0,
-    "post-cast": 0,
-    "on-damage-taken": 0,
-  },
-  stats: {
+): Combatant => {
+  const resolvedStats: ResolvedStats = {
     hp: 1000,
     armor: 0,
     magicResist: 0,
@@ -53,9 +39,30 @@ const makeCombatant = (
     critDamage: 0,
     damageAmp: 0,
     ...stats,
-  },
-  ...overrides,
-});
+  };
+  return {
+    id: id as CombatantId,
+    canDie: true,
+    currentHp: 1000,
+    currentMana: 0,
+    damageReductions: [],
+    activeCrowdControl: [],
+    spellId: NO_SPELL_ID,
+    spellParameters: {},
+    manaGains: {
+      "on-attack": 0,
+      "per-second": 0,
+      "post-cast": 0,
+      "on-damage-taken": 0,
+    },
+    stats: resolvedStats,
+    resolvedStats,
+    permanentModifiers: [],
+    starLevel: 1,
+    timedModifiers: [],
+    ...overrides,
+  };
+};
 
 const CASTER_GENERATION = {
   perAttack: 7,

@@ -23,17 +23,8 @@ const NO_GAINS: ManaGains = {
 const makeCombatant = (
   stats: Partial<ResolvedStats> = {},
   overrides: Partial<Combatant> = {},
-): Combatant => ({
-  id: "attacker" as CombatantId,
-  canDie: true,
-  currentHp: 1000,
-  currentMana: 0,
-  damageReductions: [],
-  activeCrowdControl: [],
-  spellId: NO_SPELL_ID,
-  spellParameters: {},
-  manaGains: NO_GAINS,
-  stats: {
+): Combatant => {
+  const resolvedStats: ResolvedStats = {
     hp: 1000,
     armor: 0,
     magicResist: 0,
@@ -51,9 +42,25 @@ const makeCombatant = (
     critDamage: 0,
     damageAmp: 0,
     ...stats,
-  },
-  ...overrides,
-});
+  };
+  return {
+    id: "attacker" as CombatantId,
+    canDie: true,
+    currentHp: 1000,
+    currentMana: 0,
+    damageReductions: [],
+    activeCrowdControl: [],
+    spellId: NO_SPELL_ID,
+    spellParameters: {},
+    manaGains: NO_GAINS,
+    stats: resolvedStats,
+    resolvedStats,
+    permanentModifiers: [],
+    starLevel: 1,
+    timedModifiers: [],
+    ...overrides,
+  };
+};
 
 test("a unit with no mana bar never casts", () => {
   const noBar = makeCombatant({ mana: { min: 0, start: 0, max: 0 } });
