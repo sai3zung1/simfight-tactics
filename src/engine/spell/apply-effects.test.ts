@@ -48,6 +48,7 @@ const makeCombatant = (
     permanentModifiers: [],
     starLevel: 1,
     timedModifiers: [],
+    shields: [],
     ...overrides,
   };
 };
@@ -357,54 +358,143 @@ test("a per-star table reaching delivery is a loud spell-author bug", () => {
   ).toThrow();
 });
 
-test("kinds without a delivery yet are deliberate no-ops", () => {
+const instantShield = (
+  base: number,
+  sources?: ["abilityPower"],
+): SpellEffect => ({
+  recipient: "self",
+  modifier: {
+    kind: "shield",
+    amount: sources === undefined ? { base } : { base, sources },
+    temporality: { kind: "instant" },
+  },
+});
+
+test("an instant shield delivers a permanent-for-combat pool on its recipient", () => {
+  const caster = makeCombatant("attacker");
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  applyEffects(
+    [instantShield(250)],
+    caster,
+    opponent,
+    state,
+    createEventQueue(),
+    NOW,
+  );
+
+  expect(caster.shields).toHaveLength(1);
+  expect(caster.shields[0].remaining).toBe(250);
+});
+
+test("a shield scales on the caster's effective stats at cast (D4)", () => {
+  const caster = makeCombatant("attacker", { abilityPower: 2 });
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  applyEffects(
+    [instantShield(100, ["abilityPower"])],
+    caster,
+    opponent,
+    state,
+    createEventQueue(),
+    NOW,
+  );
+
+  // 100 × caster ability power 2 = 200.
+  expect(caster.shields[0].remaining).toBe(200);
+});
+
+test("a timed shield delivers a pool and schedules its expiry (D7)", () => {
   const caster = makeCombatant("attacker");
   const opponent = makeCombatant("target");
   const state = makeState(caster, opponent);
   const queue = createEventQueue();
 
-  const inert: readonly SpellEffect[] = [
-    {
-      recipient: "self",
-      modifier: {
-        kind: "heal",
-        amount: { base: 100 },
-        temporality: { kind: "instant" },
-      },
+  const timed: SpellEffect = {
+    recipient: "self",
+    modifier: {
+      kind: "shield",
+      amount: { base: 100 },
+      temporality: { kind: "duration", seconds: 4 },
     },
-    {
-      recipient: "self",
-      modifier: {
-        kind: "shield",
-        amount: { base: 100 },
-        temporality: { kind: "duration", seconds: 4 },
-      },
-    },
-    {
-      recipient: "self",
-      modifier: {
-        kind: "damage-reduction",
-        amount: { base: 0.2 },
-        temporality: { kind: "instant" },
-      },
-    },
-    {
-      recipient: "self",
-      modifier: {
-        kind: "mana-generation",
-        trigger: "post-cast",
-        amount: { base: 10 },
-        temporality: { kind: "instant" },
-      },
-    },
-  ];
+  };
 
-  const signal = applyEffects(inert, caster, opponent, state, queue, NOW);
+  applyEffects([timed], caster, opponent, state, queue, NOW);
 
-  expect(signal).toBeUndefined();
-  expect(caster.currentHp).toBe(1000);
-  expect(opponent.currentHp).toBe(1000);
-  expect(queue.popNext()).toBeUndefined();
+  expect(caster.shields).toHaveLength(1);
+  expect(caster.shields[0].remaining).toBe(100);
+  expect(queue.popNext()).toEqual({
+    kind: "shield-expiry",
+    time: addTicks(NOW, secondsToTicks(4)),
+    combatant: caster.id,
+  });
+});
+
+test("a damage-reduction effect folds into the recipient's reduction lane (D1)", () => {
+  const caster = makeCombatant("attacker");
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  const reduction: SpellEffect = {
+    recipient: "self",
+    modifier: {
+      kind: "damage-reduction",
+      amount: { base: 0.25 },
+      temporality: { kind: "instant" },
+    },
+  };
+
+  applyEffects([reduction], caster, opponent, state, createEventQueue(), NOW);
+
+  expect(caster.damageReductions).toEqual([0.25]);
+});
+
+test("a mana-generation effect folds into the recipient's trigger bucket (D1)", () => {
+  const caster = makeCombatant("attacker");
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  const gain: SpellEffect = {
+    recipient: "self",
+    modifier: {
+      kind: "mana-generation",
+      trigger: "on-attack",
+      amount: { base: 5 },
+      temporality: { kind: "instant" },
+    },
+  };
+
+  applyEffects([gain], caster, opponent, state, createEventQueue(), NOW);
+
+  expect(caster.manaGains["on-attack"]).toBe(5);
+});
+
+test("a per-second mana buff starts the recipient's regen chain mid-run (D1)", () => {
+  // A combatant with no baseline per-second gain isn't ticking. The buff must
+  // both fold into the bucket and schedule the first regen tick.
+  const caster = makeCombatant("attacker");
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+  const queue = createEventQueue();
+
+  const perSecond: SpellEffect = {
+    recipient: "self",
+    modifier: {
+      kind: "mana-generation",
+      trigger: "per-second",
+      amount: { base: 4 },
+      temporality: { kind: "duration", seconds: 8 },
+    },
+  };
+
+  applyEffects([perSecond], caster, opponent, state, queue, NOW);
+
+  expect(caster.manaGains["per-second"]).toBe(4);
+  // Two events pending: the buff's own expiry and the freshly-started regen tick.
+  const kinds = [queue.popNext()?.kind, queue.popNext()?.kind].sort();
+  expect(kinds).toEqual(["mana-regen", "modifier-expiry"]);
 });
 
 test("a duration stat-mod is delivered to its recipient: folded now, expiry scheduled", () => {
@@ -435,12 +525,65 @@ test("a duration stat-mod is delivered to its recipient: folded now, expiry sche
   });
 });
 
-test("an instant stat-mod from a spell is a loud spell-author bug (permanent buffs are #71)", () => {
-  const caster = makeCombatant("attacker");
+test("a scaled buff banks the caster's effective stat at cast, not the recipient's", () => {
+  // Caster holds 3 ability power; the buff scales on it. Snapshotted at cast,
+  // the fold reads that banked value rather than re-deriving it from whoever
+  // ends up holding the entry.
+  const caster = makeCombatant("attacker", {
+    abilityPower: 3,
+    attackDamage: 100,
+  });
   const opponent = makeCombatant("target");
   const state = makeState(caster, opponent);
 
-  const instantBuff: SpellEffect = {
+  const scaledBuff: SpellEffect = {
+    recipient: "self",
+    modifier: {
+      kind: "stat-mod",
+      target: "attackDamage",
+      amount: { base: 10, sources: ["abilityPower"] },
+      temporality: { kind: "duration", seconds: 4 },
+    },
+  };
+
+  applyEffects([scaledBuff], caster, opponent, state, createEventQueue(), NOW);
+
+  // 10 × caster ability power 3 = 30 folded onto the base 100.
+  expect(caster.stats.attackDamage).toBe(130);
+});
+
+test("a debuff scaled on the caster never borrows the victim's stats", () => {
+  // The shred lands on the opponent but scales on the CASTER's ability power.
+  // Resolving it against the victim (1 AP) instead of the caster (3 AP) is the
+  // exact bug the cast-time snapshot rules out (D4).
+  const caster = makeCombatant("attacker", { abilityPower: 3 });
+  const opponent = makeCombatant("target", { abilityPower: 1, armor: 100 });
+  const state = makeState(caster, opponent);
+
+  const shred: SpellEffect = {
+    recipient: "opponent",
+    modifier: {
+      kind: "stat-mod",
+      target: "armor",
+      amount: { base: -10, sources: ["abilityPower"] },
+      temporality: { kind: "duration", seconds: 4 },
+    },
+  };
+
+  applyEffects([shred], caster, opponent, state, createEventQueue(), NOW);
+
+  // -10 × caster AP 3 = -30 → armor 100 - 30 = 70 (not 90, the victim-basis bug).
+  expect(opponent.stats.armor).toBe(70);
+});
+
+test("an instant stat-mod folds as a permanent-for-combat buff, scheduling no expiry", () => {
+  const caster = makeCombatant("attacker");
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+  const queue = createEventQueue();
+  const base = caster.stats.attackDamage;
+
+  const permanentBuff: SpellEffect = {
     recipient: "self",
     modifier: {
       kind: "stat-mod",
@@ -450,34 +593,149 @@ test("an instant stat-mod from a spell is a loud spell-author bug (permanent buf
     },
   };
 
-  expect(() =>
-    applyEffects(
-      [instantBuff],
-      caster,
-      opponent,
-      state,
-      createEventQueue(),
-      NOW,
-    ),
-  ).toThrow();
+  applyEffects([permanentBuff], caster, opponent, state, queue, NOW);
+
+  expect(caster.stats.attackDamage).toBe(base + 40);
+  expect(caster.timedModifiers).toHaveLength(1);
+  // Permanent for combat: nothing infinite is scheduled onto the queue.
+  expect(queue.popNext()).toBeUndefined();
 });
 
-test("a timed hp stat-mod is guarded out until currentHp reconciliation lands (#71)", () => {
+const hpBuff = (base: number, seconds: number): SpellEffect => ({
+  recipient: "self",
+  modifier: {
+    kind: "stat-mod",
+    target: "hp",
+    amount: { base },
+    temporality: { kind: "duration", seconds },
+  },
+});
+
+test("a timed hp stat-mod raises max HP and carries current HP up by the same delta (D3)", () => {
+  const caster = makeCombatant("attacker"); // max 1000, current 1000
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  applyEffects(
+    [hpBuff(200, 4)],
+    caster,
+    opponent,
+    state,
+    createEventQueue(),
+    NOW,
+  );
+
+  expect(caster.stats.hp).toBe(1200);
+  expect(caster.currentHp).toBe(1200);
+});
+
+test("an hp buff on a damaged combatant adds the full delta to current HP, not a ratio", () => {
+  const caster = makeCombatant("attacker", {}, { currentHp: 600 }); // max 1000
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  applyEffects(
+    [hpBuff(200, 4)],
+    caster,
+    opponent,
+    state,
+    createEventQueue(),
+    NOW,
+  );
+
+  expect(caster.stats.hp).toBe(1200);
+  // Engine lineage (D3/A): the delta is granted whole — 600 + 200, not 720.
+  expect(caster.currentHp).toBe(800);
+});
+
+const instantHeal = (
+  base: number,
+  sources?: ["abilityPower"],
+): SpellEffect => ({
+  recipient: "self",
+  modifier: {
+    kind: "heal",
+    amount: sources === undefined ? { base } : { base, sources },
+    temporality: { kind: "instant" },
+  },
+});
+
+test("a heal restores HP up to the effective max, and the surplus is lost", () => {
+  const caster = makeCombatant("attacker", {}, { currentHp: 700 });
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  applyEffects(
+    [instantHeal(500)],
+    caster,
+    opponent,
+    state,
+    createEventQueue(),
+    NOW,
+  );
+
+  // 700 + 500 = 1200, capped at the 1000 max — the 200 surplus is lost.
+  expect(caster.currentHp).toBe(1000);
+});
+
+test("a heal scales on the caster's effective stats at cast (D4)", () => {
+  const caster = makeCombatant(
+    "attacker",
+    { abilityPower: 2 },
+    { currentHp: 100 },
+  );
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  applyEffects(
+    [instantHeal(100, ["abilityPower"])],
+    caster,
+    opponent,
+    state,
+    createEventQueue(),
+    NOW,
+  );
+
+  // 100 × caster ability power 2 = 200 healed → 100 + 200 = 300.
+  expect(caster.currentHp).toBe(300);
+});
+
+test("heal-over-time is a loud spell-author bug until #72", () => {
   const caster = makeCombatant("attacker");
   const opponent = makeCombatant("target");
   const state = makeState(caster, opponent);
 
-  const hpBuff: SpellEffect = {
+  const hot: SpellEffect = {
     recipient: "self",
     modifier: {
-      kind: "stat-mod",
-      target: "hp",
-      amount: { base: 200 },
-      temporality: { kind: "duration", seconds: 4 },
+      kind: "heal",
+      amount: { base: 100 },
+      temporality: { kind: "duration", seconds: 3 },
     },
   };
 
   expect(() =>
-    applyEffects([hpBuff], caster, opponent, state, createEventQueue(), NOW),
+    applyEffects([hot], caster, opponent, state, createEventQueue(), NOW),
   ).toThrow();
+});
+
+test("a composed hp buff then heal fills up to the raised max, not the base max (D3 + D5)", () => {
+  const caster = makeCombatant("attacker", {}, { currentHp: 500 }); // max 1000
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  // One cast, two effects in reading order: raise max HP by 300 (current rides
+  // to 800), then heal 500 — capped at the new 1300 max, not the 1000 base.
+  applyEffects(
+    [hpBuff(300, 4), instantHeal(500)],
+    caster,
+    opponent,
+    state,
+    createEventQueue(),
+    NOW,
+  );
+
+  expect(caster.stats.hp).toBe(1300);
+  // 800 + 500 = 1300, the raised ceiling; without the buff it would stop at 1000.
+  expect(caster.currentHp).toBe(1300);
 });

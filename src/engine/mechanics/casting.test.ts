@@ -1,5 +1,6 @@
 import { test, expect } from "bun:test";
 import {
+  ensureManaRegenScheduled,
   processCast,
   processManaRegen,
   pushCastIfReady,
@@ -60,6 +61,7 @@ const makeCombatant = (
     permanentModifiers: [],
     starLevel: 1,
     timedModifiers: [],
+    shields: [],
     ...overrides,
   };
 };
@@ -124,6 +126,43 @@ test("a regen tick pays one interval's worth and reschedules itself", () => {
   const next = queue.popNext();
   expect(next?.kind).toBe("mana-regen");
   expect(next?.time).toBe(2000 as Ticks);
+});
+
+test("a regen tick whose gain has lapsed pays out but does not re-arm the chain", () => {
+  // A combatant with no per-second gain (a buff expired before this tick): it
+  // pays this last interval, then the chain stops rather than ticking for zero.
+  const caster = makeCombatant("attacker");
+  const state = makeState(caster, makeCombatant("target"));
+  const queue = createEventQueue();
+
+  processManaRegen(regenTick(caster, 1000), state, queue);
+
+  expect(caster.currentMana).toBe(0);
+  expect(queue.popNext()).toBeUndefined();
+});
+
+test("ensureManaRegenScheduled starts a chain, and never doubles a running one", () => {
+  const caster = makeCombatant("attacker", {
+    manaGeneration: CASTER_GENERATION,
+  });
+  const queue = createEventQueue();
+
+  ensureManaRegenScheduled(caster, 1000 as Ticks, queue);
+  // A second call while a tick is already pending adds nothing.
+  ensureManaRegenScheduled(caster, 1000 as Ticks, queue);
+
+  expect(queue.popNext()).toEqual(regenTick(caster, 2000));
+  expect(queue.popNext()).toBeUndefined();
+});
+
+test("ensureManaRegenScheduled schedules nothing when ticking cannot pay out", () => {
+  // No per-second gain: the chain must not start.
+  const caster = makeCombatant("attacker");
+  const queue = createEventQueue();
+
+  ensureManaRegenScheduled(caster, 1000 as Ticks, queue);
+
+  expect(queue.popNext()).toBeUndefined();
 });
 
 test("a regen tick that fills the gauge emits a same-tick cast", () => {

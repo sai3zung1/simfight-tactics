@@ -24,7 +24,8 @@ export const FIXTURE_RALLY_PARAMETERS: SpellParameters = {
  * One targeted effect: the star-collapsed `bonusAttackDamage` as a flat, timed
  * stat-mod on the caster itself — a duration buff the engine folds into the
  * caster's stats now and refolds out when it expires (#70). Flat by design (no
- * `sources`): a caster-scaled magnitude is #71's work.
+ * `sources`): a caster-scaled magnitude resolves at cast (#71's snapshot), but
+ * this #70 demonstrator stays flat.
  */
 export const rally: SpellFn = (_ctx, params) => [
   {

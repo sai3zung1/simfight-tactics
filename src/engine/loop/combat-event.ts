@@ -64,9 +64,23 @@ export type ModifierExpiryEvent = {
   readonly combatant: CombatantId;
 };
 
+/**
+ * One combatant's shield pools reach an expiry tick. Carries only `combatant`,
+ * never which pool: the handler prunes every pool whose window has closed
+ * (mechanics/shield.ts, #71). Fired at the pool's `expiresAt` — the active
+ * window is half-open, so the shield is gone from that tick on, exactly as a
+ * `modifier-expiry`, but on a pool rather than the stat fold (D7).
+ */
+export type ShieldExpiryEvent = {
+  readonly kind: "shield-expiry";
+  readonly time: Ticks;
+  readonly combatant: CombatantId;
+};
+
 export type CombatEvent =
   | AutoAttackEvent
   | ManaRegenEvent
   | CastEvent
   | CrowdControlExpiryEvent
-  | ModifierExpiryEvent;
+  | ModifierExpiryEvent
+  | ShieldExpiryEvent;

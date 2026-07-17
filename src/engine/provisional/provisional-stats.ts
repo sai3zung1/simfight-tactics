@@ -36,6 +36,18 @@ export const PROVISIONAL_TANK_STATS: BaseStats = {
   manaGeneration: { perAttack: 5, perSecond: 0, gainsFromDamageTaken: true },
 };
 
+/**
+ * Durable tank-shaped profile for the defensive-kit demonstrators (aegis, mend):
+ * HP high enough that the mortal target survives to fill its gauge from the hits
+ * it takes and cast its defensive spell, so a `time-to-kill` run shows the kill
+ * landing later once the shield or heal is on. Fills from damage taken, like the
+ * tank.
+ */
+export const PROVISIONAL_DEFENSIVE_CASTER_STATS: BaseStats = {
+  ...PROVISIONAL_TANK_STATS,
+  hp: { 1: 1600, 2: 1600, 3: 1600 },
+};
+
 /** Caster-shaped mana profile: the only one with a steady per-second flow. */
 export const PROVISIONAL_CASTER_STATS: BaseStats = {
   ...PROVISIONAL_FIGHTER_STATS,
@@ -89,6 +101,19 @@ export const PROVISIONAL_RALLY_CASTER_UNIT_ID =
   "provisional-rally-caster" as UnitId;
 
 /**
+ * Three caster-shaped profiles carrying #71's stat-mod kits (wired in
+ * provisional-spell.ts), each a one-capacity demonstrator: `shred` debuffs the
+ * opponent's armor so the caster's own hits land harder, `aegis` shields the
+ * caster so a kill takes longer, `mend` heals the caster so it survives longer.
+ */
+export const PROVISIONAL_SHRED_CASTER_UNIT_ID =
+  "provisional-shred-caster" as UnitId;
+export const PROVISIONAL_AEGIS_CASTER_UNIT_ID =
+  "provisional-aegis-caster" as UnitId;
+export const PROVISIONAL_MEND_CASTER_UNIT_ID =
+  "provisional-mend-caster" as UnitId;
+
+/**
  * Resolve a `BoardSide.unitId` to its provisional profile. Distinguishes
  * exactly these test-facing profiles, not a real catalog (ADR 0002 — the
  * engine still doesn't know champions) — any other id defaults to the
@@ -100,7 +125,13 @@ export function resolveUnitStats(unitId: UnitId): BaseStats {
       return PROVISIONAL_TANK_STATS;
     case PROVISIONAL_CASTER_UNIT_ID:
     case PROVISIONAL_RALLY_CASTER_UNIT_ID:
+    case PROVISIONAL_SHRED_CASTER_UNIT_ID:
       return PROVISIONAL_CASTER_STATS;
+    case PROVISIONAL_AEGIS_CASTER_UNIT_ID:
+    case PROVISIONAL_MEND_CASTER_UNIT_ID:
+      // Durable and damage-taken-fed, so the mortal target survives long enough
+      // to fill its gauge and cast its defensive kit before a kill lands.
+      return PROVISIONAL_DEFENSIVE_CASTER_STATS;
     case PROVISIONAL_NO_ATTACK_CASTER_UNIT_ID:
       return PROVISIONAL_NO_ATTACK_CASTER_STATS;
     case PROVISIONAL_NO_MANA_UNIT_ID:

@@ -2,15 +2,23 @@ import type { StarValue } from "../../domain/primitives";
 import type { CombatState } from "../loop/combat-state";
 import type { EventQueue } from "../loop/event-queue";
 import type { StopSignal } from "../loop/stop-signal";
-import { secondsToTicks, type Ticks } from "../loop/time";
-import { pushCastIfReady } from "../mechanics/casting";
+import { NEVER_EXPIRES, secondsToTicks, type Ticks } from "../loop/time";
+import {
+  ensureManaRegenScheduled,
+  pushCastIfReady,
+} from "../mechanics/casting";
 import { applyCrowdControl } from "../mechanics/crowd-control";
+import { applyShield } from "../mechanics/shield";
 import { applyTimedModifier } from "../mechanics/timed-modifiers";
 import { neverCrit } from "../mechanics/crit-policy";
 import { damageTakenManaGain, gainMana } from "../mechanics/mana";
 import { resolveDamage } from "../mechanics/resolve-damage";
-import { applyDamage, type Combatant } from "../stats/combatant";
-import { resolveSpellMagnitude } from "../stats/effective-stats";
+import { applyDamage, applyHeal, type Combatant } from "../stats/combatant";
+import {
+  resolveSpellMagnitude,
+  type EffectiveStats,
+} from "../stats/effective-stats";
+import type { Magnitude, Temporality } from "../../domain/catalog/modifier";
 import type { SpellEffect } from "./contract";
 
 /**
@@ -27,6 +35,51 @@ function starCollapsed(value: StarValue): number {
     );
   }
   return value;
+}
+
+/**
+ * Snapshot a spell modifier's magnitude against the caster's effective stats,
+ * once, at cast time (D4). The returned number is banked into the timed entry
+ * as a flat amount, so the later fold reads the caster's value — never the
+ * recipient's: a debuff scaled on the caster's stats keeps the caster's basis
+ * even folded into the victim, and an ability-power buff banks the item-moved
+ * AP the caster held when it cast. Mirrors how spell damage already resolves
+ * (same `resolveSpellMagnitude`), so every spell-emitted amount shares one rule.
+ */
+function snapshotAmount(
+  amount: Magnitude,
+  casterStats: EffectiveStats,
+): number {
+  return resolveSpellMagnitude(
+    starCollapsed(amount.base),
+    amount.sources,
+    casterStats,
+  );
+}
+
+/**
+ * How long a spell-emitted timed effect lives, in ticks. An instant temporality
+ * means permanent-for-combat — the `NEVER_EXPIRES` sentinel, no scheduled expiry
+ * (D2); a duration collapses its star-safe seconds to ticks. Periodic is
+ * over-time territory (#72) and never reaches here — each kind's delivery
+ * rejects it first — so it is a loud bug, not a silent skip. Shared by every
+ * timed kit (stat-mod, damage-reduction, mana-generation, shield).
+ */
+function durationTicksOf(temporality: Temporality): Ticks {
+  switch (temporality.kind) {
+    case "instant":
+      return NEVER_EXPIRES;
+    case "duration":
+      return secondsToTicks(starCollapsed(temporality.seconds));
+    case "periodic":
+      throw new Error(
+        "a periodic temporality has no single duration; over-time effects are #72's",
+      );
+    default: {
+      const _exhaustive: never = temporality;
+      return _exhaustive;
+    }
+  }
 }
 
 /**
@@ -112,41 +165,92 @@ export function applyEffects(
         break;
       }
       case "stat-mod": {
-        // A stat-mod folds into the recipient's stats, timed via the machinery
-        // #70 builds. Only a duration is deliverable here: an instant one is a
-        // permanent-for-combat buff (#71); periodic has no meaning for a
-        // stat-mod. A timed mod on `hp` would move max HP without reconciling
-        // currentHp — that pool relationship is #71's, so it is guarded out
-        // rather than left to desync silently. The amount stays raw in the
-        // entry and is resolved by the fold (refoldStats), not here — so a
-        // self-buff resolves at the caster's own star, the setup star.
-        if (modifier.temporality.kind !== "duration") {
-          throw new Error(
-            "a spell stat-mod is timed (duration); instant buffs land with #71",
-          );
-        }
-        if (modifier.target === "hp") {
-          throw new Error(
-            "a timed hp stat-mod needs currentHp/max reconciliation (#71)",
-          );
-        }
+        // A stat-mod folds into the recipient's stats via #70's timed machinery.
+        // An instant one is a permanent-for-combat buff riding a `NEVER_EXPIRES`
+        // window, so nothing schedules its expiry and the fold carries it for the
+        // whole run (D2). Periodic has no stat-mod meaning (`durationTicksOf`
+        // rejects it). A mod on `hp` moves max HP, and refoldStats reconciles
+        // current HP with it — a rise grants the HP, an expiry clamps under the
+        // new max (D3). The amount is snapshotted against the caster now (D4) and
+        // banked flat, so the fold reads the caster's basis, not the recipient's.
         applyTimedModifier(
           target,
-          modifier,
+          {
+            ...modifier,
+            amount: { base: snapshotAmount(modifier.amount, caster.stats) },
+          },
           time,
-          secondsToTicks(starCollapsed(modifier.temporality.seconds)),
+          durationTicksOf(modifier.temporality),
           queue,
         );
         break;
       }
-      case "heal":
-      case "shield":
-      case "damage-reduction":
-      case "mana-generation":
-        // Not deliverable yet: spell-emitted heals, shields and the
-        // damage-reduction / mana-generation kits are #71's work. Deliberate
-        // no-op, never a bug.
+      case "heal": {
+        // A heal lands on HP now, capped at the recipient's effective max
+        // (`applyHeal`). Instant only: heal-over-time is #72's, so a duration or
+        // periodic reaching here is a spell-author bug, never a silent skip. The
+        // amount is snapshotted against the caster (D4), the same rule as damage
+        // and stat-mods.
+        if (modifier.temporality.kind !== "instant") {
+          throw new Error(
+            "spell healing is instant until heal-over-time lands (#72)",
+          );
+        }
+        applyHeal(target, snapshotAmount(modifier.amount, caster.stats));
         break;
+      }
+      case "shield": {
+        // A shield is a consumable pool absorbing damage ahead of HP
+        // (mechanics/shield.ts). An instant temporality is a permanent-for-combat
+        // pool (`NEVER_EXPIRES`, no scheduled expiry); a duration schedules its
+        // own shield-expiry (D7); periodic has no shield meaning
+        // (`durationTicksOf` rejects it). The amount is snapshotted against the
+        // caster (D4).
+        applyShield(
+          target,
+          snapshotAmount(modifier.amount, caster.stats),
+          time,
+          durationTicksOf(modifier.temporality),
+          queue,
+        );
+        break;
+      }
+      case "damage-reduction": {
+        // A damage-reduction rides the timed machinery into its own lane,
+        // recomputed by refoldStats like the stat fold (D1). Instant is
+        // permanent-for-combat; periodic has no meaning (`durationTicksOf`
+        // rejects it). Snapshotted against the caster (D4).
+        applyTimedModifier(
+          target,
+          {
+            ...modifier,
+            amount: { base: snapshotAmount(modifier.amount, caster.stats) },
+          },
+          time,
+          durationTicksOf(modifier.temporality),
+          queue,
+        );
+        break;
+      }
+      case "mana-generation": {
+        // A mana-generation bonus rides the timed machinery into its trigger
+        // bucket, recomputed by refoldStats like the stat fold (D1). Snapshotted
+        // against the caster (D4). A per-second gain appearing mid-run also has
+        // to start the recipient's regen chain if it wasn't ticking — the fold
+        // alone pays nothing without the recurring event (D1).
+        applyTimedModifier(
+          target,
+          {
+            ...modifier,
+            amount: { base: snapshotAmount(modifier.amount, caster.stats) },
+          },
+          time,
+          durationTicksOf(modifier.temporality),
+          queue,
+        );
+        ensureManaRegenScheduled(target, time, queue);
+        break;
+      }
       default: {
         const _exhaustive: never = modifier;
         return _exhaustive;
