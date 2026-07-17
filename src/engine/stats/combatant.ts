@@ -45,6 +45,19 @@ export type TimedModifierEntry = {
   readonly expiresAt: Ticks;
 };
 
+/**
+ * One shield pool absorbing damage ahead of HP. Unlike the other entries —
+ * which stay fixed and only splice — a shield's `remaining` is drawn down in
+ * place as hits land, and the pool is dropped once emptied. `expiresAt` is the
+ * tick it is pruned on (half-open window, as timed modifiers); `NEVER_EXPIRES`
+ * for a permanent-for-combat shield. Pools are additive and independent:
+ * several coexist and their remainders sum, never merged (#71, D6).
+ */
+export type ShieldEntry = {
+  remaining: number;
+  readonly expiresAt: Ticks;
+};
+
 /** Stun and disarm take away the attack. */
 export function blocksAttack(cc: CrowdControl): boolean {
   return cc === "stun" || cc === "disarm";
@@ -107,6 +120,14 @@ export type Combatant = {
    * is fixed; the entries mutate in place, as with `activeCrowdControl`.
    */
   readonly timedModifiers: TimedModifierEntry[];
+  /**
+   * Shield pools absorbing damage ahead of HP, oldest-first. Empty until a cast
+   * applies one (mechanics/shield.ts); each pool is drawn down by `applyDamage`
+   * and dropped when emptied or expired. The reference is fixed; the entries
+   * mutate and splice in place, as with `activeCrowdControl` and
+   * `timedModifiers`.
+   */
+  readonly shields: ShieldEntry[];
   /**
    * Damage-reduction amounts kept apart from the `durability` stat: the two
    * shrink damage under different stacking rules (`reductionFactor`).
@@ -188,6 +209,7 @@ export function resolveCombatant(
     permanentModifiers: modifiers,
     starLevel,
     timedModifiers: [],
+    shields: [],
     damageReductions: resolveDamageReductions(modifiers, starLevel, resolved),
     manaGains: resolveManaGains(modifiers, starLevel, resolved),
     canDie,
@@ -254,14 +276,45 @@ function reconcileCurrentHp(combatant: Combatant, previousMaxHp: number): void {
 const IMMORTAL_HP_FLOOR = 1;
 
 /**
- * The single point where damage lands on HP; reports whether it killed.
- * Immortality clamps the HP write and nothing else — the hit's numbers are
- * never truncated, so tallies and the mana conversion read the same values
- * whether the victim floors or dies. Only a `canDie` combatant can reach
- * zero, so a `true` return needs no further checks.
+ * Draw incoming `amount` down against the combatant's shield pools, oldest-first
+ * (FIFO), and return the damage left for HP — what continues in the same hit
+ * once the shields are spent (#71, D6). Each pool's `remaining` is decremented
+ * in place; pools the hit empties are pruned back-to-front, the same splice
+ * shape as the other in-place prunes. A fully-absorbed hit returns 0; with no
+ * shields, the amount passes through untouched.
+ */
+export function absorbWithShields(
+  combatant: Combatant,
+  amount: number,
+): number {
+  const pools = combatant.shields;
+  let toHp = amount;
+  for (const pool of pools) {
+    if (toHp <= 0) break;
+    const absorbed = Math.min(pool.remaining, toHp);
+    pool.remaining -= absorbed;
+    toHp -= absorbed;
+  }
+  for (let i = pools.length - 1; i >= 0; i--) {
+    if (pools[i].remaining <= 0) {
+      pools.splice(i, 1);
+    }
+  }
+  return toHp;
+}
+
+/**
+ * The single point where damage lands on HP; reports whether it killed. Shields
+ * absorb first (`absorbWithShields`), so only what they don't cover reaches HP —
+ * a hit fully absorbed moves nothing and never kills. Immortality clamps the HP
+ * write and nothing else — the hit's numbers are never truncated, so tallies and
+ * the mana conversion read the same values whether the victim shields, floors or
+ * dies. Only a `canDie` combatant can reach zero, so a `true` return needs no
+ * further checks.
  */
 export function applyDamage(combatant: Combatant, amount: number): boolean {
-  const next = combatant.currentHp - amount;
+  const toHp = absorbWithShields(combatant, amount);
+  const next = combatant.currentHp - toHp;
   combatant.currentHp = combatant.canDie
     ? next
     : Math.max(IMMORTAL_HP_FLOOR, next);

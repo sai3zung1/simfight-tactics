@@ -51,6 +51,7 @@ const makeCombatant = (
     permanentModifiers: [],
     starLevel: 1,
     timedModifiers: [],
+    shields: [],
   };
 };
 

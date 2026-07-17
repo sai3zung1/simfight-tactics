@@ -3,7 +3,7 @@ import { applyDamage, canAttack, canCast, resolveCombatant } from "./combatant";
 import type { CombatantId } from "./combatant-id";
 import type { BaseStats } from "../../domain/catalog/base-stats";
 import type { SpellId } from "../../domain/primitives";
-import type { Ticks } from "../loop/time";
+import { NEVER_EXPIRES, type Ticks } from "../loop/time";
 
 const stats: BaseStats = {
   hp: { 1: 500, 2: 900, 3: 1600 },
@@ -135,6 +135,38 @@ test("applyDamage floors an immortal combatant at 1 and never reports a kill", (
   // Already at the floor: hits keep landing without moving HP any further.
   expect(applyDamage(immortal, 9999)).toBe(false);
   expect(immortal.currentHp).toBe(1);
+});
+
+test("a shield absorbs damage ahead of HP; only the overflow reaches HP", () => {
+  const c = resolveCombatant(stats, 1, "target" as CombatantId, [], true); // hp 500
+  c.shields.push({ remaining: 120, expiresAt: NEVER_EXPIRES });
+
+  // 200 hit: 120 absorbed, 80 to HP; the emptied pool is dropped.
+  expect(applyDamage(c, 200)).toBe(false);
+  expect(c.currentHp).toBe(420);
+  expect(c.shields).toHaveLength(0);
+});
+
+test("a shield fully covering the hit moves no HP and never kills", () => {
+  const c = resolveCombatant(stats, 1, "target" as CombatantId, [], true); // hp 500
+  c.shields.push({ remaining: 600, expiresAt: NEVER_EXPIRES });
+
+  // A hit that would be lethal on bare HP is fully absorbed instead.
+  expect(applyDamage(c, 500)).toBe(false);
+  expect(c.currentHp).toBe(500);
+  expect(c.shields[0].remaining).toBe(100);
+});
+
+test("two shields are consumed oldest-first, leaving the newer pool partly spent", () => {
+  const c = resolveCombatant(stats, 1, "target" as CombatantId, [], true);
+  c.shields.push({ remaining: 100, expiresAt: NEVER_EXPIRES }); // oldest
+  c.shields.push({ remaining: 100, expiresAt: NEVER_EXPIRES }); // newer
+
+  // 150 hit: drains the first pool, then 50 from the second; HP untouched.
+  expect(applyDamage(c, 150)).toBe(false);
+  expect(c.currentHp).toBe(500);
+  expect(c.shields).toHaveLength(1);
+  expect(c.shields[0].remaining).toBe(50);
 });
 
 test("an empty crowd-control list never blocks anything", () => {

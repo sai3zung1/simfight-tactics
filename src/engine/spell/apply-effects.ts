@@ -5,6 +5,7 @@ import type { StopSignal } from "../loop/stop-signal";
 import { NEVER_EXPIRES, secondsToTicks, type Ticks } from "../loop/time";
 import { pushCastIfReady } from "../mechanics/casting";
 import { applyCrowdControl } from "../mechanics/crowd-control";
+import { applyShield } from "../mechanics/shield";
 import { applyTimedModifier } from "../mechanics/timed-modifiers";
 import { neverCrit } from "../mechanics/crit-policy";
 import { damageTakenManaGain, gainMana } from "../mechanics/mana";
@@ -195,10 +196,24 @@ export function applyEffects(
         applyHeal(target, snapshotAmount(modifier.amount, caster.stats));
         break;
       }
-      case "shield":
+      case "shield": {
+        // A shield is a consumable pool absorbing damage ahead of HP
+        // (mechanics/shield.ts). S5 delivers permanent-for-combat shields only:
+        // an instant temporality is the whole-run pool. Timed shields, with
+        // their own expiry event, land in D7 — a duration throws until then;
+        // periodic has no shield meaning. The amount is snapshotted against the
+        // caster (D4).
+        if (modifier.temporality.kind !== "instant") {
+          throw new Error(
+            "a spell shield is permanent-for-combat until timed shields land (D7)",
+          );
+        }
+        applyShield(target, snapshotAmount(modifier.amount, caster.stats));
+        break;
+      }
       case "damage-reduction":
       case "mana-generation":
-        // Not deliverable yet: spell-emitted shields and the damage-reduction /
+        // Not deliverable yet: the spell-emitted damage-reduction and
         // mana-generation kits are #71's remaining work. Deliberate no-op.
         break;
       default: {

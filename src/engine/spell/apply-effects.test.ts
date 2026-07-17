@@ -48,6 +48,7 @@ const makeCombatant = (
     permanentModifiers: [],
     starLevel: 1,
     timedModifiers: [],
+    shields: [],
     ...overrides,
   };
 };
@@ -357,6 +358,73 @@ test("a per-star table reaching delivery is a loud spell-author bug", () => {
   ).toThrow();
 });
 
+const instantShield = (
+  base: number,
+  sources?: ["abilityPower"],
+): SpellEffect => ({
+  recipient: "self",
+  modifier: {
+    kind: "shield",
+    amount: sources === undefined ? { base } : { base, sources },
+    temporality: { kind: "instant" },
+  },
+});
+
+test("an instant shield delivers a permanent-for-combat pool on its recipient", () => {
+  const caster = makeCombatant("attacker");
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  applyEffects(
+    [instantShield(250)],
+    caster,
+    opponent,
+    state,
+    createEventQueue(),
+    NOW,
+  );
+
+  expect(caster.shields).toHaveLength(1);
+  expect(caster.shields[0].remaining).toBe(250);
+});
+
+test("a shield scales on the caster's effective stats at cast (D4)", () => {
+  const caster = makeCombatant("attacker", { abilityPower: 2 });
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  applyEffects(
+    [instantShield(100, ["abilityPower"])],
+    caster,
+    opponent,
+    state,
+    createEventQueue(),
+    NOW,
+  );
+
+  // 100 × caster ability power 2 = 200.
+  expect(caster.shields[0].remaining).toBe(200);
+});
+
+test("a timed shield is a loud spell-author bug until the expiry event lands (D7)", () => {
+  const caster = makeCombatant("attacker");
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  const timed: SpellEffect = {
+    recipient: "self",
+    modifier: {
+      kind: "shield",
+      amount: { base: 100 },
+      temporality: { kind: "duration", seconds: 4 },
+    },
+  };
+
+  expect(() =>
+    applyEffects([timed], caster, opponent, state, createEventQueue(), NOW),
+  ).toThrow();
+});
+
 test("kinds without a delivery yet are deliberate no-ops", () => {
   const caster = makeCombatant("attacker");
   const opponent = makeCombatant("target");
@@ -364,14 +432,6 @@ test("kinds without a delivery yet are deliberate no-ops", () => {
   const queue = createEventQueue();
 
   const inert: readonly SpellEffect[] = [
-    {
-      recipient: "self",
-      modifier: {
-        kind: "shield",
-        amount: { base: 100 },
-        temporality: { kind: "duration", seconds: 4 },
-      },
-    },
     {
       recipient: "self",
       modifier: {
