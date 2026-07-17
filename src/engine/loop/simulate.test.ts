@@ -9,11 +9,14 @@ import type { BoardSide } from "../../domain/combat/board-side";
 import type { UnitId } from "../../domain/primitives";
 import type { CombatantId } from "../stats/combatant-id";
 import {
+  PROVISIONAL_AEGIS_CASTER_UNIT_ID,
   PROVISIONAL_CASTER_UNIT_ID,
   PROVISIONAL_IMMORTAL_UNIT_ID,
+  PROVISIONAL_MEND_CASTER_UNIT_ID,
   PROVISIONAL_NO_ATTACK_CASTER_UNIT_ID,
   PROVISIONAL_NO_MANA_UNIT_ID,
   PROVISIONAL_RALLY_CASTER_UNIT_ID,
+  PROVISIONAL_SHRED_CASTER_UNIT_ID,
   PROVISIONAL_TANK_UNIT_ID,
 } from "../provisional/provisional-stats";
 import {
@@ -280,4 +283,62 @@ test("a timed self-buff raises the caster's own auto-attack damage over the run 
   const armed = simulate(c, FIXTURE_SPELL_REGISTRY);
   expect(armed.attackerCasts).toBeGreaterThan(0);
   expect(armed.totalDamageDealt).toBeGreaterThan(bare.totalDamageDealt);
+});
+
+// The three runs below inject the fixture registry to prove #71's kits end to
+// end: a debuff on the opposite side, and defensive kits (shield, heal) that
+// let the mortal target outlast a kill it would otherwise take sooner.
+
+test("a shred debuff raises the caster's own damage: the opponent's armor is torn (#71)", () => {
+  const c: CombatConfig = {
+    attacker: { ...side(), unitId: PROVISIONAL_SHRED_CASTER_UNIT_ID },
+    target: side(),
+    stopCondition: { mode: "fixed-duration", durationSeconds: 30 },
+  };
+  // Same swings; only the registry differs. With it, shred lowers the target's
+  // armor for a window, so the caster's physical auto-attacks land harder over
+  // the run — the whole damage tally is strictly higher. Debuff on the opposite
+  // side, as a negative timed stat-mod, observed end to end.
+  const bare = simulate(c);
+  const armed = simulate(c, FIXTURE_SPELL_REGISTRY);
+  expect(armed.attackerCasts).toBeGreaterThan(0);
+  expect(armed.totalDamageDealt).toBeGreaterThan(bare.totalDamageDealt);
+});
+
+test("an aegis shield lets the target outlast the kill: damage absorbed ahead of HP (#71)", () => {
+  const c: CombatConfig = {
+    attacker: side(),
+    target: { ...side(), unitId: PROVISIONAL_AEGIS_CASTER_UNIT_ID },
+    stopCondition: { mode: "time-to-kill" },
+  };
+  // Both runs kill; with the registry the target shields itself each cast,
+  // absorbing damage ahead of HP, so the kill lands later. The shield pool and
+  // its consumption, observed end to end (its expiry is pinned in shield.test).
+  const bare = simulate(c);
+  const armed = simulate(c, FIXTURE_SPELL_REGISTRY);
+  expect(bare.stopReason).toBe("kill");
+  expect(armed.stopReason).toBe("kill");
+  expect(armed.targetCasts).toBeGreaterThan(0);
+  expect(armed.effectiveDurationSeconds).toBeGreaterThan(
+    bare.effectiveDurationSeconds,
+  );
+});
+
+test("a mend heal lets the target outlast the kill: HP restored mid-fight (#71)", () => {
+  const c: CombatConfig = {
+    attacker: side(),
+    target: { ...side(), unitId: PROVISIONAL_MEND_CASTER_UNIT_ID },
+    stopCondition: { mode: "time-to-kill" },
+  };
+  // Same mechanics; with the registry the target heals itself each cast,
+  // restoring HP capped at its max, so the kill lands later. Instant heal on HP,
+  // observed end to end.
+  const bare = simulate(c);
+  const armed = simulate(c, FIXTURE_SPELL_REGISTRY);
+  expect(bare.stopReason).toBe("kill");
+  expect(armed.stopReason).toBe("kill");
+  expect(armed.targetCasts).toBeGreaterThan(0);
+  expect(armed.effectiveDurationSeconds).toBeGreaterThan(
+    bare.effectiveDurationSeconds,
+  );
 });
