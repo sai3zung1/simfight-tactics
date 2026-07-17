@@ -1,23 +1,61 @@
-import { NEVER_EXPIRES } from "../loop/time";
+import type { ShieldExpiryEvent } from "../loop/combat-event";
+import type { CombatState } from "../loop/combat-state";
+import { combatantById } from "../loop/combat-state";
+import type { EventQueue } from "../loop/event-queue";
+import { addTicks, type Ticks } from "../loop/time";
 import type { Combatant } from "../stats/combatant";
 
 /**
  * The shield side of combat: a spell's cast grants a consumable pool that
  * absorbs damage ahead of HP (`applyDamage` draws it down, stats/combatant.ts).
  * A pool never folds into the stat sheet — it is HP-adjacent, not a stat — so it
- * lives here, apart from the modifier fold (#71, D6/D7).
- *
- * S5 grants permanent-for-combat pools only; timed pools and their expiry event
- * land in D7.
+ * lives here, apart from the modifier fold, with its own expiry event (#71,
+ * D6/D7).
  */
 
 /**
- * Apply a shield of `amount` to `combatant` as a fresh, permanent-for-combat
- * pool (`NEVER_EXPIRES`). Additive and independent — each cast pushes its own
- * pool, never merging into an existing one, so several shields coexist and their
+ * Apply a shield of `amount` to `combatant` for `durationTicks` from `now`: push
+ * a fresh pool and, unless it is permanent-for-combat (`NEVER_EXPIRES`),
+ * schedule its expiry. Additive and independent — each cast pushes its own pool,
+ * never merging into an existing one, so several shields coexist and their
  * remainders sum (#71, D6). The real producer is a cast resolving
  * (engine/spell/apply-effects.ts), a mid-loop occurrence.
  */
-export function applyShield(combatant: Combatant, amount: number): void {
-  combatant.shields.push({ remaining: amount, expiresAt: NEVER_EXPIRES });
+export function applyShield(
+  combatant: Combatant,
+  amount: number,
+  now: Ticks,
+  durationTicks: Ticks,
+  queue: EventQueue,
+): void {
+  const expiresAt = addTicks(now, durationTicks);
+  combatant.shields.push({ remaining: amount, expiresAt });
+  if (Number.isFinite(expiresAt)) {
+    queue.push({
+      kind: "shield-expiry",
+      time: expiresAt,
+      combatant: combatant.id,
+    });
+  }
+}
+
+/**
+ * Resolve one shield expiry: drop every pool whose window has closed
+ * (`expiresAt <= now`), mutating the list in place — the same backward-splice as
+ * the timed-modifier prune. No refold: a shield is HP-adjacent, not a stat, so
+ * its expiry changes no fold (#71, D7). A pool still holding charge when its
+ * window closes simply fades, its remainder lost. When several pools share an
+ * `expiresAt`, both events fire on the same tick: the first prunes all the due
+ * pools, the second finds nothing.
+ */
+export function processShieldExpiry(
+  event: ShieldExpiryEvent,
+  state: CombatState,
+): void {
+  const pools = combatantById(state, event.combatant).shields;
+  for (let i = pools.length - 1; i >= 0; i--) {
+    if (pools[i].expiresAt <= event.time) {
+      pools.splice(i, 1);
+    }
+  }
 }

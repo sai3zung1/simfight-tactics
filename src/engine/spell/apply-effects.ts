@@ -198,17 +198,18 @@ export function applyEffects(
       }
       case "shield": {
         // A shield is a consumable pool absorbing damage ahead of HP
-        // (mechanics/shield.ts). S5 delivers permanent-for-combat shields only:
-        // an instant temporality is the whole-run pool. Timed shields, with
-        // their own expiry event, land in D7 — a duration throws until then;
-        // periodic has no shield meaning. The amount is snapshotted against the
+        // (mechanics/shield.ts). An instant temporality is a permanent-for-combat
+        // pool (`NEVER_EXPIRES`, no scheduled expiry); a duration schedules its
+        // own shield-expiry (D7); periodic has no shield meaning
+        // (`durationTicksOf` rejects it). The amount is snapshotted against the
         // caster (D4).
-        if (modifier.temporality.kind !== "instant") {
-          throw new Error(
-            "a spell shield is permanent-for-combat until timed shields land (D7)",
-          );
-        }
-        applyShield(target, snapshotAmount(modifier.amount, caster.stats));
+        applyShield(
+          target,
+          snapshotAmount(modifier.amount, caster.stats),
+          time,
+          durationTicksOf(modifier.temporality),
+          queue,
+        );
         break;
       }
       case "damage-reduction":

@@ -406,10 +406,11 @@ test("a shield scales on the caster's effective stats at cast (D4)", () => {
   expect(caster.shields[0].remaining).toBe(200);
 });
 
-test("a timed shield is a loud spell-author bug until the expiry event lands (D7)", () => {
+test("a timed shield delivers a pool and schedules its expiry (D7)", () => {
   const caster = makeCombatant("attacker");
   const opponent = makeCombatant("target");
   const state = makeState(caster, opponent);
+  const queue = createEventQueue();
 
   const timed: SpellEffect = {
     recipient: "self",
@@ -420,9 +421,15 @@ test("a timed shield is a loud spell-author bug until the expiry event lands (D7
     },
   };
 
-  expect(() =>
-    applyEffects([timed], caster, opponent, state, createEventQueue(), NOW),
-  ).toThrow();
+  applyEffects([timed], caster, opponent, state, queue, NOW);
+
+  expect(caster.shields).toHaveLength(1);
+  expect(caster.shields[0].remaining).toBe(100);
+  expect(queue.popNext()).toEqual({
+    kind: "shield-expiry",
+    time: addTicks(NOW, secondsToTicks(4)),
+    combatant: caster.id,
+  });
 });
 
 test("kinds without a delivery yet are deliberate no-ops", () => {
