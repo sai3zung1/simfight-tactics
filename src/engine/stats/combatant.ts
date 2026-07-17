@@ -130,14 +130,17 @@ export type Combatant = {
   readonly shields: ShieldEntry[];
   /**
    * Damage-reduction amounts kept apart from the `durability` stat: the two
-   * shrink damage under different stacking rules (`reductionFactor`).
+   * shrink damage under different stacking rules (`reductionFactor`). Recomputed
+   * in place by `refoldStats` over the active timed set, exactly as `stats` —
+   * reassigned wholesale, never edited entry by entry (#71, D1).
    */
-  readonly damageReductions: readonly number[];
+  damageReductions: readonly number[];
   /**
-   * Equipped `mana-generation` modifiers resolved to plain amounts per
-   * trigger; mechanics/mana.ts adds them onto each matching gain.
+   * `mana-generation` modifiers resolved to plain amounts per trigger;
+   * mechanics/mana.ts adds them onto each matching gain. Recomputed in place by
+   * `refoldStats` over the active timed set, as `stats` (#71, D1).
    */
-  readonly manaGains: ManaGains;
+  manaGains: ManaGains;
   /**
    * The caster's spell, resolved once at setup and read at cast time so the
    * dispatch always sees the current spell. `NO_SPELL_ID` means no modeled
@@ -222,25 +225,38 @@ export function resolveCombatant(
 }
 
 /**
- * Rebuild `combatant.stats` from its pre-fold view over the active modifier
- * set — the same one-pass fold as combat setup, re-run over `permanentModifiers`
- * plus the currently-active `timedModifiers`. Called whenever that timed set
- * changes (apply or expiry, #70). Reassigns `stats` wholesale: consumers read
- * it live per event, so the next event sees the new value with no further
- * plumbing. When the fold moves max HP (a timed `hp` stat-mod), current HP is
- * reconciled with it (`reconcileCurrentHp`, D3). Only the fold (`stat-mod`) is
- * recomputed here; damage-reduction and mana-generation keep their combat-start
- * resolution — their timed recompute arrives with #71.
+ * Rebuild every derived view from the pre-fold base over the active modifier
+ * set — the same one-pass resolution as combat setup, re-run over
+ * `permanentModifiers` plus the currently-active `timedModifiers`. Called
+ * whenever that timed set changes (apply or expiry, #70). Recomputes all three
+ * views a modifier can move — `stats`, `damageReductions`, `manaGains` — so a
+ * timed reduction or mana-generation bonus takes effect and lapses exactly as a
+ * stat buff does (#71, D1); anything a modifier touches is recomputable, never
+ * frozen at setup. Each is reassigned wholesale: consumers read them live per
+ * event, so the next event sees the new values with no further plumbing. When
+ * the fold moves max HP (a timed `hp` stat-mod), current HP is reconciled with
+ * it (`reconcileCurrentHp`, D3).
  */
 export function refoldStats(combatant: Combatant): void {
   const previousMaxHp = combatant.stats.hp;
+  const activeModifiers = [
+    ...combatant.permanentModifiers,
+    ...combatant.timedModifiers.map((entry) => entry.modifier),
+  ];
   combatant.stats = applyModifiers(
     combatant.resolvedStats,
-    [
-      ...combatant.permanentModifiers,
-      ...combatant.timedModifiers.map((entry) => entry.modifier),
-    ],
+    activeModifiers,
     combatant.starLevel,
+  );
+  combatant.damageReductions = resolveDamageReductions(
+    activeModifiers,
+    combatant.starLevel,
+    combatant.resolvedStats,
+  );
+  combatant.manaGains = resolveManaGains(
+    activeModifiers,
+    combatant.starLevel,
+    combatant.resolvedStats,
   );
   reconcileCurrentHp(combatant, previousMaxHp);
 }

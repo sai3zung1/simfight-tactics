@@ -35,6 +35,32 @@ export function shouldScheduleManaRegen(combatant: Combatant): boolean {
 }
 
 /**
+ * Ensure `combatant` has a steady-generation tick pending — schedule the next
+ * one an interval from `now` if ticking can pay out and none is already queued.
+ * Both entry points route through here: the mid-run start, when a per-second
+ * mana buff arrives and the chain wasn't running (apply-effects.ts), and the
+ * steady re-arm after each tick (`processManaRegen`). The `queue.has` guard
+ * keeps the chain single — a combatant already ticking keeps its one pending
+ * event, never a second parallel chain (#71, D1).
+ */
+export function ensureManaRegenScheduled(
+  combatant: Combatant,
+  now: Ticks,
+  queue: EventQueue,
+): void {
+  if (
+    shouldScheduleManaRegen(combatant) &&
+    !queue.has((e) => e.kind === "mana-regen" && e.combatant === combatant.id)
+  ) {
+    queue.push({
+      kind: "mana-regen",
+      time: addTicks(now, secondsToTicks(MANA_REGEN_INTERVAL_SECONDS)),
+      combatant: combatant.id,
+    });
+  }
+}
+
+/**
  * Emit the cast as its own event, on the same tick as the gain that
  * filled the gauge — the queue's arrival order resolves it right after,
  * so a cast stays a first-class, ordered occurrence (ADR 0002).
@@ -56,9 +82,12 @@ export function pushCastIfReady(
 }
 
 /**
- * Steady generation: pay out one interval's worth, maybe emit a cast,
- * reschedule the next tick — the same recurring pattern as the
- * auto-attack.
+ * Steady generation: pay out one interval's worth, maybe emit a cast, re-arm
+ * the next tick — the same recurring pattern as the auto-attack. The re-arm is
+ * gated (`ensureManaRegenScheduled`): the chain stops the moment ticking can no
+ * longer pay out — a per-second buff that just lapsed drops the gain to zero —
+ * rather than ticking forever for nothing, and a later buff restarts it (#71,
+ * D1).
  */
 export function processManaRegen(
   event: ManaRegenEvent,
@@ -68,11 +97,7 @@ export function processManaRegen(
   const combatant = combatantById(state, event.combatant);
   gainMana(combatant, regenManaGain(combatant));
   pushCastIfReady(combatant, event.time, queue);
-  queue.push({
-    kind: "mana-regen",
-    time: addTicks(event.time, secondsToTicks(MANA_REGEN_INTERVAL_SECONDS)),
-    combatant: event.combatant,
-  });
+  ensureManaRegenScheduled(combatant, event.time, queue);
 }
 
 /** Project a combatant onto the read-only `CombatantView` a spell is allowed to read. */

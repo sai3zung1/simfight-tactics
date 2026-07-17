@@ -432,38 +432,69 @@ test("a timed shield delivers a pool and schedules its expiry (D7)", () => {
   });
 });
 
-test("kinds without a delivery yet are deliberate no-ops", () => {
+test("a damage-reduction effect folds into the recipient's reduction lane (D1)", () => {
+  const caster = makeCombatant("attacker");
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  const reduction: SpellEffect = {
+    recipient: "self",
+    modifier: {
+      kind: "damage-reduction",
+      amount: { base: 0.25 },
+      temporality: { kind: "instant" },
+    },
+  };
+
+  applyEffects([reduction], caster, opponent, state, createEventQueue(), NOW);
+
+  expect(caster.damageReductions).toEqual([0.25]);
+});
+
+test("a mana-generation effect folds into the recipient's trigger bucket (D1)", () => {
+  const caster = makeCombatant("attacker");
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  const gain: SpellEffect = {
+    recipient: "self",
+    modifier: {
+      kind: "mana-generation",
+      trigger: "on-attack",
+      amount: { base: 5 },
+      temporality: { kind: "instant" },
+    },
+  };
+
+  applyEffects([gain], caster, opponent, state, createEventQueue(), NOW);
+
+  expect(caster.manaGains["on-attack"]).toBe(5);
+});
+
+test("a per-second mana buff starts the recipient's regen chain mid-run (D1)", () => {
+  // A combatant with no baseline per-second gain isn't ticking. The buff must
+  // both fold into the bucket and schedule the first regen tick.
   const caster = makeCombatant("attacker");
   const opponent = makeCombatant("target");
   const state = makeState(caster, opponent);
   const queue = createEventQueue();
 
-  const inert: readonly SpellEffect[] = [
-    {
-      recipient: "self",
-      modifier: {
-        kind: "damage-reduction",
-        amount: { base: 0.2 },
-        temporality: { kind: "instant" },
-      },
+  const perSecond: SpellEffect = {
+    recipient: "self",
+    modifier: {
+      kind: "mana-generation",
+      trigger: "per-second",
+      amount: { base: 4 },
+      temporality: { kind: "duration", seconds: 8 },
     },
-    {
-      recipient: "self",
-      modifier: {
-        kind: "mana-generation",
-        trigger: "post-cast",
-        amount: { base: 10 },
-        temporality: { kind: "instant" },
-      },
-    },
-  ];
+  };
 
-  const signal = applyEffects(inert, caster, opponent, state, queue, NOW);
+  applyEffects([perSecond], caster, opponent, state, queue, NOW);
 
-  expect(signal).toBeUndefined();
-  expect(caster.currentHp).toBe(1000);
-  expect(opponent.currentHp).toBe(1000);
-  expect(queue.popNext()).toBeUndefined();
+  expect(caster.manaGains["per-second"]).toBe(4);
+  // Two events pending: the buff's own expiry and the freshly-started regen tick.
+  const kinds = [queue.popNext()?.kind, queue.popNext()?.kind].sort();
+  expect(kinds).toEqual(["mana-regen", "modifier-expiry"]);
 });
 
 test("a duration stat-mod is delivered to its recipient: folded now, expiry scheduled", () => {

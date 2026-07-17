@@ -161,8 +161,10 @@ function applyStatMod(
  * Each `damage-reduction` modifier resolved to its plain amount, one entry
  * per source. Deliberately kept apart from the durability stat: the two
  * reduce damage under different stacking rules (`reductionFactor` in damage
- * resolution). `Temporality` is not read yet: every reduction behaves as
- * combat-long (durations arrive with the timed machinery, #70).
+ * resolution). `Temporality` is not read here: a timed reduction's lifetime is
+ * the timed-modifier machinery's job — the entry expires and the caller refolds
+ * (#70/#71) — so this pass only resolves the amount, identically for a permanent
+ * item modifier and a spell's timed reduction.
  */
 export function resolveDamageReductions(
   modifiers: readonly Modifier[],
@@ -188,9 +190,10 @@ export type ManaGains = Readonly<Record<ManaTrigger, number>>;
 
 /**
  * Each `mana-generation` modifier resolved to its plain amount and
- * bucketed by trigger — the same combat-start, one-pass resolution as
- * `resolveDamageReductions`. `Temporality` is not read yet: every gain
- * behaves as combat-long (durations arrive with the timed machinery, #70).
+ * bucketed by trigger — the same one-pass resolution as
+ * `resolveDamageReductions`. `Temporality` is not read here: a timed gain's
+ * lifetime is the timed-modifier machinery's job (the entry expires and the
+ * caller refolds, #70/#71), so this pass only resolves and buckets the amount.
  */
 export function resolveManaGains(
   modifiers: readonly Modifier[],

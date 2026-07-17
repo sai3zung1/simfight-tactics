@@ -3,7 +3,10 @@ import type { CombatState } from "../loop/combat-state";
 import type { EventQueue } from "../loop/event-queue";
 import type { StopSignal } from "../loop/stop-signal";
 import { NEVER_EXPIRES, secondsToTicks, type Ticks } from "../loop/time";
-import { pushCastIfReady } from "../mechanics/casting";
+import {
+  ensureManaRegenScheduled,
+  pushCastIfReady,
+} from "../mechanics/casting";
 import { applyCrowdControl } from "../mechanics/crowd-control";
 import { applyShield } from "../mechanics/shield";
 import { applyTimedModifier } from "../mechanics/timed-modifiers";
@@ -212,11 +215,42 @@ export function applyEffects(
         );
         break;
       }
-      case "damage-reduction":
-      case "mana-generation":
-        // Not deliverable yet: the spell-emitted damage-reduction and
-        // mana-generation kits are #71's remaining work. Deliberate no-op.
+      case "damage-reduction": {
+        // A damage-reduction rides the timed machinery into its own lane,
+        // recomputed by refoldStats like the stat fold (D1). Instant is
+        // permanent-for-combat; periodic has no meaning (`durationTicksOf`
+        // rejects it). Snapshotted against the caster (D4).
+        applyTimedModifier(
+          target,
+          {
+            ...modifier,
+            amount: { base: snapshotAmount(modifier.amount, caster.stats) },
+          },
+          time,
+          durationTicksOf(modifier.temporality),
+          queue,
+        );
         break;
+      }
+      case "mana-generation": {
+        // A mana-generation bonus rides the timed machinery into its trigger
+        // bucket, recomputed by refoldStats like the stat fold (D1). Snapshotted
+        // against the caster (D4). A per-second gain appearing mid-run also has
+        // to start the recipient's regen chain if it wasn't ticking — the fold
+        // alone pays nothing without the recurring event (D1).
+        applyTimedModifier(
+          target,
+          {
+            ...modifier,
+            amount: { base: snapshotAmount(modifier.amount, caster.stats) },
+          },
+          time,
+          durationTicksOf(modifier.temporality),
+          queue,
+        );
+        ensureManaRegenScheduled(target, time, queue);
+        break;
+      }
       default: {
         const _exhaustive: never = modifier;
         return _exhaustive;

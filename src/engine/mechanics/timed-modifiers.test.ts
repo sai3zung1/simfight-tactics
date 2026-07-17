@@ -33,6 +33,20 @@ const bonusHp = (amount: number, seconds: number): Modifier => ({
   temporality: { kind: "duration", seconds },
 });
 
+// A timed damage-reduction and per-second mana gain — the D1 demonstrators:
+// refoldStats re-derives every view, not just the stat fold.
+const bonusReduction = (amount: number, seconds: number): Modifier => ({
+  kind: "damage-reduction",
+  amount: { base: amount },
+  temporality: { kind: "duration", seconds },
+});
+const bonusPerSecondMana = (amount: number, seconds: number): Modifier => ({
+  kind: "mana-generation",
+  trigger: "per-second",
+  amount: { base: amount },
+  temporality: { kind: "duration", seconds },
+});
+
 // A real combatant so the fold runs against actual resolved stats; the fighter
 // profile's star-1 attack damage is the pre-buff baseline every case reverts to.
 // No permanent modifiers and cannot die: the fold starts from the resolved base.
@@ -146,6 +160,42 @@ test("an hp buff expiring leaves an already-low current HP untouched", () => {
   c.currentHp = 100; // well under even the un-buffed max
   processModifierExpiry(expiryAt(4, c), stateWith(c));
   expect(c.currentHp).toBe(100); // no clamp applies
+});
+
+test("a timed damage-reduction folds into its lane and reverts on expiry (D1)", () => {
+  const c = makeCombatant();
+  const queue = createEventQueue();
+  expect(c.damageReductions).toEqual([]);
+
+  applyTimedModifier(
+    c,
+    bonusReduction(0.2, 4),
+    TICK_ZERO,
+    secondsToTicks(4),
+    queue,
+  );
+  expect(c.damageReductions).toEqual([0.2]);
+
+  processModifierExpiry(expiryAt(4, c), stateWith(c));
+  expect(c.damageReductions).toEqual([]);
+});
+
+test("a timed mana-generation folds into its trigger bucket and reverts on expiry (D1)", () => {
+  const c = makeCombatant();
+  const queue = createEventQueue();
+  expect(c.manaGains["per-second"]).toBe(0);
+
+  applyTimedModifier(
+    c,
+    bonusPerSecondMana(3, 4),
+    TICK_ZERO,
+    secondsToTicks(4),
+    queue,
+  );
+  expect(c.manaGains["per-second"]).toBe(3);
+
+  processModifierExpiry(expiryAt(4, c), stateWith(c));
+  expect(c.manaGains["per-second"]).toBe(0);
 });
 
 test("two modifiers sharing an expiry tick both go, and the duplicate event is inert", () => {
