@@ -5,6 +5,7 @@ import pluginReact from "eslint-plugin-react";
 import json from "@eslint/json";
 import markdown from "@eslint/markdown";
 import css from "@eslint/css";
+import { tailwind4 } from "tailwind-csstree";
 import { defineConfig } from "eslint/config";
 import eslintConfigPrettier from "eslint-config-prettier";
 
@@ -64,6 +65,10 @@ export default defineConfig([
     files: ["**/*.css"],
     plugins: { css },
     language: "css/css",
+    languageOptions: {
+      customSyntax: tailwind4, // Tailwind v4 at-rules (@theme, @utility, …)
+      tolerant: true, // v4 grammar the parser lacks: `--ns-*: initial`, nested @keyframes
+    },
     extends: ["css/recommended"],
   },
 
