@@ -511,22 +511,49 @@ test("an instant stat-mod folds as a permanent-for-combat buff, scheduling no ex
   expect(queue.popNext()).toBeUndefined();
 });
 
-test("a timed hp stat-mod is guarded out until currentHp reconciliation lands (#71)", () => {
-  const caster = makeCombatant("attacker");
+const hpBuff = (base: number, seconds: number): SpellEffect => ({
+  recipient: "self",
+  modifier: {
+    kind: "stat-mod",
+    target: "hp",
+    amount: { base },
+    temporality: { kind: "duration", seconds },
+  },
+});
+
+test("a timed hp stat-mod raises max HP and carries current HP up by the same delta (D3)", () => {
+  const caster = makeCombatant("attacker"); // max 1000, current 1000
   const opponent = makeCombatant("target");
   const state = makeState(caster, opponent);
 
-  const hpBuff: SpellEffect = {
-    recipient: "self",
-    modifier: {
-      kind: "stat-mod",
-      target: "hp",
-      amount: { base: 200 },
-      temporality: { kind: "duration", seconds: 4 },
-    },
-  };
+  applyEffects(
+    [hpBuff(200, 4)],
+    caster,
+    opponent,
+    state,
+    createEventQueue(),
+    NOW,
+  );
 
-  expect(() =>
-    applyEffects([hpBuff], caster, opponent, state, createEventQueue(), NOW),
-  ).toThrow();
+  expect(caster.stats.hp).toBe(1200);
+  expect(caster.currentHp).toBe(1200);
+});
+
+test("an hp buff on a damaged combatant adds the full delta to current HP, not a ratio", () => {
+  const caster = makeCombatant("attacker", {}, { currentHp: 600 }); // max 1000
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  applyEffects(
+    [hpBuff(200, 4)],
+    caster,
+    opponent,
+    state,
+    createEventQueue(),
+    NOW,
+  );
+
+  expect(caster.stats.hp).toBe(1200);
+  // Engine lineage (D3/A): the delta is granted whole — 600 + 200, not 720.
+  expect(caster.currentHp).toBe(800);
 });

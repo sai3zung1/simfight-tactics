@@ -205,11 +205,13 @@ export function resolveCombatant(
  * plus the currently-active `timedModifiers`. Called whenever that timed set
  * changes (apply or expiry, #70). Reassigns `stats` wholesale: consumers read
  * it live per event, so the next event sees the new value with no further
- * plumbing. Only the fold (`stat-mod`) is recomputed here; damage-reduction and
- * mana-generation keep their combat-start resolution — their timed recompute
- * arrives with #71.
+ * plumbing. When the fold moves max HP (a timed `hp` stat-mod), current HP is
+ * reconciled with it (`reconcileCurrentHp`, D3). Only the fold (`stat-mod`) is
+ * recomputed here; damage-reduction and mana-generation keep their combat-start
+ * resolution — their timed recompute arrives with #71.
  */
 export function refoldStats(combatant: Combatant): void {
+  const previousMaxHp = combatant.stats.hp;
   combatant.stats = applyModifiers(
     combatant.resolvedStats,
     [
@@ -218,6 +220,28 @@ export function refoldStats(combatant: Combatant): void {
     ],
     combatant.starLevel,
   );
+  reconcileCurrentHp(combatant, previousMaxHp);
+}
+
+/**
+ * Keep current HP consistent when a refold moves max HP — a timed `hp` stat-mod
+ * applying or expiring (D3). A rise carries current HP up by the same delta:
+ * gaining max HP grants that HP outright, the shared League/TFT engine rule
+ * (level-ups, items). A fall clamps current HP under the new max, never below 1:
+ * an expiry is not damage, and only damage kills (`applyDamage` stays the sole
+ * point of death). A refold that leaves max HP unchanged — every non-`hp`
+ * stat-mod, and every plain fold — touches nothing, since the delta is zero.
+ */
+function reconcileCurrentHp(combatant: Combatant, previousMaxHp: number): void {
+  const delta = combatant.stats.hp - previousMaxHp;
+  if (delta > 0) {
+    combatant.currentHp += delta;
+  } else if (delta < 0) {
+    combatant.currentHp = Math.max(
+      1,
+      Math.min(combatant.currentHp, combatant.stats.hp),
+    );
+  }
 }
 
 /**

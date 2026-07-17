@@ -162,19 +162,13 @@ export function applyEffects(
       }
       case "stat-mod": {
         // A stat-mod folds into the recipient's stats via #70's timed machinery.
-        // An instant one is a permanent-for-combat buff: it rides the same entry
-        // with a `NEVER_EXPIRES` window, so nothing schedules its expiry and the
-        // fold carries it for the whole run (D2). Periodic has no stat-mod
-        // meaning (`durationTicksOf` rejects it). A timed mod on `hp` would move
-        // max HP without reconciling currentHp — that pool relationship is #71's,
-        // guarded out rather than left to desync silently. The amount is
-        // snapshotted against the caster now (D4) and banked flat, so the fold
-        // reads the caster's basis, not the recipient's.
-        if (modifier.target === "hp") {
-          throw new Error(
-            "a timed hp stat-mod needs currentHp/max reconciliation (#71)",
-          );
-        }
+        // An instant one is a permanent-for-combat buff riding a `NEVER_EXPIRES`
+        // window, so nothing schedules its expiry and the fold carries it for the
+        // whole run (D2). Periodic has no stat-mod meaning (`durationTicksOf`
+        // rejects it). A mod on `hp` moves max HP, and refoldStats reconciles
+        // current HP with it — a rise grants the HP, an expiry clamps under the
+        // new max (D3). The amount is snapshotted against the caster now (D4) and
+        // banked flat, so the fold reads the caster's basis, not the recipient's.
         applyTimedModifier(
           target,
           {

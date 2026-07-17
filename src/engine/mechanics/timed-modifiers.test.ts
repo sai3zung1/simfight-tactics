@@ -25,6 +25,14 @@ const permanentAd = (amount: number): Modifier => ({
   temporality: { kind: "instant" },
 });
 
+// A flat, timed max-HP buff — the reconciliation demonstrator (#71, D3).
+const bonusHp = (amount: number, seconds: number): Modifier => ({
+  kind: "stat-mod",
+  target: "hp",
+  amount: { base: amount },
+  temporality: { kind: "duration", seconds },
+});
+
 // A real combatant so the fold runs against actual resolved stats; the fighter
 // profile's star-1 attack damage is the pre-buff baseline every case reverts to.
 // No permanent modifiers and cannot die: the fold starts from the resolved base.
@@ -112,6 +120,32 @@ test("a permanent-for-combat modifier folds in, schedules no expiry, and no prun
   processModifierExpiry(expiryAt(9999, c), stateWith(c));
   expect(c.timedModifiers).toHaveLength(1);
   expect(c.stats.attackDamage).toBe(base + 40);
+});
+
+test("an hp buff expiring clamps current HP under the new max, and never kills (D3)", () => {
+  const c = makeCombatant(); // fighter star-1: max 550, current 550
+  const queue = createEventQueue();
+  const base = c.stats.hp;
+
+  applyTimedModifier(c, bonusHp(200, 4), TICK_ZERO, secondsToTicks(4), queue);
+  expect(c.stats.hp).toBe(base + 200);
+  expect(c.currentHp).toBe(base + 200); // carried up with the max
+
+  // Spend part of the buffed pool — still above the un-buffed max — then expire.
+  c.currentHp = base + 100;
+  processModifierExpiry(expiryAt(4, c), stateWith(c));
+  expect(c.stats.hp).toBe(base);
+  expect(c.currentHp).toBe(base); // clamped down to the new max, alive
+});
+
+test("an hp buff expiring leaves an already-low current HP untouched", () => {
+  const c = makeCombatant();
+  const queue = createEventQueue();
+  applyTimedModifier(c, bonusHp(200, 4), TICK_ZERO, secondsToTicks(4), queue);
+
+  c.currentHp = 100; // well under even the un-buffed max
+  processModifierExpiry(expiryAt(4, c), stateWith(c));
+  expect(c.currentHp).toBe(100); // no clamp applies
 });
 
 test("two modifiers sharing an expiry tick both go, and the duplicate event is inert", () => {
