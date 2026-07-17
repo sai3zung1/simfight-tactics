@@ -10,7 +10,11 @@ import { neverCrit } from "../mechanics/crit-policy";
 import { damageTakenManaGain, gainMana } from "../mechanics/mana";
 import { resolveDamage } from "../mechanics/resolve-damage";
 import { applyDamage, type Combatant } from "../stats/combatant";
-import { resolveSpellMagnitude } from "../stats/effective-stats";
+import {
+  resolveSpellMagnitude,
+  type EffectiveStats,
+} from "../stats/effective-stats";
+import type { Magnitude } from "../../domain/catalog/modifier";
 import type { SpellEffect } from "./contract";
 
 /**
@@ -27,6 +31,26 @@ function starCollapsed(value: StarValue): number {
     );
   }
   return value;
+}
+
+/**
+ * Snapshot a spell modifier's magnitude against the caster's effective stats,
+ * once, at cast time (D4). The returned number is banked into the timed entry
+ * as a flat amount, so the later fold reads the caster's value — never the
+ * recipient's: a debuff scaled on the caster's stats keeps the caster's basis
+ * even folded into the victim, and an ability-power buff banks the item-moved
+ * AP the caster held when it cast. Mirrors how spell damage already resolves
+ * (same `resolveSpellMagnitude`), so every spell-emitted amount shares one rule.
+ */
+function snapshotAmount(
+  amount: Magnitude,
+  casterStats: EffectiveStats,
+): number {
+  return resolveSpellMagnitude(
+    starCollapsed(amount.base),
+    amount.sources,
+    casterStats,
+  );
 }
 
 /**
@@ -117,9 +141,9 @@ export function applyEffects(
         // permanent-for-combat buff (#71); periodic has no meaning for a
         // stat-mod. A timed mod on `hp` would move max HP without reconciling
         // currentHp — that pool relationship is #71's, so it is guarded out
-        // rather than left to desync silently. The amount stays raw in the
-        // entry and is resolved by the fold (refoldStats), not here — so a
-        // self-buff resolves at the caster's own star, the setup star.
+        // rather than left to desync silently. The amount is snapshotted
+        // against the caster now (`snapshotAmount`, D4) and banked flat, so the
+        // fold reads the caster's basis, not the recipient's.
         if (modifier.temporality.kind !== "duration") {
           throw new Error(
             "a spell stat-mod is timed (duration); instant buffs land with #71",
@@ -132,7 +156,10 @@ export function applyEffects(
         }
         applyTimedModifier(
           target,
-          modifier,
+          {
+            ...modifier,
+            amount: { base: snapshotAmount(modifier.amount, caster.stats) },
+          },
           time,
           secondsToTicks(starCollapsed(modifier.temporality.seconds)),
           queue,

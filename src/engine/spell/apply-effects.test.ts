@@ -435,6 +435,57 @@ test("a duration stat-mod is delivered to its recipient: folded now, expiry sche
   });
 });
 
+test("a scaled buff banks the caster's effective stat at cast, not the recipient's", () => {
+  // Caster holds 3 ability power; the buff scales on it. Snapshotted at cast,
+  // the fold reads that banked value rather than re-deriving it from whoever
+  // ends up holding the entry.
+  const caster = makeCombatant("attacker", {
+    abilityPower: 3,
+    attackDamage: 100,
+  });
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  const scaledBuff: SpellEffect = {
+    recipient: "self",
+    modifier: {
+      kind: "stat-mod",
+      target: "attackDamage",
+      amount: { base: 10, sources: ["abilityPower"] },
+      temporality: { kind: "duration", seconds: 4 },
+    },
+  };
+
+  applyEffects([scaledBuff], caster, opponent, state, createEventQueue(), NOW);
+
+  // 10 × caster ability power 3 = 30 folded onto the base 100.
+  expect(caster.stats.attackDamage).toBe(130);
+});
+
+test("a debuff scaled on the caster never borrows the victim's stats", () => {
+  // The shred lands on the opponent but scales on the CASTER's ability power.
+  // Resolving it against the victim (1 AP) instead of the caster (3 AP) is the
+  // exact bug the cast-time snapshot rules out (D4).
+  const caster = makeCombatant("attacker", { abilityPower: 3 });
+  const opponent = makeCombatant("target", { abilityPower: 1, armor: 100 });
+  const state = makeState(caster, opponent);
+
+  const shred: SpellEffect = {
+    recipient: "opponent",
+    modifier: {
+      kind: "stat-mod",
+      target: "armor",
+      amount: { base: -10, sources: ["abilityPower"] },
+      temporality: { kind: "duration", seconds: 4 },
+    },
+  };
+
+  applyEffects([shred], caster, opponent, state, createEventQueue(), NOW);
+
+  // -10 × caster AP 3 = -30 → armor 100 - 30 = 70 (not 90, the victim-basis bug).
+  expect(opponent.stats.armor).toBe(70);
+});
+
 test("an instant stat-mod from a spell is a loud spell-author bug (permanent buffs are #71)", () => {
   const caster = makeCombatant("attacker");
   const opponent = makeCombatant("target");
