@@ -367,14 +367,6 @@ test("kinds without a delivery yet are deliberate no-ops", () => {
     {
       recipient: "self",
       modifier: {
-        kind: "heal",
-        amount: { base: 100 },
-        temporality: { kind: "instant" },
-      },
-    },
-    {
-      recipient: "self",
-      modifier: {
         kind: "shield",
         amount: { base: 100 },
         temporality: { kind: "duration", seconds: 4 },
@@ -556,4 +548,96 @@ test("an hp buff on a damaged combatant adds the full delta to current HP, not a
   expect(caster.stats.hp).toBe(1200);
   // Engine lineage (D3/A): the delta is granted whole — 600 + 200, not 720.
   expect(caster.currentHp).toBe(800);
+});
+
+const instantHeal = (
+  base: number,
+  sources?: ["abilityPower"],
+): SpellEffect => ({
+  recipient: "self",
+  modifier: {
+    kind: "heal",
+    amount: sources === undefined ? { base } : { base, sources },
+    temporality: { kind: "instant" },
+  },
+});
+
+test("a heal restores HP up to the effective max, and the surplus is lost", () => {
+  const caster = makeCombatant("attacker", {}, { currentHp: 700 });
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  applyEffects(
+    [instantHeal(500)],
+    caster,
+    opponent,
+    state,
+    createEventQueue(),
+    NOW,
+  );
+
+  // 700 + 500 = 1200, capped at the 1000 max — the 200 surplus is lost.
+  expect(caster.currentHp).toBe(1000);
+});
+
+test("a heal scales on the caster's effective stats at cast (D4)", () => {
+  const caster = makeCombatant(
+    "attacker",
+    { abilityPower: 2 },
+    { currentHp: 100 },
+  );
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  applyEffects(
+    [instantHeal(100, ["abilityPower"])],
+    caster,
+    opponent,
+    state,
+    createEventQueue(),
+    NOW,
+  );
+
+  // 100 × caster ability power 2 = 200 healed → 100 + 200 = 300.
+  expect(caster.currentHp).toBe(300);
+});
+
+test("heal-over-time is a loud spell-author bug until #72", () => {
+  const caster = makeCombatant("attacker");
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  const hot: SpellEffect = {
+    recipient: "self",
+    modifier: {
+      kind: "heal",
+      amount: { base: 100 },
+      temporality: { kind: "duration", seconds: 3 },
+    },
+  };
+
+  expect(() =>
+    applyEffects([hot], caster, opponent, state, createEventQueue(), NOW),
+  ).toThrow();
+});
+
+test("a composed hp buff then heal fills up to the raised max, not the base max (D3 + D5)", () => {
+  const caster = makeCombatant("attacker", {}, { currentHp: 500 }); // max 1000
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  // One cast, two effects in reading order: raise max HP by 300 (current rides
+  // to 800), then heal 500 — capped at the new 1300 max, not the 1000 base.
+  applyEffects(
+    [hpBuff(300, 4), instantHeal(500)],
+    caster,
+    opponent,
+    state,
+    createEventQueue(),
+    NOW,
+  );
+
+  expect(caster.stats.hp).toBe(1300);
+  // 800 + 500 = 1300, the raised ceiling; without the buff it would stop at 1000.
+  expect(caster.currentHp).toBe(1300);
 });

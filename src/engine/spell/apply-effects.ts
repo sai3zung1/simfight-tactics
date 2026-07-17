@@ -9,7 +9,7 @@ import { applyTimedModifier } from "../mechanics/timed-modifiers";
 import { neverCrit } from "../mechanics/crit-policy";
 import { damageTakenManaGain, gainMana } from "../mechanics/mana";
 import { resolveDamage } from "../mechanics/resolve-damage";
-import { applyDamage, type Combatant } from "../stats/combatant";
+import { applyDamage, applyHeal, type Combatant } from "../stats/combatant";
 import {
   resolveSpellMagnitude,
   type EffectiveStats,
@@ -181,13 +181,25 @@ export function applyEffects(
         );
         break;
       }
-      case "heal":
+      case "heal": {
+        // A heal lands on HP now, capped at the recipient's effective max
+        // (`applyHeal`). Instant only: heal-over-time is #72's, so a duration or
+        // periodic reaching here is a spell-author bug, never a silent skip. The
+        // amount is snapshotted against the caster (D4), the same rule as damage
+        // and stat-mods.
+        if (modifier.temporality.kind !== "instant") {
+          throw new Error(
+            "spell healing is instant until heal-over-time lands (#72)",
+          );
+        }
+        applyHeal(target, snapshotAmount(modifier.amount, caster.stats));
+        break;
+      }
       case "shield":
       case "damage-reduction":
       case "mana-generation":
-        // Not deliverable yet: spell-emitted heals, shields and the
-        // damage-reduction / mana-generation kits are #71's work. Deliberate
-        // no-op, never a bug.
+        // Not deliverable yet: spell-emitted shields and the damage-reduction /
+        // mana-generation kits are #71's remaining work. Deliberate no-op.
         break;
       default: {
         const _exhaustive: never = modifier;

@@ -267,3 +267,17 @@ export function applyDamage(combatant: Combatant, amount: number): boolean {
     : Math.max(IMMORTAL_HP_FLOOR, next);
   return combatant.currentHp <= 0;
 }
+
+/**
+ * Restore HP by `amount`, capped at the effective max — the surplus is lost, no
+ * overheal (#71, D5). Never revives: a heal only fires mid-run from a cast, and
+ * a run ends the instant the target dies, so a downed combatant is never here to
+ * be healed. The cap reads the effective max, so an active `hp` buff has already
+ * raised the ceiling this heal fills toward.
+ */
+export function applyHeal(combatant: Combatant, amount: number): void {
+  combatant.currentHp = Math.min(
+    combatant.stats.hp,
+    combatant.currentHp + amount,
+  );
+}
