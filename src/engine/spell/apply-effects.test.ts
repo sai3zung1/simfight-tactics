@@ -486,12 +486,14 @@ test("a debuff scaled on the caster never borrows the victim's stats", () => {
   expect(opponent.stats.armor).toBe(70);
 });
 
-test("an instant stat-mod from a spell is a loud spell-author bug (permanent buffs are #71)", () => {
+test("an instant stat-mod folds as a permanent-for-combat buff, scheduling no expiry", () => {
   const caster = makeCombatant("attacker");
   const opponent = makeCombatant("target");
   const state = makeState(caster, opponent);
+  const queue = createEventQueue();
+  const base = caster.stats.attackDamage;
 
-  const instantBuff: SpellEffect = {
+  const permanentBuff: SpellEffect = {
     recipient: "self",
     modifier: {
       kind: "stat-mod",
@@ -501,16 +503,12 @@ test("an instant stat-mod from a spell is a loud spell-author bug (permanent buf
     },
   };
 
-  expect(() =>
-    applyEffects(
-      [instantBuff],
-      caster,
-      opponent,
-      state,
-      createEventQueue(),
-      NOW,
-    ),
-  ).toThrow();
+  applyEffects([permanentBuff], caster, opponent, state, queue, NOW);
+
+  expect(caster.stats.attackDamage).toBe(base + 40);
+  expect(caster.timedModifiers).toHaveLength(1);
+  // Permanent for combat: nothing infinite is scheduled onto the queue.
+  expect(queue.popNext()).toBeUndefined();
 });
 
 test("a timed hp stat-mod is guarded out until currentHp reconciliation lands (#71)", () => {

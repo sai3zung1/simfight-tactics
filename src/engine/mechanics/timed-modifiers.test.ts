@@ -6,7 +6,7 @@ import type { CombatState } from "../loop/combat-state";
 import type { CombatantId } from "../stats/combatant-id";
 import type { Modifier } from "../../domain/catalog/modifier";
 import type { ModifierExpiryEvent } from "../loop/combat-event";
-import { secondsToTicks, TICK_ZERO } from "../loop/time";
+import { NEVER_EXPIRES, secondsToTicks, TICK_ZERO } from "../loop/time";
 import { PROVISIONAL_FIGHTER_STATS } from "../provisional/provisional-stats";
 
 // A flat, timed attack-damage buff — the demonstrator's shape (#70).
@@ -15,6 +15,14 @@ const bonusAd = (amount: number, seconds: number): Modifier => ({
   target: "attackDamage",
   amount: { base: amount },
   temporality: { kind: "duration", seconds },
+});
+
+// A flat, permanent-for-combat attack-damage buff (#71, D2).
+const permanentAd = (amount: number): Modifier => ({
+  kind: "stat-mod",
+  target: "attackDamage",
+  amount: { base: amount },
+  temporality: { kind: "instant" },
 });
 
 // A real combatant so the fold runs against actual resolved stats; the fighter
@@ -87,6 +95,23 @@ test("timed modifiers stack additively and expire independently", () => {
   processModifierExpiry(expiryAt(8, c), state);
   expect(c.timedModifiers).toHaveLength(0);
   expect(c.stats.attackDamage).toBe(base);
+});
+
+test("a permanent-for-combat modifier folds in, schedules no expiry, and no prune removes it", () => {
+  const c = makeCombatant();
+  const queue = createEventQueue();
+  const base = c.stats.attackDamage;
+
+  applyTimedModifier(c, permanentAd(40), TICK_ZERO, NEVER_EXPIRES, queue);
+
+  expect(c.stats.attackDamage).toBe(base + 40);
+  // A NEVER_EXPIRES entry queues nothing — nothing infinite enters the loop.
+  expect(queue.popNext()).toBeUndefined();
+
+  // Even a prune at a far-future tick leaves the entry standing.
+  processModifierExpiry(expiryAt(9999, c), stateWith(c));
+  expect(c.timedModifiers).toHaveLength(1);
+  expect(c.stats.attackDamage).toBe(base + 40);
 });
 
 test("two modifiers sharing an expiry tick both go, and the duplicate event is inert", () => {

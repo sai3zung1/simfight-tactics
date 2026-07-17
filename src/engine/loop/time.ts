@@ -35,6 +35,15 @@ export const TICK_ZERO = 0 as Ticks;
 export const ONE_TICK = 1 as Ticks;
 
 /**
+ * Expiry sentinel for a timed entry that never ends — a permanent-for-combat
+ * effect (#71, D2). Not a schedulable tick: `applyTimedModifier` /
+ * `applyShield` push no expiry event for it, so nothing infinite ever enters
+ * the queue and integer ordering stays intact; and the `expiresAt <= now`
+ * prune never matches it, so the entry lives the whole run.
+ */
+export const NEVER_EXPIRES = Infinity as Ticks;
+
+/**
  * Tick arithmetic that keeps the brand, so scheduling code never casts:
  * `as Ticks` stays confined to this file, the brand's only door.
  */

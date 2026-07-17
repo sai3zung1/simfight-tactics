@@ -2,7 +2,7 @@ import type { StarValue } from "../../domain/primitives";
 import type { CombatState } from "../loop/combat-state";
 import type { EventQueue } from "../loop/event-queue";
 import type { StopSignal } from "../loop/stop-signal";
-import { secondsToTicks, type Ticks } from "../loop/time";
+import { NEVER_EXPIRES, secondsToTicks, type Ticks } from "../loop/time";
 import { pushCastIfReady } from "../mechanics/casting";
 import { applyCrowdControl } from "../mechanics/crowd-control";
 import { applyTimedModifier } from "../mechanics/timed-modifiers";
@@ -14,7 +14,7 @@ import {
   resolveSpellMagnitude,
   type EffectiveStats,
 } from "../stats/effective-stats";
-import type { Magnitude } from "../../domain/catalog/modifier";
+import type { Magnitude, Temporality } from "../../domain/catalog/modifier";
 import type { SpellEffect } from "./contract";
 
 /**
@@ -51,6 +51,31 @@ function snapshotAmount(
     amount.sources,
     casterStats,
   );
+}
+
+/**
+ * How long a spell-emitted timed effect lives, in ticks. An instant temporality
+ * means permanent-for-combat — the `NEVER_EXPIRES` sentinel, no scheduled expiry
+ * (D2); a duration collapses its star-safe seconds to ticks. Periodic is
+ * over-time territory (#72) and never reaches here — each kind's delivery
+ * rejects it first — so it is a loud bug, not a silent skip. Shared by every
+ * timed kit (stat-mod, damage-reduction, mana-generation, shield).
+ */
+function durationTicksOf(temporality: Temporality): Ticks {
+  switch (temporality.kind) {
+    case "instant":
+      return NEVER_EXPIRES;
+    case "duration":
+      return secondsToTicks(starCollapsed(temporality.seconds));
+    case "periodic":
+      throw new Error(
+        "a periodic temporality has no single duration; over-time effects are #72's",
+      );
+    default: {
+      const _exhaustive: never = temporality;
+      return _exhaustive;
+    }
+  }
 }
 
 /**
@@ -136,19 +161,15 @@ export function applyEffects(
         break;
       }
       case "stat-mod": {
-        // A stat-mod folds into the recipient's stats, timed via the machinery
-        // #70 builds. Only a duration is deliverable here: an instant one is a
-        // permanent-for-combat buff (#71); periodic has no meaning for a
-        // stat-mod. A timed mod on `hp` would move max HP without reconciling
-        // currentHp — that pool relationship is #71's, so it is guarded out
-        // rather than left to desync silently. The amount is snapshotted
-        // against the caster now (`snapshotAmount`, D4) and banked flat, so the
-        // fold reads the caster's basis, not the recipient's.
-        if (modifier.temporality.kind !== "duration") {
-          throw new Error(
-            "a spell stat-mod is timed (duration); instant buffs land with #71",
-          );
-        }
+        // A stat-mod folds into the recipient's stats via #70's timed machinery.
+        // An instant one is a permanent-for-combat buff: it rides the same entry
+        // with a `NEVER_EXPIRES` window, so nothing schedules its expiry and the
+        // fold carries it for the whole run (D2). Periodic has no stat-mod
+        // meaning (`durationTicksOf` rejects it). A timed mod on `hp` would move
+        // max HP without reconciling currentHp — that pool relationship is #71's,
+        // guarded out rather than left to desync silently. The amount is
+        // snapshotted against the caster now (D4) and banked flat, so the fold
+        // reads the caster's basis, not the recipient's.
         if (modifier.target === "hp") {
           throw new Error(
             "a timed hp stat-mod needs currentHp/max reconciliation (#71)",
@@ -161,7 +182,7 @@ export function applyEffects(
             amount: { base: snapshotAmount(modifier.amount, caster.stats) },
           },
           time,
-          secondsToTicks(starCollapsed(modifier.temporality.seconds)),
+          durationTicksOf(modifier.temporality),
           queue,
         );
         break;

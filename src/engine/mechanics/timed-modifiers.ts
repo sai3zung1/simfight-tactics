@@ -15,6 +15,10 @@ import { addTicks, type Ticks } from "../loop/time";
  * never refreshing or replacing the first (D5). The only real producer is a
  * cast resolving (engine/spell/apply-effects.ts), a mid-loop occurrence — this
  * never runs from the combat-start fold, exactly as `applyCrowdControl`.
+ *
+ * A permanent-for-combat entry (`durationTicks` = `NEVER_EXPIRES`) schedules no
+ * expiry: its window never closes, so the fold carries it for the whole run
+ * (#71, D2). Every other duration schedules its `modifier-expiry` as before.
  */
 export function applyTimedModifier(
   combatant: Combatant,
@@ -26,11 +30,13 @@ export function applyTimedModifier(
   const expiresAt = addTicks(now, durationTicks);
   combatant.timedModifiers.push({ modifier, expiresAt });
   refoldStats(combatant);
-  queue.push({
-    kind: "modifier-expiry",
-    time: expiresAt,
-    combatant: combatant.id,
-  });
+  if (Number.isFinite(expiresAt)) {
+    queue.push({
+      kind: "modifier-expiry",
+      time: expiresAt,
+      combatant: combatant.id,
+    });
+  }
 }
 
 /**
