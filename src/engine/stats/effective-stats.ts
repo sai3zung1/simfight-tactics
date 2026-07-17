@@ -222,10 +222,10 @@ export function resolveManaGains(
  * Fold the active modifiers into the base view — one pass, pure. Only
  * `stat-mod` lands here: every other kind is resolved by its own pipeline
  * (damage-reduction in damage resolution, mana-generation in the mana
- * pipeline via `resolveManaGains`, spell-emitted damage and crowd-control
- * in cast delivery — engine/spell/apply-effects.ts; heal and shield with
- * #71), never by stat folding. The exhaustive switch makes a future kind a
- * compile break, not a silent skip.
+ * pipeline via `resolveManaGains`, and spell-emitted damage, crowd-control,
+ * heal and shield in cast delivery — engine/spell/apply-effects.ts), never by
+ * stat folding. The exhaustive switch makes a future kind a compile break, not
+ * a silent skip.
  */
 export function applyModifiers(
   base: ResolvedStats,
