@@ -1,1 +1,218 @@
 @import "tailwindcss";
+
+/*
+ * Design tokens (#77). The Figma token posters are the visual reference;
+ * every name below is the Figma variable name minus its mode suffix.
+ * Light is the main theme; dark rides [data-theme="dark"] on <html>.
+ *
+ * The `initial` resets close each namespace: only the tokens declared here
+ * exist, so an off-system utility (bg-red-500) fails to compile instead of
+ * shipping.
+ */
+
+@theme static {
+  /* Typography — families by role. */
+  --font-*: initial;
+  --font-ui: "Josefin Sans", Futura, "Century Gothic", sans-serif;
+  --font-display: var(--font-ui);
+  --font-numeric: "IBM Plex Mono", Consolas, monospace;
+  --default-font-family: var(--font-ui);
+  --default-mono-font-family: var(--font-numeric);
+
+  /*
+   * Size ramp. `s` and `m` share a size on purpose: reading text (s) takes
+   * more leading than data rows (m).
+   */
+  --text-*: initial;
+  --text-xxs: 0.625rem;
+  --text-xxs--line-height: 0.75rem;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-s: 1rem;
+  --text-s--line-height: 1.375rem;
+  --text-m: 1rem;
+  --text-m--line-height: 1.25rem;
+  --text-l: 1.25rem;
+  --text-l--line-height: 1.625rem;
+  --text-xl: 1.75rem;
+  --text-xl--line-height: 2.125rem;
+
+  /* Weights in service; body text defaults to medium (Josefin runs light). */
+  --font-weight-*: initial;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --tracking-*: initial;
+  --tracking-label: 0.1em;
+
+  /* 4px base; every step derives from it (icon sizes are size-4/5/6). */
+  --spacing: 0.25rem;
+
+  --radius-*: initial;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  --ease-*: initial;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --animate-select-pop: select-pop 180ms var(--ease-emphasized);
+  --animate-result-in: result-in 320ms var(--ease-standard) both;
+
+  @keyframes select-pop {
+    0% {
+      transform: scale(1);
+    }
+    45% {
+      transform: scale(1.06);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes result-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Themed namespaces — light values here, dark overrides below. */
+@theme static {
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Structural — the neutral frame. */
+  --color-surface: #f3efe5;
+  --color-surface-raised: #fcfaf3;
+  --color-surface-sunken: #e7e0cf;
+  --color-ink: #1e2831;
+  --color-ink-muted: #5b6b77;
+  --color-ink-disabled: #98a4ad;
+  --color-border: #d8d0bc;
+  --color-border-strong: #b4a98d;
+  --color-accent: #7e6327;
+  --color-accent-hover: #644e1d;
+  --color-focus: var(--color-accent);
+
+  /* Game palette — the game's own vocabulary; keywords wear these. */
+  --color-physical-damage: #835530;
+  --color-magic-damage: #006b63;
+  --color-true-damage: #616055;
+  --color-heal: #176d42;
+  --color-shield: #616055;
+  --color-armor: #b7280f;
+  --color-mr: #923c95;
+  --color-durability: #616055;
+  --color-omnivamp: #c30000;
+  --color-as: #7b5908;
+  --color-crit-chance: #b62818;
+  --color-crit-damage: #b62818;
+  --color-damage-amp: #616055;
+  --color-cc: #504bd6;
+  --color-bonus: #616055;
+  --color-hex: #616055;
+  --color-mana: #076785;
+
+  /* Feedback — the app speaking about the setup. */
+  --color-advisory: #994900;
+  --color-invalid: #c20027;
+  --color-success: #196e2c;
+
+  /* Rarity — shop cost and augment tier frames. */
+  --color-1-cost: #7e7e7e;
+  --color-2-cost: #0e930c;
+  --color-3-cost: #286ad2;
+  --color-4-cost: #c31ccf;
+  --color-5-cost: #8f7f15;
+  --color-silver-tier: #5f80aa;
+  --color-gold-tier: #957d11;
+  /* Prismatic is a 5-stop mix, not a single hue. */
+  --color-prismatic-tier: #b74ee2;
+  --color-prismatic-tier-2: #9d7a00;
+  --color-prismatic-tier-3: #00915c;
+  --color-prismatic-tier-4: #3d55ff;
+  --color-prismatic-tier-5: #cd1cff;
+
+  /* Elevation. */
+  --shadow-*: initial;
+  --shadow-sm: 0 1px 2px 0 rgb(30 40 49 / 0.1);
+  --shadow-md: 0 3px 10px -2px rgb(30 40 49 / 0.14);
+  --shadow-lg: 0 14px 32px -10px rgb(30 40 49 / 0.2);
+}
+
+/*
+ * Non-utility tokens: consumed by component CSS, not by generated classes.
+ * Focus recipe: ring 2px in --color-focus, offset 2px filled with surface.
+ */
+:root {
+  color-scheme: light;
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-surface: #0c141c;
+  --color-surface-raised: #14202b;
+  --color-surface-sunken: #070c11;
+  --color-ink: #e9f0f4;
+  --color-ink-muted: #92a5b3;
+  --color-ink-disabled: #556773;
+  --color-border: #24333f;
+  --color-border-strong: #3d5163;
+  --color-accent: #c8aa6e;
+  --color-accent-hover: #dcc38b;
+
+  --color-physical-damage: #bd7e4c;
+  --color-magic-damage: #9bfff7;
+  --color-true-damage: #fffef3;
+  --color-heal: #20995d;
+  --color-shield: #fffef3;
+  --color-armor: #f16f59;
+  --color-mr: #cf8dd1;
+  --color-durability: #fffef3;
+  --color-omnivamp: #bc0000;
+  --color-as: #f4c452;
+  --color-crit-chance: #e23420;
+  --color-crit-damage: #e23420;
+  --color-damage-amp: #fffef3;
+  --color-cc: #9e9be8;
+  --color-bonus: #fffef3;
+  --color-hex: #fffef3;
+  --color-mana: #26c2f4;
+
+  --color-advisory: #ff9432;
+  --color-invalid: #ff3860;
+  --color-success: #37d159;
+
+  --color-1-cost: #b5b5b5;
+  --color-2-cost: #14cf11;
+  --color-3-cost: #286ad2;
+  --color-4-cost: #c31ccf;
+  --color-5-cost: #a79419;
+  --color-silver-tier: #9fb3cc;
+  --color-gold-tier: #e0bc1a;
+  --color-prismatic-tier: #f0daf9;
+  --color-prismatic-tier-2: #ffe382;
+  --color-prismatic-tier-3: #9bffda;
+  --color-prismatic-tier-4: #7586ff;
+  --color-prismatic-tier-5: #e791ff;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.55);
+  --shadow-md: 0 3px 8px -2px rgb(0 0 0 / 0.55);
+  --shadow-lg: 0 12px 28px -8px rgb(0 0 0 / 0.6);
+}
