@@ -114,6 +114,21 @@ export const PROVISIONAL_MEND_CASTER_UNIT_ID =
   "provisional-mend-caster" as UnitId;
 
 /**
+ * Three caster-shaped profiles carrying #72's over-time kits (wired in
+ * provisional-spell.ts): `sear` burns the opponent on the no-attack profile —
+ * no swings, so the run's whole tally is the burn's ticks, hand-derivable;
+ * `renew` heals the caster over time on the durable profile, so a kill lands
+ * later; `frenzy` ramps the caster's own attack speed, so its swings
+ * accelerate over the run.
+ */
+export const PROVISIONAL_SEAR_CASTER_UNIT_ID =
+  "provisional-sear-caster" as UnitId;
+export const PROVISIONAL_RENEW_CASTER_UNIT_ID =
+  "provisional-renew-caster" as UnitId;
+export const PROVISIONAL_FRENZY_CASTER_UNIT_ID =
+  "provisional-frenzy-caster" as UnitId;
+
+/**
  * Resolve a `BoardSide.unitId` to its provisional profile. Distinguishes
  * exactly these test-facing profiles, not a real catalog (ADR 0002 — the
  * engine still doesn't know champions) — any other id defaults to the
@@ -126,13 +141,18 @@ export function resolveUnitStats(unitId: UnitId): BaseStats {
     case PROVISIONAL_CASTER_UNIT_ID:
     case PROVISIONAL_RALLY_CASTER_UNIT_ID:
     case PROVISIONAL_SHRED_CASTER_UNIT_ID:
+    case PROVISIONAL_FRENZY_CASTER_UNIT_ID:
       return PROVISIONAL_CASTER_STATS;
     case PROVISIONAL_AEGIS_CASTER_UNIT_ID:
     case PROVISIONAL_MEND_CASTER_UNIT_ID:
+    case PROVISIONAL_RENEW_CASTER_UNIT_ID:
       // Durable and damage-taken-fed, so the mortal target survives long enough
       // to fill its gauge and cast its defensive kit before a kill lands.
       return PROVISIONAL_DEFENSIVE_CASTER_STATS;
     case PROVISIONAL_NO_ATTACK_CASTER_UNIT_ID:
+    case PROVISIONAL_SEAR_CASTER_UNIT_ID:
+      // Sear rides the no-attack profile: no swings, so a run's whole tally
+      // is the burn's ticks — hand-derivable.
       return PROVISIONAL_NO_ATTACK_CASTER_STATS;
     case PROVISIONAL_NO_MANA_UNIT_ID:
       return PROVISIONAL_NO_MANA_STATS;
