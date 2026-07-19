@@ -54,9 +54,20 @@ export type Temporality =
   | { readonly kind: "duration"; readonly seconds: StarValue }
   | {
       readonly kind: "periodic";
+      /** Total window the effect repeats over, from its application. */
       readonly seconds: StarValue;
       /** Seconds between two ticks of the effect. */
       readonly interval: number;
+      /**
+       * What one tick leaves behind. `instance`: the residue lives exactly one
+       * interval — gone at the next tick's boundary (a pulsing buff or
+       * shield). `accrual`: the residue never expires — ticks stack for the
+       * rest of combat (a ramping steroid). Kinds without residue (damage,
+       * heal) consume the tick on the spot, so both modes read the same for
+       * them; authors declare `instance` by convention. Required rather than
+       * defaulted: the two behaviors diverge too much to guess silently.
+       */
+      readonly mode: "instance" | "accrual";
     };
 
 export type DamageType = "physical" | "magic" | "true";
@@ -111,11 +122,14 @@ export type Modifier =
       readonly kind: "crowd-control";
       readonly cc: CrowdControl;
       /**
-       * Only `duration` is meaningful here — a crowd-control effect with no
-       * length (`instant`) or that repeats (`periodic`, DoT's territory,
-       * #72) doesn't correspond to anything real. Cast delivery
-       * (engine/spell/apply-effects.ts) treats the other two as unreachable,
-       * not silently ignored.
+       * Only `duration` is meaningful here. An `instant` crowd-control has no
+       * length to take away, and a `periodic` one is inexpressible: the
+       * periodic arm carries no per-tick duration, so nothing could say how
+       * long each recurring stun lasts — an `instance` residue of one full
+       * interval would mean a permanent lock. Excluded until a real kit
+       * presents recurring crowd-control (#73 extends the taxonomy then);
+       * delivery and scheduling treat both as loud author bugs, never silent
+       * skips.
        */
       readonly temporality: Temporality;
     }
