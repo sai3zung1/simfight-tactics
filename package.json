@@ -12,6 +12,7 @@
     "format:check": "prettier --check .",
     "typecheck": "tsc -b",
     "test": "bun test",
+    "test:stories": "vitest run --project=storybook --passWithNoTests",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

@@ -20,6 +20,5 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  // The shim pairs with the browser-test block vite.config.ts declares
-  "include": ["vite.config.ts", "vitest.shims.d.ts"]
+  "include": ["vite.config.ts"]
 }

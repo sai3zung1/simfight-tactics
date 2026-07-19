@@ -18,4 +18,8 @@ jobs:
       - run: bun run format:check
       - run: bun run typecheck
       - run: bun run test
+      # Story tests run in a real browser, so the binary has to be fetched:
+      # installing the package alone leaves Playwright without one.
+      - run: bunx playwright install --with-deps chromium
+      - run: bun run test:stories
       - run: bun run build

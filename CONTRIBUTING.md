@@ -61,6 +61,7 @@ bun run typecheck     # tsc
 bun run format        # prettier --write
 bun run format:check  # prettier --check (what CI runs)
 bun run test          # bun test — domain and engine
+bun run test:stories  # vitest — every story, in a real browser
 ```
 
 The component workshop runs components in isolation, apart from the app
@@ -73,7 +74,8 @@ bun run build-storybook  # static build, into storybook-static/
 
 Two test runners share the repo without overlapping: `bun test` owns
 `*.test.ts`, while Vitest turns each `*.stories.tsx` into a browser case so
-axe-core can check accessibility against computed styles.
+axe-core can check accessibility against computed styles. Both run in CI; the
+story run needs a Playwright browser binary, which CI fetches before it.
 
 ## Code conventions
 
