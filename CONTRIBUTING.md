@@ -53,12 +53,29 @@ non-negotiable step is `Closes #<n>` in the PR body.
 
 ```bash
 bun install
-bun run dev        # dev server
-bun run build      # typecheck + build
-bun run lint       # eslint
-bun run typecheck  # tsc
-bun run format     # prettier --write
+bun run dev           # dev server
+bun run build         # typecheck + build
+bun run preview       # serve the production build
+bun run lint          # eslint
+bun run typecheck     # tsc
+bun run format        # prettier --write
+bun run format:check  # prettier --check (what CI runs)
+bun run test          # bun test — domain and engine
+bun run test:stories  # vitest — every story, in a real browser
 ```
+
+The component workshop runs components in isolation, apart from the app
+(ADR 0006). It is a dev dependency and never ships.
+
+```bash
+bun run storybook        # workshop on port 6006
+bun run build-storybook  # static build, into storybook-static/
+```
+
+Two test runners share the repo without overlapping: `bun test` owns
+`*.test.ts`, while Vitest turns each `*.stories.tsx` into a browser case so
+axe-core can check accessibility against computed styles. Both run in CI; the
+story run needs a Playwright browser binary, which CI fetches before it.
 
 ## Code conventions
 
