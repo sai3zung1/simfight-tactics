@@ -18,8 +18,9 @@ import type { Combatant } from "../stats/combatant";
  * a fresh pool and, unless it is permanent-for-combat (`NEVER_EXPIRES`),
  * schedule its expiry. Additive and independent — each cast pushes its own pool,
  * never merging into an existing one, so several shields coexist and their
- * remainders sum (#71, D6). The real producer is a cast resolving
- * (engine/spell/apply-effects.ts), a mid-loop occurrence.
+ * remainders sum (#71, D6). The real producers are a cast resolving
+ * (engine/spell/apply-effects.ts) and a periodic residue tick
+ * (periodic-ticks.ts), both mid-loop occurrences.
  */
 export function applyShield(
   combatant: Combatant,

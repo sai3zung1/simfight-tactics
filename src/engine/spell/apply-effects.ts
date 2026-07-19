@@ -131,7 +131,7 @@ export function applyEffects(
         // author bug caught here.
         if (modifier.temporality.kind !== "duration") {
           throw new Error(
-            "a crowd-control effect carries a duration; instant and periodic have no meaning (modifier.ts)",
+            "a crowd-control effect carries a duration; instant has no meaning (modifier.ts)",
           );
         }
         applyCrowdControl(
