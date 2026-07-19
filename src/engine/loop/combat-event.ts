@@ -1,6 +1,6 @@
 import type { Ticks } from "./time";
 import type { CombatantId } from "../stats/combatant-id";
-import type { CrowdControl } from "../../domain/catalog/modifier";
+import type { CrowdControl, Modifier } from "../../domain/catalog/modifier";
 
 /**
  * One scheduled occurrence the loop orders and processes — a discriminated
@@ -77,10 +77,28 @@ export type ShieldExpiryEvent = {
   readonly combatant: CombatantId;
 };
 
+/**
+ * One due tick of a periodic spell effect. Unlike the id-only events above it
+ * carries the effect itself: every tick is scheduled wholesale at cast
+ * (mechanics/periodic-ticks.ts), so no per-combatant registry exists to look
+ * the modifier up — the event is the effect's only home. The ids let the
+ * handler re-read both sheets live at each tick: `source` cast the effect
+ * (credited for its damage, and the basis its scaled amounts re-resolve
+ * against), `target` receives it.
+ */
+export type PeriodicTickEvent = {
+  readonly kind: "periodic-tick";
+  readonly time: Ticks;
+  readonly source: CombatantId;
+  readonly target: CombatantId;
+  readonly modifier: Modifier;
+};
+
 export type CombatEvent =
   | AutoAttackEvent
   | ManaRegenEvent
   | CastEvent
   | CrowdControlExpiryEvent
   | ModifierExpiryEvent
-  | ShieldExpiryEvent;
+  | ShieldExpiryEvent
+  | PeriodicTickEvent;

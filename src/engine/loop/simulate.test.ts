@@ -11,11 +11,14 @@ import type { CombatantId } from "../stats/combatant-id";
 import {
   PROVISIONAL_AEGIS_CASTER_UNIT_ID,
   PROVISIONAL_CASTER_UNIT_ID,
+  PROVISIONAL_FRENZY_CASTER_UNIT_ID,
   PROVISIONAL_IMMORTAL_UNIT_ID,
   PROVISIONAL_MEND_CASTER_UNIT_ID,
   PROVISIONAL_NO_ATTACK_CASTER_UNIT_ID,
   PROVISIONAL_NO_MANA_UNIT_ID,
   PROVISIONAL_RALLY_CASTER_UNIT_ID,
+  PROVISIONAL_RENEW_CASTER_UNIT_ID,
+  PROVISIONAL_SEAR_CASTER_UNIT_ID,
   PROVISIONAL_SHRED_CASTER_UNIT_ID,
   PROVISIONAL_TANK_UNIT_ID,
 } from "../provisional/provisional-stats";
@@ -341,4 +344,59 @@ test("a mend heal lets the target outlast the kill: HP restored mid-fight (#71)"
   expect(armed.effectiveDurationSeconds).toBeGreaterThan(
     bare.effectiveDurationSeconds,
   );
+});
+
+// The three runs below inject the fixture registry to prove #72's over-time
+// kits end to end: a burn ticking damage, a regrowth ticking heals, and a
+// ramp accruing attack speed.
+
+test("burn damage end to end, hand-derivable: casts × ticks × per-tick damage (#72)", () => {
+  const c: CombatConfig = {
+    // The sear caster rides the no-attack profile: no swings, mana from the
+    // 2/s flow alone, so the whole tally is the burn's ticks.
+    attacker: { ...side(), unitId: PROVISIONAL_SEAR_CASTER_UNIT_ID },
+    target: side(),
+    stopCondition: { mode: "fixed-duration", durationSeconds: 120 },
+  };
+  const r = simulate(c, FIXTURE_SPELL_REGISTRY);
+  // Gauge fills at 2/s: casts at t=50s and t=100s. Each burn: 4 ticks (one
+  // per second, the first one interval in), 60 × ability power 1 into 25
+  // magic resist (× 0.8) → 48 per tick, 192 per cast → 384 over the run.
+  expect(r.attackerCasts).toBe(2);
+  expect(r.totalDamageDealt).toBe(384);
+  expect(r.stopReason).toBe("timer");
+});
+
+test("a renew regrowth lets the target outlast the kill: HP ticks back mid-fight (#72)", () => {
+  const c: CombatConfig = {
+    attacker: side(),
+    target: { ...side(), unitId: PROVISIONAL_RENEW_CASTER_UNIT_ID },
+    stopCondition: { mode: "time-to-kill" },
+  };
+  // Same mechanics; with the registry the target heals itself in pulses after
+  // each cast, so the kill lands later — mend's proof, spread over a window.
+  const bare = simulate(c);
+  const armed = simulate(c, FIXTURE_SPELL_REGISTRY);
+  expect(bare.stopReason).toBe("kill");
+  expect(armed.stopReason).toBe("kill");
+  expect(armed.targetCasts).toBeGreaterThan(0);
+  expect(armed.effectiveDurationSeconds).toBeGreaterThan(
+    bare.effectiveDurationSeconds,
+  );
+});
+
+test("a frenzy ramp raises the caster's own output: accrued attack speed compounds (#72)", () => {
+  const c: CombatConfig = {
+    attacker: { ...side(), unitId: PROVISIONAL_FRENZY_CASTER_UNIT_ID },
+    target: side(),
+    stopCondition: { mode: "fixed-duration", durationSeconds: 60 },
+  };
+  // Same config, same mechanics; with the registry each cast ramps the
+  // caster's attack speed in never-expiring steps, so its swings accelerate
+  // and the run's whole tally lands strictly higher — accrual residue
+  // observed end to end.
+  const bare = simulate(c);
+  const armed = simulate(c, FIXTURE_SPELL_REGISTRY);
+  expect(armed.attackerCasts).toBeGreaterThan(0);
+  expect(armed.totalDamageDealt).toBeGreaterThan(bare.totalDamageDealt);
 });

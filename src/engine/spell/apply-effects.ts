@@ -1,41 +1,20 @@
-import type { StarValue } from "../../domain/primitives";
 import type { CombatState } from "../loop/combat-state";
 import type { EventQueue } from "../loop/event-queue";
 import type { StopSignal } from "../loop/stop-signal";
 import { NEVER_EXPIRES, secondsToTicks, type Ticks } from "../loop/time";
-import {
-  ensureManaRegenScheduled,
-  pushCastIfReady,
-} from "../mechanics/casting";
+import { ensureManaRegenScheduled } from "../mechanics/casting";
 import { applyCrowdControl } from "../mechanics/crowd-control";
 import { applyShield } from "../mechanics/shield";
 import { applyTimedModifier } from "../mechanics/timed-modifiers";
-import { neverCrit } from "../mechanics/crit-policy";
-import { damageTakenManaGain, gainMana } from "../mechanics/mana";
-import { resolveDamage } from "../mechanics/resolve-damage";
-import { applyDamage, applyHeal, type Combatant } from "../stats/combatant";
+import { applyHeal, type Combatant } from "../stats/combatant";
 import {
   resolveSpellMagnitude,
   type EffectiveStats,
 } from "../stats/effective-stats";
 import type { Magnitude, Temporality } from "../../domain/catalog/modifier";
+import { schedulePeriodicTicks } from "../mechanics/periodic-ticks";
+import { deliverDamage, starCollapsed } from "./deliver";
 import type { SpellEffect } from "./contract";
-
-/**
- * A spell-produced value is star-collapsed to a plain number before it is
- * ever emitted: per-star tables are dissolved into the caster's parameters
- * at combat setup (stats/combatant.ts). A table reaching delivery is a
- * spell-author bug — surfaced loudly rather than resolved against a wrong
- * star.
- */
-function starCollapsed(value: StarValue): number {
-  if (typeof value !== "number") {
-    throw new Error(
-      "a spell emits star-collapsed numbers; per-star tables live in its parameters",
-    );
-  }
-  return value;
-}
 
 /**
  * Snapshot a spell modifier's magnitude against the caster's effective stats,
@@ -60,10 +39,11 @@ function snapshotAmount(
 /**
  * How long a spell-emitted timed effect lives, in ticks. An instant temporality
  * means permanent-for-combat — the `NEVER_EXPIRES` sentinel, no scheduled expiry
- * (D2); a duration collapses its star-safe seconds to ticks. Periodic is
- * over-time territory (#72) and never reaches here — each kind's delivery
- * rejects it first — so it is a loud bug, not a silent skip. Shared by every
- * timed kit (stat-mod, damage-reduction, mana-generation, shield).
+ * (D2); a duration collapses its star-safe seconds to ticks. Periodic never
+ * reaches here: cast delivery routes it to tick scheduling before any kind
+ * resolves, so hitting that arm is an engine bug — loud, not silently
+ * skipped. Shared by every timed kit (stat-mod, damage-reduction,
+ * mana-generation, shield).
  */
 function durationTicksOf(temporality: Temporality): Ticks {
   switch (temporality.kind) {
@@ -73,7 +53,7 @@ function durationTicksOf(temporality: Temporality): Ticks {
       return secondsToTicks(starCollapsed(temporality.seconds));
     case "periodic":
       throw new Error(
-        "a periodic temporality has no single duration; over-time effects are #72's",
+        "a periodic temporality is routed to tick scheduling before delivery",
       );
     default: {
       const _exhaustive: never = temporality;
@@ -85,9 +65,9 @@ function durationTicksOf(temporality: Temporality): Ticks {
 /**
  * Deliver a cast's produced effects to combat state, in the order the spell
  * returned them. Damage rides the same pipeline as an auto-attack — resolve,
- * land on HP, tally, then the exchange's mana — with one difference held
- * here: a spell never crits by default (the capability is item-granted,
- * #13), so the crit factor is pinned at `neverCrit`. A killing effect
+ * land on HP, tally, then the exchange's mana — held in `deliverDamage`
+ * (deliver.ts) with the crit factor pinned at `neverCrit`: a spell never
+ * crits by default, the capability is item-granted (#13). A killing effect
  * returns its stop signal immediately: nothing after a run's end is
  * observable, later effects included. The exhaustive switch makes a new
  * `Modifier` kind a compile break here, never a silent skip.
@@ -107,17 +87,25 @@ export function applyEffects(
 ): StopSignal | undefined {
   for (const { recipient, modifier } of effects) {
     const target = recipient === "self" ? caster : opponent;
+    // Periodic is orthogonal to kind: any periodic effect expands into
+    // scheduled ticks (mechanics/periodic-ticks.ts) instead of resolving now.
+    // One routing point, so the kind switch below only ever sees instant and
+    // duration temporalities.
+    if (modifier.temporality.kind === "periodic") {
+      schedulePeriodicTicks(modifier, caster, target, time, queue);
+      continue;
+    }
     switch (modifier.kind) {
       case "damage": {
-        // Damage resolves now or not at all: duration and periodic damage
-        // arrive with the timed machinery (#70/#72) — reaching here with
-        // either is a spell-author bug, never a silent skip.
+        // Damage resolves now or not at all: over-time damage is periodic —
+        // routed to scheduling above — so a duration means nothing, and
+        // reaching here with one is a spell-author bug, never a silent skip.
         if (modifier.temporality.kind !== "instant") {
           throw new Error(
-            "spell damage is instant until timed modifiers land (#70/#72)",
+            "spell damage is instant; damage over time is periodic (mechanics/periodic-ticks.ts)",
           );
         }
-        const hit = resolveDamage(
+        const signal = deliverDamage(
           {
             amount: resolveSpellMagnitude(
               starCollapsed(modifier.amount.base),
@@ -126,33 +114,24 @@ export function applyEffects(
             ),
             damageType: modifier.damageType,
           },
-          { damageAmp: caster.stats.damageAmp },
-          {
-            armor: target.stats.armor,
-            magicResist: target.stats.magicResist,
-            durability: target.stats.durability,
-            damageReductions: target.damageReductions,
-          },
-          neverCrit(caster.stats.critChance, caster.stats.critDamage),
-        );
-        const killed = applyDamage(target, hit.dealt);
-        state.damageDealtBy[caster.id] += hit.dealt;
-        if (killed) {
-          return { time };
-        }
-        gainMana(
+          caster,
           target,
-          damageTakenManaGain(target, hit.preMitigated, hit.dealt),
+          state,
+          queue,
+          time,
         );
-        pushCastIfReady(target, time, queue);
+        if (signal !== undefined) {
+          return signal;
+        }
         break;
       }
       case "crowd-control": {
-        // Only a duration is meaningful for crowd control (modifier.ts) —
-        // instant or periodic reaching delivery is a spell-author bug.
+        // Only a duration is meaningful for crowd control (modifier.ts);
+        // periodic is rejected at scheduling, so instant is the remaining
+        // author bug caught here.
         if (modifier.temporality.kind !== "duration") {
           throw new Error(
-            "a crowd-control effect carries a duration; instant and periodic have no meaning (modifier.ts)",
+            "a crowd-control effect carries a duration; instant has no meaning (modifier.ts)",
           );
         }
         applyCrowdControl(
@@ -168,8 +147,7 @@ export function applyEffects(
         // A stat-mod folds into the recipient's stats via #70's timed machinery.
         // An instant one is a permanent-for-combat buff riding a `NEVER_EXPIRES`
         // window, so nothing schedules its expiry and the fold carries it for the
-        // whole run (D2). Periodic has no stat-mod meaning (`durationTicksOf`
-        // rejects it). A mod on `hp` moves max HP, and refoldStats reconciles
+        // whole run (D2). A mod on `hp` moves max HP, and refoldStats reconciles
         // current HP with it — a rise grants the HP, an expiry clamps under the
         // new max (D3). The amount is snapshotted against the caster now (D4) and
         // banked flat, so the fold reads the caster's basis, not the recipient's.
@@ -187,13 +165,13 @@ export function applyEffects(
       }
       case "heal": {
         // A heal lands on HP now, capped at the recipient's effective max
-        // (`applyHeal`). Instant only: heal-over-time is #72's, so a duration or
-        // periodic reaching here is a spell-author bug, never a silent skip. The
-        // amount is snapshotted against the caster (D4), the same rule as damage
-        // and stat-mods.
+        // (`applyHeal`). Instant only: healing over time is periodic — routed
+        // to scheduling above — so a duration reaching here is a spell-author
+        // bug, never a silent skip. The amount is snapshotted against the
+        // caster (D4), the same rule as damage and stat-mods.
         if (modifier.temporality.kind !== "instant") {
           throw new Error(
-            "spell healing is instant until heal-over-time lands (#72)",
+            "spell healing is instant; healing over time is periodic (mechanics/periodic-ticks.ts)",
           );
         }
         applyHeal(target, snapshotAmount(modifier.amount, caster.stats));
@@ -203,9 +181,8 @@ export function applyEffects(
         // A shield is a consumable pool absorbing damage ahead of HP
         // (mechanics/shield.ts). An instant temporality is a permanent-for-combat
         // pool (`NEVER_EXPIRES`, no scheduled expiry); a duration schedules its
-        // own shield-expiry (D7); periodic has no shield meaning
-        // (`durationTicksOf` rejects it). The amount is snapshotted against the
-        // caster (D4).
+        // own shield-expiry (D7). The amount is snapshotted against the caster
+        // (D4).
         applyShield(
           target,
           snapshotAmount(modifier.amount, caster.stats),
@@ -218,8 +195,7 @@ export function applyEffects(
       case "damage-reduction": {
         // A damage-reduction rides the timed machinery into its own lane,
         // recomputed by refoldStats like the stat fold (D1). Instant is
-        // permanent-for-combat; periodic has no meaning (`durationTicksOf`
-        // rejects it). Snapshotted against the caster (D4).
+        // permanent-for-combat. Snapshotted against the caster (D4).
         applyTimedModifier(
           target,
           {

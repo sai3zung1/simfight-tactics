@@ -700,7 +700,7 @@ test("a heal scales on the caster's effective stats at cast (D4)", () => {
   expect(caster.currentHp).toBe(300);
 });
 
-test("heal-over-time is a loud spell-author bug until #72", () => {
+test("a duration heal is a loud spell-author bug: healing over time is periodic", () => {
   const caster = makeCombatant("attacker");
   const opponent = makeCombatant("target");
   const state = makeState(caster, opponent);
@@ -716,6 +716,71 @@ test("heal-over-time is a loud spell-author bug until #72", () => {
 
   expect(() =>
     applyEffects([hot], caster, opponent, state, createEventQueue(), NOW),
+  ).toThrow();
+});
+
+test("a periodic effect expands into scheduled ticks instead of resolving now", () => {
+  const caster = makeCombatant("attacker");
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+  const queue = createEventQueue();
+
+  const burn: SpellEffect = {
+    recipient: "opponent",
+    modifier: {
+      kind: "damage",
+      damageType: "magic",
+      amount: { base: 60 },
+      temporality: {
+        kind: "periodic",
+        seconds: 3,
+        interval: 1,
+        mode: "instance",
+      },
+    },
+  };
+
+  const signal = applyEffects([burn], caster, opponent, state, queue, NOW);
+
+  // Nothing resolves at cast: no HP moves, no tally — only the ticks queue up.
+  expect(signal).toBeUndefined();
+  expect(opponent.currentHp).toBe(1000);
+  expect(state.damageDealtBy[caster.id]).toBe(0);
+  const kinds = [queue.popNext(), queue.popNext(), queue.popNext()].map(
+    (e) => e?.kind,
+  );
+  expect(kinds).toEqual(["periodic-tick", "periodic-tick", "periodic-tick"]);
+  expect(queue.popNext()).toBeUndefined();
+});
+
+test("a periodic crowd-control is rejected loudly at scheduling", () => {
+  const caster = makeCombatant("attacker");
+  const opponent = makeCombatant("target");
+  const state = makeState(caster, opponent);
+
+  const recurringStun: SpellEffect = {
+    recipient: "opponent",
+    modifier: {
+      kind: "crowd-control",
+      cc: "stun",
+      temporality: {
+        kind: "periodic",
+        seconds: 9,
+        interval: 3,
+        mode: "instance",
+      },
+    },
+  };
+
+  expect(() =>
+    applyEffects(
+      [recurringStun],
+      caster,
+      opponent,
+      state,
+      createEventQueue(),
+      NOW,
+    ),
   ).toThrow();
 });
 

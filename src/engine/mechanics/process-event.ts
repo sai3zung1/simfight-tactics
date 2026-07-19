@@ -5,6 +5,7 @@ import type { StopSignal } from "../loop/stop-signal";
 import { processAutoAttack } from "./auto-attack";
 import { processCast, processManaRegen } from "./casting";
 import { processCrowdControlExpiry } from "./crowd-control";
+import { processPeriodicTick } from "./periodic-ticks";
 import { processShieldExpiry } from "./shield";
 import { processModifierExpiry } from "./timed-modifiers";
 import { EMPTY_SPELL_REGISTRY, type SpellRegistry } from "../spell/contract";
@@ -41,6 +42,8 @@ export function createProcess(
       case "shield-expiry":
         processShieldExpiry(event, state);
         return undefined;
+      case "periodic-tick":
+        return processPeriodicTick(event, state, queue);
       default: {
         const _exhaustive: never = event;
         return _exhaustive;

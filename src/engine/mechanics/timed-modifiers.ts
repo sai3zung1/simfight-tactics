@@ -12,9 +12,10 @@ import { addTicks, type Ticks } from "../loop/time";
  * window is half-open — the entry expires at `now + durationTicks`, the tick its
  * `modifier-expiry` fires and prunes it (D6). Stacking is additive and
  * independent: a second application pushes a second entry with its own expiry,
- * never refreshing or replacing the first (D5). The only real producer is a
- * cast resolving (engine/spell/apply-effects.ts), a mid-loop occurrence — this
- * never runs from the combat-start fold, exactly as `applyCrowdControl`.
+ * never refreshing or replacing the first (D5). The real producers are a cast
+ * resolving (engine/spell/apply-effects.ts) and a periodic residue tick
+ * (periodic-ticks.ts), both mid-loop occurrences — this never runs from the
+ * combat-start fold, exactly as `applyCrowdControl`.
  *
  * A permanent-for-combat entry (`durationTicks` = `NEVER_EXPIRES`) schedules no
  * expiry: its window never closes, so the fold carries it for the whole run
