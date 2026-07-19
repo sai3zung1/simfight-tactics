@@ -5,6 +5,7 @@ import pluginReact from "eslint-plugin-react";
 import json from "@eslint/json";
 import markdown from "@eslint/markdown";
 import css from "@eslint/css";
+import storybook from "eslint-plugin-storybook";
 import { tailwind4 } from "tailwind-csstree";
 import { defineConfig } from "eslint/config";
 import eslintConfigPrettier from "eslint-config-prettier";
@@ -17,6 +18,7 @@ export default defineConfig([
       "**/node_modules/",
       "**/.bun-cache/",
       "**/build/",
+      "**/storybook-static/",
     ],
   },
 
@@ -71,6 +73,9 @@ export default defineConfig([
     },
     extends: ["css/recommended"],
   },
+
+  // Conventions de stories : export default meta, args, play.
+  ...storybook.configs["flat/recommended"],
 
   eslintConfigPrettier,
 ]);

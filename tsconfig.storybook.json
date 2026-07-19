@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.storybook.tsbuildinfo",
     "target": "es2023",
-    "lib": ["ES2023"],
+    "lib": ["ES2023", "DOM"],
     "module": "esnext",
-    "types": ["node"],
+    // `vite/client` declares the CSS side-effect import preview.tsx relies on
+    "types": ["vite/client"],
     "skipLibCheck": true,
 
     /* Bundler mode */
@@ -13,6 +14,7 @@
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
+    "jsx": "react-jsx",
 
     /* Linting */
     "noUnusedLocals": true,
@@ -20,6 +22,6 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  // The shim pairs with the browser-test block vite.config.ts declares
-  "include": ["vite.config.ts", "vitest.shims.d.ts"]
+  // Explicit globs: TypeScript's wildcards skip dot-directories
+  "include": [".storybook/**/*.ts", ".storybook/**/*.tsx"]
 }
