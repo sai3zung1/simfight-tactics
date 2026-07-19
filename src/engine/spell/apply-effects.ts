@@ -1,41 +1,19 @@
-import type { StarValue } from "../../domain/primitives";
 import type { CombatState } from "../loop/combat-state";
 import type { EventQueue } from "../loop/event-queue";
 import type { StopSignal } from "../loop/stop-signal";
 import { NEVER_EXPIRES, secondsToTicks, type Ticks } from "../loop/time";
-import {
-  ensureManaRegenScheduled,
-  pushCastIfReady,
-} from "../mechanics/casting";
+import { ensureManaRegenScheduled } from "../mechanics/casting";
 import { applyCrowdControl } from "../mechanics/crowd-control";
 import { applyShield } from "../mechanics/shield";
 import { applyTimedModifier } from "../mechanics/timed-modifiers";
-import { neverCrit } from "../mechanics/crit-policy";
-import { damageTakenManaGain, gainMana } from "../mechanics/mana";
-import { resolveDamage } from "../mechanics/resolve-damage";
-import { applyDamage, applyHeal, type Combatant } from "../stats/combatant";
+import { applyHeal, type Combatant } from "../stats/combatant";
 import {
   resolveSpellMagnitude,
   type EffectiveStats,
 } from "../stats/effective-stats";
 import type { Magnitude, Temporality } from "../../domain/catalog/modifier";
+import { deliverDamage, starCollapsed } from "./deliver";
 import type { SpellEffect } from "./contract";
-
-/**
- * A spell-produced value is star-collapsed to a plain number before it is
- * ever emitted: per-star tables are dissolved into the caster's parameters
- * at combat setup (stats/combatant.ts). A table reaching delivery is a
- * spell-author bug — surfaced loudly rather than resolved against a wrong
- * star.
- */
-function starCollapsed(value: StarValue): number {
-  if (typeof value !== "number") {
-    throw new Error(
-      "a spell emits star-collapsed numbers; per-star tables live in its parameters",
-    );
-  }
-  return value;
-}
 
 /**
  * Snapshot a spell modifier's magnitude against the caster's effective stats,
@@ -85,9 +63,9 @@ function durationTicksOf(temporality: Temporality): Ticks {
 /**
  * Deliver a cast's produced effects to combat state, in the order the spell
  * returned them. Damage rides the same pipeline as an auto-attack — resolve,
- * land on HP, tally, then the exchange's mana — with one difference held
- * here: a spell never crits by default (the capability is item-granted,
- * #13), so the crit factor is pinned at `neverCrit`. A killing effect
+ * land on HP, tally, then the exchange's mana — held in `deliverDamage`
+ * (deliver.ts) with the crit factor pinned at `neverCrit`: a spell never
+ * crits by default, the capability is item-granted (#13). A killing effect
  * returns its stop signal immediately: nothing after a run's end is
  * observable, later effects included. The exhaustive switch makes a new
  * `Modifier` kind a compile break here, never a silent skip.
@@ -117,7 +95,7 @@ export function applyEffects(
             "spell damage is instant until timed modifiers land (#70/#72)",
           );
         }
-        const hit = resolveDamage(
+        const signal = deliverDamage(
           {
             amount: resolveSpellMagnitude(
               starCollapsed(modifier.amount.base),
@@ -126,25 +104,15 @@ export function applyEffects(
             ),
             damageType: modifier.damageType,
           },
-          { damageAmp: caster.stats.damageAmp },
-          {
-            armor: target.stats.armor,
-            magicResist: target.stats.magicResist,
-            durability: target.stats.durability,
-            damageReductions: target.damageReductions,
-          },
-          neverCrit(caster.stats.critChance, caster.stats.critDamage),
-        );
-        const killed = applyDamage(target, hit.dealt);
-        state.damageDealtBy[caster.id] += hit.dealt;
-        if (killed) {
-          return { time };
-        }
-        gainMana(
+          caster,
           target,
-          damageTakenManaGain(target, hit.preMitigated, hit.dealt),
+          state,
+          queue,
+          time,
         );
-        pushCastIfReady(target, time, queue);
+        if (signal !== undefined) {
+          return signal;
+        }
         break;
       }
       case "crowd-control": {
