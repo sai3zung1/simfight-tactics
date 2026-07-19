@@ -4,13 +4,21 @@ import type { CombatState } from "../loop/combat-state";
 import { combatantById } from "../loop/combat-state";
 import type { EventQueue } from "../loop/event-queue";
 import type { StopSignal } from "../loop/stop-signal";
-import { addTicks, secondsToTicks, type Ticks } from "../loop/time";
+import {
+  NEVER_EXPIRES,
+  addTicks,
+  secondsToTicks,
+  type Ticks,
+} from "../loop/time";
 import { deliverDamage, starCollapsed } from "../spell/deliver";
 import { applyHeal, type Combatant } from "../stats/combatant";
 import {
   resolveSpellMagnitude,
   type EffectiveStats,
 } from "../stats/effective-stats";
+import { ensureManaRegenScheduled } from "./casting";
+import { applyShield } from "./shield";
+import { applyTimedModifier } from "./timed-modifiers";
 
 /**
  * The periodic side of a cast: a `periodic` temporality repeats a modifier as
@@ -99,11 +107,20 @@ function tickAmount(amount: Magnitude, sourceStats: EffectiveStats): number {
 /**
  * Resolve one due tick through the normal pipeline of its kind. Damage and
  * heal have no residue — the tick is consumed on the spot, exactly as a
- * cast's instant effect. Liveness needs no check: a run ends the instant a
- * combatant dies, so a pending tick whose source or target died never pops.
- * The crowd-control arm is unreachable by construction — `schedulePeriodicTicks`
- * rejects the payload — and throws rather than skips if the invariant ever
- * breaks.
+ * cast's instant effect. Every other kind leaves a residue, and the mode
+ * picks its window: an `instance` residue lives one interval, pruned at the
+ * next tick's boundary by the machinery that already owns expiry (a pulsing
+ * effect refreshes seamlessly — prune-by-time makes the boundary order
+ * irrelevant); an `accrual` residue rides `NEVER_EXPIRES` and stacks for the
+ * run. What happens to a residue between two ticks is its lane's own
+ * behavior, not modeled here: a shield pool erodes as it absorbs, a folded
+ * stat entry sits untouched. The re-read amount is banked flat into the
+ * residue, so later folds never re-scale it (the tick is the snapshot
+ * instant). Liveness needs no check: a run ends the instant a combatant
+ * dies, so a pending tick whose source or target died never pops. The
+ * crowd-control arm is unreachable by construction —
+ * `schedulePeriodicTicks` rejects the payload — and throws rather than
+ * skips if the invariant ever breaks.
  */
 export function processPeriodicTick(
   event: PeriodicTickEvent,
@@ -113,6 +130,16 @@ export function processPeriodicTick(
   const source = combatantById(state, event.source);
   const target = combatantById(state, event.target);
   const modifier = event.modifier;
+  const temporality = modifier.temporality;
+  if (temporality.kind !== "periodic") {
+    throw new Error(
+      "a periodic tick carries a periodic modifier by construction (schedulePeriodicTicks)",
+    );
+  }
+  const residueTicks =
+    temporality.mode === "accrual"
+      ? NEVER_EXPIRES
+      : secondsToTicks(temporality.interval);
   switch (modifier.kind) {
     case "damage":
       return deliverDamage(
@@ -131,9 +158,42 @@ export function processPeriodicTick(
       return undefined;
     case "stat-mod":
     case "damage-reduction":
+      applyTimedModifier(
+        target,
+        {
+          ...modifier,
+          amount: { base: tickAmount(modifier.amount, source.stats) },
+        },
+        event.time,
+        residueTicks,
+        queue,
+      );
+      return undefined;
     case "mana-generation":
+      applyTimedModifier(
+        target,
+        {
+          ...modifier,
+          amount: { base: tickAmount(modifier.amount, source.stats) },
+        },
+        event.time,
+        residueTicks,
+        queue,
+      );
+      // A per-second gain arriving by tick has to start the recipient's regen
+      // chain if it wasn't ticking — the fold alone pays nothing without the
+      // recurring event, exactly as at cast delivery.
+      ensureManaRegenScheduled(target, event.time, queue);
+      return undefined;
     case "shield":
-      throw new Error("periodic residue delivery is not wired yet");
+      applyShield(
+        target,
+        tickAmount(modifier.amount, source.stats),
+        event.time,
+        residueTicks,
+        queue,
+      );
+      return undefined;
     case "crowd-control":
       throw new Error(
         "a periodic crowd-control never schedules (schedulePeriodicTicks rejects it)",
