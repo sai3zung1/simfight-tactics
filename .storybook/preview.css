@@ -1,0 +1,14 @@
+/*
+ * Workshop-only canvas. The app paints its own surface; this sheet is what
+ * makes the workshop stand a component on the same ground rather than on the
+ * browser's default white, where a light-on-surface token would look wrong and
+ * a contrast check would measure a background the product never shows.
+ *
+ * The values are read, not copied: `var()` resolves against whichever theme
+ * `[data-theme]` selects, so the canvas follows the toolbar switch with no
+ * second control to keep in step.
+ */
+body {
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+}

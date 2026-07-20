@@ -36,7 +36,7 @@ export default defineConfig([
     files: ["**/*.{js,jsx,ts,tsx}"],
     ...pluginReact.configs.flat.recommended,
     rules: {
-      "react/react-in-jsx-scope": "off", // Inutile avec Vite/React 17+
+      "react/react-in-jsx-scope": "off", // Redundant with Vite/React 17+
     },
   },
 
@@ -59,7 +59,7 @@ export default defineConfig([
     language: "markdown/gfm",
     extends: ["markdown/recommended"],
     rules: {
-      "markdown/no-missing-label-refs": "off", // Autorise tes [...] de template
+      "markdown/no-missing-label-refs": "off", // Allows the [...] placeholders in templates
     },
   },
 
@@ -73,8 +73,17 @@ export default defineConfig([
     },
     extends: ["css/recommended"],
   },
+  {
+    // The workshop sheet reads tokens declared in main.css. The linter parses
+    // each file on its own, so those variables are unresolvable from here —
+    // unknown, not invalid.
+    files: [".storybook/**/*.css"],
+    rules: {
+      "css/no-invalid-properties": ["error", { allowUnknownVariables: true }],
+    },
+  },
 
-  // Conventions de stories : export default meta, args, play.
+  // Story conventions: default-exported meta, args, play.
   ...storybook.configs["flat/recommended"],
 
   eslintConfigPrettier,
