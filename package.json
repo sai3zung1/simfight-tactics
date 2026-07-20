@@ -13,6 +13,7 @@
     "typecheck": "tsc -b",
     "test": "bun test",
     "test:stories": "vitest run --project=storybook --passWithNoTests",
+    "gate": "bun run typecheck && bun run lint && bun run format:check && bun test && bun run test:stories",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

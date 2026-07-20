@@ -1,0 +1,30 @@
+/*
+ * The vocabulary of the Sample atom — which values each axis accepts — and
+ * nothing about how they paint. sample.classes.ts realises this contract; the
+ * dependency runs only that way, so a styling change can never shrink the API.
+ */
+
+/*
+ * TODO: one exported `as const` array per axis the poster names — values,
+ * never classes. A composite recipe (a `variant`) exists only when the poster
+ * names it.
+ */
+export const VARIANTS = ["default"] as const;
+
+export type SampleVariant = (typeof VARIANTS)[number];
+
+/* A default is contract too: declared once here, worn by the component. */
+export const DEFAULTS = {
+  variant: "default",
+} as const satisfies {
+  variant: SampleVariant;
+};
+
+/*
+ * TODO (optional): per-element style the poster attaches to an element (e.g.
+ * headings). The element proposes; an explicit prop always overrides. Elements
+ * absent here stay on DEFAULTS. Delete this block if the poster names none.
+ *
+ * export type ElementStyle = { variant?: SampleVariant };
+ * export const ELEMENT_STYLE: Partial<Record<SampleElement, ElementStyle>> = {};
+ */

@@ -1,0 +1,37 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
+
+import { Sample } from "../sample";
+import { DEFAULTS, VARIANTS } from "../sample.contract";
+
+/*
+ * argTypes derive from the contract: options spread the contract array, so a
+ * new value reaches the workshop with no second edit and cannot drift. Only
+ * the descriptions are written by hand.
+ */
+const meta = {
+  title: "Atoms/Sample",
+  component: Sample,
+  tags: ["autodocs"],
+  parameters: { layout: "padded" },
+  args: {
+    children: "TODO: a sentence the product could actually show.",
+  },
+  argTypes: {
+    variant: {
+      description: "TODO: what the axis means, in the poster's words.",
+      control: "select",
+      options: [...VARIANTS],
+      table: { defaultValue: { summary: DEFAULTS.variant } },
+    },
+    className: {
+      description: "Layout adjustments only.",
+      control: "text",
+    },
+  },
+} satisfies Meta<typeof Sample>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Playground: Story = {};
