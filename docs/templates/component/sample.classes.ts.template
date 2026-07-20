@@ -1,0 +1,18 @@
+import type { SampleVariant } from "./sample.contract";
+
+/*
+ * Realisation of sample.contract.ts: one utility string per declared value.
+ * Every map `satisfies` an exact Record over its axis, so the compiler keeps
+ * coverage two-way — a new contract value fails here until painted, and a
+ * class no contract value claims cannot exist.
+ *
+ * Utilities from the token layer only. Never element selectors: unlayered CSS
+ * beats `@layer utilities` and silently overrides the props API. A utility
+ * that does not compile means the token is missing — raise it against the
+ * posters instead of hardcoding.
+ */
+
+/* TODO: one map per contract axis. */
+export const VARIANT_CLASS = {
+  default: "",
+} satisfies Record<SampleVariant, string>;

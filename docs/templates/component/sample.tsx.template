@@ -1,0 +1,44 @@
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
+
+import { VARIANT_CLASS } from "./sample.classes";
+import { DEFAULTS, type SampleVariant } from "./sample.contract";
+
+export type { SampleVariant };
+
+/*
+ * TODO: one optional prop per contract axis. Mutually exclusive axes are
+ * encoded as a discriminated union (see Colouring in the Text atom), not
+ * documented away.
+ */
+type SampleOwnProps = {
+  variant?: SampleVariant;
+  /* Layout adjustments only — position the component in its parent, never
+   * restyle it. Off-system utilities do not compile against the token layer. */
+  className?: string;
+  children?: ReactNode;
+};
+
+export type SampleProps = SampleOwnProps &
+  Omit<ComponentPropsWithoutRef<"div">, keyof SampleOwnProps>;
+
+/*
+ * Resolution: explicit prop → per-element style → DEFAULTS. If you add a
+ * per-element map (ELEMENT_STYLE in the contract), leave the axis out of the
+ * destructuring below (write `variant`, not `variant = DEFAULTS.variant`) and
+ * resolve it as `variant ?? element?.variant ?? DEFAULTS.variant`, so the
+ * element proposal gets a turn before the global default answers.
+ */
+export function Sample({
+  variant = DEFAULTS.variant,
+  className,
+  children,
+  ...rest
+}: SampleProps) {
+  const classes = [VARIANT_CLASS[variant], className].filter(Boolean).join(" ");
+
+  return (
+    <div className={classes} {...rest}>
+      {children}
+    </div>
+  );
+}

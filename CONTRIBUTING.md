@@ -62,6 +62,7 @@ bun run format        # prettier --write
 bun run format:check  # prettier --check (what CI runs)
 bun run test          # bun test — domain and engine
 bun run test:stories  # vitest — every story, in a real browser
+bun run gate          # typecheck + lint + format:check + both test runs
 ```
 
 The component workshop runs components in isolation, apart from the app
@@ -112,6 +113,13 @@ story run needs a Playwright browser binary, which CI fetches before it.
 - **YAGNI.** No speculative structure (e.g. the `Modifier` shape was derived
   from observed data, not postulated up front).
 - **`as const`** on generated data literals, so the type contract survives.
+
+### UI components (`src/ui/`)
+
+Copy-ready skeletons live in
+[`docs/templates/component/`](./docs/templates/component), each carrying its
+rules as comments; the Text atom (`src/ui/atoms/text/`) is the living exemplar.
+`cp -r` the skeleton into place, drop the `.template` suffixes, and rename.
 
 ### Comments
 
