@@ -1,44 +1,44 @@
-import type { ComponentPropsWithoutRef, ReactNode } from "react";
+// Picks the CSS classes for the chosen values and renders the element. No styling decisions here.
+import type { ComponentPropsWithRef, ElementType, ReactNode } from "react";
 
-import { VARIANT_CLASS } from "./sample.classes";
-import { DEFAULTS, type SampleVariant } from "./sample.contract";
+import { BASE, VARIANT_CLASS } from "./sample.classes";
+import {
+  DEFAULTS,
+  type SampleElement,
+  type SampleVariant,
+} from "./sample.contract";
 
-export type { SampleVariant };
+export type { SampleElement, SampleVariant };
 
-/*
- * TODO: one optional prop per contract axis. Mutually exclusive axes are
- * encoded as a discriminated union (see Colouring in the Text atom), not
- * documented away.
- */
-type SampleOwnProps = {
+type SampleOwnProps<E extends SampleElement> = {
+  // `as` picks the HTML element, so the caller may pass that element's own
+  // attributes — href for <a>, type for <button>.
+  as?: E;
   variant?: SampleVariant;
-  /* Layout adjustments only — position the component in its parent, never
-   * restyle it. Off-system utilities do not compile against the token layer. */
   className?: string;
   children?: ReactNode;
 };
 
-export type SampleProps = SampleOwnProps &
-  Omit<ComponentPropsWithoutRef<"div">, keyof SampleOwnProps>;
+// Any standard HTML attribute (onClick, id…) passes straight to the element;
+// the component's own props win over clashes.
+export type SampleProps<E extends SampleElement> = SampleOwnProps<E> &
+  Omit<ComponentPropsWithRef<E>, keyof SampleOwnProps<E>>;
 
-/*
- * Resolution: explicit prop → per-element style → DEFAULTS. If you add a
- * per-element map (ELEMENT_STYLE in the contract), leave the axis out of the
- * destructuring below (write `variant`, not `variant = DEFAULTS.variant`) and
- * resolve it as `variant ?? element?.variant ?? DEFAULTS.variant`, so the
- * element proposal gets a turn before the global default answers.
- */
-export function Sample({
+export function Sample<E extends SampleElement = "div">({
+  as,
   variant = DEFAULTS.variant,
   className,
   children,
   ...rest
-}: SampleProps) {
-  const classes = [VARIANT_CLASS[variant], className].filter(Boolean).join(" ");
-
+}: SampleProps<E>) {
+  const element = as ?? DEFAULTS.as;
+  const Component = element as ElementType;
+  const classes = [BASE, VARIANT_CLASS[variant], className]
+    .filter(Boolean)
+    .join(" ");
   return (
-    <div className={classes} {...rest}>
+    <Component className={classes} {...rest}>
       {children}
-    </div>
+    </Component>
   );
 }

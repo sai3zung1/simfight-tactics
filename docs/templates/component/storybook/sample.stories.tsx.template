@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Sample } from "../sample";
-import { DEFAULTS, VARIANTS } from "../sample.contract";
+import { Sample, type SampleProps } from "../sample";
+import { DEFAULTS, SAMPLE_ELEMENTS, VARIANTS } from "../sample.contract";
 
-/*
- * argTypes derive from the contract: options spread the contract array, so a
- * new value reaches the workshop with no second edit and cannot drift. Only
- * the descriptions are written by hand.
- */
+// Extra controls that exist only on this page, never on the component — e.g. force a
+// hover look without really hovering. Add one boolean per state you want to preview.
+type StoryArgs = SampleProps<"div"> & { forceHover?: boolean };
+
 const meta = {
   title: "Atoms/Sample",
   component: Sample,
@@ -16,9 +15,25 @@ const meta = {
   args: {
     children: "TODO: a sentence the product could actually show.",
   },
+  // Turns the preview-only toggles into real classes, applied on top. The component never sees them.
+  render: ({ forceHover, className, ...args }) => (
+    <Sample
+      {...args}
+      className={
+        // TODO: replace "" with the classes that make the forced state visible.
+        [className, forceHover && ""].filter(Boolean).join(" ") || undefined
+      }
+    />
+  ),
   argTypes: {
+    as: {
+      description: "Which HTML element to render.",
+      control: "select",
+      options: [...SAMPLE_ELEMENTS],
+      table: { defaultValue: { summary: DEFAULTS.as } },
+    },
     variant: {
-      description: "TODO: what the axis means, in the poster's words.",
+      description: "TODO: what this option means, in plain words.",
       control: "select",
       options: [...VARIANTS],
       table: { defaultValue: { summary: DEFAULTS.variant } },
@@ -27,8 +42,14 @@ const meta = {
       description: "Layout adjustments only.",
       control: "text",
     },
+    forceHover: {
+      description: "Preview only — forces the hover look. Not a component prop.",
+      control: "boolean",
+      table: { category: "Workshop" },
+    },
   },
-} satisfies Meta<typeof Sample>;
+  // Control options come from the same value lists — a control can't offer a value the component rejects.
+} satisfies Meta<StoryArgs>;
 
 export default meta;
 

@@ -1,25 +1,9 @@
 @import "tailwindcss";
 
-/*
- * The type layer needs its faces declared before anything asks for them, so the
- * font sheet is imported first. It is kept apart because it changes for its own
- * reasons — a family added, a weight cut published — and never when a token
- * moves.
- */
 @import "./fonts.css";
 
-/*
- * Design tokens (#77). The Figma token posters are the visual reference;
- * every name below is the Figma variable name minus its mode suffix.
- * Light is the main theme; dark rides [data-theme="dark"] on <html>.
- *
- * The `initial` resets close each namespace: only the tokens declared here
- * exist, so an off-system utility (bg-red-500) fails to compile instead of
- * shipping.
- */
-
 @theme static {
-  /* Typography — families by role. */
+  /* Font families */
   --font-*: initial;
   --font-ui: "Josefin Sans", Futura, "Century Gothic", sans-serif;
   --font-display: var(--font-ui);
@@ -27,10 +11,7 @@
   --default-font-family: var(--font-ui);
   --default-mono-font-family: var(--font-numeric);
 
-  /*
-   * Size ramp. Each step is the poster's size/line-height pair: reading text
-   * takes `s`, result values take `m`.
-   */
+  /* Font sizes */
   --text-*: initial;
   --text-xxs: 0.625rem;
   --text-xxs--line-height: 0.75rem;
@@ -45,24 +26,33 @@
   --text-xl: 1.75rem;
   --text-xl--line-height: 2.125rem;
 
-  /* Weights in service; body text defaults to medium (Josefin runs light). */
+  /* Font weights */
   --font-weight-*: initial;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
+  /* Letter spacing */
   --tracking-*: initial;
   --tracking-label: 0.1em;
 
-  /* 4px base; every step derives from it (icon sizes are size-4/5/6). */
+  /* Spacing (4px base) */
   --spacing: 0.25rem;
 
+  /* Radius */
   --radius-*: initial;
   --radius-sm: 2px;
   --radius-md: 4px;
   --radius-lg: 8px;
+  --radius-xl: 99px;
 
+  /* Foundations */
+  --icon-sm: 16px;
+  --icon-md: 20px;
+  --icon-lg: 24px;
+
+  /* Motion: easing + animations */
   --ease-*: initial;
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --ease-emphasized: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -93,17 +83,18 @@
   }
 }
 
-/* Themed namespaces — light values here, dark overrides below. */
 @theme static {
+  /* Colors: base */
   --color-*: initial;
   --color-white: #ffffff;
   --color-black: #000000;
 
-  /* Structural — the neutral frame. */
+  /* Colors: structural frame */
   --color-surface: #f3efe5;
   --color-surface-raised: #fcfaf3;
   --color-surface-sunken: #e7e0cf;
   --color-ink: #1e2831;
+  --color-ink-reverse: #e9f0f4;
   --color-ink-muted: #5b6b77;
   --color-ink-disabled: #98a4ad;
   --color-border: #d8d0bc;
@@ -112,7 +103,7 @@
   --color-accent-hover: #644e1d;
   --color-focus: var(--color-accent);
 
-  /* Game palette — the game's own vocabulary; keywords wear these. */
+  /* Colors: game palette */
   --color-physical-damage: #835530;
   --color-magic-damage: #006b63;
   --color-true-damage: #616055;
@@ -131,12 +122,12 @@
   --color-hex: #616055;
   --color-mana: #076785;
 
-  /* Feedback — the app speaking about the setup. */
+  /* Colors: feedback */
   --color-advisory: #994900;
   --color-invalid: #c20027;
   --color-success: #196e2c;
 
-  /* Rarity — shop cost and augment tier frames. */
+  /* Colors: rarity */
   --color-1-cost: #7e7e7e;
   --color-2-cost: #0e930c;
   --color-3-cost: #286ad2;
@@ -144,24 +135,25 @@
   --color-5-cost: #8f7f15;
   --color-silver-tier: #5f80aa;
   --color-gold-tier: #957d11;
-  /* Prismatic is a 5-stop mix, not a single hue. */
   --color-prismatic-tier: #b74ee2;
   --color-prismatic-tier-2: #9d7a00;
   --color-prismatic-tier-3: #00915c;
   --color-prismatic-tier-4: #3d55ff;
   --color-prismatic-tier-5: #cd1cff;
 
-  /* Elevation. */
+  /* Shadows */
   --shadow-*: initial;
-  --shadow-sm: 0 1px 2px 0 rgb(30 40 49 / 0.1);
-  --shadow-md: 0 3px 10px -2px rgb(30 40 49 / 0.14);
-  --shadow-lg: 0 14px 32px -10px rgb(30 40 49 / 0.2);
+  --shadow-sm: 0 1px 2px 0 rgb(30 40 49 / 0.55);
+  --shadow-md: 0 3px 10px -2px rgb(30 40 49 / 0.55);
+  --shadow-lg: 0 14px 32px -10px rgb(30 40 49 / 0.6);
+
+  /* Focus glow */
+  --shadow-focus:
+    var(--shadow-sm),
+    0 0 16px 2px color-mix(in srgb, var(--color-accent) 60%, transparent);
 }
 
-/*
- * Non-utility tokens: consumed by component CSS, not by generated classes.
- * Focus recipe: ring 2px in --color-focus, offset 2px filled with surface.
- */
+/* Runtime tokens (not utilities) */
 :root {
   color-scheme: light;
   --duration-fast: 120ms;
@@ -169,8 +161,12 @@
   --duration-slow: 320ms;
   --focus-ring-width: 2px;
   --focus-ring-offset: 2px;
+  /* Focus glow for the bare <a>: accent halo hugging the text + underline, projected down (a text-shadow, not a box) */
+  --focus-underline-glow: 0 3px 6px
+    color-mix(in srgb, var(--color-accent) 100%, transparent);
 }
 
+/* Dark overrides */
 [data-theme="dark"] {
   color-scheme: dark;
 
@@ -178,6 +174,7 @@
   --color-surface-raised: #14202b;
   --color-surface-sunken: #070c11;
   --color-ink: #e9f0f4;
+  --color-ink-reverse: #1e2831;
   --color-ink-muted: #92a5b3;
   --color-ink-disabled: #556773;
   --color-border: #24333f;
@@ -224,3 +221,17 @@
   --shadow-md: 0 3px 8px -2px rgb(0 0 0 / 0.55);
   --shadow-lg: 0 12px 28px -8px rgb(0 0 0 / 0.6);
 }
+
+/* Accessibility: honour reduced-motion — neutralises transitions + named animations app-wide */
+/* eslint-disable css/no-important -- reduced-motion reset must override component animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* eslint-enable css/no-important */

@@ -7,13 +7,8 @@ import type {
   TextWeight,
 } from "./text.contract";
 
-/*
- * Realisation of text.contract.ts: one utility string per declared value.
- * Every map `satisfies` an exact Record over its axis, so the compiler keeps
- * coverage two-way — a new contract value fails here until painted, and a
- * class no contract value claims cannot exist.
- */
-
+// Every CSS class Text uses, one per value. The component never writes CSS.
+// satisfies rejects a missing or extra class; token classes only.
 export const SIZE_CLASS = {
   xxs: "text-xxs",
   xs: "text-xs",

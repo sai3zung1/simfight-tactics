@@ -12,6 +12,7 @@ import {
   WEIGHTS,
 } from "../text.contract";
 
+// The Storybook page: live preview + controls. Documentation, not part of the component.
 const meta = {
   title: "Atoms/Text",
   component: Text,
