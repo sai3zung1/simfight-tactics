@@ -28,6 +28,7 @@
 
   /* Font weights */
   --font-weight-*: initial;
+  --font-weight-light: 300;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
@@ -42,10 +43,10 @@
 
   /* Radius */
   --radius-*: initial;
-  --radius-sm: 2px;
-  --radius-md: 4px;
-  --radius-lg: 8px;
-  --radius-xl: 99px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 99px;
 
   /* Foundations */
   --icon-sm: 16px;
@@ -101,7 +102,10 @@
   --color-border-strong: #b4a98d;
   --color-accent: #7e6327;
   --color-accent-hover: #644e1d;
-  --color-focus: var(--color-accent);
+  --color-focus: #b99e66;
+  --color-active: color-mix(in srgb, #7e6327 80%, transparent);
+  --color-outline-hover: #e7e0cf;
+  --color-outline-active: #dcc38b;
 
   /* Colors: game palette */
   --color-physical-damage: #835530;
@@ -150,7 +154,7 @@
   /* Focus glow */
   --shadow-focus:
     var(--shadow-sm),
-    0 0 16px 2px color-mix(in srgb, var(--color-accent) 60%, transparent);
+    0 0 16px 2px color-mix(in srgb, var(--color-focus) 100%, transparent);
 }
 
 /* Runtime tokens (not utilities) */
@@ -159,11 +163,10 @@
   --duration-fast: 120ms;
   --duration-base: 200ms;
   --duration-slow: 320ms;
-  --focus-ring-width: 2px;
-  --focus-ring-offset: 2px;
+  --focus-ring-width: 1px;
   /* Focus glow for the bare <a>: accent halo hugging the text + underline, projected down (a text-shadow, not a box) */
   --focus-underline-glow: 0 3px 6px
-    color-mix(in srgb, var(--color-accent) 100%, transparent);
+    color-mix(in srgb, var(--color-focus) 100%, transparent);
 }
 
 /* Dark overrides */
@@ -181,6 +184,10 @@
   --color-border-strong: #3d5163;
   --color-accent: #c8aa6e;
   --color-accent-hover: #dcc38b;
+  --color-focus: #c8b388;
+  --color-active: color-mix(in srgb, #c8aa6e 80%, transparent);
+  --color-outline-hover: #070c11;
+  --color-outline-active: #644e1d;
 
   --color-physical-damage: #bd7e4c;
   --color-magic-damage: #9bfff7;

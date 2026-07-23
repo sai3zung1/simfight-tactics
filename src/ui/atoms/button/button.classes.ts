@@ -13,16 +13,17 @@ export const BASE = "inline-flex items-center gap-x-2 cursor-pointer";
 // What each element wears on its own: <button> a full box (chrome, motion, focus ring + glow), <a> bare underlined text.
 export const ELEMENT_CLASS = {
   button:
-    "border-2 border-border-strong shadow-sm transition duration-[var(--duration-fast)] ease-standard enabled:hover:bg-accent-hover enabled:active:bg-focus/80 disabled:cursor-not-allowed disabled:bg-ink-disabled disabled:text-ink disabled:border-ink focus-visible:outline-[var(--focus-ring-width)] focus-visible:outline-offset-[var(--focus-ring-offset)] focus-visible:outline-accent focus-visible:shadow-focus",
+    "border-border-strong shadow-sm transition duration-[var(--duration-fast)] ease-standard disabled:cursor-not-allowed disabled:text-ink disabled:border-ink focus-visible:outline-[length:var(--focus-ring-width)] focus-visible:[outline-style:solid] focus-visible:outline-focus focus-visible:shadow-focus",
   // <a>: bare underlined link. Focus glow hugs the text via text-shadow (not a box); outline-none drops the UA ring.
   a: "underline text-ink hover:text-accent-hover active:text-focus/80 focus-visible:outline-none focus-visible:[text-shadow:var(--focus-underline-glow)]",
 } satisfies Record<ButtonElement, string>;
 
-// Fill recipe for the <button> box; an <a> ignores it. One class per value; satisfies rejects a mismatch.
+// Per-variant recipe for the <button> box (border, fill, text, states); an <a> ignores it. satisfies rejects a missing variant.
 export const VARIANT_CLASS = {
-  solid: "bg-accent text-ink-reverse",
+  solid:
+    "border-2 bg-accent text-ink-reverse font-medium enabled:hover:bg-accent-hover enabled:active:bg-active disabled:bg-ink-disabled",
   outline:
-    "text-ink enabled:hover:text-ink-reverse enabled:active:text-ink-reverse",
+    "border-1 bg-surface-raised text-ink font-light enabled:hover:bg-outline-hover enabled:active:bg-outline-active disabled:bg-ink-disabled/60",
 } satisfies Record<ButtonVariant, string>;
 
 // Type scale — shared by <button> and <a>.
@@ -39,11 +40,18 @@ export const SIZE_PAD_CLASS = {
   l: "py-2 px-8",
 } satisfies Record<ButtonSize, string>;
 
+// Box padding for ornament-only (no label) so it stays square/circular.
+export const SIZE_ORNAMENT_ONLY_PAD_CLASS = {
+  s: "p-1",
+  m: "p-2",
+  l: "p-2",
+} satisfies Record<ButtonSize, string>;
+
 export const RADIUS_CLASS = {
   sm: "rounded-sm",
   md: "rounded-md",
   lg: "rounded-lg",
-  xl: "rounded-xl",
+  full: "rounded-full",
 } satisfies Record<ButtonRadius, string>;
 
 export const ORNAMENT_SIZE_CLASS = {

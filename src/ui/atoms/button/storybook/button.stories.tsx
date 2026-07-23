@@ -44,7 +44,7 @@ const meta = {
   argTypes: {
     variant: {
       description:
-        'Fill recipe for the button box — `solid` fills, `outline` stays hollow; both wear the 2px border. Ignored when `as="a"`.',
+        'Per-variant recipe for the button box — `solid`: accent fill, 2px border; `outline`: surface fill, 1px border, lighter states. Ignored when `as="a"`.',
       control: "select",
       options: [...VARIANTS],
       if: { arg: "as", eq: "button" },
@@ -66,6 +66,7 @@ const meta = {
       description: "Corner rounding, read from the --radius-* token scale.",
       control: "select",
       options: [...RADIUS],
+      if: { arg: "as", eq: "button" },
       table: {
         type: { summary: "ButtonRadius" },
         defaultValue: { summary: DEFAULTS.radius },
@@ -131,6 +132,7 @@ const meta = {
     disabled: {
       description: "Renders the button in its disabled state.",
       control: "boolean",
+      if: { arg: "as", eq: "button" },
       table: { category: "Workshop" },
     },
   },
@@ -175,5 +177,15 @@ export const Ornament: Story = {
     variant: "solid",
     children: "Loading...",
     withOrnament: true,
+  },
+};
+
+export const OrnamentOnly: Story = {
+  args: {
+    variant: "solid",
+    children: undefined,
+    withOrnament: true,
+    radius: "full",
+    "aria-label": "Reroll",
   },
 };

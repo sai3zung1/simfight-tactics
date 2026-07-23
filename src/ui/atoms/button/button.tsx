@@ -11,6 +11,7 @@ import {
   SIZE_PAD_CLASS,
   VARIANT_CLASS,
   ORNAMENT_SIZE_CLASS,
+  SIZE_ORNAMENT_ONLY_PAD_CLASS,
 } from "./button.classes";
 import {
   DEFAULTS,
@@ -39,12 +40,21 @@ type ButtonOwnProps<E extends ButtonElement> = {
   ornamentSide?: ButtonOrnamentSide;
 
   className?: string;
-  children?: ReactNode;
 };
+
+// A visible label, or — with none (ornament-only) — an accessible name is required at the type level.
+type LabelledContent =
+  | { children: ReactNode }
+  | { children?: undefined; "aria-label": string }
+  | { children?: undefined; "aria-labelledby": string };
 
 // Any standard HTML attribute (onClick, id…) passes to the element; our own props win over clashes.
 export type ButtonProps<E extends ButtonElement> = ButtonOwnProps<E> &
-  Omit<ComponentPropsWithRef<E>, keyof ButtonOwnProps<E>>;
+  LabelledContent &
+  Omit<
+    ComponentPropsWithRef<E>,
+    keyof ButtonOwnProps<E> | "children" | "aria-label" | "aria-labelledby"
+  >;
 
 export function Button<E extends ButtonElement = "button">({
   as,
@@ -60,13 +70,17 @@ export function Button<E extends ButtonElement = "button">({
   const element = as ?? DEFAULTS.as;
   const isButton = element === "button";
   const Component = element as ElementType;
+  const isOrnamentOnly = !!ornament && !children;
   // The fill recipe dresses the <button> box only; an <a> stays bare underlined text.
   const classes = [
     BASE,
     ELEMENT_CLASS[element],
     isButton && VARIANT_CLASS[variant],
     SIZE_FONT_CLASS[size],
-    isButton && SIZE_PAD_CLASS[size],
+    isButton &&
+      (isOrnamentOnly
+        ? SIZE_ORNAMENT_ONLY_PAD_CLASS[size]
+        : SIZE_PAD_CLASS[size]),
     isButton && RADIUS_CLASS[radius],
     className,
   ]
@@ -76,13 +90,16 @@ export function Button<E extends ButtonElement = "button">({
   const ornamentNode = Ornament ? (
     <Ornament aria-hidden className={`shrink-0 ${ORNAMENT_SIZE_CLASS[size]}`} />
   ) : null;
+  const content = children ? (
+    <span className="translate-y-[1px]">{children}</span>
+  ) : null;
   // A <button> defaults to type="button" so it never submits a form by accident; the caller can override.
   const typeProp =
     isButton && !("type" in rest) ? { type: "button" as const } : undefined;
   return (
     <Component className={classes} {...typeProp} {...rest}>
       {ornamentSide === "left" && ornamentNode}
-      <span className="translate-y-[1px]">{children}</span>
+      {content}
       {ornamentSide === "right" && ornamentNode}
     </Component>
   );

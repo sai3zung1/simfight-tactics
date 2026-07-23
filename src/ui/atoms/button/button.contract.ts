@@ -3,7 +3,7 @@ export const VARIANTS = ["solid", "outline"] as const;
 
 export const SIZES = ["s", "m", "l"] as const;
 
-export const RADIUS = ["sm", "md", "lg", "xl"] as const;
+export const RADIUS = ["sm", "md", "lg", "full"] as const;
 
 export const BUTTON_ELEMENTS = ["button", "a"] as const;
 
@@ -20,7 +20,7 @@ export const DEFAULTS = {
   as: "button",
   variant: "solid",
   size: "m",
-  radius: "xl",
+  radius: "lg",
   ornamentSide: "left",
 } as const satisfies {
   as: ButtonElement;
