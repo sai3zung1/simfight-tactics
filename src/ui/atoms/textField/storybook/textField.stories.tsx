@@ -4,7 +4,8 @@ import { TextField, type TextFieldProps } from "../textField";
 import { DEFAULTS } from "../textField.contract";
 
 // Interactive states aren't forced — hover, tab into or type in the field in the
-// canvas to see its real :hover/:focus-visible/:disabled.
+// canvas to see its real :hover/:focus-within/:disabled. Typing also reveals the
+// clear button and the results line, which the empty field keeps hidden.
 const meta = {
   title: "Atoms/TextField",
   component: TextField,
@@ -19,8 +20,17 @@ const meta = {
     name: "catalog-search",
     placeholder: "Search",
     "aria-label": "Search the catalog",
+    // Caller-owned content. Counting is the catalog's job, not the field's — the workshop
+    // just shows a plausible line so the slot is visible once the field fills.
+    results: "1 result(s)",
   },
   argTypes: {
+    results: {
+      description:
+        "Line shown under the field once it holds text. Content is the caller's.",
+      control: "text",
+      table: { type: { summary: "ReactNode" } },
+    },
     placeholder: {
       description:
         "Hint shown while the field is empty. Never a substitute for a label.",
@@ -55,5 +65,13 @@ export const Playground: Story = {};
 export const Disabled: Story = {
   args: {
     disabled: true,
+  },
+};
+
+// Uncontrolled on purpose: the clear button has to work without the caller holding state,
+// which is the case the naive input.value = "" would silently break.
+export const Filled: Story = {
+  args: {
+    defaultValue: "Ezreal",
   },
 };
