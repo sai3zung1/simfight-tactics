@@ -3,16 +3,15 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { TextField, type TextFieldProps } from "../textField";
 import { DEFAULTS } from "../textField.contract";
 
-// Interactive states aren't forced — hover, tab into or type in the field in the
-// canvas to see its real :hover/:focus-within/:disabled. Typing also reveals the
-// clear button and the results line, which the empty field keeps hidden.
+// No state is faked here. Hover, tab into or type in the field to see the real ones.
+// Typing also reveals the clear button and the results line, hidden while it is empty.
 const meta = {
   title: "Atoms/TextField",
   component: TextField,
   tags: ["autodocs"],
   parameters: { layout: "padded" },
-  // What a caller passes at reuse. All of it reaches the DOM; the panel below only
-  // keeps the ones a reader can watch change.
+  // What a caller would pass when reusing the component. All of it reaches the page.
+  // The panel below only lists the ones whose effect can be seen while changing them.
   args: {
     as: DEFAULTS.as,
     variant: DEFAULTS.variant,
@@ -20,8 +19,8 @@ const meta = {
     name: "catalog-search",
     placeholder: "Search",
     "aria-label": "Search the catalog",
-    // Caller-owned content. Counting is the catalog's job, not the field's — the workshop
-    // just shows a plausible line so the slot is visible once the field fills.
+    // Counting belongs to whatever uses the field. These are stand-in values, so the line
+    // has something to show once the field is filled.
     resultCount: "1",
     resultLabel: "result(s)",
   },
@@ -48,14 +47,14 @@ const meta = {
       control: "boolean",
       table: { category: "Workshop" },
     },
-    // Applied above, hidden here — not absent. A single-value contract offers nothing
-    // to pick, and naming the field is the caller's job, not a knob to turn. Leaving
-    // them out entirely is what hands the panel a guessed "Set object" control.
+    // Hidden from the panel but still applied above. Each accepts a single value, or is
+    // set once when reusing the component, so there is nothing to try out here.
+    // Removing them instead would make the panel guess a control and show a broken one.
     as: { table: { disable: true } },
     variant: { table: { disable: true } },
     type: { table: { disable: true } },
-    // Identifies the field for autofill and for a <label for>. Caller-owned: hardcoding
-    // one inside the atom would collide the moment two fields share a page.
+    // Identifies the field for browser autofill. It comes from the caller, because a name
+    // fixed inside the component would repeat as soon as two fields share a page.
     name: { table: { disable: true } },
     "aria-label": { table: { disable: true } },
     className: { table: { disable: true } },
@@ -74,8 +73,8 @@ export const Disabled: Story = {
   },
 };
 
-// Uncontrolled on purpose: the clear button has to work without the caller holding state,
-// which is the case the naive input.value = "" would silently break.
+// The value is set through the page rather than held by this story, on purpose. The clear
+// button has to work either way.
 export const Filled: Story = {
   args: {
     defaultValue: "Ezreal",

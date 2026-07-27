@@ -1,4 +1,4 @@
-// The values each option can take (its sizes, its variants…). No CSS here.
+// The values each option can take. No CSS here.
 export const VARIANTS = "default" as const;
 
 export const TEXT_FIELD_ELEMENTS = "input" as const;
