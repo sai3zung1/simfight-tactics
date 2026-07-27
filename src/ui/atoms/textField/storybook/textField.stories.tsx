@@ -22,12 +22,18 @@ const meta = {
     "aria-label": "Search the catalog",
     // Caller-owned content. Counting is the catalog's job, not the field's — the workshop
     // just shows a plausible line so the slot is visible once the field fills.
-    results: "1 result(s)",
+    resultCount: "1",
+    resultLabel: "result(s)",
   },
   argTypes: {
-    results: {
+    resultCount: {
       description:
-        "Line shown under the field once it holds text. Content is the caller's.",
+        "The changing half of the results line, set in bold. The caller counts.",
+      control: "text",
+      table: { type: { summary: "ReactNode" } },
+    },
+    resultLabel: {
+      description: "The fixed half beside the count. The caller words it.",
       control: "text",
       table: { type: { summary: "ReactNode" } },
     },

@@ -87,10 +87,17 @@ export const CLEAR = [WHEN_CLEARABLE, CLEAR_REST, CLEAR_STATES].join(" ");
 export const CLEAR_ICON = "size-[var(--icon-sm)]";
 
 // The atom owns where this sits and when it appears; the caller owns what it says.
+// items-baseline, because the count and its label carry different weights and would
+// otherwise sit on two different lines of their own.
 export const RESULTS = [
   WHEN_FILLED,
-  "justify-end gap-1 px-2 py-1 text-s text-ink-muted",
+  "items-baseline justify-end gap-1 px-2 py-1 text-s text-ink-muted",
 ].join(" ");
+
+// The count is its own element because it is the only part that changes. The label next to
+// it inherits the row's type and needs no class of its own — which is also what keeps the
+// weight from having to be forced over anything.
+export const RESULTS_COUNT = "font-bold";
 
 export const VARIANT_CLASS = {
   default: "",

@@ -12,6 +12,7 @@ import {
   ORNAMENT,
   ORNAMENT_ICON,
   RESULTS,
+  RESULTS_COUNT,
   SHELL,
   VARIANT_CLASS,
 } from "./textField.classes";
@@ -27,9 +28,11 @@ type TextFieldOwnProps = {
   as?: TextFieldElement;
   variant?: TextFieldVariant;
   className?: string;
-  // Sits under the field and appears with the first character typed. The atom owns where it
-  // goes and when it shows; what it says — a count, a hint — belongs to the caller.
-  results?: ReactNode;
+  // The line under the field, revealed by the first character typed. Split in two because
+  // only the count ever changes; the label beside it is fixed copy. The atom places them
+  // and sets their weight — counting, and wording, stay with the caller.
+  resultCount?: ReactNode;
+  resultLabel?: ReactNode;
   onClear?: () => void;
   clearLabel?: string;
 };
@@ -51,7 +54,8 @@ export function TextField({
   as,
   variant = DEFAULTS.variant,
   className,
-  results,
+  resultCount,
+  resultLabel,
   onClear,
   clearLabel = "Clear search",
   ref,
@@ -104,7 +108,12 @@ export function TextField({
           <X className={CLEAR_ICON} aria-hidden />
         </button>
       </div>
-      {results !== undefined && <strong className={RESULTS}>{results}</strong>}
+      {(resultCount !== undefined || resultLabel !== undefined) && (
+        <div className={RESULTS}>
+          <span className={RESULTS_COUNT}>{resultCount}</span>
+          <span>{resultLabel}</span>
+        </div>
+      )}
     </search>
   );
 }
