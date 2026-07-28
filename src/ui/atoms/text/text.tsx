@@ -1,4 +1,3 @@
-// Picks the CSS classes for the chosen values and renders the element. No styling decisions here.
 import type { ComponentPropsWithRef, ElementType, ReactNode } from "react";
 
 import {
@@ -31,7 +30,6 @@ export type {
   TextWeight,
 };
 
-// A caller sets tone OR keyword, never both — the union makes the wrong combo a type error.
 type Colouring =
   | { tone?: TextTone; keyword?: never }
   | { tone?: never; keyword: TextKeyword };
@@ -71,7 +69,6 @@ export function Text<E extends TextElement = "p">({
     ? KEYWORD_CLASS[keyword]
     : TONE_CLASS[tone ?? DEFAULTS.tone];
 
-  // Each value: the explicit prop, else the element's heading default, else the global default.
   const classes = [
     FAMILY_CLASS[family],
     SIZE_CLASS[size ?? heading?.size ?? DEFAULTS.size],

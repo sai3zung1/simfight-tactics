@@ -84,7 +84,6 @@ test("two pools sharing an expiry tick both go, and the duplicate event is inert
   const state = stateWith(c);
   processShieldExpiry(expiryAt(4, c), state);
   expect(c.shields).toHaveLength(0);
-  // The twin event finds nothing left to prune.
   processShieldExpiry(expiryAt(4, c), state);
   expect(c.shields).toHaveLength(0);
 });
@@ -92,8 +91,8 @@ test("two pools sharing an expiry tick both go, and the duplicate event is inert
 test("an expiry prunes the closed pool and leaves a still-live one standing", () => {
   const c = makeCombatant();
   const queue = createEventQueue();
-  applyShield(c, 300, TICK_ZERO, secondsToTicks(4), queue); // closes at 4s
-  applyShield(c, 200, TICK_ZERO, secondsToTicks(8), queue); // still open at 4s
+  applyShield(c, 300, TICK_ZERO, secondsToTicks(4), queue);
+  applyShield(c, 200, TICK_ZERO, secondsToTicks(8), queue);
 
   processShieldExpiry(expiryAt(4, c), stateWith(c));
 

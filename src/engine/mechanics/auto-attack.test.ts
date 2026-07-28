@@ -128,7 +128,6 @@ test("still deals damage but never signals when the target cannot die", () => {
 
   expect(signal).toBeUndefined();
   expect(state.damageDealtBy[attacker.id]).toBeGreaterThan(0);
-  // Immortality floors the HP write instead of letting it cross death.
   expect(target.currentHp).toBe(1);
   expect(queue.popNext()).not.toBeUndefined();
 });
@@ -144,7 +143,6 @@ test("a hit credits the swinger's tally, and only the swinger's", () => {
 
   process(autoAttack(attacker, target, 0));
 
-  // No defenses, no crit: the credited amount is the full 100.
   expect(state.damageDealtBy[attacker.id]).toBe(100);
   expect(state.damageDealtBy[target.id]).toBe(0);
 });
@@ -179,7 +177,6 @@ test("an eligible target converts the hit into mana", () => {
 
   process(autoAttack(attacker, target, 0));
 
-  // No defenses: dealt = pre-mitigated = 100 -> 1% × 100 + 3% × 100
   expect(target.currentMana).toBeCloseTo(4);
 });
 
@@ -205,8 +202,6 @@ test("a floored hit still grants full damage-taken mana", () => {
 
   process(autoAttack(attacker, target, 0));
 
-  // The floor clamps the HP write, never the hit: the conversion reads the
-  // hit's full resolved numbers. No defenses: 1% × 100 + 3% × 100.
   expect(target.currentMana).toBeCloseTo(4);
   expect(target.currentHp).toBe(1);
 });

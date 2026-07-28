@@ -7,8 +7,6 @@ import type {
   TextWeight,
 } from "./text.contract";
 
-// Every CSS class Text uses, one per value. The component never writes CSS.
-// satisfies rejects a missing or extra class; token classes only.
 export const SIZE_CLASS = {
   xxs: "text-xxs",
   xs: "text-xs",

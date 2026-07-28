@@ -1,4 +1,3 @@
-// Picks the CSS classes for the chosen values and renders the element. No styling decisions here.
 import type { ComponentPropsWithRef, ElementType, ReactNode } from "react";
 
 import type { LucideIcon } from "lucide-react";
@@ -31,7 +30,6 @@ export type {
 };
 
 type ButtonOwnProps<E extends ButtonElement> = {
-  // as picks the HTML element, so the caller can pass its attributes: href for <a>, type for <button>.
   as?: E;
   variant?: ButtonVariant;
   size?: ButtonSize;
@@ -42,13 +40,11 @@ type ButtonOwnProps<E extends ButtonElement> = {
   className?: string;
 };
 
-// A visible label, or — with none (ornament-only) — an accessible name is required at the type level.
 type LabelledContent =
   | { children: ReactNode }
   | { children?: undefined; "aria-label": string }
   | { children?: undefined; "aria-labelledby": string };
 
-// Any standard HTML attribute (onClick, id…) passes to the element; our own props win over clashes.
 export type ButtonProps<E extends ButtonElement> = ButtonOwnProps<E> &
   LabelledContent &
   Omit<
@@ -71,7 +67,6 @@ export function Button<E extends ButtonElement = "button">({
   const isButton = element === "button";
   const Component = element as ElementType;
   const isOrnamentOnly = !!ornament && !children;
-  // The fill recipe dresses the <button> box only; an <a> stays bare underlined text.
   const classes = [
     BASE,
     ELEMENT_CLASS[element],
@@ -93,7 +88,6 @@ export function Button<E extends ButtonElement = "button">({
   const content = children ? (
     <span className="translate-y-[1px]">{children}</span>
   ) : null;
-  // A <button> defaults to type="button" so it never submits a form by accident; the caller can override.
   const typeProp =
     isButton && !("type" in rest) ? { type: "button" as const } : undefined;
   return (

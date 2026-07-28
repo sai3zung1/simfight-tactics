@@ -1,4 +1,3 @@
-// The values each option accepts (variants, sizes, radius…). No CSS here.
 export const VARIANTS = ["solid", "outline"] as const;
 
 export const SIZES = ["s", "m", "l"] as const;
@@ -15,7 +14,6 @@ export type ButtonRadius = (typeof RADIUS)[number];
 export type ButtonElement = (typeof BUTTON_ELEMENTS)[number];
 export type ButtonOrnamentSide = (typeof ORNAMENT_SIDE)[number];
 
-// The value used when the caller passes none.
 export const DEFAULTS = {
   as: "button",
   variant: "solid",

@@ -4,9 +4,6 @@ import type { CombatEvent } from "./combat-event";
 import type { CombatantId } from "../stats/combatant-id";
 import type { Ticks } from "./time";
 
-// Fixtures build a CombatEvent at a given tick. Tests cast directly; the engine's
-// real producer of `Ticks` is `secondsToTicks`. The queue only ever looks at
-// `time`, so attacker/target are placeholders.
 const event = (time: number): CombatEvent => ({
   kind: "auto-attack",
   time: time as Ticks,
@@ -20,7 +17,6 @@ const castEvent = (time: number): CombatEvent => ({
   caster: "attacker" as CombatantId,
 });
 
-// Drain the queue, collecting the popped times in order.
 const drainTimes = (q: EventQueue): number[] => {
   const out: number[] = [];
   for (let e = q.popNext(); e !== undefined; e = q.popNext()) out.push(e.time);
@@ -58,7 +54,7 @@ test("a cast pre-empts any other kind scheduled on the same tick", () => {
   const q = createEventQueue();
   const attack = event(30);
   const cast = castEvent(30);
-  q.push(attack); // pushed first — would win a plain arrival-order tie
+  q.push(attack);
   q.push(cast);
   expect(q.popNext()).toBe(cast);
   expect(q.popNext()).toBe(attack);
@@ -105,7 +101,6 @@ test("has reports whether a pending event matches, without consuming it", () => 
 
   expect(q.has((e) => e.time === (10 as Ticks))).toBe(true);
   expect(q.has((e) => e.time === (999 as Ticks))).toBe(false);
-  // Purely a lookup: the matching event is still there afterwards.
   expect(q.popNext()?.time).toBe(10 as Ticks);
 });
 

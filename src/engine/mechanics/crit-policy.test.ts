@@ -31,7 +31,6 @@ describe("edge cases — expectedCrit collapses to the bounds", () => {
 });
 
 describe("guardrail — neverCrit ≤ expectedCrit ≤ alwaysCrit", () => {
-  // Domain corners + middle. Deterministic and reproducible (no Math.random).
   const cases: ReadonlyArray<readonly [chance: number, damage: number]> = [
     [0, 0],
     [0, 1],

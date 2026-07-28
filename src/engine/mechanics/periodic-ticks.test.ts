@@ -246,11 +246,8 @@ test("a damage tick rides the full pipeline: mitigation, tally, the victim's man
   );
 
   expect(signal).toBeUndefined();
-  // 100 into 25 magic resist → 80 dealt.
   expect(target.currentHp).toBe(920);
   expect(state.damageDealtBy[source.id]).toBe(80);
-  // 1% × 100 pre-mitigation + 3% × 80 dealt = 3.4 — fractional, zero-loss:
-  // the gauge crosses its threshold and the response cast fires.
   expect(target.currentMana).toBeCloseTo(102.4);
   expect(queue.popNext()?.kind).toBe("cast");
 });
@@ -277,10 +274,8 @@ test("a tick re-reads the source's live sheet: a mid-window buff moves later tic
   const modifier = periodicDamage(4, 1, 100, ["abilityPower"]);
 
   processPeriodicTick(tickAt(modifier, NOW, source, target), state, queue);
-  // 100 × ability power 1, no resist → 100 dealt by the first tick.
   expect(target.currentHp).toBe(900);
 
-  // An ability-power buff lands between two ticks of the same window.
   applyTimedModifier(
     source,
     {
@@ -299,7 +294,6 @@ test("a tick re-reads the source's live sheet: a mid-window buff moves later tic
     state,
     queue,
   );
-  // The second tick re-resolves at ability power 2 → 200, never the cast-time 100.
   expect(target.currentHp).toBe(700);
   expect(state.damageDealtBy[source.id]).toBe(300);
 });
@@ -330,13 +324,11 @@ test("an accrual stat-mod tick stacks for the run: entries never expire", () => 
     queue,
   );
 
-  // Two independent permanent-for-combat entries, additively folded.
   expect(target.stats.attackSpeed).toBeCloseTo(1.16);
   expect(target.timedModifiers).toHaveLength(2);
   expect(
     target.timedModifiers.every((entry) => entry.expiresAt === NEVER_EXPIRES),
   ).toBe(true);
-  // Nothing infinite is scheduled: the queue holds no expiry for these.
   expect(queue.popNext()).toBeUndefined();
 });
 
@@ -350,15 +342,12 @@ test("an instance stat-mod tick lives one interval: the boundary refreshes, neve
 
   processPeriodicTick(tickAt(pulse, NOW, source, target), state, queue);
   expect(target.stats.armor).toBe(40);
-  // The residue's expiry is scheduled at the next tick's boundary.
   expect(queue.popNext()).toEqual({
     kind: "modifier-expiry",
     time: boundary,
     combatant: target.id,
   });
 
-  // At the boundary both fire: the next tick's residue lands, the old one is
-  // pruned by time — whichever order, the fold ends carrying exactly one.
   processPeriodicTick(tickAt(pulse, boundary, source, target), state, queue);
   processModifierExpiry(
     { kind: "modifier-expiry", time: boundary, combatant: target.id },
@@ -381,7 +370,6 @@ test("an accrual shield tick cumulates: what damage ate stays eaten, the rest st
   };
 
   processPeriodicTick(tickAt(bulwark, NOW, source, target), state, queue);
-  // Between two ticks, damage erodes the pool — the lane's own behavior.
   applyDamage(target, 50);
   processPeriodicTick(
     tickAt(bulwark, addTicks(NOW, 1000 as Ticks), source, target),
@@ -389,7 +377,6 @@ test("an accrual shield tick cumulates: what damage ate stays eaten, the rest st
     queue,
   );
 
-  // 200 - 50 eaten + 200 fresh = 350 alive, across two never-expiring pools.
   const remaining = target.shields.reduce((sum, p) => sum + p.remaining, 0);
   expect(remaining).toBe(350);
   expect(target.currentHp).toBe(1000);
@@ -422,7 +409,6 @@ test("an instance shield tick restarts the pool each interval: the leftover fade
     state,
   );
 
-  // The eroded 150 faded with its window; only the fresh 200 stands.
   expect(target.shields).toHaveLength(1);
   expect(target.shields[0].remaining).toBe(200);
 });
@@ -442,8 +428,6 @@ test("a mana-generation tick folds the gain and starts the regen chain", () => {
   processPeriodicTick(tickAt(flow, NOW, source, target), state, queue);
 
   expect(target.manaGains["per-second"]).toBe(4);
-  // The recipient wasn't ticking: the fold alone pays nothing, so the tick
-  // also arms the first regen event.
   expect(queue.popNext()?.kind).toBe("mana-regen");
 });
 
@@ -474,10 +458,8 @@ test("a residue tick banks the flat re-read amount: later source changes never r
   const scaled = periodicStatMod("accrual", 10, "armor", ["abilityPower"]);
 
   processPeriodicTick(tickAt(scaled, NOW, source, target), state, queue);
-  // 10 × source ability power 2 = 20, banked flat into the residue.
   expect(target.stats.armor).toBe(20);
 
-  // The source's sheet moves after the tick; the banked residue must not.
   applyTimedModifier(
     source,
     {
@@ -516,7 +498,6 @@ test("a heal tick restores up to the effective max, re-read against the source",
     createEventQueue(),
   );
 
-  // 100 × source ability power 2 = 200 healed → 900.
   expect(target.currentHp).toBe(900);
 
   processPeriodicTick(
@@ -524,6 +505,5 @@ test("a heal tick restores up to the effective max, re-read against the source",
     state,
     createEventQueue(),
   );
-  // 900 + 200 caps at the 1000 max — the surplus is lost.
   expect(target.currentHp).toBe(1000);
 });

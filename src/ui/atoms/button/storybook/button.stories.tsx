@@ -12,12 +12,9 @@ import {
   VARIANTS,
 } from "../button.contract";
 
-// Icons the workshop's ornament picker offers. Workshop-only — the component prop takes a LucideIcon.
 const ORNAMENT_ICONS = { Loader, RefreshCw, Swords, Sparkles } as const;
 type OrnamentIcon = keyof typeof ORNAMENT_ICONS;
 
-// Ornament controls live only on this page, never on the component. Interactive states aren't forced —
-// hover, tab or click the button in the canvas to see its real :hover/:focus-visible/:active.
 type StoryArgs = (ButtonProps<"button"> | ButtonProps<"a">) & {
   withOrnament?: boolean;
   ornamentIcon?: OrnamentIcon;
@@ -32,7 +29,6 @@ const meta = {
     as: DEFAULTS.as,
     children: "Reroll",
   },
-  // The workshop-only ornament controls map to the real LucideIcon prop; everything else passes straight through.
   render: ({ withOrnament, ornamentIcon, ...args }) => (
     <Button
       {...args}
@@ -124,7 +120,6 @@ const meta = {
       if: { arg: "withOrnament", truthy: true },
       table: { category: "Workshop" },
     },
-    // The auto-inferred object control for `ornament` is dead (render overrides it) and can't take a component — hide it.
     ornament: {
       control: false,
       table: { disable: true },

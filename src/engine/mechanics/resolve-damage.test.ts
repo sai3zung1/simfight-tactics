@@ -12,13 +12,11 @@ const CRIT_DAMAGE = 0.4;
 
 describe("resolveDamage", () => {
   const hit = { amount: 100, damageType: "physical" } as const;
-  const attacker = { damageAmp: 0.2 }; // amplification ×1.2
+  const attacker = { damageAmp: 0.2 };
   const noReduction = { durability: 0, damageReductions: [] };
-  // physical → 100/150 ≈ 0.667
   const target = { armor: 50, magicResist: 0, ...noReduction };
 
   test("applies amplification, crit and mitigation", () => {
-    // 100 × 1.2 × 1.10 × 0.667 ≈ 88
     expect(
       resolveDamage(
         hit,
@@ -36,13 +34,11 @@ describe("resolveDamage", () => {
       target,
       expectedCrit(CRIT_CHANCE, CRIT_DAMAGE),
     );
-    // 100 × 1.2 × 1.10 — mitigation not applied yet
     expect(resolved.preMitigated).toBeCloseTo(132);
     expect(resolved.dealt).toBeLessThan(resolved.preMitigated);
   });
 
   test("no crit yields the lower damage", () => {
-    // 100 × 1.2 × 1 × 0.667 ≈ 80
     expect(
       resolveDamage(hit, attacker, target, neverCrit(CRIT_CHANCE, CRIT_DAMAGE))
         .dealt,
@@ -50,7 +46,6 @@ describe("resolveDamage", () => {
   });
 
   test("guaranteed crit yields the upper damage", () => {
-    // 100 × 1.2 × 1.4 × 0.667 ≈ 112
     expect(
       resolveDamage(hit, attacker, target, alwaysCrit(CRIT_CHANCE, CRIT_DAMAGE))
         .dealt,
@@ -59,7 +54,7 @@ describe("resolveDamage", () => {
 
   test("magic damage is mitigated by magic resist, not armor", () => {
     const magicHit = { amount: 100, damageType: "magic" } as const;
-    const magicTarget = { armor: 0, magicResist: 50, ...noReduction }; // 100/150 ≈ 0.667
+    const magicTarget = { armor: 0, magicResist: 50, ...noReduction };
     expect(
       resolveDamage(magicHit, { damageAmp: 0 }, magicTarget, 1).dealt,
     ).toBeCloseTo(66.67);
@@ -78,7 +73,6 @@ describe("resolveDamage", () => {
       durability: 0.5,
       damageReductions: [],
     };
-    // 100 × 1 × 1 × 1 × 0.5
     expect(resolveDamage(hit, { damageAmp: 0 }, durable, 1).dealt).toBe(50);
   });
 
@@ -89,7 +83,6 @@ describe("resolveDamage", () => {
       durability: 0.2,
       damageReductions: [0.5],
     };
-    // 100 × (1 − 0.2) × (1 − 0.5)
     expect(resolveDamage(hit, { damageAmp: 0 }, shielded, 1).dealt).toBeCloseTo(
       40,
     );
@@ -120,8 +113,6 @@ describe("resolveDamage", () => {
   });
 });
 
-// Pins the adopted mitigation formula and its zero floor
-// (docs/data/calibration-log.md, C1).
 describe("mitigationFactor — routing by damage type", () => {
   const target = { armor: 50, magicResist: 30 };
 
@@ -149,8 +140,6 @@ describe("mitigationFactor — routing by damage type", () => {
   });
 });
 
-// Pins the adopted multiplicative stacking of the reduction lanes
-// (docs/data/calibration-log.md, C3).
 describe("reductionFactor — the two damage-reduction lanes", () => {
   test("no reduction is neutral", () => {
     expect(reductionFactor(0, [])).toBe(1);

@@ -86,7 +86,6 @@ test("a damage effect lands the exact mitigated amount and credits the caster", 
     NOW,
   );
 
-  // 230 × ability power 1, then 100/(100+25) mitigation → 184 dealt.
   expect(signal).toBeUndefined();
   expect(opponent.currentHp).toBe(816);
   expect(state.damageDealtBy[caster.id]).toBe(184);
@@ -107,7 +106,6 @@ test("the cast reads the effective view: raised ability power moves the damage",
     NOW,
   );
 
-  // 230 × 1.25 = 287.5 pre-mitigation, × 0.8 → 230 dealt.
   expect(state.damageDealtBy[caster.id]).toBe(230);
 });
 
@@ -125,7 +123,6 @@ test("a spell never crits, whatever the caster's crit stats", () => {
     NOW,
   );
 
-  // A guaranteed-crit auto-attack would land ×1.4; the spell stays nominal.
   expect(state.damageDealtBy[caster.id]).toBe(184);
 });
 
@@ -149,7 +146,6 @@ test("a killing effect signals the cast's instant and nothing after it is observ
   );
 
   expect(signal).toEqual({ time: NOW });
-  // Only the killing hit is tallied: the second effect never resolves.
   expect(state.damageDealtBy[caster.id]).toBe(184);
   expect(queue.popNext()).toBeUndefined();
 });
@@ -191,7 +187,6 @@ test("effects deliver in the returned order, each through the full pipeline", ()
     NOW,
   );
 
-  // No resist: both land whole.
   expect(opponent.currentHp).toBe(700);
   expect(state.damageDealtBy[caster.id]).toBe(300);
 });
@@ -215,7 +210,6 @@ test("a hit victim converts the exchange into mana and can cast in response", ()
 
   applyEffects([magicHit(230)], caster, opponent, state, queue, NOW);
 
-  // 1% × 230 pre-mitigation + 3% × 184 dealt = 7.82 → the gauge crosses 100.
   expect(opponent.currentMana).toBeCloseTo(102.82);
   const next = queue.popNext();
   expect(next?.kind).toBe("cast");
@@ -402,7 +396,6 @@ test("a shield scales on the caster's effective stats at cast (D4)", () => {
     NOW,
   );
 
-  // 100 × caster ability power 2 = 200.
   expect(caster.shields[0].remaining).toBe(200);
 });
 
@@ -472,8 +465,6 @@ test("a mana-generation effect folds into the recipient's trigger bucket (D1)", 
 });
 
 test("a per-second mana buff starts the recipient's regen chain mid-run (D1)", () => {
-  // A combatant with no baseline per-second gain isn't ticking. The buff must
-  // both fold into the bucket and schedule the first regen tick.
   const caster = makeCombatant("attacker");
   const opponent = makeCombatant("target");
   const state = makeState(caster, opponent);
@@ -492,7 +483,6 @@ test("a per-second mana buff starts the recipient's regen chain mid-run (D1)", (
   applyEffects([perSecond], caster, opponent, state, queue, NOW);
 
   expect(caster.manaGains["per-second"]).toBe(4);
-  // Two events pending: the buff's own expiry and the freshly-started regen tick.
   const kinds = [queue.popNext()?.kind, queue.popNext()?.kind].sort();
   expect(kinds).toEqual(["mana-regen", "modifier-expiry"]);
 });
@@ -526,9 +516,6 @@ test("a duration stat-mod is delivered to its recipient: folded now, expiry sche
 });
 
 test("a scaled buff banks the caster's effective stat at cast, not the recipient's", () => {
-  // Caster holds 3 ability power; the buff scales on it. Snapshotted at cast,
-  // the fold reads that banked value rather than re-deriving it from whoever
-  // ends up holding the entry.
   const caster = makeCombatant("attacker", {
     abilityPower: 3,
     attackDamage: 100,
@@ -548,14 +535,10 @@ test("a scaled buff banks the caster's effective stat at cast, not the recipient
 
   applyEffects([scaledBuff], caster, opponent, state, createEventQueue(), NOW);
 
-  // 10 × caster ability power 3 = 30 folded onto the base 100.
   expect(caster.stats.attackDamage).toBe(130);
 });
 
 test("a debuff scaled on the caster never borrows the victim's stats", () => {
-  // The shred lands on the opponent but scales on the CASTER's ability power.
-  // Resolving it against the victim (1 AP) instead of the caster (3 AP) is the
-  // exact bug the cast-time snapshot rules out (D4).
   const caster = makeCombatant("attacker", { abilityPower: 3 });
   const opponent = makeCombatant("target", { abilityPower: 1, armor: 100 });
   const state = makeState(caster, opponent);
@@ -572,7 +555,6 @@ test("a debuff scaled on the caster never borrows the victim's stats", () => {
 
   applyEffects([shred], caster, opponent, state, createEventQueue(), NOW);
 
-  // -10 × caster AP 3 = -30 → armor 100 - 30 = 70 (not 90, the victim-basis bug).
   expect(opponent.stats.armor).toBe(70);
 });
 
@@ -597,7 +579,6 @@ test("an instant stat-mod folds as a permanent-for-combat buff, scheduling no ex
 
   expect(caster.stats.attackDamage).toBe(base + 40);
   expect(caster.timedModifiers).toHaveLength(1);
-  // Permanent for combat: nothing infinite is scheduled onto the queue.
   expect(queue.popNext()).toBeUndefined();
 });
 
@@ -612,7 +593,7 @@ const hpBuff = (base: number, seconds: number): SpellEffect => ({
 });
 
 test("a timed hp stat-mod raises max HP and carries current HP up by the same delta (D3)", () => {
-  const caster = makeCombatant("attacker"); // max 1000, current 1000
+  const caster = makeCombatant("attacker");
   const opponent = makeCombatant("target");
   const state = makeState(caster, opponent);
 
@@ -630,7 +611,7 @@ test("a timed hp stat-mod raises max HP and carries current HP up by the same de
 });
 
 test("an hp buff on a damaged combatant adds the full delta to current HP, not a ratio", () => {
-  const caster = makeCombatant("attacker", {}, { currentHp: 600 }); // max 1000
+  const caster = makeCombatant("attacker", {}, { currentHp: 600 });
   const opponent = makeCombatant("target");
   const state = makeState(caster, opponent);
 
@@ -644,7 +625,6 @@ test("an hp buff on a damaged combatant adds the full delta to current HP, not a
   );
 
   expect(caster.stats.hp).toBe(1200);
-  // Engine lineage (D3/A): the delta is granted whole — 600 + 200, not 720.
   expect(caster.currentHp).toBe(800);
 });
 
@@ -674,7 +654,6 @@ test("a heal restores HP up to the effective max, and the surplus is lost", () =
     NOW,
   );
 
-  // 700 + 500 = 1200, capped at the 1000 max — the 200 surplus is lost.
   expect(caster.currentHp).toBe(1000);
 });
 
@@ -696,7 +675,6 @@ test("a heal scales on the caster's effective stats at cast (D4)", () => {
     NOW,
   );
 
-  // 100 × caster ability power 2 = 200 healed → 100 + 200 = 300.
   expect(caster.currentHp).toBe(300);
 });
 
@@ -742,7 +720,6 @@ test("a periodic effect expands into scheduled ticks instead of resolving now", 
 
   const signal = applyEffects([burn], caster, opponent, state, queue, NOW);
 
-  // Nothing resolves at cast: no HP moves, no tally — only the ticks queue up.
   expect(signal).toBeUndefined();
   expect(opponent.currentHp).toBe(1000);
   expect(state.damageDealtBy[caster.id]).toBe(0);
@@ -785,12 +762,10 @@ test("a periodic crowd-control is rejected loudly at scheduling", () => {
 });
 
 test("a composed hp buff then heal fills up to the raised max, not the base max (D3 + D5)", () => {
-  const caster = makeCombatant("attacker", {}, { currentHp: 500 }); // max 1000
+  const caster = makeCombatant("attacker", {}, { currentHp: 500 });
   const opponent = makeCombatant("target");
   const state = makeState(caster, opponent);
 
-  // One cast, two effects in reading order: raise max HP by 300 (current rides
-  // to 800), then heal 500 — capped at the new 1300 max, not the 1000 base.
   applyEffects(
     [hpBuff(300, 4), instantHeal(500)],
     caster,
@@ -801,6 +776,5 @@ test("a composed hp buff then heal fills up to the raised max, not the base max 
   );
 
   expect(caster.stats.hp).toBe(1300);
-  // 800 + 500 = 1300, the raised ceiling; without the buff it would stop at 1000.
   expect(caster.currentHp).toBe(1300);
 });
