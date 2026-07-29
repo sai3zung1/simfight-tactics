@@ -48,6 +48,8 @@ export function schedulePeriodicTicks(
       "a periodic window shorter than its interval never ticks; the effect would be a silent no-op",
     );
   }
+  // The increment comes first, so the opening tick lands one interval in and
+  // never at the cast itself.
   let tickAt = now;
   for (let k = 0; k < count; k++) {
     tickAt = addTicks(tickAt, intervalTicks);

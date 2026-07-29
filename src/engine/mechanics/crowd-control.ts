@@ -18,6 +18,8 @@ export function applyCrowdControl(
   const blockedThrough = addTicks(now, durationTicks);
   combatant.activeCrowdControl.push({ cc, blockedThrough });
 
+  // Cancelling ends the attack chain outright: nothing re-arms it until the
+  // expiry below pushes a fresh swing.
   if (blocksAttack(cc)) {
     queue.cancel(
       (event) =>

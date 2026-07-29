@@ -24,6 +24,8 @@ export function resolveDamage(
 
 const MITIGATION_BASE = 100;
 
+// Resists floor at zero, so a stat driven below it mitigates nothing rather
+// than amplifying the hit.
 function mitigate(resist: number): number {
   return MITIGATION_BASE / (MITIGATION_BASE + Math.max(0, resist));
 }
@@ -54,6 +56,8 @@ function reductionTerm(reduction: number): number {
   return Math.min(1, Math.max(0, 1 - reduction));
 }
 
+// Lanes stack multiplicatively, so partial reductions never add up to full
+// immunity the way summing them would.
 export function reductionFactor(
   durability: number,
   damageReductions: readonly number[],

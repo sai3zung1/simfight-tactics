@@ -77,6 +77,8 @@ export function processCast(
     return undefined;
   }
   state.castsBy[event.caster]++;
+  // Assignment, not subtraction: whatever the gauge held above the threshold
+  // is lost rather than carried into the next cast.
   caster.currentMana = caster.manaGains["post-cast"];
 
   const spellFn: SpellFn | undefined = registry[caster.spellId];

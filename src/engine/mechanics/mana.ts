@@ -21,6 +21,8 @@ export function attackManaGain(attacker: Combatant): number {
   );
 }
 
+// The cap covers the role conversion only — modifier gains are added after it
+// and are not bounded.
 export function damageTakenManaGain(
   target: Combatant,
   preMitigation: number,
