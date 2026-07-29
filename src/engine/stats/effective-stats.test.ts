@@ -150,8 +150,6 @@ test("scales from the pre-fold base, whatever the application order", () => {
     base: 0.5,
     sources: ["attackDamage"],
   });
-  // Both orders read the scaled part on base AD (100 -> +50), never on the
-  // other modifier's output.
   expect(applyModifiers(base, [flat, scaled], 1).attackDamage).toBe(250);
   expect(applyModifiers(base, [scaled, flat], 1).attackDamage).toBe(250);
 });
@@ -169,7 +167,6 @@ test("a magnitude scaling from ability power reads the resolved field", () => {
     base: 0.5,
     sources: ["abilityPower"],
   });
-  // Half the wearer's ability power (1) lands on attack damage.
   expect(applyModifiers(base, [apScaled], 1).attackDamage).toBe(100.5);
 });
 

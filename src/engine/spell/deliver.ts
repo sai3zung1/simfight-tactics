@@ -10,26 +10,6 @@ import { damageTakenManaGain, gainMana } from "../mechanics/mana";
 import { resolveDamage } from "../mechanics/resolve-damage";
 import { applyDamage, type Combatant } from "../stats/combatant";
 
-/**
- * Delivery shared between a cast resolving now (apply-effects.ts) and a
- * periodic tick firing later (mechanics/periodic-ticks.ts): both must run the
- * exact same sequence, held once so the two paths cannot drift. Callers
- * resolve the magnitude first — cast-time against the caster's settled fold,
- * tick-time against the source's live sheet — and hand a plain number here.
- *
- * This module sits inside the same runtime-only cycle casting.ts and
- * apply-effects.ts already document: a delivered hit can push the victim's
- * response cast. Safe by construction — every cross-module call happens at
- * run time, never while modules load.
- */
-
-/**
- * A spell-produced value is star-collapsed to a plain number before it is
- * ever emitted: per-star tables are dissolved into the caster's parameters
- * at combat setup (stats/combatant.ts). A table reaching delivery is a
- * spell-author bug — surfaced loudly rather than resolved against a wrong
- * star.
- */
 export function starCollapsed(value: StarValue): number {
   if (typeof value !== "number") {
     throw new Error(
@@ -39,14 +19,6 @@ export function starCollapsed(value: StarValue): number {
   return value;
 }
 
-/**
- * One spell damage instance through the full pipeline: resolve — a spell
- * never crits by default, the capability is item-granted (#13) — land on HP
- * behind shields, credit the source's tally, then the exchange's mana and the
- * victim's possible response cast. A kill returns the stop signal for the
- * caller to relay: nothing after a run's end is observable, so a killing
- * instance grants no post-mortem mana either.
- */
 export function deliverDamage(
   hit: { readonly amount: number; readonly damageType: DamageType },
   source: Combatant,
@@ -64,6 +36,8 @@ export function deliverDamage(
       durability: target.stats.durability,
       damageReductions: target.damageReductions,
     },
+    // Spell damage never crits, unlike an auto-attack: the crit stats are
+    // passed but the policy discards them.
     neverCrit(source.stats.critChance, source.stats.critDamage),
   );
   const killed = applyDamage(target, resolved.dealt);

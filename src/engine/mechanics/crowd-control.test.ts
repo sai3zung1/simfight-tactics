@@ -255,10 +255,6 @@ test("two attack-blocking effects expiring on the same tick only re-arm the atta
 });
 
 test("two effects that both find the gauge full on the same tick still resolve only one cast", () => {
-  // Each expiry rechecks independently and finds the gauge still full — the
-  // same double-gain shape `processCast`'s own guard already exists for
-  // (casting.test.ts, "a cast event finding an already-spent gauge is
-  // dropped"); no dedup logic needed here, only proof the interaction holds.
   const attacker = makeCombatant("attacker", {}, { currentMana: 100 });
   const target = makeCombatant("target");
   const state = makeState(attacker, target);

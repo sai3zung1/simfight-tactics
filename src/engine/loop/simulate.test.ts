@@ -29,10 +29,6 @@ import {
 } from "../provisional/provisional-modifiers";
 import { FIXTURE_SPELL_REGISTRY } from "../../sets/fixture/registry";
 
-// Fixtures: a minimal CombatConfig. `simulate` resolves both sides against a
-// fixed provisional stat profile (provisional-stats.ts) and provisional item
-// modifiers (provisional-modifiers.ts) — only `starLevel` and `itemIds`
-// matter here; traits/augments aren't read yet.
 const side = (): BoardSide => ({
   unitId: "dummy" as UnitId,
   starLevel: 1,
@@ -47,8 +43,6 @@ const config = (stopCondition: StopCondition): CombatConfig => ({
   stopCondition,
 });
 
-// The runLoop test below exercises ordering only — its process callback
-// never reads who is involved, so attacker and target are placeholders.
 const event = (time: number): CombatEvent => ({
   kind: "auto-attack",
   time: time as Ticks,
@@ -61,7 +55,7 @@ test("runLoop processes events in order, ignoring those past timeLimit", () => {
   q.push(event(30));
   q.push(event(10));
   q.push(event(20));
-  q.push(event(999)); // beyond timeLimit → must be skipped
+  q.push(event(999));
   const seen: number[] = [];
   runLoop(q, 100 as Ticks, (e) => {
     seen.push(e.time);
@@ -74,7 +68,6 @@ test("time-to-kill ends on the target's death, reporting the kill instant", () =
   const r = simulate(config({ mode: "time-to-kill" }));
   expect(r.stopReason).toBe("kill");
   expect(r.totalDamageDealt).toBeGreaterThan(0);
-  // The target fought back until it died: what it landed is reported.
   expect(r.totalDamageTaken).toBeGreaterThan(0);
   expect(r.effectiveDurationSeconds).toBeGreaterThan(0);
   expect(r.effectiveDurationSeconds).toBeLessThan(60);
@@ -90,8 +83,6 @@ test("time-to-kill runs to the 60s cap when the target can't be killed in time -
   expect(r.stopReason).toBe("timeout");
   expect(r.effectiveDurationSeconds).toBe(60);
   expect(r.totalDamageDealt).toBeGreaterThan(0);
-  // Free witness of the attacker's immortality: it absorbs 60 s of hits —
-  // far beyond its own HP — and the run still reaches the cap.
   expect(r.totalDamageTaken).toBeGreaterThan(0);
 });
 
@@ -122,8 +113,6 @@ test("deterministic: same config yields an identical result", () => {
 test("the attacker casts from attacking: the per-attack path end to end", () => {
   const c: CombatConfig = {
     attacker: side(),
-    // A no-mana target keeps the negative witness: whatever it does, its
-    // gauge cannot fill.
     target: { ...side(), unitId: PROVISIONAL_NO_MANA_UNIT_ID },
     stopCondition: { mode: "fixed-duration", durationSeconds: 15 },
   };
@@ -134,15 +123,11 @@ test("the attacker casts from attacking: the per-attack path end to end", () => 
 
 test("the target casts from its own attacks: the per-attack path, reversed", () => {
   const r = simulate(config({ mode: "fixed-duration", durationSeconds: 15 }));
-  // The fighter profile gains neither from hits taken nor per second: its
-  // casts can only come from its own swings.
   expect(r.targetCasts).toBeGreaterThanOrEqual(1);
 });
 
 test("mirror duel: totalDamageDealt equals totalDamageTaken", () => {
   const r = simulate(config({ mode: "fixed-duration", durationSeconds: 10 }));
-  // Identical fighters, same opening rule, no kill: the duel is symmetric
-  // by construction, so the two totals must match exactly.
   expect(r.totalDamageDealt).toBeGreaterThan(0);
   expect(r.totalDamageTaken).toBe(r.totalDamageDealt);
 });
@@ -151,9 +136,6 @@ test("a tank target casts from taking hits: the damage-taken path end to end", (
   const c: CombatConfig = {
     attacker: side(),
     target: { ...side(), unitId: PROVISIONAL_TANK_UNIT_ID },
-    // 18 s discriminates the mana source: the tank's own swings alone (5 per
-    // attack at 0.85/s) cannot fill the 100 gauge before ~22 s; with the
-    // hits it takes converting on top, the first cast lands by ~17 s.
     stopCondition: { mode: "fixed-duration", durationSeconds: 18 },
   };
   const r = simulate(c);
@@ -167,8 +149,6 @@ test("a caster target casts without ever attacking: the regen path end to end", 
     stopCondition: { mode: "fixed-duration", durationSeconds: 60 },
   };
   const r = simulate(c);
-  // No swings (attackSpeed 0) and no gain from hits taken: only the 2/s
-  // flow can have filled the gauge.
   expect(r.targetCasts).toBeGreaterThanOrEqual(1);
 });
 
@@ -176,9 +156,6 @@ test("a tank attacker casts from taking hits: the damage-taken path, reversed", 
   const c: CombatConfig = {
     attacker: { ...side(), unitId: PROVISIONAL_TANK_UNIT_ID },
     target: side(),
-    // 18 s discriminates the mana source: the tank's own swings alone (5 per
-    // attack at 0.85/s) cannot fill the 100 gauge before ~22 s; with the
-    // hits it takes converting on top, the first cast lands by ~17 s.
     stopCondition: { mode: "fixed-duration", durationSeconds: 18 },
   };
   const r = simulate(c);
@@ -217,21 +194,13 @@ test("a reduction item on the target lowers the damage dealt to it", () => {
   );
 });
 
-// The three runs below inject the fixture set's registry: the end-to-end
-// proof of the cast-to-damage chain (cast -> spell function -> damage
-// modifier -> resolve-damage -> target HP -> SimulationResult).
-
 test("spell damage end to end, hand-derivable: casts × per-cast damage", () => {
   const c: CombatConfig = {
-    // The no-attack caster isolates the spell: no swings, mana from the 2/s
-    // flow alone, so the whole tally is the spell's.
     attacker: { ...side(), unitId: PROVISIONAL_NO_ATTACK_CASTER_UNIT_ID },
     target: side(),
     stopCondition: { mode: "fixed-duration", durationSeconds: 120 },
   };
   const r = simulate(c, FIXTURE_SPELL_REGISTRY);
-  // Gauge fills at 2/s: casts at t=50s and t=100s. Each burst: 230 base
-  // × ability power 1, into 25 magic resist (× 0.8) → 184 dealt.
   expect(r.attackerCasts).toBe(2);
   expect(r.totalDamageDealt).toBe(368);
   expect(r.stopReason).toBe("timer");
@@ -245,9 +214,6 @@ test("a lethal spell ends the run: the kill lands earlier than by attacks alone"
   };
   const bare = simulate(c);
   const armed = simulate(c, FIXTURE_SPELL_REGISTRY);
-  // Same config, same mechanics: only the registry differs. Both runs kill;
-  // the burst replaces several swings' worth of damage, so the armed kill
-  // lands sooner.
   expect(bare.stopReason).toBe("kill");
   expect(armed.stopReason).toBe("kill");
   expect(armed.effectiveDurationSeconds).toBeLessThan(
@@ -265,8 +231,6 @@ test("an ability-power item raises spell damage: the cast reads the effective vi
     ...bare,
     attacker: { ...bare.attacker, itemIds: [PROVISIONAL_ROD_ITEM_ID] },
   };
-  // One cast each (t=50s). Bare: 230 × 1.0 × 0.8 = 184. With the rod's
-  // +0.25 ability power: 230 × 1.25 × 0.8 = 230.
   expect(simulate(bare, FIXTURE_SPELL_REGISTRY).totalDamageDealt).toBe(184);
   expect(simulate(armed, FIXTURE_SPELL_REGISTRY).totalDamageDealt).toBe(230);
 });
@@ -277,20 +241,11 @@ test("a timed self-buff raises the caster's own auto-attack damage over the run 
     target: side(),
     stopCondition: { mode: "fixed-duration", durationSeconds: 60 },
   };
-  // Same config, same swings; only the registry differs. Without it the cast is
-  // a no-op; with it, rally folds a timed attack-damage buff into the caster
-  // each cast, so its auto-attacks land harder for the window — the run's whole
-  // damage tally is strictly higher. This is the mid-run apply + refold + expiry
-  // machinery observed end to end (its revert is pinned in timed-modifiers.test).
   const bare = simulate(c);
   const armed = simulate(c, FIXTURE_SPELL_REGISTRY);
   expect(armed.attackerCasts).toBeGreaterThan(0);
   expect(armed.totalDamageDealt).toBeGreaterThan(bare.totalDamageDealt);
 });
-
-// The three runs below inject the fixture registry to prove #71's kits end to
-// end: a debuff on the opposite side, and defensive kits (shield, heal) that
-// let the mortal target outlast a kill it would otherwise take sooner.
 
 test("a shred debuff raises the caster's own damage: the opponent's armor is torn (#71)", () => {
   const c: CombatConfig = {
@@ -298,10 +253,6 @@ test("a shred debuff raises the caster's own damage: the opponent's armor is tor
     target: side(),
     stopCondition: { mode: "fixed-duration", durationSeconds: 30 },
   };
-  // Same swings; only the registry differs. With it, shred lowers the target's
-  // armor for a window, so the caster's physical auto-attacks land harder over
-  // the run — the whole damage tally is strictly higher. Debuff on the opposite
-  // side, as a negative timed stat-mod, observed end to end.
   const bare = simulate(c);
   const armed = simulate(c, FIXTURE_SPELL_REGISTRY);
   expect(armed.attackerCasts).toBeGreaterThan(0);
@@ -314,9 +265,6 @@ test("an aegis shield lets the target outlast the kill: damage absorbed ahead of
     target: { ...side(), unitId: PROVISIONAL_AEGIS_CASTER_UNIT_ID },
     stopCondition: { mode: "time-to-kill" },
   };
-  // Both runs kill; with the registry the target shields itself each cast,
-  // absorbing damage ahead of HP, so the kill lands later. The shield pool and
-  // its consumption, observed end to end (its expiry is pinned in shield.test).
   const bare = simulate(c);
   const armed = simulate(c, FIXTURE_SPELL_REGISTRY);
   expect(bare.stopReason).toBe("kill");
@@ -333,9 +281,6 @@ test("a mend heal lets the target outlast the kill: HP restored mid-fight (#71)"
     target: { ...side(), unitId: PROVISIONAL_MEND_CASTER_UNIT_ID },
     stopCondition: { mode: "time-to-kill" },
   };
-  // Same mechanics; with the registry the target heals itself each cast,
-  // restoring HP capped at its max, so the kill lands later. Instant heal on HP,
-  // observed end to end.
   const bare = simulate(c);
   const armed = simulate(c, FIXTURE_SPELL_REGISTRY);
   expect(bare.stopReason).toBe("kill");
@@ -346,22 +291,13 @@ test("a mend heal lets the target outlast the kill: HP restored mid-fight (#71)"
   );
 });
 
-// The three runs below inject the fixture registry to prove #72's over-time
-// kits end to end: a burn ticking damage, a regrowth ticking heals, and a
-// ramp accruing attack speed.
-
 test("burn damage end to end, hand-derivable: casts × ticks × per-tick damage (#72)", () => {
   const c: CombatConfig = {
-    // The sear caster rides the no-attack profile: no swings, mana from the
-    // 2/s flow alone, so the whole tally is the burn's ticks.
     attacker: { ...side(), unitId: PROVISIONAL_SEAR_CASTER_UNIT_ID },
     target: side(),
     stopCondition: { mode: "fixed-duration", durationSeconds: 120 },
   };
   const r = simulate(c, FIXTURE_SPELL_REGISTRY);
-  // Gauge fills at 2/s: casts at t=50s and t=100s. Each burn: 4 ticks (one
-  // per second, the first one interval in), 60 × ability power 1 into 25
-  // magic resist (× 0.8) → 48 per tick, 192 per cast → 384 over the run.
   expect(r.attackerCasts).toBe(2);
   expect(r.totalDamageDealt).toBe(384);
   expect(r.stopReason).toBe("timer");
@@ -373,8 +309,6 @@ test("a renew regrowth lets the target outlast the kill: HP ticks back mid-fight
     target: { ...side(), unitId: PROVISIONAL_RENEW_CASTER_UNIT_ID },
     stopCondition: { mode: "time-to-kill" },
   };
-  // Same mechanics; with the registry the target heals itself in pulses after
-  // each cast, so the kill lands later — mend's proof, spread over a window.
   const bare = simulate(c);
   const armed = simulate(c, FIXTURE_SPELL_REGISTRY);
   expect(bare.stopReason).toBe("kill");
@@ -391,10 +325,6 @@ test("a frenzy ramp raises the caster's own output: accrued attack speed compoun
     target: side(),
     stopCondition: { mode: "fixed-duration", durationSeconds: 60 },
   };
-  // Same config, same mechanics; with the registry each cast ramps the
-  // caster's attack speed in never-expiring steps, so its swings accelerate
-  // and the run's whole tally lands strictly higher — accrual residue
-  // observed end to end.
   const bare = simulate(c);
   const armed = simulate(c, FIXTURE_SPELL_REGISTRY);
   expect(armed.attackerCasts).toBeGreaterThan(0);

@@ -129,8 +129,6 @@ test("a regen tick pays one interval's worth and reschedules itself", () => {
 });
 
 test("a regen tick whose gain has lapsed pays out but does not re-arm the chain", () => {
-  // A combatant with no per-second gain (a buff expired before this tick): it
-  // pays this last interval, then the chain stops rather than ticking for zero.
   const caster = makeCombatant("attacker");
   const state = makeState(caster, makeCombatant("target"));
   const queue = createEventQueue();
@@ -148,7 +146,6 @@ test("ensureManaRegenScheduled starts a chain, and never doubles a running one",
   const queue = createEventQueue();
 
   ensureManaRegenScheduled(caster, 1000 as Ticks, queue);
-  // A second call while a tick is already pending adds nothing.
   ensureManaRegenScheduled(caster, 1000 as Ticks, queue);
 
   expect(queue.popNext()).toEqual(regenTick(caster, 2000));
@@ -156,7 +153,6 @@ test("ensureManaRegenScheduled starts a chain, and never doubles a running one",
 });
 
 test("ensureManaRegenScheduled schedules nothing when ticking cannot pay out", () => {
-  // No per-second gain: the chain must not start.
   const caster = makeCombatant("attacker");
   const queue = createEventQueue();
 
@@ -251,8 +247,6 @@ test("a cast credits its caster and spends the gauge", () => {
 
   expect(state.castsBy[attacker.id]).toBe(1);
   expect(state.castsBy[state.target.id]).toBe(0);
-  // Pins the measured post-cast bar state: excess lost, restart at exactly
-  // zero (docs/data/calibration-log.md, A1).
   expect(attacker.currentMana).toBe(0);
 });
 
@@ -331,7 +325,6 @@ test("a cast whose spell is not registered is a no-op — counted, gauge spent, 
   const target = makeCombatant("target", {}, { currentHp: 300 });
   const state = makeState(attacker, target);
 
-  // Empty registry (the default): the miss is the steady state, never an error.
   processCast(cast(attacker, 500), state, createEventQueue());
 
   expect(state.castsBy[attacker.id]).toBe(1);
@@ -367,7 +360,6 @@ test("a produced damage effect lands on the opponent through the shared pipeline
 
   expect(signal).toBeUndefined();
   expect(state.castsBy[attacker.id]).toBe(1);
-  // No magic resist on the target: the flat 500 lands whole.
   expect(target.currentHp).toBe(500);
 });
 

@@ -15,34 +15,12 @@ import {
   type SpellRegistry,
 } from "../spell/contract";
 
-/**
- * The casting side of the mana pipeline: emit a cast when a gauge is full,
- * spend the gauge when the cast resolves, and drive the steady per-second
- * generation. A resolved cast hands its spell's effects to delivery
- * (engine/spell/apply-effects.ts) on the spot.
- */
-
-/**
- * Seconds between two ticks of steady generation. Measured: the live game
- * pays per-second values in discrete one-second steps, the first one
- * interval in (docs/data/calibration-log.md, B1).
- */
 export const MANA_REGEN_INTERVAL_SECONDS = 1;
 
-/** A combatant joins the regen schedule only if ticking can ever pay out. */
 export function shouldScheduleManaRegen(combatant: Combatant): boolean {
   return hasManaBar(combatant) && regenManaGain(combatant) > 0;
 }
 
-/**
- * Ensure `combatant` has a steady-generation tick pending — schedule the next
- * one an interval from `now` if ticking can pay out and none is already queued.
- * Both entry points route through here: the mid-run start, when a per-second
- * mana buff arrives and the chain wasn't running (apply-effects.ts), and the
- * steady re-arm after each tick (`processManaRegen`). The `queue.has` guard
- * keeps the chain single — a combatant already ticking keeps its one pending
- * event, never a second parallel chain (#71, D1).
- */
 export function ensureManaRegenScheduled(
   combatant: Combatant,
   now: Ticks,
@@ -60,17 +38,6 @@ export function ensureManaRegenScheduled(
   }
 }
 
-/**
- * Emit the cast as its own event, on the same tick as the gain that
- * filled the gauge — the queue's arrival order resolves it right after,
- * so a cast stays a first-class, ordered occurrence (ADR 0002).
- *
- * A gated caster (stun, silence) never gets the event pushed at all — the
- * gauge keeps filling underneath (mana generation is never blocked, #50),
- * so this check alone is enough to catch up the moment the block lifts,
- * whether that recheck comes from a later attack/regen tick or from the
- * effect's own expiry (mechanics/crowd-control.ts).
- */
 export function pushCastIfReady(
   combatant: Combatant,
   time: Ticks,
@@ -81,14 +48,6 @@ export function pushCastIfReady(
   }
 }
 
-/**
- * Steady generation: pay out one interval's worth, maybe emit a cast, re-arm
- * the next tick — the same recurring pattern as the auto-attack. The re-arm is
- * gated (`ensureManaRegenScheduled`): the chain stops the moment ticking can no
- * longer pay out — a per-second buff that just lapsed drops the gain to zero —
- * rather than ticking forever for nothing, and a later buff restarts it (#71,
- * D1).
- */
 export function processManaRegen(
   event: ManaRegenEvent,
   state: CombatState,
@@ -100,7 +59,6 @@ export function processManaRegen(
   ensureManaRegenScheduled(combatant, event.time, queue);
 }
 
-/** Project a combatant onto the read-only `CombatantView` a spell is allowed to read. */
 function viewOf(combatant: Combatant): CombatantView {
   return {
     stats: combatant.stats,
@@ -108,21 +66,6 @@ function viewOf(combatant: Combatant): CombatantView {
   };
 }
 
-/**
- * Resolve one cast: count it, spend the gauge, then dispatch the caster's spell.
- * The gauge restarts at the post-cast modifier sum — zero without items:
- * measured, the excess above the threshold is lost and there is no floor
- * (docs/data/calibration-log.md, A1).
- *
- * A cast event whose gauge is no longer full is dropped: two same-tick gains can
- * each emit a cast, and the first to resolve spends the bar.
- *
- * The spell is looked up by the caster's `spellId` in the injected registry; a
- * caster with no registered spell casts for nothing (partial coverage is the
- * norm, #68). The spell reads a read-only view and returns targeted effects;
- * delivering them onto combat state — and reporting a kill, relayed here —
- * is `applyEffects`' job.
- */
 export function processCast(
   event: CastEvent,
   state: CombatState,
@@ -134,8 +77,12 @@ export function processCast(
     return undefined;
   }
   state.castsBy[event.caster]++;
+  // Assignment, not subtraction: whatever the gauge held above the threshold
+  // is lost rather than carried into the next cast.
   caster.currentMana = caster.manaGains["post-cast"];
 
+  // A caster with no registered spell casts for nothing: partial coverage is
+  // the normal state, not an error worth raising.
   const spellFn: SpellFn | undefined = registry[caster.spellId];
   if (spellFn === undefined) {
     return undefined;

@@ -1,7 +1,3 @@
-/**
- * Augment — a board-level modifier the player picks, applied at combat start.
- */
-
 import type { AugmentId } from "../primitives";
 import type { Modifier } from "./modifier";
 

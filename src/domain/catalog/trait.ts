@@ -1,9 +1,3 @@
-/**
- * Trait — the effects granted at each activation breakpoint. Which breakpoint is
- * live is chosen per side at configuration time (`BoardSide`), not simulated
- * from units on the board.
- */
-
 import type { TraitId } from "../primitives";
 import type { Modifier } from "./modifier";
 

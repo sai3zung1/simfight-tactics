@@ -10,15 +10,6 @@ import { processShieldExpiry } from "./shield";
 import { processModifierExpiry } from "./timed-modifiers";
 import { EMPTY_SPELL_REGISTRY, type SpellRegistry } from "../spell/contract";
 
-/**
- * Build `runLoop`'s `process` for one run: a closure over this run's
- * queue and state, so `process` keeps the narrow shape `runLoop` expects
- * while still reaching the mutable state it needs. The switch is the
- * single point routing an event kind to its mechanic — a new kind is a
- * compile break here, never a silent skip. Mortality is not plumbed
- * through here: each combatant carries its own `canDie`, applied where
- * damage lands.
- */
 export function createProcess(
   queue: EventQueue,
   state: CombatState,

@@ -1,8 +1,3 @@
-/**
- * Item — combat equipment carried by a unit; its effects are modifiers applied
- * during a fight.
- */
-
 import type { ItemId } from "../primitives";
 import type { Modifier } from "./modifier";
 

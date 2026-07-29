@@ -78,14 +78,10 @@ test("damage-taken gain is zero for roles without it, whatever the hit", () => {
   expect(damageTakenManaGain(makeCombatant(), 200, 100)).toBe(0);
 });
 
-// The two tests below pin the adopted damage-taken coefficients and cap
-// (docs/data/calibration-log.md, C2) — a drift here is a calibration break,
-// not a refactor.
 test("damage-taken gain applies the formula for eligible roles", () => {
   const tank = makeCombatant({
     manaGeneration: { perAttack: 5, perSecond: 0, gainsFromDamageTaken: true },
   });
-  // 1% × 200 + 3% × 100
   expect(damageTakenManaGain(tank, 200, 100)).toBeCloseTo(5);
 });
 

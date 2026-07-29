@@ -8,16 +8,6 @@ import { blocksAttack, canAttack, type Combatant } from "../stats/combatant";
 import { shouldAutoAttack } from "./auto-attack";
 import { pushCastIfReady } from "./casting";
 
-/**
- * Land a crowd-control effect on `combatant`, starting at `now` for
- * `durationTicks`. The real producer is a spell's cast resolving
- * (engine/spell/apply-effects.ts) — a cast is a mid-loop occurrence, so this
- * can never run from the combat-start fold (`resolveCombatant`).
- *
- * If the effect takes away the attack, any auto-attack this combatant
- * already has pending is cancelled outright — left to fire, it would do
- * nothing anyway, but cancelling keeps the timeline honest (#50, D3).
- */
 export function applyCrowdControl(
   combatant: Combatant,
   cc: CrowdControl,
@@ -28,6 +18,8 @@ export function applyCrowdControl(
   const blockedThrough = addTicks(now, durationTicks);
   combatant.activeCrowdControl.push({ cc, blockedThrough });
 
+  // Cancelling ends the attack chain outright: nothing re-arms it until the
+  // expiry below pushes a fresh swing.
   if (blocksAttack(cc)) {
     queue.cancel(
       (event) =>
@@ -43,19 +35,6 @@ export function applyCrowdControl(
   });
 }
 
-/**
- * Resolve one crowd-control effect ending. The cast recheck always runs —
- * `pushCastIfReady` already no-ops on its own if something else still blocks
- * it or the gauge isn't full (and if two effects both leave the gauge ready
- * on the same tick, `processCast`'s own already-spent guard drops the
- * second cast — no extra bookkeeping needed here).
- *
- * The attack only restarts if this specific effect was the one blocking it
- * (silence expiring must never touch a chain it never stopped), the
- * combatant still attacks at all, and nothing has already re-armed it this
- * tick — two attack-blocking effects can expire together, and only one of
- * them should push the fresh swing (#50).
- */
 export function processCrowdControlExpiry(
   event: CrowdControlExpiryEvent,
   state: CombatState,
