@@ -45,6 +45,8 @@ function scalingBasis(
       case "critDamage":
         sum += stats.critDamage;
         break;
+      // Range has no field in the resolved view — it contributes nothing to
+      // the basis rather than being an unhandled case.
       case "range":
         break;
       default: {
@@ -103,6 +105,8 @@ function applyStatMod(
       return { ...stats, critDamage: stats.critDamage + amount };
     case "damageAmp":
       return { ...stats, damageAmp: stats.damageAmp + amount };
+    // No field to land on, so a range stat-mod applies nothing — deliberate,
+    // not an unfinished case.
     case "range":
       return stats;
     default: {
@@ -151,6 +155,8 @@ export function resolveManaGains(
   return gains;
 }
 
+// Scaled amounts read the pre-fold base, not the running result: passing
+// `stats` here would let one modifier scale off another's output.
 export function applyModifiers(
   base: ResolvedStats,
   modifiers: readonly Modifier[],

@@ -19,6 +19,8 @@ export type ResolvedStats = {
   readonly damageAmp: number;
 };
 
+// The cast trusts the data pipeline to only ever ask for a star a unit is
+// eligible at; a missing entry would return undefined under a number type.
 export function resolveScaling(
   scaling: ScalingByStar,
   starLevel: StarLevel,

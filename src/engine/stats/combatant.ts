@@ -124,6 +124,8 @@ export function resolveCombatant(
   };
 }
 
+// Rebuilds from the pre-fold base every time: folding onto the current stats
+// instead would re-apply modifiers already carried.
 export function refoldStats(combatant: Combatant): void {
   const previousMaxHp = combatant.stats.hp;
   const activeModifiers = [
@@ -148,6 +150,8 @@ export function refoldStats(combatant: Combatant): void {
   reconcileCurrentHp(combatant, previousMaxHp);
 }
 
+// Gaining max HP grants that HP outright; losing it clamps current HP under
+// the new ceiling instead of killing, since an expiry is not damage.
 function reconcileCurrentHp(combatant: Combatant, previousMaxHp: number): void {
   const delta = combatant.stats.hp - previousMaxHp;
   if (delta > 0) {
