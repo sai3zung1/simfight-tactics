@@ -124,8 +124,8 @@ export function resolveCombatant(
   };
 }
 
-// Rebuilds from the pre-fold base every time: folding onto the current stats
-// instead would re-apply modifiers already carried.
+// Rebuilds from `resolvedStats` every time: applying onto the current stats
+// instead would re-apply modifiers they already carry.
 export function refoldStats(combatant: Combatant): void {
   const previousMaxHp = combatant.stats.hp;
   const activeModifiers = [

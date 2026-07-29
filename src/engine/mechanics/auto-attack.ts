@@ -10,6 +10,8 @@ import { attackManaGain, damageTakenManaGain, gainMana } from "./mana";
 import { pushCastIfReady } from "./casting";
 import { addTicks, secondsToTicks, type Ticks } from "../loop/time";
 
+// Assumes a positive attack speed. The schedulers gate on shouldAutoAttack,
+// but the re-arm inside processAutoAttack does not.
 export function attackInterval(attackSpeed: number): Ticks {
   return secondsToTicks(1 / attackSpeed);
 }

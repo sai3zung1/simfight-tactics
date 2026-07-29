@@ -2,8 +2,6 @@
 // exactly equal — that detectable tie is what makes ordering deterministic.
 export type Ticks = number & { readonly __brand: "Ticks" };
 
-// Grid granularity: two instants less than one tick apart collapse into a
-// single tie for the queue to break. Only the converters below read it.
 export const TICKS_PER_SECOND = 1000;
 
 export function secondsToTicks(s: number): Ticks {
