@@ -25,6 +25,8 @@ import { EMPTY_SPELL_REGISTRY, type SpellRegistry } from "../spell/contract";
 import { createEventQueue, type EventQueue } from "./event-queue";
 import { TICK_ZERO, secondsToTicks, ticksToSeconds, type Ticks } from "./time";
 
+// Reached only when a time-to-kill run never kills — that mode carries no
+// user timer. Hitting it reports "timeout", never a normal end.
 const HARD_CAP_SECONDS = 60;
 
 export function runLoop(
@@ -58,6 +60,8 @@ function resolveStop(stop: StopCondition): {
         targetCanDie: true,
       };
     case "fixed-duration":
+      // Immortal target, still fighting back: the mode measures damage over
+      // the whole window, and a kill would cut that window short.
       return {
         timeLimit: secondsToTicks(stop.durationSeconds),
         stopReason: "timer",
