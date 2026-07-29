@@ -27,6 +27,8 @@ export function deliverDamage(
   queue: EventQueue,
   time: Ticks,
 ): StopSignal | undefined {
+  // Spell damage runs a different crit policy from an auto-attack: it never
+  // crits, whatever the source's crit stats say.
   const resolved = resolveDamage(
     { amount: hit.amount, damageType: hit.damageType },
     { damageAmp: source.stats.damageAmp },

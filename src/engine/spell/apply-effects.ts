@@ -16,6 +16,8 @@ import { schedulePeriodicTicks } from "../mechanics/periodic-ticks";
 import { deliverDamage, starCollapsed } from "./deliver";
 import type { SpellEffect } from "./contract";
 
+// The result is banked as a flat amount, with no sources left: a later fold
+// cannot re-scale it, so a buff arriving after the cast changes nothing.
 function snapshotAmount(
   amount: Magnitude,
   casterStats: EffectiveStats,
@@ -29,6 +31,8 @@ function snapshotAmount(
 
 function durationTicksOf(temporality: Temporality): Ticks {
   switch (temporality.kind) {
+    // "instant" means permanent for the run here, not resolved-on-the-spot —
+    // that second reading only holds for damage and heal.
     case "instant":
       return NEVER_EXPIRES;
     case "duration":

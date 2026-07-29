@@ -81,6 +81,8 @@ export function processCast(
   // is lost rather than carried into the next cast.
   caster.currentMana = caster.manaGains["post-cast"];
 
+  // A caster with no registered spell casts for nothing: partial coverage is
+  // the normal state, not an error worth raising.
   const spellFn: SpellFn | undefined = registry[caster.spellId];
   if (spellFn === undefined) {
     return undefined;
