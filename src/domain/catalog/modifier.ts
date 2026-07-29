@@ -41,6 +41,8 @@ export type Temporality =
       readonly kind: "periodic";
       readonly seconds: StarValue;
       readonly interval: number;
+      // What one tick leaves behind: `instance` lasts a single interval,
+      // `accrual` lasts to the end of combat.
       readonly mode: "instance" | "accrual";
     };
 
