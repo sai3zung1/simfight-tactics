@@ -8,6 +8,8 @@ export const PROVISIONAL_PLATING_ITEM_ID = "provisional-plating" as ItemId;
 
 export const PROVISIONAL_ROD_ITEM_ID = "provisional-rod" as ItemId;
 
+// Temporality is required by the type but never read on this path: the
+// permanent fold only ever switches on kind.
 const PROVISIONAL_ITEM_MODIFIERS: Readonly<
   Record<ItemId, readonly Modifier[]>
 > = {
@@ -42,6 +44,7 @@ const PROVISIONAL_ITEM_MODIFIERS: Readonly<
   ],
 };
 
+// TODO(#13): replaced by the item catalog.
 export function resolveModifiers(side: BoardSide): readonly Modifier[] {
   const itemIds: readonly ItemId[] = side.itemIds;
   return itemIds.flatMap((id) => PROVISIONAL_ITEM_MODIFIERS[id] ?? []);

@@ -70,6 +70,7 @@ const PROVISIONAL_UNIT_SPELL_PARAMETERS: Readonly<
   [PROVISIONAL_FRENZY_CASTER_UNIT_ID]: FIXTURE_FRENZY_PARAMETERS,
 };
 
+// TODO(#39): both resolvers are replaced by the unit catalog.
 export function resolveUnitSpellId(unitId: UnitId): SpellId {
   return PROVISIONAL_UNIT_SPELLS[unitId] ?? NO_SPELL_ID;
 }

@@ -20,6 +20,8 @@ export type BaseStats = {
   readonly manaGeneration: ManaGeneration;
 
   readonly attackDamage: ScalingByStar;
+  // A normalised multiplier: scaled amounts are multiplied by it, so the
+  // at-rest value is one, not zero.
   readonly abilityPower: number;
   readonly attackSpeed: number;
   readonly critChance: number;

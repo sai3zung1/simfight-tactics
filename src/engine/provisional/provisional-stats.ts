@@ -71,6 +71,7 @@ export const PROVISIONAL_RENEW_CASTER_UNIT_ID =
 export const PROVISIONAL_FRENZY_CASTER_UNIT_ID =
   "provisional-frenzy-caster" as UnitId;
 
+// TODO(#39): replaced by the unit catalog.
 export function resolveUnitStats(unitId: UnitId): BaseStats {
   switch (unitId) {
     case PROVISIONAL_TANK_UNIT_ID:
