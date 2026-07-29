@@ -85,6 +85,8 @@ export function processPeriodicTick(
       "a periodic tick carries a periodic modifier by construction (schedulePeriodicTicks)",
     );
   }
+  // Only the kinds that leave a residue read this: damage and heal consume
+  // their tick outright, so their declared mode has no effect.
   const residueTicks =
     temporality.mode === "accrual"
       ? NEVER_EXPIRES

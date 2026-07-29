@@ -15,6 +15,8 @@ export const shred: SpellFn = (_ctx, params) => [
     modifier: {
       kind: "stat-mod",
       target: "armor",
+      // Negative because the taxonomy has no debuff kind: a stat-mod carries
+      // its direction in the sign.
       amount: { base: -params.armorShred },
       temporality: { kind: "duration", seconds: params.durationSeconds },
     },
