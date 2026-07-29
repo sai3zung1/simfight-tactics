@@ -38,6 +38,8 @@ export type TextFieldProps = TextFieldOwnProps &
     ComponentPropsWithRef<TextFieldElement>,
     keyof TextFieldOwnProps | "placeholder"
   > & {
+    // Required: the stylesheet tells a filled field from an empty one through
+    // `:placeholder-shown`, which needs the attribute present.
     placeholder: string;
   };
 
@@ -61,6 +63,9 @@ export function TextField({
     else if (ref) ref.current = node;
   };
 
+  // React replaces the element's value setter, so assigning to it fires
+  // nothing React can see. Calling the original setter and dispatching an
+  // input event reproduces a keystroke instead.
   const clear = () => {
     const input = inputRef.current;
     if (!input) return;

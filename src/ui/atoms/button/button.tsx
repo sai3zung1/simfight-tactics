@@ -85,9 +85,13 @@ export function Button<E extends ButtonElement = "button">({
   const ornamentNode = Ornament ? (
     <Ornament aria-hidden className={`shrink-0 ${ORNAMENT_SIZE_CLASS[size]}`} />
   ) : null;
+  // Josefin Sans renders a touch high in its own box; the nudge re-centres
+  // the label against it.
   const content = children ? (
     <span className="translate-y-[1px]">{children}</span>
   ) : null;
+  // A <button> with no type submits its parent form; default it away unless
+  // the caller asked for something else.
   const typeProp =
     isButton && !("type" in rest) ? { type: "button" as const } : undefined;
   return (

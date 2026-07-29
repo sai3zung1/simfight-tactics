@@ -44,6 +44,8 @@ const FIELD_REST =
 const FIELD_PLACEHOLDER =
   "placeholder:text-center placeholder:font-light placeholder:text-ink-muted";
 
+// Hides the browser's own clear button on a search input — CLEAR below is the
+// one this component draws.
 const FIELD_NATIVE = "[&::-webkit-search-cancel-button]:hidden";
 
 const FIELD_DISABLED =
