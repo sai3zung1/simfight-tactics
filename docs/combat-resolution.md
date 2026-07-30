@@ -29,8 +29,8 @@ hit. `SpellRegistry` already takes that path.
 One caveat on what a distribution would show today: a crit is the only chance in
 the model — `Math.random` appears nowhere in `src` — so the whole spread would
 come from that alone. Targeting adds a second source once positions exist: a
-unit attacks its closest enemy, and two enemies at equal distance have to be
-separated somehow.
+unit's role weights how likely it is to be targeted — a tank more, an assassin
+less — and equal candidates still have to be separated somehow.
 
 ## Time
 
