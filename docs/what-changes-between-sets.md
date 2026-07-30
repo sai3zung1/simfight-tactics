@@ -19,15 +19,3 @@ This page carries the rules. It never carries a set's contents — those are dat
 | Unit costs       | leaves alone     | One to five is the grid. Sets carrying a seventh cost have existed, so it is a strong default rather than a law                        |
 | Effect families  | leaves alone     | A set brings new spells, not new kinds of effect. The kinds themselves have held                                                       |
 | Effect naming    | rewrites whole   | Each set names its variables afresh. The project normalises them rather than adopting them — `ParameterName` is still an open `string` |
-
-Two examples worth carrying, because they are the rules rather than the
-contents. Zephyr was replaced by Evenshroud on Belt + Cloak and never returned
-as a base item — but it exists today as an artifact, reachable through a
-specific augment. And four stars is not a set-defined subset: it is Worth the
-Wait, gold on a 1-cost and prismatic on a 2-cost.
-
-## What this orders
-
-Everything a rotation leaves alone is built once. Everything it rewrites is
-rebuilt at every rotation, and anything built on top of it is written off with
-it.
