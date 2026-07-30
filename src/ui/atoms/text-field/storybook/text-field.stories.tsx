@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { TextField, type TextFieldProps } from "../textField";
-import { DEFAULTS } from "../textField.contract";
+import { TextField, type TextFieldProps } from "../text-field";
+import { DEFAULTS } from "../text-field.contract";
 
 const meta = {
   title: "Atoms/TextField",
