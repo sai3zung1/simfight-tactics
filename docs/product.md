@@ -21,9 +21,9 @@ That is stricter than whatever combat the product currently plays. A taunt
 changes nothing in a duel, and it still has to work — otherwise multi-target
 combat reopens the engine, and the MVP was never valid.
 
-Every effect the game can apply has to land in the vocabulary, whether the
-current combat can exercise it or not. `docs/effect-families.md` lists what does
-not land yet.
+Everything the game can express has to land in the domain types, whether the
+current combat can exercise it or not. `docs/effect-families.md` and
+`docs/unit.md` list what does not.
 
 ## Combat
 
