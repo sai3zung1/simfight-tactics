@@ -99,8 +99,14 @@ for any index — it points, it does not carry.
 
 Three questions first. Does a type, a test name, a story or an error message
 already carry it? Leave it there. Would clearer code remove the need? Fix the
-code instead. Can every claim be checked against the code? If not, do not
-write it — and a page whose claims stop checking out is deleted, not patched.
+code instead. Can every claim be checked? A claim about the code checks against
+the code; a claim about TFT checks against the game — a public source, or the
+knowledge of someone who plays it. A claim that checks against neither is not
+written.
+
+Where the game has something the code does not, the page says so in place. That
+gap is what makes the page worth opening while implementing. A page whose
+claims stop checking out is deleted, not patched.
 
 Split on cadence, not on subject: what changes together stays on one page.
 
