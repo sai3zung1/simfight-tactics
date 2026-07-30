@@ -62,9 +62,10 @@ written a second time.
 Domain identifiers are branded strings, one type per entity: `UnitId`,
 `SpellId`, `TraitId`.
 
-A component is four files in its own folder: `<name>.contract.ts` for its axes
-and defaults, `<name>.classes.ts`, `<name>.tsx`, and
-`storybook/<name>.stories.tsx`.
+A component is four files in its own kebab-case folder: `<name>.contract.ts`
+for its axes and defaults, `<name>.classes.ts`, `<name>.tsx`, and
+`storybook/<name>.stories.tsx`. Three of the four are plain modules, so the
+files take the module casing; the exported component stays PascalCase.
 
 ### Comments
 
