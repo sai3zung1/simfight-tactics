@@ -69,8 +69,9 @@ pool itself, not by the effect vocabulary.
 ## Healing
 
 A heal raises health and clamps at the maximum: no overheal, and no conversion
-into a shield. Nothing reduces incoming healing — the game's Wound has no
-expression here.
+into a shield. Nothing turns damage dealt into healing — omnivamp reaches the
+effective stats and no one reads it. And nothing reduces incoming healing: the
+game's Wound has no expression here.
 
 ## Mana
 
