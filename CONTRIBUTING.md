@@ -45,6 +45,27 @@ Pull requests use the template and close their ticket with `Closes #<ticket>`.
 Self-contained: a ticket number and a repo path are the only references that
 survive.
 
+### Naming
+
+Modules under `src/domain`, `src/engine` and `src/sets` are kebab-case:
+`stop-condition.ts`, `resolve-damage.ts`. Tests sit beside what they test, as
+`<name>.test.ts`.
+
+String values in unions are kebab-case too — `"time-to-kill"`,
+`"on-damage-taken"` — so the vocabulary reads the same in a type and in a
+payload.
+
+Module-level constants are SCREAMING_SNAKE_CASE and exported `as const`. The
+types that read them derive with `(typeof CONST)[number]` instead of being
+written a second time.
+
+Domain identifiers are branded strings, one type per entity: `UnitId`,
+`SpellId`, `TraitId`.
+
+A component is four files in its own folder: `<name>.contract.ts` for its axes
+and defaults, `<name>.classes.ts`, `<name>.tsx`, and
+`storybook/<name>.stories.tsx`.
+
 ### Comments
 
 The default is none — a comment is an exception, maintained like code, and a
@@ -82,3 +103,17 @@ code instead. Can every claim be checked against the code? If not, do not
 write it — and a page whose claims stop checking out is deleted, not patched.
 
 Split on cadence, not on subject: what changes together stays on one page.
+
+### Decisions
+
+A decision gets a record in `docs/adr/` when it is not readable from the
+artifact it produced. A dependency, a config file or a type is already its own
+record: `package.json` says which runtime runs the project, and no page needs
+to repeat it.
+
+One defensible option is not a decision. If the alternatives were absent,
+abandoned or divergent, there is nothing to record.
+
+Context, decision, consequences — one numbered file each. A record is never
+edited to fit what changed: a decision that no longer holds is superseded by a
+new one, and both say so.
