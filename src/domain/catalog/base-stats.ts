@@ -28,4 +28,5 @@ export type BaseStats = {
   readonly critDamage: number;
   readonly range: number;
   readonly damageAmp: number;
+  readonly omnivamp: number;
 };

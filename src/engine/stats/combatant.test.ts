@@ -19,6 +19,7 @@ const stats: BaseStats = {
   critDamage: 0.4,
   range: 1,
   damageAmp: 0,
+  omnivamp: 0,
 };
 
 test("starts at full resolved HP for its star level", () => {

@@ -26,6 +26,7 @@ export const MODIFIABLE_STATS = [
   "range",
   "damageAmp",
   "durability",
+  "omnivamp",
 ] as const satisfies readonly (keyof BaseStats)[];
 export type ModifiableStat = (typeof MODIFIABLE_STATS)[number];
 

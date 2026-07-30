@@ -15,6 +15,7 @@ export const PROVISIONAL_FIGHTER_STATS: BaseStats = {
   critDamage: 0.4,
   range: 1,
   damageAmp: 0,
+  omnivamp: 0,
 };
 
 export const PROVISIONAL_TANK_STATS: BaseStats = {

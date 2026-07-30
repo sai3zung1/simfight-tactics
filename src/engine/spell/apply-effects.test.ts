@@ -26,6 +26,7 @@ const makeCombatant = (
     critChance: 0,
     critDamage: 0,
     damageAmp: 0,
+    omnivamp: 0,
     ...stats,
   };
   return {

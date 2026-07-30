@@ -16,6 +16,7 @@ const stats: BaseStats = {
   critDamage: 0.4,
   range: 1,
   damageAmp: 0,
+  omnivamp: 0,
 };
 
 test("resolves the per-star fields to the chosen star level", () => {
@@ -32,6 +33,7 @@ test("resolves the per-star fields to the chosen star level", () => {
     critChance: 0.25,
     critDamage: 0.4,
     damageAmp: 0,
+    omnivamp: 0,
   });
 });
 

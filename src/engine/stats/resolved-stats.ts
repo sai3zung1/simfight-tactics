@@ -17,6 +17,7 @@ export type ResolvedStats = {
   readonly critChance: number;
   readonly critDamage: number;
   readonly damageAmp: number;
+  readonly omnivamp: number;
 };
 
 // The cast trusts the data pipeline to only ever ask for a star a unit is
@@ -45,5 +46,6 @@ export function resolveStats(
     critChance: stats.critChance,
     critDamage: stats.critDamage,
     damageAmp: stats.damageAmp,
+    omnivamp: stats.omnivamp,
   };
 }
