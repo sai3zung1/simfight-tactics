@@ -6,8 +6,6 @@ worth building once against what has to be rebuilt every time.
 
 This page carries the rules. It never carries a set's contents — those are data.
 
-## By family
-
 | Family           | A rotation…      | The rule                                                                                                                               |
 | ---------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | Base items       | barely touches   | Eight components, every pair yielding one item. The grid is fixed, and an item replaced in it never returns to it                      |
