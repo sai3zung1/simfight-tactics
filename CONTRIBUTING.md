@@ -47,9 +47,8 @@ survive.
 
 ### Naming
 
-Modules under `src/domain`, `src/engine` and `src/sets` are kebab-case:
-`stop-condition.ts`, `resolve-damage.ts`. Tests sit beside what they test, as
-`<name>.test.ts`.
+Modules under `src/` are kebab-case: `stop-condition.ts`, `resolve-damage.ts`.
+Tests sit beside what they test, as `<name>.test.ts`.
 
 String values in unions are kebab-case too — `"time-to-kill"`,
 `"on-damage-taken"` — so the vocabulary reads the same in a type and in a
