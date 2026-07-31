@@ -30,7 +30,7 @@ a Magic Caster; here the two are separate fields.
 | Ability power   | Multiplies scaled ability amounts. Normalised, so at rest it is one and not zero          |
 | Attack speed    | Auto-attacks per second                                                                   |
 | Crit chance     | Probability that an auto-attack crits                                                     |
-| Crit damage     | Multiplier a crit applies                                                                 |
+| Crit damage     | Bonus a crit adds over a nominal hit. The stat is the bonus, never the full multiplier    |
 | Damage amp      | Multiplies outgoing damage                                                                |
 | Range           | Attack distance in hexes                                                                  |
 | Mana            | Minimum, starting and maximum. A unit casts at maximum                                    |

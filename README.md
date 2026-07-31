@@ -1,6 +1,6 @@
 # Simfight Tactics
 
-A combat simulator when a board goes in, an outcome comes out.
+A combat simulator: a board goes in, an outcome comes out.
 
 Building the next generation of builder for TFT Theorycrafter.
 

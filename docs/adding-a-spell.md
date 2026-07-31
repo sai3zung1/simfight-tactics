@@ -3,7 +3,7 @@
 By the end you will have a spell that a unit casts in a real fight, with a test
 that pins what it emits.
 
-Open `src/sets/fixture/spells/renew.ts` first — it is the smallest complete
+Open `src/sets/fixture/spells/mend.ts` first — it is the smallest complete
 example, and everything below follows its shape.
 
 ## 1. Create the file
