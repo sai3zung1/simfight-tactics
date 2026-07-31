@@ -58,9 +58,13 @@ export default defineConfig([
     plugins: { markdown },
     language: "markdown/gfm",
     extends: ["markdown/recommended"],
-    rules: {
-      "markdown/no-missing-label-refs": "off", // Allows the [...] placeholders in templates
-    },
+  },
+  {
+    // An empty task-list item — the unfilled checkbox an issue template ships
+    // with — parses as an empty label reference. Off here only, so a genuine
+    // broken link still fails in docs/.
+    files: [".github/**/*.md"],
+    rules: { "markdown/no-missing-label-refs": "off" },
   },
 
   {
