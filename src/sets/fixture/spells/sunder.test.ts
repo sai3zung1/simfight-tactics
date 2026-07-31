@@ -1,5 +1,5 @@
 import { test, expect } from "bun:test";
-import { shred, FIXTURE_SHRED_PARAMETERS } from "./shred";
+import { sunder, FIXTURE_SUNDER_PARAMETERS } from "./sunder";
 import type { SpellContext } from "../../../engine/spell/contract";
 import type { EffectiveStats } from "../../../engine/stats/effective-stats";
 
@@ -25,7 +25,7 @@ const ctx = (): SpellContext => ({
 });
 
 test("emits one flat, timed armor debuff on the opponent, as a negative amount", () => {
-  expect(shred(ctx(), { armorShred: 20, durationSeconds: 4 })).toEqual([
+  expect(sunder(ctx(), { armorReduction: 20, durationSeconds: 4 })).toEqual([
     {
       recipient: "opponent",
       modifier: {
@@ -39,7 +39,7 @@ test("emits one flat, timed armor debuff on the opponent, as a negative amount",
 });
 
 test("the emitted amount is the negated star-collapsed parameter, no scaling source", () => {
-  const [effect] = shred(ctx(), { armorShred: 30, durationSeconds: 4 });
+  const [effect] = sunder(ctx(), { armorReduction: 30, durationSeconds: 4 });
   expect(effect.modifier.kind).toBe("stat-mod");
   if (effect.modifier.kind === "stat-mod") {
     expect(effect.modifier.amount.base).toBe(-30);
@@ -48,8 +48,8 @@ test("the emitted amount is the negated star-collapsed parameter, no scaling sou
 });
 
 test("the per-star card lives in the parameters, for setup to collapse", () => {
-  expect(FIXTURE_SHRED_PARAMETERS).toEqual({
-    armorShred: { 1: 20, 2: 30, 3: 45 },
+  expect(FIXTURE_SUNDER_PARAMETERS).toEqual({
+    armorReduction: { 1: 20, 2: 30, 3: 45 },
     durationSeconds: 4,
   });
 });

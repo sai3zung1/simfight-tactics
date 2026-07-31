@@ -20,9 +20,9 @@ import {
   FIXTURE_RALLY_SPELL_ID,
 } from "../../sets/fixture/spells/rally";
 import {
-  FIXTURE_SHRED_PARAMETERS,
-  FIXTURE_SHRED_SPELL_ID,
-} from "../../sets/fixture/spells/shred";
+  FIXTURE_SUNDER_PARAMETERS,
+  FIXTURE_SUNDER_SPELL_ID,
+} from "../../sets/fixture/spells/sunder";
 import {
   FIXTURE_AEGIS_PARAMETERS,
   FIXTURE_AEGIS_SPELL_ID,
@@ -52,8 +52,8 @@ export const PROVISIONAL_NO_MANA_UNIT_ID = "provisional-no-mana" as UnitId;
 export const PROVISIONAL_IMMORTAL_UNIT_ID = "provisional-immortal" as UnitId;
 export const PROVISIONAL_RALLY_CASTER_UNIT_ID =
   "provisional-rally-caster" as UnitId;
-export const PROVISIONAL_SHRED_CASTER_UNIT_ID =
-  "provisional-shred-caster" as UnitId;
+export const PROVISIONAL_SUNDER_CASTER_UNIT_ID =
+  "provisional-sunder-caster" as UnitId;
 export const PROVISIONAL_AEGIS_CASTER_UNIT_ID =
   "provisional-aegis-caster" as UnitId;
 export const PROVISIONAL_MEND_CASTER_UNIT_ID =
@@ -105,10 +105,10 @@ const PROVISIONAL_CASTERS: Readonly<Record<UnitId, ProvisionalCaster>> = {
     spellId: FIXTURE_RALLY_SPELL_ID,
     parameters: FIXTURE_RALLY_PARAMETERS,
   },
-  [PROVISIONAL_SHRED_CASTER_UNIT_ID]: {
+  [PROVISIONAL_SUNDER_CASTER_UNIT_ID]: {
     stats: PROVISIONAL_CASTER_STATS,
-    spellId: FIXTURE_SHRED_SPELL_ID,
-    parameters: FIXTURE_SHRED_PARAMETERS,
+    spellId: FIXTURE_SUNDER_SPELL_ID,
+    parameters: FIXTURE_SUNDER_PARAMETERS,
   },
   [PROVISIONAL_FRENZY_CASTER_UNIT_ID]: {
     stats: PROVISIONAL_CASTER_STATS,

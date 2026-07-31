@@ -544,7 +544,7 @@ test("a debuff scaled on the caster never borrows the victim's stats", () => {
   const opponent = makeCombatant("target", { abilityPower: 1, armor: 100 });
   const state = makeState(caster, opponent);
 
-  const shred: SpellEffect = {
+  const sunder: SpellEffect = {
     recipient: "opponent",
     modifier: {
       kind: "stat-mod",
@@ -554,7 +554,7 @@ test("a debuff scaled on the caster never borrows the victim's stats", () => {
     },
   };
 
-  applyEffects([shred], caster, opponent, state, createEventQueue(), NOW);
+  applyEffects([sunder], caster, opponent, state, createEventQueue(), NOW);
 
   expect(opponent.stats.armor).toBe(70);
 });

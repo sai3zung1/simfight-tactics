@@ -18,8 +18,14 @@ import type { SpellFn } from "../../../engine/spell/contract";
 export const FIXTURE_EMBER_SPELL_ID = "fixture-ember" as SpellId;
 
 export const FIXTURE_EMBER_PARAMETERS: SpellParameters = {
-  tickDamage: { 1: 60, 2: 90, 3: 135 },
-  windowSeconds: 4,
+  burnTick: { 1: 60, 2: 90, 3: 135 },
+  burnSeconds: 4,
+  healTick: { 1: 30, 2: 45, 3: 70 },
+  healSeconds: 8,
+  tickInterval: 1,
+  attackSpeedBonus: { 1: 0.2, 2: 0.25, 3: 0.3 },
+  magicResistShred: { 1: 10, 2: 15, 3: 20 },
+  buffSeconds: 6,
 };
 
 export const ember: SpellFn = (_ctx, params) => [
@@ -28,8 +34,44 @@ export const ember: SpellFn = (_ctx, params) => [
     modifier: {
       kind: "damage",
       damageType: "magic",
-      amount: { base: params.tickDamage, sources: ["abilityPower"] },
-      temporality: { kind: "duration", seconds: params.windowSeconds },
+      amount: { base: params.burnTick, sources: ["abilityPower"] },
+      temporality: {
+        kind: "periodic",
+        seconds: params.burnSeconds,
+        interval: params.tickInterval,
+        mode: "instance",
+      },
+    },
+  },
+  {
+    recipient: "self",
+    modifier: {
+      kind: "heal",
+      amount: { base: params.healTick },
+      temporality: {
+        kind: "periodic",
+        seconds: params.healSeconds,
+        interval: params.tickInterval,
+        mode: "instance",
+      },
+    },
+  },
+  {
+    recipient: "self",
+    modifier: {
+      kind: "stat-mod",
+      target: "attackSpeed",
+      amount: { base: params.attackSpeedBonus },
+      temporality: { kind: "duration", seconds: params.buffSeconds },
+    },
+  },
+  {
+    recipient: "opponent",
+    modifier: {
+      kind: "stat-mod",
+      target: "magicResist",
+      amount: { base: -params.magicResistShred },
+      temporality: { kind: "duration", seconds: params.buffSeconds },
     },
   },
 ];
@@ -38,12 +80,36 @@ export const ember: SpellFn = (_ctx, params) => [
 **The id** is a branded string, so it cannot be passed where another kind of id
 is expected. The cast is how you brand it.
 
-**The parameters** hold a per-star card — `{ 1: …, 2: …, 3: … }` — wherever the
-number moves with the star, and a plain number wherever it does not. Name them
-whatever reads best; nothing constrains the names.
+That spell does four things at once, which is the ordinary case: it burns the
+opponent, heals its caster over a longer window, hastens itself and softens the
+opponent's magic resist. Read it as four independent effects that happen to be
+emitted together — nothing binds them beyond the list.
 
-**The function** takes the combat context and the parameters, and returns a list
-of effects. Each effect names who it lands on and one modifier.
+**The parameters** hold a per-star card — `{ 1: …, 2: …, 3: … }` — wherever the
+number moves with the star, and a plain number wherever it does not. Never a
+nested object: one flat record covers the whole spell, however many effects it
+emits.
+
+Names are free, which is what lets two effects diverge. The burn and the heal
+run on different windows, so they take `burnSeconds` and `healSeconds`; they
+share a cadence, so one `tickInterval` serves both. Group by what the numbers
+mean, not by the effect they end up in.
+
+**The function** returns a list. Each entry names who it lands on and one
+modifier, and the two recipients can be mixed freely — here the caster is
+healed and hastened while the opponent burns and is shredded.
+
+**A debuff is a negative amount.** The vocabulary has no debuff kind: a
+`stat-mod` carries its direction in the sign, which is why the shred reads
+`-params.magicResistShred`.
+
+**A `stat-mod` adds; it never multiplies.** `attackSpeedBonus: 0.3` is three
+tenths of an attack per second added to the stat, not thirty percent of it. A
+genuine percentage reads the caster and multiplies there:
+
+```ts
+const bonus = ctx.caster.stats.attackSpeed * 0.3;
+```
 
 ## 2. Choose what the modifier does
 
@@ -78,10 +144,23 @@ consume their tick outright, so for those two the choice changes nothing. It
 bites on the kinds that leave a residue, where `"instance"` refreshes each
 interval and `"accrual"` stacks.
 
+**Not every pairing is legal, and the type does not say so.** Three combinations
+compile and then throw on the first cast:
+
+| `kind`                                                      | Accepts                  |
+| ----------------------------------------------------------- | ------------------------ |
+| `damage`, `heal`                                            | `instant` or `periodic`  |
+| `crowd-control`                                             | `duration` or `periodic` |
+| `stat-mod`, `shield`, `damage-reduction`, `mana-generation` | any                      |
+
+Damage over time is `periodic`, never `duration` — a hit lands and is done, so
+there is nothing for an expiry to undo. A stun is the reverse: it has to be
+lifted, so it carries a duration and never an instant.
+
 **How big it is** — every kind except `crowd-control` carries an `amount`:
 
 ```ts
-amount: { base: params.tickDamage, sources: ["abilityPower"] }
+amount: { base: params.burnTick, sources: ["abilityPower"] }
 ```
 
 `base` is the number. `sources` multiplies it by the sum of those stats, and is
@@ -93,15 +172,7 @@ rather than `× 0`.
 `stat-mod` can target: durability, damage amp and omnivamp can be moved but not
 scaled from.
 
-**How many** — the function returns a list, so one cast can land several
-effects, on either side:
-
-```ts
-export const ember: SpellFn = (_ctx, params) => [
-  { recipient: "opponent", modifier: { kind: "damage" /* … */ } },
-  { recipient: "self", modifier: { kind: "shield" /* … */ } },
-];
-```
+**How many** — as many effects as the spell needs, on either side, as in step 1.
 
 **Where the numbers come from** — usually the parameters, but the first argument
 is the fight itself, for an amount that depends on it:
@@ -174,21 +245,39 @@ rather than as an error, so there is no message to warn you.
 ## 5. Write the test
 
 Create `<name>.test.ts` beside the file. Build a context, call the function with
-plain numbers, and assert the effects.
+plain numbers, and assert the effects. With several effects, pin the count
+first, then take them by index — a spell that silently drops one otherwise still
+passes.
 
 ```ts
-test("emits a magic damage effect on the opponent", () => {
-  expect(ember(ctx(), { tickDamage: 60, windowSeconds: 4 })).toEqual([
-    {
-      recipient: "opponent",
-      modifier: {
-        kind: "damage",
-        damageType: "magic",
-        amount: { base: 60, sources: ["abilityPower"] },
-        temporality: { kind: "duration", seconds: 4 },
+const params = {
+  burnTick: 60,
+  burnSeconds: 4,
+  healTick: 30,
+  healSeconds: 8,
+  tickInterval: 1,
+  attackSpeedBonus: 0.2,
+  magicResistShred: 10,
+  buffSeconds: 6,
+};
+
+test("burns the opponent once a second for the window", () => {
+  const effects = ember(ctx(), params);
+  expect(effects).toHaveLength(4);
+  expect(effects[0]).toEqual({
+    recipient: "opponent",
+    modifier: {
+      kind: "damage",
+      damageType: "magic",
+      amount: { base: 60, sources: ["abilityPower"] },
+      temporality: {
+        kind: "periodic",
+        seconds: 4,
+        interval: 1,
+        mode: "instance",
       },
     },
-  ]);
+  });
 });
 ```
 
