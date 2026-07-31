@@ -1,9 +1,11 @@
-import type { SpellContext } from "../../../engine/spell/contract";
-import type { EffectiveStats } from "../../../engine/stats/effective-stats";
+import type {
+  CombatantView,
+  SpellContext,
+} from "../../../engine/spell/contract";
 
 // One ordinary caster on both sides: every spell test reads the same baseline,
 // so a stat added to the schema lands here once instead of once per test.
-const stats: EffectiveStats = {
+const stats: CombatantView["stats"] = {
   hp: 1000,
   armor: 25,
   magicResist: 25,
