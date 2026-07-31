@@ -18,7 +18,8 @@ imported.
 
 ## `src/engine`
 
-Resolution. Reads the domain, knows no set.
+Resolution. Reads the domain, and knows no set — except `provisional/`, which
+imports one until the catalog lands.
 
 |                |                                                                                                                                                                |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
