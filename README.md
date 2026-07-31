@@ -1,9 +1,8 @@
 # Simfight Tactics
 
-A combat simulator for Teamfight Tactics. A board goes in, an outcome comes out.
+A combat simulator when a board goes in, an outcome comes out.
 
-Players theorycraft against builders, and a builder only ever shows what was
-composed — never what it does. This is the other half.
+Building the next generation of builder for TFT Theorycrafter.
 
 ## Where it is
 
@@ -56,7 +55,10 @@ bun run storybook    # component workshop
 bun run gate         # what CI checks
 ```
 
-## Contributing
+## Finding your way
+
+`docs/architecture.md` maps the source tree — what each area holds and what it
+is allowed to read.
 
 `CONTRIBUTING.md` carries the branch, commit and pull request rules, and the
 conventions the code and the pages follow.
