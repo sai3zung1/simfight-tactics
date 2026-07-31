@@ -1,25 +1,6 @@
 # Contributing
 
-## Setup
-
-Bun runs everything. CI pins `1.3.14`.
-
-```sh
-bun install
-bunx playwright install --with-deps chromium
-```
-
-`bun install` also wires the git hooks. The Playwright browser is a separate
-download: installing the package alone leaves it without a binary, and the
-story tests run in a real one.
-
-## Commands
-
-```sh
-bun run dev          # dev server
-bun run storybook    # component workshop
-bun run gate         # what CI checks
-```
+`README.md` sets the project up and lists the commands.
 
 Run `bun run gate` before opening a pull request. CI runs the same steps plus
 the build.
@@ -93,9 +74,7 @@ Three kinds, never mixed in one page. **Explanation** — why a decision was
 taken, and what the structure is. **Reference** — facts to look up.
 **How-to** — a repeated gesture, in order.
 
-`README.md` is a map, not a page: what the project is, how to run it, where
-things live. Anything it starts to explain belongs elsewhere. The same holds
-for any index — it points, it does not carry.
+An index points, it does not carry.
 
 Three questions first. Does a type, a test name, a story or an error message
 already carry it? Leave it there. Would clearer code remove the need? Fix the
