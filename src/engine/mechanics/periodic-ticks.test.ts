@@ -153,25 +153,6 @@ test("two casts expand into two independent series, never merged", () => {
   expect(drain(queue)).toHaveLength(6);
 });
 
-test("a periodic crowd-control is a loud author bug: no per-tick duration exists", () => {
-  const source = makeCombatant("attacker");
-  const target = makeCombatant("target");
-  const cc: Modifier = {
-    kind: "crowd-control",
-    cc: "stun",
-    temporality: {
-      kind: "periodic",
-      seconds: 9,
-      interval: 3,
-      mode: "instance",
-    },
-  };
-
-  expect(() =>
-    schedulePeriodicTicks(cc, source, target, NOW, createEventQueue()),
-  ).toThrow();
-});
-
 test("a window shorter than its interval is a loud author bug, never a silent no-op", () => {
   const source = makeCombatant("attacker");
   const target = makeCombatant("target");

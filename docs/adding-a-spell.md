@@ -144,18 +144,19 @@ consume their tick outright, so for those two the choice changes nothing. It
 bites on the kinds that leave a residue, where `"instance"` refreshes each
 interval and `"accrual"` stacks.
 
-**Not every pairing is legal, and the type does not say so.** Three combinations
-compile and then throw on the first cast:
+**Not every pairing exists, and the type says so** — an illegal one does not
+compile:
 
-| `kind`                                                      | Accepts                  |
-| ----------------------------------------------------------- | ------------------------ |
-| `damage`, `heal`                                            | `instant` or `periodic`  |
-| `crowd-control`                                             | `duration` or `periodic` |
-| `stat-mod`, `shield`, `damage-reduction`, `mana-generation` | any                      |
+| `kind`                                                      | Accepts                 |
+| ----------------------------------------------------------- | ----------------------- |
+| `damage`, `heal`                                            | `instant` or `periodic` |
+| `crowd-control`                                             | `duration` only         |
+| `stat-mod`, `shield`, `damage-reduction`, `mana-generation` | any                     |
 
 Damage over time is `periodic`, never `duration` — a hit lands and is done, so
 there is nothing for an expiry to undo. A stun is the reverse: it has to be
-lifted, so it carries a duration and never an instant.
+lifted, so it always carries a duration — and a recurring stun has no per-tick
+duration to give each application, so `periodic` is out too.
 
 **How big it is** — every kind except `crowd-control` carries an `amount`:
 
@@ -281,8 +282,8 @@ test("burns the opponent once a second for the window", () => {
 });
 ```
 
-Copy the `stats` and `ctx` helpers from any neighbouring test — they build a
-full `EffectiveStats`, which has to list every field.
+Import `ctx` from `test-context.ts` beside the spells — one shared baseline
+caster on both sides, so no test builds its own stats.
 
 ## 6. Run it
 

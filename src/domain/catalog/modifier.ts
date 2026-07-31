@@ -35,17 +35,23 @@ export type Magnitude = {
   readonly sources?: readonly ScalingSource[];
 };
 
-export type Temporality =
-  | { readonly kind: "instant" }
-  | { readonly kind: "duration"; readonly seconds: StarValue }
-  | {
-      readonly kind: "periodic";
-      readonly seconds: StarValue;
-      readonly interval: number;
-      // What one tick leaves behind: `instance` lasts a single interval,
-      // `accrual` lasts to the end of combat.
-      readonly mode: "instance" | "accrual";
-    };
+export type Instant = { readonly kind: "instant" };
+
+export type Duration = {
+  readonly kind: "duration";
+  readonly seconds: StarValue;
+};
+
+export type Periodic = {
+  readonly kind: "periodic";
+  readonly seconds: StarValue;
+  readonly interval: number;
+  // What one tick leaves behind: `instance` lasts a single interval,
+  // `accrual` lasts to the end of combat.
+  readonly mode: "instance" | "accrual";
+};
+
+export type Temporality = Instant | Duration | Periodic;
 
 export type DamageType = "physical" | "magic" | "true";
 
@@ -58,26 +64,31 @@ export type ManaTrigger =
 export type CrowdControl = "silence" | "stun" | "disarm";
 
 export type Modifier =
+  // A hit or a heal lands and is done — nothing for an expiry to undo — so
+  // over-time versions are periodic, never duration.
   | {
       readonly kind: "damage";
       readonly damageType: DamageType;
       readonly amount: Magnitude;
-      readonly temporality: Temporality;
+      readonly temporality: Instant | Periodic;
     }
   | {
       readonly kind: "heal";
       readonly amount: Magnitude;
-      readonly temporality: Temporality;
+      readonly temporality: Instant | Periodic;
     }
   | {
       readonly kind: "shield";
       readonly amount: Magnitude;
       readonly temporality: Temporality;
     }
+  // A crowd-control has to be lifted, so it always carries a duration; a
+  // periodic recurrence has no per-tick duration to give each application, so
+  // a recurring-cc kit would extend the taxonomy instead (#73).
   | {
       readonly kind: "crowd-control";
       readonly cc: CrowdControl;
-      readonly temporality: Temporality;
+      readonly temporality: Duration;
     }
   | {
       readonly kind: "stat-mod";

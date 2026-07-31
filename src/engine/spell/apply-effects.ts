@@ -64,11 +64,6 @@ export function applyEffects(
     }
     switch (modifier.kind) {
       case "damage": {
-        if (modifier.temporality.kind !== "instant") {
-          throw new Error(
-            "spell damage is instant; damage over time is periodic (mechanics/periodic-ticks.ts)",
-          );
-        }
         const signal = deliverDamage(
           {
             amount: resolveSpellMagnitude(
@@ -90,11 +85,6 @@ export function applyEffects(
         break;
       }
       case "crowd-control": {
-        if (modifier.temporality.kind !== "duration") {
-          throw new Error(
-            "a crowd-control effect carries a duration; instant has no meaning (modifier.ts)",
-          );
-        }
         applyCrowdControl(
           target,
           modifier.cc,
@@ -118,11 +108,6 @@ export function applyEffects(
         break;
       }
       case "heal": {
-        if (modifier.temporality.kind !== "instant") {
-          throw new Error(
-            "spell healing is instant; healing over time is periodic (mechanics/periodic-ticks.ts)",
-          );
-        }
         applyHeal(target, snapshotAmount(modifier.amount, caster.stats));
         break;
       }
