@@ -64,7 +64,7 @@ const preview: Preview = {
 
     /*
      * Enforced from the first atom on: an axe violation now fails the story run,
-     * so the accessibility commitments ADR 0006 rests on are checked while a
+     * so the design system's accessibility commitments are checked while a
      * component is being written rather than at review time.
      */
     a11y: {

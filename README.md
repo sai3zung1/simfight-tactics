@@ -1,86 +1,68 @@
 # Simfight Tactics
 
-> **Feel is doubt. Stats are clues. Simulation is the proof.**
+A combat simulator: a board goes in, an outcome comes out.
 
-A client-side **1v1 Teamfight Tactics combat simulator** for competitive
-players. Feed it a full combat configuration — champions, star levels, items,
-traits, and augments on both sides — and get measurable results instead of
-guesswork.
+Building the next generation of builder for TFT Theorycrafter.
 
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
-![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
-![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
-![Bun](https://img.shields.io/badge/Bun-000000?logo=bun&logoColor=white)
-![License](https://img.shields.io/badge/license-PolyForm%20NC-blue)
+## Where it is
 
-## What it does
+The engine resolves fights: a time-ordered event queue, auto-attacks, spells,
+mana, crowd control, shields and periodic effects, ending with an outcome and a
+reason for ending.
 
-Configure both sides of a fight and run a deterministic simulation. The tool
-**reports, it does not judge**: DPS, total damage dealt and taken, effective
-duration, and stop reason. You compare scenarios by running them again.
+There is no interface yet. `bun run dev` serves an empty shell; the components
+that exist live in Storybook.
 
-- **Decision-first** — answers "which item / star / trait actually wins this fight?"
-- **Precise in, precise out** — every effect modeled faithfully, no role-based shortcuts.
-- **Instant** — simulated time is virtual; every run completes in milliseconds.
+## What is interesting in it
 
-## Status
+**Nothing is rolled.** A crit is an expected value rather than a coin flip, and
+time is an integer count of milliseconds, so two events on the same instant
+compare exactly equal. The same board gives the same outcome, every run —
+`Math.random` appears nowhere in `src`.
+See `docs/adr/0002-deterministic-resolution-first.md`.
 
-🚧 **In development (pre-MVP).** The domain type system is in place; the data
-pipeline, simulation engine, and UI are in progress. Work is tracked on the
-[project board](https://github.com/users/sai3zung1/projects/3).
+**The engine knows no set.** Every effect is a modifier drawn from one closed
+vocabulary, and a set is data handed to `simulate()` — no branch per champion,
+per item or per trait. A new kind of effect stops compiling everywhere it has to
+be handled, so the compiler carries the check instead of review.
+See `docs/adr/0001-modifier-vocabulary-no-set-logic.md`.
 
-## Tech stack
+**The docs are the reference and the code transcribes them.** Where TFT has
+something the vocabulary cannot express — Wound, taunt, Mana Reave — the page
+says so instead of the code pretending otherwise.
+See `docs/effect-families.md`.
 
-| Layer         | Choice                                 |
-| ------------- | -------------------------------------- |
-| Language      | TypeScript                             |
-| UI            | React 19 + Vite                        |
-| Styling       | Tailwind CSS                           |
-| Runtime / pkg | Bun                                    |
-| Backend       | None — 100% client-side                |
-| Data          | Community Dragon → typed TS, committed |
+The reasoning lives in `docs/`.
 
-## Architecture
+## Setup
 
-- **Modifier-based engine.** Every effect (item, trait, augment, set mechanic)
-  is a modifier applied to a champion's neutral base state. The engine knows no
-  specific set — a new set is _data_, not code.
-- **Event-driven resolution.** Combat advances as discrete events (attacks,
-  casts, procs, ticks), not on a fixed time-step.
-- **Static data pipeline.** Source data is parsed and normalized into typed TS
-  files at build time — no runtime dependency on external services.
-- **Pure domain layer.** `src/domain/` is types and pure functions only: no I/O,
-  no React.
+Bun runs everything. CI pins `1.3.14`.
 
-See [`docs/adr/`](./docs/adr) for the reasoning behind these choices.
-
-## Project structure
-
-```text
-src/
-  domain/          # pure types + logic (no I/O, no React)
-    primitives.ts  # branded IDs, shared leaf types
-    catalog/       # game entities: Unit, Item, Trait, Augment, Spell, BaseStats
-    combat/        # combat inputs: BoardSide, StopCondition, CombatConfig
-  data/            # generated typed data per set (pipeline output)
-docs/adr/          # architecture decision records
-```
-
-## Getting started
-
-```bash
+```sh
 bun install
-bun run dev        # start the dev server
+bunx playwright install --with-deps chromium
 ```
 
-## Contributing
+`bun install` also wires the git hooks. The Playwright browser is a separate
+download: installing the package alone leaves it without a binary, and the story
+tests run in a real one.
 
-Conventions, workflow, commands, and code standards live in
-[`CONTRIBUTING.md`](./CONTRIBUTING.md).
+## Commands
+
+```sh
+bun run dev          # dev server
+bun run storybook    # component workshop
+bun run gate         # what CI checks
+```
+
+## Finding your way
+
+`docs/architecture.md` maps the source tree — what each area holds and what it
+is allowed to read.
+
+`CONTRIBUTING.md` carries the branch, commit and pull request rules, and the
+conventions the code and the pages follow.
 
 ## License
 
-[PolyForm Noncommercial 1.0.0](./LICENSE) — source-available for personal,
-research, and noncommercial use. Commercial use is not permitted.
-
-© 2026 sai3zung1
+PolyForm Noncommercial 1.0.0 — see `LICENSE`.

@@ -1,128 +1,104 @@
 # Contributing
 
-## Workflow
+`README.md` sets the project up and lists the commands.
 
-Work is tracked as GitHub issues on the
-[project board](https://github.com/users/sai3zung1/projects/3). Each ticket is
-referenced by its issue number, written `SFT-<n>` (issue #11 → `SFT-11`).
+Run `bun run gate` before opening a pull request. CI runs the same steps plus
+the build.
 
-**One ticket → one branch → one PR.**
+## Branches, commits, pull requests
 
-### Working on a ticket
+A branch is named after the ticket it carries: `SFT-<ticket>-<slug>`. Paired
+tickets share one branch and one pull request.
 
-```bash
-# 1. Create a branch linked to the issue.
-#    The link comes from this command, NOT from the branch name.
-gh issue develop <n> --base main --name "SFT-<n>-<slug>" --checkout
+Commits follow Conventional Commits, with the ticket number as the scope:
 
-# 2. Commit — Conventional Commits, scoped to the ticket, subject only.
-git commit -m "<type>(SFT-<n>): <subject>"
-
-# 3. Push.
-git push -u origin "SFT-<n>-<slug>"
-
-# 4. Open the PR. `Closes #<n>` links it to the issue and auto-closes
-#    the issue when the PR is merged.
-gh pr create --base main --title "<type>(SFT-<n>): <subject>" --body "Closes #<n>"
+```text
+feat(SFT-49): mana generation and casting
 ```
 
-`<type>` is one of `feat`, `fix`, `chore`, `docs`, `refactor`, `test`, `ci`.
+`commitlint` enforces the format; it does not enforce the scope. A commit
+without its ticket number cannot be traced back to why it happened.
 
-### What links what
+Pull requests use the template and close their ticket with `Closes #<ticket>`.
 
-| Link                             | Created by                                           |
-| -------------------------------- | ---------------------------------------------------- |
-| Branch ↔ issue                   | `gh issue develop <n>` (issue's _Development_ panel) |
-| PR ↔ issue + auto-close on merge | `Closes #<n>` in the PR body                         |
-| PR ↔ branch                      | automatic                                            |
+## Conventions
 
-A branch **name** never creates a link — only the commands above do. The one
-non-negotiable step is `Closes #<n>` in the PR body.
+Self-contained: a ticket number and a repo path are the only references that
+survive.
 
-> No CLI? On the issue page, use **Create a branch** (links the branch), then
-> write `Closes #<n>` in the PR description.
+### Naming
 
-### Rules
+Modules under `src/` are kebab-case: `stop-condition.ts`, `resolve-damage.ts`.
+Tests sit beside what they test, as `<name>.test.ts`.
 
-- [Conventional Commits](https://www.conventionalcommits.org/), enforced by
-  commitlint (body lines ≤ 100 chars). Add a body only for a non-obvious _why_.
-- CI (lint, format:check, typecheck, build) must be green before merge.
-- **Squash-merge** pull requests.
+String values in unions are kebab-case too — `"time-to-kill"`,
+`"on-damage-taken"` — so the vocabulary reads the same in a type and in a
+payload.
 
-## Commands
+Module-level constants are SCREAMING_SNAKE_CASE and exported `as const`. The
+types that read them derive with `(typeof CONST)[number]` instead of being
+written a second time.
 
-```bash
-bun install
-bun run dev           # dev server
-bun run build         # typecheck + build
-bun run preview       # serve the production build
-bun run lint          # eslint
-bun run typecheck     # tsc
-bun run format        # prettier --write
-bun run format:check  # prettier --check (what CI runs)
-bun run test          # bun test — domain and engine
-bun run test:stories  # vitest — every story, in a real browser
-bun run gate          # typecheck + lint + format:check + both test runs
-```
+Domain identifiers are branded strings, one type per entity: `UnitId`,
+`SpellId`, `TraitId`.
 
-The component workshop runs components in isolation, apart from the app
-(ADR 0006). It is a dev dependency and never ships.
-
-```bash
-bun run storybook        # workshop on port 6006
-bun run build-storybook  # static build, into storybook-static/
-```
-
-Two test runners share the repo without overlapping: `bun test` owns
-`*.test.ts`, while Vitest turns each `*.stories.tsx` into a browser case so
-axe-core can check accessibility against computed styles. Both run in CI; the
-story run needs a Playwright browser binary, which CI fetches before it.
-
-## Code conventions
-
-### Naming & structure
-
-- **Files / folders**: kebab-case (`base-stats.ts`, `combat-config.ts`; folders
-  `catalog/`, `combat/`).
-- **Types, interfaces, branded IDs**: PascalCase (`Unit`, `BaseStats`, `UnitId`).
-- **Variables, functions**: camelCase. JSON keys mirror the TS types
-  (`attackDamage`, `damageProfile`).
-- **Data files**: one per entity type, plural (`champions.json`, `items.json`) —
-  never split by a sub-property (cost, trait); those stay queryable fields.
-- **Docs vs data**: prose lives in `docs/` (ADRs, data dictionary); values live
-  in `src/data/`.
-
-### Domain entities (`src/domain/`)
-
-- `type` over `interface` — closed shapes, no declaration merging.
-- `readonly` on every field; `readonly T[]` and `Readonly<Record<K, V>>`.
-- Reference entities by **branded IDs** (`UnitId`, `ItemId`, …), never bare `string`.
-- A sub-structure gets its own file when it has substance (≥ 4 fields) or is reused.
-- No trivial accessor wrappers; co-locate only type guards, smart constructors,
-  and real domain logic.
-
-### Principles
-
-- **Make illegal states unrepresentable.** Encode constraints in types
-  (`StarLevel = 1 | 2 | 3`).
-- **Parse, don't validate.** Validate once at the pipeline boundary; downstream
-  trusts the types.
-- **Total functions.** Defined for every input — return `T | undefined`, never
-  throw on a valid input.
-- **Pure domain.** `src/domain/` has no I/O, no React, no side effects.
-- **YAGNI.** No speculative structure (e.g. the `Modifier` shape was derived
-  from observed data, not postulated up front).
-- **`as const`** on generated data literals, so the type contract survives.
-
-### UI components (`src/ui/`)
-
-Copy-ready skeletons live in
-[`docs/templates/component/`](./docs/templates/component), each carrying its
-rules as comments; the Text atom (`src/ui/atoms/text/`) is the living exemplar.
-`cp -r` the skeleton into place, drop the `.template` suffixes, and rename.
+A component is four files in its own kebab-case folder: `<name>.contract.ts`
+for its axes and defaults, `<name>.classes.ts`, `<name>.tsx`, and
+`storybook/<name>.stories.tsx`. Three of the four are plain modules, so the
+files take the module casing; the exported component stays PascalCase.
 
 ### Comments
 
+The default is none — a comment is an exception, maintained like code, and a
+false one costs more than an absent one.
+
 Explain **why**, not **what**: rationale, trade-offs, gotchas, and invariants
 that the compiler cannot check. Never restate the code. Describe _shape_, not
-concrete values — specific numbers rot between sets.
+concrete values — specific numbers rot between sets. No blanket doc on exports
+or files.
+
+Three questions first. Would a rename, an extraction or a narrower type remove
+the need? Fix the code instead. Does a test name, an error message or a story
+description already carry it? Leave it there. Can every claim be checked
+against the code? If not, do not write it.
+
+### Documentation
+
+One reader: a developer fluent in the stack, with no context on this project.
+Nothing is written for anyone else.
+
+The default is no page. A page is an exception, maintained like code, and a
+false one costs more than an absent one.
+
+Three kinds, never mixed in one page. **Explanation** — why a decision was
+taken, and what the structure is. **Reference** — facts to look up.
+**How-to** — a repeated gesture, in order.
+
+An index points, it does not carry.
+
+Three questions first. Does a type, a test name, a story or an error message
+already carry it? Leave it there. Would clearer code remove the need? Fix the
+code instead. Can every claim be checked? A claim about the code checks against
+the code; a claim about TFT checks against the game — a public source, or the
+knowledge of someone who plays it. A claim that checks against neither is not
+written.
+
+Where the game has something the code does not, the page says so in place. That
+gap is what makes the page worth opening while implementing. A page whose
+claims stop checking out is deleted, not patched.
+
+Split on cadence, not on subject: what changes together stays on one page.
+
+### Decisions
+
+A decision gets a record in `docs/adr/` when it is not readable from the
+artifact it produced. A dependency, a config file or a type is already its own
+record: `package.json` says which runtime runs the project, and no page needs
+to repeat it.
+
+One defensible option is not a decision. If the alternatives were absent,
+abandoned or divergent, there is nothing to record.
+
+Context, decision, consequences — one numbered file each. A record is never
+edited to fit what changed: a decision that no longer holds is superseded by a
+new one, and both say so.

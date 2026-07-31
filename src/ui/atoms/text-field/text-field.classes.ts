@@ -1,4 +1,4 @@
-import type { TextFieldVariant } from "./textField.contract";
+import type { TextFieldVariant } from "./text-field.contract";
 
 export const SHELL = "group flex w-full flex-col";
 

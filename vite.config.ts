@@ -18,7 +18,7 @@ export default defineConfig({
    * Stories double as the accessibility suite: the Storybook plugin turns each
    * one into a Vitest case, run in a real browser so axe-core reads computed
    * styles, contrast and focus order rather than a synthetic DOM — the
-   * continuous check ADR 0006 rests on.
+   * continuous accessibility check the design system rests on.
    *
    * Two runners coexist without overlapping: cases here come from
    * `*.stories.tsx`, while `bun test` owns `*.test.ts` (domain and engine).

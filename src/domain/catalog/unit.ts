@@ -5,11 +5,10 @@ export type UnitCost = 1 | 2 | 3 | 4 | 5;
 
 export type UnitRole =
   | "tank"
-  | "bruiser"
+  | "fighter"
   | "marksman"
   | "caster"
   | "assassin"
-  | "support"
   | "specialist";
 
 export type DamageProfile = "physical" | "magic" | "hybrid";

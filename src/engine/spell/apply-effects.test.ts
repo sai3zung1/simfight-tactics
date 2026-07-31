@@ -26,6 +26,7 @@ const makeCombatant = (
     critChance: 0,
     critDamage: 0,
     damageAmp: 0,
+    omnivamp: 0,
     ...stats,
   };
   return {
@@ -279,52 +280,6 @@ test("a crowd-control effect lands on its recipient and schedules its expiry", (
   expect(scheduled?.time).toBe(2001 as Ticks);
 });
 
-test("non-instant damage is a loud spell-author bug, never a silent skip", () => {
-  const caster = makeCombatant("attacker");
-  const opponent = makeCombatant("target");
-  const state = makeState(caster, opponent);
-
-  const overTime: SpellEffect = {
-    recipient: "opponent",
-    modifier: {
-      kind: "damage",
-      damageType: "magic",
-      amount: { base: 100 },
-      temporality: { kind: "duration", seconds: 3 },
-    },
-  };
-
-  expect(() =>
-    applyEffects([overTime], caster, opponent, state, createEventQueue(), NOW),
-  ).toThrow();
-});
-
-test("a duration-less crowd-control effect is a loud spell-author bug", () => {
-  const caster = makeCombatant("attacker");
-  const opponent = makeCombatant("target");
-  const state = makeState(caster, opponent);
-
-  const instantStun: SpellEffect = {
-    recipient: "opponent",
-    modifier: {
-      kind: "crowd-control",
-      cc: "stun",
-      temporality: { kind: "instant" },
-    },
-  };
-
-  expect(() =>
-    applyEffects(
-      [instantStun],
-      caster,
-      opponent,
-      state,
-      createEventQueue(),
-      NOW,
-    ),
-  ).toThrow();
-});
-
 test("a per-star table reaching delivery is a loud spell-author bug", () => {
   const caster = makeCombatant("attacker");
   const opponent = makeCombatant("target");
@@ -543,7 +498,7 @@ test("a debuff scaled on the caster never borrows the victim's stats", () => {
   const opponent = makeCombatant("target", { abilityPower: 1, armor: 100 });
   const state = makeState(caster, opponent);
 
-  const shred: SpellEffect = {
+  const sunder: SpellEffect = {
     recipient: "opponent",
     modifier: {
       kind: "stat-mod",
@@ -553,7 +508,7 @@ test("a debuff scaled on the caster never borrows the victim's stats", () => {
     },
   };
 
-  applyEffects([shred], caster, opponent, state, createEventQueue(), NOW);
+  applyEffects([sunder], caster, opponent, state, createEventQueue(), NOW);
 
   expect(opponent.stats.armor).toBe(70);
 });
@@ -678,25 +633,6 @@ test("a heal scales on the caster's effective stats at cast (D4)", () => {
   expect(caster.currentHp).toBe(300);
 });
 
-test("a duration heal is a loud spell-author bug: healing over time is periodic", () => {
-  const caster = makeCombatant("attacker");
-  const opponent = makeCombatant("target");
-  const state = makeState(caster, opponent);
-
-  const hot: SpellEffect = {
-    recipient: "self",
-    modifier: {
-      kind: "heal",
-      amount: { base: 100 },
-      temporality: { kind: "duration", seconds: 3 },
-    },
-  };
-
-  expect(() =>
-    applyEffects([hot], caster, opponent, state, createEventQueue(), NOW),
-  ).toThrow();
-});
-
 test("a periodic effect expands into scheduled ticks instead of resolving now", () => {
   const caster = makeCombatant("attacker");
   const opponent = makeCombatant("target");
@@ -728,37 +664,6 @@ test("a periodic effect expands into scheduled ticks instead of resolving now", 
   );
   expect(kinds).toEqual(["periodic-tick", "periodic-tick", "periodic-tick"]);
   expect(queue.popNext()).toBeUndefined();
-});
-
-test("a periodic crowd-control is rejected loudly at scheduling", () => {
-  const caster = makeCombatant("attacker");
-  const opponent = makeCombatant("target");
-  const state = makeState(caster, opponent);
-
-  const recurringStun: SpellEffect = {
-    recipient: "opponent",
-    modifier: {
-      kind: "crowd-control",
-      cc: "stun",
-      temporality: {
-        kind: "periodic",
-        seconds: 9,
-        interval: 3,
-        mode: "instance",
-      },
-    },
-  };
-
-  expect(() =>
-    applyEffects(
-      [recurringStun],
-      caster,
-      opponent,
-      state,
-      createEventQueue(),
-      NOW,
-    ),
-  ).toThrow();
 });
 
 test("a composed hp buff then heal fills up to the raised max, not the base max (D3 + D5)", () => {

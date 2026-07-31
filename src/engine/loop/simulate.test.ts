@@ -19,9 +19,9 @@ import {
   PROVISIONAL_RALLY_CASTER_UNIT_ID,
   PROVISIONAL_RENEW_CASTER_UNIT_ID,
   PROVISIONAL_SEAR_CASTER_UNIT_ID,
-  PROVISIONAL_SHRED_CASTER_UNIT_ID,
+  PROVISIONAL_SUNDER_CASTER_UNIT_ID,
   PROVISIONAL_TANK_UNIT_ID,
-} from "../provisional/provisional-stats";
+} from "../provisional/provisional-casters";
 import {
   PROVISIONAL_SWORD_ITEM_ID,
   PROVISIONAL_PLATING_ITEM_ID,
@@ -247,9 +247,9 @@ test("a timed self-buff raises the caster's own auto-attack damage over the run 
   expect(armed.totalDamageDealt).toBeGreaterThan(bare.totalDamageDealt);
 });
 
-test("a shred debuff raises the caster's own damage: the opponent's armor is torn (#71)", () => {
+test("a sunder debuff raises the caster's own damage: the opponent's armor is torn (#71)", () => {
   const c: CombatConfig = {
-    attacker: { ...side(), unitId: PROVISIONAL_SHRED_CASTER_UNIT_ID },
+    attacker: { ...side(), unitId: PROVISIONAL_SUNDER_CASTER_UNIT_ID },
     target: side(),
     stopCondition: { mode: "fixed-duration", durationSeconds: 30 },
   };

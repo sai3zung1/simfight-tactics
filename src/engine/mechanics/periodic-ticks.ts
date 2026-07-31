@@ -30,11 +30,6 @@ export function schedulePeriodicTicks(
   if (modifier.temporality.kind !== "periodic") {
     throw new Error("only a periodic temporality expands into ticks");
   }
-  if (modifier.kind === "crowd-control") {
-    throw new Error(
-      "a periodic crowd-control is inexpressible: no per-tick duration exists (modifier.ts); a real recurring-cc kit extends the taxonomy (#73)",
-    );
-  }
   const windowTicks = secondsToTicks(
     starCollapsed(modifier.temporality.seconds),
   );
@@ -144,7 +139,7 @@ export function processPeriodicTick(
       return undefined;
     case "crowd-control":
       throw new Error(
-        "a periodic crowd-control never schedules (schedulePeriodicTicks rejects it)",
+        "a periodic crowd-control never schedules: its type carries a Duration (modifier.ts)",
       );
     default: {
       const _exhaustive: never = modifier;

@@ -105,6 +105,8 @@ function applyStatMod(
       return { ...stats, critDamage: stats.critDamage + amount };
     case "damageAmp":
       return { ...stats, damageAmp: stats.damageAmp + amount };
+    case "omnivamp":
+      return { ...stats, omnivamp: stats.omnivamp + amount };
     case "range":
       return stats;
     default: {

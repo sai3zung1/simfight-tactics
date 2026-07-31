@@ -26,6 +26,7 @@ const base: ResolvedStats = {
   critChance: 0.25,
   critDamage: 0.4,
   damageAmp: 0,
+  omnivamp: 0,
 };
 
 const statMod = (target: ModifiableStat, amount: StarValue): Modifier => ({

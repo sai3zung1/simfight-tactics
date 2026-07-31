@@ -23,6 +23,7 @@ export const STAT_KEYWORDS = [
   "damageAmp",
   "range",
   "mana",
+  "omnivamp",
 ] as const satisfies readonly (keyof BaseStats)[];
 
 export const EFFECT_KEYWORDS = [
@@ -32,7 +33,6 @@ export const EFFECT_KEYWORDS = [
   "heal",
   "shield",
   "crowdControl",
-  "omnivamp",
   "bonus",
 ] as const;
 

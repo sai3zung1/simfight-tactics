@@ -2,7 +2,7 @@ import type { StorybookConfig } from "@storybook/react-vite";
 
 /*
  * Stories sit next to the component they document rather than in a parallel
- * tree: a component and its states move together (ADR 0006).
+ * tree: a component and its states move together.
  *
  * The Vite builder reuses vite.config.ts as-is, so the Tailwind v4 plugin and
  * the token layer it compiles apply here without a second declaration.

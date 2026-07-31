@@ -14,12 +14,12 @@ import {
   RESULTS_COUNT,
   SHELL,
   VARIANT_CLASS,
-} from "./textField.classes";
+} from "./text-field.classes";
 import {
   DEFAULTS,
   type TextFieldElement,
   type TextFieldVariant,
-} from "./textField.contract";
+} from "./text-field.contract";
 
 export type { TextFieldElement, TextFieldVariant };
 
