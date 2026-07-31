@@ -22,8 +22,8 @@ changes nothing in a duel, and it still has to work — otherwise multi-target
 combat reopens the engine, and the MVP was never valid.
 
 Everything the game can express has to land in the domain types, whether the
-current combat can exercise it or not. `docs/effect-families.md` and
-`docs/unit.md` list what does not.
+current combat can exercise it or not. `docs/effect-families.md` records what
+does not.
 
 ## Combat
 

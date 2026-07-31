@@ -69,9 +69,8 @@ pool itself, not by the effect vocabulary.
 ## Healing
 
 A heal raises health and clamps at the maximum: no overheal, and no conversion
-into a shield. Nothing turns damage dealt into healing — omnivamp reaches the
-effective stats and no one reads it. And nothing reduces incoming healing: the
-game's Wound has no expression here.
+into a shield. Nothing turns damage dealt into healing, and nothing reduces
+incoming healing: the game's Wound has no expression here.
 
 ## Mana
 
@@ -79,7 +78,7 @@ A unit casts when its mana reaches its maximum.
 
 | Source            | The engine                                                                     | The game                                                            |
 | ----------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------- |
-| Per attack        | A number on the unit. Nothing derives it from a role yet                       | 10 for assassins, marksmen and fighters, 7 for casters, 5 for tanks |
+| Per attack        | Fixed by the unit's role                                                       | 10 for assassins, marksmen and fighters, 7 for casters, 5 for tanks |
 | Per second        | A number on the unit, applied once a second                                    | —                                                                   |
 | From damage taken | 1% of pre-mitigation plus 3% of post-mitigation, capped at 42.5, behind a flag | The same numbers, for tanks                                         |
 
