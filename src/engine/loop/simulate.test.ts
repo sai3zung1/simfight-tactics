@@ -21,7 +21,7 @@ import {
   PROVISIONAL_SEAR_CASTER_UNIT_ID,
   PROVISIONAL_SHRED_CASTER_UNIT_ID,
   PROVISIONAL_TANK_UNIT_ID,
-} from "../provisional/provisional-stats";
+} from "../provisional/provisional-casters";
 import {
   PROVISIONAL_SWORD_ITEM_ID,
   PROVISIONAL_PLATING_ITEM_ID,

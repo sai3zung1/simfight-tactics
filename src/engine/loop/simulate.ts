@@ -16,11 +16,11 @@ import {
 import { createProcess } from "../mechanics/process-event";
 import { resolveCombatant } from "../stats/combatant";
 import { resolveModifiers } from "../provisional/provisional-modifiers";
-import { resolveUnitStats } from "../provisional/provisional-stats";
 import {
   resolveUnitSpellId,
   resolveUnitSpellParameters,
-} from "../provisional/provisional-spell";
+  resolveUnitStats,
+} from "../provisional/provisional-casters";
 import { EMPTY_SPELL_REGISTRY, type SpellRegistry } from "../spell/contract";
 import { createEventQueue, type EventQueue } from "./event-queue";
 import { TICK_ZERO, secondsToTicks, ticksToSeconds, type Ticks } from "./time";
