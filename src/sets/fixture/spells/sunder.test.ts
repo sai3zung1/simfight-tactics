@@ -1,28 +1,6 @@
 import { test, expect } from "bun:test";
 import { sunder, FIXTURE_SUNDER_PARAMETERS } from "./sunder";
-import type { SpellContext } from "../../../engine/spell/contract";
-import type { EffectiveStats } from "../../../engine/stats/effective-stats";
-
-const stats: EffectiveStats = {
-  hp: 1000,
-  armor: 25,
-  magicResist: 25,
-  durability: 0,
-  mana: { min: 0, start: 0, max: 100 },
-  manaGeneration: { perAttack: 7, perSecond: 2, gainsFromDamageTaken: false },
-  attackDamage: 55,
-  abilityPower: 1,
-  attackSpeed: 0.85,
-  critChance: 0.25,
-  critDamage: 0.4,
-  damageAmp: 0,
-  omnivamp: 0,
-};
-
-const ctx = (): SpellContext => ({
-  caster: { stats, hp: { current: 1000, max: 1000 } },
-  opponent: { stats, hp: { current: 1000, max: 1000 } },
-});
+import { ctx } from "./test-context";
 
 test("emits one flat, timed armor debuff on the opponent, as a negative amount", () => {
   expect(sunder(ctx(), { armorReduction: 20, durationSeconds: 4 })).toEqual([
