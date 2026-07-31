@@ -6,8 +6,7 @@ export type ItemType =
   | "craftable"
   | "radiant"
   | "artifact"
-  | "emblem"
-  | "trait";
+  | "emblem";
 
 export type Item = {
   readonly id: ItemId;
