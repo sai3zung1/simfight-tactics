@@ -1,0 +1,3038 @@
+{
+  "entries": [
+    {
+      "name": "Augmented Power",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["3-2"],
+      "description": "Your next augment is one tier higher.",
+      "combat": false
+    },
+    {
+      "name": "Backup Bows",
+      "tier": "silver",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain a Recurve Bow. After your champions attack 1000 times, get 2 more.",
+      "combat": false
+    },
+    {
+      "name": "Band of Thieves",
+      "tier": "silver",
+      "categories": ["items"],
+      "apparition": ["2-1", "3-2", "4-2"],
+      "description": "Gain 1 Thief's Gloves.",
+      "combat": false
+    },
+    {
+      "name": "Boxing Lessons",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Your team gains 30 Health for each champion that starts combat in the front row.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "hp": 30
+          },
+          "per": "front-row-ally"
+        }
+      ]
+    },
+    {
+      "name": "Branching Out",
+      "tier": "silver",
+      "categories": ["items", "traits"],
+      "apparition": ["2-1"],
+      "description": "Gain a random Emblem.",
+      "combat": false
+    },
+    {
+      "name": "Branching Out+",
+      "tier": "silver",
+      "categories": ["items", "traits"],
+      "apparition": ["3-2"],
+      "description": "Gain a random Emblem and a Reforger.",
+      "combat": false
+    },
+    {
+      "name": "Called Shot",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Set your win streak to +4. Gain 4 gold.",
+      "combat": false
+    },
+    {
+      "name": "Capital Gains I",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Store gold equal to 110% of the interest you earn. On 3-3, gain all the stored gold. Gain 2 gold now.",
+      "combat": false
+    },
+    {
+      "name": "Caretaker's Ally",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["2-1"],
+      "description": "Gain a random 2-cost champion now. Gain the same one again every time you level up.Champion: {Set18.Augment.CaretakersAllyChampion}",
+      "combat": false
+    },
+    {
+      "name": "Carve a Path",
+      "tier": "silver",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain a B.F. Sword. After your champions deal 65000 physical damage, gain 2 more.",
+      "combat": false
+    },
+    {
+      "name": "Celestial Blessing I",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Your team gains 12% Omnivamp. Excess healing is converted to a shield up to 200 Health.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "omnivamp": 0.12
+          }
+        }
+      ],
+      "params": {
+        "overhealShieldCap": 200
+      }
+    },
+    {
+      "name": "Champ Delivery",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Gain 3 2-cost champions. After 4 rounds, gain 3 more.",
+      "combat": false
+    },
+    {
+      "name": "Champ Delivery +",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["3-2"],
+      "description": "Gain 3 3-cost champions. After 4 rounds, gain 3 more.",
+      "combat": false
+    },
+    {
+      "name": "Champ Delivery ++",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["4-2"],
+      "description": "Gain 3 4-cost champions. After 4 rounds, gain 3 more.",
+      "combat": false
+    },
+    {
+      "name": "Cognitive Tax",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Gain 8 gold and 1 XP.",
+      "combat": false
+    },
+    {
+      "name": "Cognitive Tax+",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["3-2"],
+      "description": "Gain 12 gold and 3 XP.",
+      "combat": false
+    },
+    {
+      "name": "Component Buffet",
+      "tier": "silver",
+      "categories": ["items"],
+      "apparition": ["Disabled"],
+      "description": "Whenever you would get a component, gain a component anvil instead. Gain a random component.The anvil offers 4 choices.",
+      "combat": false
+    },
+    {
+      "name": "Corrosion",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Enemies in the first two rows lose 4 Armor and Magic Resist every 2 seconds.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "stats": {
+            "armor": -4,
+            "magicResist": -4
+          },
+          "when": "in-first-two-rows",
+          "everySeconds": 2
+        }
+      ]
+    },
+    {
+      "name": "Crafted Crafting",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Whenever you craft a completed item, gain 2 rerolls.",
+      "combat": false
+    },
+    {
+      "name": "Dummify",
+      "tier": "silver",
+      "categories": ["strategic"],
+      "apparition": ["3-2"],
+      "description": "Lose all champions on your board and bench. Gain a Training Dummy with 60% of their combined health. The dummy gains 1000 Health per stage. Gain a random non-tank 2-star 2 cost champion.",
+      "combat": true,
+      "params": {
+        "dummyHealthShare": 0.6,
+        "dummyHealthPerStage": 1000
+      }
+    },
+    {
+      "name": "Electrocharge I",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["2-1", "3-2", "4-2"],
+      "description": "Every 4 attacks an ally takes, they deal 30-90 (based on current Stage) magic damage to nearby enemies (1 second cooldown).",
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "stats": {
+            "magicDamage": 30
+          },
+          "per": "4-attacks-taken",
+          "maxByStage": 90,
+          "cooldownSeconds": 1
+        }
+      ]
+    },
+    {
+      "name": "Expedition",
+      "tier": "silver",
+      "categories": ["strategic"],
+      "apparition": ["2-1"],
+      "description": "At the start of every round, lose the champion in the rightmost bench slot. After losing 33 gold of champions in this way, gain a powerful reward. Gain a 3-cost champion now.",
+      "combat": false
+    },
+    {
+      "name": "Extra Buckles",
+      "tier": "silver",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain a Giant's Belt. After your champions take 75000 damage, get 2 more.",
+      "combat": false
+    },
+    {
+      "name": "Feeling Lucky",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["3-2"],
+      "description": "Gain 12 gold, then flip a coin. If heads, gain 4 more gold.",
+      "combat": false
+    },
+    {
+      "name": "Find Your Center",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Your champion that starts combat in the center of the front row gains 15% Damage Amp and 25% max Health.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "self",
+          "percentStats": {
+            "damageAmp": 0.15,
+            "hp": 0.25
+          },
+          "when": "front-row-centre"
+        }
+      ]
+    },
+    {
+      "name": "Flame On",
+      "tier": "silver",
+      "categories": ["traits"],
+      "apparition": ["2-1", "3-2", "4-2"],
+      "description": "The Inferno champion that dealt the most damage last combat is On Fire, gaining 25% Attack Speed. Gain a Varus and an Akali.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "self",
+          "percentStats": {
+            "attackSpeed": 0.25
+          },
+          "when": "top-damage-inferno"
+        }
+      ]
+    },
+    {
+      "name": "Flowing Tears",
+      "tier": "silver",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain a Tear of the Goddess. After your champions spend 6500 Mana, gain 2 more.",
+      "combat": false
+    },
+    {
+      "name": "Focused Fire",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Your team gains 10% Attack Damage. Every 5 seconds, they gain 5% more.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "attackDamage": 0.1
+          }
+        },
+        {
+          "to": "team",
+          "percentStats": {
+            "attackDamage": 0.05
+          },
+          "everySeconds": 5
+        }
+      ]
+    },
+    {
+      "name": "Forge A Friend",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["4-2"],
+      "description": "The next 1-cost champion you buy is 3-star. Gain 5 gold.",
+      "combat": false
+    },
+    {
+      "name": "Future Focused",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Your Tactician loses 20 Health, but after 5 player combats, gain 3 4-cost champions and 8 gold.",
+      "combat": false
+    },
+    {
+      "name": "Glass Cannon I",
+      "tier": "silver",
+      "categories": ["strategic"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Allies that start combat in the back row begin combat at 80% Health but gain 16% Damage Amp.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "damageAmp": 0.16,
+            "startingHealthShare": 0.8
+          },
+          "when": "back-row"
+        }
+      ]
+    },
+    {
+      "name": "Good For Something I",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["2-1"],
+      "description": "Champions that aren't holding items have a 40% chance to drop 1 gold on death.",
+      "combat": false
+    },
+    {
+      "name": "Group Hug I",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Combat start: Champions grant other adjacent champions 6 Armor and Magic Resist. This effect stacks.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "ally",
+          "stats": {
+            "armor": 6,
+            "magicResist": 6
+          },
+          "when": "adjacent",
+          "stacks": true
+        }
+      ]
+    },
+    {
+      "name": "Healing Orbs I",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "When an enemy dies, a nearby ally is healed for 250 Health.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "ally",
+          "stats": {
+            "heal": 250
+          },
+          "when": "enemy-dies-nearby"
+        }
+      ]
+    },
+    {
+      "name": "Iron Assets",
+      "tier": "silver",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain a component anvil and 3 gold.",
+      "combat": false
+    },
+    {
+      "name": "Item Grab Bag I",
+      "tier": "silver",
+      "categories": ["items"],
+      "apparition": ["2-1", "3-2", "4-2"],
+      "description": "Gain 1 random completed item.",
+      "combat": false
+    },
+    {
+      "name": "Kick Start",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Gain a random 2-star 2-cost champion and 1 gold.",
+      "combat": false
+    },
+    {
+      "name": "Kingslayer",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1", "3-2"],
+      "description": "After winning player combat, gain 1 gold. If they had more health than you, gain 6 Gold instead. Gain 1 gold.",
+      "combat": false
+    },
+    {
+      "name": "Late Game Specialist",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["3-2"],
+      "description": "When you reach Level 9, gain 27 gold.",
+      "combat": false
+    },
+    {
+      "name": "Latent Forge",
+      "tier": "silver",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "After 8  player combats, gain an Artifact anvil.",
+      "combat": false
+    },
+    {
+      "name": "Loaded Dice",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Your dice and coins are lucky.Roll a die and gain gold equal to the number rolled. Then flip a coin and gain 1 gold if you flip heads.",
+      "combat": false
+    },
+    {
+      "name": "Makeshift Armor I",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["2-1", "3-2"],
+      "description": "Champions without items equipped gain 30 Armor and Magic Resist.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "armor": 30,
+            "magicResist": 30
+          },
+          "when": "holds-no-item"
+        }
+      ]
+    },
+    {
+      "name": "Missed Connections",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Gain a copy of each 1-cost champion.",
+      "combat": false
+    },
+    {
+      "name": "One Two Three",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Gain 1 1-cost champion, 1 2-cost champion, and 1 3-cost champion.",
+      "combat": false
+    },
+    {
+      "name": "One, Two, Five!",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["4-2"],
+      "description": "Gain 1 random component, 2 gold, and 1 random 5-cost champion",
+      "combat": false
+    },
+    {
+      "name": "Pandora's Bench",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["2-1", "3-2"],
+      "description": "At the start of every round, champions on the 3 rightmost bench slots transform into random champions of the same cost. Gain 4 gold.",
+      "combat": false
+    },
+    {
+      "name": "Pandora's Items I",
+      "tier": "silver",
+      "categories": ["items"],
+      "apparition": ["2-1", "3-2", "4-2"],
+      "description": "Round start: items on your bench are randomized. Gain 1 random component.",
+      "combat": false
+    },
+    {
+      "name": "Partial Ascension",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "After 12 seconds of combat, your units gain 20% Damage Amp.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "damageAmp": 0.2
+          },
+          "afterSeconds": 12
+        }
+      ]
+    },
+    {
+      "name": "Patience Is A Virtue",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Each round, gain 2 free rerolls if you did not buy a champion last round.",
+      "combat": false
+    },
+    {
+      "name": "Quick Streaks",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "You gain twice as much progress towards win and loss streaks. Gain 4 gold.",
+      "combat": false
+    },
+    {
+      "name": "Recombobulator",
+      "tier": "silver",
+      "categories": ["strategic"],
+      "apparition": ["3-2"],
+      "description": "Champions on your board permanently transform into random champions 1 cost tier higher (max 5). Gain 2 Magnetic Removers and 3 free rerolls.",
+      "combat": false
+    },
+    {
+      "name": "Residual Magic",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["2-1"],
+      "description": "Your team gains 100 Health. Each time you purchase a Wisp, increase this by 10.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "hp": 100
+          }
+        }
+      ],
+      "params": {
+        "hpPerWispBought": 10
+      }
+    },
+    {
+      "name": "Residual Magic +",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["3-2"],
+      "description": "Your team gains 130 Health. Each time you purchase a Wisp, increase this by 10.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "hp": 130
+          }
+        }
+      ],
+      "params": {
+        "hpPerWispBought": 10
+      }
+    },
+    {
+      "name": "Residual Magic ++",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["4-2"],
+      "description": "Your team gains 150 Health. Each time you purchase a Wisp, increase this by 10.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "hp": 150
+          }
+        }
+      ],
+      "params": {
+        "hpPerWispBought": 10
+      }
+    },
+    {
+      "name": "Rolling For Days",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Gain 10 free Shop rerolls.",
+      "combat": false
+    },
+    {
+      "name": "Silver Destiny",
+      "tier": "silver",
+      "categories": ["strategic"],
+      "apparition": ["2-1"],
+      "description": "Gain a random Silver Augment and 2 gold.",
+      "combat": false
+    },
+    {
+      "name": "Silver Destiny+",
+      "tier": "silver",
+      "categories": ["strategic"],
+      "apparition": ["3-2"],
+      "description": "Gain a random Silver Augment and 4 gold.",
+      "combat": false
+    },
+    {
+      "name": "Silver Destiny++",
+      "tier": "silver",
+      "categories": ["strategic"],
+      "apparition": ["4-2"],
+      "description": "Gain a random Silver Augment and 7 gold.",
+      "combat": false
+    },
+    {
+      "name": "Silver Spoon",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Gain 10 XP",
+      "combat": false
+    },
+    {
+      "name": "Slice of Life",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Twice per stage, gain a random champion. Its cost increases by Stage. This effect ends after receiving 1 5-cost champion.",
+      "combat": false
+    },
+    {
+      "name": "Slightly Magic Roll",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["2-1"],
+      "description": "Roll a die. Gain rewards based on the number rolled.{Augment.Variant.SlightlyMagicRoll.Reward}",
+      "combat": false
+    },
+    {
+      "name": "Small Grab Bag",
+      "tier": "silver",
+      "categories": ["items"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Gain 2 random item components.",
+      "combat": false
+    },
+    {
+      "name": "Stand United",
+      "tier": "silver",
+      "categories": ["strategic"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Your units gain 1.5% Attack Damage and 1.5% Ability Power for each non-unique Trait active across your team.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "attackDamage": 0.015,
+            "abilityPower": 0.015
+          },
+          "per": "active-non-unique-trait"
+        }
+      ]
+    },
+    {
+      "name": "Team Building",
+      "tier": "silver",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1", "3-2"],
+      "description": "Gain a Lesser Champion Duplicator. Gain another after 5 player combats.This item allows you to copy a 3-cost or less champion.",
+      "combat": false
+    },
+    {
+      "name": "The Tower",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["2-1", "3-2", "4-2"],
+      "description": "Gain a giant Training Dummy. Every 4 seconds, it zaps the 3 nearest enemies dealing 5% max Health true damage.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "percentStats": {
+            "trueDamagePercentMaxHealth": 0.05
+          },
+          "everySeconds": 4,
+          "targets": 3
+        }
+      ]
+    },
+    {
+      "name": "Twin Guardians",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "If you have exactly 2 allies in your first row, grant them 100 Health, 35 Armor, and 35 Magic Resist.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "ally",
+          "stats": {
+            "hp": 100,
+            "armor": 35,
+            "magicResist": 35
+          },
+          "when": "exactly-two-in-front-row"
+        }
+      ]
+    },
+    {
+      "name": "Verticality I",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Champions gain 1.5% Attack Damage, 1.5% Ability Power, 1.5 Armor, and 1.5 Magic Resist for each ally that shares a trait with them.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "armor": 1.5,
+            "magicResist": 1.5
+          },
+          "percentStats": {
+            "attackDamage": 0.015,
+            "abilityPower": 0.015
+          },
+          "per": "ally-sharing-a-trait"
+        }
+      ]
+    },
+    {
+      "name": "Wisp Rebate",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["3-2"],
+      "description": "Each time you purchase a Wisp, gain 2 gold. Gain 6 gold now.",
+      "combat": false
+    },
+    {
+      "name": "Wisp Rebate +",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["4-2"],
+      "description": "Each time you purchase a Wisp, gain 2 gold. Gain 10 gold now.",
+      "combat": false
+    },
+    {
+      "name": "Young and Wild and Free",
+      "tier": "silver",
+      "categories": ["combat"],
+      "apparition": ["2-1"],
+      "description": "You can always move freely on Carousel rounds. Gain 5 gold.",
+      "combat": false
+    },
+    {
+      "name": "Advanced Loan",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["Disabled"],
+      "description": "Gain 20 Gold. Your next augment is one tier lower.",
+      "combat": false
+    },
+    {
+      "name": "Advanced Loan+",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["3-2"],
+      "description": "Gain 33 Gold. Your next augment is one tier lower.",
+      "combat": false
+    },
+    {
+      "name": "Arcane Viktor-y",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "After 8 seconds of combat, stun the enemy team for 1.5 seconds. Repeat this after 18 seconds of combat.TFT Macao Open, 2024",
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "effect": "stun"
+        }
+      ],
+      "params": {
+        "firstStunSeconds": 8,
+        "secondStunSeconds": 18,
+        "stunDuration": 1.5
+      }
+    },
+    {
+      "name": "Ascension",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "After 12 seconds of combat, your units gain 35% Damage Amp.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "damageAmp": 0.35
+          },
+          "afterSeconds": 12
+        }
+      ]
+    },
+    {
+      "name": "Backline Blueprint",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["2-1"],
+      "description": "Gain a 3-cost non-Tank champion and an Emblem that matches their class.",
+      "combat": false
+    },
+    {
+      "name": "Beast Within",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["4-2"],
+      "description": "Primal grants an additional Blessing. Gain a Vi and a Nidalee.",
+      "combat": true,
+      "params": {
+        "extraPrimalBlessings": 1
+      }
+    },
+    {
+      "name": "Beast Within",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2"],
+      "description": "Primal grants an additional Blessing.  Gain a Vi now and a Sivir after 3 rounds.",
+      "combat": true,
+      "params": {
+        "extraPrimalBlessings": 1
+      }
+    },
+    {
+      "name": "Beast Within",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2"],
+      "description": "Primal grants an additional Blessing. Gain a Vi now and a Nidalee after 3 rounds.",
+      "combat": true,
+      "params": {
+        "extraPrimalBlessings": 1
+      }
+    },
+    {
+      "name": "Beast Within",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["4-2"],
+      "description": "Primal grants an additional Blessing. Gain a Vi and a Sivir.",
+      "combat": true,
+      "params": {
+        "extraPrimalBlessings": 1
+      }
+    },
+    {
+      "name": "Big Grab Bag",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Gain 3 random components, 2 gold, and 1 Reforger.",
+      "combat": false
+    },
+    {
+      "name": "Birthday Reunion",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["2-1"],
+      "description": "Gain a random 2-star 2-cost champion. At Level 6, gain a random item component. At Level 9, gain a random 2-star 5-cost champion.Inkborn Fables Tactician's Crown, 2024",
+      "combat": false
+    },
+    {
+      "name": "Blossom's Call",
+      "tier": "gold",
+      "categories": ["traits"],
+      "apparition": ["3-2"],
+      "description": "When you buy a Wisp, gain a random Blossom champion based on the Wisp's cost. Gain a Yunara, a Yorick, and a Karma.",
+      "combat": false
+    },
+    {
+      "name": "Bodyguard Training",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["2-1"],
+      "description": "Allies gain 15 Armor and Magic Resist, increased by 2 per player level.Gizmos & Gadgets Championship, 2022",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "armor": 15,
+            "magicResist": 15
+          }
+        }
+      ],
+      "params": {
+        "perPlayerLevel": 2
+      }
+    },
+    {
+      "name": "Bonus Gift",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Whenever you open a loot orb, you have a 30% chance to gain a gray loot orb. Gain 2 gray loot orbs.",
+      "combat": false
+    },
+    {
+      "name": "Bonus Gift +",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["3-2"],
+      "description": "Whenever you open a loot orb, you have a 30% chance to gain a gray loot orb. Gain 3 gray loot orbs.",
+      "combat": false
+    },
+    {
+      "name": "Booster Pack",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Gain 12 gold of random champions. (At least one 3-cost guaranteed!)",
+      "combat": false
+    },
+    {
+      "name": "Booster Pack+",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["3-2"],
+      "description": "Gain 18 gold of random champions. (At least one 4-cost guaranteed!)",
+      "combat": false
+    },
+    {
+      "name": "Booster Pack++",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["4-2"],
+      "description": "Gain 26 gold of random champions. (At least one 5-cost guaranteed!)",
+      "combat": false
+    },
+    {
+      "name": "Bronze For Life I",
+      "tier": "gold",
+      "categories": ["strategic"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Your team gains 2% Damage Amp for each Bronze-tier trait.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "damageAmp": 0.02
+          },
+          "per": "bronze-tier-trait"
+        }
+      ]
+    },
+    {
+      "name": "Calculated Loss",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "After losing your combat, gain 2 gold and a free Shop reroll.",
+      "combat": false
+    },
+    {
+      "name": "Capital Gains II",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Store gold equal to 150% of the interest you earn. On 3-3, gain all the stored gold. Gain 4 gold now.",
+      "combat": false
+    },
+    {
+      "name": "Caretaker's Favor",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain a component anvil when you reach level 5, 6, 7, and 8.Component anvils offer 4 choices.",
+      "combat": false
+    },
+    {
+      "name": "Celestial Blessing II",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Your team gains 18% Omnivamp. Excess healing is converted to a shield up to 400 Health.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "omnivamp": 0.18
+          }
+        }
+      ],
+      "params": {
+        "overhealShieldCap": 400
+      }
+    },
+    {
+      "name": "Challenger's Grace",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "At the start of combat, allies gain 25% Attack Speed for 3 seconds. On takedown, allies dash to their next target and gain this bonus again.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "attackSpeed": 0.25
+          },
+          "when": "combat-start-or-takedown",
+          "durationSeconds": 3
+        }
+      ]
+    },
+    {
+      "name": "Chosen of the Sun",
+      "tier": "gold",
+      "categories": ["traits"],
+      "apparition": ["2-1"],
+      "description": "Gain a Leona, a Kayle, and a Sejuani. Leona gains 60 permanent max Health each round, increased by 10 for each unique 3-star champion fielded.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "self",
+          "stats": {
+            "hp": 60
+          },
+          "when": "each-round",
+          "permanent": true
+        }
+      ],
+      "params": {
+        "hpPerUniqueThreeStar": 10
+      }
+    },
+    {
+      "name": "Clear Mind",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "If there are no champions on your bench at the end of player combat, gain 3 XP.",
+      "combat": false
+    },
+    {
+      "name": "Clockwork Accelerator",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Your team gains 10% Attack Speed every 3 seconds in combat.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "attackSpeed": 0.1
+          },
+          "everySeconds": 3
+        }
+      ]
+    },
+    {
+      "name": "Cluttered Mind",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Gain 4 1-cost champions now. If your bench is full at the end of player combat, gain 3 XP.",
+      "combat": false
+    },
+    {
+      "name": "Cognitive Overload",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["3-2"],
+      "description": "Gain 7 gold, 1 2-star 1-cost champion, 1 2-cost champion, 2 3-cost champions, 1 XP, and 1 Shop reroll.",
+      "combat": false
+    },
+    {
+      "name": "Construct a Companion",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2"],
+      "description": "The next 1-cost champion you buy is 3-star. Gain 2 gold.",
+      "combat": false
+    },
+    {
+      "name": "Consuming Flora",
+      "tier": "gold",
+      "categories": ["traits"],
+      "apparition": ["2-1"],
+      "description": "Gain a Flora Fatalis emblem. The champion holding the emblem gains double benefits from the Flora Fatalis trait.",
+      "combat": true,
+      "params": {
+        "floraFatalisMultiplier": 2
+      }
+    },
+    {
+      "name": "Consuming Flora",
+      "tier": "gold",
+      "categories": ["traits"],
+      "apparition": ["3-2"],
+      "description": "Gain a Flora Fatalis emblem. The champion holding the emblem gains double benefits from the Flora Fatalis trait.",
+      "combat": true,
+      "params": {
+        "floraFatalisMultiplier": 2
+      }
+    },
+    {
+      "name": "Consuming Flora",
+      "tier": "gold",
+      "categories": ["traits"],
+      "apparition": ["4-2"],
+      "description": "Gain a Flora Fatalis emblem. The champion holding the emblem gains double benefits from the Flora Fatalis trait.",
+      "combat": true,
+      "params": {
+        "floraFatalisMultiplier": 2
+      }
+    },
+    {
+      "name": "Cooking Pot",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "At the start of each turn, all allies holding a Frying Pan or Spatula item grant the nearest champion 60 permanent Health. Gain a Frying Pan.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "ally",
+          "stats": {
+            "hp": 60
+          },
+          "when": "holds-pan-or-spatula",
+          "permanent": true
+        }
+      ]
+    },
+    {
+      "name": "Coven Acolyte",
+      "tier": "gold",
+      "categories": ["traits"],
+      "apparition": ["2-1"],
+      "description": "When you choose to continue gathering Coven essence, heal 2 Tactician health. Gain a Camille, an Elise, and a Caitlyn.",
+      "combat": false
+    },
+    {
+      "name": "Cry Me A River",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["2-1", "3-2"],
+      "description": "Gain a Tear of the Goddess. Your team gains 1 Mana Regen. After 12 seconds in combat, increase this to 3.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "manaRegen": 1
+          }
+        },
+        {
+          "to": "team",
+          "stats": {
+            "manaRegen": 3
+          },
+          "afterSeconds": 12
+        }
+      ]
+    },
+    {
+      "name": "Cybernetic Implants II",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Your champions holding an item gain 100 Health and 15% Attack Damage. Gain a B.F. Sword.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "hp": 100
+          },
+          "percentStats": {
+            "attackDamage": 0.15
+          },
+          "when": "holds-an-item"
+        }
+      ]
+    },
+    {
+      "name": "Cybernetic Uplink II",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Your champions holding an item gain 100 Health and 2 Mana Regen. Gain a Tear of the Goddess.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "hp": 100,
+            "manaRegen": 2
+          },
+          "when": "holds-an-item"
+        }
+      ]
+    },
+    {
+      "name": "Dark Ritual",
+      "tier": "gold",
+      "categories": ["traits"],
+      "apparition": ["2-1", "3-2"],
+      "description": "Converting Coven Essence to rewards grants Coven champions Ability Power instead of loot. Gain a Camille, an Elise, and a Caitlyn.",
+      "combat": true,
+      "params": {
+        "covenEssenceBecomesAbilityPower": 1
+      }
+    },
+    {
+      "name": "Double Trouble",
+      "tier": "gold",
+      "categories": ["strategic", "gold-econ"],
+      "apparition": ["2-1", "3-2"],
+      "description": "When you field exactly 2 copies of a champion, they both gain 30% Attack Damage and Ability Power and 30 Armor, and Magic Resist. When you 3-star, gain a 2-star copy.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "self",
+          "stats": {
+            "armor": 30,
+            "magicResist": 30
+          },
+          "percentStats": {
+            "attackDamage": 0.3,
+            "abilityPower": 0.3
+          },
+          "when": "exactly-two-copies-fielded"
+        }
+      ]
+    },
+    {
+      "name": "Duo Queue",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["4-2"],
+      "description": "Gain 2 random 5-cost champions and 2 copies of a random component",
+      "combat": false
+    },
+    {
+      "name": "Early Learnings",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Your team gains 5% Attack Damage & Ability Power. This increases by 1% after each player combat. 1-cost champions gain double.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "attackDamage": 0.05,
+            "abilityPower": 0.05
+          }
+        }
+      ],
+      "params": {
+        "extraPerCombat": 0.01,
+        "oneCostMultiplier": 2
+      }
+    },
+    {
+      "name": "Electrocharge II",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["2-1", "3-2", "4-2"],
+      "description": "Every 4 attacks an ally takes, they deal 50-140 (based on current Stage) magic damage to nearby enemies (1 second cooldown).",
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "stats": {
+            "magicDamage": 50
+          },
+          "per": "4-attacks-taken",
+          "maxByStage": 140,
+          "cooldownSeconds": 1
+        }
+      ]
+    },
+    {
+      "name": "Embiggen",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["2-1", "3-2", "4-2"],
+      "description": "Fae pixies are now larger and grant 50% more Attack Damage and Ability Power. Fae champions gain 10% Attack Damage and Ability Power immediately. Gain a Xayah and a Rakan.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "traitHolders",
+          "percentStats": {
+            "attackDamage": 0.1,
+            "abilityPower": 0.1
+          },
+          "when": "fae"
+        }
+      ],
+      "params": {
+        "pixieBonusMultiplier": 1.5
+      }
+    },
+    {
+      "name": "Epic Rolldown",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["3-2"],
+      "description": "When you reach Level 8, gain 20 Shop rerolls.Runeterra Reforged Championship, 2023",
+      "combat": false
+    },
+    {
+      "name": "Epoch",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Now, and at the start of every stage, gain 4 XP and 2 free rerolls.",
+      "combat": false
+    },
+    {
+      "name": "Epoch+",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["3-2"],
+      "description": "Now, and at the start of every stage, gain 8 XP and 2 free rerolls.",
+      "combat": false
+    },
+    {
+      "name": "Exclusive Customization",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Gain a Lucky Item Chest, a Magnetic Remover and 7 gold.",
+      "combat": false
+    },
+    {
+      "name": "Explosive Growth",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["3-2"],
+      "description": "Now and at the start of the next 3 rounds, gain 7 XP.",
+      "combat": false
+    },
+    {
+      "name": "Explosive Growth+",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["4-2"],
+      "description": "Now and at the start of the next 3 rounds, gain 10 XP.",
+      "combat": false
+    },
+    {
+      "name": "FOURcing",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2"],
+      "description": "Gain a random 4-cost champion. For each item equipped to that champion, your team gains 85 health.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "hp": 85
+          },
+          "per": "item-on-the-granted-champion"
+        }
+      ]
+    },
+    {
+      "name": "Frontline Foundation",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["2-1"],
+      "description": "Gain a 2-star 1-cost Tank champion and an Emblem that matches their class.",
+      "combat": false
+    },
+    {
+      "name": "Gain 21 Gold",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["3-2"],
+      "description": "Gain 21 gold.",
+      "combat": false
+    },
+    {
+      "name": "Gilded Steel",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["4-2"],
+      "description": "Gain two 5-cost champions. If you field at least one 5-cost champion, your 1 to 4-cost champions gain 8% Durability.K.O. Coliseum Tactician's Crown, 2025",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "durability": 0.08
+          },
+          "when": "cost-one-to-four-with-a-five-cost-fielded"
+        }
+      ]
+    },
+    {
+      "name": "Glass Cannon II",
+      "tier": "gold",
+      "categories": ["strategic"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Allies that start combat in the back row begin combat at 80% Health but gain 25% Damage Amp.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "damageAmp": 0.25,
+            "startingHealthShare": 0.8
+          },
+          "when": "back-row"
+        }
+      ]
+    },
+    {
+      "name": "Gold Destiny",
+      "tier": "gold",
+      "categories": ["strategic"],
+      "apparition": ["2-1"],
+      "description": "Gain a random Gold Augment and 3 gold.",
+      "combat": false
+    },
+    {
+      "name": "Gold Destiny Plus",
+      "tier": "gold",
+      "categories": ["strategic"],
+      "apparition": ["3-2"],
+      "description": "Gain a random Gold Augment and 6 gold.",
+      "combat": false
+    },
+    {
+      "name": "Group Hug II",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Combat start: Champions grant other adjacent champions 9 Armor and Magic Resist. This effect stacks.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "ally",
+          "stats": {
+            "armor": 9,
+            "magicResist": 9
+          },
+          "when": "adjacent",
+          "stacks": true
+        }
+      ]
+    },
+    {
+      "name": "Hard Bargain",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "You cannot choose your Carousel rewards. Gain an additional 6 player health and 8 gold each carousel round.When you do not pick a Carousel Reward, you are given an unpicked champion and the item it carries.",
+      "combat": false
+    },
+    {
+      "name": "Healing Orbs II",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "When an enemy dies, a nearby ally is healed for 575 Health.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "ally",
+          "stats": {
+            "heal": 575
+          },
+          "when": "enemy-dies-nearby"
+        }
+      ]
+    },
+    {
+      "name": "Heart of Steel",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain a Steadfast Heart. Every 10 seconds of combat its holder survives, Steadfast Heart gains additional 16 permanent max Health.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "holder",
+          "stats": {
+            "hp": 16
+          },
+          "when": "holds-steadfast-heart",
+          "everySeconds": 10,
+          "permanent": true
+        }
+      ]
+    },
+    {
+      "name": "Heroic Grab Bag",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Gain 2 Lesser Champion Duplicators. Gain 4 Gold",
+      "combat": false
+    },
+    {
+      "name": "Heroic Grab Bag+",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2"],
+      "description": "Gain 2 Lesser Champion Duplicators. Gain 8 Gold",
+      "combat": false
+    },
+    {
+      "name": "Heroic Grab Bag++",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["4-2"],
+      "description": "Gain 2 Lesser Champion Duplicators. Gain 14 Gold",
+      "combat": false
+    },
+    {
+      "name": "Hustler",
+      "tier": "gold",
+      "categories": ["gold-econ", "strategic"],
+      "apparition": ["2-1"],
+      "description": "You no longer gain interest but gain 3 gold at the start of every player combat round. Gain 3 gold now.Interest is extra gold you gain per 10g saved.",
+      "combat": false
+    },
+    {
+      "name": "Infinity Protection",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain 3 gold now. On Stage 3-7, gain an Infinity Force. Infinity Force gives allies in the same row a 12% Health shield.Monsters Attack Championship, 2023",
+      "combat": true,
+      "grants": [
+        {
+          "to": "ally",
+          "percentStats": {
+            "shieldPercentMaxHealth": 0.12
+          },
+          "when": "same-row-as-infinity-force"
+        }
+      ]
+    },
+    {
+      "name": "Investment Strategy I",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Your champions gain 8 permanent max health per interest you earn.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "hp": 8
+          },
+          "per": "interest-earned",
+          "permanent": true
+        }
+      ]
+    },
+    {
+      "name": "It's Me, Baby",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Gain a spotlight in the bottom right corner. The champion in it gains 15% Damage Amp and 15% Attack Speed, and drops 1 gold every 4 takedowns.Runeterra Reforged Tactician's Crown, 2026",
+      "combat": true,
+      "grants": [
+        {
+          "to": "self",
+          "percentStats": {
+            "damageAmp": 0.15,
+            "attackSpeed": 0.15
+          },
+          "when": "in-the-spotlight"
+        }
+      ]
+    },
+    {
+      "name": "Item Extraction",
+      "tier": "gold",
+      "categories": ["traits"],
+      "apparition": ["2-1", "3-2"],
+      "description": "The first 3 times you sacrifice a champion in the Blackthorn hex, gain a copy of a random component they're holding. Gain a Veigar and a Rek'Sai.",
+      "combat": false
+    },
+    {
+      "name": "Jeweled Lotus I",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Your team gains 10% Critical Strike Chance and PrecisionPrecision: Ability damage can critically strike. Additional Precision grants 10% Critical Strike Damage.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "critChance": 0.1
+          },
+          "grants": "precision"
+        }
+      ]
+    },
+    {
+      "name": "Jungle Pathing",
+      "tier": "gold",
+      "categories": ["traits"],
+      "apparition": ["2-1"],
+      "description": "Gain a Pebbles, a Cinderling, a Scuttle Crab, and a Murkwolf. Each time you level up, gain a new Riftbeast and 1 gold.",
+      "combat": false
+    },
+    {
+      "name": "Late Game Scaling",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Gain 2 XP at the start of player combat rounds. Your 5-cost champions gain 12% Health and 12% Attack Speed.Cyber City Tactician's Crown, 2025",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "hp": 0.12,
+            "attackSpeed": 0.12
+          },
+          "when": "five-cost"
+        }
+      ]
+    },
+    {
+      "name": "Legion Of Threes",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain a random Emblem. Your 3-cost champions and all allies equipped with an Emblem gain 150 Health and 12% Attack Speed.Reckoning Championship, 2021",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "hp": 150
+          },
+          "percentStats": {
+            "attackSpeed": 0.12
+          },
+          "when": "three-cost-or-holds-an-emblem"
+        }
+      ]
+    },
+    {
+      "name": "Magic Roll",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2"],
+      "description": "Roll 3 dice. Gain rewards based on their total.{Augment.Variant.MagicRoll.Reward}",
+      "combat": false
+    },
+    {
+      "name": "Makeshift Armor II",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["2-1", "3-2"],
+      "description": "Champions without items equipped gain 50 Armor and Magic Resist.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "armor": 50,
+            "magicResist": 50
+          },
+          "when": "holds-no-item"
+        }
+      ]
+    },
+    {
+      "name": "Malicious Monetization",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["4-2"],
+      "description": "Gain 4 gold. For the next 2 rounds, enemy champions drop 2 gold when killed.",
+      "combat": false
+    },
+    {
+      "name": "Max Build",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["4-2"],
+      "description": "Gain 12 free Shop rerolls. When you reach level 9, gain 5 free Shop rerolls and a Champion Duplicator.Galaxies Championship, 2020",
+      "combat": false
+    },
+    {
+      "name": "Money Hungry",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Gain 7 gold now, then 7 gold at the start of every stage. Picking up gold makes your Tactician larger.",
+      "combat": false
+    },
+    {
+      "name": "Money Hungry+",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["3-2"],
+      "description": "Gain 10 gold now, then 7 gold at the start of every stage. Picking up gold makes your Tactician larger.",
+      "combat": false
+    },
+    {
+      "name": "NO SCOUT NO PIVOT",
+      "tier": "gold",
+      "categories": ["strategic", "gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Champions that fight in player combat cannot be benched or sold. Your team gains 1% Health, and 1% Attack Damage and Ability Power after player combat.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "hp": 0.01,
+            "attackDamage": 0.01,
+            "abilityPower": 0.01
+          },
+          "per": "player-combat",
+          "permanent": true
+        }
+      ]
+    },
+    {
+      "name": "Nature's Shelter",
+      "tier": "gold",
+      "categories": ["traits"],
+      "apparition": ["2-1", "3-2", "4-2"],
+      "description": "Champions that start combat adjacent to an Elderwood plant gain 15% Attack Speed and heal 2% of their maximum Health every 2 seconds. Gain an Alistar, an Ornn, and a Xayah.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "attackSpeed": 0.15,
+            "healPercentMaxHealth": 0.02
+          },
+          "when": "adjacent-to-elderwood-plant",
+          "everySeconds": 2
+        }
+      ]
+    },
+    {
+      "name": "Omega Riftbeast",
+      "tier": "gold",
+      "categories": ["traits"],
+      "apparition": ["2-1", "3-2", "4-2"],
+      "description": "You can now choose a second Alpha Riftbeast. Gain a Scuttlecrab, a Cinderling, and a Pebbles.",
+      "combat": true,
+      "params": {
+        "alphaRiftbeasts": 2
+      }
+    },
+    {
+      "name": "Pandora's Items II",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["2-1", "3-2", "4-2"],
+      "description": "Round start: items on your bench are randomized. Gain 2 random components.",
+      "combat": false
+    },
+    {
+      "name": "Patient Study",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "After player combat, gain 2 XP if you won or 3 XP if you lost.",
+      "combat": false
+    },
+    {
+      "name": "Pilfer",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["3-2"],
+      "description": "Each round, gain a 1-star copy of the first champion you killed last combat. The first time you gain 21 gold worth of champions in this way, gain a Thief's Gloves.",
+      "combat": false
+    },
+    {
+      "name": "Plot Armor",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Your team gains 8 Armor and Magic Resist. After falling below 50% Health, increase this to 40 for the rest of combat.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "armor": 8,
+            "magicResist": 8
+          }
+        },
+        {
+          "to": "team",
+          "stats": {
+            "armor": 40,
+            "magicResist": 40
+          },
+          "when": "below-health-threshold"
+        }
+      ],
+      "params": {
+        "healthThreshold": 0.5
+      }
+    },
+    {
+      "name": "Portable Forge",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["2-1", "3-2", "4-2"],
+      "description": "Choose 1 of 4 Artifacts. Artifacts are more powerful items with a unique effect.",
+      "combat": false
+    },
+    {
+      "name": "Promised Protection",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["2-1", "3-2"],
+      "description": "Gain a Protector's Vow. Protector's Vow grants its holder 20% additional Mana from all sources and 200 max Health.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "holder",
+          "stats": {
+            "hp": 200
+          },
+          "percentStats": {
+            "manaFromAllSources": 0.2
+          },
+          "when": "holds-protectors-vow"
+        }
+      ]
+    },
+    {
+      "name": "Replication",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["2-1", "3-2"],
+      "description": "Choose 1 of 3 components. For the next 2 rounds, gain a copy of that component.",
+      "combat": false
+    },
+    {
+      "name": "Salvage Bin",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain 1 random completed item now, and 1 component after 8 player combats. Selling champions breaks completed items into components (excluding Tactician's items and Emblems).",
+      "combat": false
+    },
+    {
+      "name": "Salvage Bin+",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Gain 1 random completed item now, and 1 component after 4 player combats. Selling champions breaks completed items into components (excluding Tactician's items and Emblems).",
+      "combat": false
+    },
+    {
+      "name": "Seraphim's Staff",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["2-1", "3-2"],
+      "description": "Gain an Archangel's Staff. Archangel's Staff grants 2 additional Mana Regen if its holder has 90% or more Ability Power.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "holder",
+          "stats": {
+            "manaRegen": 2
+          },
+          "when": "holds-archangels-with-ability-power-threshold"
+        }
+      ],
+      "params": {
+        "abilityPowerThreshold": 0.9
+      }
+    },
+    {
+      "name": "Slammin'",
+      "tier": "gold",
+      "categories": ["items", "gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Gain 3 gold. After each player combat, if there are no items on your bench (other than consumables), gain 2 XP.",
+      "combat": false
+    },
+    {
+      "name": "Slammin'+",
+      "tier": "gold",
+      "categories": ["items", "gold-econ"],
+      "apparition": ["3-2"],
+      "description": "Gain 4 gold and 10 XP now. After each player combat, if there are no items on your bench (other than consumables), gain 2 XP.",
+      "combat": false
+    },
+    {
+      "name": "Small Furry Friend",
+      "tier": "gold",
+      "categories": ["traits"],
+      "apparition": ["2-1", "3-2", "4-2"],
+      "description": "While Sprykin is active, gain a second BFF summon that is 70% as powerful. Gain a Teemo, a Veigar, and a Kobuko.",
+      "combat": true,
+      "params": {
+        "secondBffPowerShare": 0.7
+      }
+    },
+    {
+      "name": "Solo Leveling",
+      "tier": "gold",
+      "categories": ["strategic"],
+      "apparition": ["2-1"],
+      "description": "For the next 5 combats, your team size is 1, but the champion you field has massively increased stats. Gain 1 XP for every kill they get. Afterwards, gain 2 item components.",
+      "combat": true,
+      "params": {
+        "teamSize": 1,
+        "combats": 5
+      }
+    },
+    {
+      "name": "Solo Plate",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["2-1", "3-2"],
+      "description": "Gain a Gargoyle Stoneplate. Combat start: Allies holding Gargoyle Stoneplate gain 17% max Health if they're the only one in their row.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "hp": 0.17
+          },
+          "when": "holds-gargoyle-alone-in-row"
+        }
+      ]
+    },
+    {
+      "name": "Speedy Double Kill",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain a Guinsoo's Rageblade. When 2 players are eliminated, gain 40 gold.Fates Championship, 2021",
+      "combat": false
+    },
+    {
+      "name": "Spirit Of Redemption",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["2-1", "3-2"],
+      "description": "Gain a Spirit Visage. Every 5 seconds, Spirit Visage heals allies within 1 hex for 7.5% of their missing Health.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "ally",
+          "percentStats": {
+            "healPercentMissingHealth": 0.075
+          },
+          "when": "within-hexes",
+          "everySeconds": 5
+        }
+      ],
+      "params": {
+        "hexRange": 1
+      }
+    },
+    {
+      "name": "Spreading Roots",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain 2 random Emblems and 1 gold.",
+      "combat": false
+    },
+    {
+      "name": "Spreading Roots+",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["3-2"],
+      "description": "Gain 2 random Emblems, a Reforger, and 2 gold.",
+      "combat": false
+    },
+    {
+      "name": "Staffsmith",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["4-2"],
+      "description": "Gain  2 random completed items that build from Needlessly Large Rod.",
+      "combat": false
+    },
+    {
+      "name": "Sun and Moon",
+      "tier": "gold",
+      "categories": ["traits"],
+      "apparition": ["3-2"],
+      "description": "Your Lunar champions gain 100 Health and 8% Damage Amp for each unique Solar champion fielded. Gain a Leona, a Kayle, and a Diana.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "traitHolders",
+          "stats": {
+            "hp": 100
+          },
+          "percentStats": {
+            "damageAmp": 0.08
+          },
+          "when": "lunar",
+          "per": "unique-solar-fielded"
+        }
+      ]
+    },
+    {
+      "name": "Sun and Moon",
+      "tier": "gold",
+      "categories": ["traits"],
+      "apparition": ["4-2"],
+      "description": "Your Lunar champions gain 100 Health and 8% Damage Amp for each unique Solar champion fielded. Gain a 2-star Leona, a Kayle, and an Aphelios.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "traitHolders",
+          "stats": {
+            "hp": 100
+          },
+          "percentStats": {
+            "damageAmp": 0.08
+          },
+          "when": "lunar",
+          "per": "unique-solar-fielded"
+        }
+      ]
+    },
+    {
+      "name": "Swordsmith",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["4-2"],
+      "description": "Gain 2 random completed items that build from B.F. Sword.",
+      "combat": false
+    },
+    {
+      "name": "The Golden Dragon",
+      "tier": "gold",
+      "categories": ["items", "strategic"],
+      "apparition": ["3-2"],
+      "description": "Gain a Mogul's Mail. Champions holding Mogul's Mail take up +1 team slot but gain 700 Health and 20% Durability.Mogul's Mail gives gold as well as combat power.Dragonlands Championship, 2022",
+      "combat": true,
+      "grants": [
+        {
+          "to": "holder",
+          "stats": {
+            "hp": 700
+          },
+          "percentStats": {
+            "durability": 0.2
+          },
+          "when": "holds-moguls-mail"
+        }
+      ],
+      "params": {
+        "extraTeamSlots": 1
+      }
+    },
+    {
+      "name": "Time Skip",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Disable your Shop for the next 3 rounds. Then gain 32 XP.",
+      "combat": false
+    },
+    {
+      "name": "Tons of Stats!",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Your team gains 44 Health, 4% Attack Damage, 4% Ability Power, 4 Armor, 4 Magic Resist, 4% Attack Speed, and 4 Mana.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "hp": 44,
+            "armor": 4,
+            "magicResist": 4,
+            "mana": 4
+          },
+          "percentStats": {
+            "attackDamage": 0.04,
+            "abilityPower": 0.04,
+            "attackSpeed": 0.04
+          }
+        }
+      ]
+    },
+    {
+      "name": "Trade Sector",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Gain a free Shop reroll every round. Gain 2 gold.",
+      "combat": false
+    },
+    {
+      "name": "Trade Sector+",
+      "tier": "gold",
+      "categories": ["gold-econ"],
+      "apparition": ["3-2"],
+      "description": "Gain a free Shop reroll every round. Gain 8 gold.",
+      "combat": false
+    },
+    {
+      "name": "U.R.F",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["2-1", "3-2", "4-2"],
+      "description": "Gain a Spatula. Champions holding Spatula or Frying Pan items gain 15% Attack Speed and 2 Mana Regen",
+      "combat": true,
+      "grants": [
+        {
+          "to": "holder",
+          "stats": {
+            "manaRegen": 2
+          },
+          "percentStats": {
+            "attackSpeed": 0.15
+          },
+          "when": "holds-spatula-or-pan"
+        }
+      ]
+    },
+    {
+      "name": "Unrivaled",
+      "tier": "gold",
+      "categories": ["traits"],
+      "apparition": ["2-1", "3-2"],
+      "description": "You can field Rengar and Kha'Zix together with no penalties, and they gain bonuses when the other casts. Gain a Rengar and a Kha'Zix.",
+      "combat": true,
+      "params": {
+        "rivalsFieldedTogether": 1
+      }
+    },
+    {
+      "name": "Verticality II",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Champions gain 2% Attack Damage, 2% Ability Power, 2 Armor, and 2 Magic Resist for each ally that shares a trait with them.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "armor": 2,
+            "magicResist": 2
+          },
+          "percentStats": {
+            "attackDamage": 0.02,
+            "abilityPower": 0.02
+          },
+          "per": "ally-sharing-a-trait"
+        }
+      ]
+    },
+    {
+      "name": "Warpath",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["2-1"],
+      "description": "Gain a 2-star 2-cost champion. After dealing 80 player damage, gain a chest of high cost champions and items.",
+      "combat": false
+    },
+    {
+      "name": "Weight The Worth",
+      "tier": "gold",
+      "categories": ["strategic", "gold-econ"],
+      "apparition": ["3-2"],
+      "description": "The first time you 3-star a champion, gain a copy of them each round for the rest of the game. 3-starring the same champion again grants additional copies.",
+      "combat": false
+    },
+    {
+      "name": "Worth the Wait",
+      "tier": "gold",
+      "categories": ["combat"],
+      "apparition": ["2-1"],
+      "description": "Gain a random 1-cost champion. Gain another copy of them at the start of each round for the rest of the game.",
+      "combat": false
+    },
+    {
+      "name": "Woven Magic",
+      "tier": "gold",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain a random item component. Every 2200 Mana spent by your champions, grants an additional component (max: /3).",
+      "combat": false
+    },
+    {
+      "name": "Band of Thieves II",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain 2 Thief's Gloves. After 6 player combats, gain another.",
+      "combat": false
+    },
+    {
+      "name": "Band of Thieves II+",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["3-2"],
+      "description": "Gain 2 Thief's Gloves. After 5 player combats, gain another.",
+      "combat": false
+    },
+    {
+      "name": "Band of Thieves II++",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["4-2"],
+      "description": "Gain 2 Thief's Gloves. After 3 player combats, gain another.",
+      "combat": false
+    },
+    {
+      "name": "Baron's Lair",
+      "tier": "prismatic",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Gain a random Tank item. After 8 seconds of combat, your team gains 5% bonus Attack Damage and Ability Power every second for the rest of combat.TFT Paris Open, 2025",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "attackDamage": 0.05,
+            "abilityPower": 0.05
+          },
+          "afterSeconds": 8,
+          "everySeconds": 1,
+          "stacks": true
+        }
+      ]
+    },
+    {
+      "name": "Belt Overflow",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Gain 4 Giant's Belts. Your Giant's Belts grant +85 bonus Health.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "holder",
+          "stats": {
+            "hp": 85
+          },
+          "when": "holds-giants-belt"
+        }
+      ]
+    },
+    {
+      "name": "Birthday Present",
+      "tier": "prismatic",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Gain a 2-star champion and 1 gold each time you level up. The champion's cost tier is your level minus 4 (max: 5-cost)",
+      "combat": false
+    },
+    {
+      "name": "Bronze For Life II",
+      "tier": "prismatic",
+      "categories": ["strategic"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Your team gains 2% Damage Amp and 4 Armor and Magic Resist for each Bronze-tier trait.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "armor": 4,
+            "magicResist": 4
+          },
+          "percentStats": {
+            "damageAmp": 0.02
+          },
+          "per": "bronze-tier-trait"
+        }
+      ]
+    },
+    {
+      "name": "Build a Bud",
+      "tier": "prismatic",
+      "categories": ["gold-econ"],
+      "apparition": ["4-2"],
+      "description": "Gain a random 3-star 1-cost champion. Gain 10 gold.",
+      "combat": false
+    },
+    {
+      "name": "Buried Treasures III",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain a random item component now and at the start of the next 5 rounds.",
+      "combat": false
+    },
+    {
+      "name": "Call To Chaos",
+      "tier": "prismatic",
+      "categories": ["combat"],
+      "apparition": ["4-2"],
+      "description": "Gain a powerful and random reward.",
+      "combat": false
+    },
+    {
+      "name": "Celestial Blessing III",
+      "tier": "prismatic",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Your team gains 25% Omnivamp. Excess healing is converted to a shield up to 1000 Health.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "omnivamp": 0.25
+          }
+        }
+      ],
+      "params": {
+        "overhealShieldCap": 1000
+      }
+    },
+    {
+      "name": "Comeback Story",
+      "tier": "prismatic",
+      "categories": ["combat"],
+      "apparition": ["2-1"],
+      "description": "Your team gains 4 Health and 0.4% Attack Speed per missing player Health.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "hp": 4
+          },
+          "percentStats": {
+            "attackSpeed": 0.004
+          },
+          "per": "missing-player-health"
+        }
+      ]
+    },
+    {
+      "name": "Commerce Core",
+      "tier": "prismatic",
+      "categories": ["gold-econ"],
+      "apparition": ["4-2"],
+      "description": "Gain 16 free Shop rerolls now and 3 every round for the rest of the game.",
+      "combat": false
+    },
+    {
+      "name": "Component Quest",
+      "tier": "prismatic",
+      "categories": ["combat"],
+      "apparition": ["2-1"],
+      "description": "Gain a random component and 1 gold. The next 7 times you win a player combat, gain a different random component. Afterwards, gain 8 gold.",
+      "combat": false
+    },
+    {
+      "name": "Coronation",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Gain a Tactician's Crown. Tactician's Crown, Cape, and Shield grant the holder 20% Attack Speed, 25% Attack Damage, and 30% Ability Power.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "attackSpeed": 0.2,
+            "attackDamage": 0.25,
+            "abilityPower": 0.3
+          },
+          "when": "holds-a-tactician-item"
+        }
+      ]
+    },
+    {
+      "name": "Cursed Crown",
+      "tier": "prismatic",
+      "categories": ["items", "strategic"],
+      "apparition": ["2-1", "3-2"],
+      "description": "Gain +2 max team size and your team gains 4% Durability, but you take double player damage when you lose a player combat.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "durability": 0.04
+          }
+        }
+      ],
+      "params": {
+        "teamSizeBonus": 2
+      }
+    },
+    {
+      "name": "Deadlier Blades",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain a Deathblade. Deathblades permanently gain 1% Attack Damage whenever their holders score a takedown.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "attackDamage": 0.01
+          },
+          "when": "holds-deathblade",
+          "per": "takedown",
+          "permanent": true
+        }
+      ]
+    },
+    {
+      "name": "Deadlier Caps",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain a Rabadon's Deathcap. Rabadon's Deathcaps grant 1 Mana Regen and permanently gain 1% Ability Power whenever their holders score a takedown.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "holder",
+          "stats": {
+            "manaRegen": 1
+          },
+          "percentStats": {
+            "abilityPower": 0.01
+          },
+          "when": "holds-rabadons",
+          "per": "takedown",
+          "permanent": true
+        }
+      ]
+    },
+    {
+      "name": "Flexible",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain 1 random Emblem. At the start of every Stage, gain a random Emblem. Your team gains 30 Health for each Emblem they are holding.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "hp": 30
+          },
+          "per": "emblem-held"
+        }
+      ]
+    },
+    {
+      "name": "Forged In Strength",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain 1 random Artifact. When you drop below 35 Health, gain 1 more random Artifact, 1 random completed item, and 1 random component.Remix Rumble Championship, 2023",
+      "combat": false
+    },
+    {
+      "name": "Giant and Mighty",
+      "tier": "prismatic",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Your team becomes large, gaining 200 Health and 10% max Health.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "hp": 200
+          },
+          "percentStats": {
+            "hp": 0.1
+          }
+        }
+      ]
+    },
+    {
+      "name": "Going Long",
+      "tier": "prismatic",
+      "categories": ["gold-econ", "strategic"],
+      "apparition": ["2-1"],
+      "description": "You no longer gain interest. Gain 16 gold now. Round start: gain 4 XP.Interest is extra gold you gain per 10g saved.",
+      "combat": false
+    },
+    {
+      "name": "Golden Gamble",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain 2 gold and flip a coin. If heads, gain a Radiant Lucky Item Chest. If tails, gain 2 Completed Item anvils.",
+      "combat": false
+    },
+    {
+      "name": "Golden Gamble +",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["3-2"],
+      "description": "Gain 3 gold and flip a coin. If heads, gain a Radiant Lucky Item Chest. If tails, gain 2 Completed Item anvils.",
+      "combat": false
+    },
+    {
+      "name": "Golden Gamble ++",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["4-2"],
+      "description": "Gain 6 gold and flip a coin. If heads, gain a Radiant Lucky Item Chest. If tails, gain 2 Completed Item anvils.",
+      "combat": false
+    },
+    {
+      "name": "Hard Commit",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain a random emblem. Now and at the start of each stage, gain a 1-star champion of that trait with a cost equal to the Stage (max 5) and 3 gold.",
+      "combat": false
+    },
+    {
+      "name": "Hedge Fund",
+      "tier": "prismatic",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Gain 22 gold. Your max interest is increased to 10.",
+      "combat": false
+    },
+    {
+      "name": "Hold the Line",
+      "tier": "prismatic",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Champions in your back 2 rows gain 9% Ability Power and 8% Attack Damage for each champion that starts combat in your front row.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "abilityPower": 0.09,
+            "attackDamage": 0.08
+          },
+          "when": "back-two-rows",
+          "per": "front-row-ally"
+        }
+      ]
+    },
+    {
+      "name": "Invested+",
+      "tier": "prismatic",
+      "categories": ["gold-econ"],
+      "apparition": ["3-2"],
+      "description": "Gain 26 gold. At the start of each round, gain 1 Shop reroll for every 10 gold above 50 (max 80 gold).",
+      "combat": false
+    },
+    {
+      "name": "Invested++",
+      "tier": "prismatic",
+      "categories": ["gold-econ"],
+      "apparition": ["4-2"],
+      "description": "Gain 45 gold. At the start of each round, gain 1 Shop reroll for every 10 gold above 50 (max 80 gold).",
+      "combat": false
+    },
+    {
+      "name": "Investment Strategy II",
+      "tier": "prismatic",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Your champions gain 8 permanent max health per interest you earn. Your max interest is increased by 2. Gain 3 gold.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "hp": 8
+          },
+          "per": "interest-earned",
+          "permanent": true
+        }
+      ]
+    },
+    {
+      "name": "Jeweled Lotus II",
+      "tier": "prismatic",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Your team gains 25% Critical Strike Chance, 10% Critical Strike Damage, and Precision.Precision: Ability damage can critically strike. Additional Precision grants 10% Critical Strike Damage.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "critChance": 0.25,
+            "critDamage": 0.1
+          },
+          "grants": "precision"
+        }
+      ]
+    },
+    {
+      "name": "Level Up!",
+      "tier": "prismatic",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "When you buy XP, gain an additional 2. Gain 6 immediately.",
+      "combat": false
+    },
+    {
+      "name": "Living Forge",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain an Artifact Anvil now and after every 9 player combats.",
+      "combat": false
+    },
+    {
+      "name": "Lucky Gloves",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Thief's Gloves will always give your champions ideal items. Gain 2 Sparring Gloves and 4 gold.",
+      "combat": false
+    },
+    {
+      "name": "Lucky Gloves+",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Thief's Gloves will always give your champions ideal items. Gain 2 Sparring Gloves now, then another after 4 player combats.",
+      "combat": false
+    },
+    {
+      "name": "Luxury Subscription",
+      "tier": "prismatic",
+      "categories": ["combat"],
+      "apparition": ["3-2"],
+      "description": "Gain a package containing a 5-cost champion, a 2-star 1-cost champion, and 7 gold.At the start of the next 2 stages, gain the package again.",
+      "combat": false
+    },
+    {
+      "name": "Master of All Origins",
+      "tier": "prismatic",
+      "categories": ["combat"],
+      "apparition": ["4-2"],
+      "description": "Open an armory and choose one of  3 traits. Gain a Lux with that trait and a Spear of Shojin.Traits on your board are more likely to appear in the armory. Lux provides +2 to her chosen trait",
+      "combat": true,
+      "params": {
+        "traitCountBonus": 2
+      }
+    },
+    {
+      "name": "Min-Max",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["3-2"],
+      "description": "Gain a Golden Item Remover and 4 random components.",
+      "combat": false
+    },
+    {
+      "name": "Money Monsoon",
+      "tier": "prismatic",
+      "categories": ["gold-econ"],
+      "apparition": ["4-2"],
+      "description": "Gain 7 gold now and every round for the rest of the game.",
+      "combat": false
+    },
+    {
+      "name": "Nesting Anvils",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["3-2"],
+      "description": "Gain an Artifact Anvil. After you open it, gain a Component Anvil. After you open that, gain 8 gold.",
+      "combat": false
+    },
+    {
+      "name": "Nesting Anvils +",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["4-2"],
+      "description": "Gain an Artifact Anvil. After you open it, gain a Component Anvil. After you open that, gain 12 gold.",
+      "combat": false
+    },
+    {
+      "name": "Nesting Dolls",
+      "tier": "prismatic",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "After a champion dies in combat, spawn a copy of them one star level lower with 50% health. Gain 3 free rerolls.",
+      "combat": true,
+      "params": {
+        "respawnHealthShare": 0.5,
+        "respawnStarLevelDrop": 1
+      }
+    },
+    {
+      "name": "Nesting Dolls",
+      "tier": "prismatic",
+      "categories": ["gold-econ"],
+      "apparition": ["3-2"],
+      "description": "After a champion dies in combat, spawn a copy of them one star level lower with 50% health. Gain 3 free rerolls.",
+      "combat": true,
+      "params": {
+        "respawnHealthShare": 0.5,
+        "respawnStarLevelDrop": 1
+      }
+    },
+    {
+      "name": "Nesting Dolls",
+      "tier": "prismatic",
+      "categories": ["gold-econ"],
+      "apparition": ["4-2"],
+      "description": "After a champion dies in combat, spawn a copy of them one star level lower with 50% health. Gain 3 free rerolls.",
+      "combat": true,
+      "params": {
+        "respawnHealthShare": 0.5,
+        "respawnStarLevelDrop": 1
+      }
+    },
+    {
+      "name": "One Buff Two Buff",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Gain a Red Buff, a Blue Buff, and a Champion Duplicator.",
+      "combat": false
+    },
+    {
+      "name": "Pandora's Items III",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["2-1", "3-2"],
+      "description": "Round start: items on your bench are randomized. Gain 1 Radiant item.",
+      "combat": false
+    },
+    {
+      "name": "Prismatic Destiny",
+      "tier": "prismatic",
+      "categories": ["strategic"],
+      "apparition": ["2-1"],
+      "description": "Gain a random Prismatic Augment and 4 gold.",
+      "combat": false
+    },
+    {
+      "name": "Prismatic Destiny Plus",
+      "tier": "prismatic",
+      "categories": ["strategic"],
+      "apparition": ["3-2"],
+      "description": "Gain a random Prismatic Augment and 10 gold.",
+      "combat": false
+    },
+    {
+      "name": "Prismatic Ticket",
+      "tier": "prismatic",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1", "3-2"],
+      "description": "Each time your shop is rerolled you have a 45% chance to gain a free reroll.",
+      "combat": false
+    },
+    {
+      "name": "Radiant Rascal",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Gain a Radiant Thief's Gloves item. This equips 2 random Radiant items every round.",
+      "combat": false
+    },
+    {
+      "name": "Radiant Relics",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["2-1", "3-2", "4-2"],
+      "description": "Choose 1 of 5 Radiant Items. Gain a Magnetic Remover.",
+      "combat": false
+    },
+    {
+      "name": "Retribution",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Gain 2 Hands of Justice. Allies equipped with Hand of Justice gain Precision and 25% Critical Strike Chance.Precision: Ability damage can critically strike. Additional Precision grants 10% Critical Strike Damage.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "critChance": 0.25
+          },
+          "when": "holds-hand-of-justice",
+          "grants": "precision"
+        }
+      ]
+    },
+    {
+      "name": "Shimmerscale Essence",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain a Mogul's Mail. After 6  player combats, gain a Gamblers Blade.",
+      "combat": false
+    },
+    {
+      "name": "Shopping Spree",
+      "tier": "prismatic",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "When you level up, gain a number of free shop refreshes equal to your level +1. Gain 2 gold.",
+      "combat": false
+    },
+    {
+      "name": "Soul Awakening",
+      "tier": "prismatic",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Combat start: Your team gains 1.5% Attack Damage and Ability Power per second for 10 seconds. At max stacks, deal 12% bonus true damage.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "attackDamage": 0.015,
+            "abilityPower": 0.015
+          },
+          "everySeconds": 1,
+          "forSeconds": 10,
+          "stacks": true
+        },
+        {
+          "to": "team",
+          "percentStats": {
+            "trueDamage": 0.12
+          },
+          "when": "max-stacks"
+        }
+      ]
+    },
+    {
+      "name": "Sweet Treats",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Gain an Artifact anvil. Your team gains 16 Health for each item equipped on champions.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "hp": 16
+          },
+          "per": "item-equipped"
+        }
+      ]
+    },
+    {
+      "name": "Sword Overflow",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Gain 4 BF Swords. Your BF Swords grant +4% Attack Speed.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "attackSpeed": 0.04
+          },
+          "when": "holds-bf-sword"
+        }
+      ]
+    },
+    {
+      "name": "TONS of Stats!",
+      "tier": "prismatic",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Your team gains 88 Health, 8% Attack Damage, 8% Ability Power, 8 Armor, 8 Magic Resist, 8% Attack Speed, and 8 Mana.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "hp": 88,
+            "armor": 8,
+            "magicResist": 8,
+            "mana": 8
+          },
+          "percentStats": {
+            "attackDamage": 0.08,
+            "abilityPower": 0.08,
+            "attackSpeed": 0.08
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tactician's Kitchen",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain a random Emblem. After 3 rounds, gain a Tactician's Cape.",
+      "combat": false
+    },
+    {
+      "name": "The Golden Egg",
+      "tier": "prismatic",
+      "categories": ["gold-econ"],
+      "apparition": ["4-2"],
+      "description": "Gain a golden egg that hatches in 11 turns for a huge amount of loot. Winning player combat speeds up the hatch timer by an extra turn.",
+      "combat": false
+    },
+    {
+      "name": "The Trait Tree",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain 3 random Emblems and 2 gold.",
+      "combat": false
+    },
+    {
+      "name": "The Trait Tree+",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["3-2"],
+      "description": "Gain 3 random Emblems, a Reforger, and 4 gold.",
+      "combat": false
+    },
+    {
+      "name": "Trait Ladder",
+      "tier": "prismatic",
+      "categories": ["strategic"],
+      "apparition": ["2-1", "3-2"],
+      "description": "Gain a random emblem. After fielding 2 non-unique traits in a player combat, gain a reward. Then increase the number of traits needed and the size of the reward.",
+      "combat": false
+    },
+    {
+      "name": "Upward Mobility",
+      "tier": "prismatic",
+      "categories": ["gold-econ"],
+      "apparition": ["2-1"],
+      "description": "Buying XP costs 1 less. Gain 2 Health and 1 free reroll whenever you level up.",
+      "combat": false
+    },
+    {
+      "name": "Urf's Grab Bag",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Gain 1 Spatula, 3 random components, and 5 gold.",
+      "combat": false
+    },
+    {
+      "name": "Verticality III",
+      "tier": "prismatic",
+      "categories": ["combat"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Champions gain 3% Attack Damage, 3% Ability Power, 3 Armor, and 3 Magic Resist for each ally that shares a trait with them.",
+      "combat": false
+    },
+    {
+      "name": "Wand Overflow",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["3-2", "4-2"],
+      "description": "Gain 4 Needlessly Large Rods. Your Needlessly Large Rods grant +5% Attack Speed.",
+      "combat": true,
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "attackSpeed": 0.05
+          },
+          "when": "holds-needlessly-large-rod"
+        }
+      ]
+    },
+    {
+      "name": "We Stick Together",
+      "tier": "prismatic",
+      "categories": ["items"],
+      "apparition": ["2-1"],
+      "description": "Gain a random Emblem and a completed item anvil. Allies that share a trait with that Emblem gain 30% Attack Speed. {Augment.Variant.WeStickTogether.Tooltip} {Augment.Variant.WeStickTogether.Trait}Into The Arcane Tactician's Crown, 2025",
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "attackSpeed": 0.3
+          },
+          "when": "shares-the-emblem-trait"
+        }
+      ]
+    },
+    {
+      "name": "Worth the Wait II",
+      "tier": "prismatic",
+      "categories": ["combat"],
+      "apparition": ["2-1"],
+      "description": "Gain 2 copies of a random 2-cost champion. Gain another copy of them at the start of each round for the rest of the game.",
+      "combat": false
+    }
+  ]
+}
