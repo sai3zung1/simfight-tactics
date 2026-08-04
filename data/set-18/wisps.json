@@ -1,0 +1,2114 @@
+{
+  "entries": [
+    {
+      "name": "Apprentice",
+      "category": "champion",
+      "gold": 3,
+      "description": "Gain a random 2-star 1-cost champion.",
+      "appears": "2-1 to 2-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Big Guns",
+      "category": "champion",
+      "gold": 8,
+      "description": "Gain 2 random 1-star 4-cost champions.",
+      "appears": "4-2 to 4-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Circle of Elders",
+      "category": "champion",
+      "gold": 45,
+      "description": "Gain one of each 5-cost champion.",
+      "appears": "6-1 to 10-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Field of Mice",
+      "category": "champion",
+      "gold": 8,
+      "description": "Gain a Tiny Champion Duplicator for each unique one-cost fielded last round.",
+      "appears": "3-1 to 4-1",
+      "requires": ["Have fielded 5 1-cost champions last combat"],
+      "combat": false
+    },
+    {
+      "name": "Forest Guide",
+      "category": "champion",
+      "gold": 5,
+      "description": "Gain a random 4-cost champion.",
+      "appears": "2-1 to 2-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Forest Twins",
+      "category": "champion",
+      "gold": 4,
+      "description": "Gain 2 copies of a 2-cost champion you don't have.",
+      "appears": "2-1 to 2-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Grandmaster",
+      "category": "champion",
+      "gold": 18,
+      "description": "Gain a random 2-star 5-cost champion.",
+      "appears": "6-1 to 10-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Heated Rivalry",
+      "category": "champion",
+      "gold": 3,
+      "description": "Gain a Rengar or a Kha'Zix. They gain 3 takedowns.",
+      "appears": "2-1 to 2-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Hero Of Prophecy",
+      "category": "champion",
+      "gold": 35,
+      "description": "Gain a 5-cost champion. Gain them again each round FOREVER.",
+      "appears": "6-1 to 10-1",
+      "requires": [
+        "Have at least 35 gold",
+        "Be above 50 health",
+        "Be level 10 or above"
+      ],
+      "combat": false
+    },
+    {
+      "name": "Journeyman",
+      "category": "champion",
+      "gold": 6,
+      "description": "Gain a random 2-star 2-cost champion.",
+      "appears": "2-1 to 3-4",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Lost Travelers",
+      "category": "champion",
+      "gold": 3,
+      "description": "Gain 3 gold worth of random champions.",
+      "appears": "2-1 to 2-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Mitosis",
+      "category": "champion",
+      "gold": 1,
+      "description": "Gain a Tiny Champion Duplicator.",
+      "appears": "2-1 to 2-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Propagate",
+      "category": "champion",
+      "gold": 2,
+      "description": "Gain a copy of the first allied champion to die.",
+      "appears": "2-1 to 4-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Smurfing",
+      "category": "champion",
+      "gold": 7,
+      "description": "Gain a random 5 cost champion.",
+      "appears": "3-5 to 4-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Solar Gift",
+      "category": "champion",
+      "gold": 5,
+      "description": "Gain a Leona, Sejuani, and Kayle",
+      "appears": "2-1 to 3-4",
+      "requires": ["Have Solar active"],
+      "combat": false
+    },
+    {
+      "name": "Three Me",
+      "category": "champion",
+      "gold": 9,
+      "description": "Gain a random 2-star 3-cost champion.",
+      "appears": "3-1 to 4-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Aftershock",
+      "category": "combat",
+      "gold": 2,
+      "description": "After 8 seconds, stun all enemies for 1.5 seconds.",
+      "appears": "4-2 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "effect": "stun"
+        }
+      ],
+      "params": {
+        "afterSeconds": 8,
+        "stunSeconds": 1.5
+      }
+    },
+    {
+      "name": "Backrow Star",
+      "category": "combat",
+      "gold": 4,
+      "description": "A random back row champion gains 75% Attack Speed for 7 seconds.",
+      "appears": "4-2 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "ally",
+          "percentStats": {
+            "attackSpeed": 0.75
+          },
+          "when": "back-row",
+          "durationSeconds": 7
+        }
+      ]
+    },
+    {
+      "name": "Bark Armor",
+      "category": "combat",
+      "gold": 1,
+      "description": "Your champions gain 150 shield for 10 seconds.",
+      "appears": "2-1 to 2-7",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "shield": 150
+          },
+          "durationSeconds": 10
+        }
+      ]
+    },
+    {
+      "name": "Barrier",
+      "category": "combat",
+      "gold": 5,
+      "description": "Allies gain 1000 Shield, decaying over 5 seconds.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "shield": 1000
+          },
+          "durationSeconds": 5,
+          "decaying": true
+        }
+      ]
+    },
+    {
+      "name": "Bear's Visit",
+      "category": "combat",
+      "gold": 3,
+      "description": "Gain the Bear Primal buff for this combat.",
+      "appears": "3-5 to 5-7",
+      "requires": ["Have Primal active"],
+      "combat": true,
+      "params": {
+        "primalBuff": 1
+      }
+    },
+    {
+      "name": "Big Boom",
+      "category": "combat",
+      "gold": 1,
+      "description": "The first ally to die explodes, dealing 25% Max Health magic damage.",
+      "appears": "3-1 to 4-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "percentStats": {
+            "magicDamagePercentMaxHealth": 0.25
+          },
+          "when": "first-ally-dies"
+        }
+      ]
+    },
+    {
+      "name": "Blaze",
+      "category": "combat",
+      "gold": 5,
+      "description": "Fire spreads across the board, dealing true damage to enemies.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "effect": "true-damage-spread"
+        }
+      ]
+    },
+    {
+      "name": "Booster Shot",
+      "category": "combat",
+      "gold": 4,
+      "description": "Up to 2 1-star champions temporarily star up during combat.",
+      "appears": "5-1 to 10-1",
+      "requires": ["Have 2 1-star champions, or a fully itemised 5-cost"],
+      "combat": true,
+      "params": {
+        "championsStarredUp": 2,
+        "starLevelGain": 1
+      }
+    },
+    {
+      "name": "Borrowed Gear",
+      "category": "combat",
+      "gold": 1,
+      "description": "A champion gains a temporary recommended item.",
+      "appears": "3-1 to 4-7",
+      "requires": [],
+      "combat": true,
+      "params": {
+        "temporaryItems": 1
+      }
+    },
+    {
+      "name": "Bulwark",
+      "category": "combat",
+      "gold": 3,
+      "description": "Your Tanks gain a 20% Max Health shield upon falling below 50% Health.",
+      "appears": "4-2 to 10-1",
+      "requires": ["Have at least 2 tanks on the board"],
+      "combat": true,
+      "grants": [
+        {
+          "to": "traitHolders",
+          "percentStats": {
+            "shieldPercentMaxHealth": 0.2
+          },
+          "when": "tank-below-health-threshold"
+        }
+      ],
+      "params": {
+        "healthThreshold": 0.5
+      }
+    },
+    {
+      "name": "Bunch-o'-Belts",
+      "category": "combat",
+      "gold": 2,
+      "description": "Your allies gain 7 temporary, non-removable Giant's Belts.",
+      "appears": "3-5 to 4-7",
+      "requires": [],
+      "combat": true,
+      "params": {
+        "temporaryGiantsBelts": 7
+      }
+    },
+    {
+      "name": "Clone Companion",
+      "category": "combat",
+      "gold": 5,
+      "description": "Clone your highest damage champion. The clone deals 20% damage.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "params": {
+        "cloneDamageShare": 0.2
+      }
+    },
+    {
+      "name": "Combust",
+      "category": "combat",
+      "gold": 5,
+      "description": "Your champions explode on death, dealing 15% Max Health magic damage.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "percentStats": {
+            "magicDamagePercentMaxHealth": 0.15
+          },
+          "when": "ally-dies"
+        }
+      ]
+    },
+    {
+      "name": "Counterspell",
+      "category": "combat",
+      "gold": 2,
+      "description": "Increase all enemies' Max Mana by 15 until their next cast.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "stats": {
+            "maxMana": 15
+          },
+          "until": "next-cast"
+        }
+      ]
+    },
+    {
+      "name": "Crystal Ball",
+      "category": "combat",
+      "gold": 1,
+      "description": "Reveal your next opponent. Your team gains 12% Attack Speed.",
+      "appears": "4-2 to 10-1",
+      "requires": ["At least 4 players remaining"],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "attackSpeed": 0.12
+          }
+        }
+      ]
+    },
+    {
+      "name": "Diversified",
+      "category": "combat",
+      "gold": 3,
+      "description": "Your team gains 30 Health for each active non-unique trait.",
+      "appears": "3-5 to 5-7",
+      "requires": ["Have at least 5 active traits"],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "hp": 30
+          },
+          "per": "active-non-unique-trait"
+        }
+      ]
+    },
+    {
+      "name": "Downpour",
+      "category": "combat",
+      "gold": 2,
+      "description": "Your team gains 2 Mana Regen.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "manaRegen": 2
+          }
+        }
+      ]
+    },
+    {
+      "name": "Fellowship",
+      "category": "combat",
+      "gold": 4,
+      "description": "Champions gain 4% Max Health Shield and 4% Damage Amp per adjacent ally.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "shieldPercentMaxHealth": 0.04,
+            "damageAmp": 0.04
+          },
+          "per": "adjacent-ally"
+        }
+      ]
+    },
+    {
+      "name": "Flow",
+      "category": "combat",
+      "gold": 2,
+      "description": "Your champions are Unstoppable and gain 15% Attack Speed for 10 seconds.",
+      "appears": "4-2 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "attackSpeed": 0.15
+          },
+          "durationSeconds": 10,
+          "effect": "unstoppable"
+        }
+      ]
+    },
+    {
+      "name": "Found Friend",
+      "category": "combat",
+      "gold": 1,
+      "description": "Gain a temporary Training Dummy with a Giant's Belt.",
+      "appears": "2-1 to 2-7",
+      "requires": [],
+      "combat": true,
+      "params": {
+        "trainingDummies": 1
+      }
+    },
+    {
+      "name": "Giant Growth",
+      "category": "combat",
+      "gold": 4,
+      "description": "Your highest Health unit grows, gaining 600 Health.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "self",
+          "stats": {
+            "hp": 600
+          },
+          "when": "highest-health"
+        }
+      ]
+    },
+    {
+      "name": "Giant's Aura",
+      "category": "combat",
+      "gold": 5,
+      "description": "Your highest Health ally deals 2% max Health damage per second in an area.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "percentStats": {
+            "damagePercentMaxHealthPerSecond": 0.02
+          },
+          "when": "near-highest-health-ally"
+        }
+      ]
+    },
+    {
+      "name": "Hand Of Baron",
+      "category": "combat",
+      "gold": 6,
+      "description": "Your team gains Baron Buff, increasing their stats.",
+      "appears": "5-1 to 10-1",
+      "requires": ["Have Riftbeast active"],
+      "combat": true,
+      "params": {
+        "baronBuff": 1
+      }
+    },
+    {
+      "name": "Hero's Entrance",
+      "category": "combat",
+      "gold": 4,
+      "description": "After 8 seconds, the leftmost benched champion joins combat and gains 2 recommended items.",
+      "appears": "6-1 to 10-1",
+      "requires": ["Have a unit on the bench"],
+      "combat": true,
+      "params": {
+        "afterSeconds": 8,
+        "recommendedItems": 2
+      }
+    },
+    {
+      "name": "Heroic Sacrifice",
+      "category": "combat",
+      "gold": 5,
+      "description": "Your 3 strongest Champions gain HEROIC POWER, but other allies are sacrificed.",
+      "appears": "4-2 to 5-7",
+      "requires": [
+        "Have champions carrying items",
+        "Have fewer than 4 fully itemised units"
+      ],
+      "combat": true,
+      "params": {
+        "empoweredChampions": 3
+      }
+    },
+    {
+      "name": "Hireling",
+      "category": "combat",
+      "gold": 5,
+      "description": "A temporary 1-star 5-cost with 1 recommended items joins your team.",
+      "appears": "6-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "params": {
+        "unitCost": 5,
+        "starLevel": 1,
+        "recommendedItems": 1
+      }
+    },
+    {
+      "name": "Homing Fireflies",
+      "category": "combat",
+      "gold": 2,
+      "description": "Your Casters spawn a firefly per 20 Mana spent. Each deals 150 magic damage.",
+      "appears": "3-5 to 10-1",
+      "requires": ["Have at least 2 casters on the board"],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "stats": {
+            "magicDamage": 150
+          },
+          "per": "20-mana-spent-by-a-caster"
+        }
+      ]
+    },
+    {
+      "name": "Hugify",
+      "category": "combat",
+      "gold": 1,
+      "description": "Your highest Health unit grows, gaining 350 Health.",
+      "appears": "3-1 to 4-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "self",
+          "stats": {
+            "hp": 350
+          },
+          "when": "highest-health"
+        }
+      ]
+    },
+    {
+      "name": "Hummingbird",
+      "category": "combat",
+      "gold": 1,
+      "description": "Your highest Attack Speed unit shrinks, gaining 20% Attack Speed.",
+      "appears": "3-1 to 4-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "self",
+          "percentStats": {
+            "attackSpeed": 0.2
+          },
+          "when": "highest-attack-speed"
+        }
+      ]
+    },
+    {
+      "name": "Improved Reach",
+      "category": "combat",
+      "gold": 2,
+      "description": "Your Fighters gain 1 range.",
+      "appears": "5-1 to 10-1",
+      "requires": [
+        "Have at least 2 fighters on the board",
+        "Have an itemised fighter"
+      ],
+      "combat": true,
+      "grants": [
+        {
+          "to": "traitHolders",
+          "stats": {
+            "range": 1
+          },
+          "when": "fighter"
+        }
+      ]
+    },
+    {
+      "name": "Infliction",
+      "category": "combat",
+      "gold": 5,
+      "description": "Slow, Burn, Shred, and Sunder enemies for 8 seconds.",
+      "appears": "5-1 to 10-1",
+      "requires": [
+        "Not already applying Shred or Sunder",
+        "Not already applying Burn or Wound, unless Inferno is active"
+      ],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "percentStats": {
+            "slow": 1,
+            "burn": 1,
+            "shred": 0.3,
+            "sunder": 0.3
+          },
+          "durationSeconds": 8
+        }
+      ]
+    },
+    {
+      "name": "Iron Core",
+      "category": "combat",
+      "gold": 2,
+      "description": "Your front center champion gains 4% Max Health per front-row unit.",
+      "appears": "3-5 to 5-7",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "self",
+          "percentStats": {
+            "hp": 0.04
+          },
+          "when": "front-centre",
+          "per": "front-row-ally"
+        }
+      ]
+    },
+    {
+      "name": "Ironwood",
+      "category": "combat",
+      "gold": 3,
+      "description": "Enemies attacking your highest health champion deal 10% less damage.",
+      "appears": "4-2 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "percentStats": {
+            "damageDealt": -0.1
+          },
+          "when": "attacking-highest-health-ally"
+        }
+      ]
+    },
+    {
+      "name": "Killer's Regret",
+      "category": "combat",
+      "gold": 2,
+      "description": "Your first 3 champions to die stun their killer for 1 second.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "effect": "stun",
+          "when": "kills-one-of-the-first-allies"
+        }
+      ],
+      "params": {
+        "allies": 3,
+        "stunSeconds": 1
+      }
+    },
+    {
+      "name": "Killing Frenzy",
+      "category": "combat",
+      "gold": 3,
+      "description": "Fighters execute targets under 10% Health. They gain 15% Attack Speed on kill.",
+      "appears": "5-1 to 10-1",
+      "requires": ["Have an itemised fighter"],
+      "combat": true,
+      "grants": [
+        {
+          "to": "traitHolders",
+          "percentStats": {
+            "attackSpeed": 0.15
+          },
+          "when": "fighter-on-kill"
+        }
+      ],
+      "params": {
+        "executeBelowHealth": 0.1
+      }
+    },
+    {
+      "name": "Late Bloomer",
+      "category": "combat",
+      "gold": 6,
+      "description": "A temporary 3-star 1-cost with 1 recommended items joins your team.",
+      "appears": "4-2 to 5-7",
+      "requires": [],
+      "combat": true,
+      "params": {
+        "unitCost": 1,
+        "starLevel": 3,
+        "recommendedItems": 1
+      }
+    },
+    {
+      "name": "Lightning Storm",
+      "category": "combat",
+      "gold": 5,
+      "description": "Every 1 second deal 5% Max Health true damage to an enemy.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "percentStats": {
+            "trueDamagePercentMaxHealth": 0.05
+          },
+          "everySeconds": 1
+        }
+      ]
+    },
+    {
+      "name": "Lightning Strike",
+      "category": "combat",
+      "gold": 2,
+      "description": "Deal 10% Max Health true damage to all enemies.",
+      "appears": "4-2 to 5-7",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "percentStats": {
+            "trueDamagePercentMaxHealth": 0.1
+          }
+        }
+      ]
+    },
+    {
+      "name": "Living Soil",
+      "category": "combat",
+      "gold": 2,
+      "description": "Every 4 seconds, roots stun an enemy for 1 second.",
+      "appears": "4-2 to 5-7",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "effect": "stun",
+          "everySeconds": 4
+        }
+      ],
+      "params": {
+        "stunSeconds": 1
+      }
+    },
+    {
+      "name": "Mana-Rich Soil",
+      "category": "combat",
+      "gold": 3,
+      "description": "Your Casters have 15% reduced Max Mana.",
+      "appears": "5-1 to 10-1",
+      "requires": [
+        "Have at least 2 casters on the board",
+        "Have an itemised caster"
+      ],
+      "combat": true,
+      "grants": [
+        {
+          "to": "traitHolders",
+          "percentStats": {
+            "maxMana": -0.15
+          },
+          "when": "caster"
+        }
+      ]
+    },
+    {
+      "name": "Marksmen's Gale",
+      "category": "combat",
+      "gold": 2,
+      "description": "Your Marksmen's attacks grant 3% stacking Attack Speed.",
+      "appears": "4-2 to 10-1",
+      "requires": [
+        "Have at least 2 marksmen on the board",
+        "Have an itemised marksman"
+      ],
+      "combat": true,
+      "grants": [
+        {
+          "to": "traitHolders",
+          "percentStats": {
+            "attackSpeed": 0.03
+          },
+          "when": "marksman",
+          "per": "attack",
+          "stacks": true
+        }
+      ]
+    },
+    {
+      "name": "Marksmen's Marks",
+      "category": "combat",
+      "gold": 3,
+      "description": "Your Marksmen have a 25% chance to double attack.",
+      "appears": "5-1 to 10-1",
+      "requires": [
+        "Have at least 2 marksmen on the board",
+        "Have an itemised marksman"
+      ],
+      "combat": true,
+      "grants": [
+        {
+          "to": "traitHolders",
+          "when": "marksman",
+          "effect": "double-attack",
+          "chance": 0.25
+        }
+      ]
+    },
+    {
+      "name": "Memorial Dummy",
+      "category": "combat",
+      "gold": 3,
+      "description": "Your first itemized tank spawns a Dummy with their items on death.",
+      "appears": "3-5 to 10-1",
+      "requires": [],
+      "combat": true,
+      "params": {
+        "dummiesOnTankDeath": 1
+      }
+    },
+    {
+      "name": "Mercenary Force",
+      "category": "combat",
+      "gold": 3,
+      "description": "Gain 3% Damage Amp for every 10 gold you have.",
+      "appears": "4-2 to 5-7",
+      "requires": ["Have at least 30 gold"],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "damageAmp": 0.03
+          },
+          "per": "ten-gold-held"
+        }
+      ]
+    },
+    {
+      "name": "Moonlight Ritual",
+      "category": "combat",
+      "gold": 2,
+      "description": "Your lowest star 1-cost or 2-cost champion stars up in combat.",
+      "appears": "3-1 to 4-7",
+      "requires": ["Have a 2-star 1- or 2-cost champion"],
+      "combat": true,
+      "params": {
+        "starLevelGain": 1
+      }
+    },
+    {
+      "name": "Moonrise",
+      "category": "combat",
+      "gold": 2,
+      "description": "After 8 seconds, increase Lunar's effects by 100%.",
+      "appears": "3-5 to 5-7",
+      "requires": ["Have Lunar active"],
+      "combat": true,
+      "params": {
+        "afterSeconds": 8,
+        "lunarEffectMultiplier": 2
+      }
+    },
+    {
+      "name": "Nature's Ally",
+      "category": "combat",
+      "gold": 2,
+      "description": "Every 3 ally deaths, summon a random Riftbeast.",
+      "appears": "4-2 to 10-1",
+      "requires": [],
+      "combat": true,
+      "params": {
+        "allyDeathsPerSummon": 3
+      }
+    },
+    {
+      "name": "Nature's Wrath",
+      "category": "combat",
+      "gold": 6,
+      "description": "Kill EVERYONE without an item after 8 seconds.",
+      "appears": "6-1 to 10-1",
+      "requires": ["Have champions carrying items"],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "effect": "execute",
+          "when": "holds-no-item"
+        }
+      ],
+      "params": {
+        "afterSeconds": 8
+      }
+    },
+    {
+      "name": "Petrified Dummy",
+      "category": "combat",
+      "gold": 2,
+      "description": "Your first champion to die turns into a 900 Health dummy with their defenses.",
+      "appears": "3-1 to 4-7",
+      "requires": [],
+      "combat": true,
+      "params": {
+        "dummyHealth": 900
+      }
+    },
+    {
+      "name": "Petrify Shields",
+      "category": "combat",
+      "gold": 2,
+      "description": "10% Slow enemies and reduce their shields by 20% for 10 seconds.",
+      "appears": "4-2 to 4-7, 6-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "percentStats": {
+            "slow": 0.1,
+            "shieldReduction": 0.2
+          },
+          "durationSeconds": 10
+        }
+      ]
+    },
+    {
+      "name": "Phantom Armor",
+      "category": "combat",
+      "gold": 2,
+      "description": "Gain a temporary Warmog's Armor.",
+      "appears": "3-1 to 5-7",
+      "requires": [],
+      "combat": true,
+      "params": {
+        "temporaryItems": 1
+      }
+    },
+    {
+      "name": "Phantom Emblem",
+      "category": "combat",
+      "gold": 4,
+      "description": "Gain a temporary emblem of your most active trait.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "params": {
+        "temporaryEmblems": 1
+      }
+    },
+    {
+      "name": "Phantom Gloves",
+      "category": "combat",
+      "gold": 3,
+      "description": "Gain a temporary Thief's Gloves.",
+      "appears": "3-1 to 5-7",
+      "requires": [],
+      "combat": true,
+      "params": {
+        "temporaryItems": 1
+      }
+    },
+    {
+      "name": "Phantom Splash",
+      "category": "combat",
+      "gold": 2,
+      "description": "Combat start: Up to 2 inactive traits activate at the lowest level.",
+      "appears": "4-2 to 10-1",
+      "requires": [],
+      "combat": true,
+      "params": {
+        "inactiveTraitsActivated": 2
+      }
+    },
+    {
+      "name": "Phantom Vest",
+      "category": "combat",
+      "gold": 2,
+      "description": "Gain a temporary Bramble Vest.",
+      "appears": "3-1 to 5-7",
+      "requires": [],
+      "combat": true,
+      "params": {
+        "temporaryItems": 1
+      }
+    },
+    {
+      "name": "Plated Shields",
+      "category": "combat",
+      "gold": 2,
+      "description": "Shields are 15% stronger. Allies gain 150 shield for 10 seconds.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "shield": 150
+          },
+          "percentStats": {
+            "shieldStrength": 0.15
+          },
+          "durationSeconds": 10
+        }
+      ]
+    },
+    {
+      "name": "Potted Lifebloom",
+      "category": "combat",
+      "gold": 2,
+      "description": "Gain a temporary Lifeblossom.",
+      "appears": "3-1 to 4-7",
+      "requires": ["Have Elderwood active"],
+      "combat": true,
+      "params": {
+        "plants": 1
+      }
+    },
+    {
+      "name": "Potted Stonebark",
+      "category": "combat",
+      "gold": 2,
+      "description": "Gain a temporary Stonebark Tree.",
+      "appears": "3-1 to 4-7",
+      "requires": ["Have Elderwood active"],
+      "combat": true,
+      "params": {
+        "plants": 1
+      }
+    },
+    {
+      "name": "Preppers",
+      "category": "combat",
+      "gold": 2,
+      "description": "Your stacking items start next combat partially stacked.",
+      "appears": "3-1 to 5-7",
+      "requires": [],
+      "combat": true,
+      "params": {
+        "itemsStartPartiallyStacked": 1
+      }
+    },
+    {
+      "name": "Prolific Power",
+      "category": "combat",
+      "gold": 0,
+      "description": "Your champions gain 8% Attack Damage and Ability Power.",
+      "appears": "5-1 to 10-1",
+      "requires": ["Have under 10 gold"],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "attackDamage": 0.08,
+            "abilityPower": 0.08
+          }
+        }
+      ]
+    },
+    {
+      "name": "Quicken",
+      "category": "combat",
+      "gold": 3,
+      "description": "On cast, your champions gain 25% Attack Speed for 3 seconds.",
+      "appears": "3-5 to 4-7",
+      "requires": ["Not for fully itemised manaless champions"],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "attackSpeed": 0.25
+          },
+          "when": "on-cast",
+          "durationSeconds": 3
+        }
+      ]
+    },
+    {
+      "name": "Radiantize",
+      "category": "combat",
+      "gold": 6,
+      "description": "After 12 seconds, 1 random equipped item temporarily becomes Radiant.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "params": {
+        "afterSeconds": 12,
+        "itemsMadeRadiant": 1
+      }
+    },
+    {
+      "name": "Rain",
+      "category": "combat",
+      "gold": 1,
+      "description": "Your team gains 1 Mana Regen.",
+      "appears": "3-1 to 4-7",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "manaRegen": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "Regeneration",
+      "category": "combat",
+      "gold": 2,
+      "description": "Your team heals 1% max Health per second.",
+      "appears": "3-5 to 4-7",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "healPercentMaxHealth": 0.01
+          },
+          "everySeconds": 1
+        }
+      ]
+    },
+    {
+      "name": "Resistant",
+      "category": "combat",
+      "gold": 2,
+      "description": "Tanks reduce instances of incoming damage by 15.",
+      "appears": "4-2 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "traitHolders",
+          "stats": {
+            "flatDamageReduction": 15
+          },
+          "when": "tank"
+        }
+      ]
+    },
+    {
+      "name": "Revenge",
+      "category": "combat",
+      "gold": 3,
+      "description": "Whenever an ally dies, your champions gain 4% stacking Damage Amp.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "damageAmp": 0.04
+          },
+          "when": "ally-dies",
+          "stacks": true
+        }
+      ]
+    },
+    {
+      "name": "Scrappy",
+      "category": "combat",
+      "gold": 3,
+      "description": "Combat start: 2 champion without items gains a temporary recommended item.",
+      "appears": "4-2 to 5-7",
+      "requires": [],
+      "combat": true,
+      "params": {
+        "championsGivenAnItem": 2
+      }
+    },
+    {
+      "name": "Snacktime!",
+      "category": "combat",
+      "gold": 3,
+      "description": "The BFF eats enemies he damages under 12% Max Health.",
+      "appears": "4-2 to 10-1",
+      "requires": ["Have Sprykin active"],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "effect": "execute",
+          "when": "damaged-by-the-bff"
+        }
+      ],
+      "params": {
+        "executeBelowHealth": 0.12
+      }
+    },
+    {
+      "name": "Solitude's Cloak",
+      "category": "combat",
+      "gold": 3,
+      "description": "Champions with no adjacent allies gain 10% Max Health and 10% Damage Amp.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "hp": 0.1,
+            "damageAmp": 0.1
+          },
+          "when": "no-adjacent-ally"
+        }
+      ]
+    },
+    {
+      "name": "Stand Alone",
+      "category": "combat",
+      "gold": 3,
+      "description": "Champions alone in their row gain 15% Health and 15% Damage Amp.",
+      "appears": "3-5 to 10-1",
+      "requires": [
+        "Have Elderwood inactive",
+        "Have Lunar inactive",
+        "Have Greenfather inactive"
+      ],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "hp": 0.15,
+            "damageAmp": 0.15
+          },
+          "when": "alone-in-row"
+        }
+      ]
+    },
+    {
+      "name": "Stealthy",
+      "category": "combat",
+      "gold": 1,
+      "description": "Your 2 strongest Fighters or Assassins are untargetable for 6 seconds.",
+      "appears": "4-2 to 5-7",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "when": "strongest-fighter-or-assassin",
+          "effect": "untargetable",
+          "durationSeconds": 6
+        }
+      ],
+      "params": {
+        "champions": 2
+      }
+    },
+    {
+      "name": "Sunfire Sorcery",
+      "category": "combat",
+      "gold": 2,
+      "description": "Burn and Wound enemies for 10 seconds.",
+      "appears": "3-5 to 4-7",
+      "requires": [
+        "Not already applying Burn or Wound, unless Inferno is active"
+      ],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "percentStats": {
+            "burn": 1,
+            "wound": 1
+          },
+          "durationSeconds": 10
+        }
+      ]
+    },
+    {
+      "name": "Supercritical",
+      "category": "combat",
+      "gold": 3,
+      "description": "Allies with Precision gain 25% Critical Strike Damage.",
+      "appears": "4-2 to 10-1",
+      "requires": ["Have 2 units with Precision"],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "critDamage": 0.25
+          },
+          "when": "has-precision"
+        }
+      ]
+    },
+    {
+      "name": "Tattered Armor",
+      "category": "combat",
+      "gold": 1,
+      "description": "30% Shred and Sunder enemies for 10 seconds.",
+      "appears": "3-5 to 4-7",
+      "requires": ["Not already applying Shred or Sunder"],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "percentStats": {
+            "shred": 0.3,
+            "sunder": 0.3
+          },
+          "durationSeconds": 10
+        }
+      ]
+    },
+    {
+      "name": "Tiger's Visit",
+      "category": "combat",
+      "gold": 3,
+      "description": "Gain the Tiger Primal buff for this combat.",
+      "appears": "3-5 to 5-7",
+      "requires": ["Have Primal active"],
+      "combat": true,
+      "params": {
+        "primalBuff": 1
+      }
+    },
+    {
+      "name": "Training Yard",
+      "category": "combat",
+      "gold": 3,
+      "description": "Gain 2 Training Dummies each with a random tank item.",
+      "appears": "4-2 to 5-7",
+      "requires": [],
+      "combat": true,
+      "params": {
+        "trainingDummies": 2
+      }
+    },
+    {
+      "name": "Treetop Archers",
+      "category": "combat",
+      "gold": 5,
+      "description": "Archers fire from the trees, dealing 500 physical damage every 3 seconds.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "stats": {
+            "physicalDamage": 500
+          },
+          "everySeconds": 3
+        }
+      ]
+    },
+    {
+      "name": "Tremors",
+      "category": "combat",
+      "gold": 4,
+      "description": "Every 8 seconds, Stun enemies for 1 second.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "effect": "stun",
+          "everySeconds": 8
+        }
+      ],
+      "params": {
+        "stunSeconds": 1
+      }
+    },
+    {
+      "name": "Turtle's Visit",
+      "category": "combat",
+      "gold": 3,
+      "description": "Gain the Turtle Primal buff for this combat.",
+      "appears": "3-5 to 5-7",
+      "requires": ["Have Primal active"],
+      "combat": true,
+      "params": {
+        "primalBuff": 1
+      }
+    },
+    {
+      "name": "Ultra Ascension",
+      "category": "combat",
+      "gold": 0,
+      "description": "After 25 seconds, allies gain 300% Damage Amp.",
+      "appears": "3-1 to 4-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "percentStats": {
+            "damageAmp": 3
+          },
+          "afterSeconds": 25
+        }
+      ]
+    },
+    {
+      "name": "Verdant Vitality",
+      "category": "combat",
+      "gold": 0,
+      "description": "Your champions gain 100 Health.",
+      "appears": "5-1 to 10-1",
+      "requires": ["Have under 10 gold"],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "hp": 100
+          }
+        }
+      ]
+    },
+    {
+      "name": "Wrapped In Thorns",
+      "category": "combat",
+      "gold": 2,
+      "description": "Your Tanks reflect 12% of damage taken to adjacent enemies every 4 seconds.",
+      "appears": "3-5 to 10-1",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "enemy",
+          "percentStats": {
+            "reflectedDamageShare": 0.12
+          },
+          "when": "adjacent-to-a-tank",
+          "everySeconds": 4
+        }
+      ]
+    },
+    {
+      "name": "Yordle Spirit",
+      "category": "combat",
+      "gold": 3,
+      "description": "Allies have a 99% chance to dodge attacks for 4 seconds.",
+      "appears": "4-2 to 5-7",
+      "requires": [],
+      "combat": true,
+      "grants": [
+        {
+          "to": "team",
+          "effect": "dodge",
+          "chance": 0.99,
+          "durationSeconds": 4
+        }
+      ]
+    },
+    {
+      "name": "All Fives",
+      "category": "shop",
+      "gold": 10,
+      "description": "Reroll your shop with all 5-cost champions.",
+      "appears": "6-1 to 10-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "All Fours",
+      "category": "shop",
+      "gold": 4,
+      "description": "Reroll your shop with all 4-cost champions.",
+      "appears": "5-1 to 5-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "All Ones",
+      "category": "shop",
+      "gold": 0,
+      "description": "Reroll your shop with all 1-cost champions.",
+      "appears": "2-1 to 2-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "All Threes",
+      "category": "shop",
+      "gold": 2,
+      "description": "Reroll your shop with all 3-cost champions.",
+      "appears": "3-5 to 4-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "All Twos",
+      "category": "shop",
+      "gold": 1,
+      "description": "Reroll your shop with all 2-cost champions.",
+      "appears": "2-1 to 3-4",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Animate Shop",
+      "category": "shop",
+      "gold": 8,
+      "description": "For 20 seconds, your shop rerolls for free every 2 seconds.",
+      "appears": "4-2 to 5-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Border Village",
+      "category": "shop",
+      "gold": 6,
+      "description": "Reroll your shop with all 2-star 2-cost champions.",
+      "appears": "3-1 to 4-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Flash Fire",
+      "category": "shop",
+      "gold": 2,
+      "description": "Reroll your shop. Inferno lights 2 shop slots on fire, upgrading them.",
+      "appears": "3-5 to 5-7",
+      "requires": ["Have Inferno active"],
+      "combat": false
+    },
+    {
+      "name": "Freeroller",
+      "category": "shop",
+      "gold": 2,
+      "description": "Gain 2 rerolls.",
+      "appears": "2-1 to 4-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Jungling",
+      "category": "shop",
+      "gold": 4,
+      "description": "Overrun the shop with Riftbeasts.",
+      "appears": "3-1 to 4-7",
+      "requires": ["Have Riftbeast active"],
+      "combat": false
+    },
+    {
+      "name": "Lucky 7",
+      "category": "shop",
+      "gold": 7,
+      "description": "Gain 7 shop rerolls.",
+      "appears": "6-1 to 10-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Middle Path",
+      "category": "shop",
+      "gold": 6,
+      "description": "Reroll your shop with all 2-star 3-cost champions.",
+      "appears": "3-5 to 4-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Refreshing Light",
+      "category": "shop",
+      "gold": 6,
+      "description": "Gain a free reroll per star level of each unique Solar champion.",
+      "appears": "3-5 to 5-7",
+      "requires": ["Have Solar active"],
+      "combat": false
+    },
+    {
+      "name": "Ride the Wave",
+      "category": "shop",
+      "gold": 3,
+      "description": "The next 2 rerolls this round will have 2+ champions fielded last combat.",
+      "appears": "4-2 to 5-7",
+      "requires": ["First 20 seconds of planning", "Have at least 20 gold"],
+      "combat": false
+    },
+    {
+      "name": "Rolling Bones",
+      "category": "shop",
+      "gold": 3,
+      "description": "You have a 50% chance to get a free reroll with each kill.",
+      "appears": "3-1 to 4-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Roly-Polys",
+      "category": "shop",
+      "gold": 3,
+      "description": "For each ally champion alive at 18 seconds, gain a reroll.",
+      "appears": "3-1 to 4-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Search Party",
+      "category": "shop",
+      "gold": 3,
+      "description": "Each of your shops has a 4-cost in it this round until you buy one.",
+      "appears": "3-5 to 4-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Starfall",
+      "category": "shop",
+      "gold": 1,
+      "description": "The first 6 times you reroll your shop this round, the lowest cost champion becomes 2-star.",
+      "appears": "3-1 to 4-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Starting Town",
+      "category": "shop",
+      "gold": 3,
+      "description": "Reroll your shop with all 2-star 1-cost champions.",
+      "appears": "2-1 to 3-4",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Barter",
+      "category": "gold-xp",
+      "gold": 1,
+      "description": "The next champion sold this round sells for 200% gold.",
+      "appears": "3-5 to 5-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Blood Money",
+      "category": "gold-xp",
+      "gold": 2,
+      "description": "Gain 1 gold for every champion you kill.",
+      "appears": "3-1 to 4-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Bronze Spoon",
+      "category": "gold-xp",
+      "gold": 3,
+      "description": "Gain 4 XP.",
+      "appears": "2-1 to 4-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Coin Flip",
+      "category": "gold-xp",
+      "gold": 0,
+      "description": "Flip a coin, gain 1 gold if it's heads.",
+      "appears": "2-1 to 2-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Die Roll",
+      "category": "gold-xp",
+      "gold": 2,
+      "description": "Roll a six-sided die. Gain gold equal to the result.",
+      "appears": "3-1 to 4-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Experienced",
+      "category": "gold-xp",
+      "gold": 1,
+      "description": "Gain 2 XP.",
+      "appears": "2-1 to 2-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Golden Goose",
+      "category": "gold-xp",
+      "gold": 1,
+      "description": "Gain 1 gold for every 1500 damage your highest damage champion deals.",
+      "appears": "4-2 to 5-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Grow Up",
+      "category": "gold-xp",
+      "gold": 10,
+      "description": "Gain 16 XP.",
+      "appears": "3-1 to 4-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Life Debt",
+      "category": "gold-xp",
+      "gold": 0,
+      "description": "Gain 1 gold for every 10 missing Player Health.",
+      "appears": "5-1 to 10-1",
+      "requires": ["Be missing 10 or more health"],
+      "combat": false
+    },
+    {
+      "name": "Pocket Change",
+      "category": "gold-xp",
+      "gold": 1,
+      "description": "Your one-star champions drop 1 gold on death.",
+      "appears": "3-1 to 4-1",
+      "requires": ["Have at least 2 1-star champions"],
+      "combat": false
+    },
+    {
+      "name": "Slow Study",
+      "category": "gold-xp",
+      "gold": 3,
+      "description": "For each ally champion alive at 15 seconds, gain 2 XP.",
+      "appears": "3-5 to 4-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Abandon Ship",
+      "category": "risky",
+      "gold": 0,
+      "description": "Sell your board and bench, gain 6 gold, 10 XP, and 10 rerolls.",
+      "appears": "3-1 to 3-4",
+      "requires": [
+        "Have no 3-star champions",
+        "Board value between 12 and 20",
+        "Be on a short win streak",
+        "First 15 seconds of planning"
+      ],
+      "combat": false
+    },
+    {
+      "name": "Cutpurse",
+      "category": "risky",
+      "gold": 2,
+      "description": "Every 5 seconds, your champions have a 15% chance to drop 1 Gold.",
+      "appears": "3-5 to 4-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Essence Theft",
+      "category": "risky",
+      "gold": 1,
+      "description": "Gain 50% bonus Coven Essence this combat.",
+      "appears": "2-1 to 4-1",
+      "requires": ["Have Coven active"],
+      "combat": false
+    },
+    {
+      "name": "Fertilize",
+      "category": "risky",
+      "gold": 1,
+      "description": "Gain 1 XP for each enemy that dies.",
+      "appears": "2-1 to 3-4",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Flip Frenzy",
+      "category": "risky",
+      "gold": 1,
+      "description": "Flip a coin, gain 1 gold if it's heads. Continue until you flip tails.",
+      "appears": "3-1 to 4-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Major Polymorph",
+      "category": "risky",
+      "gold": 1,
+      "description": "A random 4-cost you own permanently transforms into a 5-cost.",
+      "appears": "4-2 to 5-7",
+      "requires": ["Have units of the required cost"],
+      "combat": false
+    },
+    {
+      "name": "Minor Polymorph",
+      "category": "risky",
+      "gold": 1,
+      "description": "A random 1-cost you own permanently transforms into a 2-cost.",
+      "appears": "2-1 to 3-4",
+      "requires": ["Have units of the required cost"],
+      "combat": false
+    },
+    {
+      "name": "Payday",
+      "category": "risky",
+      "gold": 3,
+      "description": "For each ally champion that survives combat, gain 2 Gold.",
+      "appears": "3-5 to 4-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Polymorph",
+      "category": "risky",
+      "gold": 1,
+      "description": "A random 2-cost you own permanently transforms into a 3-cost.",
+      "appears": "2-1 to 4-1",
+      "requires": ["Have units of the required cost"],
+      "combat": false
+    },
+    {
+      "name": "Trophy Hunter",
+      "category": "risky",
+      "gold": 2,
+      "description": "Gain 100% more takedowns on Rivals.",
+      "appears": "2-1 to 4-7",
+      "requires": ["Have Rival active"],
+      "combat": false
+    },
+    {
+      "name": "Artifactinate",
+      "category": "item",
+      "gold": 0,
+      "description": "Lose 3 components, including ones built into items. Gain an Artifact anvil.",
+      "appears": "2-1 to 3-4",
+      "requires": ["Have at least 3 components"],
+      "combat": false
+    },
+    {
+      "name": "Blood and Iron",
+      "category": "item",
+      "gold": 3,
+      "description": "After 20 champion deaths, gain a component anvil.",
+      "appears": "3-1 to 4-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Curio Cart",
+      "category": "item",
+      "gold": 0,
+      "description": "Open an item store. Items cost 0 to 22 gold.",
+      "appears": "3-1 to 4-7",
+      "requires": ["Have enough gold"],
+      "combat": false
+    },
+    {
+      "name": "Idle Craftsman",
+      "category": "item",
+      "gold": 4,
+      "description": "A component on your bench turns into a completed item it builds.",
+      "appears": "3-1 to 4-1",
+      "requires": ["Have at least 1 component on the bench"],
+      "combat": false
+    },
+    {
+      "name": "Peddler",
+      "category": "item",
+      "gold": 0,
+      "description": "Open a random item store. Random items cost 0 to 14 gold.",
+      "appears": "4-2 to 5-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Blast Potion",
+      "category": "misc",
+      "gold": 1,
+      "description": "Gain a temporary equippable Blast Potion.",
+      "appears": "3-1 to 4-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Doodad Bag",
+      "category": "misc",
+      "gold": 2,
+      "description": "Gain 2 random consumables that give Armor and Magic Resist or Health.",
+      "appears": "3-1 to 4-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Doodad Jar",
+      "category": "misc",
+      "gold": 1,
+      "description": "Gain 1 random consumable that gives Armor and Magic Resist or Health.",
+      "appears": "2-1 to 2-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Doodad Sack",
+      "category": "misc",
+      "gold": 3,
+      "description": "Gain 3 random consumables that give Armor and Magic Resist or Health.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Early Fix",
+      "category": "misc",
+      "gold": 0,
+      "description": "Gain 1 Item Reforger.",
+      "appears": "2-1 to 2-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Forest Mage",
+      "category": "misc",
+      "gold": 0,
+      "description": "Fill your shop with Wisps. You can only buy ONE!",
+      "appears": "3-5 to 10-1",
+      "requires": ["First 8 seconds of planning"],
+      "combat": false
+    },
+    {
+      "name": "Greater Chaos",
+      "category": "misc",
+      "gold": 4,
+      "description": "Cast 2 random Wisps.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Health Potion",
+      "category": "misc",
+      "gold": 1,
+      "description": "Gain a tempoary equippable Health Potion.",
+      "appears": "3-1 to 4-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Knick-Knack Bag",
+      "category": "misc",
+      "gold": 2,
+      "description": "Gain 2 random consumables that give Attack Damage or Attack Speed.",
+      "appears": "3-1 to 4-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Knick-Knack Jar",
+      "category": "misc",
+      "gold": 1,
+      "description": "Gain 1 random consumable that gives Attack Damage or Attack Speed.",
+      "appears": "2-1 to 2-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Knick-Knack Sack",
+      "category": "misc",
+      "gold": 3,
+      "description": "Gain 3 random consumables that give Attack Damage or Attack Speed.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Lesser Chaos",
+      "category": "misc",
+      "gold": 1,
+      "description": "Cast a random Wisp.",
+      "appears": "2-1 to 3-4",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Mana Potion",
+      "category": "misc",
+      "gold": 1,
+      "description": "Gain a temporary equippable Mana Potion.",
+      "appears": "3-1 to 4-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Potioncraft",
+      "category": "misc",
+      "gold": 3,
+      "description": "Gain three temporary equippable Potions.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Salvager",
+      "category": "misc",
+      "gold": 0,
+      "description": "Any units you bench have items removed and broken apart.",
+      "appears": "4-2 to 5-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Terraforming",
+      "category": "misc",
+      "gold": 2,
+      "description": "Gain 5 seeds at start of combat.",
+      "appears": "4-2 to 10-1",
+      "requires": ["Have Greenfather active"],
+      "combat": true,
+      "params": {
+        "seedsAtCombatStart": 5
+      }
+    },
+    {
+      "name": "Thingamajig Bag",
+      "category": "misc",
+      "gold": 2,
+      "description": "Gain 2 random consumables that give Ability Power or Mana Regen.",
+      "appears": "3-1 to 4-1",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Thingamajig Jar",
+      "category": "misc",
+      "gold": 1,
+      "description": "Gain 1 random consumable that gives Ability Power or Mana Regen.",
+      "appears": "2-1 to 2-7",
+      "requires": [],
+      "combat": false
+    },
+    {
+      "name": "Thingamajig Sack",
+      "category": "misc",
+      "gold": 3,
+      "description": "Gain 3 random consumables that give Ability Power or Mana Regen.",
+      "appears": "5-1 to 10-1",
+      "requires": [],
+      "combat": false
+    }
+  ]
+}
