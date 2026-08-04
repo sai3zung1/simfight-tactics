@@ -1,0 +1,1993 @@
+{
+  "entries": [
+    {
+      "name": "Adaptor",
+      "kind": "class",
+      "combat": true,
+      "champions": ["Akali", "Gromp", "Master Yi", "Kog'Maw", "Nidalee"],
+      "description": "Innate: Adaptor abilities change depending on whether their Attack Damage or Ability Power is higher. Adaptors gain AP or AD, whichever stat is higher. (2) 20% (AD or AP) — (3) 30% (AD or AP) — (4) 50%. (AD or AP)",
+      "breakpoints": [
+        {
+          "count": 2,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackDamage": 0.2,
+                "abilityPower": 0.2
+              },
+              "select": "highest"
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackDamage": 0.3,
+                "abilityPower": 0.3
+              },
+              "select": "highest"
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackDamage": 0.5,
+                "abilityPower": 0.5
+              },
+              "select": "highest"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Apex Predator",
+      "kind": "unique",
+      "combat": true,
+      "champions": ["Elder Dragon"],
+      "description": "Elder Dragon takes up 2 team slots and grants +2 to the Riftbeast trait.",
+      "breakpoints": [
+        {
+          "count": 1,
+          "grants": [],
+          "params": {
+            "teamSlotsTaken": 2,
+            "riftbeastCountBonus": 2
+          }
+        }
+      ]
+    },
+    {
+      "name": "Attuned",
+      "kind": "unique",
+      "combat": true,
+      "champions": ["Alune"],
+      "description": "Your strongest Alune cycles to a new phase of the moon after each cast. While the moon is at or below half full, your team gains 7% (Durability); above that, your team gains 7% (Damage Amp). Phases: New Moon 7% (Durability), Waxing Crescent 7% (Durability), Half Moon 7% (Durability=, Waxing Gibbous 7% (Damage Amp), Full Moon 7% (Damage Amp).",
+      "advancesOn": "cast",
+      "phases": [
+        {
+          "name": "new-moon",
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "durability": 0.07
+              }
+            }
+          ]
+        },
+        {
+          "name": "waxing-crescent",
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "durability": 0.07
+              }
+            }
+          ]
+        },
+        {
+          "name": "half-moon",
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "durability": 0.07
+              }
+            }
+          ]
+        },
+        {
+          "name": "waxing-gibbous",
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "damageAmp": 0.07
+              }
+            }
+          ]
+        },
+        {
+          "name": "full-moon",
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "damageAmp": 0.07
+              }
+            }
+          ]
+        }
+      ],
+      "breakpoints": [
+        {
+          "count": 1,
+          "grants": []
+        }
+      ]
+    },
+    {
+      "name": "Avatar",
+      "kind": "unique",
+      "combat": true,
+      "champions": ["Lux"],
+      "description": "Having an Avatar on your bench or board transforms every other Avatar in your shop to that Avatar's trait. The trait an Avatar picks counts double towards trait bonuses. Variants: Solar, Primal, Lunar, Inferno, Fae, Elderwood, Coven, Blossom, Blackthorn.",
+      "breakpoints": [
+        {
+          "count": 1,
+          "grants": [],
+          "params": {
+            "traitCountMultiplier": 2
+          }
+        }
+      ]
+    },
+    {
+      "name": "Blackthorn",
+      "kind": "origin",
+      "combat": true,
+      "champions": [
+        "Veigar",
+        "Rek'Sai",
+        "Warwick",
+        "Azir",
+        "Malphite",
+        "Lux (Blackthorn)"
+      ],
+      "description": "The ally placed on the Blackthorn hex is sacrificed before combat, granting Health to your champions. Blackthorn champions gain extra stats based on the sacrifice's role, star level and cost. (2) 175 — (4) 300; bonus 25% stronger — (6) 350; the sacrifice no longer dies and also gains: 20% (AD | AP), 20% (AS), 20 (ARMOR | MR), 250 (HP), 10% (Omnivamp).",
+      "breakpoints": [
+        {
+          "count": 2,
+          "grants": [
+            {
+              "to": "team",
+              "stats": {
+                "hp": 175
+              }
+            }
+          ],
+          "params": {
+            "sacrificeDies": 1
+          }
+        },
+        {
+          "count": 4,
+          "grants": [
+            {
+              "to": "team",
+              "stats": {
+                "hp": 300
+              }
+            }
+          ],
+          "params": {
+            "sacrificeDies": 1,
+            "traitBonusMultiplier": 1.25
+          }
+        },
+        {
+          "count": 6,
+          "grants": [
+            {
+              "to": "team",
+              "stats": {
+                "hp": 350
+              }
+            },
+            {
+              "to": "self",
+              "stats": {
+                "armor": 20,
+                "magicResist": 20,
+                "hp": 250
+              },
+              "percentStats": {
+                "attackDamage": 0.2,
+                "abilityPower": 0.2,
+                "attackSpeed": 0.2,
+                "omnivamp": 0.1
+              }
+            }
+          ],
+          "params": {
+            "sacrificeDies": 0,
+            "traitBonusMultiplier": 1.25
+          }
+        }
+      ]
+    },
+    {
+      "name": "Blossom",
+      "kind": "origin",
+      "combat": true,
+      "champions": [
+        "Yorick",
+        "Karma",
+        "Yunara",
+        "Master Yi",
+        "Sett",
+        "Ahri",
+        "Lux (Blossom)",
+        "Ashe"
+      ],
+      "description": "After combat, your Wisps are upgraded. Blossom champions gain Attack Damage, Ability Power and 12% max Health. (3) Upgraded Wisps, 12% (AP) (AD) — (5) Wisps in every shop, 30% (AP) (AD) — (7) Gain 5 gold after buying a Wisp, 45% (AP) (AD) — (9) You can buy 2 Wisps per round, 60% (AP) (AD) — (11) Wisps overflow with power, 100%. (AP) (AD)",
+      "breakpoints": [
+        {
+          "count": 3,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackDamage": 0.12,
+                "abilityPower": 0.12,
+                "hp": 0.12
+              }
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackDamage": 0.3,
+                "abilityPower": 0.3,
+                "hp": 0.12
+              }
+            }
+          ]
+        },
+        {
+          "count": 7,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackDamage": 0.45,
+                "abilityPower": 0.45,
+                "hp": 0.12
+              }
+            }
+          ]
+        },
+        {
+          "count": 9,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackDamage": 0.6,
+                "abilityPower": 0.6,
+                "hp": 0.12
+              }
+            }
+          ]
+        },
+        {
+          "count": 11,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackDamage": 1,
+                "abilityPower": 1,
+                "hp": 0.12
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bounty Seeker",
+      "kind": "unique",
+      "combat": false,
+      "champions": ["Draven"],
+      "description": "Choose a bounty. Your strongest Draven progresses towards it to earn its reward; once completed, choose another. Bounties and rewards: 50 attacks → 1 random 5-cost champion; 5 casts → 2 4-cost champions; 8 casts → 10 rerolls; 8000 damage → 7 gold; 35000 damage → 1 B.F. Sword; 10000 damage in a single player combat → 15 gold; 6 kills → 12 gold; 15 kills → 1 random completed item; highest team damage → 2 rerolls; survive 3 player combats → 2 random components; 14 takedowns → 10 XP.",
+      "breakpoints": [
+        {
+          "count": 1,
+          "grants": []
+        }
+      ]
+    },
+    {
+      "name": "Brawler",
+      "kind": "class",
+      "combat": true,
+      "champions": ["Kobuko", "Rek'Sai", "Alistar", "Krug", "Sett", "Gnar"],
+      "description": "Your team gains 120 max Health; Brawlers gain more. (2) 25% (HP) — (4) 40% (HP) — (6) 65%.(HP)",
+      "breakpoints": [
+        {
+          "count": 2,
+          "grants": [
+            {
+              "to": "team",
+              "stats": {
+                "hp": 120
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "hp": 0.25
+              }
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "grants": [
+            {
+              "to": "team",
+              "stats": {
+                "hp": 120
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "hp": 0.4
+              }
+            }
+          ]
+        },
+        {
+          "count": 6,
+          "grants": [
+            {
+              "to": "team",
+              "stats": {
+                "hp": 120
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "hp": 0.65
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Caustic",
+      "kind": "origin",
+      "combat": true,
+      "champions": ["Kog'Maw"],
+      "description": "Caustic damage applies 30% Shred and Sunder to enemies for 4 seconds.",
+      "breakpoints": [
+        {
+          "count": 1,
+          "grants": [
+            {
+              "to": "enemy",
+              "percentStats": {
+                "shred": 0.3,
+                "sunder": 0.3
+              },
+              "when": "on-damage",
+              "durationSeconds": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Coven",
+      "kind": "origin",
+      "combat": true,
+      "champions": [
+        "Camille",
+        "Elise",
+        "Caitlyn",
+        "Cassiopeia",
+        "Morgana",
+        "Lux (Coven)"
+      ],
+      "description": "Harvest Essence by killing champions, and more by losing a player combat. At 40 Essence, choose to convert Essence into rewards or keep gathering; each reward requires more Essence. (3) 1 Essence per kill, 20 Essence per loss — (4) 2 per kill, 25 per loss — (5) 2 per kill, 35 per loss — (7) 7 per kill, 70 per loss.",
+      "breakpoints": [
+        {
+          "count": 3,
+          "grants": [],
+          "params": {
+            "essencePerKill": 1,
+            "essencePerLoss": 20,
+            "essenceForFirstReward": 40
+          }
+        },
+        {
+          "count": 4,
+          "grants": [],
+          "params": {
+            "essencePerKill": 2,
+            "essencePerLoss": 25,
+            "essenceForFirstReward": 40
+          }
+        },
+        {
+          "count": 5,
+          "grants": [],
+          "params": {
+            "essencePerKill": 2,
+            "essencePerLoss": 35,
+            "essenceForFirstReward": 40
+          }
+        },
+        {
+          "count": 7,
+          "grants": [],
+          "params": {
+            "essencePerKill": 7,
+            "essencePerLoss": 70,
+            "essenceForFirstReward": 40
+          }
+        }
+      ],
+      "note": "Economy on its own, but Dark Ritual and Coven Acolyte turn the essence into combat power."
+    },
+    {
+      "name": "Defender",
+      "kind": "class",
+      "combat": true,
+      "champions": [
+        "Leona",
+        "Ornn",
+        "Shen",
+        "Fiddlesticks",
+        "Rammus",
+        "Lillia"
+      ],
+      "description": "Your team gains 12 Armor and Magic Resist; Defenders gain more. (2) 25 (ARMOR) (MR) — (4) 55 (ARMOR) (MR) — (6) 110 (ARMOR) (MR).",
+      "breakpoints": [
+        {
+          "count": 2,
+          "grants": [
+            {
+              "to": "team",
+              "stats": {
+                "armor": 12,
+                "magicResist": 12
+              }
+            },
+            {
+              "to": "traitHolders",
+              "stats": {
+                "armor": 25,
+                "magicResist": 25
+              }
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "grants": [
+            {
+              "to": "team",
+              "stats": {
+                "armor": 12,
+                "magicResist": 12
+              }
+            },
+            {
+              "to": "traitHolders",
+              "stats": {
+                "armor": 55,
+                "magicResist": 55
+              }
+            }
+          ]
+        },
+        {
+          "count": 6,
+          "grants": [
+            {
+              "to": "team",
+              "stats": {
+                "armor": 12,
+                "magicResist": 12
+              }
+            },
+            {
+              "to": "traitHolders",
+              "stats": {
+                "armor": 110,
+                "magicResist": 110
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Eclipse",
+      "kind": "origin",
+      "combat": true,
+      "champions": [],
+      "description": "Hidden trait, unlocked by combining Solar and Lunar. After 10 seconds of combat, the Eclipse kills the enemy with the lowest Health, then repeats every 3 seconds.",
+      "breakpoints": [
+        {
+          "count": null,
+          "grants": [
+            {
+              "to": "enemy",
+              "when": "lowest-health",
+              "effect": "execute"
+            }
+          ],
+          "params": {
+            "firstStrikeSeconds": 10,
+            "repeatSeconds": 3
+          }
+        }
+      ]
+    },
+    {
+      "name": "Elderwood",
+      "kind": "origin",
+      "combat": true,
+      "champions": [
+        "Xayah",
+        "Ornn",
+        "LeBlanc",
+        "Alistar",
+        "Hecarim",
+        "Ezreal",
+        "Lux (Elderwood)",
+        "Gnar"
+      ],
+      "description": "Gain placeable Elderwood plants. (3) A Stonebark Tree and a Lifebloom — (5) A second Stonebark Tree, and Stonebark Trees gain 100 Health — (7) and the Deepwood Protector — (9) Plants become 2-star — (11) Plants become 3-star and the forest comes alive.",
+      "breakpoints": [
+        {
+          "count": 3,
+          "grants": [],
+          "params": {
+            "stonebarkTrees": 1,
+            "lifeblooms": 1,
+            "plantStarLevel": 1
+          }
+        },
+        {
+          "count": 5,
+          "grants": [],
+          "params": {
+            "stonebarkTrees": 2,
+            "lifeblooms": 1,
+            "plantStarLevel": 1,
+            "stonebarkBonusHealth": 100
+          }
+        },
+        {
+          "count": 7,
+          "grants": [],
+          "params": {
+            "stonebarkTrees": 2,
+            "lifeblooms": 1,
+            "deepwoodProtectors": 1,
+            "plantStarLevel": 1,
+            "stonebarkBonusHealth": 100
+          }
+        },
+        {
+          "count": 9,
+          "grants": [],
+          "params": {
+            "stonebarkTrees": 2,
+            "lifeblooms": 1,
+            "deepwoodProtectors": 1,
+            "plantStarLevel": 2,
+            "stonebarkBonusHealth": 100
+          }
+        },
+        {
+          "count": 11,
+          "grants": [],
+          "params": {
+            "stonebarkTrees": 2,
+            "lifeblooms": 1,
+            "deepwoodProtectors": 1,
+            "plantStarLevel": 3,
+            "stonebarkBonusHealth": 100
+          }
+        }
+      ]
+    },
+    {
+      "name": "Emerald Aspect",
+      "kind": "unique",
+      "combat": true,
+      "champions": ["Taric"],
+      "description": "Drag an ally onto your strongest Taric to pair them, granting that ally powerful bonuses from Taric's ability.",
+      "breakpoints": [
+        {
+          "count": 1,
+          "grants": [],
+          "params": {
+            "pairedAllies": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "Executioner",
+      "kind": "class",
+      "combat": true,
+      "champions": ["Yunara", "Azir", "Soraka", "Ezreal", "Kennen"],
+      "description": "(2) Executioners gain Precision and 35% Critical Strike Chance — (3) Additionally, enemies bleed for 30% bonus raw damage over 3 seconds — (4) Bleed damage raised to 50%.",
+      "breakpoints": [
+        {
+          "count": 2,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "critChance": 0.35
+              },
+              "grants": "precision"
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "critChance": 0.35
+              },
+              "grants": "precision"
+            },
+            {
+              "to": "enemy",
+              "percentStats": {
+                "bleed": 0.3
+              },
+              "when": "on-damage",
+              "durationSeconds": 3
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "critChance": 0.35
+              },
+              "grants": "precision"
+            },
+            {
+              "to": "enemy",
+              "percentStats": {
+                "bleed": 0.5
+              },
+              "when": "on-damage",
+              "durationSeconds": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fae",
+      "kind": "origin",
+      "combat": true,
+      "champions": ["Rakan", "Xayah", "Tristana", "Lillia", "Lux (Fae)"],
+      "description": "Your team's damage, healing and shielding attracts Pixies. Each Pixie grants Attack Damage and Ability Power to Fae champions, and once they drop below 50% Health they heal for each Pixie. (2) 5% (AP) (AD) and 2% healing — (4) 8% (AP) (AD) and 4% healing; after attracting 7 Pixies, you attract Golden Pixies that grant gold.",
+      "breakpoints": [
+        {
+          "count": 2,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackDamage": 0.05,
+                "abilityPower": 0.05
+              },
+              "per": "pixie"
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "healPercentMaxHealth": 0.02
+              },
+              "per": "pixie",
+              "when": "below-health-threshold"
+            }
+          ],
+          "params": {
+            "healthThreshold": 0.5
+          }
+        },
+        {
+          "count": 4,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackDamage": 0.08,
+                "abilityPower": 0.08
+              },
+              "per": "pixie"
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "healPercentMaxHealth": 0.04
+              },
+              "per": "pixie",
+              "when": "below-health-threshold"
+            }
+          ],
+          "params": {
+            "healthThreshold": 0.5,
+            "goldenPixieAfter": 7
+          }
+        }
+      ]
+    },
+    {
+      "name": "Flora Fatalis",
+      "kind": "unique",
+      "combat": true,
+      "champions": ["Fiddlesticks", "Soraka"],
+      "description": "(1) 10 Mana — (2) and grants a heal of 8% max Health to the ally with the lowest Health.",
+      "breakpoints": [
+        {
+          "count": 1,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "stats": {
+                "mana": 10
+              }
+            }
+          ]
+        },
+        {
+          "count": 2,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "stats": {
+                "mana": 10
+              }
+            },
+            {
+              "to": "ally",
+              "percentStats": {
+                "healPercentMaxHealth": 0.08
+              },
+              "when": "lowest-health"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Greenfather",
+      "kind": "unique",
+      "combat": true,
+      "champions": ["Ivern"],
+      "description": "Gain 1 seed when your strongest Ivern casts, plus 4 each combat. Ivern spends 5 seeds to grow a hex on your board that grants a bonus to whoever occupies it. Bonuses: Flower 10%/15%/200%, Mushroom 8%/12%/200%, Rocks 12/15/500, Trees 6%/12%/200%, Water 2/3/30.",
+      "hexes": [
+        {
+          "name": "flower",
+          "percentStats": {
+            "attackDamage": 0.1,
+            "abilityPower": 0.1
+          },
+          "byStar": [0.1, 0.15, 2]
+        },
+        {
+          "name": "mushroom",
+          "percentStats": {
+            "damageAmp": 0.08
+          },
+          "byStar": [0.08, 0.12, 2]
+        },
+        {
+          "name": "rocks",
+          "stats": {
+            "armor": 12,
+            "magicResist": 12
+          },
+          "byStar": [12, 15, 500]
+        },
+        {
+          "name": "trees",
+          "percentStats": {
+            "hp": 0.06
+          },
+          "byStar": [0.06, 0.12, 2]
+        },
+        {
+          "name": "water",
+          "stats": {
+            "manaRegen": 2
+          },
+          "byStar": [2, 3, 30]
+        }
+      ],
+      "breakpoints": [
+        {
+          "count": 1,
+          "grants": [],
+          "params": {
+            "seedsPerCast": 1,
+            "seedsPerCombat": 4,
+            "seedsToGrowHex": 5
+          }
+        }
+      ]
+    },
+    {
+      "name": "Hunter",
+      "kind": "class",
+      "combat": true,
+      "champions": ["Cinderling", "Caitlyn", "Tristana", "Sivir", "Ashe"],
+      "description": "Hunters gain Attack Damage. If a Hunter has not changed target for 4 seconds, it gains 10% Damage Amp. (2) 15% (AD) — (3) 25% (AD) — (4) 40% (AD) — (5) 60% (AD).",
+      "breakpoints": [
+        {
+          "count": 2,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackDamage": 0.15
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "damageAmp": 0.1
+              },
+              "when": "target-unchanged"
+            }
+          ],
+          "params": {
+            "targetUnchangedSeconds": 4
+          }
+        },
+        {
+          "count": 3,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackDamage": 0.25
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "damageAmp": 0.1
+              },
+              "when": "target-unchanged"
+            }
+          ],
+          "params": {
+            "targetUnchangedSeconds": 4
+          }
+        },
+        {
+          "count": 4,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackDamage": 0.4
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "damageAmp": 0.1
+              },
+              "when": "target-unchanged"
+            }
+          ],
+          "params": {
+            "targetUnchangedSeconds": 4
+          }
+        },
+        {
+          "count": 5,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackDamage": 0.6
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "damageAmp": 0.1
+              },
+              "when": "target-unchanged"
+            }
+          ],
+          "params": {
+            "targetUnchangedSeconds": 4
+          }
+        }
+      ]
+    },
+    {
+      "name": "Inferno",
+      "kind": "origin",
+      "combat": true,
+      "champions": [
+        "Varus",
+        "Akali",
+        "Shen",
+        "Amumu",
+        "Lux (Inferno)",
+        "Kennen"
+      ],
+      "description": "Inferno damage applies Burn and 33% Wound for 4 seconds; Inferno Burns stack with other Burns. (2) 1% Burn — (3) After combat, 1 shop slot without an Inferno champion catches fire and offers a champion one tier higher — (5) 2 slots on fire, 2% Burn — (7) 4 slots on fire, 3% Burn.",
+      "breakpoints": [
+        {
+          "count": 2,
+          "grants": [
+            {
+              "to": "enemy",
+              "percentStats": {
+                "burnPercentMaxHealthPerSecond": 0.01,
+                "wound": 0.33
+              },
+              "when": "on-damage",
+              "durationSeconds": 4
+            }
+          ],
+          "params": {
+            "burningShopSlots": 0
+          }
+        },
+        {
+          "count": 3,
+          "grants": [
+            {
+              "to": "enemy",
+              "percentStats": {
+                "burnPercentMaxHealthPerSecond": 0.01,
+                "wound": 0.33
+              },
+              "when": "on-damage",
+              "durationSeconds": 4
+            }
+          ],
+          "params": {
+            "burningShopSlots": 1
+          }
+        },
+        {
+          "count": 5,
+          "grants": [
+            {
+              "to": "enemy",
+              "percentStats": {
+                "burnPercentMaxHealthPerSecond": 0.02,
+                "wound": 0.33
+              },
+              "when": "on-damage",
+              "durationSeconds": 4
+            }
+          ],
+          "params": {
+            "burningShopSlots": 2
+          }
+        },
+        {
+          "count": 7,
+          "grants": [
+            {
+              "to": "enemy",
+              "percentStats": {
+                "burnPercentMaxHealthPerSecond": 0.03,
+                "wound": 0.33
+              },
+              "when": "on-damage",
+              "durationSeconds": 4
+            }
+          ],
+          "params": {
+            "burningShopSlots": 4
+          }
+        }
+      ]
+    },
+    {
+      "name": "Invoker",
+      "kind": "class",
+      "combat": true,
+      "champions": ["Pebbles", "Teemo", "Kog'Maw", "Sentinel", "Morgana"],
+      "description": "Your team gains Mana Regen, increased for Invokers. (2) 1 (Mana Regen) | 2 (Mana Regen) — (3) 1 (Mana Regen) | 3 (Mana Regen) — (4) 2 (Mana Regen) | 5 (Mana Regen) — (5) 2 (Mana Regen) | 8 (Mana Regen).",
+      "breakpoints": [
+        {
+          "count": 2,
+          "grants": [
+            {
+              "to": "team",
+              "stats": {
+                "manaRegen": 1
+              }
+            },
+            {
+              "to": "traitHolders",
+              "stats": {
+                "manaRegen": 2
+              }
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "grants": [
+            {
+              "to": "team",
+              "stats": {
+                "manaRegen": 1
+              }
+            },
+            {
+              "to": "traitHolders",
+              "stats": {
+                "manaRegen": 3
+              }
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "grants": [
+            {
+              "to": "team",
+              "stats": {
+                "manaRegen": 2
+              }
+            },
+            {
+              "to": "traitHolders",
+              "stats": {
+                "manaRegen": 5
+              }
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "grants": [
+            {
+              "to": "team",
+              "stats": {
+                "manaRegen": 2
+              }
+            },
+            {
+              "to": "traitHolders",
+              "stats": {
+                "manaRegen": 8
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Juggernaut",
+      "kind": "class",
+      "combat": true,
+      "champions": [
+        "Yorick",
+        "Rakan",
+        "Sejuani",
+        "Scuttlecrab",
+        "Vi",
+        "Amumu",
+        "Maokai"
+      ],
+      "description": "Your team gains Durability; Juggernauts gain more. (2) 4% (Durability) or 20% (Durability) — (4) 4% (Durability) or 28% (Durability) — (6) 8% (Durability) or 34% (Durability).",
+      "breakpoints": [
+        {
+          "count": 2,
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "durability": 0.04
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "durability": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "durability": 0.04
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "durability": 0.28
+              }
+            }
+          ]
+        },
+        {
+          "count": 6,
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "durability": 0.08
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "durability": 0.34
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lunar",
+      "kind": "origin",
+      "combat": true,
+      "champions": ["Diana", "Aphelios", "Lux (Lunar)", "Alune"],
+      "description": "Lunar champions and adjacent allies gain Attack Speed and Ability Power; Lunar champions gain 100% more. (2) 7%, 7% (AP) (AD) — (3) 10%, 10% (AP) (AD) — (4) 15%, 15% (AP) (AD) — (5) 20%, 20%. (AP) (AD)",
+      "breakpoints": [
+        {
+          "count": 2,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackSpeed": 0.14,
+                "abilityPower": 0.14
+              }
+            },
+            {
+              "to": "ally",
+              "percentStats": {
+                "attackSpeed": 0.07,
+                "abilityPower": 0.07
+              },
+              "when": "adjacent"
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackSpeed": 0.2,
+                "abilityPower": 0.2
+              }
+            },
+            {
+              "to": "ally",
+              "percentStats": {
+                "attackSpeed": 0.1,
+                "abilityPower": 0.1
+              },
+              "when": "adjacent"
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackSpeed": 0.3,
+                "abilityPower": 0.3
+              }
+            },
+            {
+              "to": "ally",
+              "percentStats": {
+                "attackSpeed": 0.15,
+                "abilityPower": 0.15
+              },
+              "when": "adjacent"
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackSpeed": 0.4,
+                "abilityPower": 0.4
+              }
+            },
+            {
+              "to": "ally",
+              "percentStats": {
+                "attackSpeed": 0.2,
+                "abilityPower": 0.2
+              },
+              "when": "adjacent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Monolith",
+      "kind": "class",
+      "combat": true,
+      "champions": ["Malphite"],
+      "description": "Monoliths gain 10 Armor and Magic Resist for each enemy targeting them.",
+      "breakpoints": [
+        {
+          "count": 1,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "stats": {
+                "armor": 10,
+                "magicResist": 10
+              },
+              "per": "enemy-targeting-me"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Old Growth",
+      "kind": "unique",
+      "combat": true,
+      "champions": ["Maokai"],
+      "description": "Whenever an enemy dies within 3 hexes, gain 30 permanent max Health.",
+      "breakpoints": [
+        {
+          "count": 1,
+          "grants": [
+            {
+              "to": "self",
+              "stats": {
+                "hp": 30
+              },
+              "when": "enemy-dies-nearby",
+              "permanent": true
+            }
+          ],
+          "params": {
+            "hexRange": 3
+          }
+        }
+      ]
+    },
+    {
+      "name": "Primal",
+      "kind": "origin",
+      "combat": true,
+      "champions": ["Vi", "Sivir", "Nidalee", "Lux (Primal)"],
+      "description": "Choose one of four Primal Blessings: Primal damage executes enemies below 15% Health; every 16 Primal takedowns, gain a component (max 4); after 6 seconds, Primal champions gain 30% Attack Speed and the team gains 15%; your team heals 4% of max Health every 4 seconds.",
+      "blessings": [
+        {
+          "name": "execute",
+          "params": {
+            "executeBelowHealth": 0.15
+          }
+        },
+        {
+          "name": "component-quest",
+          "combat": false,
+          "params": {
+            "takedownsPerComponent": 16,
+            "maxComponents": 4
+          }
+        },
+        {
+          "name": "haste",
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackSpeed": 0.3
+              }
+            },
+            {
+              "to": "team",
+              "percentStats": {
+                "attackSpeed": 0.15
+              }
+            }
+          ],
+          "params": {
+            "afterSeconds": 6
+          }
+        },
+        {
+          "name": "regeneration",
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "healPercentMaxHealth": 0.04
+              }
+            }
+          ],
+          "params": {
+            "everySeconds": 4
+          }
+        }
+      ],
+      "breakpoints": [
+        {
+          "count": 2,
+          "grants": []
+        },
+        {
+          "count": 4,
+          "grants": []
+        }
+      ]
+    },
+    {
+      "name": "Rapidfire",
+      "kind": "class",
+      "combat": true,
+      "champions": ["Xayah", "Varus", "Kayle", "Mama Beak", "Aphelios"],
+      "description": "Your team gains 10% Attack Speed. Rapidfire champions gain more with each attack, up to 10 stacks. (2) +3% (AS) per attack — (3) +5% (AS) — (4) +9% (AS) — (5) +15% (AS).",
+      "breakpoints": [
+        {
+          "count": 2,
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "attackSpeed": 0.1
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackSpeed": 0.03
+              },
+              "per": "attack",
+              "maxStacks": 10
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "attackSpeed": 0.1
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackSpeed": 0.05
+              },
+              "per": "attack",
+              "maxStacks": 10
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "attackSpeed": 0.1
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackSpeed": 0.09
+              },
+              "per": "attack",
+              "maxStacks": 10
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "attackSpeed": 0.1
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "attackSpeed": 0.15
+              },
+              "per": "attack",
+              "maxStacks": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ravager",
+      "kind": "class",
+      "combat": true,
+      "champions": [
+        "Akali",
+        "Camille",
+        "Murkwolf",
+        "Warwick",
+        "Diana",
+        "Brambleback"
+      ],
+      "description": "Ravagers gain 10% Omnivamp. They also deal bonus damage, doubled against units below 50% Health. (2) 12% bonus damage — (4) 25% — (6) 40%.",
+      "breakpoints": [
+        {
+          "count": 2,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "omnivamp": 0.1
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "damageAmp": 0.12
+              },
+              "doubledBelowEnemyHealth": 0.5
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "omnivamp": 0.1
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "damageAmp": 0.25
+              },
+              "doubledBelowEnemyHealth": 0.5
+            }
+          ]
+        },
+        {
+          "count": 6,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "omnivamp": 0.1
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "damageAmp": 0.4
+              },
+              "doubledBelowEnemyHealth": 0.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Riftbeast",
+      "kind": "origin",
+      "combat": true,
+      "champions": [
+        "Cinderling",
+        "Pebbles",
+        "Gromp",
+        "Murkwolf",
+        "Scuttlecrab",
+        "Krug",
+        "Mama Beak",
+        "Brambleback",
+        "Sentinel",
+        "Elder Dragon"
+      ],
+      "description": "(3) Use the Alpha Mark to grant a Riftbeast its unique Buff — (5) Every 3 combats, your next shop is overrun with Riftbeasts — (7) At combat start and every 5 seconds, Riftbeasts grow, gaining 5% (AD) / 5% (AP) / 5% (AS) / +3 (ARMOR) / +3 (MR) / +50 (HP) / +1 (Mana) — (10) +2 max team size.",
+      "breakpoints": [
+        {
+          "count": 3,
+          "grants": [],
+          "params": {
+            "alphaMarks": 1
+          }
+        },
+        {
+          "count": 5,
+          "grants": [],
+          "params": {
+            "alphaMarks": 1,
+            "riftbeastShopEveryCombats": 3
+          }
+        },
+        {
+          "count": 7,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "stats": {
+                "armor": 3,
+                "magicResist": 3,
+                "hp": 50,
+                "mana": 1
+              },
+              "percentStats": {
+                "attackDamage": 0.05,
+                "abilityPower": 0.05,
+                "attackSpeed": 0.05
+              },
+              "per": "growth-tick"
+            }
+          ],
+          "params": {
+            "alphaMarks": 1,
+            "riftbeastShopEveryCombats": 3,
+            "growthEverySeconds": 5
+          }
+        },
+        {
+          "count": 10,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "stats": {
+                "armor": 3,
+                "magicResist": 3,
+                "hp": 50,
+                "mana": 1
+              },
+              "percentStats": {
+                "attackDamage": 0.05,
+                "abilityPower": 0.05,
+                "attackSpeed": 0.05
+              },
+              "per": "growth-tick"
+            }
+          ],
+          "params": {
+            "alphaMarks": 1,
+            "riftbeastShopEveryCombats": 3,
+            "growthEverySeconds": 5,
+            "teamSizeBonus": 2
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rival",
+      "kind": "origin",
+      "combat": true,
+      "champions": ["Kha'Zix", "Rengar"],
+      "description": "(1) Active only when playing 1 Rival. Rivals accumulate takedowns, +3 for eliminating another Rival. Takedowns evolve Kha'Zix, permanently granting him a trait of your choice among Executioner, Rapidfire, Ravager or Spellweaver. Rengar grants 2/3/5 gold every 8 takedowns; after 30 takedowns, the team gains 5% Attack Damage plus 0.2% per additional takedown. (2) Rivals can be played together: when Kha'Zix gains Mana from his ability, Rengar gains 100% of it; when Rengar heals from his ability, Kha'Zix recovers 50% of that healing.",
+      "breakpoints": [
+        {
+          "count": 1,
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "attackDamage": 0.05
+              },
+              "when": "takedowns-reached"
+            }
+          ],
+          "params": {
+            "takedownsForTeamBonus": 30,
+            "attackDamagePerExtraTakedown": 0.002,
+            "takedownsPerRengarReward": 8,
+            "bonusTakedownsOnRivalKill": 3
+          }
+        },
+        {
+          "count": 2,
+          "grants": [],
+          "params": {
+            "manaSharedToRengar": 1,
+            "healSharedToKhazix": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "name": "Solar",
+      "kind": "origin",
+      "combat": true,
+      "champions": ["Leona", "Sejuani", "Kayle", "Lux (Solar)"],
+      "description": "(3) Your champions gain a shield of 5% of their max Health and deal 7% bonus magic damage. Additional bonuses based on the number of unique 3-star champions fielded: 1 → increases the shield and bonus magic damage by 2.5% per 3-star; 3 → 25% (AS) and 15 (ARMOR) (MR); 5 → converts 50% of the bonus magic damage into raw damage; 8 → every 4 seconds of combat, a 3-star champion becomes 4-star.",
+      "thresholds": [
+        {
+          "threeStars": 1,
+          "grants": [],
+          "params": {
+            "shieldAndDamageIncrease": 0.025
+          }
+        },
+        {
+          "threeStars": 3,
+          "grants": [
+            {
+              "to": "team",
+              "stats": {
+                "armor": 15,
+                "magicResist": 15
+              },
+              "percentStats": {
+                "attackSpeed": 0.25
+              }
+            }
+          ]
+        },
+        {
+          "threeStars": 5,
+          "grants": [],
+          "params": {
+            "magicDamageConvertedToRaw": 0.5
+          }
+        },
+        {
+          "threeStars": 8,
+          "grants": [],
+          "params": {
+            "starUpEverySeconds": 4
+          }
+        }
+      ],
+      "breakpoints": [
+        {
+          "count": 3,
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "shieldPercentMaxHealth": 0.05,
+                "bonusMagicDamage": 0.07
+              }
+            }
+          ],
+          "params": {
+            "perThreeStarIncrease": 0.025,
+            "threeStarsForAttackSpeed": 3,
+            "threeStarsForRawConversion": 5,
+            "threeStarsForStarUp": 8
+          }
+        }
+      ]
+    },
+    {
+      "name": "Spellweaver",
+      "kind": "class",
+      "combat": true,
+      "champions": [
+        "Veigar",
+        "Karma",
+        "LeBlanc",
+        "Fiddlesticks",
+        "Cassiopeia",
+        "Ahri",
+        "Alune"
+      ],
+      "description": "Your team gains 10% Ability Power. Spellweavers gain more, plus additional Ability Power each time a Spellweaver casts. (2) 10% (AP), +1% (AP) per cast — (4) 30% (AP), +1% (AP) per cast — (6) 55% (AP), +2% (AP) per cast.",
+      "breakpoints": [
+        {
+          "count": 2,
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "abilityPower": 0.1
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "abilityPower": 0.1
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "abilityPower": 0.01
+              },
+              "per": "spellweaver-cast"
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "abilityPower": 0.1
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "abilityPower": 0.3
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "abilityPower": 0.01
+              },
+              "per": "spellweaver-cast"
+            }
+          ]
+        },
+        {
+          "count": 6,
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "abilityPower": 0.1
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "abilityPower": 0.55
+              }
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "abilityPower": 0.02
+              },
+              "per": "spellweaver-cast"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sprykin",
+      "kind": "origin",
+      "combat": true,
+      "champions": ["Kobuko", "Veigar", "Teemo", "Rammus", "Tristana", "Gnar"],
+      "description": "Gain the Big Furry Friend (BFF). Drop a Sprykin onto the BFF to choose its Rider. (3) The Rider gains 15% (HP) and 15% (AS)  — (5) 15% (HP)/ 15% (AS), and 50% of the BFF's ability applies to your Sprykin champions — (7) 45% (HP) / 45% (AS) , and 100% of the BFF's ability applies to your Sprykin champions.",
+      "breakpoints": [
+        {
+          "count": 3,
+          "grants": [
+            {
+              "to": "self",
+              "percentStats": {
+                "hp": 0.15,
+                "attackSpeed": 0.15
+              },
+              "when": "rides-the-bff"
+            }
+          ],
+          "params": {
+            "bffAbilityShareToTrait": 0
+          }
+        },
+        {
+          "count": 5,
+          "grants": [
+            {
+              "to": "self",
+              "percentStats": {
+                "hp": 0.3,
+                "attackSpeed": 0.3
+              },
+              "when": "rides-the-bff"
+            }
+          ],
+          "params": {
+            "bffAbilityShareToTrait": 0.5
+          }
+        },
+        {
+          "count": 7,
+          "grants": [
+            {
+              "to": "self",
+              "percentStats": {
+                "hp": 0.45,
+                "attackSpeed": 0.45
+              },
+              "when": "rides-the-bff"
+            }
+          ],
+          "params": {
+            "bffAbilityShareToTrait": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "Summoner",
+      "kind": "class",
+      "combat": true,
+      "champions": ["Yorick", "Azir", "Mama Beak", "Zyra"],
+      "description": "Summoners strengthen their summons differently: Yorick +30% Health, Azir +45% Damage, Mama Beak +45% Damage, Zyra +4 plant attacks. (2) Strengthens summons — (3) Improves each effect by 50%.",
+      "breakpoints": [
+        {
+          "count": 2,
+          "grants": [],
+          "params": {
+            "yorickSummonHealth": 0.3,
+            "azirSummonDamage": 0.45,
+            "mamaBeakSummonDamage": 0.45,
+            "zyraExtraPlantAttacks": 4
+          }
+        },
+        {
+          "count": 3,
+          "grants": [],
+          "params": {
+            "yorickSummonHealth": 0.45,
+            "azirSummonDamage": 0.675,
+            "mamaBeakSummonDamage": 0.675,
+            "zyraExtraPlantAttacks": 6
+          }
+        }
+      ]
+    },
+    {
+      "name": "Thornmaiden",
+      "kind": "unique",
+      "combat": true,
+      "champions": ["Zyra"],
+      "description": "Your team gains 5% Durability, raised to 10% if 6 or more Zyra plants are alive.",
+      "breakpoints": [
+        {
+          "count": 1,
+          "grants": [
+            {
+              "to": "team",
+              "percentStats": {
+                "durability": 0.05
+              }
+            },
+            {
+              "to": "team",
+              "percentStats": {
+                "durability": 0.1
+              },
+              "when": "plants-alive-threshold"
+            }
+          ],
+          "params": {
+            "plantsAliveThreshold": 6
+          }
+        }
+      ]
+    },
+    {
+      "name": "Vanguard",
+      "kind": "class",
+      "combat": true,
+      "champions": ["Rakan", "Elise", "Diana", "Hecarim", "Sentinel", "Taric"],
+      "description": "At combat start and after dropping below 50% Health, Vanguards gain a shield based on their max Health for 10 seconds. (2) 18% max Health — (4) 35% — (6) 45% and 8% Durability while shielded.",
+      "breakpoints": [
+        {
+          "count": 2,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "shieldPercentMaxHealth": 0.18
+              },
+              "when": "combat-start-and-below-health"
+            }
+          ],
+          "params": {
+            "healthThreshold": 0.5,
+            "shieldSeconds": 10
+          }
+        },
+        {
+          "count": 4,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "shieldPercentMaxHealth": 0.35
+              },
+              "when": "combat-start-and-below-health"
+            }
+          ],
+          "params": {
+            "healthThreshold": 0.5,
+            "shieldSeconds": 10
+          }
+        },
+        {
+          "count": 6,
+          "grants": [
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "shieldPercentMaxHealth": 0.45
+              },
+              "when": "combat-start-and-below-health"
+            },
+            {
+              "to": "traitHolders",
+              "percentStats": {
+                "durability": 0.08
+              },
+              "when": "shielded"
+            }
+          ],
+          "params": {
+            "healthThreshold": 0.5,
+            "shieldSeconds": 10
+          }
+        }
+      ]
+    }
+  ]
+}
