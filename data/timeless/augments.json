@@ -1942,6 +1942,23 @@
       "apparition": ["2-1"],
       "description": "For the next 5 combats, your team size is 1, but the champion you field has massively increased stats. Gain 1 XP for every kill they get. Afterwards, gain 2 item components.",
       "combat": true,
+      "grants": [
+        {
+          "to": "self",
+          "when": "only-champion-fielded",
+          "stats": {
+            "hp": 525,
+            "abilityPower": 0.5
+          },
+          "percentStats": {
+            "attackDamage": 0.5,
+            "attackSpeed": 0.5,
+            "durability": 0.2,
+            "damageAmp": 0.3,
+            "omnivamp": 0.2
+          }
+        }
+      ],
       "params": {
         "teamSize": 1,
         "combats": 5
