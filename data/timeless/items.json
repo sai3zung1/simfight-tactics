@@ -100,7 +100,9 @@
       "grants": [
         {
           "to": "holder",
-          "when": "against-tanks",
+          "filter": {
+            "againstRole": "tank"
+          },
           "percentStats": {
             "damageAmp": 0.15
           }
@@ -121,13 +123,13 @@
       "grants": [
         {
           "to": "holder",
-          "when": "below-health-threshold",
+          "trigger": "health-threshold-crossed",
           "effect": "untargetable",
           "healPercentMissingHealth": 0.2
         },
         {
           "to": "holder",
-          "when": "below-health-threshold",
+          "trigger": "health-threshold-crossed",
           "effect": "shed-negative-effects"
         }
       ],
@@ -149,7 +151,7 @@
       "grants": [
         {
           "to": "holder",
-          "when": "below-health-threshold",
+          "trigger": "health-threshold-crossed",
           "percentStats": {
             "shieldPercentMaxHealth": 0.25
           },
@@ -175,7 +177,9 @@
       "grants": [
         {
           "to": "ally",
-          "when": "lowest-health",
+          "filter": {
+            "select": "lowest-health"
+          },
           "healShareOfDamage": 0.2
         }
       ]
@@ -212,7 +216,7 @@
       "grants": [
         {
           "to": "holder",
-          "when": "below-health-threshold",
+          "trigger": "health-threshold-crossed",
           "percentStats": {
             "shieldPercentMaxHealth": 0.4
           },
@@ -323,7 +327,9 @@
         },
         {
           "to": "holder",
-          "when": "max-stacks",
+          "filter": {
+            "state": "max-stacks"
+          },
           "percentStats": {
             "damageAmp": 0.1
           },
@@ -354,7 +360,9 @@
         },
         {
           "to": "enemy",
-          "when": "adjacent",
+          "filter": {
+            "position": "adjacent"
+          },
           "stats": {
             "magicDamage": 100
           },
@@ -398,7 +406,7 @@
       "grants": [
         {
           "to": "holder",
-          "when": "combat-start",
+          "trigger": "combat-start",
           "percentStats": {
             "shieldPercentMaxHealth": 0.25
           },
@@ -406,7 +414,7 @@
         },
         {
           "to": "holder",
-          "when": "shield-expires",
+          "trigger": "shield-expires",
           "percentStats": {
             "abilityPower": 0.25
           }
@@ -426,14 +434,14 @@
       "grants": [
         {
           "to": "holder",
-          "when": "combat-start",
+          "trigger": "combat-start",
           "stats": {
             "mana": 20
           }
         },
         {
           "to": "holder",
-          "when": "below-health-threshold",
+          "trigger": "health-threshold-crossed",
           "stats": {
             "mana": 15
           },
@@ -464,7 +472,9 @@
         },
         {
           "to": "enemy",
-          "when": "within-hexes",
+          "filter": {
+            "position": "within-hexes"
+          },
           "burnPercent": 0.01,
           "woundPercent": 0.33,
           "durationSeconds": 10,
@@ -494,7 +504,9 @@
         },
         {
           "to": "holder",
-          "when": "above-health-threshold",
+          "filter": {
+            "state": "above-health"
+          },
           "percentStats": {
             "durability": 0.15
           }
@@ -528,7 +540,9 @@
         },
         {
           "to": "holder",
-          "when": "max-stacks",
+          "filter": {
+            "state": "max-stacks"
+          },
           "percentStats": {
             "attackSpeed": 0.15
           }
@@ -575,7 +589,9 @@
         },
         {
           "to": "holder",
-          "when": "tank-or-fighter",
+          "filter": {
+            "role": ["tank", "fighter"]
+          },
           "stats": {
             "armor": 30,
             "magicResist": 30
@@ -583,7 +599,9 @@
         },
         {
           "to": "holder",
-          "when": "other-roles",
+          "filter": {
+            "role": ["caster", "marksman", "assassin", "specialist"]
+          },
           "percentStats": {
             "attackDamage": 0.1,
             "abilityPower": 0.1
@@ -605,7 +623,7 @@
       "grants": [
         {
           "to": "holder",
-          "when": "combat-start",
+          "trigger": "combat-start",
           "effect": "unstoppable",
           "durationSeconds": 18
         },
@@ -653,12 +671,14 @@
       "grants": [
         {
           "to": "enemy",
-          "when": "within-hexes",
+          "filter": {
+            "position": "within-hexes"
+          },
           "shredPercent": 0.3
         },
         {
           "to": "enemy",
-          "when": "on-cast",
+          "trigger": "on-cast",
           "magicDamageShareOfManaSpent": 1.5
         }
       ],
@@ -688,7 +708,7 @@
       "grants": [
         {
           "to": "holder",
-          "when": "combat-start",
+          "trigger": "combat-start",
           "percentStats": {
             "abilityPower": 0.2
           },
@@ -773,12 +793,14 @@
       "grants": [
         {
           "to": "enemy",
-          "when": "within-hexes",
+          "filter": {
+            "position": "within-hexes"
+          },
           "sunder": 0.3
         },
         {
           "to": "holder",
-          "when": "combat-start",
+          "trigger": "combat-start",
           "stats": {
             "armor": 15,
             "magicResist": 15
@@ -891,7 +913,9 @@
         },
         {
           "to": "holder",
-          "when": "above-health-threshold",
+          "filter": {
+            "state": "above-health"
+          },
           "percentStats": {
             "attackDamage": 0.15,
             "abilityPower": 0.15
@@ -899,7 +923,7 @@
         },
         {
           "to": "holder",
-          "when": "below-health-threshold",
+          "trigger": "health-threshold-crossed",
           "percentStats": {
             "omnivamp": 0.12
           }
