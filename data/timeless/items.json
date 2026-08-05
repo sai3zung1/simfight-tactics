@@ -1191,7 +1191,32 @@
         "hp": 400,
         "armor": 50
       },
-      "description": "Every 2.5 seconds, steal 3 Armor from enemies within 1-hex and heal 15% of the holder's Armor.\nIf Aegis of Dusk is also equipped, trigger this item's effect every 1.25 seconds instead.\n\nHealing increases based on Stage."
+      "description": "Every 2.5 seconds, steal 3 Armor from enemies within 1-hex and heal 15% of the holder's Armor.\nIf Aegis of Dusk is also equipped, trigger this item's effect every 1.25 seconds instead.\n\nHealing increases based on Stage.",
+      "grants": [
+        {
+          "to": "enemy",
+          "filter": {
+            "position": "within-hexes"
+          },
+          "stealStats": {
+            "armor": 3
+          },
+          "everySeconds": 2.5
+        },
+        {
+          "to": "holder",
+          "healShareOfStat": {
+            "armor": 0.15
+          },
+          "everySeconds": 2.5,
+          "scalesByStage": true
+        }
+      ],
+      "params": {
+        "hexRadius": 1,
+        "pairedWith": "Aegis of Dusk",
+        "everySecondsWhenPaired": 1.25
+      }
     },
     {
       "name": "Aegis of Dusk",
@@ -1200,7 +1225,36 @@
         "hp": 400,
         "magicResist": 70
       },
-      "description": "Every 2.5 seconds, steal 3 Magic Resist from enemies within 1-hex and deal 15% of the holder's Magic Resist as magic damage.\nIf Aegis of Dawn is also equipped, trigger this item's effect every 1.25 seconds instead.\n\nDamage increases based on Stage."
+      "description": "Every 2.5 seconds, steal 3 Magic Resist from enemies within 1-hex and deal 15% of the holder's Magic Resist as magic damage.\nIf Aegis of Dawn is also equipped, trigger this item's effect every 1.25 seconds instead.\n\nDamage increases based on Stage.",
+      "grants": [
+        {
+          "to": "enemy",
+          "filter": {
+            "position": "within-hexes"
+          },
+          "stealStats": {
+            "magicResist": 3
+          },
+          "everySeconds": 2.5
+        },
+        {
+          "to": "enemy",
+          "filter": {
+            "position": "within-hexes"
+          },
+          "damageShareOfStat": {
+            "magicResist": 0.15
+          },
+          "damageType": "magic",
+          "everySeconds": 2.5,
+          "scalesByStage": true
+        }
+      ],
+      "params": {
+        "hexRadius": 1,
+        "pairedWith": "Aegis of Dawn",
+        "everySecondsWhenPaired": 1.25
+      }
     },
     {
       "name": "Blighting Jewel",
@@ -1209,7 +1263,28 @@
         "abilityPower": 0.2,
         "manaRegen": 2
       },
-      "description": "Dealing magic damage reduces the target’s Magic Resist by 4. If their Magic Resist is 0, grant the holder 4 Mana instead.\n\nAbility damage can only trigger on each enemy once every 0.5 seconds."
+      "description": "Dealing magic damage reduces the target’s Magic Resist by 4. If their Magic Resist is 0, grant the holder 4 Mana instead.\n\nAbility damage can only trigger on each enemy once every 0.5 seconds.",
+      "grants": [
+        {
+          "to": "enemy",
+          "stats": {
+            "magicResist": -4
+          },
+          "per": "magic-damage-dealt",
+          "cooldownSeconds": 0.5
+        },
+        {
+          "to": "holder",
+          "filter": {
+            "state": "target-magic-resist-zero"
+          },
+          "stats": {
+            "mana": 4
+          },
+          "per": "magic-damage-dealt",
+          "cooldownSeconds": 0.5
+        }
+      ]
     },
     {
       "name": "Cappa Juice",
@@ -1219,7 +1294,22 @@
         "attackDamage": 0.25,
         "attackSpeed": 0.25
       },
-      "description": "The holder dons a Hat on each takedown. The holder gains 1% Attack Damage and Ability Power per Hat. On death lose 20% of all Hats."
+      "description": "The holder dons a Hat on each takedown. The holder gains 1% Attack Damage and Ability Power per Hat. On death lose 20% of all Hats.",
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "attackDamage": 0.01,
+            "abilityPower": 0.01
+          },
+          "per": "hat",
+          "stacks": true
+        }
+      ],
+      "params": {
+        "hatPerTakedown": 1,
+        "hatLossOnDeathShare": 0.2
+      }
     },
     {
       "name": "Dawncore",
@@ -1229,7 +1319,26 @@
         "abilityPower": 0.15,
         "manaRegen": 2
       },
-      "description": "Reduce the holder's max Mana by 10. Subsequent spellcasts reduce max Mana by 7%, to a minimum of 10."
+      "description": "Reduce the holder's max Mana by 10. Subsequent spellcasts reduce max Mana by 7%, to a minimum of 10.",
+      "grants": [
+        {
+          "to": "holder",
+          "stats": {
+            "maxMana": -10
+          }
+        },
+        {
+          "to": "holder",
+          "percentStats": {
+            "maxMana": -0.07
+          },
+          "trigger": "on-cast",
+          "stacks": true
+        }
+      ],
+      "params": {
+        "maxManaFloor": 10
+      }
     },
     {
       "name": "Death's Defiance",
@@ -1240,7 +1349,17 @@
         "attackSpeed": 0.15,
         "omnivamp": 0.25
       },
-      "description": "50% of the damage the holder receives is instead dealt over 4 seconds as non-lethal damage.\n\nUnique - only 1 per champion"
+      "description": "50% of the damage the holder receives is instead dealt over 4 seconds as non-lethal damage.\n\nUnique - only 1 per champion",
+      "grants": [
+        {
+          "to": "holder",
+          "redirectDamageShare": 0.5,
+          "asNonLethalOverSeconds": 4
+        }
+      ],
+      "params": {
+        "uniquePerChampion": true
+      }
     },
     {
       "name": "Eternal Pact",
@@ -1249,7 +1368,44 @@
         "abilityPower": 0.4,
         "manaRegen": 1
       },
-      "description": "Combat start: Form a pact with the highest Health allied champion, If they die, gain 10 Mana regen and 40% Ability Power.\nWhen the ally uses their ability, gain 15 Mana. Every 6 seconds, shield your ally for 200% of the holder's Ability Power."
+      "description": "Combat start: Form a pact with the highest Health allied champion, If they die, gain 10 Mana regen and 40% Ability Power.\nWhen the ally uses their ability, gain 15 Mana. Every 6 seconds, shield your ally for 200% of the holder's Ability Power.",
+      "grants": [
+        {
+          "to": "ally",
+          "filter": {
+            "select": "highest-health"
+          },
+          "trigger": "combat-start",
+          "effect": "pact"
+        },
+        {
+          "to": "holder",
+          "trigger": "pact-ally-dies",
+          "stats": {
+            "manaRegen": 10
+          },
+          "percentStats": {
+            "abilityPower": 0.4
+          }
+        },
+        {
+          "to": "holder",
+          "trigger": "pact-ally-casts",
+          "stats": {
+            "mana": 15
+          }
+        },
+        {
+          "to": "ally",
+          "filter": {
+            "state": "pact-ally"
+          },
+          "shieldShareOfStat": {
+            "abilityPower": 2.0
+          },
+          "everySeconds": 6
+        }
+      ]
     },
     {
       "name": "Fishbones",
@@ -1259,7 +1415,13 @@
         "attackSpeed": 0.3,
         "range": 2
       },
-      "description": "The holder's attacks target random enemies. Gain +2 Attack Range."
+      "description": "The holder's attacks target random enemies. Gain +2 Attack Range.",
+      "grants": [
+        {
+          "to": "holder",
+          "effect": "random-targeting"
+        }
+      ]
     },
     {
       "name": "Flickerblades",
@@ -1269,7 +1431,26 @@
         "attackSpeed": 0.2
       },
       "description": "Attacks grant 5% stacking Attack Speed. Every 3 attacks also grant 2% Attack Damage and 2% Ability Power.",
-      "stacks": true
+      "stacks": true,
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "attackSpeed": 0.05
+          },
+          "per": "attack",
+          "stacks": true
+        },
+        {
+          "to": "holder",
+          "percentStats": {
+            "attackDamage": 0.02,
+            "abilityPower": 0.02
+          },
+          "per": "3-attacks",
+          "stacks": true
+        }
+      ]
     },
     {
       "name": "Forbidden Idol",
@@ -1278,7 +1459,17 @@
         "hp": 350,
         "manaRegen": 2
       },
-      "description": "Shields have 35% of their value converted to max Health instead."
+      "description": "Shields have 35% of their value converted to max Health instead.",
+      "grants": [
+        {
+          "to": "holder",
+          "convert": {
+            "from": "shield",
+            "to": "hp",
+            "share": 0.35
+          }
+        }
+      ]
     },
     {
       "name": "Gambler's Blade",
@@ -1286,7 +1477,21 @@
       "stats": {
         "attackSpeed": 0.55
       },
-      "description": "Grant 1% bonus Attack Speed per gold in your bank (up to 30 gold).\nEach attack has a 6% chance to drop 1 gold.\n\nUnique - only 1 per champion"
+      "description": "Grant 1% bonus Attack Speed per gold in your bank (up to 30 gold).\nEach attack has a 6% chance to drop 1 gold.\n\nUnique - only 1 per champion",
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "attackSpeed": 0.01
+          },
+          "per": "gold-held",
+          "maxStacks": 30
+        }
+      ],
+      "params": {
+        "goldDropChancePerAttack": 0.06,
+        "uniquePerChampion": true
+      }
     },
     {
       "name": "Gold Collector",
@@ -1295,7 +1500,20 @@
         "attackDamage": 0.4,
         "critChance": 0.2
       },
-      "description": "Attacks and Abilities execute enemies below 12% of their maximum Health. Executions on champions have a 33% chance to drop 1 gold.\n\nUnique - only 1 per champion"
+      "description": "Attacks and Abilities execute enemies below 12% of their maximum Health. Executions on champions have a 33% chance to drop 1 gold.\n\nUnique - only 1 per champion",
+      "grants": [
+        {
+          "to": "enemy",
+          "execute": {
+            "belowMaxHealthShare": 0.12
+          },
+          "per": "attack-or-ability"
+        }
+      ],
+      "params": {
+        "goldDropChanceOnExecute": 0.33,
+        "uniquePerChampion": true
+      }
     },
     {
       "name": "Hellfire Hatchet",
@@ -1304,7 +1522,24 @@
         "hp": 400,
         "omnivamp": 0.2
       },
-      "description": "Attacks deal 3% of the holder's max Health as bonus physical damage. For every 1% missing Health, gain 1.5% Attack Speed."
+      "description": "Attacks deal 3% of the holder's max Health as bonus physical damage. For every 1% missing Health, gain 1.5% Attack Speed.",
+      "grants": [
+        {
+          "to": "enemy",
+          "damageShareOfStat": {
+            "hp": 0.03
+          },
+          "damageType": "physical",
+          "per": "attack"
+        },
+        {
+          "to": "holder",
+          "percentStats": {
+            "attackSpeed": 0.015
+          },
+          "per": "one-percent-missing-health"
+        }
+      ]
     },
     {
       "name": "Horizon Focus",
@@ -1315,7 +1550,17 @@
         "magicResist": 20,
         "manaRegen": 2
       },
-      "description": "Stunning an enemy causes lightning to strike them, dealing 30% of their max Health as magic damage."
+      "description": "Stunning an enemy causes lightning to strike them, dealing 30% of their max Health as magic damage.",
+      "grants": [
+        {
+          "to": "enemy",
+          "trigger": "enemy-stunned",
+          "damageShareOfTargetStat": {
+            "hp": 0.3
+          },
+          "damageType": "magic"
+        }
+      ]
     },
     {
       "name": "Hullcrusher",
@@ -1324,7 +1569,23 @@
         "armor": 60,
         "magicResist": 60
       },
-      "description": "Combat Start: If there are no adjacent allies, gain 400 Health, 10% Attack Damage, and 10% Ability Power."
+      "description": "Combat Start: If there are no adjacent allies, gain 400 Health, 10% Attack Damage, and 10% Ability Power.",
+      "grants": [
+        {
+          "to": "holder",
+          "filter": {
+            "position": "no-adjacent-ally"
+          },
+          "trigger": "combat-start",
+          "stats": {
+            "hp": 400
+          },
+          "percentStats": {
+            "attackDamage": 0.1,
+            "abilityPower": 0.1
+          }
+        }
+      ]
     },
     {
       "name": "Infinity Force",
@@ -1346,7 +1607,17 @@
         "abilityPower": 0.55,
         "attackSpeed": 0.1
       },
-      "description": "The holder’s first attack after each Ability cast deals 250 / 350 / 500 / 600 / 700 bonus magic damage.\n\nDamage increases based on Stage."
+      "description": "The holder’s first attack after each Ability cast deals 250 / 350 / 500 / 600 / 700 bonus magic damage.\n\nDamage increases based on Stage.",
+      "grants": [
+        {
+          "to": "enemy",
+          "trigger": "first-attack-after-cast",
+          "stats": {
+            "magicDamage": 250
+          },
+          "byStage": [250, 350, 500, 600, 700]
+        }
+      ]
     },
     {
       "name": "Lightshield Crest",
@@ -1355,7 +1626,30 @@
         "armor": 55,
         "magicResist": 55
       },
-      "description": "Every 3 seconds, Shields the lowest percent Health ally for 70% of the holder’s combined Armor and Magic Resist for 5 seconds.\n\nOn death grants this shield to all allies."
+      "description": "Every 3 seconds, Shields the lowest percent Health ally for 70% of the holder’s combined Armor and Magic Resist for 5 seconds.\n\nOn death grants this shield to all allies.",
+      "grants": [
+        {
+          "to": "ally",
+          "filter": {
+            "select": "lowest-health"
+          },
+          "shieldShareOfStat": {
+            "armor": 0.7,
+            "magicResist": 0.7
+          },
+          "durationSeconds": 5,
+          "everySeconds": 3
+        },
+        {
+          "to": "ally",
+          "trigger": "holder-dies",
+          "shieldShareOfStat": {
+            "armor": 0.7,
+            "magicResist": 0.7
+          },
+          "durationSeconds": 5
+        }
+      ]
     },
     {
       "name": "Luden's Tempest",
@@ -1364,7 +1658,20 @@
         "attackDamage": 0.55,
         "abilityPower": 0.55
       },
-      "description": "100% of overkill damage plus 100 is dealt as magic damage to the two enemies nearest the target."
+      "description": "100% of overkill damage plus 100 is dealt as magic damage to the two enemies nearest the target.",
+      "grants": [
+        {
+          "to": "enemy",
+          "filter": {
+            "select": "two-nearest-to-target"
+          },
+          "overkillShare": 1.0,
+          "stats": {
+            "magicDamage": 100
+          },
+          "damageType": "magic"
+        }
+      ]
     },
     {
       "name": "Manazane",
@@ -1374,7 +1681,17 @@
         "abilityPower": 0.15,
         "manaRegen": 1
       },
-      "description": "After casting the first time in combat, gain 100 Mana over 5 seconds."
+      "description": "After casting the first time in combat, gain 100 Mana over 5 seconds.",
+      "grants": [
+        {
+          "to": "holder",
+          "trigger": "first-cast",
+          "stats": {
+            "mana": 100
+          },
+          "overSeconds": 5
+        }
+      ]
     },
     {
       "name": "Mittens",
@@ -1383,7 +1700,13 @@
         "attackSpeed": 0.65,
         "damageAmp": 0.15
       },
-      "description": "Shrinks the holder, granting them increased movement speed and immunity to Slow, Burn, and Wound.\n\nSlow: Reduces Attack Speed.\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received."
+      "description": "Shrinks the holder, granting them increased movement speed and immunity to Slow, Burn, and Wound.\n\nSlow: Reduces Attack Speed.\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received.",
+      "grants": [
+        {
+          "to": "holder",
+          "immunity": ["slow", "burn", "wound"]
+        }
+      ]
     },
     {
       "name": "Mogul's Mail",
@@ -1393,7 +1716,25 @@
       },
       "description": "Grants 1 Armor, 1 Magic Resist, and 5 Health when taking damage, stacking up to 35 times.\nAt full stacks, grant  1 gold and continue gaining  1 gold every 11 seconds.\n\nUnique - only 1 per champion",
       "stacks": true,
-      "maxStacks": 35
+      "maxStacks": 35,
+      "grants": [
+        {
+          "to": "holder",
+          "stats": {
+            "armor": 1,
+            "magicResist": 1,
+            "hp": 5
+          },
+          "trigger": "on-damage",
+          "stacks": true,
+          "maxStacks": 35
+        }
+      ],
+      "params": {
+        "goldAtMaxStacks": 1,
+        "goldEverySeconds": 11,
+        "uniquePerChampion": true
+      }
     },
     {
       "name": "Rapid Firecannon",
@@ -1403,7 +1744,17 @@
         "damageAmp": 0.05,
         "range": 1
       },
-      "description": "Gain +1 Attack Range, increased by 1 whenever the holder kills an enemy."
+      "description": "Gain +1 Attack Range, increased by 1 whenever the holder kills an enemy.",
+      "grants": [
+        {
+          "to": "holder",
+          "stats": {
+            "range": 1
+          },
+          "trigger": "takedown",
+          "stacks": true
+        }
+      ]
     },
     {
       "name": "Seeker's Armguard",
@@ -1414,7 +1765,21 @@
         "magicResist": 10,
         "omnivamp": 0.2
       },
-      "description": "Takedowns increase the holder’s Armor, Magic Resist, and Ability Power by 20."
+      "description": "Takedowns increase the holder’s Armor, Magic Resist, and Ability Power by 20.",
+      "grants": [
+        {
+          "to": "holder",
+          "stats": {
+            "armor": 20,
+            "magicResist": 20
+          },
+          "percentStats": {
+            "abilityPower": 0.2
+          },
+          "trigger": "takedown",
+          "stacks": true
+        }
+      ]
     },
     {
       "name": "Silvermere Dawn",
@@ -1425,7 +1790,22 @@
         "magicResist": 30,
         "omnivamp": 0.2
       },
-      "description": "Grants immunity to Stuns and the holder's attacks Stun the target for 0.8 seconds.\n\nThe holder’s Attack Speed is locked at 0.5."
+      "description": "Grants immunity to Stuns and the holder's attacks Stun the target for 0.8 seconds.\n\nThe holder’s Attack Speed is locked at 0.5.",
+      "grants": [
+        {
+          "to": "holder",
+          "immunity": ["stun"],
+          "lockStat": {
+            "attackSpeed": 0.5
+          }
+        },
+        {
+          "to": "enemy",
+          "effect": "stun",
+          "durationSeconds": 0.8,
+          "per": "attack"
+        }
+      ]
     },
     {
       "name": "Statikk Shiv",
@@ -1434,7 +1814,23 @@
         "abilityPower": 0.15,
         "attackSpeed": 0.4
       },
-      "description": "Every 3rd attack deals 15 + 35% of the holder's Ability Power as additional magic damage to 6 enemies."
+      "description": "Every 3rd attack deals 15 + 35% of the holder's Ability Power as additional magic damage to 6 enemies.",
+      "grants": [
+        {
+          "to": "enemy",
+          "filter": {
+            "select": "six-enemies"
+          },
+          "stats": {
+            "magicDamage": 15
+          },
+          "damageShareOfStat": {
+            "abilityPower": 0.35
+          },
+          "damageType": "magic",
+          "per": "3-attacks"
+        }
+      ]
     },
     {
       "name": "Talisman of Ascension",
@@ -1444,7 +1840,23 @@
         "attackDamage": 0.2,
         "abilityPower": 0.2
       },
-      "description": "After 22 seconds gain 100% max Health, 8 Mana Regen, and 120% Damage Amp for the rest of combat."
+      "description": "After 22 seconds gain 100% max Health, 8 Mana Regen, and 120% Damage Amp for the rest of combat.",
+      "grants": [
+        {
+          "to": "holder",
+          "trigger": "combat-time-reached",
+          "percentStats": {
+            "hp": 1.0,
+            "damageAmp": 1.2
+          },
+          "stats": {
+            "manaRegen": 8
+          }
+        }
+      ],
+      "params": {
+        "afterSeconds": 22
+      }
     },
     {
       "name": "The Indomitable",
@@ -1454,7 +1866,23 @@
         "armor": 20,
         "magicResist": 20
       },
-      "description": "The holder's Move Speed is drastically reduced.\nGain 15% max Health, Unstoppable, and pull the current target into melee range."
+      "description": "The holder's Move Speed is drastically reduced.\nGain 15% max Health, Unstoppable, and pull the current target into melee range.",
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "hp": 0.15
+          },
+          "effect": "unstoppable"
+        },
+        {
+          "to": "enemy",
+          "effect": "pull-to-melee"
+        }
+      ],
+      "params": {
+        "moveSpeedReduced": true
+      }
     },
     {
       "name": "Titanic Hydra",
@@ -1464,7 +1892,21 @@
         "attackDamage": 0.2,
         "attackSpeed": 0.2
       },
-      "description": "Attacks deal 4% of the holder's max Health plus 6% of their Attack Damage as bonus physical damage to the target and adjacent enemies."
+      "description": "Attacks deal 4% of the holder's max Health plus 6% of their Attack Damage as bonus physical damage to the target and adjacent enemies.",
+      "grants": [
+        {
+          "to": "enemy",
+          "filter": {
+            "position": "target-and-adjacent"
+          },
+          "damageShareOfStat": {
+            "hp": 0.04,
+            "attackDamage": 0.06
+          },
+          "damageType": "physical",
+          "per": "attack"
+        }
+      ]
     },
     {
       "name": "Void Gauntlet",
@@ -1473,7 +1915,32 @@
         "hp": 300,
         "durability": 0.1
       },
-      "description": "Combat Start: Store 30% max Health and 2.5% more every second. On death, unleash the stored Health as magic damage split between enemies within 4 hexes.\n\nUnique - only 1 per champion"
+      "description": "Combat Start: Store 30% max Health and 2.5% more every second. On death, unleash the stored Health as magic damage split between enemies within 4 hexes.\n\nUnique - only 1 per champion",
+      "grants": [
+        {
+          "to": "holder",
+          "trigger": "combat-start",
+          "storeShareOfStat": {
+            "hp": 0.3
+          },
+          "everySeconds": 1,
+          "storeGrowthPerSecond": 0.025
+        },
+        {
+          "to": "enemy",
+          "filter": {
+            "position": "within-hexes"
+          },
+          "trigger": "holder-dies",
+          "releaseStored": true,
+          "damageType": "magic",
+          "split": true
+        }
+      ],
+      "params": {
+        "hexRadius": 4,
+        "uniquePerChampion": true
+      }
     },
     {
       "name": "Wit's End",
@@ -1484,7 +1951,22 @@
         "magicResist": 20,
         "attackSpeed": 0.25
       },
-      "description": "Attacks deal 30/45/65/85/100 bonus magic damage.\nHeals the holder for 25% of all magic damage dealt.\n\nDamage increases based on Stage."
+      "description": "Attacks deal 30/45/65/85/100 bonus magic damage.\nHeals the holder for 25% of all magic damage dealt.\n\nDamage increases based on Stage.",
+      "grants": [
+        {
+          "to": "enemy",
+          "stats": {
+            "magicDamage": 30
+          },
+          "byStage": [30, 45, 65, 85, 100],
+          "per": "attack"
+        },
+        {
+          "to": "holder",
+          "healShareOfDamage": 0.25,
+          "damageType": "magic"
+        }
+      ]
     },
     {
       "name": "Zhonya's Paradox",
@@ -1494,7 +1976,27 @@
         "armor": 25,
         "magicResist": 25
       },
-      "description": "Once per combat at 40% Health, become invulnerable and untargetable for 3 seconds.\n\nUnique - only 1 per champion"
+      "description": "Once per combat at 40% Health, become invulnerable and untargetable for 3 seconds.\n\nUnique - only 1 per champion",
+      "grants": [
+        {
+          "to": "holder",
+          "trigger": "health-threshold-crossed",
+          "effect": "invulnerable",
+          "durationSeconds": 3,
+          "oncePerCombat": true
+        },
+        {
+          "to": "holder",
+          "trigger": "health-threshold-crossed",
+          "effect": "untargetable",
+          "durationSeconds": 3,
+          "oncePerCombat": true
+        }
+      ],
+      "params": {
+        "healthThreshold": 0.4,
+        "uniquePerChampion": true
+      }
     },
     {
       "name": "Radiant Adaptive Helm",
