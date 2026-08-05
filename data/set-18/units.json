@@ -1226,6 +1226,14 @@
               "2": 240,
               "3": 360
             }
+          },
+          {
+            "label": "Slow",
+            "scaling": ["attackSpeed"],
+            "values": {
+              "slow": 0.2,
+              "duration": 3
+            }
           }
         ],
         "variants": null,

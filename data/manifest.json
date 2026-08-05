@@ -36,5 +36,9 @@
       "status": "complete",
       "verified": "137 items: 10 components, 39 craftables, 20 emblems, 32 artifacts, 36 radiants. The eight-by-eight grid is closed. Seven stat lines corrected against Community Dragon"
     }
+  },
+  "more": {
+    "adaptor": "Their main stats (AP or AD) can vary, therefor, scaling key accept only an array as value.",
+    "keyword": "Default base keywords such as Wounds, Burn, Sunder, Shred, Chill, Slow etc... Does not hold a value directlyt into the JSON because It would violate DRY principle. So it's a name to retrieve when used"
   }
 }

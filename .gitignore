@@ -21,7 +21,11 @@ dist-ssr
 !.env.example
 
 # Cache
+.cache/
 .eslintcache
+
+# Local tooling, not part of the project
+scripts/
 *.tsbuildinfo
 .vite/
 vite.config.js.timestamp-*

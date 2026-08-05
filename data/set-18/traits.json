@@ -1371,11 +1371,19 @@
       "breakpoints": [
         {
           "count": 2,
-          "grants": []
+          "grants": [
+            {
+              "blessing": 1
+            }
+          ]
         },
         {
           "count": 4,
-          "grants": []
+          "grants": [
+            {
+              "blessing": 2
+            }
+          ]
         }
       ]
     },

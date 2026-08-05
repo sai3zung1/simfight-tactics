@@ -418,7 +418,7 @@
       "description": "Regenerate 2% of missing Health each second."
     },
     {
-      "name": "Warmogs Armor",
+      "name": "Warmog's Armor",
       "type": "craftable",
       "components": ["belt", "belt"],
       "stats": {
@@ -439,7 +439,7 @@
       "description": "Critical Strikes grant 5% Damage Amp for 5 seconds, stacking up to 4 times."
     },
     {
-      "name": "Hand Of Justice",
+      "name": "Hand of Justice",
       "type": "craftable",
       "components": ["gloves", "tear"],
       "stats": {
@@ -459,7 +459,7 @@
       "description": "Each round: Equip 2 random items\n\nConsumes 3 item slots."
     },
     {
-      "name": "Tacticians Crown",
+      "name": "Tactician's Crown",
       "type": "craftable",
       "components": ["spat", "spat"],
       "stats": {},
@@ -473,7 +473,7 @@
       "description": "Your team gains +1 maximum team size.\n10% chance to drop 1 gold after 10 seconds of combat.\n...and a bit of Luck."
     },
     {
-      "name": "Tacticians Shield",
+      "name": "Tactician's Shield",
       "type": "craftable",
       "components": ["pan", "pan"],
       "stats": {},
@@ -482,6 +482,7 @@
     {
       "name": "Blackthorn Emblem",
       "type": "emblem",
+      "trait": "Blackthorn",
       "components": ["spat", "belt"],
       "stats": {
         "hp": 250,
@@ -493,6 +494,7 @@
     {
       "name": "Blossom Emblem",
       "type": "emblem",
+      "trait": "Blossom",
       "components": ["spat", "rod"],
       "stats": {
         "hp": 250,
@@ -504,6 +506,7 @@
     {
       "name": "Brawler Emblem",
       "type": "emblem",
+      "trait": "Brawler",
       "components": ["pan", "belt"],
       "stats": {
         "hp": 250
@@ -513,6 +516,7 @@
     {
       "name": "Coven Emblem",
       "type": "emblem",
+      "trait": "Coven",
       "components": null,
       "stats": {
         "hp": 150
@@ -522,6 +526,7 @@
     {
       "name": "Defender Emblem",
       "type": "emblem",
+      "trait": "Defender",
       "components": null,
       "stats": {
         "armor": 30,
@@ -532,6 +537,7 @@
     {
       "name": "Elderwood Emblem",
       "type": "emblem",
+      "trait": "Elderwood",
       "components": ["spat", "chain"],
       "stats": {
         "attackSpeed": 0.25,
@@ -543,6 +549,7 @@
     {
       "name": "Executioner Emblem",
       "type": "emblem",
+      "trait": "Executioner",
       "components": ["pan", "gloves"],
       "stats": {
         "critChance": 0.35,
@@ -553,6 +560,7 @@
     {
       "name": "Fae Emblem",
       "type": "emblem",
+      "trait": "Fae",
       "components": ["spat", "bf"],
       "stats": {
         "hp": 250,
@@ -564,6 +572,7 @@
     {
       "name": "Flora Fatalis Emblem",
       "type": "emblem",
+      "trait": "Flora Fatalis",
       "components": null,
       "stats": {
         "hp": 250,
@@ -574,6 +583,7 @@
     {
       "name": "Hunter Emblem",
       "type": "emblem",
+      "trait": "Hunter",
       "components": ["pan", "bf"],
       "stats": {
         "attackDamage": 0.3
@@ -583,6 +593,7 @@
     {
       "name": "Inferno Emblem",
       "type": "emblem",
+      "trait": "Inferno",
       "components": ["spat", "bow"],
       "stats": {
         "attackSpeed": 0.4
@@ -592,6 +603,7 @@
     {
       "name": "Invoker Emblem",
       "type": "emblem",
+      "trait": "Invoker",
       "components": ["pan", "tear"],
       "stats": {
         "manaRegen": 3
@@ -601,6 +613,7 @@
     {
       "name": "Juggernaut Emblem",
       "type": "emblem",
+      "trait": "Juggernaut",
       "components": null,
       "stats": {
         "hp": 400
@@ -610,6 +623,7 @@
     {
       "name": "Lunar Emblem",
       "type": "emblem",
+      "trait": "Lunar",
       "components": ["spat", "tear"],
       "stats": {
         "attackSpeed": 0.2,
@@ -620,6 +634,7 @@
     {
       "name": "Primal Emblem",
       "type": "emblem",
+      "trait": "Primal",
       "components": ["spat", "gloves"],
       "stats": {
         "attackSpeed": 0.15,
@@ -631,6 +646,7 @@
     {
       "name": "Rapidfire Emblem",
       "type": "emblem",
+      "trait": "Rapidfire",
       "components": ["pan", "bow"],
       "stats": {
         "attackSpeed": 0.2
@@ -640,6 +656,7 @@
     {
       "name": "Ravager Emblem",
       "type": "emblem",
+      "trait": "Ravager",
       "components": ["pan", "cloak"],
       "stats": {
         "attackDamage": 0.15,
@@ -652,6 +669,7 @@
     {
       "name": "Spellweaver Emblem",
       "type": "emblem",
+      "trait": "Spellweaver",
       "components": ["pan", "rod"],
       "stats": {
         "abilityPower": 0.25
@@ -661,6 +679,7 @@
     {
       "name": "Sprykin Emblem",
       "type": "emblem",
+      "trait": "Sprykin",
       "components": ["spat", "cloak"],
       "stats": {
         "attackSpeed": 0.1,
@@ -672,6 +691,7 @@
     {
       "name": "Vanguard Emblem",
       "type": "emblem",
+      "trait": "Vanguard",
       "components": ["pan", "chain"],
       "stats": {
         "armor": 30,
