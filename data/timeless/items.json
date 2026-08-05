@@ -205,7 +205,9 @@
         "armor": 20,
         "attackSpeed": 0.1
       },
-      "description": "Gain 2% Attack Damage and Ability Power when attacking or taking damage, stacking up to 25 times.\nAt full stacks, gain 10% Damage Amp and become Unstoppable."
+      "description": "Gain 2% Attack Damage and Ability Power when attacking or taking damage, stacking up to 25 times.\nAt full stacks, gain 10% Damage Amp and become Unstoppable.",
+      "stacks": true,
+      "maxStacks": 25
     },
     {
       "name": "Bramble Vest",
@@ -279,7 +281,9 @@
         "magicResist": 20,
         "attackSpeed": 0.1
       },
-      "description": "Attacks grant 3.5% stacking Attack Damage, up to 15 attacks. After 15 attacks, gain 15% Attack Speed."
+      "description": "Attacks grant 3.5% stacking Attack Damage, up to 15 attacks. After 15 attacks, gain 15% Attack Speed.",
+      "stacks": true,
+      "maxStacks": 15
     },
     {
       "name": "Dragon's Claw",
@@ -309,7 +313,8 @@
         "attackSpeed": 0.15,
         "critChance": 0.2
       },
-      "description": "Combat Start: Unstoppable for 18 seconds`\nGain 3% stacking Attack Speed every second."
+      "description": "Combat Start: Unstoppable for 18 seconds`\nGain 3% stacking Attack Speed every second.",
+      "stacks": true
     },
     {
       "name": "Guinsoo's Rageblade",
@@ -319,7 +324,8 @@
         "abilityPower": 0.1,
         "attackSpeed": 0.1
       },
-      "description": "Gain 7% stacking Attack Speed every second."
+      "description": "Gain 7% stacking Attack Speed every second.",
+      "stacks": true
     },
     {
       "name": "Ionic Spark",
@@ -436,7 +442,9 @@
         "critChance": 0.2,
         "damageAmp": 0.1
       },
-      "description": "Critical Strikes grant 5% Damage Amp for 5 seconds, stacking up to 4 times."
+      "description": "Critical Strikes grant 5% Damage Amp for 5 seconds, stacking up to 4 times.",
+      "stacks": true,
+      "maxStacks": 4
     },
     {
       "name": "Hand of Justice",
@@ -783,7 +791,8 @@
         "abilityPower": 0.1,
         "attackSpeed": 0.2
       },
-      "description": "Attacks grant 5% stacking Attack Speed. Every 3 attacks also grant 2% Attack Damage and 2% Ability Power."
+      "description": "Attacks grant 5% stacking Attack Speed. Every 3 attacks also grant 2% Attack Damage and 2% Ability Power.",
+      "stacks": true
     },
     {
       "name": "Forbidden Idol",
@@ -905,7 +914,9 @@
       "stats": {
         "hp": 300
       },
-      "description": "Grants 1 Armor, 1 Magic Resist, and 5 Health when taking damage, stacking up to 35 times.\nAt full stacks, grant  1 gold and continue gaining  1 gold every 11 seconds.\n\nUnique - only 1 per champion"
+      "description": "Grants 1 Armor, 1 Magic Resist, and 5 Health when taking damage, stacking up to 35 times.\nAt full stacks, grant  1 gold and continue gaining  1 gold every 11 seconds.\n\nUnique - only 1 per champion",
+      "stacks": true,
+      "maxStacks": 35
     },
     {
       "name": "Rapid Firecannon",
@@ -1011,6 +1022,7 @@
     {
       "name": "Radiant Adaptive Helm",
       "type": "radiant",
+      "base": "Adaptive Helm",
       "stats": {
         "magicResist": 40,
         "manaRegen": 7
@@ -1020,6 +1032,7 @@
     {
       "name": "Radiant Archangel's Staff",
       "type": "radiant",
+      "base": "Archangel's Staff",
       "stats": {
         "abilityPower": 0.6,
         "manaRegen": 2
@@ -1029,6 +1042,7 @@
     {
       "name": "Radiant Bloodthirster",
       "type": "radiant",
+      "base": "Bloodthirster",
       "stats": {
         "attackDamage": 0.3,
         "abilityPower": 0.3,
@@ -1040,6 +1054,7 @@
     {
       "name": "Radiant Blue Buff",
       "type": "radiant",
+      "base": "Blue Buff",
       "stats": {
         "attackDamage": 0.3,
         "abilityPower": 0.3,
@@ -1050,6 +1065,7 @@
     {
       "name": "Radiant Bramble Vest",
       "type": "radiant",
+      "base": "Bramble Vest",
       "stats": {
         "armor": 100
       },
@@ -1058,6 +1074,7 @@
     {
       "name": "Radiant Crownguard",
       "type": "radiant",
+      "base": "Crownguard",
       "stats": {
         "hp": 200,
         "abilityPower": 40,
@@ -1068,6 +1085,7 @@
     {
       "name": "Radiant Deathblade",
       "type": "radiant",
+      "base": "Deathblade",
       "stats": {
         "attackDamage": 1,
         "damageAmp": 0.2
@@ -1077,6 +1095,7 @@
     {
       "name": "Radiant Dragon's Claw",
       "type": "radiant",
+      "base": "Dragon's Claw",
       "stats": {
         "magicResist": 120
       },
@@ -1085,6 +1104,7 @@
     {
       "name": "Radiant Edge of Night",
       "type": "radiant",
+      "base": "Edge of Night",
       "stats": {
         "attackDamage": 0.3,
         "abilityPower": 0.3,
@@ -1096,6 +1116,7 @@
     {
       "name": "Radiant Evenshroud",
       "type": "radiant",
+      "base": "Evenshroud",
       "stats": {
         "hp": 500,
         "magicResist": 40
@@ -1105,6 +1126,7 @@
     {
       "name": "Radiant Gargoyle Stoneplate",
       "type": "radiant",
+      "base": "Gargoyle Stoneplate",
       "stats": {
         "hp": 300,
         "armor": 50,
@@ -1115,6 +1137,7 @@
     {
       "name": "Radiant Giant Slayer",
       "type": "radiant",
+      "base": "Giant Slayer",
       "stats": {
         "attackDamage": 0.3,
         "abilityPower": 0.3,
@@ -1126,15 +1149,18 @@
     {
       "name": "Radiant Guinsoo's Rageblade",
       "type": "radiant",
+      "base": "Guinsoo's Rageblade",
       "stats": {
         "abilityPower": 0.2,
         "attackSpeed": 0.25
       },
-      "description": "Gain 16% stacking Attack Speed every second."
+      "description": "Gain 16% stacking Attack Speed every second.",
+      "stacks": true
     },
     {
       "name": "Radiant Hand of Justice",
       "type": "radiant",
+      "base": "Hand of Justice",
       "stats": {
         "critChance": 0.4,
         "manaRegen": 2
@@ -1144,6 +1170,7 @@
     {
       "name": "Radiant Hextech Gunblade",
       "type": "radiant",
+      "base": "Hextech Gunblade",
       "stats": {
         "attackDamage": 0.4,
         "abilityPower": 0.4,
@@ -1155,6 +1182,7 @@
     {
       "name": "Radiant Infinity Edge",
       "type": "radiant",
+      "base": "Infinity Edge",
       "stats": {
         "attackDamage": 0.75,
         "critChance": 0.75
@@ -1164,6 +1192,7 @@
     {
       "name": "Radiant Ionic Spark",
       "type": "radiant",
+      "base": "Ionic Spark",
       "stats": {
         "hp": 500,
         "abilityPower": 0.3,
@@ -1174,6 +1203,7 @@
     {
       "name": "Radiant Jeweled Gauntlet",
       "type": "radiant",
+      "base": "Jeweled Gauntlet",
       "stats": {
         "abilityPower": 0.75,
         "critChance": 0.75
@@ -1183,16 +1213,20 @@
     {
       "name": "Radiant Kraken's Fury",
       "type": "radiant",
+      "base": "Kraken's Fury",
       "stats": {
         "attackDamage": 0.2,
         "magicResist": 40,
         "attackSpeed": 0.2
       },
-      "description": "Attacks grant 7% stacking Attack Damage, up to 15 attacks. After 15 attacks, gain 30% Attack Speed."
+      "description": "Attacks grant 7% stacking Attack Damage, up to 15 attacks. After 15 attacks, gain 30% Attack Speed.",
+      "stacks": true,
+      "maxStacks": 15
     },
     {
       "name": "Radiant Last Whisper",
       "type": "radiant",
+      "base": "Last Whisper",
       "stats": {
         "attackDamage": 0.45,
         "attackSpeed": 0.4,
@@ -1203,6 +1237,7 @@
     {
       "name": "Radiant Morellonomicon",
       "type": "radiant",
+      "base": "Morellonomicon",
       "stats": {
         "hp": 300,
         "abilityPower": 0.35,
@@ -1213,6 +1248,7 @@
     {
       "name": "Radiant Nashor's Tooth",
       "type": "radiant",
+      "base": "Nashor's Tooth",
       "stats": {
         "hp": 300,
         "abilityPower": 0.3,
@@ -1224,6 +1260,7 @@
     {
       "name": "Radiant Protector's Vow",
       "type": "radiant",
+      "base": "Protector's Vow",
       "stats": {
         "armor": 50,
         "magicResist": 50,
@@ -1234,16 +1271,19 @@
     {
       "name": "Radiant Quicksilver",
       "type": "radiant",
+      "base": "Quicksilver",
       "stats": {
         "magicResist": 40,
         "attackSpeed": 0.4,
         "critChance": 0.4
       },
-      "description": "Combat Start: Unstoppable for 45 seconds.\nGain 6% stacking Attack Speed every second."
+      "description": "Combat Start: Unstoppable for 45 seconds.\nGain 6% stacking Attack Speed every second.",
+      "stacks": true
     },
     {
       "name": "Radiant Rabadon's Deathcap",
       "type": "radiant",
+      "base": "Rabadon's Deathcap",
       "stats": {
         "abilityPower": 1,
         "damageAmp": 0.3
@@ -1253,6 +1293,7 @@
     {
       "name": "Radiant Red Buff",
       "type": "radiant",
+      "base": "Red Buff",
       "stats": {
         "attackSpeed": 0.8,
         "damageAmp": 0.06
@@ -1262,6 +1303,7 @@
     {
       "name": "Radiant Spear of Shojin",
       "type": "radiant",
+      "base": "Spear of Shojin",
       "stats": {
         "attackDamage": 0.3,
         "abilityPower": 0.3,
@@ -1272,6 +1314,7 @@
     {
       "name": "Radiant Spirit Visage",
       "type": "radiant",
+      "base": "Spirit Visage",
       "stats": {
         "hp": 700,
         "durability": 0.15,
@@ -1282,6 +1325,7 @@
     {
       "name": "Radiant Steadfast Heart",
       "type": "radiant",
+      "base": "Steadfast Heart",
       "stats": {
         "armor": 40,
         "critChance": 0.4,
@@ -1292,6 +1336,7 @@
     {
       "name": "Radiant Sterak's Gage",
       "type": "radiant",
+      "base": "Sterak's Gage",
       "stats": {
         "hp": 600,
         "attackDamage": 0.9
@@ -1301,17 +1346,21 @@
     {
       "name": "Radiant Striker's Flail",
       "type": "radiant",
+      "base": "Striker's Flail",
       "stats": {
         "hp": 300,
         "attackSpeed": 0.2,
         "critChance": 0.4,
         "damageAmp": 0.2
       },
-      "description": "Critical Strikes grant 10% Damage Amp for 5 seconds, stacking up to 4 times."
+      "description": "Critical Strikes grant 10% Damage Amp for 5 seconds, stacking up to 4 times.",
+      "stacks": true,
+      "maxStacks": 4
     },
     {
       "name": "Radiant Sunfire Cape",
       "type": "radiant",
+      "base": "Sunfire Cape",
       "stats": {
         "hp": 300,
         "armor": 40
@@ -1321,6 +1370,7 @@
     {
       "name": "Radiant Thief's Gloves",
       "type": "radiant",
+      "base": "Thief's Gloves",
       "stats": {
         "hp": 150,
         "critChance": 0.2
@@ -1330,15 +1380,19 @@
     {
       "name": "Radiant Titan's Resolve",
       "type": "radiant",
+      "base": "Titan's Resolve",
       "stats": {
         "armor": 40,
         "attackSpeed": 0.2
       },
-      "description": "Gain 4% Attack Damage and 4% Ability Power when attacking or taking damage, stacking up to 25 times.\nAt full stacks, gain 20% Damage Amp and Unstoppable."
+      "description": "Gain 4% Attack Damage and 4% Ability Power when attacking or taking damage, stacking up to 25 times.\nAt full stacks, gain 20% Damage Amp and Unstoppable.",
+      "stacks": true,
+      "maxStacks": 25
     },
     {
       "name": "Radiant Void Staff",
       "type": "radiant",
+      "base": "Void Staff",
       "stats": {
         "abilityPower": 0.75,
         "attackSpeed": 0.3,
@@ -1349,6 +1403,7 @@
     {
       "name": "Radiant Warmog's Armor",
       "type": "radiant",
+      "base": "Warmog's Armor",
       "stats": {
         "hp": 1200
       },
