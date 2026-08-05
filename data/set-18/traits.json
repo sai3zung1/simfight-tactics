@@ -1745,8 +1745,12 @@
           "params": {
             "perThreeStarIncrease": 0.025,
             "threeStarsForAttackSpeed": 3,
+            "attackSpeedAtThreshold": 0.25,
+            "resistAtThreshold": 15,
             "threeStarsForRawConversion": 5,
-            "threeStarsForStarUp": 8
+            "rawConversionShare": 0.5,
+            "threeStarsForStarUp": 8,
+            "starUpEverySeconds": 4
           }
         }
       ]
