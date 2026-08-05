@@ -996,7 +996,17 @@
       "stats": {
         "hp": 250
       },
-      "description": "The holder gains the Brawler trait.\nAttacks deal 3% of the holder's max Health as magic damage."
+      "description": "The holder gains the Brawler trait.\nAttacks deal 3% of the holder's max Health as magic damage.",
+      "grants": [
+        {
+          "to": "enemy",
+          "damageShareOfStat": {
+            "hp": 0.03
+          },
+          "damageType": "magic",
+          "per": "attack"
+        }
+      ]
     },
     {
       "name": "Coven Emblem",
@@ -1017,7 +1027,17 @@
         "armor": 30,
         "magicResist": 30
       },
-      "description": "The holder gains the Defender trait.\nCombat Start: Gain 6% Attack Speed for every ally that starts in the front row."
+      "description": "The holder gains the Defender trait.\nCombat Start: Gain 6% Attack Speed for every ally that starts in the front row.",
+      "grants": [
+        {
+          "to": "holder",
+          "trigger": "combat-start",
+          "percentStats": {
+            "attackSpeed": 0.06
+          },
+          "per": "front-row-ally"
+        }
+      ]
     },
     {
       "name": "Elderwood Emblem",
@@ -1040,7 +1060,15 @@
         "critChance": 0.35,
         "critDamage": 0.15
       },
-      "description": "The holder gains the Executioner trait.\nDamage executes enemies below 12% of their max Health."
+      "description": "The holder gains the Executioner trait.\nDamage executes enemies below 12% of their max Health.",
+      "grants": [
+        {
+          "to": "enemy",
+          "execute": {
+            "belowMaxHealthShare": 0.12
+          }
+        }
+      ]
     },
     {
       "name": "Fae Emblem",
@@ -1073,7 +1101,17 @@
       "stats": {
         "attackDamage": 0.3
       },
-      "description": "The holder gains the Hunter trait.\nTakedowns grant 12% Attack Damage."
+      "description": "The holder gains the Hunter trait.\nTakedowns grant 12% Attack Damage.",
+      "grants": [
+        {
+          "to": "holder",
+          "trigger": "takedown",
+          "percentStats": {
+            "attackDamage": 0.12
+          },
+          "stacks": true
+        }
+      ]
     },
     {
       "name": "Inferno Emblem",
@@ -1093,7 +1131,14 @@
       "stats": {
         "manaRegen": 3
       },
-      "description": "The holder gains the Invoker trait.\nOn cast, gain Ability Power equal to 10% of Mana spent."
+      "description": "The holder gains the Invoker trait.\nOn cast, gain Ability Power equal to 10% of Mana spent.",
+      "grants": [
+        {
+          "to": "holder",
+          "trigger": "on-cast",
+          "abilityPowerShareOfManaSpent": 0.1
+        }
+      ]
     },
     {
       "name": "Juggernaut Emblem",
@@ -1103,7 +1148,16 @@
       "stats": {
         "hp": 400
       },
-      "description": "The holder gains the Juggernaut trait.\nGain 15 mana whenever a Juggernaut dies."
+      "description": "The holder gains the Juggernaut trait.\nGain 15 mana whenever a Juggernaut dies.",
+      "grants": [
+        {
+          "to": "holder",
+          "trigger": "juggernaut-dies",
+          "stats": {
+            "mana": 15
+          }
+        }
+      ]
     },
     {
       "name": "Lunar Emblem",
@@ -1136,7 +1190,17 @@
       "stats": {
         "attackSpeed": 0.2
       },
-      "description": "The holder gains the Rapidfire trait.\nAttacks deal 1% of the target's max Health as true damage."
+      "description": "The holder gains the Rapidfire trait.\nAttacks deal 1% of the target's max Health as true damage.",
+      "grants": [
+        {
+          "to": "enemy",
+          "damageShareOfTargetStat": {
+            "hp": 0.01
+          },
+          "damageType": "true",
+          "per": "attack"
+        }
+      ]
     },
     {
       "name": "Ravager Emblem",
@@ -1149,7 +1213,17 @@
         "armor": 20,
         "magicResist": 20
       },
-      "description": "The holder gains the Ravager trait.\nGain 3% Damage Amp per 300 Health restored."
+      "description": "The holder gains the Ravager trait.\nGain 3% Damage Amp per 300 Health restored.",
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "damageAmp": 0.03
+          },
+          "per": "300-health-restored",
+          "stacks": true
+        }
+      ]
     },
     {
       "name": "Spellweaver Emblem",
@@ -1159,7 +1233,16 @@
       "stats": {
         "abilityPower": 0.25
       },
-      "description": "The holder gains the Spellweaver trait.\nGain 2 Mana whenever an ally casts their Ability."
+      "description": "The holder gains the Spellweaver trait.\nGain 2 Mana whenever an ally casts their Ability.",
+      "grants": [
+        {
+          "to": "holder",
+          "trigger": "ally-casts",
+          "stats": {
+            "mana": 2
+          }
+        }
+      ]
     },
     {
       "name": "Sprykin Emblem",
@@ -1171,7 +1254,22 @@
         "armor": 20,
         "magicResist": 20
       },
-      "description": "The holder gains the Sprykin trait.\nIf the holder is riding the BFF, gain an additional 30% (AS), 20 (ARMOR) , 20 (MR)"
+      "description": "The holder gains the Sprykin trait.\nIf the holder is riding the BFF, gain an additional 30% (AS), 20 (ARMOR) , 20 (MR)",
+      "grants": [
+        {
+          "to": "holder",
+          "filter": {
+            "state": "rides-the-bff"
+          },
+          "stats": {
+            "armor": 20,
+            "magicResist": 20
+          },
+          "percentStats": {
+            "attackSpeed": 0.3
+          }
+        }
+      ]
     },
     {
       "name": "Vanguard Emblem",
@@ -1182,7 +1280,11 @@
         "armor": 30,
         "magicResist": 30
       },
-      "description": "The holder gains the Vanguard trait.\nIf the holder survives 20 seconds in player combat, gain 1 player health."
+      "description": "The holder gains the Vanguard trait.\nIf the holder survives 20 seconds in player combat, gain 1 player health.",
+      "params": {
+        "survivalSeconds": 20,
+        "playerHealthGained": 1
+      }
     },
     {
       "name": "Aegis of Dawn",
