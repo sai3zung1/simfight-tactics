@@ -4893,6 +4893,25 @@
           "empoweredAttacks": 2
         }
       }
+    },
+    {
+      "name": "Training Dummy",
+      "summonedBy": [
+        "Found Friend",
+        "Training Yard",
+        "Memorial Dummy",
+        "Petrified Dummy",
+        "Dummify"
+      ],
+      "combat": true,
+      "stats": {
+        "hp": 550,
+        "attackDamage": 50,
+        "armor": 40,
+        "magicResist": 40,
+        "attackSpeed": 0.5,
+        "range": [1]
+      }
     }
   ]
 }
