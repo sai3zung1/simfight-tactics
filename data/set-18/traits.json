@@ -394,11 +394,11 @@
           "grants": [
             {
               "to": "enemy",
+              "trigger": "on-damage",
               "percentStats": {
                 "shred": 0.3,
                 "sunder": 0.3
               },
-              "when": "on-damage",
               "durationSeconds": 4
             }
           ]
@@ -543,7 +543,9 @@
           "grants": [
             {
               "to": "enemy",
-              "when": "lowest-health",
+              "filter": {
+                "select": "lowest-health"
+              },
               "effect": "execute"
             }
           ],
@@ -671,10 +673,10 @@
             },
             {
               "to": "enemy",
+              "trigger": "on-damage",
               "percentStats": {
                 "bleed": 0.3
               },
-              "when": "on-damage",
               "durationSeconds": 3
             }
           ]
@@ -691,10 +693,10 @@
             },
             {
               "to": "enemy",
+              "trigger": "on-damage",
               "percentStats": {
                 "bleed": 0.5
               },
-              "when": "on-damage",
               "durationSeconds": 3
             }
           ]
@@ -721,11 +723,11 @@
             },
             {
               "to": "traitHolders",
+              "trigger": "health-threshold-crossed",
               "percentStats": {
                 "healPercentMaxHealth": 0.02
               },
-              "per": "pixie",
-              "when": "below-health-threshold"
+              "per": "pixie"
             }
           ],
           "params": {
@@ -745,11 +747,11 @@
             },
             {
               "to": "traitHolders",
+              "trigger": "health-threshold-crossed",
               "percentStats": {
                 "healPercentMaxHealth": 0.04
               },
-              "per": "pixie",
-              "when": "below-health-threshold"
+              "per": "pixie"
             }
           ],
           "params": {
@@ -788,10 +790,12 @@
             },
             {
               "to": "ally",
+              "filter": {
+                "select": "lowest-health"
+              },
               "percentStats": {
                 "healPercentMaxHealth": 0.08
-              },
-              "when": "lowest-health"
+              }
             }
           ]
         }
@@ -872,10 +876,12 @@
             },
             {
               "to": "traitHolders",
+              "filter": {
+                "state": "target-unchanged"
+              },
               "percentStats": {
                 "damageAmp": 0.1
-              },
-              "when": "target-unchanged"
+              }
             }
           ],
           "params": {
@@ -893,10 +899,12 @@
             },
             {
               "to": "traitHolders",
+              "filter": {
+                "state": "target-unchanged"
+              },
               "percentStats": {
                 "damageAmp": 0.1
-              },
-              "when": "target-unchanged"
+              }
             }
           ],
           "params": {
@@ -914,10 +922,12 @@
             },
             {
               "to": "traitHolders",
+              "filter": {
+                "state": "target-unchanged"
+              },
               "percentStats": {
                 "damageAmp": 0.1
-              },
-              "when": "target-unchanged"
+              }
             }
           ],
           "params": {
@@ -935,10 +945,12 @@
             },
             {
               "to": "traitHolders",
+              "filter": {
+                "state": "target-unchanged"
+              },
               "percentStats": {
                 "damageAmp": 0.1
-              },
-              "when": "target-unchanged"
+              }
             }
           ],
           "params": {
@@ -966,11 +978,11 @@
           "grants": [
             {
               "to": "enemy",
+              "trigger": "on-damage",
               "percentStats": {
                 "burnPercentMaxHealthPerSecond": 0.01,
                 "wound": 0.33
               },
-              "when": "on-damage",
               "durationSeconds": 4
             }
           ],
@@ -983,11 +995,11 @@
           "grants": [
             {
               "to": "enemy",
+              "trigger": "on-damage",
               "percentStats": {
                 "burnPercentMaxHealthPerSecond": 0.01,
                 "wound": 0.33
               },
-              "when": "on-damage",
               "durationSeconds": 4
             }
           ],
@@ -1000,11 +1012,11 @@
           "grants": [
             {
               "to": "enemy",
+              "trigger": "on-damage",
               "percentStats": {
                 "burnPercentMaxHealthPerSecond": 0.02,
                 "wound": 0.33
               },
-              "when": "on-damage",
               "durationSeconds": 4
             }
           ],
@@ -1017,11 +1029,11 @@
           "grants": [
             {
               "to": "enemy",
+              "trigger": "on-damage",
               "percentStats": {
                 "burnPercentMaxHealthPerSecond": 0.03,
                 "wound": 0.33
               },
-              "when": "on-damage",
               "durationSeconds": 4
             }
           ],
@@ -1195,11 +1207,13 @@
             },
             {
               "to": "ally",
+              "filter": {
+                "position": "adjacent"
+              },
               "percentStats": {
                 "attackSpeed": 0.07,
                 "abilityPower": 0.07
-              },
-              "when": "adjacent"
+              }
             }
           ]
         },
@@ -1215,11 +1229,13 @@
             },
             {
               "to": "ally",
+              "filter": {
+                "position": "adjacent"
+              },
               "percentStats": {
                 "attackSpeed": 0.1,
                 "abilityPower": 0.1
-              },
-              "when": "adjacent"
+              }
             }
           ]
         },
@@ -1235,11 +1251,13 @@
             },
             {
               "to": "ally",
+              "filter": {
+                "position": "adjacent"
+              },
               "percentStats": {
                 "attackSpeed": 0.15,
                 "abilityPower": 0.15
-              },
-              "when": "adjacent"
+              }
             }
           ]
         },
@@ -1255,11 +1273,13 @@
             },
             {
               "to": "ally",
+              "filter": {
+                "position": "adjacent"
+              },
               "percentStats": {
                 "attackSpeed": 0.2,
                 "abilityPower": 0.2
-              },
-              "when": "adjacent"
+              }
             }
           ]
         }
@@ -1299,10 +1319,13 @@
           "grants": [
             {
               "to": "self",
+              "filter": {
+                "position": "nearby"
+              },
+              "trigger": "enemy-dies",
               "stats": {
                 "hp": 30
               },
-              "when": "enemy-dies-nearby",
               "permanent": true
             }
           ],
@@ -1640,10 +1663,10 @@
           "grants": [
             {
               "to": "team",
+              "trigger": "takedowns-reached",
               "percentStats": {
                 "attackDamage": 0.05
-              },
-              "when": "takedowns-reached"
+              }
             }
           ],
           "params": {
@@ -1853,7 +1876,7 @@
               "grants": [
                 {
                   "to": "rider",
-                  "when": "combat-start",
+                  "trigger": "combat-start",
                   "healPercentMaxHealth": {
                     "1": 0.1,
                     "2": 0.13,
@@ -1874,7 +1897,7 @@
               "grants": [
                 {
                   "to": "rider",
-                  "when": "combat-start",
+                  "trigger": "combat-start",
                   "until": "combat-end",
                   "percentStats": {
                     "attackDamage": {
@@ -1900,11 +1923,13 @@
           "grants": [
             {
               "to": "self",
+              "filter": {
+                "state": "rides-the-bff"
+              },
               "percentStats": {
                 "hp": 0.15,
                 "attackSpeed": 0.15
-              },
-              "when": "rides-the-bff"
+              }
             }
           ]
         },
@@ -1913,11 +1938,13 @@
           "grants": [
             {
               "to": "self",
+              "filter": {
+                "state": "rides-the-bff"
+              },
               "percentStats": {
                 "hp": 0.3,
                 "attackSpeed": 0.3
-              },
-              "when": "rides-the-bff"
+              }
             },
             {
               "to": "traitHolders",
@@ -1930,11 +1957,13 @@
           "grants": [
             {
               "to": "self",
+              "filter": {
+                "state": "rides-the-bff"
+              },
               "percentStats": {
                 "hp": 0.45,
                 "attackSpeed": 0.45
-              },
-              "when": "rides-the-bff"
+              }
             },
             {
               "to": "traitHolders",
@@ -1991,10 +2020,12 @@
             },
             {
               "to": "team",
+              "filter": {
+                "state": "plants-alive-threshold"
+              },
               "percentStats": {
                 "durability": 0.1
-              },
-              "when": "plants-alive-threshold"
+              }
             }
           ],
           "params": {
@@ -2015,10 +2046,10 @@
           "grants": [
             {
               "to": "traitHolders",
+              "trigger": ["combat-start", "health-threshold-crossed"],
               "percentStats": {
                 "shieldPercentMaxHealth": 0.18
-              },
-              "when": "combat-start-and-below-health"
+              }
             }
           ],
           "params": {
@@ -2031,10 +2062,10 @@
           "grants": [
             {
               "to": "traitHolders",
+              "trigger": ["combat-start", "health-threshold-crossed"],
               "percentStats": {
                 "shieldPercentMaxHealth": 0.35
-              },
-              "when": "combat-start-and-below-health"
+              }
             }
           ],
           "params": {
@@ -2047,17 +2078,19 @@
           "grants": [
             {
               "to": "traitHolders",
+              "trigger": ["combat-start", "health-threshold-crossed"],
               "percentStats": {
                 "shieldPercentMaxHealth": 0.45
-              },
-              "when": "combat-start-and-below-health"
+              }
             },
             {
               "to": "traitHolders",
+              "filter": {
+                "state": "shielded"
+              },
               "percentStats": {
                 "durability": 0.08
-              },
-              "when": "shielded"
+              }
             }
           ],
           "params": {

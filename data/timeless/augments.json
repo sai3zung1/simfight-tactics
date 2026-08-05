@@ -166,11 +166,13 @@
       "grants": [
         {
           "to": "enemy",
+          "filter": {
+            "position": "first-two-rows"
+          },
           "stats": {
             "armor": -4,
             "magicResist": -4
           },
-          "when": "in-first-two-rows",
           "everySeconds": 2
         }
       ]
@@ -248,11 +250,13 @@
       "grants": [
         {
           "to": "self",
+          "filter": {
+            "position": "front-row-centre"
+          },
           "percentStats": {
             "damageAmp": 0.15,
             "hp": 0.25
-          },
-          "when": "front-row-centre"
+          }
         }
       ]
     },
@@ -266,10 +270,13 @@
       "grants": [
         {
           "to": "self",
+          "filter": {
+            "trait": "Inferno",
+            "select": "top-damage"
+          },
           "percentStats": {
             "attackSpeed": 0.25
-          },
-          "when": "top-damage-inferno"
+          }
         }
       ]
     },
@@ -330,11 +337,13 @@
       "grants": [
         {
           "to": "team",
+          "filter": {
+            "position": "back-row"
+          },
           "percentStats": {
             "damageAmp": 0.16,
             "startingHealthShare": 0.8
-          },
-          "when": "back-row"
+          }
         }
       ]
     },
@@ -356,11 +365,13 @@
       "grants": [
         {
           "to": "ally",
+          "filter": {
+            "position": "adjacent"
+          },
           "stats": {
             "armor": 6,
             "magicResist": 6
           },
-          "when": "adjacent",
           "stacks": true
         }
       ]
@@ -375,10 +386,13 @@
       "grants": [
         {
           "to": "ally",
+          "filter": {
+            "position": "nearby"
+          },
+          "trigger": "enemy-dies",
           "stats": {
             "heal": 250
-          },
-          "when": "enemy-dies-nearby"
+          }
         }
       ]
     },
@@ -448,11 +462,13 @@
       "grants": [
         {
           "to": "team",
+          "filter": {
+            "equipment": "none"
+          },
           "stats": {
             "armor": 30,
             "magicResist": 30
-          },
-          "when": "holds-no-item"
+          }
         }
       ]
     },
@@ -712,12 +728,15 @@
       "grants": [
         {
           "to": "ally",
+          "filter": {
+            "position": "front-row",
+            "composition": "exactly-two"
+          },
           "stats": {
             "hp": 100,
             "armor": 35,
             "magicResist": 35
-          },
-          "when": "exactly-two-in-front-row"
+          }
         }
       ]
     },
@@ -1025,10 +1044,10 @@
       "grants": [
         {
           "to": "team",
+          "trigger": ["combat-start", "takedown"],
           "percentStats": {
             "attackSpeed": 0.25
           },
-          "when": "combat-start-or-takedown",
           "durationSeconds": 3
         }
       ]
@@ -1043,10 +1062,10 @@
       "grants": [
         {
           "to": "self",
+          "trigger": "each-round",
           "stats": {
             "hp": 60
           },
-          "when": "each-round",
           "permanent": true
         }
       ],
@@ -1146,10 +1165,12 @@
       "grants": [
         {
           "to": "ally",
+          "filter": {
+            "equipment": ["Frying Pan", "Spatula"]
+          },
           "stats": {
             "hp": 60
           },
-          "when": "holds-pan-or-spatula",
           "permanent": true
         }
       ]
@@ -1195,13 +1216,15 @@
       "grants": [
         {
           "to": "team",
+          "filter": {
+            "equipment": "any"
+          },
           "stats": {
             "hp": 100
           },
           "percentStats": {
             "attackDamage": 0.15
-          },
-          "when": "holds-an-item"
+          }
         }
       ]
     },
@@ -1215,11 +1238,13 @@
       "grants": [
         {
           "to": "team",
+          "filter": {
+            "equipment": "any"
+          },
           "stats": {
             "hp": 100,
             "manaRegen": 2
-          },
-          "when": "holds-an-item"
+          }
         }
       ]
     },
@@ -1244,6 +1269,9 @@
       "grants": [
         {
           "to": "self",
+          "filter": {
+            "composition": "exactly-two-copies"
+          },
           "stats": {
             "armor": 30,
             "magicResist": 30
@@ -1251,8 +1279,7 @@
           "percentStats": {
             "attackDamage": 0.3,
             "abilityPower": 0.3
-          },
-          "when": "exactly-two-copies-fielded"
+          }
         }
       ]
     },
@@ -1314,11 +1341,13 @@
       "grants": [
         {
           "to": "traitHolders",
+          "filter": {
+            "trait": "Fae"
+          },
           "percentStats": {
             "attackDamage": 0.1,
             "abilityPower": 0.1
-          },
-          "when": "fae"
+          }
         }
       ],
       "params": {
@@ -1416,10 +1445,13 @@
       "grants": [
         {
           "to": "team",
+          "filter": {
+            "cost": [1, 2, 3, 4],
+            "composition": "a-five-cost-fielded"
+          },
           "percentStats": {
             "durability": 0.08
-          },
-          "when": "cost-one-to-four-with-a-five-cost-fielded"
+          }
         }
       ]
     },
@@ -1433,11 +1465,13 @@
       "grants": [
         {
           "to": "team",
+          "filter": {
+            "position": "back-row"
+          },
           "percentStats": {
             "damageAmp": 0.25,
             "startingHealthShare": 0.8
-          },
-          "when": "back-row"
+          }
         }
       ]
     },
@@ -1467,11 +1501,13 @@
       "grants": [
         {
           "to": "ally",
+          "filter": {
+            "position": "adjacent"
+          },
           "stats": {
             "armor": 9,
             "magicResist": 9
           },
-          "when": "adjacent",
           "stacks": true
         }
       ]
@@ -1494,10 +1530,13 @@
       "grants": [
         {
           "to": "ally",
+          "filter": {
+            "position": "nearby"
+          },
+          "trigger": "enemy-dies",
           "stats": {
             "heal": 575
-          },
-          "when": "enemy-dies-nearby"
+          }
         }
       ]
     },
@@ -1511,10 +1550,12 @@
       "grants": [
         {
           "to": "holder",
+          "filter": {
+            "equipment": "Steadfast Heart"
+          },
           "stats": {
             "hp": 16
           },
-          "when": "holds-steadfast-heart",
           "everySeconds": 10,
           "permanent": true
         }
@@ -1562,10 +1603,12 @@
       "grants": [
         {
           "to": "ally",
+          "filter": {
+            "position": "same-row-as-infinity-force"
+          },
           "percentStats": {
             "shieldPercentMaxHealth": 0.12
-          },
-          "when": "same-row-as-infinity-force"
+          }
         }
       ]
     },
@@ -1597,11 +1640,13 @@
       "grants": [
         {
           "to": "self",
+          "filter": {
+            "position": "spotlight"
+          },
           "percentStats": {
             "damageAmp": 0.15,
             "attackSpeed": 0.15
-          },
-          "when": "in-the-spotlight"
+          }
         }
       ]
     },
@@ -1648,11 +1693,13 @@
       "grants": [
         {
           "to": "team",
+          "filter": {
+            "cost": [5]
+          },
           "percentStats": {
             "hp": 0.12,
             "attackSpeed": 0.12
-          },
-          "when": "five-cost"
+          }
         }
       ]
     },
@@ -1666,13 +1713,16 @@
       "grants": [
         {
           "to": "team",
+          "filter": {
+            "cost": [3],
+            "equipment": "emblem"
+          },
           "stats": {
             "hp": 150
           },
           "percentStats": {
             "attackSpeed": 0.12
-          },
-          "when": "three-cost-or-holds-an-emblem"
+          }
         }
       ]
     },
@@ -1694,11 +1744,13 @@
       "grants": [
         {
           "to": "team",
+          "filter": {
+            "equipment": "none"
+          },
           "stats": {
             "armor": 50,
             "magicResist": 50
-          },
-          "when": "holds-no-item"
+          }
         }
       ]
     },
@@ -1764,11 +1816,13 @@
       "grants": [
         {
           "to": "team",
+          "filter": {
+            "position": "adjacent-to-elderwood-plant"
+          },
           "percentStats": {
             "attackSpeed": 0.15,
             "healPercentMaxHealth": 0.02
           },
-          "when": "adjacent-to-elderwood-plant",
           "everySeconds": 2
         }
       ]
@@ -1825,11 +1879,11 @@
         },
         {
           "to": "team",
+          "trigger": "health-threshold-crossed",
           "stats": {
             "armor": 40,
             "magicResist": 40
-          },
-          "when": "below-health-threshold"
+          }
         }
       ],
       "params": {
@@ -1854,13 +1908,15 @@
       "grants": [
         {
           "to": "holder",
+          "filter": {
+            "equipment": "Protector's Vow"
+          },
           "stats": {
             "hp": 200
           },
           "percentStats": {
             "manaFromAllSources": 0.2
-          },
-          "when": "holds-protectors-vow"
+          }
         }
       ]
     },
@@ -1898,10 +1954,13 @@
       "grants": [
         {
           "to": "holder",
+          "filter": {
+            "equipment": "Archangel's Staff",
+            "state": "ability-power-threshold"
+          },
           "stats": {
             "manaRegen": 2
-          },
-          "when": "holds-archangels-with-ability-power-threshold"
+          }
         }
       ],
       "params": {
@@ -1945,7 +2004,9 @@
       "grants": [
         {
           "to": "self",
-          "when": "only-champion-fielded",
+          "filter": {
+            "composition": "only-champion-fielded"
+          },
           "stats": {
             "hp": 525,
             "abilityPower": 0.5
@@ -1974,10 +2035,13 @@
       "grants": [
         {
           "to": "holder",
+          "filter": {
+            "equipment": "Gargoyle Stoneplate",
+            "position": "alone-in-row"
+          },
           "percentStats": {
             "hp": 0.17
-          },
-          "when": "holds-gargoyle-alone-in-row"
+          }
         }
       ]
     },
@@ -1999,10 +2063,12 @@
       "grants": [
         {
           "to": "ally",
+          "filter": {
+            "position": "within-hexes"
+          },
           "percentStats": {
             "healPercentMissingHealth": 0.075
           },
-          "when": "within-hexes",
           "everySeconds": 5
         }
       ],
@@ -2044,13 +2110,15 @@
       "grants": [
         {
           "to": "traitHolders",
+          "filter": {
+            "trait": "Lunar"
+          },
           "stats": {
             "hp": 100
           },
           "percentStats": {
             "damageAmp": 0.08
           },
-          "when": "lunar",
           "per": "unique-solar-fielded"
         }
       ]
@@ -2065,13 +2133,15 @@
       "grants": [
         {
           "to": "traitHolders",
+          "filter": {
+            "trait": "Lunar"
+          },
           "stats": {
             "hp": 100
           },
           "percentStats": {
             "damageAmp": 0.08
           },
-          "when": "lunar",
           "per": "unique-solar-fielded"
         }
       ]
@@ -2094,13 +2164,15 @@
       "grants": [
         {
           "to": "holder",
+          "filter": {
+            "equipment": "Mogul's Mail"
+          },
           "stats": {
             "hp": 700
           },
           "percentStats": {
             "durability": 0.2
-          },
-          "when": "holds-moguls-mail"
+          }
         }
       ],
       "params": {
@@ -2165,13 +2237,15 @@
       "grants": [
         {
           "to": "holder",
+          "filter": {
+            "equipment": ["Frying Pan", "Spatula"]
+          },
           "stats": {
             "manaRegen": 2
           },
           "percentStats": {
             "attackSpeed": 0.15
-          },
-          "when": "holds-spatula-or-pan"
+          }
         }
       ]
     },
@@ -2294,10 +2368,12 @@
       "grants": [
         {
           "to": "holder",
+          "filter": {
+            "equipment": "Giant's Belt"
+          },
           "stats": {
             "hp": 85
-          },
-          "when": "holds-giants-belt"
+          }
         }
       ]
     },
@@ -2419,12 +2495,14 @@
       "grants": [
         {
           "to": "holder",
+          "filter": {
+            "equipment": "tactician"
+          },
           "percentStats": {
             "attackSpeed": 0.2,
             "attackDamage": 0.25,
             "abilityPower": 0.3
-          },
-          "when": "holds-a-tactician-item"
+          }
         }
       ]
     },
@@ -2457,10 +2535,12 @@
       "grants": [
         {
           "to": "holder",
+          "filter": {
+            "equipment": "Deathblade"
+          },
           "percentStats": {
             "attackDamage": 0.01
           },
-          "when": "holds-deathblade",
           "per": "takedown",
           "permanent": true
         }
@@ -2476,13 +2556,15 @@
       "grants": [
         {
           "to": "holder",
+          "filter": {
+            "equipment": "Rabadon's Deathcap"
+          },
           "stats": {
             "manaRegen": 1
           },
           "percentStats": {
             "abilityPower": 0.01
           },
-          "when": "holds-rabadons",
           "per": "takedown",
           "permanent": true
         }
@@ -2590,11 +2672,13 @@
       "grants": [
         {
           "to": "team",
+          "filter": {
+            "position": "back-two-rows"
+          },
           "percentStats": {
             "abilityPower": 0.09,
             "attackDamage": 0.08
           },
-          "when": "back-two-rows",
           "per": "front-row-ally"
         }
       ]
@@ -2836,10 +2920,12 @@
       "grants": [
         {
           "to": "holder",
+          "filter": {
+            "equipment": "Hand of Justice"
+          },
           "percentStats": {
             "critChance": 0.25
           },
-          "when": "holds-hand-of-justice",
           "grants": "precision"
         }
       ]
@@ -2880,10 +2966,12 @@
         },
         {
           "to": "team",
+          "filter": {
+            "state": "max-stacks"
+          },
           "percentStats": {
             "trueDamage": 0.12
-          },
-          "when": "max-stacks"
+          }
         }
       ]
     },
@@ -2914,10 +3002,12 @@
       "grants": [
         {
           "to": "holder",
+          "filter": {
+            "equipment": "B.F. Sword"
+          },
           "percentStats": {
             "attackSpeed": 0.04
-          },
-          "when": "holds-bf-sword"
+          }
         }
       ]
     },
@@ -3019,10 +3109,12 @@
       "grants": [
         {
           "to": "holder",
+          "filter": {
+            "equipment": "Needlessly Large Rod"
+          },
           "percentStats": {
             "attackSpeed": 0.05
-          },
-          "when": "holds-needlessly-large-rod"
+          }
         }
       ]
     },
@@ -3036,10 +3128,12 @@
       "grants": [
         {
           "to": "team",
+          "filter": {
+            "trait": "emblem-held"
+          },
           "percentStats": {
             "attackSpeed": 0.3
-          },
-          "when": "shares-the-emblem-trait"
+          }
         }
       ]
     },

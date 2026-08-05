@@ -178,10 +178,12 @@
       "grants": [
         {
           "to": "ally",
+          "filter": {
+            "position": "back-row"
+          },
           "percentStats": {
             "attackSpeed": 0.75
           },
-          "when": "back-row",
           "durationSeconds": 7
         }
       ]
@@ -246,10 +248,10 @@
       "grants": [
         {
           "to": "enemy",
+          "trigger": "first-ally-dies",
           "percentStats": {
             "magicDamagePercentMaxHealth": 0.25
-          },
-          "when": "first-ally-dies"
+          }
         }
       ]
     },
@@ -304,10 +306,13 @@
       "grants": [
         {
           "to": "traitHolders",
+          "filter": {
+            "role": "tank"
+          },
+          "trigger": "health-threshold-crossed",
           "percentStats": {
             "shieldPercentMaxHealth": 0.2
-          },
-          "when": "tank-below-health-threshold"
+          }
         }
       ],
       "params": {
@@ -349,10 +354,10 @@
       "grants": [
         {
           "to": "enemy",
+          "trigger": "ally-dies",
           "percentStats": {
             "magicDamagePercentMaxHealth": 0.15
-          },
-          "when": "ally-dies"
+          }
         }
       ]
     },
@@ -487,10 +492,12 @@
       "grants": [
         {
           "to": "self",
+          "filter": {
+            "select": "highest-health"
+          },
           "stats": {
             "hp": 600
-          },
-          "when": "highest-health"
+          }
         }
       ]
     },
@@ -505,10 +512,13 @@
       "grants": [
         {
           "to": "enemy",
+          "filter": {
+            "position": "nearby",
+            "select": "highest-health-ally"
+          },
           "percentStats": {
             "damagePercentMaxHealthPerSecond": 0.02
-          },
-          "when": "near-highest-health-ally"
+          }
         }
       ]
     },
@@ -595,10 +605,12 @@
       "grants": [
         {
           "to": "self",
+          "filter": {
+            "select": "highest-health"
+          },
           "stats": {
             "hp": 350
-          },
-          "when": "highest-health"
+          }
         }
       ]
     },
@@ -613,10 +625,12 @@
       "grants": [
         {
           "to": "self",
+          "filter": {
+            "select": "highest-attack-speed"
+          },
           "percentStats": {
             "attackSpeed": 0.2
-          },
-          "when": "highest-attack-speed"
+          }
         }
       ]
     },
@@ -634,10 +648,12 @@
       "grants": [
         {
           "to": "traitHolders",
+          "filter": {
+            "role": "fighter"
+          },
           "stats": {
             "range": 1
-          },
-          "when": "fighter"
+          }
         }
       ]
     },
@@ -676,10 +692,12 @@
       "grants": [
         {
           "to": "self",
+          "filter": {
+            "position": "front-row-centre"
+          },
           "percentStats": {
             "hp": 0.04
           },
-          "when": "front-centre",
           "per": "front-row-ally"
         }
       ]
@@ -695,10 +713,12 @@
       "grants": [
         {
           "to": "enemy",
+          "filter": {
+            "select": "attacking-highest-health-ally"
+          },
           "percentStats": {
             "damageDealt": -0.1
-          },
-          "when": "attacking-highest-health-ally"
+          }
         }
       ]
     },
@@ -713,8 +733,8 @@
       "grants": [
         {
           "to": "enemy",
-          "effect": "stun",
-          "when": "kills-one-of-the-first-allies"
+          "trigger": "kills-one-of-the-first-allies",
+          "effect": "stun"
         }
       ],
       "params": {
@@ -733,10 +753,13 @@
       "grants": [
         {
           "to": "traitHolders",
+          "filter": {
+            "role": "fighter"
+          },
+          "trigger": "takedown",
           "percentStats": {
             "attackSpeed": 0.15
-          },
-          "when": "fighter-on-kill"
+          }
         }
       ],
       "params": {
@@ -825,10 +848,12 @@
       "grants": [
         {
           "to": "traitHolders",
+          "filter": {
+            "role": "caster"
+          },
           "percentStats": {
             "maxMana": -0.15
-          },
-          "when": "caster"
+          }
         }
       ]
     },
@@ -846,10 +871,12 @@
       "grants": [
         {
           "to": "traitHolders",
+          "filter": {
+            "role": "marksman"
+          },
           "percentStats": {
             "attackSpeed": 0.03
           },
-          "when": "marksman",
           "per": "attack",
           "stacks": true
         }
@@ -869,7 +896,9 @@
       "grants": [
         {
           "to": "traitHolders",
-          "when": "marksman",
+          "filter": {
+            "role": "marksman"
+          },
           "effect": "double-attack",
           "chance": 0.25
         }
@@ -953,8 +982,10 @@
       "grants": [
         {
           "to": "enemy",
-          "effect": "execute",
-          "when": "holds-no-item"
+          "filter": {
+            "equipment": "none"
+          },
+          "effect": "execute"
         }
       ],
       "params": {
@@ -1138,10 +1169,10 @@
       "grants": [
         {
           "to": "team",
+          "trigger": "on-cast",
           "percentStats": {
             "attackSpeed": 0.25
           },
-          "when": "on-cast",
           "durationSeconds": 3
         }
       ]
@@ -1205,10 +1236,12 @@
       "grants": [
         {
           "to": "traitHolders",
+          "filter": {
+            "role": "tank"
+          },
           "stats": {
             "flatDamageReduction": 15
-          },
-          "when": "tank"
+          }
         }
       ]
     },
@@ -1223,10 +1256,10 @@
       "grants": [
         {
           "to": "team",
+          "trigger": "ally-dies",
           "percentStats": {
             "damageAmp": 0.04
           },
-          "when": "ally-dies",
           "stacks": true
         }
       ]
@@ -1254,8 +1287,8 @@
       "grants": [
         {
           "to": "enemy",
-          "effect": "execute",
-          "when": "damaged-by-the-bff"
+          "trigger": "damaged-by-the-bff",
+          "effect": "execute"
         }
       ],
       "params": {
@@ -1273,11 +1306,13 @@
       "grants": [
         {
           "to": "team",
+          "filter": {
+            "position": "no-adjacent-ally"
+          },
           "percentStats": {
             "hp": 0.1,
             "damageAmp": 0.1
-          },
-          "when": "no-adjacent-ally"
+          }
         }
       ]
     },
@@ -1296,11 +1331,13 @@
       "grants": [
         {
           "to": "team",
+          "filter": {
+            "position": "alone-in-row"
+          },
           "percentStats": {
             "hp": 0.15,
             "damageAmp": 0.15
-          },
-          "when": "alone-in-row"
+          }
         }
       ]
     },
@@ -1315,7 +1352,10 @@
       "grants": [
         {
           "to": "team",
-          "when": "strongest-fighter-or-assassin",
+          "filter": {
+            "role": ["fighter", "assassin"],
+            "select": "strongest"
+          },
           "effect": "untargetable",
           "durationSeconds": 6
         }
@@ -1356,10 +1396,12 @@
       "grants": [
         {
           "to": "team",
+          "filter": {
+            "state": "has-precision"
+          },
           "percentStats": {
             "critDamage": 0.25
-          },
-          "when": "has-precision"
+          }
         }
       ]
     },
@@ -1501,10 +1543,13 @@
       "grants": [
         {
           "to": "enemy",
+          "filter": {
+            "position": "adjacent",
+            "againstRole": "tank"
+          },
           "percentStats": {
             "reflectedDamageShare": 0.12
           },
-          "when": "adjacent-to-a-tank",
           "everySeconds": 4
         }
       ]
