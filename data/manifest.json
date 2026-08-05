@@ -1,0 +1,44 @@
+{
+  "set": "18",
+  "setName": "Enchanted Wilds",
+  "capturedOn": "2026-08-01",
+  "normalisedOn": "2026-08-03",
+  "note": "Field names, stat keys and union values follow src/domain. Percentages are decimals. Descriptions stay verbatim. Every mechanic is also carried as values: a grant names its recipient and its stats, params carry the numbers a condition needs, and combat says whether the entry changes anything inside a fight.",
+  "sources": {
+    "lolchess.gg": "units and their abilities; the Set 18 wisp and augment pools, with gold, tier, category and appearance condition",
+    "metatft.com": "trait descriptions, augment stages and the augment category taxonomy",
+    "communitydragon.org": "Riot data, PBE snapshot dated 2026-07-31. Trait names and breakpoints, wisp identifiers and variables, timeless item stats, and the 29 augments this set brought of its own",
+    "tactics.tools": "an earlier build — it still says Eldritch, Sunbeam and Moonbeam. Read to date the other sources, never to value them"
+  },
+  "files": {
+    "set-18/units.json": {
+      "count": 65,
+      "status": "complete",
+      "verified": "65 units, 14/13/14/14/10 by cost. Traits agree with traits.json in both directions. Kobuko and Alune match Community Dragon on every stat. Every ability carries the numbers its tooltip states outside the breakdown"
+    },
+    "set-18/traits.json": {
+      "count": 36,
+      "status": "complete",
+      "verified": "36 names against Community Dragon, no divergence either way, and 34 of the 36 breakpoint ladders identical. Rosters cover the 65 units. Every breakpoint carries its grants and its parameters, read from the tooltip"
+    },
+    "set-18/wisps.json": {
+      "count": 163,
+      "status": "complete",
+      "verified": "lolchess, metatft and Community Dragon carry the same 163 entries, and gold, category and description agree on all of them. 84 change a fight and are decomposed into grants"
+    },
+    "timeless/augments.json": {
+      "count": 257,
+      "status": "complete",
+      "verified": "249 distinct augments across 257 rows; four names carry several stage variants. lolchess and metatft agree on every name and every tier. 240 matched to Riot Set 18 entries; 99 carry combat effects and are decomposed into grants"
+    },
+    "timeless/items.json": {
+      "count": 137,
+      "status": "complete",
+      "verified": "137 items: 10 components, 39 craftables, 20 emblems, 32 artifacts, 36 radiants. The eight-by-eight grid is closed. Seven stat lines corrected against Community Dragon"
+    }
+  },
+  "more": {
+    "adaptor": "Their main stats (AP or AD) can vary, therefor, scaling key accept only an array as value.",
+    "keyword": "Default base keywords such as Wounds, Burn, Sunder, Shred, Chill, Slow etc... Does not hold a value directlyt into the JSON because It would violate DRY principle. So it's a name to retrieve when used"
+  }
+}
