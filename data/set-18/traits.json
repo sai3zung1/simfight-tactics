@@ -1822,7 +1822,78 @@
       "kind": "origin",
       "combat": true,
       "champions": ["Kobuko", "Veigar", "Teemo", "Rammus", "Tristana", "Gnar"],
-      "description": "Gain the Big Furry Friend (BFF). Drop a Sprykin onto the BFF to choose its Rider. (3) The Rider gains 15% (HP) and 15% (AS)  — (5) 15% (HP)/ 15% (AS), and 50% of the BFF's ability applies to your Sprykin champions — (7) 45% (HP) / 45% (AS) , and 100% of the BFF's ability applies to your Sprykin champions.",
+      "description": "Gain the Big Furry Friend. Drop a Sprykin on the BFF to pick its Rider. (3) The Rider gains 15% (HP) and 15% (AS) — (5) 30% (HP) 30% (AS), and 50% of the BFF's Ability applies to your Sprykin champions — (7) 45% (HP) 45% (AS), and 100% of the BFF's Ability applies to your Sprykin champions.\nThe BFF's attacks and Ability change if the Rider is melee or ranged.",
+      "mount": {
+        "name": "BFF",
+        "riderSelection": ["last-rider", "most-stars", "random"],
+        "riderPersistsUntilChanged": true,
+        "healthBar": "rider",
+        "scalesOnStarOf": "rider",
+        "stats": {
+          "hp": 700,
+          "attackDamage": 50,
+          "armor": 60,
+          "magicResist": 60,
+          "attackSpeed": 0.75,
+          "range": [1]
+        },
+        "ability": {
+          "name": null,
+          "description": "The BFF's attacks and Ability change if the Rider is melee or ranged.",
+          "keywords": [],
+          "breakdown": [],
+          "variants": [
+            {
+              "option": "melee",
+              "condition": "rider-is-melee",
+              "statOverrides": null,
+              "name": "Terrible Roar",
+              "description": "The BFF roars, healing the Rider for a percent of their maximum Health.",
+              "keywords": [],
+              "grants": [
+                {
+                  "to": "rider",
+                  "when": "combat-start",
+                  "healPercentMaxHealth": {
+                    "1": 0.1,
+                    "2": 0.13,
+                    "3": 0.16
+                  }
+                }
+              ]
+            },
+            {
+              "option": "ranged",
+              "condition": "rider-is-ranged",
+              "statOverrides": {
+                "range": [4]
+              },
+              "name": "Wild Rumpus",
+              "description": "The BFF dances, granting the Rider Attack Damage and Ability Power for the rest of combat.",
+              "keywords": [],
+              "grants": [
+                {
+                  "to": "rider",
+                  "when": "combat-start",
+                  "until": "combat-end",
+                  "percentStats": {
+                    "attackDamage": {
+                      "1": 0.15,
+                      "2": 0.28,
+                      "3": 0.33
+                    },
+                    "abilityPower": {
+                      "1": 0.15,
+                      "2": 0.28,
+                      "3": 0.33
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
       "breakpoints": [
         {
           "count": 3,
@@ -1835,10 +1906,7 @@
               },
               "when": "rides-the-bff"
             }
-          ],
-          "params": {
-            "bffAbilityShareToTrait": 0
-          }
+          ]
         },
         {
           "count": 5,
@@ -1850,11 +1918,12 @@
                 "attackSpeed": 0.3
               },
               "when": "rides-the-bff"
+            },
+            {
+              "to": "traitHolders",
+              "shareOfMountSpell": 0.5
             }
-          ],
-          "params": {
-            "bffAbilityShareToTrait": 0.5
-          }
+          ]
         },
         {
           "count": 7,
@@ -1866,11 +1935,12 @@
                 "attackSpeed": 0.45
               },
               "when": "rides-the-bff"
+            },
+            {
+              "to": "traitHolders",
+              "shareOfMountSpell": 1
             }
-          ],
-          "params": {
-            "bffAbilityShareToTrait": 1
-          }
+          ]
         }
       ]
     },
