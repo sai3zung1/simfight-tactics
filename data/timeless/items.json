@@ -96,7 +96,16 @@
         "attackSpeed": 0.15,
         "damageAmp": 0.15
       },
-      "description": "Gain 15% additional Damage Amp against Tanks."
+      "description": "Gain 15% additional Damage Amp against Tanks.",
+      "grants": [
+        {
+          "to": "holder",
+          "when": "against-tanks",
+          "percentStats": {
+            "damageAmp": 0.15
+          }
+        }
+      ]
     },
     {
       "name": "Edge of Night",
@@ -108,7 +117,23 @@
         "armor": 20,
         "attackSpeed": 0.15
       },
-      "description": "At 60% Health, briefly become untargetable, shed negative effects, and heal 20% missing health."
+      "description": "At 60% Health, briefly become untargetable, shed negative effects, and heal 20% missing health.",
+      "grants": [
+        {
+          "to": "holder",
+          "when": "below-health-threshold",
+          "effect": "untargetable",
+          "healPercentMissingHealth": 0.2
+        },
+        {
+          "to": "holder",
+          "when": "below-health-threshold",
+          "effect": "shed-negative-effects"
+        }
+      ],
+      "params": {
+        "healthThreshold": 0.6
+      }
     },
     {
       "name": "Bloodthirster",
@@ -120,7 +145,21 @@
         "magicResist": 20,
         "omnivamp": 0.2
       },
-      "description": "Once per combat at 40% Health, gain a 25% max Health Shield that lasts up to 5 seconds."
+      "description": "Once per combat at 40% Health, gain a 25% max Health Shield that lasts up to 5 seconds.",
+      "grants": [
+        {
+          "to": "holder",
+          "when": "below-health-threshold",
+          "percentStats": {
+            "shieldPercentMaxHealth": 0.25
+          },
+          "durationSeconds": 5,
+          "oncePerCombat": true
+        }
+      ],
+      "params": {
+        "healthThreshold": 0.4
+      }
     },
     {
       "name": "Hextech Gunblade",
@@ -132,7 +171,14 @@
         "omnivamp": 0.15,
         "manaRegen": 1
       },
-      "description": "Heal the lowest percent Health ally for 20% of damage dealt."
+      "description": "Heal the lowest percent Health ally for 20% of damage dealt.",
+      "grants": [
+        {
+          "to": "ally",
+          "when": "lowest-health",
+          "healShareOfDamage": 0.2
+        }
+      ]
     },
     {
       "name": "Spear of Shojin",
@@ -143,7 +189,16 @@
         "abilityPower": 0.15,
         "manaRegen": 1
       },
-      "description": "Attacks grant 5 bonus Mana."
+      "description": "Attacks grant 5 bonus Mana.",
+      "grants": [
+        {
+          "to": "holder",
+          "stats": {
+            "mana": 5
+          },
+          "per": "attack"
+        }
+      ]
     },
     {
       "name": "Sterak's Gage",
@@ -153,7 +208,21 @@
         "hp": 300,
         "attackDamage": 0.45
       },
-      "description": "At 60% Health, gain a Shield equal to 40% of the wearer's maximum Health that rapidly decays over 4 seconds."
+      "description": "At 60% Health, gain a Shield equal to 40% of the wearer's maximum Health that rapidly decays over 4 seconds.",
+      "grants": [
+        {
+          "to": "holder",
+          "when": "below-health-threshold",
+          "percentStats": {
+            "shieldPercentMaxHealth": 0.4
+          },
+          "durationSeconds": 4,
+          "decaying": true
+        }
+      ],
+      "params": {
+        "healthThreshold": 0.6
+      }
     },
     {
       "name": "Infinity Edge",
@@ -163,7 +232,13 @@
         "attackDamage": 0.35,
         "critChance": 0.35
       },
-      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike. Extra Precision grants 10% Critical Strike Damage."
+      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike. Extra Precision grants 10% Critical Strike Damage.",
+      "grants": [
+        {
+          "to": "holder",
+          "grants": "precision"
+        }
+      ]
     },
     {
       "name": "Red Buff",
@@ -173,7 +248,16 @@
         "attackSpeed": 0.45,
         "damageAmp": 0.03
       },
-      "description": "Attacks and Abilities 1% Burn and 33% Wound enemies for 5 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received."
+      "description": "Attacks and Abilities 1% Burn and 33% Wound enemies for 5 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received.",
+      "grants": [
+        {
+          "to": "enemy",
+          "burnPercent": 0.01,
+          "woundPercent": 0.33,
+          "durationSeconds": 5,
+          "per": "attack-or-ability"
+        }
+      ]
     },
     {
       "name": "Void Staff",
@@ -184,7 +268,16 @@
         "attackSpeed": 0.15,
         "manaRegen": 1
       },
-      "description": "Attacks and Ability damage 30% Shred the target for 5 seconds. This effect does not stack.\n\nShred: Reduce Magic Resist"
+      "description": "Attacks and Ability damage 30% Shred the target for 5 seconds. This effect does not stack.\n\nShred: Reduce Magic Resist",
+      "grants": [
+        {
+          "to": "enemy",
+          "shredPercent": 0.3,
+          "durationSeconds": 5,
+          "per": "attack-or-ability",
+          "stacks": false
+        }
+      ]
     },
     {
       "name": "Last Whisper",
@@ -195,7 +288,16 @@
         "attackSpeed": 0.2,
         "critChance": 0.2
       },
-      "description": "Attacks and Ability damage 30% Sunders the target for 3 seconds. This effect does not stack.\n\nSunder: Reduce Armor"
+      "description": "Attacks and Ability damage 30% Sunders the target for 3 seconds. This effect does not stack.\n\nSunder: Reduce Armor",
+      "grants": [
+        {
+          "to": "enemy",
+          "sunder": 0.3,
+          "durationSeconds": 3,
+          "per": "attack-or-ability",
+          "stacks": false
+        }
+      ]
     },
     {
       "name": "Titan's Resolve",
@@ -207,7 +309,27 @@
       },
       "description": "Gain 2% Attack Damage and Ability Power when attacking or taking damage, stacking up to 25 times.\nAt full stacks, gain 10% Damage Amp and become Unstoppable.",
       "stacks": true,
-      "maxStacks": 25
+      "maxStacks": 25,
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "attackDamage": 0.02,
+            "abilityPower": 0.02
+          },
+          "per": "attack-or-damage-taken",
+          "stacks": true,
+          "maxStacks": 25
+        },
+        {
+          "to": "holder",
+          "when": "max-stacks",
+          "percentStats": {
+            "damageAmp": 0.1
+          },
+          "effect": "unstoppable"
+        }
+      ]
     },
     {
       "name": "Bramble Vest",
@@ -216,7 +338,30 @@
       "stats": {
         "armor": 50
       },
-      "description": "Gain 6% max Health.\nTake 5% reduced damage from attacks. When struck by any attack, deal 100 magic damage to all adjacent enemies.\n\nCooldown: 2 seconds"
+      "description": "Gain 6% max Health.\nTake 5% reduced damage from attacks. When struck by any attack, deal 100 magic damage to all adjacent enemies.\n\nCooldown: 2 seconds",
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "hp": 0.06
+          }
+        },
+        {
+          "to": "holder",
+          "percentStats": {
+            "damageReductionFromAttacks": 0.05
+          }
+        },
+        {
+          "to": "enemy",
+          "when": "adjacent",
+          "stats": {
+            "magicDamage": 100
+          },
+          "per": "attack-taken",
+          "cooldownSeconds": 2
+        }
+      ]
     },
     {
       "name": "Gargoyle Stoneplate",
@@ -227,7 +372,18 @@
         "armor": 25,
         "magicResist": 25
       },
-      "description": "Gain 10 Armor and 10 Magic Resist for each enemy targeting the holder."
+      "description": "Gain 10 Armor and 10 Magic Resist for each enemy targeting the holder.",
+      "grants": [
+        {
+          "to": "holder",
+          "stats": {
+            "armor": 10,
+            "magicResist": 10
+          },
+          "per": "enemy-targeting-me",
+          "stacks": true
+        }
+      ]
     },
     {
       "name": "Crownguard",
@@ -238,7 +394,24 @@
         "abilityPower": 0.2,
         "armor": 20
       },
-      "description": "Combat start: Gain a 25% max Health Shield for 8 seconds.\nnWhen the shield expires, gain 25% Ability Power."
+      "description": "Combat start: Gain a 25% max Health Shield for 8 seconds.\nnWhen the shield expires, gain 25% Ability Power.",
+      "grants": [
+        {
+          "to": "holder",
+          "when": "combat-start",
+          "percentStats": {
+            "shieldPercentMaxHealth": 0.25
+          },
+          "durationSeconds": 8
+        },
+        {
+          "to": "holder",
+          "when": "shield-expires",
+          "percentStats": {
+            "abilityPower": 0.25
+          }
+        }
+      ]
     },
     {
       "name": "Protector's Vow",
@@ -249,7 +422,29 @@
         "magicResist": 25,
         "manaRegen": 1
       },
-      "description": "Combat Start: Gain 20 Mana.\nAt 40% Health, gain 15 Mana and a Shield equal to 20% max Health."
+      "description": "Combat Start: Gain 20 Mana.\nAt 40% Health, gain 15 Mana and a Shield equal to 20% max Health.",
+      "grants": [
+        {
+          "to": "holder",
+          "when": "combat-start",
+          "stats": {
+            "mana": 20
+          }
+        },
+        {
+          "to": "holder",
+          "when": "below-health-threshold",
+          "stats": {
+            "mana": 15
+          },
+          "percentStats": {
+            "shieldPercentMaxHealth": 0.2
+          }
+        }
+      ],
+      "params": {
+        "healthThreshold": 0.4
+      }
     },
     {
       "name": "Sunfire Cape",
@@ -259,7 +454,26 @@
         "hp": 150,
         "armor": 20
       },
-      "description": "Gain 8% max Health.\nEvery 2 seconds, deal 1% Burn and 33% Wound to an enemy within 2 hexes for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received."
+      "description": "Gain 8% max Health.\nEvery 2 seconds, deal 1% Burn and 33% Wound to an enemy within 2 hexes for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received.",
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "hp": 0.08
+          }
+        },
+        {
+          "to": "enemy",
+          "when": "within-hexes",
+          "burnPercent": 0.01,
+          "woundPercent": 0.33,
+          "durationSeconds": 10,
+          "everySeconds": 2
+        }
+      ],
+      "params": {
+        "hexRadius": 2
+      }
     },
     {
       "name": "Steadfast Heart",
@@ -270,7 +484,25 @@
         "critChance": 0.2,
         "durability": 0.05
       },
-      "description": "Gain 5% Durability. While above 50% Health, instead gain 15% Durability."
+      "description": "Gain 5% Durability. While above 50% Health, instead gain 15% Durability.",
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "durability": 0.05
+          }
+        },
+        {
+          "to": "holder",
+          "when": "above-health-threshold",
+          "percentStats": {
+            "durability": 0.15
+          }
+        }
+      ],
+      "params": {
+        "healthThreshold": 0.5
+      }
     },
     {
       "name": "Kraken's Fury",
@@ -283,7 +515,25 @@
       },
       "description": "Attacks grant 3.5% stacking Attack Damage, up to 15 attacks. After 15 attacks, gain 15% Attack Speed.",
       "stacks": true,
-      "maxStacks": 15
+      "maxStacks": 15,
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "attackDamage": 0.035
+          },
+          "per": "attack",
+          "stacks": true,
+          "maxStacks": 15
+        },
+        {
+          "to": "holder",
+          "when": "max-stacks",
+          "percentStats": {
+            "attackSpeed": 0.15
+          }
+        }
+      ]
     },
     {
       "name": "Dragon's Claw",
@@ -292,7 +542,20 @@
       "stats": {
         "magicResist": 60
       },
-      "description": "Gain 6% max Health, every 2 seconds, heal 2.5% max Health."
+      "description": "Gain 6% max Health, every 2 seconds, heal 2.5% max Health.",
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "hp": 0.06
+          }
+        },
+        {
+          "to": "holder",
+          "healPercentMaxHealth": 0.025,
+          "everySeconds": 2
+        }
+      ]
     },
     {
       "name": "Adaptive Helm",
@@ -302,7 +565,31 @@
         "magicResist": 20,
         "manaRegen": 3
       },
-      "description": "Gain an additional 15% Mana from all sources. The wearer gains an additional bonus based on their Role:\n\nTanks and Fighters: Gain 30 Armor and Magic Resistance.\nOther Roles: Gain 10% Attack Damage and Ability Power."
+      "description": "Gain an additional 15% Mana from all sources. The wearer gains an additional bonus based on their Role:\n\nTanks and Fighters: Gain 30 Armor and Magic Resistance.\nOther Roles: Gain 10% Attack Damage and Ability Power.",
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "manaFromAllSources": 0.15
+          }
+        },
+        {
+          "to": "holder",
+          "when": "tank-or-fighter",
+          "stats": {
+            "armor": 30,
+            "magicResist": 30
+          }
+        },
+        {
+          "to": "holder",
+          "when": "other-roles",
+          "percentStats": {
+            "attackDamage": 0.1,
+            "abilityPower": 0.1
+          }
+        }
+      ]
     },
     {
       "name": "Quicksilver",
@@ -314,7 +601,23 @@
         "critChance": 0.2
       },
       "description": "Combat Start: Unstoppable for 18 seconds`\nGain 3% stacking Attack Speed every second.",
-      "stacks": true
+      "stacks": true,
+      "grants": [
+        {
+          "to": "holder",
+          "when": "combat-start",
+          "effect": "unstoppable",
+          "durationSeconds": 18
+        },
+        {
+          "to": "holder",
+          "percentStats": {
+            "attackSpeed": 0.03
+          },
+          "everySeconds": 1,
+          "stacks": true
+        }
+      ]
     },
     {
       "name": "Guinsoo's Rageblade",
@@ -325,7 +628,17 @@
         "attackSpeed": 0.1
       },
       "description": "Gain 7% stacking Attack Speed every second.",
-      "stacks": true
+      "stacks": true,
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "attackSpeed": 0.07
+          },
+          "everySeconds": 1,
+          "stacks": true
+        }
+      ]
     },
     {
       "name": "Ionic Spark",
@@ -336,7 +649,22 @@
         "abilityPower": 0.15,
         "magicResist": 35
       },
-      "description": "30% Shred enemies within 2 hexes. When enemies cast an Ability, deal magic damage equal to 150% of the Mana spent.\n\nShred: Reduce Magic Resist"
+      "description": "30% Shred enemies within 2 hexes. When enemies cast an Ability, deal magic damage equal to 150% of the Mana spent.\n\nShred: Reduce Magic Resist",
+      "grants": [
+        {
+          "to": "enemy",
+          "when": "within-hexes",
+          "shredPercent": 0.3
+        },
+        {
+          "to": "enemy",
+          "when": "on-cast",
+          "magicDamageShareOfManaSpent": 1.5
+        }
+      ],
+      "params": {
+        "hexRadius": 2
+      }
     },
     {
       "name": "Rabadon's Deathcap",
@@ -356,7 +684,18 @@
         "abilityPower": 0.3,
         "manaRegen": 1
       },
-      "description": "Combat start: Gain 20% Ability Power every 5 seconds in combat."
+      "description": "Combat start: Gain 20% Ability Power every 5 seconds in combat.",
+      "grants": [
+        {
+          "to": "holder",
+          "when": "combat-start",
+          "percentStats": {
+            "abilityPower": 0.2
+          },
+          "everySeconds": 5,
+          "stacks": true
+        }
+      ]
     },
     {
       "name": "Jeweled Gauntlet",
@@ -366,7 +705,13 @@
         "abilityPower": 0.35,
         "critChance": 0.35
       },
-      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike. Extra Precision grants 10% Critical Strike Damage."
+      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike. Extra Precision grants 10% Critical Strike Damage.",
+      "grants": [
+        {
+          "to": "holder",
+          "grants": "precision"
+        }
+      ]
     },
     {
       "name": "Blue Buff",
@@ -377,7 +722,16 @@
         "abilityPower": 0.15,
         "manaRegen": 5
       },
-      "description": "Gain 10% additional Attack Damage and Ability Power from all sources."
+      "description": "Gain 10% additional Attack Damage and Ability Power from all sources.",
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "attackDamageFromAllSources": 0.1,
+            "abilityPowerFromAllSources": 0.1
+          }
+        }
+      ]
     },
     {
       "name": "Nashor's Tooth",
@@ -389,7 +743,23 @@
         "attackSpeed": 0.1,
         "critChance": 0.2
       },
-      "description": "Attacks grant 2 bonus Mana, increased to 4 if they critically strike."
+      "description": "Attacks grant 2 bonus Mana, increased to 4 if they critically strike.",
+      "grants": [
+        {
+          "to": "holder",
+          "stats": {
+            "mana": 2
+          },
+          "per": "attack"
+        },
+        {
+          "to": "holder",
+          "stats": {
+            "mana": 4
+          },
+          "per": "critical-attack"
+        }
+      ]
     },
     {
       "name": "Evenshroud",
@@ -399,7 +769,26 @@
         "magicResist": 20,
         "hp": 250
       },
-      "description": "30% Sunder enemies within 2 hexes. Gain 15 Armor and Magic Resist for the first 15 seconds of combat.\n\nSunder: Reduce Armor"
+      "description": "30% Sunder enemies within 2 hexes. Gain 15 Armor and Magic Resist for the first 15 seconds of combat.\n\nSunder: Reduce Armor",
+      "grants": [
+        {
+          "to": "enemy",
+          "when": "within-hexes",
+          "sunder": 0.3
+        },
+        {
+          "to": "holder",
+          "when": "combat-start",
+          "stats": {
+            "armor": 15,
+            "magicResist": 15
+          },
+          "durationSeconds": 15
+        }
+      ],
+      "params": {
+        "hexRadius": 2
+      }
     },
     {
       "name": "Morellonomicon",
@@ -410,7 +799,16 @@
         "abilityPower": 0.2,
         "manaRegen": 1
       },
-      "description": "Attacks and Abilities deal 1% Burn and 33% Wound to enemies for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received."
+      "description": "Attacks and Abilities deal 1% Burn and 33% Wound to enemies for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received.",
+      "grants": [
+        {
+          "to": "enemy",
+          "burnPercent": 0.01,
+          "woundPercent": 0.33,
+          "durationSeconds": 10,
+          "per": "attack-or-ability"
+        }
+      ]
     },
     {
       "name": "Spirit Visage",
@@ -421,7 +819,14 @@
         "durability": 0.08,
         "manaRegen": 2
       },
-      "description": "Regenerate 2% of missing Health each second."
+      "description": "Regenerate 2% of missing Health each second.",
+      "grants": [
+        {
+          "to": "holder",
+          "healPercentMissingHealth": 0.02,
+          "everySeconds": 1
+        }
+      ]
     },
     {
       "name": "Warmog's Armor",
@@ -430,7 +835,15 @@
       "stats": {
         "hp": 500
       },
-      "description": "Gain 18% max Health."
+      "description": "Gain 18% max Health.",
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "hp": 0.18
+          }
+        }
+      ]
     },
     {
       "name": "Striker's Flail",
@@ -444,7 +857,19 @@
       },
       "description": "Critical Strikes grant 5% Damage Amp for 5 seconds, stacking up to 4 times.",
       "stacks": true,
-      "maxStacks": 4
+      "maxStacks": 4,
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "damageAmp": 0.05
+          },
+          "per": "critical-strike",
+          "durationSeconds": 5,
+          "stacks": true,
+          "maxStacks": 4
+        }
+      ]
     },
     {
       "name": "Hand of Justice",
@@ -454,7 +879,35 @@
         "critChance": 0.2,
         "manaRegen": 1
       },
-      "description": "Gain 2 effects:\n• 15% Attack Damage and 15% Ability Power.\n• 12% Omnivamp.\n\nWhile above 50% health, double the Attack Damage and Ability Power.\n\nWhile below 50% Health, double the Omnivamp."
+      "description": "Gain 2 effects:\n• 15% Attack Damage and 15% Ability Power.\n• 12% Omnivamp.\n\nWhile above 50% health, double the Attack Damage and Ability Power.\n\nWhile below 50% Health, double the Omnivamp.",
+      "grants": [
+        {
+          "to": "holder",
+          "percentStats": {
+            "attackDamage": 0.15,
+            "abilityPower": 0.15,
+            "omnivamp": 0.12
+          }
+        },
+        {
+          "to": "holder",
+          "when": "above-health-threshold",
+          "percentStats": {
+            "attackDamage": 0.15,
+            "abilityPower": 0.15
+          }
+        },
+        {
+          "to": "holder",
+          "when": "below-health-threshold",
+          "percentStats": {
+            "omnivamp": 0.12
+          }
+        }
+      ],
+      "params": {
+        "healthThreshold": 0.5
+      }
     },
     {
       "name": "Thief's Gloves",
