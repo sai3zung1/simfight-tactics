@@ -847,7 +847,7 @@
       "combat": false
     },
     {
-      "name": "Beast Within",
+      "name": "Beast Within+",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["4-2"],
@@ -880,7 +880,7 @@
       }
     },
     {
-      "name": "Beast Within",
+      "name": "Beast Within+",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["4-2"],
@@ -1134,7 +1134,7 @@
       }
     },
     {
-      "name": "Consuming Flora",
+      "name": "Consuming Flora+",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["3-2"],
@@ -1145,7 +1145,7 @@
       }
     },
     {
-      "name": "Consuming Flora",
+      "name": "Consuming Flora++",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["4-2"],
@@ -2125,7 +2125,7 @@
       ]
     },
     {
-      "name": "Sun and Moon",
+      "name": "Sun and Moon+",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["4-2"],
@@ -2824,15 +2824,15 @@
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "After a champion dies in combat, spawn a copy of them one star level lower with 50% health. Gain 3 free rerolls.",
+      "description": "After a champion dies in combat, spawn a copy of them one star level lower with 70% health. Gain 3 free rerolls.",
       "combat": true,
       "params": {
-        "respawnHealthShare": 0.5,
+        "respawnHealthShare": 0.7,
         "respawnStarLevelDrop": 1
       }
     },
     {
-      "name": "Nesting Dolls",
+      "name": "Nesting Dolls+",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -2844,7 +2844,7 @@
       }
     },
     {
-      "name": "Nesting Dolls",
+      "name": "Nesting Dolls++",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
