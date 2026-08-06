@@ -142,6 +142,17 @@
       "combat": true,
       "champions": ["Lux"],
       "description": "Having an Avatar on your bench or board transforms every other Avatar in your shop to that Avatar's trait. The trait an Avatar picks counts double towards trait bonuses. Variants: Solar, Primal, Lunar, Inferno, Fae, Elderwood, Coven, Blossom, Blackthorn.",
+      "variants": [
+        "Solar",
+        "Primal",
+        "Lunar",
+        "Inferno",
+        "Fae",
+        "Elderwood",
+        "Coven",
+        "Blossom",
+        "Blackthorn"
+      ],
       "breakpoints": [
         {
           "count": 1,
@@ -168,15 +179,27 @@
       "sacrifice": {
         "byRole": {
           "tank": {
-            "percentStats": { "hp": 0.17 },
-            "stats": { "armor": 17, "magicResist": 17 }
+            "percentStats": {
+              "hp": 0.17
+            },
+            "stats": {
+              "armor": 17,
+              "magicResist": 17
+            }
           },
           "attack": {
-            "percentStats": { "attackDamage": 0.22, "attackSpeed": 0.1 }
+            "percentStats": {
+              "attackDamage": 0.22,
+              "attackSpeed": 0.1
+            }
           },
           "magic": {
-            "percentStats": { "damageAmp": 0.13 },
-            "stats": { "manaRegen": 1.7 }
+            "percentStats": {
+              "damageAmp": 0.13
+            },
+            "stats": {
+              "manaRegen": 1.7
+            }
           }
         },
         "multiplierByCostAndStar": {
@@ -1688,6 +1711,18 @@
         "Elder Dragon"
       ],
       "description": "(3) Use the Alpha Mark to grant a Riftbeast its unique Buff — (5) Every 3 combats, your next shop is overrun with Riftbeasts — (7) At combat start and every 5 seconds, Riftbeasts grow, gaining 5% (AD) / 5% (AP) / 5% (AS) / +3 (ARMOR) / +3 (MR) / +50 (HP) / +1 (Mana) — (10) +2 max team size.",
+      "alphaTargets": [
+        "Cinderling",
+        "Pebbles",
+        "Gromp",
+        "Murkwolf",
+        "Scuttlecrab",
+        "Krug",
+        "Mama Beak",
+        "Brambleback",
+        "Sentinel",
+        "Elder Dragon"
+      ],
       "breakpoints": [
         {
           "count": 3,
@@ -1763,6 +1798,7 @@
       "combat": true,
       "champions": ["Kha'Zix", "Rengar"],
       "description": "(1) Active only when playing 1 Rival. Rivals accumulate takedowns, +3 for eliminating another Rival. Takedowns evolve Kha'Zix, permanently granting him a trait of your choice among Executioner, Rapidfire, Ravager or Spellweaver. Rengar grants 2/3/5 gold every 8 takedowns; after 30 takedowns, the team gains 5% Attack Damage plus 0.2% per additional takedown. (2) Rivals can be played together: when Kha'Zix gains Mana from his ability, Rengar gains 100% of it; when Rengar heals from his ability, Kha'Zix recovers 50% of that healing.",
+      "khazixTraits": ["Executioner", "Rapidfire", "Ravager", "Spellweaver"],
       "breakpoints": [
         {
           "count": 1,
