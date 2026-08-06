@@ -38,41 +38,65 @@
         "name": "Kunai Strike",
         "description": "Adaptor [AD]: Throw a volley of kunai at the target, dealing 140/210/320 [AD][AP] physical damage. If the target is Burning, deal an additional 30/45/68 [AD] damage.\n\nAdaptor [AP]: If the Ability kills, cast it again.",
         "keywords": [],
-        "breakdown": [
-          {
-            "label": "Damage",
-            "scaling": ["abilityPower"],
-            "values": {
-              "1": 10,
-              "2": 15,
-              "3": 25
+        "breakdown": [],
+        "adaptor": {
+          "ad": {
+            "description": "Throw a volley of kunai at the target, dealing 140/210/320 [AD][AP] physical damage. If the target is Burning, deal an additional 30/45/68 [AD] damage.",
+            "breakdown": [
+              {
+                "label": "Damage",
+                "scaling": ["attackDamage", "abilityPower"],
+                "values": {
+                  "1": 130,
+                  "2": 195,
+                  "3": 295
+                }
+              },
+              {
+                "label": "Damage",
+                "scaling": ["abilityPower"],
+                "values": {
+                  "1": 10,
+                  "2": 15,
+                  "3": 25
+                }
+              },
+              {
+                "label": "Bonus Damage",
+                "scaling": ["attackDamage"],
+                "values": {
+                  "1": 30,
+                  "2": 45,
+                  "3": 68
+                }
+              }
+            ],
+            "params": {
+              "burningBonusApplies": 1
             }
           },
-          {
-            "label": "Damage",
-            "scaling": ["attackDamage", "abilityPower"],
-            "values": {
-              "1": 130,
-              "2": 195,
-              "3": 295
-            }
-          },
-          {
-            "label": "Bonus Damage",
-            "scaling": ["attackDamage"],
-            "values": {
-              "1": 30,
-              "2": 45,
-              "3": 68
+          "ap": {
+            "description": "Throw a volley of kunai at the target, dealing 170/255/385 [AP] magic damage, increased by 50% if the target is a Tank. If the target dies, cast again at 70% effectiveness.",
+            "breakdown": [
+              {
+                "label": "Damage",
+                "scaling": ["abilityPower"],
+                "values": {
+                  "1": 170,
+                  "2": 255,
+                  "3": 385
+                }
+              }
+            ],
+            "params": {
+              "tankDamageMultiplier": 1.5,
+              "recastEffectiveness": 0.7,
+              "recastManaRefund": 40
             }
           }
-        ],
+        },
         "variants": null,
-        "params": {
-          "burningBonusApplies": 1,
-          "recastEffectiveness": 0.7,
-          "recastManaRefund": 40
-        }
+        "params": {}
       }
     },
     {
@@ -1207,41 +1231,82 @@
         "keywords": [
           {
             "name": "Purple Buff",
-            "text": "Every 5 seconds, Gromp gains 25% Ability Power."
+            "text": "Every 5 seconds, Gromp gains 25% of his Adaptor stat and allies gain 8%."
           }
         ],
-        "breakdown": [
-          {
-            "label": "Damage",
-            "scaling": ["abilityPower"],
-            "values": {
-              "1": 250,
-              "2": 375,
-              "3": 565
+        "breakdown": [],
+        "adaptor": {
+          "ad": {
+            "description": "Belch a heavy bubble at the current target that explodes on the first enemy hit, dealing 335/505/795 [AD][AP] physical damage and Slowing by 30% for 3 seconds. Enemies within a 1 hex radius take 100/150/240 [AD] physical damage.",
+            "breakdown": [
+              {
+                "label": "Damage",
+                "scaling": ["attackDamage"],
+                "values": {
+                  "1": 305,
+                  "2": 460,
+                  "3": 725
+                }
+              },
+              {
+                "label": "Damage",
+                "scaling": ["abilityPower"],
+                "values": {
+                  "1": 30,
+                  "2": 45,
+                  "3": 70
+                }
+              },
+              {
+                "label": "Area Damage",
+                "scaling": ["attackDamage"],
+                "values": {
+                  "1": 100,
+                  "2": 150,
+                  "3": 240
+                }
+              }
+            ],
+            "params": {
+              "slowPercent": 0.3,
+              "slowSeconds": 3,
+              "purpleBuffStat": "attackDamage"
             }
           },
-          {
-            "label": "Area Damage",
-            "scaling": ["abilityPower"],
-            "values": {
-              "1": 100,
-              "2": 240,
-              "3": 360
-            }
-          },
-          {
-            "label": "Slow",
-            "scaling": ["attackSpeed"],
-            "values": {
-              "slow": 0.2,
-              "duration": 3
+          "ap": {
+            "description": "Belch a noxious bubble at the current target that explodes on the first enemy hit, dealing 225/340/535 [AP] magic damage. Enemies within a 1 hex radius take 145/220/345 [AP] magic damage over 3 seconds.",
+            "breakdown": [
+              {
+                "label": "Damage",
+                "scaling": ["abilityPower"],
+                "values": {
+                  "1": 225,
+                  "2": 340,
+                  "3": 535
+                }
+              },
+              {
+                "label": "Area Damage",
+                "scaling": ["abilityPower"],
+                "values": {
+                  "1": 145,
+                  "2": 220,
+                  "3": 345
+                }
+              }
+            ],
+            "params": {
+              "poisonSeconds": 3,
+              "purpleBuffStat": "abilityPower"
             }
           }
-        ],
+        },
         "variants": null,
         "params": {
           "explosionHexRadius": 1,
-          "areaDamageSeconds": 3
+          "purpleBuffPercent": 0.25,
+          "purpleBuffSeconds": 5,
+          "purpleBuffAllyPercent": 0.08
         }
       }
     },
@@ -2336,39 +2401,66 @@
         "name": "Raining Artillery",
         "description": "Adaptor [AD]: Launch acid at the target and the nearest enemy, dealing 175/265/450 [AD][AP] physical damage. Enemies below 50% max Health take 245/371/630 [AD][AP] physical damage instead.\n\nAdaptor [AP]: Damages enemies over time.",
         "keywords": [],
-        "breakdown": [
-          {
-            "label": "Damage",
-            "scaling": ["abilityPower"],
-            "values": {
-              "1": 20,
-              "2": 30,
-              "3": 50
+        "breakdown": [],
+        "adaptor": {
+          "ad": {
+            "description": "Launch acid at the target and the nearest enemy, dealing 175/265/450 [AD][AP] physical damage. Enemies below 50% max Health take 245/371/630 [AD][AP] physical damage instead.",
+            "breakdown": [
+              {
+                "label": "Damage",
+                "scaling": ["attackDamage", "abilityPower"],
+                "values": {
+                  "1": 155,
+                  "2": 235,
+                  "3": 400
+                }
+              },
+              {
+                "label": "Damage",
+                "scaling": ["abilityPower"],
+                "values": {
+                  "1": 20,
+                  "2": 30,
+                  "3": 50
+                }
+              }
+            ],
+            "params": {
+              "lowHealthThreshold": 0.5,
+              "lowHealthDamageMultiplier": 1.4
             }
           },
-          {
-            "label": "Damage",
-            "scaling": ["attackDamage", "abilityPower"],
-            "values": {
-              "1": 155,
-              "2": 235,
-              "3": 400
-            }
-          },
-          {
-            "label": "Low Health Damage",
-            "scaling": [],
-            "values": {
-              "1": 1.4,
-              "2": 1.4,
-              "3": 1.4
+          "ap": {
+            "description": "Launch acid at the target and the nearest enemy, dealing 170/255/450 [AP] magic damage and causing them to take an additional 48/72/115 [AP] magic damage over 3 seconds.",
+            "breakdown": [
+              {
+                "label": "Damage",
+                "scaling": ["abilityPower"],
+                "values": {
+                  "1": 170,
+                  "2": 255,
+                  "3": 450
+                }
+              },
+              {
+                "label": "Damage Over Time",
+                "scaling": ["abilityPower"],
+                "values": {
+                  "1": 48,
+                  "2": 72,
+                  "3": 115
+                }
+              }
+            ],
+            "params": {
+              "damageOverTimeSeconds": 3
             }
           }
-        ],
+        },
         "variants": null,
         "params": {
-          "lowHealthThreshold": 0.5,
-          "extraTargets": 1
+          "extraTargets": 1,
+          "manaIncreasePerCast": 5
         }
       }
     },
@@ -2442,11 +2534,22 @@
               "2": 200,
               "3": 335
             }
+          },
+          {
+            "label": "Kruglette Attack Damage",
+            "scaling": ["attackDamage"],
+            "values": {
+              "1": 40,
+              "2": 60,
+              "3": 90
+            }
           }
         ],
         "variants": null,
         "params": {
-          "kruglettesOnDeath": 2
+          "kruglettesOnDeath": 2,
+          "kruglettesHealthPercent": 0.12,
+          "stunSeconds": 1.5
         }
       }
     },
@@ -2558,30 +2661,47 @@
         "name": "Wuju Style",
         "description": "Passive: Every third attack is a Double Strike. On takedown, gain a burst of movement speed.\n\nAdaptor [AD]: Double Strikes grant 15% [AP] stacking Attack Speed.\n\nAdaptor [AP]: Double Strikes deal bonus damage and heal.",
         "keywords": [],
-        "breakdown": [
-          {
-            "label": "Attack Speed",
-            "scaling": ["abilityPower"],
-            "values": {
-              "1": 0.03,
-              "2": 0.03,
-              "3": 0.03
+        "breakdown": [],
+        "adaptor": {
+          "ad": {
+            "description": "Double Strikes grant 12% [AP] stacking Attack Speed.",
+            "breakdown": [
+              {
+                "label": "Attack Speed",
+                "scaling": ["abilityPower"],
+                "values": {
+                  "1": 0.03,
+                  "2": 0.03,
+                  "3": 0.03
+                }
+              }
+            ],
+            "params": {
+              "attackSpeedPerDoubleStrike": 0.12
             }
           },
-          {
-            "label": "Bonus Damage",
-            "scaling": ["abilityPower"],
-            "values": {
-              "1": 145,
-              "2": 220,
-              "3": 350
+          "ap": {
+            "description": "Double Strikes deal 145/220/350 [AP] bonus magic damage and restore Health equal to 35% of the bonus damage dealt.",
+            "breakdown": [
+              {
+                "label": "Bonus Damage",
+                "scaling": ["abilityPower"],
+                "values": {
+                  "1": 145,
+                  "2": 220,
+                  "3": 350
+                }
+              }
+            ],
+            "params": {
+              "healShareOfBonusDamage": 0.35
             }
           }
-        ],
+        },
         "variants": null,
         "params": {
           "attacksPerDoubleStrike": 3,
-          "healShareOfBonusDamage": 0.35
+          "movementSpeedIncrease": 500
         }
       }
     },
@@ -3519,71 +3639,114 @@
         "name": "Javelin Toss",
         "description": "Adaptor [AP]: Gain 150% Attack Speed for the next 3 attacks. These attacks are replaced with javelins that deal 135/205/2000 [AP] magic damage. The 3rd attack instead targets the furthest enemy with the least items and deals 250/375/3000 [AP] magic damage.\n\nAdaptor [AD]: Transform into a Melee cougar Assassin that swipes enemies.",
         "keywords": [],
-        "breakdown": [
-          {
-            "label": "Damage",
-            "scaling": ["abilityPower"],
-            "values": {
-              "1": 135,
-              "2": 205,
-              "3": 2000
+        "breakdown": [],
+        "adaptor": {
+          "ad": {
+            "description": "Passive: When changing targets, leap to the enemy with the fewest items within 4 hexes, prioritizing farther enemies. Swipe the target, dealing 215/325/2500 [AD] physical damage which ignores 40%/60%/80% Armor. Every third cast restores 275/400/2000 [AD] Health and deals up to 125% bonus damage based on the target's missing Health.",
+            "breakdown": [
+              {
+                "label": "Attack Damage",
+                "scaling": ["attackDamage"],
+                "values": {
+                  "1": 60,
+                  "2": 90,
+                  "3": 135
+                }
+              },
+              {
+                "label": "Swipe Damage",
+                "scaling": ["attackDamage"],
+                "values": {
+                  "1": 215,
+                  "2": 325,
+                  "3": 2500
+                }
+              },
+              {
+                "label": "Third Attack Heal",
+                "scaling": ["attackDamage"],
+                "values": {
+                  "1": 275,
+                  "2": 400,
+                  "3": 2000
+                }
+              },
+              {
+                "label": "Armor Ignored",
+                "scaling": [],
+                "values": {
+                  "1": 0.4,
+                  "2": 0.6,
+                  "3": 0.8
+                }
+              }
+            ],
+            "params": {
+              "leapHexRange": 4,
+              "empoweredCasts": 3,
+              "thirdAttackMissingHealthRatio": 1.25
             }
           },
-          {
-            "label": "Final Damage",
-            "scaling": ["abilityPower"],
-            "values": {
-              "1": 250,
-              "2": 375,
-              "3": 3000
-            }
-          },
-          {
-            "label": "Cougar Attack Damage",
-            "scaling": ["attackDamage"],
-            "values": {
-              "1": 60,
-              "2": 90,
-              "3": 135
-            }
-          },
-          {
-            "label": "Cougar Swipe Damage",
-            "scaling": ["attackDamage"],
-            "values": {
-              "1": 215,
-              "2": 325,
-              "3": 2500
-            }
-          },
-          {
-            "label": "Cougar Third Attack Heal",
-            "scaling": ["attackDamage"],
-            "values": {
-              "1": 275,
-              "2": 400,
-              "3": 2000
-            }
-          },
-          {
-            "label": "Cougar Armor Ignored",
-            "scaling": [],
-            "values": {
-              "1": 0.4,
-              "2": 0.6,
-              "3": 0.8
+          "ap": {
+            "description": "Gain 150% Attack Speed for the next 3 attacks. These attacks are replaced with javelins that deal 160/240/2000 [AP] magic damage. The 3rd attack instead targets the furthest enemy with the least items and deals 300/450/3000 [AP] magic damage.",
+            "breakdown": [
+              {
+                "label": "Attack Damage",
+                "scaling": ["attackDamage"],
+                "values": {
+                  "1": 35,
+                  "2": 52.5,
+                  "3": 78.75
+                }
+              },
+              {
+                "label": "Damage",
+                "scaling": ["abilityPower"],
+                "values": {
+                  "1": 160,
+                  "2": 240,
+                  "3": 2000
+                }
+              },
+              {
+                "label": "Final Damage",
+                "scaling": ["abilityPower"],
+                "values": {
+                  "1": 300,
+                  "2": 450,
+                  "3": 3000
+                }
+              },
+              {
+                "label": "Trap Damage",
+                "scaling": ["abilityPower"],
+                "values": {
+                  "1": 50,
+                  "2": 75,
+                  "3": 450
+                }
+              },
+              {
+                "label": "Trap Tick Damage",
+                "scaling": ["abilityPower"],
+                "values": {
+                  "1": 12,
+                  "2": 18,
+                  "3": 80
+                }
+              }
+            ],
+            "params": {
+              "attackSpeedPercent": 1.5,
+              "empoweredAttacks": 3,
+              "finalAttackIndex": 3,
+              "additionalAttackRange": 4,
+              "trapDurationSeconds": 50
             }
           }
-        ],
+        },
         "variants": null,
-        "params": {
-          "attackSpeedPercent": 1.5,
-          "empoweredAttacks": 3,
-          "finalAttackIndex": 3,
-          "cougarEmpoweredCasts": 3,
-          "cougarLeapHexRange": 4,
-          "cougarThirdAttackMissingHealthRatio": 1.25
-        }
+        "params": {}
       }
     },
     {
@@ -4341,6 +4504,14 @@
             "1": 1,
             "2": 1,
             "3": 5
+          },
+          "transformRageMax": 50,
+          "transformSearchHexRadius": 3,
+          "rangeReductionWhenTransformed": 1,
+          "attackDamagePerRage": {
+            "1": 0.05,
+            "2": 0.275,
+            "3": 0.5
           }
         }
       }
