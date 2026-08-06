@@ -165,6 +165,29 @@
         "Lux (Blackthorn)"
       ],
       "description": "The ally placed on the Blackthorn hex is sacrificed before combat, granting Health to your champions. Blackthorn champions gain extra stats based on the sacrifice's role, star level and cost. (2) 175 — (4) 300; bonus 25% stronger — (6) 350; the sacrifice no longer dies and also gains: 20% (AD | AP), 20% (AS), 20 (ARMOR | MR), 250 (HP), 10% (Omnivamp).",
+      "sacrifice": {
+        "byRole": {
+          "tank": {
+            "percentStats": { "hp": 0.17 },
+            "stats": { "armor": 17, "magicResist": 17 }
+          },
+          "attack": {
+            "percentStats": { "attackDamage": 0.22, "attackSpeed": 0.1 }
+          },
+          "magic": {
+            "percentStats": { "damageAmp": 0.13 },
+            "stats": { "manaRegen": 1.7 }
+          }
+        },
+        "multiplierByCostAndStar": {
+          "1": [0.6, 1, 1.75, 2.5],
+          "2": [0.7, 1.4, 2.8, 5],
+          "3": [0.8, 1.8, 3.3, 8],
+          "4": [1.1, 2.25, 50, 500],
+          "5": [1.5, 3, 100, 999],
+          "none": [1, 1, 1, 1]
+        }
+      },
       "breakpoints": [
         {
           "count": 2,
@@ -821,17 +844,22 @@
         {
           "name": "flower",
           "percentStats": {
-            "attackDamage": 0.1,
-            "abilityPower": 0.1
+            "abilityPower": 0.1,
+            "attackSpeed": 0.1
           },
-          "byStar": [0.1, 0.15, 2]
+          "byStar": {
+            "abilityPower": [0.1, 0.15, 2],
+            "attackSpeed": [0.1, 0.15, 2]
+          }
         },
         {
           "name": "mushroom",
           "percentStats": {
             "damageAmp": 0.08
           },
-          "byStar": [0.08, 0.12, 2]
+          "byStar": {
+            "damageAmp": [0.08, 0.12, 2]
+          }
         },
         {
           "name": "rocks",
@@ -839,21 +867,89 @@
             "armor": 12,
             "magicResist": 12
           },
-          "byStar": [12, 15, 500]
+          "percentStats": {
+            "attackDamage": 0.1
+          },
+          "byStar": {
+            "armor": [12, 15, 500],
+            "magicResist": [12, 15, 500],
+            "attackDamage": [0.1, 0.15, 2]
+          }
         },
         {
           "name": "trees",
           "percentStats": {
             "hp": 0.06
           },
-          "byStar": [0.06, 0.12, 2]
+          "byStar": {
+            "hp": [0.06, 0.12, 2]
+          }
         },
         {
           "name": "water",
           "stats": {
             "manaRegen": 2
           },
-          "byStar": [2, 3, 30]
+          "byStar": {
+            "manaRegen": [2, 3, 30]
+          }
+        },
+        {
+          "name": "brush",
+          "stats": {
+            "armor": 12,
+            "magicResist": 12
+          },
+          "byStar": {
+            "armor": [12, 15, 500],
+            "magicResist": [12, 15, 500]
+          }
+        },
+        {
+          "name": "mountain",
+          "percentStats": {
+            "attackSpeed": 0.1
+          },
+          "byStar": {
+            "attackSpeed": [0.1, 0.15, 2]
+          }
+        },
+        {
+          "name": "sand",
+          "percentStats": {
+            "omnivamp": 0.1
+          },
+          "byStar": {
+            "omnivamp": [0.1, 0.15, 1]
+          }
+        },
+        {
+          "name": "swamp",
+          "percentStats": {
+            "durability": 0.05
+          },
+          "byStar": {
+            "durability": [0.05, 0.07, 0.9]
+          }
+        },
+        {
+          "name": "tanglebarb",
+          "stats": {
+            "shield": 300
+          },
+          "byStar": {
+            "shield": [300, 450, 3000]
+          }
+        },
+        {
+          "name": "godwillow",
+          "stats": {
+            "hp": 2000
+          },
+          "params": {
+            "frequencySeconds": 4,
+            "scale": 1.5
+          }
         }
       ],
       "breakpoints": [
@@ -1682,8 +1778,10 @@
           "params": {
             "takedownsForTeamBonus": 30,
             "attackDamagePerExtraTakedown": 0.002,
+            "critChancePerExtraTakedown": 0.002,
             "takedownsPerRengarReward": 8,
-            "bonusTakedownsOnRivalKill": 3
+            "bonusTakedownsOnRivalKill": 3,
+            "khazixEvolutionTakedowns": [8, 30, 60, 100]
           }
         },
         {
