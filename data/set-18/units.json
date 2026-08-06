@@ -5494,6 +5494,24 @@
         },
         "note": "Relevé en jeu le 2026-08-06. Une unité dupliquée ne compte pas deux fois : le total porte sur les Elderwood uniques."
       },
+      "observed": {
+        "on": "2026-08-06",
+        "note": "Relevés en jeu. La base dont le trait prend 25 % n'est pas affichée : Stonebark la résout à 300 grâce aux deux mesures à 5 Elderwood, les deux autres plantes attendent une seconde mesure par palier.",
+        "readings": [
+          {
+            "elderwood": 7,
+            "elderwoodStars": 13,
+            "hp": 2210,
+            "abilityPower": 1.3
+          },
+          {
+            "elderwood": 9,
+            "elderwoodStars": 14,
+            "hp": 3432,
+            "abilityPower": 1.4
+          }
+        ]
+      },
       "ability": {
         "description": "Passive: when an Elderwood unit dies, heal 10% of current max Health and gain 80% Attack Speed for 3 seconds. Active: slam the ground, dealing magic damage to the target and to enemies within 2 hexes, knocking up and stunning the target for 0.5 seconds.",
         "breakdown": [
@@ -5622,6 +5640,36 @@
         },
         "note": "Relevé en jeu le 2026-08-06. Une unité dupliquée ne compte pas deux fois : le total porte sur les Elderwood uniques."
       },
+      "observed": {
+        "on": "2026-08-06",
+        "note": "Relevés en jeu. La base dont le trait prend 25 % n'est pas affichée : Stonebark la résout à 300 grâce aux deux mesures à 5 Elderwood, les deux autres plantes attendent une seconde mesure par palier.",
+        "readings": [
+          {
+            "elderwood": 3,
+            "elderwoodStars": 3,
+            "hp": 157,
+            "abilityPower": 0.3
+          },
+          {
+            "elderwood": 5,
+            "elderwoodStars": 10,
+            "hp": 438,
+            "abilityPower": 1.0
+          },
+          {
+            "elderwood": 7,
+            "elderwoodStars": 13,
+            "hp": 545,
+            "abilityPower": 1.3
+          },
+          {
+            "elderwood": 9,
+            "elderwoodStars": 14,
+            "hp": 780,
+            "abilityPower": 1.4
+          }
+        ]
+      },
       "ability": {
         "description": "After 4 seconds of combat, grant Elderwood allies 10% Attack Damage and Ability Power. Every 4 seconds thereafter, grant an additional 3% Attack Damage and 3% Ability Power.",
         "params": {
@@ -5652,6 +5700,42 @@
           "abilityPower": 0.1
         },
         "note": "Relevé en jeu le 2026-08-06. Une unité dupliquée ne compte pas deux fois : le total porte sur les Elderwood uniques."
+      },
+      "observed": {
+        "on": "2026-08-06",
+        "note": "Relevés en jeu. La base dont le trait prend 25 % n'est pas affichée : Stonebark la résout à 300 grâce aux deux mesures à 5 Elderwood, les deux autres plantes attendent une seconde mesure par palier.",
+        "readings": [
+          {
+            "elderwood": 3,
+            "elderwoodStars": 3,
+            "hp": 525,
+            "abilityPower": 0.3
+          },
+          {
+            "elderwood": 5,
+            "elderwoodStars": 9,
+            "hp": 1125,
+            "abilityPower": 0.9
+          },
+          {
+            "elderwood": 5,
+            "elderwoodStars": 10,
+            "hp": 1200,
+            "abilityPower": 1.0
+          },
+          {
+            "elderwood": 7,
+            "elderwoodStars": 13,
+            "hp": 1838,
+            "abilityPower": 1.3
+          },
+          {
+            "elderwood": 9,
+            "elderwoodStars": 14,
+            "hp": 2754,
+            "abilityPower": 1.4
+          }
+        ]
       },
       "ability": {
         "description": "On death, Stun the nearest 2 enemies for 1.5 seconds.",
