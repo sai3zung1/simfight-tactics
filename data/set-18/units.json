@@ -236,6 +236,14 @@
             "text": "Deals a percent of the target's max Health as true damage every second."
           }
         ],
+        "riftbeastBuff": {
+          "colour": "scarlet",
+          "params": {
+            "attackDamagePerCast": 0.22,
+            "durabilityVsWounded": 0.1,
+            "damageAmpVsWounded": 0.1
+          }
+        },
         "breakdown": [
           {
             "label": "Damage",
@@ -595,6 +603,13 @@
             "text": "Gain 2 Mana Regen for every 4 seconds channeled."
           }
         ],
+        "riftbeastBuff": {
+          "colour": "teal",
+          "params": {
+            "manaRegen": 2,
+            "channelSeconds": 4
+          }
+        },
         "breakdown": [
           {
             "label": "Damage",
@@ -1309,6 +1324,14 @@
             "text": "Every 5 seconds, Gromp gains 25% of his Adaptor stat and allies gain 8%."
           }
         ],
+        "riftbeastBuff": {
+          "colour": "purple",
+          "params": {
+            "selfAdaptorStat": 0.25,
+            "allyAdaptorStat": 0.08,
+            "everySeconds": 5
+          }
+        },
         "breakdown": [],
         "adaptor": {
           "ad": {
@@ -1589,6 +1612,13 @@
             "text": "Gain Precision and 25% Critical Strike Chance, increased up to 50% based on missing Health."
           }
         ],
+        "riftbeastBuff": {
+          "colour": "grey",
+          "params": {
+            "critChance": 0.25,
+            "critChanceAtLowHealth": 0.5
+          }
+        },
         "breakdown": [
           {
             "label": "Damage",
@@ -1674,6 +1704,14 @@
             "text": "When allies fall below 50% Health, they restore 15% max Health."
           }
         ],
+        "riftbeastBuff": {
+          "colour": "green",
+          "params": {
+            "healthThreshold": 0.5,
+            "healPercentMaxHealth": 0.15,
+            "healSeconds": 3
+          }
+        },
         "breakdown": [
           {
             "label": "Damage",
@@ -2661,6 +2699,16 @@
             "text": "On death, Krug and Kruglettes Shield allies for 10% max Health."
           }
         ],
+        "riftbeastBuff": {
+          "colour": "slate",
+          "params": {
+            "shieldPercentMaxHealth": 0.08,
+            "shieldSeconds": 5,
+            "selfHealPercent": 0.03,
+            "allyHealPercent": 0.1,
+            "healIntervalSeconds": 5
+          }
+        },
         "breakdown": [
           {
             "label": "Kruglette Health",
@@ -2756,6 +2804,14 @@
             "text": "Dealing physical damage reduces enemy Armor by 1."
           }
         ],
+        "riftbeastBuff": {
+          "colour": "orange",
+          "params": {
+            "armorReduction": 2,
+            "armorReductionMaxStacks": 10,
+            "procDamageByStage": [50, 50, 75, 150, 350]
+          }
+        },
         "breakdown": [
           {
             "label": "Duration",
@@ -3456,6 +3512,13 @@
             "text": "Attacks 1% Burn enemies and heal Brambleback for 4% max Health."
           }
         ],
+        "riftbeastBuff": {
+          "colour": "red",
+          "params": {
+            "burnSeconds": 4,
+            "healPercentMaxHealth": 0.04
+          }
+        },
         "breakdown": [
           {
             "label": "Leap Damage",
@@ -3981,6 +4044,15 @@
             "text": "Increase the Mana cost of the next Ability cast."
           }
         ],
+        "riftbeastBuff": {
+          "colour": "blue",
+          "params": {
+            "allyManaRegen": 2,
+            "selfManaRegen": 5,
+            "chillAmount": 5,
+            "chillSeconds": 3
+          }
+        },
         "breakdown": [
           {
             "label": "Shield",
@@ -4535,6 +4607,12 @@
         "name": "Heat Without Equal",
         "description": "Passive: Attacks deal 75%/75%/100% damage to enemies adjacent to the target.\n\nActive: Become untargetable and fly into the air, gaining 15%/15%/100% Omnivamp. Upon returning, stun all enemies for 1.25/1.25/99 seconds and Ignite them for 3/3/99 seconds. Then replace subsequent casts with Flame Breath and immediately cast it. Ignited enemies take 2%/2%/20% max Health physical damage per second.\n\nFlame Breath: Spew fire at the most enemies in a line through the target, dealing 260/390/7200 [AD] [AP] physical damage and Igniting them for 3/3/99 seconds\n\nElder Dragon Buff: Damaging an enemy below 12% Health executes them.",
         "keywords": [],
+        "riftbeastBuff": {
+          "colour": "tenth",
+          "params": {
+            "executeThreshold": 0.12
+          }
+        },
         "breakdown": [
           {
             "label": "Damage",
