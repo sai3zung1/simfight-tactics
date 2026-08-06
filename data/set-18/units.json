@@ -5496,19 +5496,21 @@
       },
       "observed": {
         "on": "2026-08-06",
-        "note": "Relevés en jeu. La base dont le trait prend 25 % n'est pas affichée : Stonebark la résout à 300 grâce aux deux mesures à 5 Elderwood, les deux autres plantes attendent une seconde mesure par palier.",
+        "note": "Relevés en jeu. La base dont le trait prend 25 % n'est pas affichée. Les relevés à 3 et 5 Elderwood sont sans autre source de PV ; ceux à 7 et 9 portent Brawler 2, soit +120 PV plats d'équipe, et ne se modélisent toujours pas une fois ce terme retiré — un facteur reste à identifier à ces paliers.",
         "readings": [
           {
             "elderwood": 7,
             "elderwoodStars": 13,
             "hp": 2210,
-            "abilityPower": 1.3
+            "abilityPower": 1.3,
+            "brawler2": true
           },
           {
             "elderwood": 9,
             "elderwoodStars": 14,
             "hp": 3432,
-            "abilityPower": 1.4
+            "abilityPower": 1.4,
+            "brawler2": true
           }
         ]
       },
@@ -5642,31 +5644,35 @@
       },
       "observed": {
         "on": "2026-08-06",
-        "note": "Relevés en jeu. La base dont le trait prend 25 % n'est pas affichée : Stonebark la résout à 300 grâce aux deux mesures à 5 Elderwood, les deux autres plantes attendent une seconde mesure par palier.",
+        "note": "Relevés en jeu. La base dont le trait prend 25 % n'est pas affichée. Les relevés à 3 et 5 Elderwood sont sans autre source de PV ; ceux à 7 et 9 portent Brawler 2, soit +120 PV plats d'équipe, et ne se modélisent toujours pas une fois ce terme retiré — un facteur reste à identifier à ces paliers.",
         "readings": [
           {
             "elderwood": 3,
             "elderwoodStars": 3,
             "hp": 157,
-            "abilityPower": 0.3
+            "abilityPower": 0.3,
+            "brawler2": false
           },
           {
             "elderwood": 5,
             "elderwoodStars": 10,
             "hp": 438,
-            "abilityPower": 1.0
+            "abilityPower": 1.0,
+            "brawler2": false
           },
           {
             "elderwood": 7,
             "elderwoodStars": 13,
             "hp": 545,
-            "abilityPower": 1.3
+            "abilityPower": 1.3,
+            "brawler2": true
           },
           {
             "elderwood": 9,
             "elderwoodStars": 14,
             "hp": 780,
-            "abilityPower": 1.4
+            "abilityPower": 1.4,
+            "brawler2": true
           }
         ]
       },
@@ -5703,39 +5709,48 @@
       },
       "observed": {
         "on": "2026-08-06",
-        "note": "Relevés en jeu. La base dont le trait prend 25 % n'est pas affichée : Stonebark la résout à 300 grâce aux deux mesures à 5 Elderwood, les deux autres plantes attendent une seconde mesure par palier.",
+        "note": "Relevés en jeu. La base dont le trait prend 25 % n'est pas affichée. Les relevés à 3 et 5 Elderwood sont sans autre source de PV ; ceux à 7 et 9 portent Brawler 2, soit +120 PV plats d'équipe, et ne se modélisent toujours pas une fois ce terme retiré — un facteur reste à identifier à ces paliers.",
         "readings": [
           {
             "elderwood": 3,
             "elderwoodStars": 3,
             "hp": 525,
-            "abilityPower": 0.3
+            "abilityPower": 0.3,
+            "brawler2": false
           },
           {
             "elderwood": 5,
             "elderwoodStars": 9,
             "hp": 1125,
-            "abilityPower": 0.9
+            "abilityPower": 0.9,
+            "brawler2": false
           },
           {
             "elderwood": 5,
             "elderwoodStars": 10,
             "hp": 1200,
-            "abilityPower": 1.0
+            "abilityPower": 1.0,
+            "brawler2": false
           },
           {
             "elderwood": 7,
             "elderwoodStars": 13,
             "hp": 1838,
-            "abilityPower": 1.3
+            "abilityPower": 1.3,
+            "brawler2": true
           },
           {
             "elderwood": 9,
             "elderwoodStars": 14,
             "hp": 2754,
-            "abilityPower": 1.4
+            "abilityPower": 1.4,
+            "brawler2": true
           }
-        ]
+        ],
+        "solved": {
+          "hp": 300,
+          "how": "1200 − 1125 = 75 pour une étoile, à 5 Elderwood et sans Brawler ; 75 est le quart de 300."
+        }
       },
       "ability": {
         "description": "On death, Stun the nearest 2 enemies for 1.5 seconds.",
