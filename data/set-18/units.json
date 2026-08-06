@@ -1048,7 +1048,8 @@
         ],
         "variants": null,
         "params": {
-          "summonsOnDeath": 1
+          "summonsOnDeath": 1,
+          "ghoulRangeHexes": 1
         }
       }
     },
@@ -2755,7 +2756,8 @@
         "params": {
           "kruglettesOnDeath": 2,
           "kruglettesHealthPercent": 0.12,
-          "stunSeconds": 1.5
+          "stunSeconds": 1.5,
+          "kruglettesRangeHexes": 1
         }
       }
     },
@@ -4775,7 +4777,8 @@
             "1": 0.05,
             "2": 0.275,
             "3": 0.5
-          }
+          },
+          "megaGnarLastsUntilDeath": true
         }
       }
     },
