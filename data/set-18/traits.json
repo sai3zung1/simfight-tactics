@@ -142,6 +142,17 @@
       "combat": true,
       "champions": ["Lux"],
       "description": "Having an Avatar on your bench or board transforms every other Avatar in your shop to that Avatar's trait. The trait an Avatar picks counts double towards trait bonuses. Variants: Solar, Primal, Lunar, Inferno, Fae, Elderwood, Coven, Blossom, Blackthorn.",
+      "variants": [
+        "Solar",
+        "Primal",
+        "Lunar",
+        "Inferno",
+        "Fae",
+        "Elderwood",
+        "Coven",
+        "Blossom",
+        "Blackthorn"
+      ],
       "breakpoints": [
         {
           "count": 1,
@@ -165,6 +176,41 @@
         "Lux (Blackthorn)"
       ],
       "description": "The ally placed on the Blackthorn hex is sacrificed before combat, granting Health to your champions. Blackthorn champions gain extra stats based on the sacrifice's role, star level and cost. (2) 175 — (4) 300; bonus 25% stronger — (6) 350; the sacrifice no longer dies and also gains: 20% (AD | AP), 20% (AS), 20 (ARMOR | MR), 250 (HP), 10% (Omnivamp).",
+      "sacrifice": {
+        "byRole": {
+          "tank": {
+            "percentStats": {
+              "hp": 0.17
+            },
+            "stats": {
+              "armor": 17,
+              "magicResist": 17
+            }
+          },
+          "attack": {
+            "percentStats": {
+              "attackDamage": 0.22,
+              "attackSpeed": 0.1
+            }
+          },
+          "magic": {
+            "percentStats": {
+              "damageAmp": 0.13
+            },
+            "stats": {
+              "manaRegen": 1.7
+            }
+          }
+        },
+        "multiplierByCostAndStar": {
+          "1": [0.6, 1, 1.75, 2.5],
+          "2": [0.7, 1.4, 2.8, 5],
+          "3": [0.8, 1.8, 3.3, 8],
+          "4": [1.1, 2.25, 50, 500],
+          "5": [1.5, 3, 100, 999],
+          "none": [1, 1, 1, 1]
+        }
+      },
       "breakpoints": [
         {
           "count": 2,
@@ -570,7 +616,7 @@
         "Lux (Elderwood)",
         "Gnar"
       ],
-      "description": "Gain placeable Elderwood plants. (3) A Stonebark Tree and a Lifebloom — (5) A second Stonebark Tree, and Stonebark Trees gain 100 Health — (7) and the Deepwood Protector — (9) Plants become 2-star — (11) Plants become 3-star and the forest comes alive.",
+      "description": "Gain placeable Elderwood plants. (3) A Stonebark Tree and a Lifebloom — (5) A second Stonebark Tree, and Stonebark Trees gain 150 Health — (7) and the Deepwood Protector — (9) Plants become 2-star — (11) Plants become 3-star and the forest comes alive.",
       "breakpoints": [
         {
           "count": 3,
@@ -588,7 +634,7 @@
             "stonebarkTrees": 2,
             "lifeblooms": 1,
             "plantStarLevel": 1,
-            "stonebarkBonusHealth": 100
+            "stonebarkBonusHealth": 150
           }
         },
         {
@@ -599,7 +645,7 @@
             "lifeblooms": 1,
             "deepwoodProtectors": 1,
             "plantStarLevel": 1,
-            "stonebarkBonusHealth": 100
+            "stonebarkBonusHealth": 150
           }
         },
         {
@@ -610,7 +656,7 @@
             "lifeblooms": 1,
             "deepwoodProtectors": 1,
             "plantStarLevel": 2,
-            "stonebarkBonusHealth": 100
+            "stonebarkBonusHealth": 150
           }
         },
         {
@@ -621,7 +667,7 @@
             "lifeblooms": 1,
             "deepwoodProtectors": 1,
             "plantStarLevel": 3,
-            "stonebarkBonusHealth": 100
+            "stonebarkBonusHealth": 150
           }
         }
       ]
@@ -635,7 +681,17 @@
       "breakpoints": [
         {
           "count": 1,
-          "grants": [],
+          "grants": [
+            {
+              "to": "ally",
+              "stats": {
+                "shield": 200
+              },
+              "percentStats": {
+                "durability": 0.25
+              }
+            }
+          ],
           "params": {
             "pairedAllies": 1
           }
@@ -811,17 +867,22 @@
         {
           "name": "flower",
           "percentStats": {
-            "attackDamage": 0.1,
-            "abilityPower": 0.1
+            "abilityPower": 0.1,
+            "attackSpeed": 0.1
           },
-          "byStar": [0.1, 0.15, 2]
+          "byStar": {
+            "abilityPower": [0.1, 0.15, 2],
+            "attackSpeed": [0.1, 0.15, 2]
+          }
         },
         {
           "name": "mushroom",
           "percentStats": {
             "damageAmp": 0.08
           },
-          "byStar": [0.08, 0.12, 2]
+          "byStar": {
+            "damageAmp": [0.08, 0.12, 2]
+          }
         },
         {
           "name": "rocks",
@@ -829,21 +890,89 @@
             "armor": 12,
             "magicResist": 12
           },
-          "byStar": [12, 15, 500]
+          "percentStats": {
+            "attackDamage": 0.1
+          },
+          "byStar": {
+            "armor": [12, 15, 500],
+            "magicResist": [12, 15, 500],
+            "attackDamage": [0.1, 0.15, 2]
+          }
         },
         {
           "name": "trees",
           "percentStats": {
             "hp": 0.06
           },
-          "byStar": [0.06, 0.12, 2]
+          "byStar": {
+            "hp": [0.06, 0.12, 2]
+          }
         },
         {
           "name": "water",
           "stats": {
             "manaRegen": 2
           },
-          "byStar": [2, 3, 30]
+          "byStar": {
+            "manaRegen": [2, 3, 30]
+          }
+        },
+        {
+          "name": "brush",
+          "stats": {
+            "armor": 12,
+            "magicResist": 12
+          },
+          "byStar": {
+            "armor": [12, 15, 500],
+            "magicResist": [12, 15, 500]
+          }
+        },
+        {
+          "name": "mountain",
+          "percentStats": {
+            "attackSpeed": 0.1
+          },
+          "byStar": {
+            "attackSpeed": [0.1, 0.15, 2]
+          }
+        },
+        {
+          "name": "sand",
+          "percentStats": {
+            "omnivamp": 0.1
+          },
+          "byStar": {
+            "omnivamp": [0.1, 0.15, 1]
+          }
+        },
+        {
+          "name": "swamp",
+          "percentStats": {
+            "durability": 0.05
+          },
+          "byStar": {
+            "durability": [0.05, 0.07, 0.9]
+          }
+        },
+        {
+          "name": "tanglebarb",
+          "stats": {
+            "shield": 300
+          },
+          "byStar": {
+            "shield": [300, 450, 3000]
+          }
+        },
+        {
+          "name": "godwillow",
+          "stats": {
+            "hp": 2000
+          },
+          "params": {
+            "frequencySeconds": 4,
+            "scale": 1.5
+          }
         }
       ],
       "breakpoints": [
@@ -1343,21 +1472,21 @@
       "description": "Choose one of four Primal Blessings: Primal damage executes enemies below 15% Health; every 16 Primal takedowns, gain a component (max 4); after 6 seconds, Primal champions gain 30% Attack Speed and the team gains 15%; your team heals 4% of max Health every 4 seconds.",
       "blessings": [
         {
-          "name": "execute",
+          "name": "bear",
           "params": {
             "executeBelowHealth": 0.15
           }
         },
         {
-          "name": "component-quest",
+          "name": "phoenix",
           "combat": false,
           "params": {
-            "takedownsPerComponent": 16,
+            "takedownsPerComponent": 14,
             "maxComponents": 4
           }
         },
         {
-          "name": "haste",
+          "name": "tiger",
           "grants": [
             {
               "to": "traitHolders",
@@ -1377,7 +1506,7 @@
           }
         },
         {
-          "name": "regeneration",
+          "name": "turtle",
           "grants": [
             {
               "to": "team",
@@ -1582,6 +1711,18 @@
         "Elder Dragon"
       ],
       "description": "(3) Use the Alpha Mark to grant a Riftbeast its unique Buff — (5) Every 3 combats, your next shop is overrun with Riftbeasts — (7) At combat start and every 5 seconds, Riftbeasts grow, gaining 5% (AD) / 5% (AP) / 5% (AS) / +3 (ARMOR) / +3 (MR) / +50 (HP) / +1 (Mana) — (10) +2 max team size.",
+      "alphaTargets": [
+        "Cinderling",
+        "Pebbles",
+        "Gromp",
+        "Murkwolf",
+        "Scuttlecrab",
+        "Krug",
+        "Mama Beak",
+        "Brambleback",
+        "Sentinel",
+        "Elder Dragon"
+      ],
       "breakpoints": [
         {
           "count": 3,
@@ -1657,6 +1798,7 @@
       "combat": true,
       "champions": ["Kha'Zix", "Rengar"],
       "description": "(1) Active only when playing 1 Rival. Rivals accumulate takedowns, +3 for eliminating another Rival. Takedowns evolve Kha'Zix, permanently granting him a trait of your choice among Executioner, Rapidfire, Ravager or Spellweaver. Rengar grants 2/3/5 gold every 8 takedowns; after 30 takedowns, the team gains 5% Attack Damage plus 0.2% per additional takedown. (2) Rivals can be played together: when Kha'Zix gains Mana from his ability, Rengar gains 100% of it; when Rengar heals from his ability, Kha'Zix recovers 50% of that healing.",
+      "khazixTraits": ["Executioner", "Rapidfire", "Ravager", "Spellweaver"],
       "breakpoints": [
         {
           "count": 1,
@@ -1672,8 +1814,10 @@
           "params": {
             "takedownsForTeamBonus": 30,
             "attackDamagePerExtraTakedown": 0.002,
+            "critChancePerExtraTakedown": 0.002,
             "takedownsPerRengarReward": 8,
-            "bonusTakedownsOnRivalKill": 3
+            "bonusTakedownsOnRivalKill": 3,
+            "khazixEvolutionTakedowns": [8, 30, 60, 100]
           }
         },
         {

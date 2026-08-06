@@ -211,7 +211,7 @@
             "magicDamage": 30
           },
           "per": "4-attacks-taken",
-          "maxByStage": 90,
+          "byStage": [30, 50, 70, 90],
           "cooldownSeconds": 1
         }
       ]
@@ -847,7 +847,7 @@
       "combat": false
     },
     {
-      "name": "Beast Within",
+      "name": "Beast Within+",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["4-2"],
@@ -880,7 +880,7 @@
       }
     },
     {
-      "name": "Beast Within",
+      "name": "Beast Within+",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["4-2"],
@@ -1134,7 +1134,7 @@
       }
     },
     {
-      "name": "Consuming Flora",
+      "name": "Consuming Flora+",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["3-2"],
@@ -1145,7 +1145,7 @@
       }
     },
     {
-      "name": "Consuming Flora",
+      "name": "Consuming Flora++",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["4-2"],
@@ -1256,7 +1256,7 @@
       "description": "Converting Coven Essence to rewards grants Coven champions Ability Power instead of loot. Gain a Camille, an Elise, and a Caitlyn.",
       "combat": true,
       "params": {
-        "covenEssenceBecomesAbilityPower": 1
+        "abilityPowerByArmoryLevel": [8, 20, 32, 48, 80, 152, 200, 400, 1666]
       }
     },
     {
@@ -1326,7 +1326,7 @@
             "magicDamage": 50
           },
           "per": "4-attacks-taken",
-          "maxByStage": 140,
+          "byStage": [50, 80, 110, 140],
           "cooldownSeconds": 1
         }
       ]
@@ -1991,7 +1991,8 @@
       "description": "While Sprykin is active, gain a second BFF summon that is 70% as powerful. Gain a Teemo, a Veigar, and a Kobuko.",
       "combat": true,
       "params": {
-        "secondBffPowerShare": 0.7
+        "secondBffEffectiveness": 0.5,
+        "secondBffEffectivenessAppliesToSummonSpell": false
       }
     },
     {
@@ -2124,7 +2125,7 @@
       ]
     },
     {
-      "name": "Sun and Moon",
+      "name": "Sun and Moon+",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["4-2"],
@@ -2823,15 +2824,15 @@
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "After a champion dies in combat, spawn a copy of them one star level lower with 50% health. Gain 3 free rerolls.",
+      "description": "After a champion dies in combat, spawn a copy of them one star level lower with 70% health. Gain 3 free rerolls.",
       "combat": true,
       "params": {
-        "respawnHealthShare": 0.5,
+        "respawnHealthShare": 0.7,
         "respawnStarLevelDrop": 1
       }
     },
     {
-      "name": "Nesting Dolls",
+      "name": "Nesting Dolls+",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -2843,7 +2844,7 @@
       }
     },
     {
-      "name": "Nesting Dolls",
+      "name": "Nesting Dolls++",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],

@@ -234,7 +234,7 @@
       "requires": ["Have Primal active"],
       "combat": true,
       "params": {
-        "primalBuff": 1
+        "blessing": "bear"
       }
     },
     {
@@ -266,9 +266,13 @@
       "grants": [
         {
           "to": "enemy",
-          "effect": "true-damage-spread"
+          "burnPercent": 0.01,
+          "everySeconds": 1
         }
-      ]
+      ],
+      "params": {
+        "spreadRangeMaxHexes": 8
+      }
     },
     {
       "name": "Booster Shot",
@@ -530,9 +534,45 @@
       "appears": "5-1 to 10-1",
       "requires": ["Have Riftbeast active"],
       "combat": true,
-      "params": {
-        "baronBuff": 1
-      }
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "armor": 4,
+            "magicResist": 4,
+            "hp": 40,
+            "manaRegen": 1
+          },
+          "percentStats": {
+            "attackDamage": 0.04,
+            "abilityPower": 0.04,
+            "attackSpeed": 0.04,
+            "critChance": 0.1,
+            "omnivamp": 0.04,
+            "damageAmp": 0.03,
+            "durability": 0.03
+          }
+        },
+        {
+          "to": "team",
+          "tier": "upgraded",
+          "stats": {
+            "armor": 6,
+            "magicResist": 6,
+            "hp": 60,
+            "manaRegen": 2
+          },
+          "percentStats": {
+            "attackDamage": 0.06,
+            "abilityPower": 0.06,
+            "attackSpeed": 0.06,
+            "critChance": 0.15,
+            "omnivamp": 0.06,
+            "damageAmp": 0.05,
+            "durability": 0.05
+          }
+        }
+      ]
     },
     {
       "name": "Hero's Entrance",
@@ -559,8 +599,40 @@
       ],
       "combat": true,
       "params": {
-        "empoweredChampions": 3
-      }
+        "empoweredChampions": 3,
+        "maxFullyItemisedUnits": 4
+      },
+      "grants": [
+        {
+          "to": "ally",
+          "stats": {
+            "hp": 1500,
+            "armor": 30,
+            "magicResist": 30
+          },
+          "percentStats": {
+            "attackDamage": 0.3,
+            "abilityPower": 0.3,
+            "attackSpeed": 0.3,
+            "omnivamp": 0.1
+          }
+        },
+        {
+          "to": "ally",
+          "tier": "upgraded",
+          "stats": {
+            "hp": 1800,
+            "armor": 40,
+            "magicResist": 40
+          },
+          "percentStats": {
+            "attackDamage": 0.4,
+            "abilityPower": 0.4,
+            "attackSpeed": 0.4,
+            "omnivamp": 0.12
+          }
+        }
+      ]
     },
     {
       "name": "Hireling",
@@ -1292,7 +1364,8 @@
         }
       ],
       "params": {
-        "executeBelowHealth": 0.12
+        "executeBelowHealth": 0.15,
+        "executeBelowHealthUpgraded": 0.2
       }
     },
     {
@@ -1433,7 +1506,7 @@
       "requires": ["Have Primal active"],
       "combat": true,
       "params": {
-        "primalBuff": 1
+        "blessing": "tiger"
       }
     },
     {
@@ -1464,7 +1537,11 @@
           },
           "everySeconds": 3
         }
-      ]
+      ],
+      "params": {
+        "targetsPerVolley": 3,
+        "totalArrows": 6
+      }
     },
     {
       "name": "Tremors",
@@ -1494,7 +1571,7 @@
       "requires": ["Have Primal active"],
       "combat": true,
       "params": {
-        "primalBuff": 1
+        "blessing": "turtle"
       }
     },
     {
