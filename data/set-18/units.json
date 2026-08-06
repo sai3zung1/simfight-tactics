@@ -69,7 +69,9 @@
         ],
         "variants": null,
         "params": {
-          "burningBonusApplies": 1
+          "burningBonusApplies": 1,
+          "recastEffectiveness": 0.7,
+          "recastManaRefund": 40
         }
       }
     },
@@ -2565,11 +2567,21 @@
               "2": 0.03,
               "3": 0.03
             }
+          },
+          {
+            "label": "Bonus Damage",
+            "scaling": ["abilityPower"],
+            "values": {
+              "1": 145,
+              "2": 220,
+              "3": 350
+            }
           }
         ],
         "variants": null,
         "params": {
-          "attacksPerDoubleStrike": 3
+          "attacksPerDoubleStrike": 3,
+          "healShareOfBonusDamage": 0.35
         }
       }
     },
@@ -3525,13 +3537,52 @@
               "2": 375,
               "3": 3000
             }
+          },
+          {
+            "label": "Cougar Attack Damage",
+            "scaling": ["attackDamage"],
+            "values": {
+              "1": 60,
+              "2": 90,
+              "3": 135
+            }
+          },
+          {
+            "label": "Cougar Swipe Damage",
+            "scaling": ["attackDamage"],
+            "values": {
+              "1": 215,
+              "2": 325,
+              "3": 2500
+            }
+          },
+          {
+            "label": "Cougar Third Attack Heal",
+            "scaling": ["attackDamage"],
+            "values": {
+              "1": 275,
+              "2": 400,
+              "3": 2000
+            }
+          },
+          {
+            "label": "Cougar Armor Ignored",
+            "scaling": [],
+            "values": {
+              "1": 0.4,
+              "2": 0.6,
+              "3": 0.8
+            }
           }
         ],
         "variants": null,
         "params": {
           "attackSpeedPercent": 1.5,
           "empoweredAttacks": 3,
-          "finalAttackIndex": 3
+          "finalAttackIndex": 3,
+          "cougarEmpoweredCasts": 3,
+          "cougarLeapHexRange": 4,
+          "cougarThirdAttackMissingHealthRatio": 1.25
         }
       }
     },

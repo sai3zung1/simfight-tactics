@@ -635,7 +635,17 @@
       "breakpoints": [
         {
           "count": 1,
-          "grants": [],
+          "grants": [
+            {
+              "to": "ally",
+              "stats": {
+                "shield": 200
+              },
+              "percentStats": {
+                "durability": 0.25
+              }
+            }
+          ],
           "params": {
             "pairedAllies": 1
           }
@@ -1343,21 +1353,21 @@
       "description": "Choose one of four Primal Blessings: Primal damage executes enemies below 15% Health; every 16 Primal takedowns, gain a component (max 4); after 6 seconds, Primal champions gain 30% Attack Speed and the team gains 15%; your team heals 4% of max Health every 4 seconds.",
       "blessings": [
         {
-          "name": "execute",
+          "name": "bear",
           "params": {
             "executeBelowHealth": 0.15
           }
         },
         {
-          "name": "component-quest",
+          "name": "phoenix",
           "combat": false,
           "params": {
-            "takedownsPerComponent": 16,
+            "takedownsPerComponent": 14,
             "maxComponents": 4
           }
         },
         {
-          "name": "haste",
+          "name": "tiger",
           "grants": [
             {
               "to": "traitHolders",
@@ -1377,7 +1387,7 @@
           }
         },
         {
-          "name": "regeneration",
+          "name": "turtle",
           "grants": [
             {
               "to": "team",

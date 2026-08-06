@@ -234,7 +234,7 @@
       "requires": ["Have Primal active"],
       "combat": true,
       "params": {
-        "primalBuff": 1
+        "blessing": "bear"
       }
     },
     {
@@ -266,9 +266,13 @@
       "grants": [
         {
           "to": "enemy",
-          "effect": "true-damage-spread"
+          "burnPercent": 0.01,
+          "everySeconds": 1
         }
-      ]
+      ],
+      "params": {
+        "spreadRangeMaxHexes": 8
+      }
     },
     {
       "name": "Booster Shot",
@@ -1292,7 +1296,8 @@
         }
       ],
       "params": {
-        "executeBelowHealth": 0.12
+        "executeBelowHealth": 0.15,
+        "executeBelowHealthUpgraded": 0.2
       }
     },
     {
@@ -1433,7 +1438,7 @@
       "requires": ["Have Primal active"],
       "combat": true,
       "params": {
-        "primalBuff": 1
+        "blessing": "tiger"
       }
     },
     {
@@ -1464,7 +1469,11 @@
           },
           "everySeconds": 3
         }
-      ]
+      ],
+      "params": {
+        "targetsPerVolley": 3,
+        "totalArrows": 6
+      }
     },
     {
       "name": "Tremors",
@@ -1494,7 +1503,7 @@
       "requires": ["Have Primal active"],
       "combat": true,
       "params": {
-        "primalBuff": 1
+        "blessing": "turtle"
       }
     },
     {

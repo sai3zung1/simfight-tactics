@@ -211,7 +211,7 @@
             "magicDamage": 30
           },
           "per": "4-attacks-taken",
-          "maxByStage": 90,
+          "byStage": [30, 50, 70, 90],
           "cooldownSeconds": 1
         }
       ]
@@ -1326,7 +1326,7 @@
             "magicDamage": 50
           },
           "per": "4-attacks-taken",
-          "maxByStage": 140,
+          "byStage": [50, 80, 110, 140],
           "cooldownSeconds": 1
         }
       ]

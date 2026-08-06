@@ -1317,7 +1317,8 @@
       "params": {
         "hexRadius": 1,
         "pairedWith": "Aegis of Dusk",
-        "everySecondsWhenPaired": 1.25
+        "everySecondsWhenPaired": 1.25,
+        "stageScaling": 0.2
       }
     },
     {
@@ -1355,7 +1356,8 @@
       "params": {
         "hexRadius": 1,
         "pairedWith": "Aegis of Dawn",
-        "everySecondsWhenPaired": 1.25
+        "everySecondsWhenPaired": 1.25,
+        "stageScaling": 0.15
       }
     },
     {
