@@ -1256,7 +1256,7 @@
       "description": "Converting Coven Essence to rewards grants Coven champions Ability Power instead of loot. Gain a Camille, an Elise, and a Caitlyn.",
       "combat": true,
       "params": {
-        "covenEssenceBecomesAbilityPower": 1
+        "abilityPowerByArmoryLevel": [8, 20, 32, 48, 80, 152, 200, 400, 1666]
       }
     },
     {
@@ -1991,7 +1991,8 @@
       "description": "While Sprykin is active, gain a second BFF summon that is 70% as powerful. Gain a Teemo, a Veigar, and a Kobuko.",
       "combat": true,
       "params": {
-        "secondBffPowerShare": 0.7
+        "secondBffEffectiveness": 0.5,
+        "secondBffEffectivenessAppliesToSummonSpell": false
       }
     },
     {
