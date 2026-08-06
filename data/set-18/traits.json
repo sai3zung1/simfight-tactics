@@ -616,7 +616,7 @@
         "Lux (Elderwood)",
         "Gnar"
       ],
-      "description": "Gain placeable Elderwood plants. (3) A Stonebark Tree and a Lifebloom — (5) A second Stonebark Tree, and Stonebark Trees gain 100 Health — (7) and the Deepwood Protector — (9) Plants become 2-star — (11) Plants become 3-star and the forest comes alive.",
+      "description": "Gain placeable Elderwood plants. (3) A Stonebark Tree and a Lifebloom — (5) A second Stonebark Tree, and Stonebark Trees gain 150 Health — (7) and the Deepwood Protector — (9) Plants become 2-star — (11) Plants become 3-star and the forest comes alive.",
       "breakpoints": [
         {
           "count": 3,
@@ -634,7 +634,7 @@
             "stonebarkTrees": 2,
             "lifeblooms": 1,
             "plantStarLevel": 1,
-            "stonebarkBonusHealth": 100
+            "stonebarkBonusHealth": 150
           }
         },
         {
@@ -645,7 +645,7 @@
             "lifeblooms": 1,
             "deepwoodProtectors": 1,
             "plantStarLevel": 1,
-            "stonebarkBonusHealth": 100
+            "stonebarkBonusHealth": 150
           }
         },
         {
@@ -656,7 +656,7 @@
             "lifeblooms": 1,
             "deepwoodProtectors": 1,
             "plantStarLevel": 2,
-            "stonebarkBonusHealth": 100
+            "stonebarkBonusHealth": 150
           }
         },
         {
@@ -667,7 +667,7 @@
             "lifeblooms": 1,
             "deepwoodProtectors": 1,
             "plantStarLevel": 3,
-            "stonebarkBonusHealth": 100
+            "stonebarkBonusHealth": 150
           }
         }
       ]
