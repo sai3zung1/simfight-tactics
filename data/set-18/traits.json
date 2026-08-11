@@ -4,6 +4,7 @@
       "name": "Adaptor",
       "kind": "class",
       "combat": true,
+      "requiresRunInput": false,
       "champions": ["Akali", "Gromp", "Master Yi", "Kog'Maw", "Nidalee"],
       "description": "Innate: Adaptor abilities change depending on whether their Attack Damage or Ability Power is higher. Adaptors gain AP or AD, whichever stat is higher. (2) 20% (AD or AP) — (3) 30% (AD or AP) — (4) 50%. (AD or AP)",
       "breakpoints": [
@@ -52,6 +53,7 @@
       "name": "Apex Predator",
       "kind": "unique",
       "combat": true,
+      "requiresRunInput": false,
       "champions": ["Elder Dragon"],
       "description": "Elder Dragon takes up 2 team slots and grants +2 to the Riftbeast trait.",
       "breakpoints": [
@@ -69,6 +71,7 @@
       "name": "Attuned",
       "kind": "unique",
       "combat": true,
+      "requiresRunInput": false,
       "champions": ["Alune"],
       "description": "Your strongest Alune cycles to a new phase of the moon after each cast. While the moon is at or below half full, your team gains 7% (Durability); above that, your team gains 7% (Damage Amp). Phases: New Moon 7% (Durability), Waxing Crescent 7% (Durability), Half Moon 7% (Durability), Waxing Gibbous 7% (Damage Amp), Full Moon 7% (Damage Amp).",
       "advancesOn": "cast",
@@ -141,6 +144,7 @@
       "name": "Avatar",
       "kind": "unique",
       "combat": false,
+      "requiresRunInput": true,
       "champions": ["Lux"],
       "description": "Having an Avatar on your bench or board transforms every other Avatar in your shop to that Avatar's trait. The trait an Avatar picks counts double towards trait bonuses. Variants: Solar, Primal, Lunar, Inferno, Fae, Elderwood, Coven, Blossom, Blackthorn.",
       "variants": [
@@ -168,6 +172,7 @@
       "name": "Blackthorn",
       "kind": "origin",
       "combat": true,
+      "requiresRunInput": true,
       "champions": [
         "Veigar",
         "Rek'Sai",
@@ -277,6 +282,7 @@
       "name": "Blossom",
       "kind": "origin",
       "combat": true,
+      "requiresRunInput": false,
       "champions": [
         "Yorick",
         "Karma",
@@ -360,6 +366,7 @@
       "name": "Bounty Seeker",
       "kind": "unique",
       "combat": false,
+      "requiresRunInput": false,
       "champions": ["Draven"],
       "description": "Choose a bounty. Your strongest Draven progresses towards it to earn its reward; once completed, choose another. Bounties and rewards: 50 attacks → 1 random 5-cost champion; 5 casts → 2 4-cost champions; 8 casts → 10 rerolls; 8000 damage → 7 gold; 35000 damage → 1 B.F. Sword; 10000 damage in a single player combat → 15 gold; 6 kills → 12 gold; 15 kills → 1 random completed item; highest team damage → 2 rerolls; survive 3 player combats → 2 random components; 14 takedowns → 10 XP.",
       "breakpoints": [
@@ -373,6 +380,7 @@
       "name": "Brawler",
       "kind": "class",
       "combat": true,
+      "requiresRunInput": false,
       "champions": ["Kobuko", "Rek'Sai", "Alistar", "Krug", "Sett", "Gnar"],
       "description": "Your team gains 120 max Health; Brawlers gain more. (2) 25% (HP) — (4) 40% (HP) — (6) 65%.(HP)",
       "breakpoints": [
@@ -433,6 +441,7 @@
       "name": "Caustic",
       "kind": "origin",
       "combat": true,
+      "requiresRunInput": false,
       "champions": ["Kog'Maw"],
       "description": "Caustic damage applies 30% Shred and Sunder to enemies for 4 seconds.",
       "breakpoints": [
@@ -455,7 +464,8 @@
     {
       "name": "Coven",
       "kind": "origin",
-      "combat": true,
+      "combat": false,
+      "requiresRunInput": true,
       "champions": [
         "Camille",
         "Elise",
@@ -509,6 +519,7 @@
       "name": "Defender",
       "kind": "class",
       "combat": true,
+      "requiresRunInput": false,
       "champions": [
         "Leona",
         "Ornn",
@@ -582,6 +593,7 @@
       "name": "Eclipse",
       "kind": "origin",
       "combat": true,
+      "requiresRunInput": false,
       "champions": [],
       "description": "Hidden trait, unlocked by combining Solar and Lunar. After 10 seconds of combat, the Eclipse kills the enemy with the lowest Health, then repeats every 3 seconds.",
       "requires": {
@@ -611,6 +623,7 @@
       "name": "Elderwood",
       "kind": "origin",
       "combat": true,
+      "requiresRunInput": true,
       "champions": [
         "Xayah",
         "Ornn",
@@ -681,6 +694,7 @@
       "name": "Emerald Aspect",
       "kind": "unique",
       "combat": true,
+      "requiresRunInput": false,
       "champions": ["Taric"],
       "description": "Drag an ally onto your strongest Taric to pair them, granting that ally powerful bonuses from Taric's ability.",
       "breakpoints": [
@@ -707,6 +721,7 @@
       "name": "Executioner",
       "kind": "class",
       "combat": true,
+      "requiresRunInput": false,
       "champions": ["Yunara", "Azir", "Soraka", "Ezreal", "Kennen"],
       "description": "(2) Executioners gain Precision and 35% Critical Strike Chance — (3) Additionally, enemies bleed for 30% bonus raw damage over 3 seconds — (4) Bleed damage raised to 50%.",
       "breakpoints": [
@@ -768,6 +783,7 @@
       "name": "Fae",
       "kind": "origin",
       "combat": true,
+      "requiresRunInput": true,
       "champions": ["Rakan", "Xayah", "Tristana", "Lillia", "Lux (Fae)"],
       "description": "Your team's damage, healing and shielding attracts Pixies. Each Pixie grants Attack Damage and Ability Power to Fae champions, and once they drop below 50% Health they heal for each Pixie. (2) 5% (AP) (AD) and 2% healing — (4) 8% (AP) (AD) and 4% healing; after attracting 7 Pixies, you attract Golden Pixies that grant gold.",
       "breakpoints": [
@@ -826,6 +842,7 @@
       "name": "Flora Fatalis",
       "kind": "unique",
       "combat": true,
+      "requiresRunInput": false,
       "champions": ["Fiddlesticks", "Soraka"],
       "description": "(1) 10 Mana — (2) and grants a heal of 8% max Health to the ally with the lowest Health.",
       "breakpoints": [
@@ -866,6 +883,7 @@
       "name": "Greenfather",
       "kind": "unique",
       "combat": true,
+      "requiresRunInput": true,
       "champions": ["Ivern"],
       "description": "Gain 1 seed when your strongest Ivern casts, plus 4 each combat. Ivern spends 5 seeds to grow a hex on your board that grants a bonus to whoever occupies it. Bonuses: Flower 10%/15%/200%, Mushroom 8%/12%/200%, Rocks 12/15/500, Trees 6%/12%/200%, Water 2/3/30.",
       "hexes": [
@@ -996,6 +1014,7 @@
       "name": "Hunter",
       "kind": "class",
       "combat": true,
+      "requiresRunInput": false,
       "champions": ["Cinderling", "Caitlyn", "Tristana", "Sivir", "Ashe"],
       "description": "Hunters gain Attack Damage. If a Hunter has not changed target for 4 seconds, it gains 10% Damage Amp. (2) 15% (AD) — (3) 25% (AD) — (4) 40% (AD) — (5) 60% (AD).",
       "breakpoints": [
@@ -1097,6 +1116,7 @@
       "name": "Inferno",
       "kind": "origin",
       "combat": true,
+      "requiresRunInput": false,
       "champions": [
         "Varus",
         "Akali",
@@ -1181,6 +1201,7 @@
       "name": "Invoker",
       "kind": "class",
       "combat": true,
+      "requiresRunInput": false,
       "champions": ["Pebbles", "Teemo", "Kog'Maw", "Sentinel", "Morgana"],
       "description": "Your team gains Mana Regen, increased for Invokers. (2) 1 (Mana Regen) | 2 (Mana Regen) — (3) 1 (Mana Regen) | 3 (Mana Regen) — (4) 2 (Mana Regen) | 5 (Mana Regen) — (5) 2 (Mana Regen) | 8 (Mana Regen).",
       "breakpoints": [
@@ -1258,6 +1279,7 @@
       "name": "Juggernaut",
       "kind": "class",
       "combat": true,
+      "requiresRunInput": false,
       "champions": [
         "Yorick",
         "Rakan",
@@ -1326,6 +1348,7 @@
       "name": "Lunar",
       "kind": "origin",
       "combat": true,
+      "requiresRunInput": false,
       "champions": ["Diana", "Aphelios", "Lux (Lunar)", "Alune"],
       "description": "Lunar champions and adjacent allies gain Attack Speed and Ability Power; Lunar champions gain 100% more. (2) 7%, 7% (AP) (AD) — (3) 10%, 10% (AP) (AD) — (4) 15%, 15% (AP) (AD) — (5) 20%, 20%. (AP) (AD)",
       "breakpoints": [
@@ -1423,6 +1446,7 @@
       "name": "Monolith",
       "kind": "class",
       "combat": true,
+      "requiresRunInput": false,
       "champions": ["Malphite"],
       "description": "Monoliths gain 10 Armor and Magic Resist for each enemy targeting them.",
       "breakpoints": [
@@ -1445,6 +1469,7 @@
       "name": "Old Growth",
       "kind": "unique",
       "combat": true,
+      "requiresRunInput": true,
       "champions": ["Maokai"],
       "description": "Whenever an enemy dies within 3 hexes, gain 30 permanent max Health.",
       "breakpoints": [
@@ -1473,6 +1498,7 @@
       "name": "Primal",
       "kind": "origin",
       "combat": true,
+      "requiresRunInput": true,
       "champions": ["Vi", "Sivir", "Nidalee", "Lux (Primal)"],
       "description": "Choose one of four Primal Blessings: Primal damage executes enemies below 15% Health; every 16 Primal takedowns, gain a component (max 4); after 6 seconds, Primal champions gain 30% Attack Speed and the team gains 15%; your team heals 4% of max Health every 4 seconds.",
       "blessings": [
@@ -1548,6 +1574,7 @@
       "name": "Rapidfire",
       "kind": "class",
       "combat": true,
+      "requiresRunInput": false,
       "champions": ["Xayah", "Varus", "Kayle", "Mama Beak", "Aphelios"],
       "description": "Your team gains 10% Attack Speed. Rapidfire champions gain more with each attack, up to 10 stacks. (2) +3% (AS) per attack — (3) +5% (AS) — (4) +9% (AS) — (5) +15% (AS).",
       "breakpoints": [
@@ -1633,6 +1660,7 @@
       "name": "Ravager",
       "kind": "class",
       "combat": true,
+      "requiresRunInput": false,
       "champions": [
         "Akali",
         "Camille",
@@ -1703,6 +1731,7 @@
       "name": "Riftbeast",
       "kind": "origin",
       "combat": true,
+      "requiresRunInput": true,
       "champions": [
         "Cinderling",
         "Pebbles",
@@ -1801,6 +1830,7 @@
       "name": "Rival",
       "kind": "origin",
       "combat": true,
+      "requiresRunInput": true,
       "champions": ["Kha'Zix", "Rengar"],
       "description": "(1) Active only when playing 1 Rival. Rivals accumulate takedowns, +3 for eliminating another Rival. Takedowns evolve Kha'Zix, permanently granting him a trait of your choice among Executioner, Rapidfire, Ravager or Spellweaver. Rengar grants 2/3/5 gold every 8 takedowns; after 30 takedowns, the team gains 5% Attack Damage plus 0.2% per additional takedown. (2) Rivals can be played together: when Kha'Zix gains Mana from his ability, Rengar gains 100% of it; when Rengar heals from his ability, Kha'Zix recovers 50% of that healing.",
       "khazixTraits": ["Executioner", "Rapidfire", "Ravager", "Spellweaver"],
@@ -1839,6 +1869,7 @@
       "name": "Solar",
       "kind": "origin",
       "combat": true,
+      "requiresRunInput": false,
       "champions": ["Leona", "Sejuani", "Kayle", "Lux (Solar)"],
       "description": "(3) Your champions gain a shield of 5% of their max Health and deal 7% bonus magic damage. Additional bonuses based on the number of unique 3-star champions fielded: 1 → increases the shield and bonus magic damage by 2.5% per 3-star; 3 → 25% (AS) and 15 (ARMOR) (MR); 5 → converts 50% of the bonus magic damage into raw damage; 8 → every 4 seconds of combat, a 3-star champion becomes 4-star.",
       "thresholds": [
@@ -1908,6 +1939,7 @@
       "name": "Spellweaver",
       "kind": "class",
       "combat": true,
+      "requiresRunInput": false,
       "champions": [
         "Veigar",
         "Karma",
@@ -1997,6 +2029,7 @@
       "name": "Sprykin",
       "kind": "origin",
       "combat": true,
+      "requiresRunInput": true,
       "champions": ["Kobuko", "Veigar", "Teemo", "Rammus", "Tristana", "Gnar"],
       "description": "Gain the Big Furry Friend. Drop a Sprykin on the BFF to pick its Rider. (3) The Rider gains 15% (HP) and 15% (AS) — (5) 30% (HP) 30% (AS), and 50% of the BFF's Ability applies to your Sprykin champions — (7) 45% (HP) 45% (AS), and 100% of the BFF's Ability applies to your Sprykin champions.\nThe BFF's attacks and Ability change if the Rider is melee or ranged.",
       "mount": {
@@ -2133,6 +2166,7 @@
       "name": "Summoner",
       "kind": "class",
       "combat": true,
+      "requiresRunInput": false,
       "champions": ["Yorick", "Azir", "Mama Beak", "Zyra"],
       "description": "Summoners strengthen their summons differently: Yorick +30% Health, Azir +45% Damage, Mama Beak +45% Damage, Zyra +4 plant attacks. (2) Strengthens summons — (3) Improves each effect by 50%.",
       "breakpoints": [
@@ -2162,6 +2196,7 @@
       "name": "Thornmaiden",
       "kind": "unique",
       "combat": true,
+      "requiresRunInput": false,
       "champions": ["Zyra"],
       "description": "Your team gains 5% Durability, raised to 10% if 6 or more Zyra plants are alive.",
       "breakpoints": [
@@ -2194,6 +2229,7 @@
       "name": "Vanguard",
       "kind": "class",
       "combat": true,
+      "requiresRunInput": false,
       "champions": ["Rakan", "Elise", "Diana", "Hecarim", "Sentinel", "Taric"],
       "description": "At combat start and after dropping below 50% Health, Vanguards gain a shield based on their max Health for 10 seconds. (2) 18% max Health — (4) 35% — (6) 45% and 8% Durability while shielded.",
       "breakpoints": [
