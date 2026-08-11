@@ -124,13 +124,48 @@
   --color-3-cost: #286ad2;
   --color-4-cost: #c31ccf;
   --color-5-cost: #8f7f15;
-  --color-silver-tier: #5f80aa;
-  --color-gold-tier: #957d11;
-  --color-prismatic-tier: #b74ee2;
-  --color-prismatic-tier-2: #9d7a00;
-  --color-prismatic-tier-3: #00915c;
-  --color-prismatic-tier-4: #3d55ff;
-  --color-prismatic-tier-5: #cd1cff;
+
+  --color-bronze-tier-1: #9a4b00;
+  --color-bronze-tier-2: #b15d17;
+  --color-bronze-tier-3: #dc8044;
+  --color-bronze-tier-4: #ed8e55;
+  --color-bronze-tier-5: #bc703e;
+  --gradient-bronze-tier: linear-gradient(
+    180deg,
+    var(--color-bronze-tier-1) 30%,
+    var(--color-bronze-tier-2) 36%,
+    var(--color-bronze-tier-3) 49%,
+    var(--color-bronze-tier-4) 55%,
+    var(--color-bronze-tier-5) 100%
+  );
+
+  --color-silver-tier-1: #7d979a;
+  --color-silver-tier-2: #88a2a5;
+  --color-silver-tier-3: #b4cfd2;
+  --color-silver-tier-4: #c5e0e3;
+  --color-silver-tier-5: #8da5ab;
+  --gradient-silver-tier: linear-gradient(
+    180deg,
+    var(--color-silver-tier-1) 30%,
+    var(--color-silver-tier-2) 34%,
+    var(--color-silver-tier-3) 48%,
+    var(--color-silver-tier-4) 55%,
+    var(--color-silver-tier-5) 100%
+  );
+
+  --color-gold-tier-1: #a07815;
+  --color-gold-tier-2: #c9a742;
+  --color-gold-tier-3: #f0d46d;
+  --color-gold-tier-4: #ffe57e;
+  --color-gold-tier-5: #c1af65;
+  --gradient-gold-tier: linear-gradient(
+    180deg,
+    var(--color-gold-tier-1) 30%,
+    var(--color-gold-tier-2) 40%,
+    var(--color-gold-tier-3) 50%,
+    var(--color-gold-tier-4) 55%,
+    var(--color-gold-tier-5) 100%
+  );
 
   --shadow-*: initial;
   --shadow-sm: 0 1px 2px 0 rgb(30 40 49 / 0.55);
@@ -198,13 +233,6 @@
   --color-3-cost: #286ad2;
   --color-4-cost: #c31ccf;
   --color-5-cost: #a79419;
-  --color-silver-tier: #9fb3cc;
-  --color-gold-tier: #e0bc1a;
-  --color-prismatic-tier: #f0daf9;
-  --color-prismatic-tier-2: #ffe382;
-  --color-prismatic-tier-3: #9bffda;
-  --color-prismatic-tier-4: #7586ff;
-  --color-prismatic-tier-5: #e791ff;
 
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.55);
   --shadow-md: 0 3px 8px -2px rgb(0 0 0 / 0.55);
