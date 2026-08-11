@@ -144,7 +144,7 @@
       "name": "Avatar",
       "kind": "unique",
       "combat": false,
-      "requiresRunInput": true,
+      "requiresRunInput": false,
       "champions": ["Lux"],
       "description": "Having an Avatar on your bench or board transforms every other Avatar in your shop to that Avatar's trait. The trait an Avatar picks counts double towards trait bonuses. Variants: Solar, Primal, Lunar, Inferno, Fae, Elderwood, Coven, Blossom, Blackthorn.",
       "variants": [
@@ -172,7 +172,7 @@
       "name": "Blackthorn",
       "kind": "origin",
       "combat": true,
-      "requiresRunInput": true,
+      "requiresRunInput": false,
       "champions": [
         "Veigar",
         "Rek'Sai",
@@ -465,7 +465,7 @@
       "name": "Coven",
       "kind": "origin",
       "combat": false,
-      "requiresRunInput": true,
+      "requiresRunInput": false,
       "champions": [
         "Camille",
         "Elise",
@@ -623,7 +623,7 @@
       "name": "Elderwood",
       "kind": "origin",
       "combat": true,
-      "requiresRunInput": true,
+      "requiresRunInput": false,
       "champions": [
         "Xayah",
         "Ornn",
@@ -694,7 +694,7 @@
       "name": "Emerald Aspect",
       "kind": "unique",
       "combat": true,
-      "requiresRunInput": false,
+      "requiresRunInput": true,
       "champions": ["Taric"],
       "description": "Drag an ally onto your strongest Taric to pair them, granting that ally powerful bonuses from Taric's ability.",
       "breakpoints": [
