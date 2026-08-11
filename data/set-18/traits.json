@@ -70,8 +70,9 @@
       "kind": "unique",
       "combat": true,
       "champions": ["Alune"],
-      "description": "Your strongest Alune cycles to a new phase of the moon after each cast. While the moon is at or below half full, your team gains 7% (Durability); above that, your team gains 7% (Damage Amp). Phases: New Moon 7% (Durability), Waxing Crescent 7% (Durability), Half Moon 7% (Durability=, Waxing Gibbous 7% (Damage Amp), Full Moon 7% (Damage Amp).",
+      "description": "Your strongest Alune cycles to a new phase of the moon after each cast. While the moon is at or below half full, your team gains 7% (Durability); above that, your team gains 7% (Damage Amp). Phases: New Moon 7% (Durability), Waxing Crescent 7% (Durability), Half Moon 7% (Durability), Waxing Gibbous 7% (Damage Amp), Full Moon 7% (Damage Amp).",
       "advancesOn": "cast",
+      "startsAt": "new-moon",
       "phases": [
         {
           "name": "new-moon",
@@ -139,7 +140,7 @@
     {
       "name": "Avatar",
       "kind": "unique",
-      "combat": true,
+      "combat": false,
       "champions": ["Lux"],
       "description": "Having an Avatar on your bench or board transforms every other Avatar in your shop to that Avatar's trait. The trait an Avatar picks counts double towards trait bonuses. Variants: Solar, Primal, Lunar, Inferno, Fae, Elderwood, Coven, Blossom, Blackthorn.",
       "variants": [
@@ -583,9 +584,13 @@
       "combat": true,
       "champions": [],
       "description": "Hidden trait, unlocked by combining Solar and Lunar. After 10 seconds of combat, the Eclipse kills the enemy with the lowest Health, then repeats every 3 seconds.",
+      "requires": {
+        "Solar": 3,
+        "Lunar": 3
+      },
       "breakpoints": [
         {
-          "count": null,
+          "count": 1,
           "grants": [
             {
               "to": "enemy",
@@ -1481,7 +1486,7 @@
           "name": "phoenix",
           "combat": false,
           "params": {
-            "takedownsPerComponent": 14,
+            "takedownsPerComponent": 16,
             "maxComponents": 4
           }
         },
@@ -1996,7 +2001,10 @@
       "description": "Gain the Big Furry Friend. Drop a Sprykin on the BFF to pick its Rider. (3) The Rider gains 15% (HP) and 15% (AS) — (5) 30% (HP) 30% (AS), and 50% of the BFF's Ability applies to your Sprykin champions — (7) 45% (HP) 45% (AS), and 100% of the BFF's Ability applies to your Sprykin champions.\nThe BFF's attacks and Ability change if the Rider is melee or ranged.",
       "mount": {
         "name": "BFF",
-        "riderSelection": ["last-rider", "most-stars", "random"],
+        "riderSelection": {
+          "firstCombat": "random-weighted-by-stars-and-items",
+          "afterwards": "last-rider"
+        },
         "riderPersistsUntilChanged": true,
         "healthBar": "rider",
         "scalesOnStarOf": "rider",
