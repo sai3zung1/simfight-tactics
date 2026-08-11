@@ -2,7 +2,7 @@
   "set": "18",
   "setName": "Enchanted Wilds",
   "capturedOn": "2026-08-01",
-  "normalisedOn": "2026-08-03",
+  "normalisedOn": "2026-08-11",
   "note": "Field names, stat keys and union values follow src/domain. Percentages are decimals. Descriptions stay verbatim. Every mechanic is also carried as values: a grant names its recipient and its stats, params carry the numbers a condition needs, and combat says whether the entry changes anything inside a fight.",
   "sources": {
     "lolchess.gg": "units and their abilities; the Set 18 wisp and augment pools, with gold, tier, category and appearance condition",
@@ -12,9 +12,9 @@
   },
   "files": {
     "set-18/units.json": {
-      "count": 65,
+      "count": 71,
       "status": "complete",
-      "verified": "65 units, 14/13/14/14/10 by cost. Traits agree with traits.json in both directions. Kobuko and Alune match Community Dragon on every stat. Every ability carries the numbers its tooltip states outside the breakdown"
+      "verified": "65 units, 14/13/14/14/10 by cost, plus six summoned entities. Traits agree with traits.json in both directions. Kobuko and Alune match Community Dragon on every stat. Every ability carries the numbers its tooltip states outside the breakdown. Four stars are a 1-, 2- and 3-cost affair: all 41 of them carry a fourth value, none of the 4- and 5-costs does"
     },
     "set-18/traits.json": {
       "count": 36,
@@ -29,7 +29,7 @@
     "timeless/augments.json": {
       "count": 257,
       "status": "complete",
-      "verified": "249 distinct augments across 257 rows; four names carry several stage variants. lolchess and metatft agree on every name and every tier. 240 matched to Riot Set 18 entries; 99 carry combat effects and are decomposed into grants"
+      "verified": "255 distinct augments across 257 rows: Beast Within and Beast Within+ each appear twice, same tier and same apparition, differing only in the champion they hand out — Sivir or Nidalee. lolchess and metatft agree on every name and every tier. 240 matched to Riot Set 18 entries; 99 carry combat effects and are decomposed into grants"
     },
     "timeless/items.json": {
       "count": 137,
@@ -39,6 +39,13 @@
   },
   "more": {
     "adaptor": "Their main stats (AP or AD) can vary, therefor, scaling key accept only an array as value.",
-    "keyword": "Default base keywords such as Wounds, Burn, Sunder, Shred, Chill, Slow etc... Does not hold a value directlyt into the JSON because It would violate DRY principle. So it's a name to retrieve when used"
+    "keyword": "Default base keywords such as Wounds, Burn, Sunder, Shred, Chill, Slow etc... Does not hold a value directlyt into the JSON because It would violate DRY principle. So it's a name to retrieve when used",
+    "id": "Kebab-case slug, the casing the rest of the vocabulary uses, because the engine reads an id as a Record key and nothing else. Set content is prefixed by its set — s18-adaptor, s18-akali — so a Set 19 trait of the same name lands beside it rather than on top of it; timeless content is not. Apostrophes and punctuation drop, a trailing + becomes -plus, roman numerals stay: rek-sai, thiefs-gloves, celestial-blessing-i, champ-delivery-plus. Two augments share a name and differ by the champion they hand out, so their slug carries it: beast-within-sivir, beast-within-nidalee.",
+    "iconPath": "One versioned file per entry, taken from the client. wisps.json carries none — a wisp is text. Lux is one entry with ten variants and ten icons, so the path sits on the variant wherever variants exist.",
+    "combat": "True when the engine can read the entry and produce an exact number from it. The Coven trait is false: holding it grants no combat bonus, only essence. The Coven Acolyte augment is true. Composition effects are false — Apex Predator takes team slots, Avatar counts double towards breakpoints, neither lands inside a fight.",
+    "requiresRunInput": "True when the entry carries a state no calculation derives and no player can reproduce on demand: a choice taken during a run, or a counter carried across rounds. The user declares it before the fight, and the data enumerates the options without designating one. What each entry expects is written beside it here.",
+    "team": "A grant to team excludes the trait holders. Juggernaut at six gives its Juggernauts 34% durability and everyone else 8% — never the sum.",
+    "manaRegen": "Mana per second.",
+    "description": "Written for a tooltip, not for a paragraph. Sections are separated by a blank line — passive, active, per-breakpoint scale, and any keyword it leans on. Inside a section, a line break every proposition, so no line runs long enough to wrap. Numbers are references into breakdown rather than literals: the engine recomputes them against the stats of the moment, and a figure frozen at one star with no items is wrong as soon as anything modifies it."
   }
 }
