@@ -7,7 +7,8 @@
       "description": "Gain a random 2-star 1-cost champion.",
       "appears": "2-1 to 2-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Big Guns",
@@ -16,7 +17,8 @@
       "description": "Gain 2 random 1-star 4-cost champions.",
       "appears": "4-2 to 4-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Circle of Elders",
@@ -25,7 +27,8 @@
       "description": "Gain one of each 5-cost champion.",
       "appears": "6-1 to 10-1",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Field of Mice",
@@ -34,7 +37,8 @@
       "description": "Gain a Tiny Champion Duplicator for each unique one-cost fielded last round.",
       "appears": "3-1 to 4-1",
       "requires": ["Have fielded 5 1-cost champions last combat"],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Forest Guide",
@@ -43,7 +47,8 @@
       "description": "Gain a random 4-cost champion.",
       "appears": "2-1 to 2-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Forest Twins",
@@ -52,7 +57,8 @@
       "description": "Gain 2 copies of a 2-cost champion you don't have.",
       "appears": "2-1 to 2-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Grandmaster",
@@ -61,29 +67,32 @@
       "description": "Gain a random 2-star 5-cost champion.",
       "appears": "6-1 to 10-1",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Heated Rivalry",
       "category": "champion",
       "gold": 3,
-      "description": "Gain a Rengar or a Kha'Zix. They gain 3 takedowns.",
+      "description": "Gain a Rengar or a Kha'Zix.\nThey gain 3 takedowns.",
       "appears": "2-1 to 2-7",
       "requires": [],
-      "combat": false
+      "combat": true,
+      "requiresRunInput": true
     },
     {
       "name": "Hero Of Prophecy",
       "category": "champion",
       "gold": 35,
-      "description": "Gain a 5-cost champion. Gain them again each round FOREVER.",
+      "description": "Gain a 5-cost champion.\nGain them again each round FOREVER.",
       "appears": "6-1 to 10-1",
       "requires": [
         "Have at least 35 gold",
         "Be above 50 health",
         "Be level 10 or above"
       ],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Journeyman",
@@ -92,7 +101,8 @@
       "description": "Gain a random 2-star 2-cost champion.",
       "appears": "2-1 to 3-4",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Lost Travelers",
@@ -101,7 +111,8 @@
       "description": "Gain 3 gold worth of random champions.",
       "appears": "2-1 to 2-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Mitosis",
@@ -110,7 +121,8 @@
       "description": "Gain a Tiny Champion Duplicator.",
       "appears": "2-1 to 2-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Propagate",
@@ -119,7 +131,8 @@
       "description": "Gain a copy of the first allied champion to die.",
       "appears": "2-1 to 4-1",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Smurfing",
@@ -128,7 +141,8 @@
       "description": "Gain a random 5 cost champion.",
       "appears": "3-5 to 4-1",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Solar Gift",
@@ -137,7 +151,8 @@
       "description": "Gain a Leona, Sejuani, and Kayle",
       "appears": "2-1 to 3-4",
       "requires": ["Have Solar active"],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Three Me",
@@ -146,7 +161,8 @@
       "description": "Gain a random 2-star 3-cost champion.",
       "appears": "3-1 to 4-1",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Aftershock",
@@ -156,6 +172,7 @@
       "appears": "4-2 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -175,6 +192,7 @@
       "appears": "4-2 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "ally",
@@ -196,6 +214,7 @@
       "appears": "2-1 to 2-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -214,6 +233,7 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -233,6 +253,7 @@
       "appears": "3-5 to 5-7",
       "requires": ["Have Primal active"],
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "blessing": "bear"
       }
@@ -245,6 +266,7 @@
       "appears": "3-1 to 4-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -263,6 +285,7 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -282,6 +305,7 @@
       "appears": "5-1 to 10-1",
       "requires": ["Have 2 1-star champions, or a fully itemised 5-cost"],
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "championsStarredUp": 2,
         "starLevelGain": 1
@@ -295,6 +319,7 @@
       "appears": "3-1 to 4-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "temporaryItems": 1
       }
@@ -307,6 +332,7 @@
       "appears": "4-2 to 10-1",
       "requires": ["Have at least 2 tanks on the board"],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "traitHolders",
@@ -331,6 +357,7 @@
       "appears": "3-5 to 4-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "temporaryGiantsBelts": 7
       }
@@ -339,10 +366,11 @@
       "name": "Clone Companion",
       "category": "combat",
       "gold": 5,
-      "description": "Clone your highest damage champion. The clone deals 20% damage.",
+      "description": "Clone your highest damage champion.\nThe clone deals 20% damage.",
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "cloneDamageShare": 0.2
       }
@@ -355,6 +383,7 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -373,6 +402,7 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -387,10 +417,11 @@
       "name": "Crystal Ball",
       "category": "combat",
       "gold": 1,
-      "description": "Reveal your next opponent. Your team gains 12% Attack Speed.",
+      "description": "Reveal your next opponent.\nYour team gains 12% Attack Speed.",
       "appears": "4-2 to 10-1",
       "requires": ["At least 4 players remaining"],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -408,6 +439,7 @@
       "appears": "3-5 to 5-7",
       "requires": ["Have at least 5 active traits"],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -426,6 +458,7 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -443,6 +476,7 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -462,6 +496,7 @@
       "appears": "4-2 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -481,6 +516,7 @@
       "appears": "2-1 to 2-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "trainingDummies": 1
       }
@@ -493,6 +529,7 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "self",
@@ -513,6 +550,7 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -534,6 +572,7 @@
       "appears": "5-1 to 10-1",
       "requires": ["Have Riftbeast active"],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -582,6 +621,7 @@
       "appears": "6-1 to 10-1",
       "requires": ["Have a unit on the bench"],
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "afterSeconds": 8,
         "recommendedItems": 2
@@ -598,6 +638,7 @@
         "Have fewer than 4 fully itemised units"
       ],
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "empoweredChampions": 3,
         "maxFullyItemisedUnits": 4
@@ -642,6 +683,7 @@
       "appears": "6-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "unitCost": 5,
         "starLevel": 1,
@@ -652,10 +694,11 @@
       "name": "Homing Fireflies",
       "category": "combat",
       "gold": 2,
-      "description": "Your Casters spawn a firefly per 20 Mana spent. Each deals 150 magic damage.",
+      "description": "Your Casters spawn a firefly per 20 Mana spent.\nEach deals 150 magic damage.",
       "appears": "3-5 to 10-1",
       "requires": ["Have at least 2 casters on the board"],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -674,6 +717,7 @@
       "appears": "3-1 to 4-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "self",
@@ -694,6 +738,7 @@
       "appears": "3-1 to 4-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "self",
@@ -717,6 +762,7 @@
         "Have an itemised fighter"
       ],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "traitHolders",
@@ -740,6 +786,7 @@
         "Not already applying Burn or Wound, unless Inferno is active"
       ],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -761,6 +808,7 @@
       "appears": "3-5 to 5-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "self",
@@ -782,6 +830,7 @@
       "appears": "4-2 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -802,6 +851,7 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -818,10 +868,11 @@
       "name": "Killing Frenzy",
       "category": "combat",
       "gold": 3,
-      "description": "Fighters execute targets under 10% Health. They gain 15% Attack Speed on kill.",
+      "description": "Fighters execute targets under 10% Health.\nThey gain 15% Attack Speed on kill.",
       "appears": "5-1 to 10-1",
       "requires": ["Have an itemised fighter"],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "traitHolders",
@@ -846,6 +897,7 @@
       "appears": "4-2 to 5-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "unitCost": 1,
         "starLevel": 3,
@@ -860,6 +912,7 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -878,6 +931,7 @@
       "appears": "4-2 to 5-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -895,6 +949,7 @@
       "appears": "4-2 to 5-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -917,6 +972,7 @@
         "Have an itemised caster"
       ],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "traitHolders",
@@ -940,6 +996,7 @@
         "Have an itemised marksman"
       ],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "traitHolders",
@@ -965,6 +1022,7 @@
         "Have an itemised marksman"
       ],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "traitHolders",
@@ -984,6 +1042,7 @@
       "appears": "3-5 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "dummiesOnTankDeath": 1
       }
@@ -996,6 +1055,7 @@
       "appears": "4-2 to 5-7",
       "requires": ["Have at least 30 gold"],
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "team",
@@ -1014,6 +1074,7 @@
       "appears": "3-1 to 4-7",
       "requires": ["Have a 2-star 1- or 2-cost champion"],
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "starLevelGain": 1
       }
@@ -1026,6 +1087,7 @@
       "appears": "3-5 to 5-7",
       "requires": ["Have Lunar active"],
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "afterSeconds": 8,
         "lunarEffectMultiplier": 2
@@ -1039,6 +1101,7 @@
       "appears": "4-2 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "allyDeathsPerSummon": 3
       }
@@ -1051,6 +1114,7 @@
       "appears": "6-1 to 10-1",
       "requires": ["Have champions carrying items"],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -1072,6 +1136,7 @@
       "appears": "3-1 to 4-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "dummyHealth": 900
       }
@@ -1084,6 +1149,7 @@
       "appears": "4-2 to 4-7, 6-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -1103,6 +1169,7 @@
       "appears": "3-1 to 5-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "temporaryItems": 1
       }
@@ -1115,6 +1182,7 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "temporaryEmblems": 1
       }
@@ -1127,6 +1195,7 @@
       "appears": "3-1 to 5-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "temporaryItems": 1
       }
@@ -1139,6 +1208,7 @@
       "appears": "4-2 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "inactiveTraitsActivated": 2
       }
@@ -1151,6 +1221,7 @@
       "appears": "3-1 to 5-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "temporaryItems": 1
       }
@@ -1159,10 +1230,11 @@
       "name": "Plated Shields",
       "category": "combat",
       "gold": 2,
-      "description": "Shields are 15% stronger. Allies gain 150 shield for 10 seconds.",
+      "description": "Shields are 15% stronger.\nAllies gain 150 shield for 10 seconds.",
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1184,6 +1256,7 @@
       "appears": "3-1 to 4-7",
       "requires": ["Have Elderwood active"],
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "plants": 1
       }
@@ -1196,6 +1269,7 @@
       "appears": "3-1 to 4-7",
       "requires": ["Have Elderwood active"],
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "plants": 1
       }
@@ -1208,6 +1282,7 @@
       "appears": "3-1 to 5-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "itemsStartPartiallyStacked": 1
       }
@@ -1220,6 +1295,7 @@
       "appears": "5-1 to 10-1",
       "requires": ["Have under 10 gold"],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1238,6 +1314,7 @@
       "appears": "3-5 to 4-7",
       "requires": ["Not for fully itemised manaless champions"],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1257,6 +1334,7 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "afterSeconds": 12,
         "itemsMadeRadiant": 1
@@ -1270,6 +1348,7 @@
       "appears": "3-1 to 4-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1287,6 +1366,7 @@
       "appears": "3-5 to 4-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1305,6 +1385,7 @@
       "appears": "4-2 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "traitHolders",
@@ -1325,6 +1406,7 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1344,6 +1426,7 @@
       "appears": "4-2 to 5-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "championsGivenAnItem": 2
       }
@@ -1356,6 +1439,7 @@
       "appears": "4-2 to 10-1",
       "requires": ["Have Sprykin active"],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -1376,6 +1460,7 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1401,6 +1486,7 @@
         "Have Greenfather inactive"
       ],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1422,6 +1508,7 @@
       "appears": "4-2 to 5-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "team",
@@ -1447,6 +1534,7 @@
         "Not already applying Burn or Wound, unless Inferno is active"
       ],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -1466,6 +1554,7 @@
       "appears": "4-2 to 10-1",
       "requires": ["Have 2 units with Precision"],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1486,6 +1575,7 @@
       "appears": "3-5 to 4-7",
       "requires": ["Not already applying Shred or Sunder"],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -1505,6 +1595,7 @@
       "appears": "3-5 to 5-7",
       "requires": ["Have Primal active"],
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "blessing": "tiger"
       }
@@ -1517,6 +1608,7 @@
       "appears": "4-2 to 5-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "trainingDummies": 2
       }
@@ -1529,6 +1621,7 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -1551,6 +1644,7 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -1570,6 +1664,7 @@
       "appears": "3-5 to 5-7",
       "requires": ["Have Primal active"],
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "blessing": "turtle"
       }
@@ -1582,6 +1677,7 @@
       "appears": "3-1 to 4-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1600,6 +1696,7 @@
       "appears": "5-1 to 10-1",
       "requires": ["Have under 10 gold"],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1617,6 +1714,7 @@
       "appears": "3-5 to 10-1",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -1639,6 +1737,7 @@
       "appears": "4-2 to 5-7",
       "requires": [],
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1655,7 +1754,8 @@
       "description": "Reroll your shop with all 5-cost champions.",
       "appears": "6-1 to 10-1",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "All Fours",
@@ -1664,7 +1764,8 @@
       "description": "Reroll your shop with all 4-cost champions.",
       "appears": "5-1 to 5-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "All Ones",
@@ -1673,7 +1774,8 @@
       "description": "Reroll your shop with all 1-cost champions.",
       "appears": "2-1 to 2-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "All Threes",
@@ -1682,7 +1784,8 @@
       "description": "Reroll your shop with all 3-cost champions.",
       "appears": "3-5 to 4-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "All Twos",
@@ -1691,7 +1794,8 @@
       "description": "Reroll your shop with all 2-cost champions.",
       "appears": "2-1 to 3-4",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Animate Shop",
@@ -1700,7 +1804,8 @@
       "description": "For 20 seconds, your shop rerolls for free every 2 seconds.",
       "appears": "4-2 to 5-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Border Village",
@@ -1709,16 +1814,18 @@
       "description": "Reroll your shop with all 2-star 2-cost champions.",
       "appears": "3-1 to 4-1",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Flash Fire",
       "category": "shop",
       "gold": 2,
-      "description": "Reroll your shop. Inferno lights 2 shop slots on fire, upgrading them.",
+      "description": "Reroll your shop.\nInferno lights 2 shop slots on fire, upgrading them.",
       "appears": "3-5 to 5-7",
       "requires": ["Have Inferno active"],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Freeroller",
@@ -1727,7 +1834,8 @@
       "description": "Gain 2 rerolls.",
       "appears": "2-1 to 4-1",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Jungling",
@@ -1736,7 +1844,8 @@
       "description": "Overrun the shop with Riftbeasts.",
       "appears": "3-1 to 4-7",
       "requires": ["Have Riftbeast active"],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Lucky 7",
@@ -1745,7 +1854,8 @@
       "description": "Gain 7 shop rerolls.",
       "appears": "6-1 to 10-1",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Middle Path",
@@ -1754,7 +1864,8 @@
       "description": "Reroll your shop with all 2-star 3-cost champions.",
       "appears": "3-5 to 4-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Refreshing Light",
@@ -1763,7 +1874,8 @@
       "description": "Gain a free reroll per star level of each unique Solar champion.",
       "appears": "3-5 to 5-7",
       "requires": ["Have Solar active"],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Ride the Wave",
@@ -1772,7 +1884,8 @@
       "description": "The next 2 rerolls this round will have 2+ champions fielded last combat.",
       "appears": "4-2 to 5-7",
       "requires": ["First 20 seconds of planning", "Have at least 20 gold"],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Rolling Bones",
@@ -1781,7 +1894,8 @@
       "description": "You have a 50% chance to get a free reroll with each kill.",
       "appears": "3-1 to 4-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Roly-Polys",
@@ -1790,7 +1904,8 @@
       "description": "For each ally champion alive at 18 seconds, gain a reroll.",
       "appears": "3-1 to 4-1",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Search Party",
@@ -1799,7 +1914,8 @@
       "description": "Each of your shops has a 4-cost in it this round until you buy one.",
       "appears": "3-5 to 4-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Starfall",
@@ -1808,7 +1924,8 @@
       "description": "The first 6 times you reroll your shop this round, the lowest cost champion becomes 2-star.",
       "appears": "3-1 to 4-1",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Starting Town",
@@ -1817,7 +1934,8 @@
       "description": "Reroll your shop with all 2-star 1-cost champions.",
       "appears": "2-1 to 3-4",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Barter",
@@ -1826,7 +1944,8 @@
       "description": "The next champion sold this round sells for 200% gold.",
       "appears": "3-5 to 5-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Blood Money",
@@ -1835,7 +1954,8 @@
       "description": "Gain 1 gold for every champion you kill.",
       "appears": "3-1 to 4-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Bronze Spoon",
@@ -1844,7 +1964,8 @@
       "description": "Gain 4 XP.",
       "appears": "2-1 to 4-1",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Coin Flip",
@@ -1853,16 +1974,18 @@
       "description": "Flip a coin, gain 1 gold if it's heads.",
       "appears": "2-1 to 2-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Die Roll",
       "category": "gold-xp",
       "gold": 2,
-      "description": "Roll a six-sided die. Gain gold equal to the result.",
+      "description": "Roll a six-sided die.\nGain gold equal to the result.",
       "appears": "3-1 to 4-1",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Experienced",
@@ -1871,7 +1994,8 @@
       "description": "Gain 2 XP.",
       "appears": "2-1 to 2-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Golden Goose",
@@ -1880,7 +2004,8 @@
       "description": "Gain 1 gold for every 1500 damage your highest damage champion deals.",
       "appears": "4-2 to 5-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Grow Up",
@@ -1889,7 +2014,8 @@
       "description": "Gain 16 XP.",
       "appears": "3-1 to 4-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Life Debt",
@@ -1898,7 +2024,8 @@
       "description": "Gain 1 gold for every 10 missing Player Health.",
       "appears": "5-1 to 10-1",
       "requires": ["Be missing 10 or more health"],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Pocket Change",
@@ -1907,7 +2034,8 @@
       "description": "Your one-star champions drop 1 gold on death.",
       "appears": "3-1 to 4-1",
       "requires": ["Have at least 2 1-star champions"],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Slow Study",
@@ -1916,7 +2044,8 @@
       "description": "For each ally champion alive at 15 seconds, gain 2 XP.",
       "appears": "3-5 to 4-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Abandon Ship",
@@ -1930,7 +2059,8 @@
         "Be on a short win streak",
         "First 15 seconds of planning"
       ],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Cutpurse",
@@ -1939,7 +2069,8 @@
       "description": "Every 5 seconds, your champions have a 15% chance to drop 1 Gold.",
       "appears": "3-5 to 4-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Essence Theft",
@@ -1948,7 +2079,8 @@
       "description": "Gain 50% bonus Coven Essence this combat.",
       "appears": "2-1 to 4-1",
       "requires": ["Have Coven active"],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Fertilize",
@@ -1957,16 +2089,18 @@
       "description": "Gain 1 XP for each enemy that dies.",
       "appears": "2-1 to 3-4",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Flip Frenzy",
       "category": "risky",
       "gold": 1,
-      "description": "Flip a coin, gain 1 gold if it's heads. Continue until you flip tails.",
+      "description": "Flip a coin, gain 1 gold if it's heads.\nContinue until you flip tails.",
       "appears": "3-1 to 4-1",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Major Polymorph",
@@ -1975,7 +2109,8 @@
       "description": "A random 4-cost you own permanently transforms into a 5-cost.",
       "appears": "4-2 to 5-7",
       "requires": ["Have units of the required cost"],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Minor Polymorph",
@@ -1984,7 +2119,8 @@
       "description": "A random 1-cost you own permanently transforms into a 2-cost.",
       "appears": "2-1 to 3-4",
       "requires": ["Have units of the required cost"],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Payday",
@@ -1993,7 +2129,8 @@
       "description": "For each ally champion that survives combat, gain 2 Gold.",
       "appears": "3-5 to 4-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Polymorph",
@@ -2002,7 +2139,8 @@
       "description": "A random 2-cost you own permanently transforms into a 3-cost.",
       "appears": "2-1 to 4-1",
       "requires": ["Have units of the required cost"],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Trophy Hunter",
@@ -2011,16 +2149,18 @@
       "description": "Gain 100% more takedowns on Rivals.",
       "appears": "2-1 to 4-7",
       "requires": ["Have Rival active"],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Artifactinate",
       "category": "item",
       "gold": 0,
-      "description": "Lose 3 components, including ones built into items. Gain an Artifact anvil.",
+      "description": "Lose 3 components, including ones built into items.\nGain an Artifact anvil.",
       "appears": "2-1 to 3-4",
       "requires": ["Have at least 3 components"],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Blood and Iron",
@@ -2029,16 +2169,18 @@
       "description": "After 20 champion deaths, gain a component anvil.",
       "appears": "3-1 to 4-1",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Curio Cart",
       "category": "item",
       "gold": 0,
-      "description": "Open an item store. Items cost 0 to 22 gold.",
+      "description": "Open an item store.\nItems cost 0 to 22 gold.",
       "appears": "3-1 to 4-7",
       "requires": ["Have enough gold"],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Idle Craftsman",
@@ -2047,16 +2189,18 @@
       "description": "A component on your bench turns into a completed item it builds.",
       "appears": "3-1 to 4-1",
       "requires": ["Have at least 1 component on the bench"],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Peddler",
       "category": "item",
       "gold": 0,
-      "description": "Open a random item store. Random items cost 0 to 14 gold.",
+      "description": "Open a random item store.\nRandom items cost 0 to 14 gold.",
       "appears": "4-2 to 5-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Blast Potion",
@@ -2065,7 +2209,8 @@
       "description": "Gain a temporary equippable Blast Potion.",
       "appears": "3-1 to 4-7",
       "requires": [],
-      "combat": false
+      "combat": true,
+      "requiresRunInput": false
     },
     {
       "name": "Doodad Bag",
@@ -2074,7 +2219,8 @@
       "description": "Gain 2 random consumables that give Armor and Magic Resist or Health.",
       "appears": "3-1 to 4-1",
       "requires": [],
-      "combat": false
+      "combat": true,
+      "requiresRunInput": true
     },
     {
       "name": "Doodad Jar",
@@ -2083,7 +2229,8 @@
       "description": "Gain 1 random consumable that gives Armor and Magic Resist or Health.",
       "appears": "2-1 to 2-7",
       "requires": [],
-      "combat": false
+      "combat": true,
+      "requiresRunInput": true
     },
     {
       "name": "Doodad Sack",
@@ -2092,7 +2239,8 @@
       "description": "Gain 3 random consumables that give Armor and Magic Resist or Health.",
       "appears": "5-1 to 10-1",
       "requires": [],
-      "combat": false
+      "combat": true,
+      "requiresRunInput": true
     },
     {
       "name": "Early Fix",
@@ -2101,16 +2249,18 @@
       "description": "Gain 1 Item Reforger.",
       "appears": "2-1 to 2-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Forest Mage",
       "category": "misc",
       "gold": 0,
-      "description": "Fill your shop with Wisps. You can only buy ONE!",
+      "description": "Fill your shop with Wisps.\nYou can only buy ONE!",
       "appears": "3-5 to 10-1",
       "requires": ["First 8 seconds of planning"],
-      "combat": false
+      "combat": true,
+      "requiresRunInput": true
     },
     {
       "name": "Greater Chaos",
@@ -2119,7 +2269,8 @@
       "description": "Cast 2 random Wisps.",
       "appears": "5-1 to 10-1",
       "requires": [],
-      "combat": false
+      "combat": true,
+      "requiresRunInput": true
     },
     {
       "name": "Health Potion",
@@ -2128,7 +2279,8 @@
       "description": "Gain a tempoary equippable Health Potion.",
       "appears": "3-1 to 4-7",
       "requires": [],
-      "combat": false
+      "combat": true,
+      "requiresRunInput": false
     },
     {
       "name": "Knick-Knack Bag",
@@ -2137,7 +2289,8 @@
       "description": "Gain 2 random consumables that give Attack Damage or Attack Speed.",
       "appears": "3-1 to 4-1",
       "requires": [],
-      "combat": false
+      "combat": true,
+      "requiresRunInput": true
     },
     {
       "name": "Knick-Knack Jar",
@@ -2146,7 +2299,8 @@
       "description": "Gain 1 random consumable that gives Attack Damage or Attack Speed.",
       "appears": "2-1 to 2-7",
       "requires": [],
-      "combat": false
+      "combat": true,
+      "requiresRunInput": true
     },
     {
       "name": "Knick-Knack Sack",
@@ -2155,7 +2309,8 @@
       "description": "Gain 3 random consumables that give Attack Damage or Attack Speed.",
       "appears": "5-1 to 10-1",
       "requires": [],
-      "combat": false
+      "combat": true,
+      "requiresRunInput": true
     },
     {
       "name": "Lesser Chaos",
@@ -2164,7 +2319,8 @@
       "description": "Cast a random Wisp.",
       "appears": "2-1 to 3-4",
       "requires": [],
-      "combat": false
+      "combat": true,
+      "requiresRunInput": true
     },
     {
       "name": "Mana Potion",
@@ -2173,7 +2329,8 @@
       "description": "Gain a temporary equippable Mana Potion.",
       "appears": "3-1 to 4-7",
       "requires": [],
-      "combat": false
+      "combat": true,
+      "requiresRunInput": false
     },
     {
       "name": "Potioncraft",
@@ -2182,7 +2339,8 @@
       "description": "Gain three temporary equippable Potions.",
       "appears": "5-1 to 10-1",
       "requires": [],
-      "combat": false
+      "combat": true,
+      "requiresRunInput": true
     },
     {
       "name": "Salvager",
@@ -2191,7 +2349,8 @@
       "description": "Any units you bench have items removed and broken apart.",
       "appears": "4-2 to 5-7",
       "requires": [],
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
       "name": "Terraforming",
@@ -2201,6 +2360,7 @@
       "appears": "4-2 to 10-1",
       "requires": ["Have Greenfather active"],
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "seedsAtCombatStart": 5
       }
@@ -2212,7 +2372,8 @@
       "description": "Gain 2 random consumables that give Ability Power or Mana Regen.",
       "appears": "3-1 to 4-1",
       "requires": [],
-      "combat": false
+      "combat": true,
+      "requiresRunInput": true
     },
     {
       "name": "Thingamajig Jar",
@@ -2221,7 +2382,8 @@
       "description": "Gain 1 random consumable that gives Ability Power or Mana Regen.",
       "appears": "2-1 to 2-7",
       "requires": [],
-      "combat": false
+      "combat": true,
+      "requiresRunInput": true
     },
     {
       "name": "Thingamajig Sack",
@@ -2230,7 +2392,8 @@
       "description": "Gain 3 random consumables that give Ability Power or Mana Regen.",
       "appears": "5-1 to 10-1",
       "requires": [],
-      "combat": false
+      "combat": true,
+      "requiresRunInput": true
     }
   ]
 }

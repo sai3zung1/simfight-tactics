@@ -2,6 +2,8 @@
   "entries": [
     {
       "name": "B.F. Sword",
+      "combat": true,
+      "requiresRunInput": false,
       "tag": "bf",
       "type": "component",
       "stats": {
@@ -10,6 +12,8 @@
     },
     {
       "name": "Recursive Bow",
+      "combat": true,
+      "requiresRunInput": false,
       "tag": "bow",
       "type": "component",
       "stats": {
@@ -18,6 +22,8 @@
     },
     {
       "name": "Chain Vest",
+      "combat": true,
+      "requiresRunInput": false,
       "tag": "chain",
       "type": "component",
       "stats": {
@@ -26,6 +32,8 @@
     },
     {
       "name": "Negatron Cloak",
+      "combat": true,
+      "requiresRunInput": false,
       "tag": "cloak",
       "type": "component",
       "stats": {
@@ -34,6 +42,8 @@
     },
     {
       "name": "Needlessly Large Rod",
+      "combat": true,
+      "requiresRunInput": false,
       "tag": "rod",
       "type": "component",
       "stats": {
@@ -42,6 +52,8 @@
     },
     {
       "name": "Tear of the Goddess",
+      "combat": true,
+      "requiresRunInput": false,
       "tag": "tear",
       "type": "component",
       "stats": {
@@ -50,6 +62,8 @@
     },
     {
       "name": "Giant's Belt",
+      "combat": true,
+      "requiresRunInput": false,
       "tag": "belt",
       "type": "component",
       "stats": {
@@ -58,6 +72,8 @@
     },
     {
       "name": "Sparring Gloves",
+      "combat": true,
+      "requiresRunInput": false,
       "tag": "gloves",
       "type": "component",
       "stats": {
@@ -66,18 +82,24 @@
     },
     {
       "name": "Spatula",
+      "combat": false,
+      "requiresRunInput": false,
       "tag": "spat",
       "type": "component",
       "stats": {}
     },
     {
       "name": "Frying Pan",
+      "combat": false,
+      "requiresRunInput": false,
       "tag": "pan",
       "type": "component",
       "stats": {}
     },
     {
       "name": "Deathblade",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bf", "bf"],
       "stats": {
@@ -88,6 +110,8 @@
     },
     {
       "name": "Giant Slayer",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bf", "bow"],
       "stats": {
@@ -111,6 +135,8 @@
     },
     {
       "name": "Edge of Night",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bf", "chain"],
       "stats": {
@@ -139,6 +165,8 @@
     },
     {
       "name": "Bloodthirster",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bf", "cloak"],
       "stats": {
@@ -165,6 +193,8 @@
     },
     {
       "name": "Hextech Gunblade",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bf", "rod"],
       "stats": {
@@ -186,6 +216,8 @@
     },
     {
       "name": "Spear of Shojin",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bf", "tear"],
       "stats": {
@@ -206,6 +238,8 @@
     },
     {
       "name": "Sterak's Gage",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bf", "belt"],
       "stats": {
@@ -230,13 +264,15 @@
     },
     {
       "name": "Infinity Edge",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bf", "gloves"],
       "stats": {
         "attackDamage": 0.35,
         "critChance": 0.35
       },
-      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike. Extra Precision grants 10% Critical Strike Damage.",
+      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike.\nExtra Precision grants 10% Critical Strike Damage.",
       "grants": [
         {
           "to": "holder",
@@ -246,13 +282,15 @@
     },
     {
       "name": "Red Buff",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bow", "bow"],
       "stats": {
         "attackSpeed": 0.45,
         "damageAmp": 0.03
       },
-      "description": "Attacks and Abilities 1% Burn and 33% Wound enemies for 5 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received.",
+      "description": "Attacks and Abilities 1% Burn and 33% Wound enemies for 5 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\n\nWound: Reduces healing received.",
       "grants": [
         {
           "to": "enemy",
@@ -265,6 +303,8 @@
     },
     {
       "name": "Void Staff",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bow", "tear"],
       "stats": {
@@ -272,7 +312,7 @@
         "attackSpeed": 0.15,
         "manaRegen": 1
       },
-      "description": "Attacks and Ability damage 30% Shred the target for 5 seconds. This effect does not stack.\n\nShred: Reduce Magic Resist",
+      "description": "Attacks and Ability damage 30% Shred the target for 5 seconds.\nThis effect does not stack.\n\nShred: Reduce Magic Resist",
       "grants": [
         {
           "to": "enemy",
@@ -285,6 +325,8 @@
     },
     {
       "name": "Last Whisper",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bow", "gloves"],
       "stats": {
@@ -292,7 +334,7 @@
         "attackSpeed": 0.2,
         "critChance": 0.2
       },
-      "description": "Attacks and Ability damage 30% Sunders the target for 3 seconds. This effect does not stack.\n\nSunder: Reduce Armor",
+      "description": "Attacks and Ability damage 30% Sunders the target for 3 seconds.\nThis effect does not stack.\n\nSunder: Reduce Armor",
       "grants": [
         {
           "to": "enemy",
@@ -305,13 +347,15 @@
     },
     {
       "name": "Titan's Resolve",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bow", "chain"],
       "stats": {
         "armor": 20,
         "attackSpeed": 0.1
       },
-      "description": "Gain 2% Attack Damage and Ability Power when attacking or taking damage, stacking up to 25 times.\nAt full stacks, gain 10% Damage Amp and become Unstoppable.",
+      "description": "Gain 2% Attack Damage and Ability Power when attacking or taking damage, stacking up to 25 times.\n\nAt full stacks, gain 10% Damage Amp and become Unstoppable.",
       "stacks": true,
       "maxStacks": 25,
       "grants": [
@@ -339,12 +383,14 @@
     },
     {
       "name": "Bramble Vest",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["chain", "chain"],
       "stats": {
         "armor": 50
       },
-      "description": "Gain 6% max Health.\nTake 5% reduced damage from attacks. When struck by any attack, deal 100 magic damage to all adjacent enemies.\n\nCooldown: 2 seconds",
+      "description": "Gain 6% max Health.\n\nTake 5% reduced damage from attacks.\nWhen struck by any attack, deal 100 magic damage to all adjacent enemies.\n\nCooldown: 2 seconds",
       "grants": [
         {
           "to": "holder",
@@ -373,6 +419,8 @@
     },
     {
       "name": "Gargoyle Stoneplate",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["chain", "cloak"],
       "stats": {
@@ -395,6 +443,8 @@
     },
     {
       "name": "Crownguard",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["chain", "rod"],
       "stats": {
@@ -402,7 +452,7 @@
         "abilityPower": 0.2,
         "armor": 20
       },
-      "description": "Combat start: Gain a 25% max Health Shield for 8 seconds.\nnWhen the shield expires, gain 25% Ability Power.",
+      "description": "Combat start: Gain a 25% max Health Shield for 8 seconds.\n\nnWhen the shield expires, gain 25% Ability Power.",
       "grants": [
         {
           "to": "holder",
@@ -423,6 +473,8 @@
     },
     {
       "name": "Protector's Vow",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["chain", "tear"],
       "stats": {
@@ -430,7 +482,7 @@
         "magicResist": 25,
         "manaRegen": 1
       },
-      "description": "Combat Start: Gain 20 Mana.\nAt 40% Health, gain 15 Mana and a Shield equal to 20% max Health.",
+      "description": "Combat Start: Gain 20 Mana.\n\nAt 40% Health, gain 15 Mana and a Shield equal to 20% max Health.",
       "grants": [
         {
           "to": "holder",
@@ -456,13 +508,15 @@
     },
     {
       "name": "Sunfire Cape",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["chain", "belt"],
       "stats": {
         "hp": 150,
         "armor": 20
       },
-      "description": "Gain 8% max Health.\nEvery 2 seconds, deal 1% Burn and 33% Wound to an enemy within 2 hexes for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received.",
+      "description": "Gain 8% max Health.\n\nEvery 2 seconds, deal 1% Burn and 33% Wound to an enemy within 2 hexes for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\n\nWound: Reduces healing received.",
       "grants": [
         {
           "to": "holder",
@@ -487,6 +541,8 @@
     },
     {
       "name": "Steadfast Heart",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["chain", "gloves"],
       "stats": {
@@ -494,7 +550,7 @@
         "critChance": 0.2,
         "durability": 0.05
       },
-      "description": "Gain 5% Durability. While above 50% Health, instead gain 15% Durability.",
+      "description": "Gain 5% Durability.\nWhile above 50% Health, instead gain 15% Durability.",
       "grants": [
         {
           "to": "holder",
@@ -518,6 +574,8 @@
     },
     {
       "name": "Kraken's Fury",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bow", "cloak"],
       "stats": {
@@ -525,7 +583,7 @@
         "magicResist": 20,
         "attackSpeed": 0.1
       },
-      "description": "Attacks grant 3.5% stacking Attack Damage, up to 15 attacks. After 15 attacks, gain 15% Attack Speed.",
+      "description": "Attacks grant 3.5% stacking Attack Damage, up to 15 attacks.\nAfter 15 attacks, gain 15% Attack Speed.",
       "stacks": true,
       "maxStacks": 15,
       "grants": [
@@ -551,6 +609,8 @@
     },
     {
       "name": "Dragon's Claw",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["cloak", "cloak"],
       "stats": {
@@ -573,13 +633,15 @@
     },
     {
       "name": "Adaptive Helm",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["cloak", "tear"],
       "stats": {
         "magicResist": 20,
         "manaRegen": 3
       },
-      "description": "Gain an additional 15% Mana from all sources. The wearer gains an additional bonus based on their Role:\n\nTanks and Fighters: Gain 30 Armor and Magic Resistance.\nOther Roles: Gain 10% Attack Damage and Ability Power.",
+      "description": "Gain an additional 15% Mana from all sources.\nThe wearer gains an additional bonus based on their Role:\n\nTanks and Fighters: Gain 30 Armor and Magic Resistance.\n\nOther Roles: Gain 10% Attack Damage and Ability Power.",
       "grants": [
         {
           "to": "holder",
@@ -611,6 +673,8 @@
     },
     {
       "name": "Quicksilver",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["cloak", "gloves"],
       "stats": {
@@ -618,7 +682,7 @@
         "attackSpeed": 0.15,
         "critChance": 0.2
       },
-      "description": "Combat Start: Unstoppable for 18 seconds`\nGain 3% stacking Attack Speed every second.",
+      "description": "Combat Start: Unstoppable for 18 seconds\n\nGain 3% stacking Attack Speed every second.",
       "stacks": true,
       "grants": [
         {
@@ -639,6 +703,8 @@
     },
     {
       "name": "Guinsoo's Rageblade",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bow", "rod"],
       "stats": {
@@ -660,6 +726,8 @@
     },
     {
       "name": "Ionic Spark",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["cloak", "rod"],
       "stats": {
@@ -667,7 +735,7 @@
         "abilityPower": 0.15,
         "magicResist": 35
       },
-      "description": "30% Shred enemies within 2 hexes. When enemies cast an Ability, deal magic damage equal to 150% of the Mana spent.\n\nShred: Reduce Magic Resist",
+      "description": "30% Shred enemies within 2 hexes.\nWhen enemies cast an Ability, deal magic damage equal to 150% of the Mana spent.\n\nShred: Reduce Magic Resist",
       "grants": [
         {
           "to": "enemy",
@@ -688,6 +756,8 @@
     },
     {
       "name": "Rabadon's Deathcap",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["rod", "rod"],
       "stats": {
@@ -698,6 +768,8 @@
     },
     {
       "name": "Archangel's Staff",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["rod", "tear"],
       "stats": {
@@ -719,13 +791,15 @@
     },
     {
       "name": "Jeweled Gauntlet",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["rod", "gloves"],
       "stats": {
         "abilityPower": 0.35,
         "critChance": 0.35
       },
-      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike. Extra Precision grants 10% Critical Strike Damage.",
+      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike.\nExtra Precision grants 10% Critical Strike Damage.",
       "grants": [
         {
           "to": "holder",
@@ -735,6 +809,8 @@
     },
     {
       "name": "Blue Buff",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["tear", "tear"],
       "stats": {
@@ -755,6 +831,8 @@
     },
     {
       "name": "Nashor's Tooth",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bow", "belt"],
       "stats": {
@@ -783,13 +861,15 @@
     },
     {
       "name": "Evenshroud",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["belt", "cloak"],
       "stats": {
         "magicResist": 20,
         "hp": 250
       },
-      "description": "30% Sunder enemies within 2 hexes. Gain 15 Armor and Magic Resist for the first 15 seconds of combat.\n\nSunder: Reduce Armor",
+      "description": "30% Sunder enemies within 2 hexes.\nGain 15 Armor and Magic Resist for the first 15 seconds of combat.\n\nSunder: Reduce Armor",
       "grants": [
         {
           "to": "enemy",
@@ -814,6 +894,8 @@
     },
     {
       "name": "Morellonomicon",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["belt", "rod"],
       "stats": {
@@ -821,7 +903,7 @@
         "abilityPower": 0.2,
         "manaRegen": 1
       },
-      "description": "Attacks and Abilities deal 1% Burn and 33% Wound to enemies for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received.",
+      "description": "Attacks and Abilities deal 1% Burn and 33% Wound to enemies for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\n\nWound: Reduces healing received.",
       "grants": [
         {
           "to": "enemy",
@@ -834,6 +916,8 @@
     },
     {
       "name": "Spirit Visage",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["belt", "tear"],
       "stats": {
@@ -852,6 +936,8 @@
     },
     {
       "name": "Warmog's Armor",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["belt", "belt"],
       "stats": {
@@ -869,6 +955,8 @@
     },
     {
       "name": "Striker's Flail",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["gloves", "belt"],
       "stats": {
@@ -895,13 +983,15 @@
     },
     {
       "name": "Hand of Justice",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["gloves", "tear"],
       "stats": {
         "critChance": 0.2,
         "manaRegen": 1
       },
-      "description": "Gain 2 effects:\n• 15% Attack Damage and 15% Ability Power.\n• 12% Omnivamp.\n\nWhile above 50% health, double the Attack Damage and Ability Power.\n\nWhile below 50% Health, double the Omnivamp.",
+      "description": "Gain 2 effects:\n15% Attack Damage and 15% Ability Power.\n12% Omnivamp.\n\nWhile above 50% health, double the Attack Damage and Ability Power.\n\nWhile below 50% Health, double the Omnivamp.",
       "grants": [
         {
           "to": "holder",
@@ -935,6 +1025,8 @@
     },
     {
       "name": "Thief's Gloves",
+      "combat": true,
+      "requiresRunInput": true,
       "type": "craftable",
       "components": ["gloves", "gloves"],
       "stats": {
@@ -945,27 +1037,35 @@
     },
     {
       "name": "Tactician's Crown",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["spat", "spat"],
       "stats": {},
-      "description": "Your team gains +1 maximum team size.\n10% chance to drop 1 gold when you win combat.\n...the Heart of a hero..."
+      "description": "Your team gains +1 maximum team size.\n\n10% chance to drop 1 gold when you win combat.\n\n...the Heart of a hero..."
     },
     {
       "name": "Tactician's Cape",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["spat", "pan"],
       "stats": {},
-      "description": "Your team gains +1 maximum team size.\n10% chance to drop 1 gold after 10 seconds of combat.\n...and a bit of Luck."
+      "description": "Your team gains +1 maximum team size.\n\n10% chance to drop 1 gold after 10 seconds of combat.\n\n...and a bit of Luck."
     },
     {
       "name": "Tactician's Shield",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["pan", "pan"],
       "stats": {},
-      "description": "Your team gains +1 maximum team size.\n10% chance to drop 1 gold when the holder dies.\nImbued with a Philosopher's wisdom..."
+      "description": "Your team gains +1 maximum team size.\n\n10% chance to drop 1 gold when the holder dies.\n\nImbued with a Philosopher's wisdom..."
     },
     {
       "name": "Blackthorn Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Blackthorn",
       "components": ["spat", "belt"],
@@ -978,6 +1078,8 @@
     },
     {
       "name": "Blossom Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Blossom",
       "components": ["spat", "rod"],
@@ -990,13 +1092,15 @@
     },
     {
       "name": "Brawler Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Brawler",
       "components": ["pan", "belt"],
       "stats": {
         "hp": 250
       },
-      "description": "The holder gains the Brawler trait.\nAttacks deal 3% of the holder's max Health as magic damage.",
+      "description": "The holder gains the Brawler trait.\n\nAttacks deal 3% of the holder's max Health as magic damage.",
       "grants": [
         {
           "to": "enemy",
@@ -1010,6 +1114,8 @@
     },
     {
       "name": "Coven Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Coven",
       "components": null,
@@ -1020,6 +1126,8 @@
     },
     {
       "name": "Defender Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Defender",
       "components": null,
@@ -1027,7 +1135,7 @@
         "armor": 30,
         "magicResist": 30
       },
-      "description": "The holder gains the Defender trait.\nCombat Start: Gain 6% Attack Speed for every ally that starts in the front row.",
+      "description": "The holder gains the Defender trait.\n\nCombat Start: Gain 6% Attack Speed for every ally that starts in the front row.",
       "grants": [
         {
           "to": "holder",
@@ -1041,6 +1149,8 @@
     },
     {
       "name": "Elderwood Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Elderwood",
       "components": ["spat", "chain"],
@@ -1053,6 +1163,8 @@
     },
     {
       "name": "Executioner Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Executioner",
       "components": ["pan", "gloves"],
@@ -1060,7 +1172,7 @@
         "critChance": 0.35,
         "critDamage": 0.15
       },
-      "description": "The holder gains the Executioner trait.\nDamage executes enemies below 12% of their max Health.",
+      "description": "The holder gains the Executioner trait.\n\nDamage executes enemies below 12% of their max Health.",
       "grants": [
         {
           "to": "enemy",
@@ -1072,6 +1184,8 @@
     },
     {
       "name": "Fae Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Fae",
       "components": ["spat", "bf"],
@@ -1084,6 +1198,8 @@
     },
     {
       "name": "Flora Fatalis Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Flora Fatalis",
       "components": null,
@@ -1095,13 +1211,15 @@
     },
     {
       "name": "Hunter Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Hunter",
       "components": ["pan", "bf"],
       "stats": {
         "attackDamage": 0.3
       },
-      "description": "The holder gains the Hunter trait.\nTakedowns grant 12% Attack Damage.",
+      "description": "The holder gains the Hunter trait.\n\nTakedowns grant 12% Attack Damage.",
       "grants": [
         {
           "to": "holder",
@@ -1115,6 +1233,8 @@
     },
     {
       "name": "Inferno Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Inferno",
       "components": ["spat", "bow"],
@@ -1125,13 +1245,15 @@
     },
     {
       "name": "Invoker Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Invoker",
       "components": ["pan", "tear"],
       "stats": {
         "manaRegen": 3
       },
-      "description": "The holder gains the Invoker trait.\nOn cast, gain Ability Power equal to 10% of Mana spent.",
+      "description": "The holder gains the Invoker trait.\n\nOn cast, gain Ability Power equal to 10% of Mana spent.",
       "grants": [
         {
           "to": "holder",
@@ -1142,13 +1264,15 @@
     },
     {
       "name": "Juggernaut Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Juggernaut",
       "components": null,
       "stats": {
         "hp": 400
       },
-      "description": "The holder gains the Juggernaut trait.\nGain 15 mana whenever a Juggernaut dies.",
+      "description": "The holder gains the Juggernaut trait.\n\nGain 15 mana whenever a Juggernaut dies.",
       "grants": [
         {
           "to": "holder",
@@ -1161,6 +1285,8 @@
     },
     {
       "name": "Lunar Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Lunar",
       "components": ["spat", "tear"],
@@ -1172,6 +1298,8 @@
     },
     {
       "name": "Primal Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Primal",
       "components": ["spat", "gloves"],
@@ -1184,13 +1312,15 @@
     },
     {
       "name": "Rapidfire Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Rapidfire",
       "components": ["pan", "bow"],
       "stats": {
         "attackSpeed": 0.2
       },
-      "description": "The holder gains the Rapidfire trait.\nAttacks deal 1% of the target's max Health as true damage.",
+      "description": "The holder gains the Rapidfire trait.\n\nAttacks deal 1% of the target's max Health as true damage.",
       "grants": [
         {
           "to": "enemy",
@@ -1204,6 +1334,8 @@
     },
     {
       "name": "Ravager Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Ravager",
       "components": ["pan", "cloak"],
@@ -1213,7 +1345,7 @@
         "armor": 20,
         "magicResist": 20
       },
-      "description": "The holder gains the Ravager trait.\nGain 3% Damage Amp per 300 Health restored.",
+      "description": "The holder gains the Ravager trait.\n\nGain 3% Damage Amp per 300 Health restored.",
       "grants": [
         {
           "to": "holder",
@@ -1227,13 +1359,15 @@
     },
     {
       "name": "Spellweaver Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Spellweaver",
       "components": ["pan", "rod"],
       "stats": {
         "abilityPower": 0.25
       },
-      "description": "The holder gains the Spellweaver trait.\nGain 2 Mana whenever an ally casts their Ability.",
+      "description": "The holder gains the Spellweaver trait.\n\nGain 2 Mana whenever an ally casts their Ability.",
       "grants": [
         {
           "to": "holder",
@@ -1246,6 +1380,8 @@
     },
     {
       "name": "Sprykin Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Sprykin",
       "components": ["spat", "cloak"],
@@ -1254,7 +1390,7 @@
         "armor": 20,
         "magicResist": 20
       },
-      "description": "The holder gains the Sprykin trait.\nIf the holder is riding the BFF, gain an additional 30% (AS), 20 (ARMOR) , 20 (MR)",
+      "description": "The holder gains the Sprykin trait.\n\nIf the holder is riding the BFF, gain an additional 30% (AS), 20 (ARMOR), 20 (MR)",
       "grants": [
         {
           "to": "holder",
@@ -1273,6 +1409,8 @@
     },
     {
       "name": "Vanguard Emblem",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Vanguard",
       "components": ["pan", "chain"],
@@ -1280,7 +1418,7 @@
         "armor": 30,
         "magicResist": 30
       },
-      "description": "The holder gains the Vanguard trait.\nIf the holder survives 20 seconds in player combat, gain 1 player health.",
+      "description": "The holder gains the Vanguard trait.\n\nIf the holder survives 20 seconds in player combat, gain 1 player health.",
       "params": {
         "survivalSeconds": 20,
         "playerHealthGained": 1
@@ -1288,12 +1426,14 @@
     },
     {
       "name": "Aegis of Dawn",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 400,
         "armor": 50
       },
-      "description": "Every 2.5 seconds, steal 3 Armor from enemies within 1-hex and heal 15% of the holder's Armor.\nIf Aegis of Dusk is also equipped, trigger this item's effect every 1.25 seconds instead.\n\nHealing increases based on Stage.",
+      "description": "Every 2.5 seconds, steal 3 Armor from enemies within 1-hex and heal 15% of the holder's Armor.\n\nIf Aegis of Dusk is also equipped, trigger this item's effect every 1.25 seconds instead.\n\nHealing increases based on Stage.",
       "grants": [
         {
           "to": "enemy",
@@ -1323,12 +1463,14 @@
     },
     {
       "name": "Aegis of Dusk",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 400,
         "magicResist": 70
       },
-      "description": "Every 2.5 seconds, steal 3 Magic Resist from enemies within 1-hex and deal 15% of the holder's Magic Resist as magic damage.\nIf Aegis of Dawn is also equipped, trigger this item's effect every 1.25 seconds instead.\n\nDamage increases based on Stage.",
+      "description": "Every 2.5 seconds, steal 3 Magic Resist from enemies within 1-hex and deal 15% of the holder's Magic Resist as magic damage.\n\nIf Aegis of Dawn is also equipped, trigger this item's effect every 1.25 seconds instead.\n\nDamage increases based on Stage.",
       "grants": [
         {
           "to": "enemy",
@@ -1362,12 +1504,14 @@
     },
     {
       "name": "Blighting Jewel",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "abilityPower": 0.2,
         "manaRegen": 2
       },
-      "description": "Dealing magic damage reduces the target’s Magic Resist by 4. If their Magic Resist is 0, grant the holder 4 Mana instead.\n\nAbility damage can only trigger on each enemy once every 0.5 seconds.",
+      "description": "Dealing magic damage reduces the target’s Magic Resist by 4.\nIf their Magic Resist is 0, grant the holder 4 Mana instead.\n\nAbility damage can only trigger on each enemy once every 0.5 seconds.",
       "grants": [
         {
           "to": "enemy",
@@ -1392,13 +1536,15 @@
     },
     {
       "name": "Cappa Juice",
+      "combat": true,
+      "requiresRunInput": true,
       "type": "artifact",
       "stats": {
         "abilityPower": 0.25,
         "attackDamage": 0.25,
         "attackSpeed": 0.25
       },
-      "description": "The holder dons a Hat on each takedown. The holder gains 1% Attack Damage and Ability Power per Hat. On death lose 20% of all Hats.",
+      "description": "The holder dons a Hat on each takedown.\nThe holder gains 1% Attack Damage and Ability Power per Hat.\nOn death lose 20% of all Hats.",
       "grants": [
         {
           "to": "holder",
@@ -1417,13 +1563,15 @@
     },
     {
       "name": "Dawncore",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "attackDamage": 0.15,
         "abilityPower": 0.15,
         "manaRegen": 2
       },
-      "description": "Reduce the holder's max Mana by 10. Subsequent spellcasts reduce max Mana by 7%, to a minimum of 10.",
+      "description": "Reduce the holder's max Mana by 10.\nSubsequent spellcasts reduce max Mana by 7%, to a minimum of 10.",
       "grants": [
         {
           "to": "holder",
@@ -1446,6 +1594,8 @@
     },
     {
       "name": "Death's Defiance",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "attackDamage": 0.25,
@@ -1467,12 +1617,14 @@
     },
     {
       "name": "Eternal Pact",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "abilityPower": 0.4,
         "manaRegen": 1
       },
-      "description": "Combat start: Form a pact with the highest Health allied champion, If they die, gain 10 Mana regen and 40% Ability Power.\nWhen the ally uses their ability, gain 15 Mana. Every 6 seconds, shield your ally for 200% of the holder's Ability Power.",
+      "description": "Combat start: Form a pact with the highest Health allied champion, If they die, gain 10 Mana regen and 40% Ability Power.\n\nWhen the ally uses their ability, gain 15 Mana.\nEvery 6 seconds, shield your ally for 200% of the holder's Ability Power.",
       "grants": [
         {
           "to": "ally",
@@ -1513,13 +1665,15 @@
     },
     {
       "name": "Fishbones",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "attackDamage": 0.3,
         "attackSpeed": 0.3,
         "range": 2
       },
-      "description": "The holder's attacks target random enemies. Gain +2 Attack Range.",
+      "description": "The holder's attacks target random enemies.\nGain +2 Attack Range.",
       "grants": [
         {
           "to": "holder",
@@ -1529,12 +1683,14 @@
     },
     {
       "name": "Flickerblades",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "abilityPower": 0.1,
         "attackSpeed": 0.2
       },
-      "description": "Attacks grant 5% stacking Attack Speed. Every 3 attacks also grant 2% Attack Damage and 2% Ability Power.",
+      "description": "Attacks grant 5% stacking Attack Speed.\nEvery 3 attacks also grant 2% Attack Damage and 2% Ability Power.",
       "stacks": true,
       "grants": [
         {
@@ -1558,6 +1714,8 @@
     },
     {
       "name": "Forbidden Idol",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 350,
@@ -1577,11 +1735,13 @@
     },
     {
       "name": "Gambler's Blade",
+      "combat": true,
+      "requiresRunInput": true,
       "type": "artifact",
       "stats": {
         "attackSpeed": 0.55
       },
-      "description": "Grant 1% bonus Attack Speed per gold in your bank (up to 30 gold).\nEach attack has a 6% chance to drop 1 gold.\n\nUnique - only 1 per champion",
+      "description": "Grant 1% bonus Attack Speed per gold in your bank (up to 30 gold).\n\nEach attack has a 6% chance to drop 1 gold.\n\nUnique - only 1 per champion",
       "grants": [
         {
           "to": "holder",
@@ -1599,12 +1759,14 @@
     },
     {
       "name": "Gold Collector",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "attackDamage": 0.4,
         "critChance": 0.2
       },
-      "description": "Attacks and Abilities execute enemies below 12% of their maximum Health. Executions on champions have a 33% chance to drop 1 gold.\n\nUnique - only 1 per champion",
+      "description": "Attacks and Abilities execute enemies below 12% of their maximum Health.\nExecutions on champions have a 33% chance to drop 1 gold.\n\nUnique - only 1 per champion",
       "grants": [
         {
           "to": "enemy",
@@ -1621,12 +1783,14 @@
     },
     {
       "name": "Hellfire Hatchet",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 400,
         "omnivamp": 0.2
       },
-      "description": "Attacks deal 3% of the holder's max Health as bonus physical damage. For every 1% missing Health, gain 1.5% Attack Speed.",
+      "description": "Attacks deal 3% of the holder's max Health as bonus physical damage.\nFor every 1% missing Health, gain 1.5% Attack Speed.",
       "grants": [
         {
           "to": "enemy",
@@ -1647,6 +1811,8 @@
     },
     {
       "name": "Horizon Focus",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 250,
@@ -1668,6 +1834,8 @@
     },
     {
       "name": "Hullcrusher",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "armor": 60,
@@ -1693,6 +1861,8 @@
     },
     {
       "name": "Infinity Force",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 300,
@@ -1706,6 +1876,8 @@
     },
     {
       "name": "Lich Bane",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "abilityPower": 0.55,
@@ -1725,6 +1897,8 @@
     },
     {
       "name": "Lightshield Crest",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "armor": 55,
@@ -1757,6 +1931,8 @@
     },
     {
       "name": "Luden's Tempest",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "attackDamage": 0.55,
@@ -1779,6 +1955,8 @@
     },
     {
       "name": "Manazane",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "attackDamage": 0.15,
@@ -1799,12 +1977,14 @@
     },
     {
       "name": "Mittens",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "attackSpeed": 0.65,
         "damageAmp": 0.15
       },
-      "description": "Shrinks the holder, granting them increased movement speed and immunity to Slow, Burn, and Wound.\n\nSlow: Reduces Attack Speed.\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received.",
+      "description": "Shrinks the holder, granting them increased movement speed and immunity to Slow, Burn, and Wound.\n\nSlow: Reduces Attack Speed.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\n\nWound: Reduces healing received.",
       "grants": [
         {
           "to": "holder",
@@ -1814,11 +1994,13 @@
     },
     {
       "name": "Mogul's Mail",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 300
       },
-      "description": "Grants 1 Armor, 1 Magic Resist, and 5 Health when taking damage, stacking up to 35 times.\nAt full stacks, grant  1 gold and continue gaining  1 gold every 11 seconds.\n\nUnique - only 1 per champion",
+      "description": "Grants 1 Armor, 1 Magic Resist, and 5 Health when taking damage, stacking up to 35 times.\n\nAt full stacks, grant 1 gold and continue gaining 1 gold every 11 seconds.\n\nUnique - only 1 per champion",
       "stacks": true,
       "maxStacks": 35,
       "grants": [
@@ -1842,6 +2024,8 @@
     },
     {
       "name": "Rapid Firecannon",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "attackSpeed": 0.65,
@@ -1862,6 +2046,8 @@
     },
     {
       "name": "Seeker's Armguard",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "abilityPower": 0.25,
@@ -1887,6 +2073,8 @@
     },
     {
       "name": "Silvermere Dawn",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "attackDamage": 1.25,
@@ -1913,6 +2101,8 @@
     },
     {
       "name": "Statikk Shiv",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "abilityPower": 0.15,
@@ -1938,6 +2128,8 @@
     },
     {
       "name": "Talisman of Ascension",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 450,
@@ -1964,13 +2156,15 @@
     },
     {
       "name": "The Indomitable",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 500,
         "armor": 20,
         "magicResist": 20
       },
-      "description": "The holder's Move Speed is drastically reduced.\nGain 15% max Health, Unstoppable, and pull the current target into melee range.",
+      "description": "The holder's Move Speed is drastically reduced.\n\nGain 15% max Health, Unstoppable, and pull the current target into melee range.",
       "grants": [
         {
           "to": "holder",
@@ -1990,6 +2184,8 @@
     },
     {
       "name": "Titanic Hydra",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 300,
@@ -2014,12 +2210,14 @@
     },
     {
       "name": "Void Gauntlet",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 300,
         "durability": 0.1
       },
-      "description": "Combat Start: Store 30% max Health and 2.5% more every second. On death, unleash the stored Health as magic damage split between enemies within 4 hexes.\n\nUnique - only 1 per champion",
+      "description": "Combat Start: Store 30% max Health and 2.5% more every second.\nOn death, unleash the stored Health as magic damage split between enemies within 4 hexes.\n\nUnique - only 1 per champion",
       "grants": [
         {
           "to": "holder",
@@ -2048,6 +2246,8 @@
     },
     {
       "name": "Wit's End",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 400,
@@ -2055,7 +2255,7 @@
         "magicResist": 20,
         "attackSpeed": 0.25
       },
-      "description": "Attacks deal 30/45/65/85/100 bonus magic damage.\nHeals the holder for 25% of all magic damage dealt.\n\nDamage increases based on Stage.",
+      "description": "Attacks deal 30/45/65/85/100 bonus magic damage.\n\nHeals the holder for 25% of all magic damage dealt.\n\nDamage increases based on Stage.",
       "grants": [
         {
           "to": "enemy",
@@ -2074,6 +2274,8 @@
     },
     {
       "name": "Zhonya's Paradox",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "abilityPower": 0.25,
@@ -2104,13 +2306,15 @@
     },
     {
       "name": "Radiant Adaptive Helm",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Adaptive Helm",
       "stats": {
         "magicResist": 40,
         "manaRegen": 7
       },
-      "description": "Gain an additional 30% Mana from all sources. The wearer gains an additional bonus based on their Role:\n\nTanks and Fighters: Gain 80 Armor and Magic Resistance.\nOther Roles: Gain 40% Attack Damage and Ability Power.",
+      "description": "Gain an additional 30% Mana from all sources.\nThe wearer gains an additional bonus based on their Role:\n\nTanks and Fighters: Gain 80 Armor and Magic Resistance.\n\nOther Roles: Gain 40% Attack Damage and Ability Power.",
       "grants": [
         {
           "to": "holder",
@@ -2142,6 +2346,8 @@
     },
     {
       "name": "Radiant Archangel's Staff",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Archangel's Staff",
       "stats": {
@@ -2163,6 +2369,8 @@
     },
     {
       "name": "Radiant Bloodthirster",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Bloodthirster",
       "stats": {
@@ -2189,6 +2397,8 @@
     },
     {
       "name": "Radiant Blue Buff",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Blue Buff",
       "stats": {
@@ -2209,12 +2419,14 @@
     },
     {
       "name": "Radiant Bramble Vest",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Bramble Vest",
       "stats": {
         "armor": 100
       },
-      "description": "Gain 12% max Health.\nTake 10% reduced damage from attacks. When struck by any attack, deal 200 magic damage to all adjacent enemies.\n\nCooldown: 2 seconds",
+      "description": "Gain 12% max Health.\n\nTake 10% reduced damage from attacks.\nWhen struck by any attack, deal 200 magic damage to all adjacent enemies.\n\nCooldown: 2 seconds",
       "grants": [
         {
           "to": "holder",
@@ -2243,6 +2455,8 @@
     },
     {
       "name": "Radiant Crownguard",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Crownguard",
       "stats": {
@@ -2250,7 +2464,7 @@
         "abilityPower": 40,
         "armor": 40
       },
-      "description": "Combat start: Gain a 50% max Health Shield for 8 seconds.\nWhen the shield expires, gain 50% Ability Power.",
+      "description": "Combat start: Gain a 50% max Health Shield for 8 seconds.\n\nWhen the shield expires, gain 50% Ability Power.",
       "grants": [
         {
           "to": "holder",
@@ -2271,22 +2485,26 @@
     },
     {
       "name": "Radiant Deathblade",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Deathblade",
       "stats": {
         "attackDamage": 1,
         "damageAmp": 0.2
       },
-      "description": "It glows in the presence of enemies. Or friends. Or anything alive, really."
+      "description": "It glows in the presence of enemies.\nOr friends.\nOr anything alive, really."
     },
     {
       "name": "Radiant Dragon's Claw",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Dragon's Claw",
       "stats": {
         "magicResist": 120
       },
-      "description": "Gain 28% max Health.\nEvery 2 seconds, heal 5% max Health.",
+      "description": "Gain 28% max Health.\n\nEvery 2 seconds, heal 5% max Health.",
       "grants": [
         {
           "to": "holder",
@@ -2303,6 +2521,8 @@
     },
     {
       "name": "Radiant Edge of Night",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Edge of Night",
       "stats": {
@@ -2331,13 +2551,15 @@
     },
     {
       "name": "Radiant Evenshroud",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Evenshroud",
       "stats": {
         "hp": 500,
         "magicResist": 40
       },
-      "description": "30% Sunder enemies within 3 hexes. Gain 50 Armor and Magic Resist for the first 20 seconds of combat.\n\nSunder: Reduce Armor",
+      "description": "30% Sunder enemies within 3 hexes.\nGain 50 Armor and Magic Resist for the first 20 seconds of combat.\n\nSunder: Reduce Armor",
       "grants": [
         {
           "to": "enemy",
@@ -2362,6 +2584,8 @@
     },
     {
       "name": "Radiant Gargoyle Stoneplate",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Gargoyle Stoneplate",
       "stats": {
@@ -2384,6 +2608,8 @@
     },
     {
       "name": "Radiant Giant Slayer",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Giant Slayer",
       "stats": {
@@ -2407,6 +2633,8 @@
     },
     {
       "name": "Radiant Guinsoo's Rageblade",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Guinsoo's Rageblade",
       "stats": {
@@ -2428,13 +2656,15 @@
     },
     {
       "name": "Radiant Hand of Justice",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Hand of Justice",
       "stats": {
         "critChance": 0.4,
         "manaRegen": 2
       },
-      "description": "Gain 2 effects:\n• 30% Attack Damage and 30% Ability Power.\n• 24% Omnivamp.\n\nWhile above 50% health, double the Attack Damage and Ability Power. While below 50% Health, double the Omnivamp.",
+      "description": "Gain 2 effects:\n30% Attack Damage and 30% Ability Power.\n24% Omnivamp.\n\nWhile above 50% health, double the Attack Damage and Ability Power.\nWhile below 50% Health, double the Omnivamp.",
       "grants": [
         {
           "to": "holder",
@@ -2468,6 +2698,8 @@
     },
     {
       "name": "Radiant Hextech Gunblade",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Hextech Gunblade",
       "stats": {
@@ -2489,13 +2721,15 @@
     },
     {
       "name": "Radiant Infinity Edge",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Infinity Edge",
       "stats": {
         "attackDamage": 0.75,
         "critChance": 0.75
       },
-      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike. Extra Precision grants 10% Critical Strike Damage.",
+      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike.\nExtra Precision grants 10% Critical Strike Damage.",
       "grants": [
         {
           "to": "holder",
@@ -2505,6 +2739,8 @@
     },
     {
       "name": "Radiant Ionic Spark",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Ionic Spark",
       "stats": {
@@ -2512,7 +2748,7 @@
         "abilityPower": 0.3,
         "magicResist": 70
       },
-      "description": "30% Shred enemies within 2 hexes. When enemies cast an Ability, deal magic damage equal to 300% of the Mana spent.\n\nShred: Reduce Magic Resist",
+      "description": "30% Shred enemies within 2 hexes.\nWhen enemies cast an Ability, deal magic damage equal to 300% of the Mana spent.\n\nShred: Reduce Magic Resist",
       "grants": [
         {
           "to": "enemy",
@@ -2533,13 +2769,15 @@
     },
     {
       "name": "Radiant Jeweled Gauntlet",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Jeweled Gauntlet",
       "stats": {
         "abilityPower": 0.75,
         "critChance": 0.75
       },
-      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike. Extra Precision grants 10% Critical Strike Damage.",
+      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike.\nExtra Precision grants 10% Critical Strike Damage.",
       "grants": [
         {
           "to": "holder",
@@ -2549,6 +2787,8 @@
     },
     {
       "name": "Radiant Kraken's Fury",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Kraken's Fury",
       "stats": {
@@ -2556,7 +2796,7 @@
         "magicResist": 40,
         "attackSpeed": 0.2
       },
-      "description": "Attacks grant 7% stacking Attack Damage, up to 15 attacks. After 15 attacks, gain 30% Attack Speed.",
+      "description": "Attacks grant 7% stacking Attack Damage, up to 15 attacks.\nAfter 15 attacks, gain 30% Attack Speed.",
       "stacks": true,
       "maxStacks": 15,
       "grants": [
@@ -2582,6 +2822,8 @@
     },
     {
       "name": "Radiant Last Whisper",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Last Whisper",
       "stats": {
@@ -2589,7 +2831,7 @@
         "attackSpeed": 0.4,
         "critChance": 0.4
       },
-      "description": "Attacks and Ability damage 30% Sunders the target for the rest of combat. This effect does not stack.\n\nSunder: Reduce Armor",
+      "description": "Attacks and Ability damage 30% Sunders the target for the rest of combat.\nThis effect does not stack.\n\nSunder: Reduce Armor",
       "grants": [
         {
           "to": "enemy",
@@ -2602,6 +2844,8 @@
     },
     {
       "name": "Radiant Morellonomicon",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Morellonomicon",
       "stats": {
@@ -2609,7 +2853,7 @@
         "abilityPower": 0.35,
         "manaRegen": 2
       },
-      "description": "Attacks and Abilities deal 2% Burn and 33% Wound to enemies for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received.",
+      "description": "Attacks and Abilities deal 2% Burn and 33% Wound to enemies for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\n\nWound: Reduces healing received.",
       "grants": [
         {
           "to": "enemy",
@@ -2622,6 +2866,8 @@
     },
     {
       "name": "Radiant Nashor's Tooth",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Nashor's Tooth",
       "stats": {
@@ -2650,6 +2896,8 @@
     },
     {
       "name": "Radiant Protector's Vow",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Protector's Vow",
       "stats": {
@@ -2657,7 +2905,7 @@
         "magicResist": 50,
         "manaRegen": 2
       },
-      "description": "Combat Start: Gain 40 Mana.\nAt 40% Health, gain 30 Mana and a Shield equal to 50% max Health",
+      "description": "Combat Start: Gain 40 Mana.\n\nAt 40% Health, gain 30 Mana and a Shield equal to 50% max Health",
       "grants": [
         {
           "to": "holder",
@@ -2683,6 +2931,8 @@
     },
     {
       "name": "Radiant Quicksilver",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Quicksilver",
       "stats": {
@@ -2690,7 +2940,7 @@
         "attackSpeed": 0.4,
         "critChance": 0.4
       },
-      "description": "Combat Start: Unstoppable for 45 seconds.\nGain 6% stacking Attack Speed every second.",
+      "description": "Combat Start: Unstoppable for 45 seconds.\n\nGain 6% stacking Attack Speed every second.",
       "stacks": true,
       "grants": [
         {
@@ -2711,6 +2961,8 @@
     },
     {
       "name": "Radiant Rabadon's Deathcap",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Rabadon's Deathcap",
       "stats": {
@@ -2721,13 +2973,15 @@
     },
     {
       "name": "Radiant Red Buff",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Red Buff",
       "stats": {
         "attackSpeed": 0.8,
         "damageAmp": 0.06
       },
-      "description": "Attacks and Abilities 2% Burn and 33% Wound enemies for 5 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received.",
+      "description": "Attacks and Abilities 2% Burn and 33% Wound enemies for 5 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\n\nWound: Reduces healing received.",
       "grants": [
         {
           "to": "enemy",
@@ -2740,6 +2994,8 @@
     },
     {
       "name": "Radiant Spear of Shojin",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Spear of Shojin",
       "stats": {
@@ -2760,6 +3016,8 @@
     },
     {
       "name": "Radiant Spirit Visage",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Spirit Visage",
       "stats": {
@@ -2778,6 +3036,8 @@
     },
     {
       "name": "Radiant Steadfast Heart",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Steadfast Heart",
       "stats": {
@@ -2785,7 +3045,7 @@
         "critChance": 0.4,
         "durability": 0.1
       },
-      "description": "Gain 10% Durability. While above 50% Health, instead gain 30% Durability.",
+      "description": "Gain 10% Durability.\nWhile above 50% Health, instead gain 30% Durability.",
       "grants": [
         {
           "to": "holder",
@@ -2809,6 +3069,8 @@
     },
     {
       "name": "Radiant Sterak's Gage",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Sterak's Gage",
       "stats": {
@@ -2833,6 +3095,8 @@
     },
     {
       "name": "Radiant Striker's Flail",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Striker's Flail",
       "stats": {
@@ -2859,13 +3123,15 @@
     },
     {
       "name": "Radiant Sunfire Cape",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Sunfire Cape",
       "stats": {
         "hp": 300,
         "armor": 40
       },
-      "description": "Gain 16% max Health.\nEvery 2 seconds, deal 2% Burn and 33% Wound to an enemy within 2 hexes for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received.",
+      "description": "Gain 16% max Health.\n\nEvery 2 seconds, deal 2% Burn and 33% Wound to an enemy within 2 hexes for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\n\nWound: Reduces healing received.",
       "grants": [
         {
           "to": "holder",
@@ -2890,6 +3156,8 @@
     },
     {
       "name": "Radiant Thief's Gloves",
+      "combat": true,
+      "requiresRunInput": true,
       "type": "radiant",
       "base": "Thief's Gloves",
       "stats": {
@@ -2900,13 +3168,15 @@
     },
     {
       "name": "Radiant Titan's Resolve",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Titan's Resolve",
       "stats": {
         "armor": 40,
         "attackSpeed": 0.2
       },
-      "description": "Gain 4% Attack Damage and 4% Ability Power when attacking or taking damage, stacking up to 25 times.\nAt full stacks, gain 20% Damage Amp and Unstoppable.",
+      "description": "Gain 4% Attack Damage and 4% Ability Power when attacking or taking damage, stacking up to 25 times.\n\nAt full stacks, gain 20% Damage Amp and Unstoppable.",
       "stacks": true,
       "maxStacks": 25,
       "grants": [
@@ -2934,6 +3204,8 @@
     },
     {
       "name": "Radiant Void Staff",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Void Staff",
       "stats": {
@@ -2941,7 +3213,7 @@
         "attackSpeed": 0.3,
         "manaRegen": 2
       },
-      "description": "Attacks and Ability damage 30% Shred the target for the rest of combat. This effect does not stack.\n\nShred: Reduce Magic Resist",
+      "description": "Attacks and Ability damage 30% Shred the target for the rest of combat.\nThis effect does not stack.\n\nShred: Reduce Magic Resist",
       "grants": [
         {
           "to": "enemy",
@@ -2954,6 +3226,8 @@
     },
     {
       "name": "Radiant Warmog's Armor",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Warmog's Armor",
       "stats": {

@@ -6,7 +6,7 @@
       "combat": true,
       "requiresRunInput": false,
       "champions": ["Akali", "Gromp", "Master Yi", "Kog'Maw", "Nidalee"],
-      "description": "Innate: Adaptor abilities change depending on whether their Attack Damage or Ability Power is higher. Adaptors gain AP or AD, whichever stat is higher. (2) 20% (AD or AP) — (3) 30% (AD or AP) — (4) 50%. (AD or AP)",
+      "description": "Innate: Adaptor abilities change depending on whether their Attack Damage or Ability Power is higher.\nAdaptors gain AP or AD, whichever stat is higher.\n\n(2) 20% (AD or AP)\n(3) 30% (AD or AP)\n(4) 50% (AD or AP)",
       "breakpoints": [
         {
           "count": 2,
@@ -73,7 +73,7 @@
       "combat": true,
       "requiresRunInput": false,
       "champions": ["Alune"],
-      "description": "Your strongest Alune cycles to a new phase of the moon after each cast. While the moon is at or below half full, your team gains 7% (Durability); above that, your team gains 7% (Damage Amp). Phases: New Moon 7% (Durability), Waxing Crescent 7% (Durability), Half Moon 7% (Durability), Waxing Gibbous 7% (Damage Amp), Full Moon 7% (Damage Amp).",
+      "description": "Your strongest Alune cycles to a new phase of the moon after each cast.\nWhile the moon is at or below half full, your team gains 7% (Durability);\nabove that, your team gains 7% (Damage Amp).\n\nPhases:\nNew Moon 7% (Durability)\nWaxing Crescent 7% (Durability)\nHalf Moon 7% (Durability)\nWaxing Gibbous 7% (Damage Amp)\nFull Moon 7% (Damage Amp)",
       "advancesOn": "cast",
       "startsAt": "new-moon",
       "phases": [
@@ -146,7 +146,7 @@
       "combat": false,
       "requiresRunInput": false,
       "champions": ["Lux"],
-      "description": "Having an Avatar on your bench or board transforms every other Avatar in your shop to that Avatar's trait. The trait an Avatar picks counts double towards trait bonuses. Variants: Solar, Primal, Lunar, Inferno, Fae, Elderwood, Coven, Blossom, Blackthorn.",
+      "description": "Having an Avatar on your bench or board transforms every other Avatar in your shop to that Avatar's trait.\nThe trait an Avatar picks counts double towards trait bonuses.\nVariants: Solar, Primal, Lunar, Inferno, Fae, Elderwood, Coven, Blossom, Blackthorn.",
       "variants": [
         "Solar",
         "Primal",
@@ -181,7 +181,7 @@
         "Malphite",
         "Lux (Blackthorn)"
       ],
-      "description": "The ally placed on the Blackthorn hex is sacrificed before combat, granting Health to your champions. Blackthorn champions gain extra stats based on the sacrifice's role, star level and cost. (2) 175 — (4) 300; bonus 25% stronger — (6) 350; the sacrifice no longer dies and also gains: 20% (AD | AP), 20% (AS), 20 (ARMOR | MR), 250 (HP), 10% (Omnivamp).",
+      "description": "The ally placed on the Blackthorn hex is sacrificed before combat, granting Health to your champions.\nBlackthorn champions gain extra stats based on the sacrifice's role, star level and cost.\n\n(2) 175\n(4) 300; bonus 25% stronger\n(6) 350; the sacrifice no longer dies and also gains:\n20% (AD | AP)\n20% (AS)\n20 (ARMOR | MR)\n250 (HP)\n10% (Omnivamp)",
       "sacrifice": {
         "byRole": {
           "tank": {
@@ -293,7 +293,7 @@
         "Lux (Blossom)",
         "Ashe"
       ],
-      "description": "After combat, your Wisps are upgraded. Blossom champions gain Attack Damage, Ability Power and 12% max Health. (3) Upgraded Wisps, 12% (AP) (AD) — (5) Wisps in every shop, 30% (AP) (AD) — (7) Gain 5 gold after buying a Wisp, 45% (AP) (AD) — (9) You can buy 2 Wisps per round, 60% (AP) (AD) — (11) Wisps overflow with power, 100%. (AP) (AD)",
+      "description": "After combat, your Wisps are upgraded.\nBlossom champions gain Attack Damage, Ability Power and 12% max Health.\n\n(3) Upgraded Wisps, 12% (AP) (AD)\n(5) Wisps in every shop, 30% (AP) (AD)\n(7) Gain 5 gold after buying a Wisp, 45% (AP) (AD)\n(9) You can buy 2 Wisps per round, 60% (AP) (AD)\n(11) Wisps overflow with power, 100% (AP) (AD)",
       "breakpoints": [
         {
           "count": 3,
@@ -368,7 +368,7 @@
       "combat": false,
       "requiresRunInput": false,
       "champions": ["Draven"],
-      "description": "Choose a bounty. Your strongest Draven progresses towards it to earn its reward; once completed, choose another. Bounties and rewards: 50 attacks → 1 random 5-cost champion; 5 casts → 2 4-cost champions; 8 casts → 10 rerolls; 8000 damage → 7 gold; 35000 damage → 1 B.F. Sword; 10000 damage in a single player combat → 15 gold; 6 kills → 12 gold; 15 kills → 1 random completed item; highest team damage → 2 rerolls; survive 3 player combats → 2 random components; 14 takedowns → 10 XP.",
+      "description": "Choose a bounty.\nYour strongest Draven progresses towards it to earn its reward;\nonce completed, choose another.\n\nBounties and rewards:\n50 attacks → 1 random 5-cost champion\n5 casts → 2 4-cost champions\n8 casts → 10 rerolls\n8000 damage → 7 gold\n35000 damage → 1 B.F. Sword\n10000 damage in a single player combat → 15 gold\n6 kills → 12 gold\n15 kills → 1 random completed item\nhighest team damage → 2 rerolls\nsurvive 3 player combats → 2 random components\n14 takedowns → 10 XP",
       "breakpoints": [
         {
           "count": 1,
@@ -382,7 +382,7 @@
       "combat": true,
       "requiresRunInput": false,
       "champions": ["Kobuko", "Rek'Sai", "Alistar", "Krug", "Sett", "Gnar"],
-      "description": "Your team gains 120 max Health; Brawlers gain more. (2) 25% (HP) — (4) 40% (HP) — (6) 65%.(HP)",
+      "description": "Your team gains 120 max Health; Brawlers gain more.\n\n(2) 25% (HP)\n(4) 40% (HP)\n(6) 65% (HP)",
       "breakpoints": [
         {
           "count": 2,
@@ -474,7 +474,7 @@
         "Morgana",
         "Lux (Coven)"
       ],
-      "description": "Harvest Essence by killing champions, and more by losing a player combat. At 40 Essence, choose to convert Essence into rewards or keep gathering; each reward requires more Essence. (3) 1 Essence per kill, 20 Essence per loss — (4) 2 per kill, 25 per loss — (5) 2 per kill, 35 per loss — (7) 7 per kill, 70 per loss.",
+      "description": "Harvest Essence by killing champions, and more by losing a player combat.\nAt 40 Essence, choose to convert Essence into rewards or keep gathering;\neach reward requires more Essence.\n\n(3) 1 Essence per kill, 20 Essence per loss\n(4) 2 per kill, 25 per loss\n(5) 2 per kill, 35 per loss\n(7) 7 per kill, 70 per loss",
       "breakpoints": [
         {
           "count": 3,
@@ -512,8 +512,7 @@
             "essenceForFirstReward": 40
           }
         }
-      ],
-      "note": "Economy on its own, but Dark Ritual and Coven Acolyte turn the essence into combat power."
+      ]
     },
     {
       "name": "Defender",
@@ -528,7 +527,7 @@
         "Rammus",
         "Lillia"
       ],
-      "description": "Your team gains 12 Armor and Magic Resist; Defenders gain more. (2) 25 (ARMOR) (MR) — (4) 55 (ARMOR) (MR) — (6) 110 (ARMOR) (MR).",
+      "description": "Your team gains 12 Armor and Magic Resist; Defenders gain more.\n\n(2) 25 (ARMOR) (MR)\n(4) 55 (ARMOR) (MR)\n(6) 110 (ARMOR) (MR)",
       "breakpoints": [
         {
           "count": 2,
@@ -595,7 +594,7 @@
       "combat": true,
       "requiresRunInput": false,
       "champions": [],
-      "description": "Hidden trait, unlocked by combining Solar and Lunar. After 10 seconds of combat, the Eclipse kills the enemy with the lowest Health, then repeats every 3 seconds.",
+      "description": "Hidden trait, unlocked by combining Solar and Lunar.\nAfter 10 seconds of combat, the Eclipse kills the enemy with the lowest Health, then repeats every 3 seconds.",
       "requires": {
         "Solar": 3,
         "Lunar": 3
@@ -634,7 +633,7 @@
         "Lux (Elderwood)",
         "Gnar"
       ],
-      "description": "Gain placeable Elderwood plants. (3) A Stonebark Tree and a Lifebloom — (5) A second Stonebark Tree, and Stonebark Trees gain 150 Health — (7) and the Deepwood Protector — (9) Plants become 2-star — (11) Plants become 3-star and the forest comes alive.",
+      "description": "Gain placeable Elderwood plants.\n\n(3) A Stonebark Tree and a Lifebloom\n(5) A second Stonebark Tree, and Stonebark Trees gain 150 Health\n(7) and the Deepwood Protector\n(9) Plants become 2-star\n(11) Plants become 3-star and the forest comes alive",
       "breakpoints": [
         {
           "count": 3,
@@ -723,7 +722,7 @@
       "combat": true,
       "requiresRunInput": false,
       "champions": ["Yunara", "Azir", "Soraka", "Ezreal", "Kennen"],
-      "description": "(2) Executioners gain Precision and 35% Critical Strike Chance — (3) Additionally, enemies bleed for 30% bonus raw damage over 3 seconds — (4) Bleed damage raised to 50%.",
+      "description": "(2) Executioners gain Precision and 35% Critical Strike Chance\n(3) Additionally, enemies bleed for 30% bonus raw damage over 3 seconds\n(4) Bleed damage raised to 50%",
       "breakpoints": [
         {
           "count": 2,
@@ -785,7 +784,7 @@
       "combat": true,
       "requiresRunInput": true,
       "champions": ["Rakan", "Xayah", "Tristana", "Lillia", "Lux (Fae)"],
-      "description": "Your team's damage, healing and shielding attracts Pixies. Each Pixie grants Attack Damage and Ability Power to Fae champions, and once they drop below 50% Health they heal for each Pixie. (2) 5% (AP) (AD) and 2% healing — (4) 8% (AP) (AD) and 4% healing; after attracting 7 Pixies, you attract Golden Pixies that grant gold.",
+      "description": "Your team's damage, healing and shielding attracts Pixies.\nEach Pixie grants Attack Damage and Ability Power to Fae champions, and once they drop below 50% Health they heal for each Pixie.\n\n(2) 5% (AP) (AD) and 2% healing\n(4) 8% (AP) (AD) and 4% healing;\nafter attracting 7 Pixies, you attract Golden Pixies that grant gold.",
       "breakpoints": [
         {
           "count": 2,
@@ -844,7 +843,7 @@
       "combat": true,
       "requiresRunInput": false,
       "champions": ["Fiddlesticks", "Soraka"],
-      "description": "(1) 10 Mana — (2) and grants a heal of 8% max Health to the ally with the lowest Health.",
+      "description": "(1) 10 Mana\n(2) and grants a heal of 8% max Health to the ally with the lowest Health",
       "breakpoints": [
         {
           "count": 1,
@@ -885,7 +884,7 @@
       "combat": true,
       "requiresRunInput": true,
       "champions": ["Ivern"],
-      "description": "Gain 1 seed when your strongest Ivern casts, plus 4 each combat. Ivern spends 5 seeds to grow a hex on your board that grants a bonus to whoever occupies it. Bonuses: Flower 10%/15%/200%, Mushroom 8%/12%/200%, Rocks 12/15/500, Trees 6%/12%/200%, Water 2/3/30.",
+      "description": "Gain 1 seed when your strongest Ivern casts, plus 4 each combat.\nIvern spends 5 seeds to grow a hex on your board that grants a bonus to whoever occupies it.\n\nBonuses:\nFlower 10%/15%/200%\nMushroom 8%/12%/200%\nRocks 12/15/500\nTrees 6%/12%/200%\nWater 2/3/30",
       "hexes": [
         {
           "name": "flower",
@@ -1016,7 +1015,7 @@
       "combat": true,
       "requiresRunInput": false,
       "champions": ["Cinderling", "Caitlyn", "Tristana", "Sivir", "Ashe"],
-      "description": "Hunters gain Attack Damage. If a Hunter has not changed target for 4 seconds, it gains 10% Damage Amp. (2) 15% (AD) — (3) 25% (AD) — (4) 40% (AD) — (5) 60% (AD).",
+      "description": "Hunters gain Attack Damage.\nIf a Hunter has not changed target for 4 seconds, it gains 10% Damage Amp.\n\n(2) 15% (AD)\n(3) 25% (AD)\n(4) 40% (AD)\n(5) 60% (AD)",
       "breakpoints": [
         {
           "count": 2,
@@ -1125,7 +1124,7 @@
         "Lux (Inferno)",
         "Kennen"
       ],
-      "description": "Inferno damage applies Burn and 33% Wound for 4 seconds; Inferno Burns stack with other Burns. (2) 1% Burn — (3) After combat, 1 shop slot without an Inferno champion catches fire and offers a champion one tier higher — (5) 2 slots on fire, 2% Burn — (7) 4 slots on fire, 3% Burn.",
+      "description": "Inferno damage applies Burn and 33% Wound for 4 seconds;\nInferno Burns stack with other Burns.\n\n(2) 1% Burn\n(3) After combat, 1 shop slot without an Inferno champion catches fire and offers a champion one tier higher\n(5) 2 slots on fire, 2% Burn\n(7) 4 slots on fire, 3% Burn",
       "breakpoints": [
         {
           "count": 2,
@@ -1203,7 +1202,7 @@
       "combat": true,
       "requiresRunInput": false,
       "champions": ["Pebbles", "Teemo", "Kog'Maw", "Sentinel", "Morgana"],
-      "description": "Your team gains Mana Regen, increased for Invokers. (2) 1 (Mana Regen) | 2 (Mana Regen) — (3) 1 (Mana Regen) | 3 (Mana Regen) — (4) 2 (Mana Regen) | 5 (Mana Regen) — (5) 2 (Mana Regen) | 8 (Mana Regen).",
+      "description": "Your team gains Mana Regen, increased for Invokers.\n\n(2) 1 (Mana Regen) | 2 (Mana Regen)\n(3) 1 (Mana Regen) | 3 (Mana Regen)\n(4) 2 (Mana Regen) | 5 (Mana Regen)\n(5) 2 (Mana Regen) | 8 (Mana Regen)",
       "breakpoints": [
         {
           "count": 2,
@@ -1289,7 +1288,7 @@
         "Amumu",
         "Maokai"
       ],
-      "description": "Your team gains Durability; Juggernauts gain more. (2) 4% (Durability) or 20% (Durability) — (4) 4% (Durability) or 28% (Durability) — (6) 8% (Durability) or 34% (Durability).",
+      "description": "Your team gains Durability; Juggernauts gain more.\n\n(2) 4% (Durability) or 20% (Durability)\n(4) 4% (Durability) or 28% (Durability)\n(6) 8% (Durability) or 34% (Durability)",
       "breakpoints": [
         {
           "count": 2,
@@ -1350,7 +1349,7 @@
       "combat": true,
       "requiresRunInput": false,
       "champions": ["Diana", "Aphelios", "Lux (Lunar)", "Alune"],
-      "description": "Lunar champions and adjacent allies gain Attack Speed and Ability Power; Lunar champions gain 100% more. (2) 7%, 7% (AP) (AD) — (3) 10%, 10% (AP) (AD) — (4) 15%, 15% (AP) (AD) — (5) 20%, 20%. (AP) (AD)",
+      "description": "Lunar champions and adjacent allies gain Attack Speed and Ability Power;\nLunar champions gain 100% more.\n\n(2) 7%, 7% (AP) (AD)\n(3) 10%, 10% (AP) (AD)\n(4) 15%, 15% (AP) (AD)\n(5) 20%, 20% (AP) (AD)",
       "breakpoints": [
         {
           "count": 2,
@@ -1500,7 +1499,7 @@
       "combat": true,
       "requiresRunInput": true,
       "champions": ["Vi", "Sivir", "Nidalee", "Lux (Primal)"],
-      "description": "Choose one of four Primal Blessings: Primal damage executes enemies below 15% Health; every 16 Primal takedowns, gain a component (max 4); after 6 seconds, Primal champions gain 30% Attack Speed and the team gains 15%; your team heals 4% of max Health every 4 seconds.",
+      "description": "Choose one of four Primal Blessings: Primal damage executes enemies below 15% Health;\nevery 16 Primal takedowns, gain a component (max 4);\nafter 6 seconds, Primal champions gain 30% Attack Speed and the team gains 15%;\nyour team heals 4% of max Health every 4 seconds.",
       "blessings": [
         {
           "name": "bear",
@@ -1576,7 +1575,7 @@
       "combat": true,
       "requiresRunInput": false,
       "champions": ["Xayah", "Varus", "Kayle", "Mama Beak", "Aphelios"],
-      "description": "Your team gains 10% Attack Speed. Rapidfire champions gain more with each attack, up to 10 stacks. (2) +3% (AS) per attack — (3) +5% (AS) — (4) +9% (AS) — (5) +15% (AS).",
+      "description": "Your team gains 10% Attack Speed.\nRapidfire champions gain more with each attack, up to 10 stacks.\n\n(2) +3% (AS) per attack\n(3) +5% (AS)\n(4) +9% (AS)\n(5) +15% (AS)",
       "breakpoints": [
         {
           "count": 2,
@@ -1669,7 +1668,7 @@
         "Diana",
         "Brambleback"
       ],
-      "description": "Ravagers gain 10% Omnivamp. They also deal bonus damage, doubled against units below 50% Health. (2) 12% bonus damage — (4) 25% — (6) 40%.",
+      "description": "Ravagers gain 10% Omnivamp.\nThey also deal bonus damage, doubled against units below 50% Health.\n\n(2) 12% bonus damage\n(4) 25%\n(6) 40%",
       "breakpoints": [
         {
           "count": 2,
@@ -1744,7 +1743,7 @@
         "Sentinel",
         "Elder Dragon"
       ],
-      "description": "(3) Use the Alpha Mark to grant a Riftbeast its unique Buff — (5) Every 3 combats, your next shop is overrun with Riftbeasts — (7) At combat start and every 5 seconds, Riftbeasts grow, gaining 5% (AD) / 5% (AP) / 5% (AS) / +3 (ARMOR) / +3 (MR) / +50 (HP) / +1 (Mana) — (10) +2 max team size.",
+      "description": "(3) Use the Alpha Mark to grant a Riftbeast its unique Buff\n(5) Every 3 combats, your next shop is overrun with Riftbeasts\n(7) At combat start and every 5 seconds, Riftbeasts grow, gaining 5% (AD) / 5% (AP) / 5% (AS) / +3 (ARMOR) / +3 (MR) / +50 (HP) / +1 (Mana)\n(10) +2 max team size",
       "alphaTargets": [
         "Cinderling",
         "Pebbles",
@@ -1832,7 +1831,7 @@
       "combat": true,
       "requiresRunInput": true,
       "champions": ["Kha'Zix", "Rengar"],
-      "description": "(1) Active only when playing 1 Rival. Rivals accumulate takedowns, +3 for eliminating another Rival. Takedowns evolve Kha'Zix, permanently granting him a trait of your choice among Executioner, Rapidfire, Ravager or Spellweaver. Rengar grants 2/3/5 gold every 8 takedowns; after 30 takedowns, the team gains 5% Attack Damage plus 0.2% per additional takedown. (2) Rivals can be played together: when Kha'Zix gains Mana from his ability, Rengar gains 100% of it; when Rengar heals from his ability, Kha'Zix recovers 50% of that healing.",
+      "description": "(1) Active only when playing 1 Rival.\nRivals accumulate takedowns, +3 for eliminating another Rival.\nTakedowns evolve Kha'Zix, permanently granting him a trait of your choice among Executioner, Rapidfire, Ravager or Spellweaver.\nRengar grants 2/3/5 gold every 8 takedowns;\nafter 30 takedowns, the team gains 5% Attack Damage plus 0.2% per additional takedown.\n(2) Rivals can be played together: when Kha'Zix gains Mana from his ability, Rengar gains 100% of it;\nwhen Rengar heals from his ability, Kha'Zix recovers 50% of that healing.",
       "khazixTraits": ["Executioner", "Rapidfire", "Ravager", "Spellweaver"],
       "breakpoints": [
         {
@@ -1871,7 +1870,7 @@
       "combat": true,
       "requiresRunInput": false,
       "champions": ["Leona", "Sejuani", "Kayle", "Lux (Solar)"],
-      "description": "(3) Your champions gain a shield of 5% of their max Health and deal 7% bonus magic damage. Additional bonuses based on the number of unique 3-star champions fielded: 1 → increases the shield and bonus magic damage by 2.5% per 3-star; 3 → 25% (AS) and 15 (ARMOR) (MR); 5 → converts 50% of the bonus magic damage into raw damage; 8 → every 4 seconds of combat, a 3-star champion becomes 4-star.",
+      "description": "(3) Your champions gain a shield of 5% of their max Health and deal 7% bonus magic damage.\nAdditional bonuses based on the number of unique 3-star champions fielded:\n1 → increases the shield and bonus magic damage by 2.5% per 3-star\n3 → 25% (AS) and 15 (ARMOR) (MR)\n5 → converts 50% of the bonus magic damage into raw damage\n8 → every 4 seconds of combat, a 3-star champion becomes 4-star",
       "thresholds": [
         {
           "threeStars": 1,
@@ -1949,7 +1948,7 @@
         "Ahri",
         "Alune"
       ],
-      "description": "Your team gains 10% Ability Power. Spellweavers gain more, plus additional Ability Power each time a Spellweaver casts. (2) 10% (AP), +1% (AP) per cast — (4) 30% (AP), +1% (AP) per cast — (6) 55% (AP), +2% (AP) per cast.",
+      "description": "Your team gains 10% Ability Power.\nSpellweavers gain more, plus additional Ability Power each time a Spellweaver casts.\n\n(2) 10% (AP), +1% (AP) per cast\n(4) 30% (AP), +1% (AP) per cast\n(6) 55% (AP), +2% (AP) per cast",
       "breakpoints": [
         {
           "count": 2,
@@ -2031,7 +2030,7 @@
       "combat": true,
       "requiresRunInput": true,
       "champions": ["Kobuko", "Veigar", "Teemo", "Rammus", "Tristana", "Gnar"],
-      "description": "Gain the Big Furry Friend. Drop a Sprykin on the BFF to pick its Rider. (3) The Rider gains 15% (HP) and 15% (AS) — (5) 30% (HP) 30% (AS), and 50% of the BFF's Ability applies to your Sprykin champions — (7) 45% (HP) 45% (AS), and 100% of the BFF's Ability applies to your Sprykin champions.\nThe BFF's attacks and Ability change if the Rider is melee or ranged.",
+      "description": "Gain the Big Furry Friend.\nDrop a Sprykin on the BFF to pick its Rider.\n\n(3) The Rider gains 15% (HP) and 15% (AS)\n(5) 30% (HP) 30% (AS), and 50% of the BFF's Ability applies to your Sprykin champions\n(7) 45% (HP) 45% (AS), and 100% of the BFF's Ability applies to your Sprykin champions\n\nThe BFF's attacks and Ability change if the Rider is melee or ranged.",
       "mount": {
         "name": "BFF",
         "riderSelection": {
@@ -2168,7 +2167,7 @@
       "combat": true,
       "requiresRunInput": false,
       "champions": ["Yorick", "Azir", "Mama Beak", "Zyra"],
-      "description": "Summoners strengthen their summons differently: Yorick +30% Health, Azir +45% Damage, Mama Beak +45% Damage, Zyra +4 plant attacks. (2) Strengthens summons — (3) Improves each effect by 50%.",
+      "description": "Summoners strengthen their summons differently:\nYorick +30% Health\nAzir +45% Damage\nMama Beak +45% Damage\nZyra +4 plant attacks\n\n(2) Strengthens summons\n(3) Improves each effect by 50%",
       "breakpoints": [
         {
           "count": 2,
@@ -2231,7 +2230,7 @@
       "combat": true,
       "requiresRunInput": false,
       "champions": ["Rakan", "Elise", "Diana", "Hecarim", "Sentinel", "Taric"],
-      "description": "At combat start and after dropping below 50% Health, Vanguards gain a shield based on their max Health for 10 seconds. (2) 18% max Health — (4) 35% — (6) 45% and 8% Durability while shielded.",
+      "description": "At combat start and after dropping below 50% Health, Vanguards gain a shield based on their max Health for 10 seconds.\n\n(2) 18% max Health\n(4) 35%\n(6) 45% and 8% Durability while shielded",
       "breakpoints": [
         {
           "count": 2,
