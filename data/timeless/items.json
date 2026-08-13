@@ -1,7 +1,11 @@
 {
   "entries": [
     {
+      "id": "bf-sword",
       "name": "B.F. Sword",
+      "iconPath": "src/assets/icons/timeless/items/bf-sword.png",
+      "combat": true,
+      "requiresRunInput": false,
       "tag": "bf",
       "type": "component",
       "stats": {
@@ -9,7 +13,11 @@
       }
     },
     {
-      "name": "Recursive Bow",
+      "id": "recurve-bow",
+      "name": "Recurve Bow",
+      "iconPath": "src/assets/icons/timeless/items/recurve-bow.png",
+      "combat": true,
+      "requiresRunInput": false,
       "tag": "bow",
       "type": "component",
       "stats": {
@@ -17,7 +25,11 @@
       }
     },
     {
+      "id": "chain-vest",
       "name": "Chain Vest",
+      "iconPath": "src/assets/icons/timeless/items/chain-vest.png",
+      "combat": true,
+      "requiresRunInput": false,
       "tag": "chain",
       "type": "component",
       "stats": {
@@ -25,7 +37,11 @@
       }
     },
     {
+      "id": "negatron-cloak",
       "name": "Negatron Cloak",
+      "iconPath": "src/assets/icons/timeless/items/negatron-cloak.png",
+      "combat": true,
+      "requiresRunInput": false,
       "tag": "cloak",
       "type": "component",
       "stats": {
@@ -33,7 +49,11 @@
       }
     },
     {
+      "id": "needlessly-large-rod",
       "name": "Needlessly Large Rod",
+      "iconPath": "src/assets/icons/timeless/items/needlessly-large-rod.png",
+      "combat": true,
+      "requiresRunInput": false,
       "tag": "rod",
       "type": "component",
       "stats": {
@@ -41,7 +61,11 @@
       }
     },
     {
+      "id": "tear-of-the-goddess",
       "name": "Tear of the Goddess",
+      "iconPath": "src/assets/icons/timeless/items/tear-of-the-goddess.png",
+      "combat": true,
+      "requiresRunInput": false,
       "tag": "tear",
       "type": "component",
       "stats": {
@@ -49,7 +73,11 @@
       }
     },
     {
+      "id": "giants-belt",
       "name": "Giant's Belt",
+      "iconPath": "src/assets/icons/timeless/items/giants-belt.png",
+      "combat": true,
+      "requiresRunInput": false,
       "tag": "belt",
       "type": "component",
       "stats": {
@@ -57,7 +85,11 @@
       }
     },
     {
+      "id": "sparring-gloves",
       "name": "Sparring Gloves",
+      "iconPath": "src/assets/icons/timeless/items/sparring-gloves.png",
+      "combat": true,
+      "requiresRunInput": false,
       "tag": "gloves",
       "type": "component",
       "stats": {
@@ -65,19 +97,31 @@
       }
     },
     {
+      "id": "spatula",
       "name": "Spatula",
+      "iconPath": "src/assets/icons/timeless/items/spatula.png",
+      "combat": false,
+      "requiresRunInput": false,
       "tag": "spat",
       "type": "component",
       "stats": {}
     },
     {
+      "id": "frying-pan",
       "name": "Frying Pan",
+      "iconPath": "src/assets/icons/timeless/items/frying-pan.png",
+      "combat": false,
+      "requiresRunInput": false,
       "tag": "pan",
       "type": "component",
       "stats": {}
     },
     {
+      "id": "deathblade",
       "name": "Deathblade",
+      "iconPath": "src/assets/icons/timeless/items/deathblade.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bf", "bf"],
       "stats": {
@@ -87,7 +131,11 @@
       "description": "Perfect peace and calm for the holder - and all who face it."
     },
     {
+      "id": "giant-slayer",
       "name": "Giant Slayer",
+      "iconPath": "src/assets/icons/timeless/items/giant-slayer.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bf", "bow"],
       "stats": {
@@ -110,7 +158,11 @@
       ]
     },
     {
+      "id": "edge-of-night",
       "name": "Edge of Night",
+      "iconPath": "src/assets/icons/timeless/items/edge-of-night.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bf", "chain"],
       "stats": {
@@ -138,7 +190,11 @@
       }
     },
     {
+      "id": "bloodthirster",
       "name": "Bloodthirster",
+      "iconPath": "src/assets/icons/timeless/items/bloodthirster.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bf", "cloak"],
       "stats": {
@@ -164,7 +220,11 @@
       }
     },
     {
+      "id": "hextech-gunblade",
       "name": "Hextech Gunblade",
+      "iconPath": "src/assets/icons/timeless/items/hextech-gunblade.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bf", "rod"],
       "stats": {
@@ -185,7 +245,11 @@
       ]
     },
     {
+      "id": "spear-of-shojin",
       "name": "Spear of Shojin",
+      "iconPath": "src/assets/icons/timeless/items/spear-of-shojin.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bf", "tear"],
       "stats": {
@@ -205,7 +269,11 @@
       ]
     },
     {
+      "id": "steraks-gage",
       "name": "Sterak's Gage",
+      "iconPath": "src/assets/icons/timeless/items/steraks-gage.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bf", "belt"],
       "stats": {
@@ -229,14 +297,18 @@
       }
     },
     {
+      "id": "infinity-edge",
       "name": "Infinity Edge",
+      "iconPath": "src/assets/icons/timeless/items/infinity-edge.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bf", "gloves"],
       "stats": {
         "attackDamage": 0.35,
         "critChance": 0.35
       },
-      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike. Extra Precision grants 10% Critical Strike Damage.",
+      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike.\nExtra Precision grants 10% Critical Strike Damage.",
       "grants": [
         {
           "to": "holder",
@@ -245,14 +317,18 @@
       ]
     },
     {
+      "id": "red-buff",
       "name": "Red Buff",
+      "iconPath": "src/assets/icons/timeless/items/red-buff.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bow", "bow"],
       "stats": {
         "attackSpeed": 0.45,
         "damageAmp": 0.03
       },
-      "description": "Attacks and Abilities 1% Burn and 33% Wound enemies for 5 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received.",
+      "description": "Attacks and Abilities 1% Burn and 33% Wound enemies for 5 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\n\nWound: Reduces healing received.",
       "grants": [
         {
           "to": "enemy",
@@ -264,7 +340,11 @@
       ]
     },
     {
+      "id": "void-staff",
       "name": "Void Staff",
+      "iconPath": "src/assets/icons/timeless/items/void-staff.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bow", "tear"],
       "stats": {
@@ -272,7 +352,7 @@
         "attackSpeed": 0.15,
         "manaRegen": 1
       },
-      "description": "Attacks and Ability damage 30% Shred the target for 5 seconds. This effect does not stack.\n\nShred: Reduce Magic Resist",
+      "description": "Attacks and Ability damage 30% Shred the target for 5 seconds.\nThis effect does not stack.\n\nShred: Reduce Magic Resist",
       "grants": [
         {
           "to": "enemy",
@@ -284,7 +364,11 @@
       ]
     },
     {
+      "id": "last-whisper",
       "name": "Last Whisper",
+      "iconPath": "src/assets/icons/timeless/items/last-whisper.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bow", "gloves"],
       "stats": {
@@ -292,7 +376,7 @@
         "attackSpeed": 0.2,
         "critChance": 0.2
       },
-      "description": "Attacks and Ability damage 30% Sunders the target for 3 seconds. This effect does not stack.\n\nSunder: Reduce Armor",
+      "description": "Attacks and Ability damage 30% Sunders the target for 3 seconds.\nThis effect does not stack.\n\nSunder: Reduce Armor",
       "grants": [
         {
           "to": "enemy",
@@ -304,14 +388,18 @@
       ]
     },
     {
+      "id": "titans-resolve",
       "name": "Titan's Resolve",
+      "iconPath": "src/assets/icons/timeless/items/titans-resolve.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bow", "chain"],
       "stats": {
         "armor": 20,
         "attackSpeed": 0.1
       },
-      "description": "Gain 2% Attack Damage and Ability Power when attacking or taking damage, stacking up to 25 times.\nAt full stacks, gain 10% Damage Amp and become Unstoppable.",
+      "description": "Gain 2% Attack Damage and Ability Power when attacking or taking damage, stacking up to 25 times.\n\nAt full stacks, gain 10% Damage Amp and become Unstoppable.",
       "stacks": true,
       "maxStacks": 25,
       "grants": [
@@ -338,13 +426,17 @@
       ]
     },
     {
+      "id": "bramble-vest",
       "name": "Bramble Vest",
+      "iconPath": "src/assets/icons/timeless/items/bramble-vest.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["chain", "chain"],
       "stats": {
         "armor": 50
       },
-      "description": "Gain 6% max Health.\nTake 5% reduced damage from attacks. When struck by any attack, deal 100 magic damage to all adjacent enemies.\n\nCooldown: 2 seconds",
+      "description": "Gain 6% max Health.\n\nTake 5% reduced damage from attacks.\nWhen struck by any attack, deal 100 magic damage to all adjacent enemies.\n\nCooldown: 2 seconds",
       "grants": [
         {
           "to": "holder",
@@ -372,7 +464,11 @@
       ]
     },
     {
+      "id": "gargoyle-stoneplate",
       "name": "Gargoyle Stoneplate",
+      "iconPath": "src/assets/icons/timeless/items/gargoyle-stoneplate.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["chain", "cloak"],
       "stats": {
@@ -394,7 +490,11 @@
       ]
     },
     {
+      "id": "crownguard",
       "name": "Crownguard",
+      "iconPath": "src/assets/icons/timeless/items/crownguard.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["chain", "rod"],
       "stats": {
@@ -402,7 +502,7 @@
         "abilityPower": 0.2,
         "armor": 20
       },
-      "description": "Combat start: Gain a 25% max Health Shield for 8 seconds.\nnWhen the shield expires, gain 25% Ability Power.",
+      "description": "Combat start: Gain a 25% max Health Shield for 8 seconds.\n\nnWhen the shield expires, gain 25% Ability Power.",
       "grants": [
         {
           "to": "holder",
@@ -422,7 +522,11 @@
       ]
     },
     {
+      "id": "protectors-vow",
       "name": "Protector's Vow",
+      "iconPath": "src/assets/icons/timeless/items/protectors-vow.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["chain", "tear"],
       "stats": {
@@ -430,7 +534,7 @@
         "magicResist": 25,
         "manaRegen": 1
       },
-      "description": "Combat Start: Gain 20 Mana.\nAt 40% Health, gain 15 Mana and a Shield equal to 20% max Health.",
+      "description": "Combat Start: Gain 20 Mana.\n\nAt 40% Health, gain 15 Mana and a Shield equal to 20% max Health.",
       "grants": [
         {
           "to": "holder",
@@ -455,14 +559,18 @@
       }
     },
     {
+      "id": "sunfire-cape",
       "name": "Sunfire Cape",
+      "iconPath": "src/assets/icons/timeless/items/sunfire-cape.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["chain", "belt"],
       "stats": {
         "hp": 150,
         "armor": 20
       },
-      "description": "Gain 8% max Health.\nEvery 2 seconds, deal 1% Burn and 33% Wound to an enemy within 2 hexes for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received.",
+      "description": "Gain 8% max Health.\n\nEvery 2 seconds, deal 1% Burn and 33% Wound to an enemy within 2 hexes for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\n\nWound: Reduces healing received.",
       "grants": [
         {
           "to": "holder",
@@ -486,7 +594,11 @@
       }
     },
     {
+      "id": "steadfast-heart",
       "name": "Steadfast Heart",
+      "iconPath": "src/assets/icons/timeless/items/steadfast-heart.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["chain", "gloves"],
       "stats": {
@@ -494,7 +606,7 @@
         "critChance": 0.2,
         "durability": 0.05
       },
-      "description": "Gain 5% Durability. While above 50% Health, instead gain 15% Durability.",
+      "description": "Gain 5% Durability.\nWhile above 50% Health, instead gain 15% Durability.",
       "grants": [
         {
           "to": "holder",
@@ -517,7 +629,11 @@
       }
     },
     {
+      "id": "krakens-fury",
       "name": "Kraken's Fury",
+      "iconPath": "src/assets/icons/timeless/items/krakens-fury.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bow", "cloak"],
       "stats": {
@@ -525,7 +641,7 @@
         "magicResist": 20,
         "attackSpeed": 0.1
       },
-      "description": "Attacks grant 3.5% stacking Attack Damage, up to 15 attacks. After 15 attacks, gain 15% Attack Speed.",
+      "description": "Attacks grant 3.5% stacking Attack Damage, up to 15 attacks.\nAfter 15 attacks, gain 15% Attack Speed.",
       "stacks": true,
       "maxStacks": 15,
       "grants": [
@@ -550,7 +666,11 @@
       ]
     },
     {
+      "id": "dragons-claw",
       "name": "Dragon's Claw",
+      "iconPath": "src/assets/icons/timeless/items/dragons-claw.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["cloak", "cloak"],
       "stats": {
@@ -572,14 +692,18 @@
       ]
     },
     {
+      "id": "adaptive-helm",
       "name": "Adaptive Helm",
+      "iconPath": "src/assets/icons/timeless/items/adaptive-helm.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["cloak", "tear"],
       "stats": {
         "magicResist": 20,
         "manaRegen": 3
       },
-      "description": "Gain an additional 15% Mana from all sources. The wearer gains an additional bonus based on their Role:\n\nTanks and Fighters: Gain 30 Armor and Magic Resistance.\nOther Roles: Gain 10% Attack Damage and Ability Power.",
+      "description": "Gain an additional 15% Mana from all sources.\nThe wearer gains an additional bonus based on their Role:\n\nTanks and Fighters: Gain 30 Armor and Magic Resistance.\n\nOther Roles: Gain 10% Attack Damage and Ability Power.",
       "grants": [
         {
           "to": "holder",
@@ -610,7 +734,11 @@
       ]
     },
     {
+      "id": "quicksilver",
       "name": "Quicksilver",
+      "iconPath": "src/assets/icons/timeless/items/quicksilver.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["cloak", "gloves"],
       "stats": {
@@ -618,7 +746,7 @@
         "attackSpeed": 0.15,
         "critChance": 0.2
       },
-      "description": "Combat Start: Unstoppable for 18 seconds`\nGain 3% stacking Attack Speed every second.",
+      "description": "Combat Start: Unstoppable for 18 seconds\n\nGain 3% stacking Attack Speed every second.",
       "stacks": true,
       "grants": [
         {
@@ -638,7 +766,11 @@
       ]
     },
     {
+      "id": "guinsoos-rageblade",
       "name": "Guinsoo's Rageblade",
+      "iconPath": "src/assets/icons/timeless/items/guinsoos-rageblade.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bow", "rod"],
       "stats": {
@@ -659,7 +791,11 @@
       ]
     },
     {
+      "id": "ionic-spark",
       "name": "Ionic Spark",
+      "iconPath": "src/assets/icons/timeless/items/ionic-spark.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["cloak", "rod"],
       "stats": {
@@ -667,7 +803,7 @@
         "abilityPower": 0.15,
         "magicResist": 35
       },
-      "description": "30% Shred enemies within 2 hexes. When enemies cast an Ability, deal magic damage equal to 150% of the Mana spent.\n\nShred: Reduce Magic Resist",
+      "description": "30% Shred enemies within 2 hexes.\nWhen enemies cast an Ability, deal magic damage equal to 150% of the Mana spent.\n\nShred: Reduce Magic Resist",
       "grants": [
         {
           "to": "enemy",
@@ -687,7 +823,11 @@
       }
     },
     {
+      "id": "rabadons-deathcap",
       "name": "Rabadon's Deathcap",
+      "iconPath": "src/assets/icons/timeless/items/rabadons-deathcap.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["rod", "rod"],
       "stats": {
@@ -697,7 +837,11 @@
       "description": "This humble hat can help you make, or unmake, the world itself."
     },
     {
+      "id": "archangels-staff",
       "name": "Archangel's Staff",
+      "iconPath": "src/assets/icons/timeless/items/archangels-staff.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["rod", "tear"],
       "stats": {
@@ -718,14 +862,18 @@
       ]
     },
     {
+      "id": "jeweled-gauntlet",
       "name": "Jeweled Gauntlet",
+      "iconPath": "src/assets/icons/timeless/items/jeweled-gauntlet.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["rod", "gloves"],
       "stats": {
         "abilityPower": 0.35,
         "critChance": 0.35
       },
-      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike. Extra Precision grants 10% Critical Strike Damage.",
+      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike.\nExtra Precision grants 10% Critical Strike Damage.",
       "grants": [
         {
           "to": "holder",
@@ -734,7 +882,11 @@
       ]
     },
     {
+      "id": "blue-buff",
       "name": "Blue Buff",
+      "iconPath": "src/assets/icons/timeless/items/blue-buff.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["tear", "tear"],
       "stats": {
@@ -754,7 +906,11 @@
       ]
     },
     {
+      "id": "nashors-tooth",
       "name": "Nashor's Tooth",
+      "iconPath": "src/assets/icons/timeless/items/nashors-tooth.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["bow", "belt"],
       "stats": {
@@ -782,14 +938,18 @@
       ]
     },
     {
+      "id": "evenshroud",
       "name": "Evenshroud",
+      "iconPath": "src/assets/icons/timeless/items/evenshroud.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["belt", "cloak"],
       "stats": {
         "magicResist": 20,
         "hp": 250
       },
-      "description": "30% Sunder enemies within 2 hexes. Gain 15 Armor and Magic Resist for the first 15 seconds of combat.\n\nSunder: Reduce Armor",
+      "description": "30% Sunder enemies within 2 hexes.\nGain 15 Armor and Magic Resist for the first 15 seconds of combat.\n\nSunder: Reduce Armor",
       "grants": [
         {
           "to": "enemy",
@@ -813,7 +973,11 @@
       }
     },
     {
+      "id": "morellonomicon",
       "name": "Morellonomicon",
+      "iconPath": "src/assets/icons/timeless/items/morellonomicon.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["belt", "rod"],
       "stats": {
@@ -821,7 +985,7 @@
         "abilityPower": 0.2,
         "manaRegen": 1
       },
-      "description": "Attacks and Abilities deal 1% Burn and 33% Wound to enemies for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received.",
+      "description": "Attacks and Abilities deal 1% Burn and 33% Wound to enemies for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\n\nWound: Reduces healing received.",
       "grants": [
         {
           "to": "enemy",
@@ -833,7 +997,11 @@
       ]
     },
     {
+      "id": "spirit-visage",
       "name": "Spirit Visage",
+      "iconPath": "src/assets/icons/timeless/items/spirit-visage.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["belt", "tear"],
       "stats": {
@@ -851,7 +1019,11 @@
       ]
     },
     {
+      "id": "warmogs-armor",
       "name": "Warmog's Armor",
+      "iconPath": "src/assets/icons/timeless/items/warmogs-armor.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["belt", "belt"],
       "stats": {
@@ -868,7 +1040,11 @@
       ]
     },
     {
+      "id": "strikers-flail",
       "name": "Striker's Flail",
+      "iconPath": "src/assets/icons/timeless/items/strikers-flail.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["gloves", "belt"],
       "stats": {
@@ -894,14 +1070,18 @@
       ]
     },
     {
+      "id": "hand-of-justice",
       "name": "Hand of Justice",
+      "iconPath": "src/assets/icons/timeless/items/hand-of-justice.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["gloves", "tear"],
       "stats": {
         "critChance": 0.2,
         "manaRegen": 1
       },
-      "description": "Gain 2 effects:\n• 15% Attack Damage and 15% Ability Power.\n• 12% Omnivamp.\n\nWhile above 50% health, double the Attack Damage and Ability Power.\n\nWhile below 50% Health, double the Omnivamp.",
+      "description": "Gain 2 effects:\n15% Attack Damage and 15% Ability Power.\n12% Omnivamp.\n\nWhile above 50% health, double the Attack Damage and Ability Power.\n\nWhile below 50% Health, double the Omnivamp.",
       "grants": [
         {
           "to": "holder",
@@ -934,7 +1114,11 @@
       }
     },
     {
+      "id": "thiefs-gloves",
       "name": "Thief's Gloves",
+      "iconPath": "src/assets/icons/timeless/items/thiefs-gloves.png",
+      "combat": true,
+      "requiresRunInput": true,
       "type": "craftable",
       "components": ["gloves", "gloves"],
       "stats": {
@@ -944,28 +1128,44 @@
       "description": "Each round: Equip 2 random items\n\nConsumes 3 item slots."
     },
     {
+      "id": "tacticians-crown",
       "name": "Tactician's Crown",
+      "iconPath": "src/assets/icons/timeless/items/tacticians-crown.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["spat", "spat"],
       "stats": {},
-      "description": "Your team gains +1 maximum team size.\n10% chance to drop 1 gold when you win combat.\n...the Heart of a hero..."
+      "description": "Your team gains +1 maximum team size.\n\n10% chance to drop 1 gold when you win combat.\n\n...the Heart of a hero..."
     },
     {
+      "id": "tacticians-cape",
       "name": "Tactician's Cape",
+      "iconPath": "src/assets/icons/timeless/items/tacticians-cape.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["spat", "pan"],
       "stats": {},
-      "description": "Your team gains +1 maximum team size.\n10% chance to drop 1 gold after 10 seconds of combat.\n...and a bit of Luck."
+      "description": "Your team gains +1 maximum team size.\n\n10% chance to drop 1 gold after 10 seconds of combat.\n\n...and a bit of Luck."
     },
     {
+      "id": "tacticians-shield",
       "name": "Tactician's Shield",
+      "iconPath": "src/assets/icons/timeless/items/tacticians-shield.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "craftable",
       "components": ["pan", "pan"],
       "stats": {},
-      "description": "Your team gains +1 maximum team size.\n10% chance to drop 1 gold when the holder dies.\nImbued with a Philosopher's wisdom..."
+      "description": "Your team gains +1 maximum team size.\n\n10% chance to drop 1 gold when the holder dies.\n\nImbued with a Philosopher's wisdom..."
     },
     {
+      "id": "blackthorn-emblem",
       "name": "Blackthorn Emblem",
+      "iconPath": "src/assets/icons/timeless/items/blackthorn-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Blackthorn",
       "components": ["spat", "belt"],
@@ -977,7 +1177,11 @@
       "description": "The holder gains the Blackthorn trait."
     },
     {
+      "id": "blossom-emblem",
       "name": "Blossom Emblem",
+      "iconPath": "src/assets/icons/timeless/items/blossom-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Blossom",
       "components": ["spat", "rod"],
@@ -989,14 +1193,18 @@
       "description": "The holder gains the Blossom trait."
     },
     {
+      "id": "brawler-emblem",
       "name": "Brawler Emblem",
+      "iconPath": "src/assets/icons/timeless/items/brawler-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Brawler",
       "components": ["pan", "belt"],
       "stats": {
         "hp": 250
       },
-      "description": "The holder gains the Brawler trait.\nAttacks deal 3% of the holder's max Health as magic damage.",
+      "description": "The holder gains the Brawler trait.\n\nAttacks deal 3% of the holder's max Health as magic damage.",
       "grants": [
         {
           "to": "enemy",
@@ -1009,7 +1217,11 @@
       ]
     },
     {
+      "id": "coven-emblem",
       "name": "Coven Emblem",
+      "iconPath": "src/assets/icons/timeless/items/coven-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Coven",
       "components": null,
@@ -1019,7 +1231,11 @@
       "description": "The holder gains the Coven trait."
     },
     {
+      "id": "defender-emblem",
       "name": "Defender Emblem",
+      "iconPath": "src/assets/icons/timeless/items/defender-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Defender",
       "components": null,
@@ -1027,7 +1243,7 @@
         "armor": 30,
         "magicResist": 30
       },
-      "description": "The holder gains the Defender trait.\nCombat Start: Gain 6% Attack Speed for every ally that starts in the front row.",
+      "description": "The holder gains the Defender trait.\n\nCombat Start: Gain 6% Attack Speed for every ally that starts in the front row.",
       "grants": [
         {
           "to": "holder",
@@ -1040,7 +1256,11 @@
       ]
     },
     {
+      "id": "elderwood-emblem",
       "name": "Elderwood Emblem",
+      "iconPath": "src/assets/icons/timeless/items/elderwood-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Elderwood",
       "components": ["spat", "chain"],
@@ -1052,7 +1272,11 @@
       "description": "The holder gains the Elderwood trait."
     },
     {
+      "id": "executioner-emblem",
       "name": "Executioner Emblem",
+      "iconPath": "src/assets/icons/timeless/items/executioner-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Executioner",
       "components": ["pan", "gloves"],
@@ -1060,7 +1284,7 @@
         "critChance": 0.35,
         "critDamage": 0.15
       },
-      "description": "The holder gains the Executioner trait.\nDamage executes enemies below 12% of their max Health.",
+      "description": "The holder gains the Executioner trait.\n\nDamage executes enemies below 12% of their max Health.",
       "grants": [
         {
           "to": "enemy",
@@ -1071,7 +1295,11 @@
       ]
     },
     {
+      "id": "fae-emblem",
       "name": "Fae Emblem",
+      "iconPath": "src/assets/icons/timeless/items/fae-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Fae",
       "components": ["spat", "bf"],
@@ -1083,7 +1311,11 @@
       "description": "The holder gains the Fae trait."
     },
     {
+      "id": "flora-fatalis-emblem",
       "name": "Flora Fatalis Emblem",
+      "iconPath": "src/assets/icons/timeless/items/flora-fatalis-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Flora Fatalis",
       "components": null,
@@ -1094,14 +1326,18 @@
       "description": "The holder gains the Flora Fatalis trait."
     },
     {
+      "id": "hunter-emblem",
       "name": "Hunter Emblem",
+      "iconPath": "src/assets/icons/timeless/items/hunter-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Hunter",
       "components": ["pan", "bf"],
       "stats": {
         "attackDamage": 0.3
       },
-      "description": "The holder gains the Hunter trait.\nTakedowns grant 12% Attack Damage.",
+      "description": "The holder gains the Hunter trait.\n\nTakedowns grant 12% Attack Damage.",
       "grants": [
         {
           "to": "holder",
@@ -1114,7 +1350,11 @@
       ]
     },
     {
+      "id": "inferno-emblem",
       "name": "Inferno Emblem",
+      "iconPath": "src/assets/icons/timeless/items/inferno-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Inferno",
       "components": ["spat", "bow"],
@@ -1124,14 +1364,18 @@
       "description": "The holder gains the Inferno trait."
     },
     {
+      "id": "invoker-emblem",
       "name": "Invoker Emblem",
+      "iconPath": "src/assets/icons/timeless/items/invoker-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Invoker",
       "components": ["pan", "tear"],
       "stats": {
         "manaRegen": 3
       },
-      "description": "The holder gains the Invoker trait.\nOn cast, gain Ability Power equal to 10% of Mana spent.",
+      "description": "The holder gains the Invoker trait.\n\nOn cast, gain Ability Power equal to 10% of Mana spent.",
       "grants": [
         {
           "to": "holder",
@@ -1141,14 +1385,18 @@
       ]
     },
     {
+      "id": "juggernaut-emblem",
       "name": "Juggernaut Emblem",
+      "iconPath": "src/assets/icons/timeless/items/juggernaut-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Juggernaut",
       "components": null,
       "stats": {
         "hp": 400
       },
-      "description": "The holder gains the Juggernaut trait.\nGain 15 mana whenever a Juggernaut dies.",
+      "description": "The holder gains the Juggernaut trait.\n\nGain 15 mana whenever a Juggernaut dies.",
       "grants": [
         {
           "to": "holder",
@@ -1160,7 +1408,11 @@
       ]
     },
     {
+      "id": "lunar-emblem",
       "name": "Lunar Emblem",
+      "iconPath": "src/assets/icons/timeless/items/lunar-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Lunar",
       "components": ["spat", "tear"],
@@ -1171,7 +1423,11 @@
       "description": "The holder gains the Lunar trait."
     },
     {
+      "id": "primal-emblem",
       "name": "Primal Emblem",
+      "iconPath": "src/assets/icons/timeless/items/primal-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Primal",
       "components": ["spat", "gloves"],
@@ -1183,14 +1439,18 @@
       "description": "The holder gains the Primal trait."
     },
     {
+      "id": "rapidfire-emblem",
       "name": "Rapidfire Emblem",
+      "iconPath": "src/assets/icons/timeless/items/rapidfire-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Rapidfire",
       "components": ["pan", "bow"],
       "stats": {
         "attackSpeed": 0.2
       },
-      "description": "The holder gains the Rapidfire trait.\nAttacks deal 1% of the target's max Health as true damage.",
+      "description": "The holder gains the Rapidfire trait.\n\nAttacks deal 1% of the target's max Health as true damage.",
       "grants": [
         {
           "to": "enemy",
@@ -1203,7 +1463,11 @@
       ]
     },
     {
+      "id": "ravager-emblem",
       "name": "Ravager Emblem",
+      "iconPath": "src/assets/icons/timeless/items/ravager-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Ravager",
       "components": ["pan", "cloak"],
@@ -1213,7 +1477,7 @@
         "armor": 20,
         "magicResist": 20
       },
-      "description": "The holder gains the Ravager trait.\nGain 3% Damage Amp per 300 Health restored.",
+      "description": "The holder gains the Ravager trait.\n\nGain 3% Damage Amp per 300 Health restored.",
       "grants": [
         {
           "to": "holder",
@@ -1226,14 +1490,18 @@
       ]
     },
     {
+      "id": "spellweaver-emblem",
       "name": "Spellweaver Emblem",
+      "iconPath": "src/assets/icons/timeless/items/spellweaver-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Spellweaver",
       "components": ["pan", "rod"],
       "stats": {
         "abilityPower": 0.25
       },
-      "description": "The holder gains the Spellweaver trait.\nGain 2 Mana whenever an ally casts their Ability.",
+      "description": "The holder gains the Spellweaver trait.\n\nGain 2 Mana whenever an ally casts their Ability.",
       "grants": [
         {
           "to": "holder",
@@ -1245,7 +1513,11 @@
       ]
     },
     {
+      "id": "sprykin-emblem",
       "name": "Sprykin Emblem",
+      "iconPath": "src/assets/icons/timeless/items/sprykin-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Sprykin",
       "components": ["spat", "cloak"],
@@ -1254,7 +1526,7 @@
         "armor": 20,
         "magicResist": 20
       },
-      "description": "The holder gains the Sprykin trait.\nIf the holder is riding the BFF, gain an additional 30% (AS), 20 (ARMOR) , 20 (MR)",
+      "description": "The holder gains the Sprykin trait.\n\nIf the holder is riding the BFF, gain an additional 30% (AS), 20 (ARMOR), 20 (MR)",
       "grants": [
         {
           "to": "holder",
@@ -1272,7 +1544,11 @@
       ]
     },
     {
+      "id": "vanguard-emblem",
       "name": "Vanguard Emblem",
+      "iconPath": "src/assets/icons/timeless/items/vanguard-emblem.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "emblem",
       "trait": "Vanguard",
       "components": ["pan", "chain"],
@@ -1280,20 +1556,24 @@
         "armor": 30,
         "magicResist": 30
       },
-      "description": "The holder gains the Vanguard trait.\nIf the holder survives 20 seconds in player combat, gain 1 player health.",
+      "description": "The holder gains the Vanguard trait.\n\nIf the holder survives 20 seconds in player combat, gain 1 player health.",
       "params": {
         "survivalSeconds": 20,
         "playerHealthGained": 1
       }
     },
     {
+      "id": "aegis-of-dawn",
       "name": "Aegis of Dawn",
+      "iconPath": "src/assets/icons/timeless/items/aegis-of-dawn.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 400,
         "armor": 50
       },
-      "description": "Every 2.5 seconds, steal 3 Armor from enemies within 1-hex and heal 15% of the holder's Armor.\nIf Aegis of Dusk is also equipped, trigger this item's effect every 1.25 seconds instead.\n\nHealing increases based on Stage.",
+      "description": "Every 2.5 seconds, steal 3 Armor from enemies within 1-hex and heal 15% of the holder's Armor.\n\nIf Aegis of Dusk is also equipped, trigger this item's effect every 1.25 seconds instead.\n\nHealing increases based on Stage.",
       "grants": [
         {
           "to": "enemy",
@@ -1322,13 +1602,17 @@
       }
     },
     {
+      "id": "aegis-of-dusk",
       "name": "Aegis of Dusk",
+      "iconPath": "src/assets/icons/timeless/items/aegis-of-dusk.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 400,
         "magicResist": 70
       },
-      "description": "Every 2.5 seconds, steal 3 Magic Resist from enemies within 1-hex and deal 15% of the holder's Magic Resist as magic damage.\nIf Aegis of Dawn is also equipped, trigger this item's effect every 1.25 seconds instead.\n\nDamage increases based on Stage.",
+      "description": "Every 2.5 seconds, steal 3 Magic Resist from enemies within 1-hex and deal 15% of the holder's Magic Resist as magic damage.\n\nIf Aegis of Dawn is also equipped, trigger this item's effect every 1.25 seconds instead.\n\nDamage increases based on Stage.",
       "grants": [
         {
           "to": "enemy",
@@ -1361,13 +1645,17 @@
       }
     },
     {
+      "id": "blighting-jewel",
       "name": "Blighting Jewel",
+      "iconPath": "src/assets/icons/timeless/items/blighting-jewel.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "abilityPower": 0.2,
         "manaRegen": 2
       },
-      "description": "Dealing magic damage reduces the target’s Magic Resist by 4. If their Magic Resist is 0, grant the holder 4 Mana instead.\n\nAbility damage can only trigger on each enemy once every 0.5 seconds.",
+      "description": "Dealing magic damage reduces the target’s Magic Resist by 4.\nIf their Magic Resist is 0, grant the holder 4 Mana instead.\n\nAbility damage can only trigger on each enemy once every 0.5 seconds.",
       "grants": [
         {
           "to": "enemy",
@@ -1391,14 +1679,18 @@
       ]
     },
     {
+      "id": "cappa-juice",
       "name": "Cappa Juice",
+      "iconPath": "src/assets/icons/timeless/items/cappa-juice.png",
+      "combat": true,
+      "requiresRunInput": true,
       "type": "artifact",
       "stats": {
         "abilityPower": 0.25,
         "attackDamage": 0.25,
         "attackSpeed": 0.25
       },
-      "description": "The holder dons a Hat on each takedown. The holder gains 1% Attack Damage and Ability Power per Hat. On death lose 20% of all Hats.",
+      "description": "The holder dons a Hat on each takedown.\nThe holder gains 1% Attack Damage and Ability Power per Hat.\nOn death lose 20% of all Hats.",
       "grants": [
         {
           "to": "holder",
@@ -1416,14 +1708,18 @@
       }
     },
     {
+      "id": "dawncore",
       "name": "Dawncore",
+      "iconPath": "src/assets/icons/timeless/items/dawncore.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "attackDamage": 0.15,
         "abilityPower": 0.15,
         "manaRegen": 2
       },
-      "description": "Reduce the holder's max Mana by 10. Subsequent spellcasts reduce max Mana by 7%, to a minimum of 10.",
+      "description": "Reduce the holder's max Mana by 10.\nSubsequent spellcasts reduce max Mana by 7%, to a minimum of 10.",
       "grants": [
         {
           "to": "holder",
@@ -1445,7 +1741,11 @@
       }
     },
     {
+      "id": "deaths-defiance",
       "name": "Death's Defiance",
+      "iconPath": "src/assets/icons/timeless/items/deaths-defiance.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "attackDamage": 0.25,
@@ -1466,13 +1766,17 @@
       }
     },
     {
+      "id": "eternal-pact",
       "name": "Eternal Pact",
+      "iconPath": "src/assets/icons/timeless/items/eternal-pact.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "abilityPower": 0.4,
         "manaRegen": 1
       },
-      "description": "Combat start: Form a pact with the highest Health allied champion, If they die, gain 10 Mana regen and 40% Ability Power.\nWhen the ally uses their ability, gain 15 Mana. Every 6 seconds, shield your ally for 200% of the holder's Ability Power.",
+      "description": "Combat start: Form a pact with the highest Health allied champion, If they die, gain 10 Mana regen and 40% Ability Power.\n\nWhen the ally uses their ability, gain 15 Mana.\nEvery 6 seconds, shield your ally for 200% of the holder's Ability Power.",
       "grants": [
         {
           "to": "ally",
@@ -1512,14 +1816,18 @@
       ]
     },
     {
+      "id": "fishbones",
       "name": "Fishbones",
+      "iconPath": "src/assets/icons/timeless/items/fishbones.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "attackDamage": 0.3,
         "attackSpeed": 0.3,
         "range": 2
       },
-      "description": "The holder's attacks target random enemies. Gain +2 Attack Range.",
+      "description": "The holder's attacks target random enemies.\nGain +2 Attack Range.",
       "grants": [
         {
           "to": "holder",
@@ -1528,13 +1836,17 @@
       ]
     },
     {
+      "id": "flickerblades",
       "name": "Flickerblades",
+      "iconPath": "src/assets/icons/timeless/items/flickerblades.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "abilityPower": 0.1,
         "attackSpeed": 0.2
       },
-      "description": "Attacks grant 5% stacking Attack Speed. Every 3 attacks also grant 2% Attack Damage and 2% Ability Power.",
+      "description": "Attacks grant 5% stacking Attack Speed.\nEvery 3 attacks also grant 2% Attack Damage and 2% Ability Power.",
       "stacks": true,
       "grants": [
         {
@@ -1557,7 +1869,11 @@
       ]
     },
     {
+      "id": "forbidden-idol",
       "name": "Forbidden Idol",
+      "iconPath": "src/assets/icons/timeless/items/forbidden-idol.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 350,
@@ -1576,12 +1892,16 @@
       ]
     },
     {
+      "id": "gamblers-blade",
       "name": "Gambler's Blade",
+      "iconPath": "src/assets/icons/timeless/items/gamblers-blade.png",
+      "combat": true,
+      "requiresRunInput": true,
       "type": "artifact",
       "stats": {
         "attackSpeed": 0.55
       },
-      "description": "Grant 1% bonus Attack Speed per gold in your bank (up to 30 gold).\nEach attack has a 6% chance to drop 1 gold.\n\nUnique - only 1 per champion",
+      "description": "Grant 1% bonus Attack Speed per gold in your bank (up to 30 gold).\n\nEach attack has a 6% chance to drop 1 gold.\n\nUnique - only 1 per champion",
       "grants": [
         {
           "to": "holder",
@@ -1598,13 +1918,17 @@
       }
     },
     {
+      "id": "gold-collector",
       "name": "Gold Collector",
+      "iconPath": "src/assets/icons/timeless/items/gold-collector.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "attackDamage": 0.4,
         "critChance": 0.2
       },
-      "description": "Attacks and Abilities execute enemies below 12% of their maximum Health. Executions on champions have a 33% chance to drop 1 gold.\n\nUnique - only 1 per champion",
+      "description": "Attacks and Abilities execute enemies below 12% of their maximum Health.\nExecutions on champions have a 33% chance to drop 1 gold.\n\nUnique - only 1 per champion",
       "grants": [
         {
           "to": "enemy",
@@ -1620,13 +1944,17 @@
       }
     },
     {
+      "id": "hellfire-hatchet",
       "name": "Hellfire Hatchet",
+      "iconPath": "src/assets/icons/timeless/items/hellfire-hatchet.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 400,
         "omnivamp": 0.2
       },
-      "description": "Attacks deal 3% of the holder's max Health as bonus physical damage. For every 1% missing Health, gain 1.5% Attack Speed.",
+      "description": "Attacks deal 3% of the holder's max Health as bonus physical damage.\nFor every 1% missing Health, gain 1.5% Attack Speed.",
       "grants": [
         {
           "to": "enemy",
@@ -1646,7 +1974,11 @@
       ]
     },
     {
+      "id": "horizon-focus",
       "name": "Horizon Focus",
+      "iconPath": "src/assets/icons/timeless/items/horizon-focus.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 250,
@@ -1667,7 +1999,11 @@
       ]
     },
     {
+      "id": "hullcrusher",
       "name": "Hullcrusher",
+      "iconPath": "src/assets/icons/timeless/items/hullcrusher.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "armor": 60,
@@ -1692,7 +2028,11 @@
       ]
     },
     {
+      "id": "infinity-force",
       "name": "Infinity Force",
+      "iconPath": "src/assets/icons/timeless/items/infinity-force.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 300,
@@ -1705,7 +2045,11 @@
       "description": "Tons of EVERYTHING!"
     },
     {
+      "id": "lich-bane",
       "name": "Lich Bane",
+      "iconPath": "src/assets/icons/timeless/items/lich-bane.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "abilityPower": 0.55,
@@ -1724,7 +2068,11 @@
       ]
     },
     {
+      "id": "lightshield-crest",
       "name": "Lightshield Crest",
+      "iconPath": "src/assets/icons/timeless/items/lightshield-crest.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "armor": 55,
@@ -1756,7 +2104,11 @@
       ]
     },
     {
+      "id": "ludens-tempest",
       "name": "Luden's Tempest",
+      "iconPath": "src/assets/icons/timeless/items/ludens-tempest.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "attackDamage": 0.55,
@@ -1778,7 +2130,11 @@
       ]
     },
     {
+      "id": "manazane",
       "name": "Manazane",
+      "iconPath": "src/assets/icons/timeless/items/manazane.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "attackDamage": 0.15,
@@ -1798,13 +2154,17 @@
       ]
     },
     {
+      "id": "mittens",
       "name": "Mittens",
+      "iconPath": "src/assets/icons/timeless/items/mittens.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "attackSpeed": 0.65,
         "damageAmp": 0.15
       },
-      "description": "Shrinks the holder, granting them increased movement speed and immunity to Slow, Burn, and Wound.\n\nSlow: Reduces Attack Speed.\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received.",
+      "description": "Shrinks the holder, granting them increased movement speed and immunity to Slow, Burn, and Wound.\n\nSlow: Reduces Attack Speed.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\n\nWound: Reduces healing received.",
       "grants": [
         {
           "to": "holder",
@@ -1813,12 +2173,16 @@
       ]
     },
     {
+      "id": "moguls-mail",
       "name": "Mogul's Mail",
+      "iconPath": "src/assets/icons/timeless/items/moguls-mail.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 300
       },
-      "description": "Grants 1 Armor, 1 Magic Resist, and 5 Health when taking damage, stacking up to 35 times.\nAt full stacks, grant  1 gold and continue gaining  1 gold every 11 seconds.\n\nUnique - only 1 per champion",
+      "description": "Grants 1 Armor, 1 Magic Resist, and 5 Health when taking damage, stacking up to 35 times.\n\nAt full stacks, grant 1 gold and continue gaining 1 gold every 11 seconds.\n\nUnique - only 1 per champion",
       "stacks": true,
       "maxStacks": 35,
       "grants": [
@@ -1841,7 +2205,11 @@
       }
     },
     {
+      "id": "rapid-firecannon",
       "name": "Rapid Firecannon",
+      "iconPath": "src/assets/icons/timeless/items/rapid-firecannon.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "attackSpeed": 0.65,
@@ -1861,7 +2229,11 @@
       ]
     },
     {
+      "id": "seekers-armguard",
       "name": "Seeker's Armguard",
+      "iconPath": "src/assets/icons/timeless/items/seekers-armguard.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "abilityPower": 0.25,
@@ -1886,7 +2258,11 @@
       ]
     },
     {
+      "id": "silvermere-dawn",
       "name": "Silvermere Dawn",
+      "iconPath": "src/assets/icons/timeless/items/silvermere-dawn.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "attackDamage": 1.25,
@@ -1912,7 +2288,11 @@
       ]
     },
     {
+      "id": "statikk-shiv",
       "name": "Statikk Shiv",
+      "iconPath": "src/assets/icons/timeless/items/statikk-shiv.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "abilityPower": 0.15,
@@ -1937,7 +2317,11 @@
       ]
     },
     {
+      "id": "talisman-of-ascension",
       "name": "Talisman of Ascension",
+      "iconPath": "src/assets/icons/timeless/items/talisman-of-ascension.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 450,
@@ -1963,14 +2347,18 @@
       }
     },
     {
+      "id": "the-indomitable",
       "name": "The Indomitable",
+      "iconPath": "src/assets/icons/timeless/items/the-indomitable.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 500,
         "armor": 20,
         "magicResist": 20
       },
-      "description": "The holder's Move Speed is drastically reduced.\nGain 15% max Health, Unstoppable, and pull the current target into melee range.",
+      "description": "The holder's Move Speed is drastically reduced.\n\nGain 15% max Health, Unstoppable, and pull the current target into melee range.",
       "grants": [
         {
           "to": "holder",
@@ -1989,7 +2377,11 @@
       }
     },
     {
+      "id": "titanic-hydra",
       "name": "Titanic Hydra",
+      "iconPath": "src/assets/icons/timeless/items/titanic-hydra.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 300,
@@ -2013,13 +2405,17 @@
       ]
     },
     {
+      "id": "void-gauntlet",
       "name": "Void Gauntlet",
+      "iconPath": "src/assets/icons/timeless/items/void-gauntlet.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 300,
         "durability": 0.1
       },
-      "description": "Combat Start: Store 30% max Health and 2.5% more every second. On death, unleash the stored Health as magic damage split between enemies within 4 hexes.\n\nUnique - only 1 per champion",
+      "description": "Combat Start: Store 30% max Health and 2.5% more every second.\nOn death, unleash the stored Health as magic damage split between enemies within 4 hexes.\n\nUnique - only 1 per champion",
       "grants": [
         {
           "to": "holder",
@@ -2047,7 +2443,11 @@
       }
     },
     {
+      "id": "wits-end",
       "name": "Wit's End",
+      "iconPath": "src/assets/icons/timeless/items/wits-end.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "hp": 400,
@@ -2055,7 +2455,7 @@
         "magicResist": 20,
         "attackSpeed": 0.25
       },
-      "description": "Attacks deal 30/45/65/85/100 bonus magic damage.\nHeals the holder for 25% of all magic damage dealt.\n\nDamage increases based on Stage.",
+      "description": "Attacks deal 30/45/65/85/100 bonus magic damage.\n\nHeals the holder for 25% of all magic damage dealt.\n\nDamage increases based on Stage.",
       "grants": [
         {
           "to": "enemy",
@@ -2073,7 +2473,11 @@
       ]
     },
     {
+      "id": "zhonyas-paradox",
       "name": "Zhonya's Paradox",
+      "iconPath": "src/assets/icons/timeless/items/zhonyas-paradox.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "artifact",
       "stats": {
         "abilityPower": 0.25,
@@ -2103,14 +2507,18 @@
       }
     },
     {
+      "id": "radiant-adaptive-helm",
       "name": "Radiant Adaptive Helm",
+      "iconPath": "src/assets/icons/timeless/items/radiant-adaptive-helm.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Adaptive Helm",
       "stats": {
         "magicResist": 40,
         "manaRegen": 7
       },
-      "description": "Gain an additional 30% Mana from all sources. The wearer gains an additional bonus based on their Role:\n\nTanks and Fighters: Gain 80 Armor and Magic Resistance.\nOther Roles: Gain 40% Attack Damage and Ability Power.",
+      "description": "Gain an additional 30% Mana from all sources.\nThe wearer gains an additional bonus based on their Role:\n\nTanks and Fighters: Gain 80 Armor and Magic Resistance.\n\nOther Roles: Gain 40% Attack Damage and Ability Power.",
       "grants": [
         {
           "to": "holder",
@@ -2141,7 +2549,11 @@
       ]
     },
     {
+      "id": "radiant-archangels-staff",
       "name": "Radiant Archangel's Staff",
+      "iconPath": "src/assets/icons/timeless/items/radiant-archangels-staff.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Archangel's Staff",
       "stats": {
@@ -2162,7 +2574,11 @@
       ]
     },
     {
+      "id": "radiant-bloodthirster",
       "name": "Radiant Bloodthirster",
+      "iconPath": "src/assets/icons/timeless/items/radiant-bloodthirster.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Bloodthirster",
       "stats": {
@@ -2188,7 +2604,11 @@
       }
     },
     {
+      "id": "radiant-blue-buff",
       "name": "Radiant Blue Buff",
+      "iconPath": "src/assets/icons/timeless/items/radiant-blue-buff.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Blue Buff",
       "stats": {
@@ -2208,13 +2628,17 @@
       ]
     },
     {
+      "id": "radiant-bramble-vest",
       "name": "Radiant Bramble Vest",
+      "iconPath": "src/assets/icons/timeless/items/radiant-bramble-vest.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Bramble Vest",
       "stats": {
         "armor": 100
       },
-      "description": "Gain 12% max Health.\nTake 10% reduced damage from attacks. When struck by any attack, deal 200 magic damage to all adjacent enemies.\n\nCooldown: 2 seconds",
+      "description": "Gain 12% max Health.\n\nTake 10% reduced damage from attacks.\nWhen struck by any attack, deal 200 magic damage to all adjacent enemies.\n\nCooldown: 2 seconds",
       "grants": [
         {
           "to": "holder",
@@ -2242,7 +2666,11 @@
       ]
     },
     {
+      "id": "radiant-crownguard",
       "name": "Radiant Crownguard",
+      "iconPath": "src/assets/icons/timeless/items/radiant-crownguard.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Crownguard",
       "stats": {
@@ -2250,7 +2678,7 @@
         "abilityPower": 40,
         "armor": 40
       },
-      "description": "Combat start: Gain a 50% max Health Shield for 8 seconds.\nWhen the shield expires, gain 50% Ability Power.",
+      "description": "Combat start: Gain a 50% max Health Shield for 8 seconds.\n\nWhen the shield expires, gain 50% Ability Power.",
       "grants": [
         {
           "to": "holder",
@@ -2270,23 +2698,31 @@
       ]
     },
     {
+      "id": "radiant-deathblade",
       "name": "Radiant Deathblade",
+      "iconPath": "src/assets/icons/timeless/items/radiant-deathblade.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Deathblade",
       "stats": {
         "attackDamage": 1,
         "damageAmp": 0.2
       },
-      "description": "It glows in the presence of enemies. Or friends. Or anything alive, really."
+      "description": "It glows in the presence of enemies.\nOr friends.\nOr anything alive, really."
     },
     {
+      "id": "radiant-dragons-claw",
       "name": "Radiant Dragon's Claw",
+      "iconPath": "src/assets/icons/timeless/items/radiant-dragons-claw.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Dragon's Claw",
       "stats": {
         "magicResist": 120
       },
-      "description": "Gain 28% max Health.\nEvery 2 seconds, heal 5% max Health.",
+      "description": "Gain 28% max Health.\n\nEvery 2 seconds, heal 5% max Health.",
       "grants": [
         {
           "to": "holder",
@@ -2302,7 +2738,11 @@
       ]
     },
     {
+      "id": "radiant-edge-of-night",
       "name": "Radiant Edge of Night",
+      "iconPath": "src/assets/icons/timeless/items/radiant-edge-of-night.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Edge of Night",
       "stats": {
@@ -2330,14 +2770,18 @@
       }
     },
     {
+      "id": "radiant-evenshroud",
       "name": "Radiant Evenshroud",
+      "iconPath": "src/assets/icons/timeless/items/radiant-evenshroud.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Evenshroud",
       "stats": {
         "hp": 500,
         "magicResist": 40
       },
-      "description": "30% Sunder enemies within 3 hexes. Gain 50 Armor and Magic Resist for the first 20 seconds of combat.\n\nSunder: Reduce Armor",
+      "description": "30% Sunder enemies within 3 hexes.\nGain 50 Armor and Magic Resist for the first 20 seconds of combat.\n\nSunder: Reduce Armor",
       "grants": [
         {
           "to": "enemy",
@@ -2361,7 +2805,11 @@
       }
     },
     {
+      "id": "radiant-gargoyle-stoneplate",
       "name": "Radiant Gargoyle Stoneplate",
+      "iconPath": "src/assets/icons/timeless/items/radiant-gargoyle-stoneplate.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Gargoyle Stoneplate",
       "stats": {
@@ -2383,7 +2831,11 @@
       ]
     },
     {
+      "id": "radiant-giant-slayer",
       "name": "Radiant Giant Slayer",
+      "iconPath": "src/assets/icons/timeless/items/radiant-giant-slayer.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Giant Slayer",
       "stats": {
@@ -2406,7 +2858,11 @@
       ]
     },
     {
+      "id": "radiant-guinsoos-rageblade",
       "name": "Radiant Guinsoo's Rageblade",
+      "iconPath": "src/assets/icons/timeless/items/radiant-guinsoos-rageblade.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Guinsoo's Rageblade",
       "stats": {
@@ -2427,14 +2883,18 @@
       ]
     },
     {
+      "id": "radiant-hand-of-justice",
       "name": "Radiant Hand of Justice",
+      "iconPath": "src/assets/icons/timeless/items/radiant-hand-of-justice.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Hand of Justice",
       "stats": {
         "critChance": 0.4,
         "manaRegen": 2
       },
-      "description": "Gain 2 effects:\n• 30% Attack Damage and 30% Ability Power.\n• 24% Omnivamp.\n\nWhile above 50% health, double the Attack Damage and Ability Power. While below 50% Health, double the Omnivamp.",
+      "description": "Gain 2 effects:\n30% Attack Damage and 30% Ability Power.\n24% Omnivamp.\n\nWhile above 50% health, double the Attack Damage and Ability Power.\nWhile below 50% Health, double the Omnivamp.",
       "grants": [
         {
           "to": "holder",
@@ -2467,7 +2927,11 @@
       }
     },
     {
+      "id": "radiant-hextech-gunblade",
       "name": "Radiant Hextech Gunblade",
+      "iconPath": "src/assets/icons/timeless/items/radiant-hextech-gunblade.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Hextech Gunblade",
       "stats": {
@@ -2488,14 +2952,18 @@
       ]
     },
     {
+      "id": "radiant-infinity-edge",
       "name": "Radiant Infinity Edge",
+      "iconPath": "src/assets/icons/timeless/items/radiant-infinity-edge.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Infinity Edge",
       "stats": {
         "attackDamage": 0.75,
         "critChance": 0.75
       },
-      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike. Extra Precision grants 10% Critical Strike Damage.",
+      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike.\nExtra Precision grants 10% Critical Strike Damage.",
       "grants": [
         {
           "to": "holder",
@@ -2504,7 +2972,11 @@
       ]
     },
     {
+      "id": "radiant-ionic-spark",
       "name": "Radiant Ionic Spark",
+      "iconPath": "src/assets/icons/timeless/items/radiant-ionic-spark.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Ionic Spark",
       "stats": {
@@ -2512,7 +2984,7 @@
         "abilityPower": 0.3,
         "magicResist": 70
       },
-      "description": "30% Shred enemies within 2 hexes. When enemies cast an Ability, deal magic damage equal to 300% of the Mana spent.\n\nShred: Reduce Magic Resist",
+      "description": "30% Shred enemies within 2 hexes.\nWhen enemies cast an Ability, deal magic damage equal to 300% of the Mana spent.\n\nShred: Reduce Magic Resist",
       "grants": [
         {
           "to": "enemy",
@@ -2532,14 +3004,18 @@
       }
     },
     {
+      "id": "radiant-jeweled-gauntlet",
       "name": "Radiant Jeweled Gauntlet",
+      "iconPath": "src/assets/icons/timeless/items/radiant-jeweled-gauntlet.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Jeweled Gauntlet",
       "stats": {
         "abilityPower": 0.75,
         "critChance": 0.75
       },
-      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike. Extra Precision grants 10% Critical Strike Damage.",
+      "description": "Gain Precision.\n\nPrecision: Ability damage can critically strike.\nExtra Precision grants 10% Critical Strike Damage.",
       "grants": [
         {
           "to": "holder",
@@ -2548,7 +3024,11 @@
       ]
     },
     {
+      "id": "radiant-krakens-fury",
       "name": "Radiant Kraken's Fury",
+      "iconPath": "src/assets/icons/timeless/items/radiant-krakens-fury.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Kraken's Fury",
       "stats": {
@@ -2556,7 +3036,7 @@
         "magicResist": 40,
         "attackSpeed": 0.2
       },
-      "description": "Attacks grant 7% stacking Attack Damage, up to 15 attacks. After 15 attacks, gain 30% Attack Speed.",
+      "description": "Attacks grant 7% stacking Attack Damage, up to 15 attacks.\nAfter 15 attacks, gain 30% Attack Speed.",
       "stacks": true,
       "maxStacks": 15,
       "grants": [
@@ -2581,7 +3061,11 @@
       ]
     },
     {
+      "id": "radiant-last-whisper",
       "name": "Radiant Last Whisper",
+      "iconPath": "src/assets/icons/timeless/items/radiant-last-whisper.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Last Whisper",
       "stats": {
@@ -2589,7 +3073,7 @@
         "attackSpeed": 0.4,
         "critChance": 0.4
       },
-      "description": "Attacks and Ability damage 30% Sunders the target for the rest of combat. This effect does not stack.\n\nSunder: Reduce Armor",
+      "description": "Attacks and Ability damage 30% Sunders the target for the rest of combat.\nThis effect does not stack.\n\nSunder: Reduce Armor",
       "grants": [
         {
           "to": "enemy",
@@ -2601,7 +3085,11 @@
       ]
     },
     {
+      "id": "radiant-morellonomicon",
       "name": "Radiant Morellonomicon",
+      "iconPath": "src/assets/icons/timeless/items/radiant-morellonomicon.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Morellonomicon",
       "stats": {
@@ -2609,7 +3097,7 @@
         "abilityPower": 0.35,
         "manaRegen": 2
       },
-      "description": "Attacks and Abilities deal 2% Burn and 33% Wound to enemies for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received.",
+      "description": "Attacks and Abilities deal 2% Burn and 33% Wound to enemies for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\n\nWound: Reduces healing received.",
       "grants": [
         {
           "to": "enemy",
@@ -2621,7 +3109,11 @@
       ]
     },
     {
+      "id": "radiant-nashors-tooth",
       "name": "Radiant Nashor's Tooth",
+      "iconPath": "src/assets/icons/timeless/items/radiant-nashors-tooth.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Nashor's Tooth",
       "stats": {
@@ -2649,7 +3141,11 @@
       ]
     },
     {
+      "id": "radiant-protectors-vow",
       "name": "Radiant Protector's Vow",
+      "iconPath": "src/assets/icons/timeless/items/radiant-protectors-vow.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Protector's Vow",
       "stats": {
@@ -2657,7 +3153,7 @@
         "magicResist": 50,
         "manaRegen": 2
       },
-      "description": "Combat Start: Gain 40 Mana.\nAt 40% Health, gain 30 Mana and a Shield equal to 50% max Health",
+      "description": "Combat Start: Gain 40 Mana.\n\nAt 40% Health, gain 30 Mana and a Shield equal to 50% max Health",
       "grants": [
         {
           "to": "holder",
@@ -2682,7 +3178,11 @@
       }
     },
     {
+      "id": "radiant-quicksilver",
       "name": "Radiant Quicksilver",
+      "iconPath": "src/assets/icons/timeless/items/radiant-quicksilver.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Quicksilver",
       "stats": {
@@ -2690,7 +3190,7 @@
         "attackSpeed": 0.4,
         "critChance": 0.4
       },
-      "description": "Combat Start: Unstoppable for 45 seconds.\nGain 6% stacking Attack Speed every second.",
+      "description": "Combat Start: Unstoppable for 45 seconds.\n\nGain 6% stacking Attack Speed every second.",
       "stacks": true,
       "grants": [
         {
@@ -2710,7 +3210,11 @@
       ]
     },
     {
+      "id": "radiant-rabadons-deathcap",
       "name": "Radiant Rabadon's Deathcap",
+      "iconPath": "src/assets/icons/timeless/items/radiant-rabadons-deathcap.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Rabadon's Deathcap",
       "stats": {
@@ -2720,14 +3224,18 @@
       "description": "It's witnessed - and unleashed - miracles and calamities both."
     },
     {
+      "id": "radiant-red-buff",
       "name": "Radiant Red Buff",
+      "iconPath": "src/assets/icons/timeless/items/radiant-red-buff.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Red Buff",
       "stats": {
         "attackSpeed": 0.8,
         "damageAmp": 0.06
       },
-      "description": "Attacks and Abilities 2% Burn and 33% Wound enemies for 5 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received.",
+      "description": "Attacks and Abilities 2% Burn and 33% Wound enemies for 5 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\n\nWound: Reduces healing received.",
       "grants": [
         {
           "to": "enemy",
@@ -2739,7 +3247,11 @@
       ]
     },
     {
+      "id": "radiant-spear-of-shojin",
       "name": "Radiant Spear of Shojin",
+      "iconPath": "src/assets/icons/timeless/items/radiant-spear-of-shojin.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Spear of Shojin",
       "stats": {
@@ -2759,7 +3271,11 @@
       ]
     },
     {
+      "id": "radiant-spirit-visage",
       "name": "Radiant Spirit Visage",
+      "iconPath": "src/assets/icons/timeless/items/radiant-spirit-visage.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Spirit Visage",
       "stats": {
@@ -2777,7 +3293,11 @@
       ]
     },
     {
+      "id": "radiant-steadfast-heart",
       "name": "Radiant Steadfast Heart",
+      "iconPath": "src/assets/icons/timeless/items/radiant-steadfast-heart.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Steadfast Heart",
       "stats": {
@@ -2785,7 +3305,7 @@
         "critChance": 0.4,
         "durability": 0.1
       },
-      "description": "Gain 10% Durability. While above 50% Health, instead gain 30% Durability.",
+      "description": "Gain 10% Durability.\nWhile above 50% Health, instead gain 30% Durability.",
       "grants": [
         {
           "to": "holder",
@@ -2808,7 +3328,11 @@
       }
     },
     {
+      "id": "radiant-steraks-gage",
       "name": "Radiant Sterak's Gage",
+      "iconPath": "src/assets/icons/timeless/items/radiant-steraks-gage.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Sterak's Gage",
       "stats": {
@@ -2832,7 +3356,11 @@
       }
     },
     {
+      "id": "radiant-strikers-flail",
       "name": "Radiant Striker's Flail",
+      "iconPath": "src/assets/icons/timeless/items/radiant-strikers-flail.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Striker's Flail",
       "stats": {
@@ -2858,14 +3386,18 @@
       ]
     },
     {
+      "id": "radiant-sunfire-cape",
       "name": "Radiant Sunfire Cape",
+      "iconPath": "src/assets/icons/timeless/items/radiant-sunfire-cape.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Sunfire Cape",
       "stats": {
         "hp": 300,
         "armor": 40
       },
-      "description": "Gain 16% max Health.\nEvery 2 seconds, deal 2% Burn and 33% Wound to an enemy within 2 hexes for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\nWound: Reduces healing received.",
+      "description": "Gain 16% max Health.\n\nEvery 2 seconds, deal 2% Burn and 33% Wound to an enemy within 2 hexes for 10 seconds.\n\nBurn: Deals a percent of the target’s max Health as true damage every second.\n\nWound: Reduces healing received.",
       "grants": [
         {
           "to": "holder",
@@ -2889,7 +3421,11 @@
       }
     },
     {
+      "id": "radiant-thiefs-gloves",
       "name": "Radiant Thief's Gloves",
+      "iconPath": "src/assets/icons/timeless/items/radiant-thiefs-gloves.png",
+      "combat": true,
+      "requiresRunInput": true,
       "type": "radiant",
       "base": "Thief's Gloves",
       "stats": {
@@ -2899,14 +3435,18 @@
       "description": "Each round: Equip 2 random Radiant items\n\nConsumes 3 item slots."
     },
     {
+      "id": "radiant-titans-resolve",
       "name": "Radiant Titan's Resolve",
+      "iconPath": "src/assets/icons/timeless/items/radiant-titans-resolve.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Titan's Resolve",
       "stats": {
         "armor": 40,
         "attackSpeed": 0.2
       },
-      "description": "Gain 4% Attack Damage and 4% Ability Power when attacking or taking damage, stacking up to 25 times.\nAt full stacks, gain 20% Damage Amp and Unstoppable.",
+      "description": "Gain 4% Attack Damage and 4% Ability Power when attacking or taking damage, stacking up to 25 times.\n\nAt full stacks, gain 20% Damage Amp and Unstoppable.",
       "stacks": true,
       "maxStacks": 25,
       "grants": [
@@ -2933,7 +3473,11 @@
       ]
     },
     {
+      "id": "radiant-void-staff",
       "name": "Radiant Void Staff",
+      "iconPath": "src/assets/icons/timeless/items/radiant-void-staff.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Void Staff",
       "stats": {
@@ -2941,7 +3485,7 @@
         "attackSpeed": 0.3,
         "manaRegen": 2
       },
-      "description": "Attacks and Ability damage 30% Shred the target for the rest of combat. This effect does not stack.\n\nShred: Reduce Magic Resist",
+      "description": "Attacks and Ability damage 30% Shred the target for the rest of combat.\nThis effect does not stack.\n\nShred: Reduce Magic Resist",
       "grants": [
         {
           "to": "enemy",
@@ -2953,7 +3497,11 @@
       ]
     },
     {
+      "id": "radiant-warmogs-armor",
       "name": "Radiant Warmog's Armor",
+      "iconPath": "src/assets/icons/timeless/items/radiant-warmogs-armor.png",
+      "combat": true,
+      "requiresRunInput": false,
       "type": "radiant",
       "base": "Warmog's Armor",
       "stats": {

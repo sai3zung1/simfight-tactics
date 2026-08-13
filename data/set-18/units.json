@@ -1,7 +1,11 @@
 {
   "entries": [
     {
+      "id": "s18-ahri",
       "name": "Ahri",
+      "iconPath": "src/assets/icons/set-18/units/s18-ahri.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 4,
       "role": ["caster"],
       "damageProfile": ["magic"],
@@ -36,7 +40,8 @@
       },
       "ability": {
         "name": "Spirit Bomb",
-        "description": "Launch a spirit bomb at the location within 4 hexes that has the most surrounding enemies. It deals 485/735/3500 [AP] magic damage to enemies in a 3 hex radius, reduced by 20% per hex away from the epicenter.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-ahri.jpg",
+        "description": "Launch a spirit bomb at the location within 4 hexes that has the most surrounding enemies.\nIt deals 485/735/3500 [AP] magic damage to enemies in a 3 hex radius, reduced by 20% per hex away from the epicenter.",
         "keywords": [],
         "breakdown": [
           {
@@ -58,7 +63,11 @@
       }
     },
     {
+      "id": "s18-akali",
       "name": "Akali",
+      "iconPath": "src/assets/icons/set-18/units/s18-akali.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 1,
       "role": ["fighter"],
       "damageProfile": ["magic", "physical"],
@@ -95,12 +104,13 @@
       },
       "ability": {
         "name": "Kunai Strike",
-        "description": "Adaptor [AD]: Throw a volley of kunai at the target, dealing 140/210/320 [AD][AP] physical damage. If the target is Burning, deal an additional 30/45/68 [AD] damage.\n\nAdaptor [AP]: If the Ability kills, cast it again.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-akali.jpg",
+        "description": "Adaptor [AD]: Throw a volley of kunai at the target, dealing 140/210/320 [AD][AP] physical damage.\nIf the target is Burning, deal an additional 30/45/68 [AD] damage.\n\nAdaptor [AP]: If the Ability kills, cast it again.",
         "keywords": [],
         "breakdown": [],
         "adaptor": {
           "ad": {
-            "description": "Throw a volley of kunai at the target, dealing 140/210/320 [AD][AP] physical damage. If the target is Burning, deal an additional 30/45/68 [AD] damage.",
+            "description": "Throw a volley of kunai at the target, dealing 140/210/320 [AD][AP] physical damage.\nIf the target is Burning, deal an additional 30/45/68 [AD] damage.",
             "breakdown": [
               {
                 "label": "Damage",
@@ -138,7 +148,7 @@
             }
           },
           "ap": {
-            "description": "Throw a volley of kunai at the target, dealing 170/255/385 [AP] magic damage, increased by 50% if the target is a Tank. If the target dies, cast again at 70% effectiveness.",
+            "description": "Throw a volley of kunai at the target, dealing 170/255/385 [AP] magic damage, increased by 50% if the target is a Tank.\nIf the target dies, cast again at 70% effectiveness.",
             "breakdown": [
               {
                 "label": "Damage",
@@ -163,7 +173,11 @@
       }
     },
     {
+      "id": "s18-alistar",
       "name": "Alistar",
+      "iconPath": "src/assets/icons/set-18/units/s18-alistar.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 2,
       "role": ["tank"],
       "damageProfile": ["magic"],
@@ -200,7 +214,8 @@
       },
       "ability": {
         "name": "Triumphant Roar",
-        "description": "Roar, restoring 276/397/566 [Health][AP] Health, cleansing disables, and healing the two lowest percent Health allies for 80/105/130 [AP]. Then slam the current target, dealing 100/150/225 [AP] magic damage and Stunning them for 1.5 seconds.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-alistar.jpg",
+        "description": "Roar, restoring 276/397/566 [Health][AP] Health, cleansing disables, and healing the two lowest percent Health allies for 80/105/130 [AP].\nThen slam the current target, dealing 100/150/225 [AP] magic damage and Stunning them for 1.5 seconds.",
         "keywords": [],
         "breakdown": [
           {
@@ -243,7 +258,11 @@
       }
     },
     {
+      "id": "s18-alune",
       "name": "Alune",
+      "iconPath": "src/assets/icons/set-18/units/s18-alune.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 5,
       "role": ["caster"],
       "damageProfile": ["magic"],
@@ -278,6 +297,7 @@
       },
       "ability": {
         "name": "Moonfall",
+        "iconPath": "src/assets/icons/set-18/spells/s18-alune.jpg",
         "description": "Rain 9 moonshards split among the 3 nearest enemies, dealing 50/75/500 [AP] magic damage each.\n\nIf the moon is full, instead crash it onto the board, dealing 2200/3400/6500 [AP] magic damage split among all enemies.",
         "keywords": [],
         "breakdown": [
@@ -308,7 +328,11 @@
       }
     },
     {
+      "id": "s18-amumu",
       "name": "Amumu",
+      "iconPath": "src/assets/icons/set-18/units/s18-amumu.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 4,
       "role": ["tank"],
       "damageProfile": ["magic"],
@@ -343,6 +367,7 @@
       },
       "ability": {
         "name": "Tantrum",
+        "iconPath": "src/assets/icons/set-18/spells/s18-amumu.jpg",
         "description": "Passive: Every second, restore 32/57/103 [AP][Health] Health and deal 12/18/150 [AP] magic damage to enemies within 1 hex.\n\nActive: Deal 100/150/2000 [AP] magic damage to enemies within 2 hexes and Stun them for 1/1/6 seconds, increased to 3/3/13 seconds if the target is Burning.",
         "keywords": [
           {
@@ -401,7 +426,11 @@
       }
     },
     {
+      "id": "s18-aphelios",
       "name": "Aphelios",
+      "iconPath": "src/assets/icons/set-18/units/s18-aphelios.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 4,
       "role": ["marksman"],
       "damageProfile": ["physical"],
@@ -436,6 +465,7 @@
       },
       "ability": {
         "name": "Moonlight's Onslaught",
+        "iconPath": "src/assets/icons/set-18/spells/s18-aphelios.jpg",
         "description": "Equip Severum and swipe the target 6 [AS] times over 2 seconds, each dealing 70/105/1100 [AD] max Health physical damage.\n\nAfter the onslaught finishes, fire a blast that deals 490/735/5225 [AD][AP] physical damage split among all enemies in a 2 Hex radius.",
         "keywords": [],
         "breakdown": [
@@ -484,7 +514,11 @@
       }
     },
     {
+      "id": "s18-ashe",
       "name": "Ashe",
+      "iconPath": "src/assets/icons/set-18/units/s18-ashe.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 5,
       "role": ["caster"],
       "damageProfile": ["physical"],
@@ -519,6 +553,7 @@
       },
       "ability": {
         "name": "Spirit Rift",
+        "iconPath": "src/assets/icons/set-18/spells/s18-ashe.jpg",
         "description": "Fire an arrow through the longest line of enemies that deals 260/400/1000 [AD] physical damage, reduced by 40% per enemy hit (minimum 20%).\n\nThe arrow leaves a trail for 4/4/20 seconds that deals 25/38/220 [AD] [AP] + 2%/3%/10% max Health physical damage per second to enemies within and 20% Slows them.",
         "keywords": [
           {
@@ -578,7 +613,11 @@
       }
     },
     {
+      "id": "s18-azir",
       "name": "Azir",
+      "iconPath": "src/assets/icons/set-18/units/s18-azir.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 3,
       "role": ["marksman"],
       "damageProfile": ["magic"],
@@ -615,7 +654,8 @@
       },
       "ability": {
         "name": "Arise!",
-        "description": "Gain 150% Attack Speed and summon 2 soldiers for the next 6 attacks. These attacks are replaced by commands which direct each soldier to deal 48/72/115 [AP] magic damage per attack.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-azir.jpg",
+        "description": "Gain 150% Attack Speed and summon 2 soldiers for the next 6 attacks.\nThese attacks are replaced by commands which direct each soldier to deal 48/72/115 [AP] magic damage per attack.",
         "keywords": [],
         "breakdown": [
           {
@@ -638,7 +678,11 @@
       }
     },
     {
+      "id": "s18-brambleback",
       "name": "Brambleback",
+      "iconPath": "src/assets/icons/set-18/units/s18-brambleback.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 4,
       "role": ["fighter"],
       "damageProfile": ["physical"],
@@ -673,7 +717,8 @@
       },
       "ability": {
         "name": "Crimson Fury",
-        "description": "Passive: When the target dies, leap at the next target, dealing 170/255/600 [AD] physical damage.\n\nActive: Gain 80%/80%/280% Attack Damage for 8 seconds. During this time ignore 30% [AP] Armor.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-brambleback.jpg",
+        "description": "Passive: When the target dies, leap at the next target, dealing 170/255/600 [AD] physical damage.\n\nActive: Gain 80%/80%/280% Attack Damage for 8 seconds.\nDuring this time ignore 30% [AP] Armor.",
         "keywords": [
           {
             "name": "Red Buff",
@@ -715,7 +760,11 @@
       }
     },
     {
+      "id": "s18-caitlyn",
       "name": "Caitlyn",
+      "iconPath": "src/assets/icons/set-18/units/s18-caitlyn.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 2,
       "role": ["specialist"],
       "damageProfile": ["physical"],
@@ -752,6 +801,7 @@
       },
       "ability": {
         "name": "Headshot",
+        "iconPath": "src/assets/icons/set-18/spells/s18-caitlyn.jpg",
         "description": "Passive: Every third attack is replaced with a Headshot that deals 210/315/495 [AD][AP] physical damage.",
         "keywords": [],
         "breakdown": [
@@ -783,7 +833,11 @@
       }
     },
     {
+      "id": "s18-camille",
       "name": "Camille",
+      "iconPath": "src/assets/icons/set-18/units/s18-camille.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 1,
       "role": ["fighter"],
       "damageProfile": ["physical"],
@@ -820,6 +874,7 @@
       },
       "ability": {
         "name": "Defensive Sweep",
+        "iconPath": "src/assets/icons/set-18/spells/s18-camille.jpg",
         "description": "Slice the target for 170/255/385 [AD][AP] physical damage and gain 60/85/120 Shield for 2 seconds.",
         "keywords": [],
         "breakdown": [
@@ -861,7 +916,11 @@
       }
     },
     {
+      "id": "s18-cassiopeia",
       "name": "Cassiopeia",
+      "iconPath": "src/assets/icons/set-18/units/s18-cassiopeia.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 3,
       "role": ["caster"],
       "damageProfile": ["magic"],
@@ -898,7 +957,8 @@
       },
       "ability": {
         "name": "Noxious Blast",
-        "description": "Poison the target and the nearest non-poisoned enemy, dealing 400/600/960 [AP] magic damage over 15 seconds. Poisons stack.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-cassiopeia.jpg",
+        "description": "Poison the target and the nearest non-poisoned enemy, dealing 400/600/960 [AP] magic damage over 15 seconds.\nPoisons stack.",
         "keywords": [],
         "breakdown": [
           {
@@ -921,7 +981,11 @@
       }
     },
     {
+      "id": "s18-cinderling",
       "name": "Cinderling",
+      "iconPath": "src/assets/icons/set-18/units/s18-cinderling.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 1,
       "role": ["caster"],
       "damageProfile": ["physical"],
@@ -958,6 +1022,7 @@
       },
       "ability": {
         "name": "Razor Leaves",
+        "iconPath": "src/assets/icons/set-18/spells/s18-cinderling.jpg",
         "description": "Summon five razor-sharp leaves that converge on the current target, dealing a total of 300/450/680 [AD][AP] physical damage and applying 20% Wound and 1% Burn for 4 seconds.",
         "keywords": [
           {
@@ -1013,7 +1078,11 @@
       }
     },
     {
+      "id": "s18-diana",
       "name": "Diana",
+      "iconPath": "src/assets/icons/set-18/units/s18-diana.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 3,
       "role": ["fighter"],
       "damageProfile": ["magic"],
@@ -1050,6 +1119,7 @@
       },
       "ability": {
         "name": "Pale Barrier",
+        "iconPath": "src/assets/icons/set-18/spells/s18-diana.jpg",
         "description": "Gain 150/225/300 shield for 2 seconds and send out a moonlight orb to the closest 3 enemies, dealing 125/190/300 [AP] magic damage.",
         "keywords": [],
         "breakdown": [
@@ -1083,7 +1153,11 @@
       }
     },
     {
+      "id": "s18-draven",
       "name": "Draven",
+      "iconPath": "src/assets/icons/set-18/units/s18-draven.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 5,
       "role": ["marksman"],
       "damageProfile": ["physical"],
@@ -1118,7 +1192,8 @@
       },
       "ability": {
         "name": "Whirling Death",
-        "description": "Passive: Attacks target random enemies in range and apply a bleed that deals 150/225/1000 [AD] physical damage over 12 seconds. Every attack has a 12% [AP] chance to deal 50%/50%/900% bonus physical damage and apply 2 bleeds instead.\n\nActive: Throw two giant axes towards the enemy with the most bleeds. Deal 180/270/500 [AD] physical damage to all enemies hit and consume their bleed, instantly dealing the remaining damage.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-draven.jpg",
+        "description": "Passive: Attacks target random enemies in range and apply a bleed that deals 150/225/1000 [AD] physical damage over 12 seconds.\nEvery attack has a 12% [AP] chance to deal 50%/50%/900% bonus physical damage and apply 2 bleeds instead.\n\nActive: Throw two giant axes towards the enemy with the most bleeds.\nDeal 180/270/500 [AD] physical damage to all enemies hit and consume their bleed, instantly dealing the remaining damage.",
         "keywords": [],
         "breakdown": [
           {
@@ -1150,7 +1225,11 @@
       }
     },
     {
+      "id": "s18-elder-dragon",
       "name": "Elder Dragon",
+      "iconPath": "src/assets/icons/set-18/units/s18-elder-dragon.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 5,
       "role": ["fighter"],
       "damageProfile": ["physical"],
@@ -1185,7 +1264,8 @@
       },
       "ability": {
         "name": "Heat Without Equal",
-        "description": "Passive: Attacks deal 75%/75%/100% damage to enemies adjacent to the target.\n\nActive: Become untargetable and fly into the air, gaining 15%/15%/100% Omnivamp. Upon returning, stun all enemies for 1.25/1.25/99 seconds and Ignite them for 3/3/99 seconds. Then replace subsequent casts with Flame Breath and immediately cast it. Ignited enemies take 2%/2%/20% max Health physical damage per second.\n\nFlame Breath: Spew fire at the most enemies in a line through the target, dealing 260/390/7200 [AD] [AP] physical damage and Igniting them for 3/3/99 seconds\n\nElder Dragon Buff: Damaging an enemy below 12% Health executes them.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-elder-dragon.jpg",
+        "description": "Passive: Attacks deal 75%/75%/100% damage to enemies adjacent to the target.\n\nActive: Become untargetable and fly into the air, gaining 15%/15%/100% Omnivamp.\nUpon returning, stun all enemies for 1.25/1.25/99 seconds and Ignite them for 3/3/99 seconds.\nThen replace subsequent casts with Flame Breath and immediately cast it.\nIgnited enemies take 2%/2%/20% max Health physical damage per second.\n\nFlame Breath: Spew fire at the most enemies in a line through the target, dealing 260/390/7200 [AD] [AP] physical damage and Igniting them for 3/3/99 seconds\n\nElder Dragon Buff: Damaging an enemy below 12% Health executes them.",
         "keywords": [],
         "riftbeastBuff": {
           "colour": "tenth",
@@ -1245,7 +1325,11 @@
       }
     },
     {
+      "id": "s18-elise",
       "name": "Elise",
+      "iconPath": "src/assets/icons/set-18/units/s18-elise.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 2,
       "role": ["tank"],
       "damageProfile": ["magic"],
@@ -1282,7 +1366,8 @@
       },
       "ability": {
         "name": "Spider Queen",
-        "description": "Transform into a spider and gain 325/425/650 max Health. Attacks while in Spider Form deal 55/85/130 [AP] bonus magic damage and heal for 65/100/185 [AP]. Subsequent casts grant 175% decaying Attack Speed for 4 seconds.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-elise.jpg",
+        "description": "Transform into a spider and gain 325/425/650 max Health.\nAttacks while in Spider Form deal 55/85/130 [AP] bonus magic damage and heal for 65/100/185 [AP].\nSubsequent casts grant 175% decaying Attack Speed for 4 seconds.",
         "keywords": [],
         "breakdown": [
           {
@@ -1324,7 +1409,11 @@
       }
     },
     {
+      "id": "s18-ezreal",
       "name": "Ezreal",
+      "iconPath": "src/assets/icons/set-18/units/s18-ezreal.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 4,
       "role": ["caster"],
       "damageProfile": ["physical"],
@@ -1358,7 +1447,8 @@
         "manaIsAttackCounter": false
       },
       "ability": {
-        "name": "Nature's Wrath",
+        "name": "Forest's Flurry",
+        "iconPath": "src/assets/icons/set-18/spells/s18-ezreal.jpg",
         "description": "Blink away from the current target, deal 225/340/900 [AD] physical damage to them, and gain 25%/25%/100% [AP] Attack Speed.\n\nEvery 4th cast consumes the Attack Speed granted from Nature's Wrath and fires a blast through the largest group of enemies that deals 385/580/2500 [AD] physical damage, reduced by 25% for each enemy it passes through (minimum 50%).",
         "keywords": [],
         "breakdown": [
@@ -1399,7 +1489,11 @@
       }
     },
     {
+      "id": "s18-fiddlesticks",
       "name": "Fiddlesticks",
+      "iconPath": "src/assets/icons/set-18/units/s18-fiddlesticks.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 3,
       "role": ["tank"],
       "damageProfile": ["magic"],
@@ -1436,7 +1530,8 @@
       },
       "ability": {
         "name": "Harvest",
-        "description": "Reduce the Magic Resist of the 3 nearest enemies by 10. Then drain life from them over 2 seconds, healing for 425/500/850 [AP] Health and dealing 70/105/170 [AP] magic damage to each over the duration.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-fiddlesticks.jpg",
+        "description": "Reduce the Magic Resist of the 3 nearest enemies by 10.\nThen drain life from them over 2 seconds, healing for 425/500/850 [AP] Health and dealing 70/105/170 [AP] magic damage to each over the duration.",
         "keywords": [],
         "breakdown": [
           {
@@ -1469,7 +1564,11 @@
       }
     },
     {
+      "id": "s18-gnar",
       "name": "Gnar",
+      "iconPath": "src/assets/icons/set-18/units/s18-gnar.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 5,
       "role": ["specialist"],
       "damageProfile": ["physical"],
@@ -1504,7 +1603,8 @@
       },
       "ability": {
         "name": "Rage Gene",
-        "description": "Passive: Gain 5/5/50 Rage per second and 5 Rage per attack.\n\nActive: Transform into Mega Gnar and leap into the largest group of enemies within 3 hexes. Then, deal 150/225/1500 [AD] physical damage to enemies within 2/2/10 hexes, reduce their Armor and Magic Resist by 15/20/100 [AP], and Stun them for 1/1/5 second. Mega Gnar gains 400/600/10000 Health, and replaces his Ability with Grab n' Throw.\n\nGrab n' Throw: Throw the target at the farthest enemy, dealing 380/570/9000 [AD] physical damage to them and 135/205/4500 [AD] physical damage to enemies they pass through. If there's only 1 enemy left, throw them off the battlefield instead.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-gnar.jpg",
+        "description": "Passive: Gain 5/5/50 Rage per second and 5 Rage per attack.\n\nActive: Transform into Mega Gnar and leap into the largest group of enemies within 3 hexes.\nThen, deal 150/225/1500 [AD] physical damage to enemies within 2/2/10 hexes, reduce their Armor and Magic Resist by 15/20/100 [AP], and Stun them for 1/1/5 second.\nMega Gnar gains 400/600/10000 Health, and replaces his Ability with Grab n' Throw.\n\nGrab n' Throw: Throw the target at the farthest enemy, dealing 380/570/9000 [AD] physical damage to them and 135/205/4500 [AD] physical damage to enemies they pass through.\nIf there's only 1 enemy left, throw them off the battlefield instead.",
         "keywords": [],
         "breakdown": [
           {
@@ -1585,7 +1685,11 @@
       }
     },
     {
+      "id": "s18-gromp",
       "name": "Gromp",
+      "iconPath": "src/assets/icons/set-18/units/s18-gromp.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 2,
       "role": ["caster"],
       "damageProfile": ["magic", "physical"],
@@ -1622,7 +1726,8 @@
       },
       "ability": {
         "name": "Belchy Bubble",
-        "description": "Adaptor [AP]: Belch a noxious bubble at the current target that explodes on the first enemy hit, dealing 250/375/565 [AP] magic damage. Enemies within a 1 hex radius of the explosion take 100/240/360 [AP] magic damage over 3 seconds.\n\nAdaptor [AD]: Heavily slows the target.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-gromp.jpg",
+        "description": "Adaptor [AP]: Belch a noxious bubble at the current target that explodes on the first enemy hit, dealing 250/375/565 [AP] magic damage.\nEnemies within a 1 hex radius of the explosion take 100/240/360 [AP] magic damage over 3 seconds.\n\nAdaptor [AD]: Heavily slows the target.",
         "keywords": [
           {
             "name": "Purple Buff",
@@ -1640,7 +1745,7 @@
         "breakdown": [],
         "adaptor": {
           "ad": {
-            "description": "Belch a heavy bubble at the current target that explodes on the first enemy hit, dealing 335/505/795 [AD][AP] physical damage and Slowing by 30% for 3 seconds. Enemies within a 1 hex radius take 100/150/240 [AD] physical damage.",
+            "description": "Belch a heavy bubble at the current target that explodes on the first enemy hit, dealing 335/505/795 [AD][AP] physical damage and Slowing by 30% for 3 seconds.\nEnemies within a 1 hex radius take 100/150/240 [AD] physical damage.",
             "breakdown": [
               {
                 "label": "Damage",
@@ -1680,7 +1785,7 @@
             }
           },
           "ap": {
-            "description": "Belch a noxious bubble at the current target that explodes on the first enemy hit, dealing 225/340/535 [AP] magic damage. Enemies within a 1 hex radius take 145/220/345 [AP] magic damage over 3 seconds.",
+            "description": "Belch a noxious bubble at the current target that explodes on the first enemy hit, dealing 225/340/535 [AP] magic damage.\nEnemies within a 1 hex radius take 145/220/345 [AP] magic damage over 3 seconds.",
             "breakdown": [
               {
                 "label": "Damage",
@@ -1719,7 +1824,11 @@
       }
     },
     {
+      "id": "s18-hecarim",
       "name": "Hecarim",
+      "iconPath": "src/assets/icons/set-18/units/s18-hecarim.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 3,
       "role": ["tank"],
       "damageProfile": ["magic"],
@@ -1756,7 +1865,8 @@
       },
       "ability": {
         "name": "Spirit of Dread",
-        "description": "Gain 50 Armor and Magic Resist for 3 seconds and restore 450/550/800 [AP] Health over the duration. Launch spectral riders at the 3 nearest enemies, dealing 80/120/195 [AP] magic damage and Stunning them for 1.5/1.5/1.75 seconds.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-hecarim.jpg",
+        "description": "Gain 50 Armor and Magic Resist for 3 seconds and restore 450/550/800 [AP] Health over the duration.\nLaunch spectral riders at the 3 nearest enemies, dealing 80/120/195 [AP] magic damage and Stunning them for 1.5/1.5/1.75 seconds.",
         "keywords": [],
         "breakdown": [
           {
@@ -1799,7 +1909,11 @@
       }
     },
     {
+      "id": "s18-ivern",
       "name": "Ivern",
+      "iconPath": "src/assets/icons/set-18/units/s18-ivern.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 5,
       "role": ["caster"],
       "damageProfile": ["magic"],
@@ -1834,7 +1948,8 @@
       },
       "ability": {
         "name": "Triggerseed",
-        "description": "Passive: Shields from this Ability can critically strike with Precision.\n\nActive: Grant 2/2/10 allies 165/325/3000 [AP] [Damage Amp] Shield and 10%/15%/100% Damage Amp for 6 seconds. Then deal 140/210/2000 [AP] magic damage to enemies adjacent to them. After casting 6 times, also grant 100% stacking Attack Speed to targets.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-ivern.jpg",
+        "description": "Passive: Shields from this Ability can critically strike with Precision.\n\nActive: Grant 2/2/10 allies 165/325/3000 [AP] [Damage Amp] Shield and 10%/15%/100% Damage Amp for 6 seconds.\nThen deal 140/210/2000 [AP] magic damage to enemies adjacent to them.\nAfter casting 6 times, also grant 100% stacking Attack Speed to targets.",
         "keywords": [],
         "breakdown": [
           {
@@ -1879,7 +1994,11 @@
       }
     },
     {
+      "id": "s18-karma",
       "name": "Karma",
+      "iconPath": "src/assets/icons/set-18/units/s18-karma.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 1,
       "role": ["caster"],
       "damageProfile": ["magic"],
@@ -1916,7 +2035,8 @@
       },
       "ability": {
         "name": "Karmic Bond",
-        "description": "Tether the current target, dealing 260/390/585 [AP] magic damage over 1.5 seconds. Then release a burst of power around them, dealing 110/165/250 [AP] magic damage to all enemies in a 1 Hex radius and 30% Slowing them for 2 seconds.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-karma.jpg",
+        "description": "Tether the current target, dealing 260/390/585 [AP] magic damage over 1.5 seconds.\nThen release a burst of power around them, dealing 110/165/250 [AP] magic damage to all enemies in a 1 Hex radius and 30% Slowing them for 2 seconds.",
         "keywords": [
           {
             "name": "Slow",
@@ -1955,7 +2075,11 @@
       }
     },
     {
+      "id": "s18-kayle",
       "name": "Kayle",
+      "iconPath": "src/assets/icons/set-18/units/s18-kayle.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 2,
       "role": ["specialist"],
       "damageProfile": ["magic"],
@@ -1992,7 +2116,8 @@
       },
       "ability": {
         "name": "Solar Judgement",
-        "description": "Passive: Kayle ascends based on her star level, granting her stacking bonuses.\n\n1st Ascension: Attacks deal 56/84/98 [AP] bonus magic damage.\n2nd Ascension: Attacks 20% Shred enemies hit for 2 seconds.\n3rd Ascension: Attacks fire waves, dealing 40 [AP] magic damage to all other units hit.\n4th Ascension: Gain infinite range. Every 3rd wave is much larger.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-kayle.jpg",
+        "description": "Passive: Kayle ascends based on her star level, granting her stacking bonuses.\n\n1st Ascension: Attacks deal 56/84/98 [AP] bonus magic damage.\n\n2nd Ascension: Attacks 20% Shred enemies hit for 2 seconds.\n\n3rd Ascension: Attacks fire waves, dealing 40 [AP] magic damage to all other units hit.\n\n4th Ascension: Gain infinite range.\nEvery 3rd wave is much larger.",
         "keywords": [
           {
             "name": "Shred",
@@ -2031,7 +2156,11 @@
       }
     },
     {
+      "id": "s18-kennen",
       "name": "Kennen",
+      "iconPath": "src/assets/icons/set-18/units/s18-kennen.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 5,
       "role": ["assassin"],
       "damageProfile": ["magic"],
@@ -2066,7 +2195,8 @@
       },
       "ability": {
         "name": "Firestorm",
-        "description": "Charge up, gaining 15% Ability Power per Burning enemy. Then, gain 225/300/3000 [AP] Shield for 2.5 seconds and rush through a nearby group of enemies, dealing 50/75/300 [AP] magic damage to each.\n\nAfter rushing, unleash a 2 Hex firestorm that deals a total of 550/825/2000 [AP] magic damage split among all enemies hit over 2 seconds.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-kennen.jpg",
+        "description": "Charge up, gaining 15% Ability Power per Burning enemy.\nThen, gain 225/300/3000 [AP] Shield for 2.5 seconds and rush through a nearby group of enemies, dealing 50/75/300 [AP] magic damage to each.\n\nAfter rushing, unleash a 2 Hex firestorm that deals a total of 550/825/2000 [AP] magic damage split among all enemies hit over 2 seconds.",
         "keywords": [],
         "breakdown": [
           {
@@ -2107,7 +2237,11 @@
       }
     },
     {
+      "id": "s18-khazix",
       "name": "Kha'Zix",
+      "iconPath": "src/assets/icons/set-18/units/s18-khazix.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 3,
       "role": ["assassin"],
       "damageProfile": ["magic"],
@@ -2144,7 +2278,8 @@
       },
       "ability": {
         "name": "Taste Their Fear",
-        "description": "Leap to the farthest enemy within 3 Hexes, dealing 210/315/475 [AP] magic damage. If they have no adjacent allies, deal 255/385/575 [AP] magic damage instead and gain 10 mana.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-khazix.jpg",
+        "description": "Leap to the farthest enemy within 3 Hexes, dealing 210/315/475 [AP] magic damage.\nIf they have no adjacent allies, deal 255/385/575 [AP] magic damage instead and gain 10 mana.",
         "keywords": [],
         "breakdown": [
           {
@@ -2176,7 +2311,11 @@
       }
     },
     {
+      "id": "s18-kobuko",
       "name": "Kobuko",
+      "iconPath": "src/assets/icons/set-18/units/s18-kobuko.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 1,
       "role": ["tank"],
       "damageProfile": ["magic"],
@@ -2213,7 +2352,8 @@
       },
       "ability": {
         "name": "Dance of Life",
-        "description": "Restore 299/388/459 [Health][AP] Health over 2 seconds. The next attack is replaced with a bash that deals 140/231/377 [Health][AP] magic damage.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-kobuko.jpg",
+        "description": "Restore 299/388/459 [Health][AP] Health over 2 seconds.\nThe next attack is replaced with a bash that deals 140/231/377 [Health][AP] magic damage.",
         "keywords": [],
         "breakdown": [
           {
@@ -2245,7 +2385,11 @@
       }
     },
     {
+      "id": "s18-kogmaw",
       "name": "Kog'Maw",
+      "iconPath": "src/assets/icons/set-18/units/s18-kogmaw.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 3,
       "role": ["caster"],
       "damageProfile": ["magic", "physical"],
@@ -2282,12 +2426,13 @@
       },
       "ability": {
         "name": "Raining Artillery",
-        "description": "Adaptor [AD]: Launch acid at the target and the nearest enemy, dealing 175/265/450 [AD][AP] physical damage. Enemies below 50% max Health take 245/371/630 [AD][AP] physical damage instead.\n\nAdaptor [AP]: Damages enemies over time.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-kogmaw.jpg",
+        "description": "Adaptor [AD]: Launch acid at the target and the nearest enemy, dealing 175/265/450 [AD][AP] physical damage.\nEnemies below 50% max Health take 245/371/630 [AD][AP] physical damage instead.\n\nAdaptor [AP]: Damages enemies over time.",
         "keywords": [],
         "breakdown": [],
         "adaptor": {
           "ad": {
-            "description": "Launch acid at the target and the nearest enemy, dealing 175/265/450 [AD][AP] physical damage. Enemies below 50% max Health take 245/371/630 [AD][AP] physical damage instead.",
+            "description": "Launch acid at the target and the nearest enemy, dealing 175/265/450 [AD][AP] physical damage.\nEnemies below 50% max Health take 245/371/630 [AD][AP] physical damage instead.",
             "breakdown": [
               {
                 "label": "Damage",
@@ -2352,7 +2497,11 @@
       }
     },
     {
+      "id": "s18-krug",
       "name": "Krug",
+      "iconPath": "src/assets/icons/set-18/units/s18-krug.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 3,
       "role": ["tank"],
       "damageProfile": ["physical"],
@@ -2389,6 +2538,7 @@
       },
       "ability": {
         "name": "Rock and Roll",
+        "iconPath": "src/assets/icons/set-18/spells/s18-krug.jpg",
         "description": "Passive: On death, split into two Kruglettes with 224/387/679 [Health] Health.\n\nActive: Gain 175/225/350 [AP] max Health, then roll into the target, dealing 245/398/691 [AD][Health] damage.",
         "keywords": [
           {
@@ -2458,7 +2608,11 @@
       }
     },
     {
+      "id": "s18-leblanc",
       "name": "LeBlanc",
+      "iconPath": "src/assets/icons/set-18/units/s18-leblanc.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 2,
       "role": ["caster"],
       "damageProfile": ["magic"],
@@ -2495,6 +2649,7 @@
       },
       "ability": {
         "name": "Mirror Image",
+        "iconPath": "src/assets/icons/set-18/spells/s18-leblanc.jpg",
         "description": "Passive: After player combat, your strongest LeBlanc has a 10%/15%/40% chance to create a copy of an ally on your board, increased by 4% per takedown.\n\nActive: Launch a mirror image at the current target, dealing 250/375/565 [AP] magic damage and 85/130/190 [AP] to adjacent enemies.",
         "keywords": [],
         "breakdown": [
@@ -2536,7 +2691,11 @@
       }
     },
     {
+      "id": "s18-leona",
       "name": "Leona",
+      "iconPath": "src/assets/icons/set-18/units/s18-leona.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 1,
       "role": ["tank"],
       "damageProfile": ["magic"],
@@ -2573,6 +2732,7 @@
       },
       "ability": {
         "name": "Shield Bash",
+        "iconPath": "src/assets/icons/set-18/spells/s18-leona.jpg",
         "description": "Passive: Start combat with 60/70/80 [AP] bonus Armor and Magic Resist that decays over 10 seconds.\n\nActive: Bash the current target, dealing 60/108/162 [Armor] magic damage and Stunning them for 1.5 seconds.",
         "keywords": [],
         "breakdown": [
@@ -2605,7 +2765,11 @@
       }
     },
     {
+      "id": "s18-lillia",
       "name": "Lillia",
+      "iconPath": "src/assets/icons/set-18/units/s18-lillia.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 4,
       "role": ["tank"],
       "damageProfile": ["magic"],
@@ -2640,7 +2804,8 @@
       },
       "ability": {
         "name": "Lilting Lullaby",
-        "description": "Restore 250/325/600 [AP] Health and send 4 butterflies at nearby enemies. Enemies hit take 90/135/2000 [AP] magic damage and Sleep for 1.5/1.75/8 seconds. If they take 1000 damage, they wake up and take an additional 10% max Health magic damage.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-lillia.jpg",
+        "description": "Restore 250/325/600 [AP] Health and send 4 butterflies at nearby enemies.\nEnemies hit take 90/135/2000 [AP] magic damage and Sleep for 1.5/1.75/8 seconds.\nIf they take 1000 damage, they wake up and take an additional 10% max Health magic damage.",
         "keywords": [],
         "breakdown": [
           {
@@ -2680,7 +2845,11 @@
       }
     },
     {
+      "id": "s18-lux",
       "name": "Lux",
+      "iconPath": "src/assets/icons/set-18/units/s18-lux.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 5,
       "role": ["caster"],
       "damageProfile": ["magic"],
@@ -2715,6 +2884,7 @@
       },
       "ability": {
         "name": "Final Spark",
+        "iconPath": "src/assets/icons/set-18/spells/s18-lux.jpg",
         "description": "Passive: On cast, all allies that share a trait with Lux gain 3/3/100 [AP] mana.\n\nActive: Fire a laser towards the largest group of enemies that deals 370/580/5000 [AP] magic damage, reduced by 25%/25%/10% for each enemy hit.",
         "keywords": [],
         "breakdown": [],
@@ -2948,7 +3118,11 @@
       }
     },
     {
+      "id": "s18-malphite",
       "name": "Malphite",
+      "iconPath": "src/assets/icons/set-18/units/s18-malphite.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 4,
       "role": ["tank"],
       "damageProfile": ["magic"],
@@ -2983,7 +3157,8 @@
       },
       "ability": {
         "name": "Petrified Bark",
-        "description": "Gain 700/850/2000 [AP] Shield for 4 seconds and become petrified. When the shield breaks, unleash a wave of dark energy, dealing 82/123/3399 [AP][Armor][MR] magic damage to enemies within 2/2/3 hexes.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-malphite.jpg",
+        "description": "Gain 700/850/2000 [AP] Shield for 4 seconds and become petrified.\nWhen the shield breaks, unleash a wave of dark energy, dealing 82/123/3399 [AP][Armor][MR] magic damage to enemies within 2/2/3 hexes.",
         "keywords": [],
         "breakdown": [
           {
@@ -3026,7 +3201,11 @@
       }
     },
     {
+      "id": "s18-mama-beak",
       "name": "Mama Beak",
+      "iconPath": "src/assets/icons/set-18/units/s18-mama-beak.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 3,
       "role": ["marksman"],
       "damageProfile": ["physical"],
@@ -3063,7 +3242,8 @@
       },
       "ability": {
         "name": "Flock Family",
-        "description": "Summon 4 untargetable Tiny Beaks nearby for 5 [AP] seconds. Whenever Mama Beak attacks, Tiny Beaks attack the same enemy, dealing 25/38/60 [AD] physical damage.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-mama-beak.jpg",
+        "description": "Summon 4 untargetable Tiny Beaks nearby for 5 [AP] seconds.\nWhenever Mama Beak attacks, Tiny Beaks attack the same enemy, dealing 25/38/60 [AD] physical damage.",
         "keywords": [
           {
             "name": "Orange Buff",
@@ -3108,7 +3288,11 @@
       }
     },
     {
+      "id": "s18-maokai",
       "name": "Maokai",
+      "iconPath": "src/assets/icons/set-18/units/s18-maokai.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 5,
       "role": ["tank"],
       "damageProfile": ["magic"],
@@ -3143,7 +3327,8 @@
       },
       "ability": {
         "name": "Sow the Seeds",
-        "description": "Passive: After every 650/650/300 damage blocked, a sapling jumps towards a nearby enemy and deals 70/126/2430 [Health] magic damage. On death, 3/5/10 saplings jump out.\n\nActive: Deal 60/108/3240 [Health] magic damage to target and restore 300/400/2000 [AP] + 8%/8%/100% missing Health.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-maokai.jpg",
+        "description": "Passive: After every 650/650/300 damage blocked, a sapling jumps towards a nearby enemy and deals 70/126/2430 [Health] magic damage.\nOn death, 3/5/10 saplings jump out.\n\nActive: Deal 60/108/3240 [Health] magic damage to target and restore 300/400/2000 [AP] + 8%/8%/100% missing Health.",
         "keywords": [],
         "breakdown": [
           {
@@ -3204,7 +3389,11 @@
       }
     },
     {
+      "id": "s18-master-yi",
       "name": "Master Yi",
+      "iconPath": "src/assets/icons/set-18/units/s18-master-yi.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 3,
       "role": ["specialist"],
       "damageProfile": ["magic", "physical"],
@@ -3241,7 +3430,8 @@
       },
       "ability": {
         "name": "Wuju Style",
-        "description": "Passive: Every third attack is a Double Strike. On takedown, gain a burst of movement speed.\n\nAdaptor [AD]: Double Strikes grant 15% [AP] stacking Attack Speed.\n\nAdaptor [AP]: Double Strikes deal bonus damage and heal.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-master-yi.jpg",
+        "description": "Passive: Every third attack is a Double Strike.\nOn takedown, gain a burst of movement speed.\n\nAdaptor [AD]: Double Strikes grant 15% [AP] stacking Attack Speed.\n\nAdaptor [AP]: Double Strikes deal bonus damage and heal.",
         "keywords": [],
         "breakdown": [],
         "adaptor": {
@@ -3290,7 +3480,11 @@
       }
     },
     {
+      "id": "s18-morgana",
       "name": "Morgana",
+      "iconPath": "src/assets/icons/set-18/units/s18-morgana.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 4,
       "role": ["fighter"],
       "damageProfile": ["magic"],
@@ -3325,7 +3519,8 @@
       },
       "ability": {
         "name": "Withering Curse",
-        "description": "Passive: Gain 25% Omnivamp.\n\nActive: Fire a dark blast at 3 nearby enemies, dealing 60/90/500 [AP] magic damage to them and cursing them for 4 seconds. Then, spawn a Hex withering zone for the same duration that deals 33/50/500 [AP] magic damage per second. Cursed enemies take 18/27/240 [AP] more damage per curse.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-morgana.jpg",
+        "description": "Passive: Gain 25% Omnivamp.\n\nActive: Fire a dark blast at 3 nearby enemies, dealing 60/90/500 [AP] magic damage to them and cursing them for 4 seconds.\nThen, spawn a Hex withering zone for the same duration that deals 33/50/500 [AP] magic damage per second.\nCursed enemies take 18/27/240 [AP] more damage per curse.",
         "keywords": [],
         "breakdown": [
           {
@@ -3365,7 +3560,11 @@
       }
     },
     {
+      "id": "s18-murkwolf",
       "name": "Murkwolf",
+      "iconPath": "src/assets/icons/set-18/units/s18-murkwolf.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 2,
       "role": ["assassin"],
       "damageProfile": ["physical"],
@@ -3402,7 +3601,8 @@
       },
       "ability": {
         "name": "Rending Claws",
-        "description": "Leap to the lowest Health enemy within 3 Hexes and deal 500/1050/2250 [AD][AP] physical damage. The next 2 attacks gain 175% Attack Speed and deal 60/90/135 [AD] bonus physical damage.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-murkwolf.jpg",
+        "description": "Leap to the lowest Health enemy within 3 Hexes and deal 500/1050/2250 [AD][AP] physical damage.\nThe next 2 attacks gain 175% Attack Speed and deal 60/90/135 [AD] bonus physical damage.",
         "keywords": [
           {
             "name": "Grey Buff",
@@ -3457,7 +3657,11 @@
       }
     },
     {
+      "id": "s18-nidalee",
       "name": "Nidalee",
+      "iconPath": "src/assets/icons/set-18/units/s18-nidalee.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 4,
       "role": ["marksman"],
       "damageProfile": ["magic", "physical"],
@@ -3492,12 +3696,13 @@
       },
       "ability": {
         "name": "Javelin Toss",
-        "description": "Adaptor [AP]: Gain 150% Attack Speed for the next 3 attacks. These attacks are replaced with javelins that deal 135/205/2000 [AP] magic damage. The 3rd attack instead targets the furthest enemy with the least items and deals 250/375/3000 [AP] magic damage.\n\nAdaptor [AD]: Transform into a Melee cougar Assassin that swipes enemies.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-nidalee.jpg",
+        "description": "Adaptor [AP]: Gain 150% Attack Speed for the next 3 attacks.\nThese attacks are replaced with javelins that deal 135/205/2000 [AP] magic damage.\nThe 3rd attack instead targets the furthest enemy with the least items and deals 250/375/3000 [AP] magic damage.\n\nAdaptor [AD]: Transform into a Melee cougar Assassin that swipes enemies.",
         "keywords": [],
         "breakdown": [],
         "adaptor": {
           "ad": {
-            "description": "Passive: When changing targets, leap to the enemy with the fewest items within 4 hexes, prioritizing farther enemies. Swipe the target, dealing 215/325/2500 [AD] physical damage which ignores 40%/60%/80% Armor. Every third cast restores 275/400/2000 [AD] Health and deals up to 125% bonus damage based on the target's missing Health.",
+            "description": "Passive: When changing targets, leap to the enemy with the fewest items within 4 hexes, prioritizing farther enemies.\nSwipe the target, dealing 215/325/2500 [AD] physical damage which ignores 40%/60%/80% Armor.\nEvery third cast restores 275/400/2000 [AD] Health and deals up to 125% bonus damage based on the target's missing Health.",
             "breakdown": [
               {
                 "label": "Attack Damage",
@@ -3543,7 +3748,7 @@
             }
           },
           "ap": {
-            "description": "Gain 150% Attack Speed for the next 3 attacks. These attacks are replaced with javelins that deal 160/240/2000 [AP] magic damage. The 3rd attack instead targets the furthest enemy with the least items and deals 300/450/3000 [AP] magic damage.",
+            "description": "Gain 150% Attack Speed for the next 3 attacks.\nThese attacks are replaced with javelins that deal 160/240/2000 [AP] magic damage.\nThe 3rd attack instead targets the furthest enemy with the least items and deals 300/450/3000 [AP] magic damage.",
             "breakdown": [
               {
                 "label": "Attack Damage",
@@ -3605,7 +3810,11 @@
       }
     },
     {
+      "id": "s18-ornn",
       "name": "Ornn",
+      "iconPath": "src/assets/icons/set-18/units/s18-ornn.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 1,
       "role": ["tank"],
       "damageProfile": ["magic"],
@@ -3642,7 +3851,8 @@
       },
       "ability": {
         "name": "Bellows Breath",
-        "description": "Active: Gain 400/480/600 [AP] Shield for 4 seconds and deal 200/300/450 [AP] magic damage to enemies in a cone.\n\nQuest: Each player combat, Ornn stores damage blocked as Forge Power, doubled at 3-star. Gain an Artifact Anvil each time he gains enough Forge Power. (Forge Power: / )",
+        "iconPath": "src/assets/icons/set-18/spells/s18-ornn.jpg",
+        "description": "Active: Gain 400/480/600 [AP] Shield for 4 seconds and deal 200/300/450 [AP] magic damage to enemies in a cone.\n\nQuest: Each player combat, Ornn stores damage blocked as Forge Power, doubled at 3-star.\nGain an Artifact Anvil each time he gains enough Forge Power.\n(Forge Power: / )",
         "keywords": [],
         "breakdown": [
           {
@@ -3674,7 +3884,11 @@
       }
     },
     {
+      "id": "s18-pebbles",
       "name": "Pebbles",
+      "iconPath": "src/assets/icons/set-18/units/s18-pebbles.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 1,
       "role": ["caster"],
       "damageProfile": ["magic"],
@@ -3711,7 +3925,8 @@
       },
       "ability": {
         "name": "Azure Laser",
-        "description": "Begin consuming 35% max Mana per second and channeling a laser on target. Each second while casting, deal 160/240/360 [AP] magic damage to them and reduce their Magic Resist by 3.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-pebbles.jpg",
+        "description": "Begin consuming 35% max Mana per second and channeling a laser on target.\nEach second while casting, deal 160/240/360 [AP] magic damage to them and reduce their Magic Resist by 3.",
         "keywords": [
           {
             "name": "Teal Buff",
@@ -3745,7 +3960,11 @@
       }
     },
     {
+      "id": "s18-rakan",
       "name": "Rakan",
+      "iconPath": "src/assets/icons/set-18/units/s18-rakan.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 1,
       "role": ["tank"],
       "damageProfile": ["magic"],
@@ -3782,7 +4001,8 @@
       },
       "ability": {
         "name": "Entrancing Dance",
-        "description": "Gain 250/300/375 [AP] Shield for 4 seconds. Then grant the ally who has dealt the most damage this combat 90%/100%/130% [AP] decaying Attack Speed for 4 seconds.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-rakan.jpg",
+        "description": "Gain 250/300/375 [AP] Shield for 4 seconds.\nThen grant the ally who has dealt the most damage this combat 90%/100%/130% [AP] decaying Attack Speed for 4 seconds.",
         "keywords": [],
         "breakdown": [
           {
@@ -3814,7 +4034,11 @@
       }
     },
     {
+      "id": "s18-rammus",
       "name": "Rammus",
+      "iconPath": "src/assets/icons/set-18/units/s18-rammus.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 3,
       "role": ["tank"],
       "damageProfile": ["physical"],
@@ -3851,7 +4075,8 @@
       },
       "ability": {
         "name": "Defensive Ball Curl",
-        "description": "Taunt, forcing enemies to attack this champion. For 4 seconds, gain 350/450/550 [AP] Shield and 60 Armor and Magic Resist.\n\nWhen the Shield breaks, deal 50/75/120 [Armor][MR] physical damage to enemies in 2 Hexes.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-rammus.jpg",
+        "description": "Taunt, forcing enemies to attack this champion.\nFor 4 seconds, gain 350/450/550 [AP] Shield and 60 Armor and Magic Resist.\n\nWhen the Shield breaks, deal 50/75/120 [Armor][MR] physical damage to enemies in 2 Hexes.",
         "keywords": [],
         "breakdown": [
           {
@@ -3884,7 +4109,11 @@
       }
     },
     {
+      "id": "s18-reksai",
       "name": "Rek'Sai",
+      "iconPath": "src/assets/icons/set-18/units/s18-reksai.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 1,
       "role": ["tank"],
       "damageProfile": ["magic"],
@@ -3921,6 +4150,7 @@
       },
       "ability": {
         "name": "Uproot",
+        "iconPath": "src/assets/icons/set-18/spells/s18-reksai.jpg",
         "description": "Passive: Restore 16/25/38 [Health] Health each second, tripled for 3 seconds after casting.\n\nActive: Lunge out of the ground, Stunning adjacent enemies for 1 second and dealing 70/105/160 [AP] magic damage to them.",
         "keywords": [],
         "breakdown": [
@@ -3953,7 +4183,11 @@
       }
     },
     {
+      "id": "s18-rengar",
       "name": "Rengar",
+      "iconPath": "src/assets/icons/set-18/units/s18-rengar.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 3,
       "role": ["fighter"],
       "damageProfile": ["physical"],
@@ -3990,7 +4224,8 @@
       },
       "ability": {
         "name": "Savagery",
-        "description": "Jump to the lowest percent Health enemy within 3 hexes and stab them, dealing 295/445/710 [AD] physical damage. Then heal for 80 [AP], increased to up to 180 [AP] based on their missing Health.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-rengar.jpg",
+        "description": "Jump to the lowest percent Health enemy within 3 hexes and stab them, dealing 295/445/710 [AD] physical damage.\nThen heal for 80 [AP], increased to up to 180 [AP] based on their missing Health.",
         "keywords": [],
         "breakdown": [
           {
@@ -4031,7 +4266,11 @@
       }
     },
     {
+      "id": "s18-scuttlecrab",
       "name": "Scuttlecrab",
+      "iconPath": "src/assets/icons/set-18/units/s18-scuttlecrab.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 2,
       "role": ["tank"],
       "damageProfile": ["physical"],
@@ -4068,6 +4307,7 @@
       },
       "ability": {
         "name": "Can You Dig It?",
+        "iconPath": "src/assets/icons/set-18/spells/s18-scuttlecrab.jpg",
         "description": "Passive: Attacks are replaced by a dance that deals 50/75/113 [AD] physical damage to all adjacent enemies.\n\nActive: Burrow underground, gaining 15% Durability for 3 seconds and healing 250/325/525 [AP] over the duration.",
         "keywords": [
           {
@@ -4113,7 +4353,11 @@
       }
     },
     {
+      "id": "s18-sejuani",
       "name": "Sejuani",
+      "iconPath": "src/assets/icons/set-18/units/s18-sejuani.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 2,
       "role": ["tank"],
       "damageProfile": ["magic"],
@@ -4150,7 +4394,8 @@
       },
       "ability": {
         "name": "Sun's Wrath",
-        "description": "Gain 315/412/567 [Health][AP] Shield for 4 seconds. Then, cleave in a cone dealing 40/60/90 [AP] magic damage and strike in a line, dealing 70/105/160 [AP] magic damage to enemies hit.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-sejuani.jpg",
+        "description": "Gain 315/412/567 [Health][AP] Shield for 4 seconds.\nThen, cleave in a cone dealing 40/60/90 [AP] magic damage and strike in a line, dealing 70/105/160 [AP] magic damage to enemies hit.",
         "keywords": [],
         "breakdown": [
           {
@@ -4191,7 +4436,11 @@
       }
     },
     {
+      "id": "s18-sentinel",
       "name": "Sentinel",
+      "iconPath": "src/assets/icons/set-18/units/s18-sentinel.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 4,
       "role": ["tank"],
       "damageProfile": ["magic"],
@@ -4226,7 +4475,8 @@
       },
       "ability": {
         "name": "Azure Shockwave",
-        "description": "Gain 530/734/2421 [AP][Health] Shield for 4 seconds. Slam the ground, sending a fissure in the direction of the most enemies. Enemies hit are briefly knocked up, take 100/150/3500 [AP] magic damage, and are Mana Reaved for 15.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-sentinel.jpg",
+        "description": "Gain 530/734/2421 [AP][Health] Shield for 4 seconds.\nSlam the ground, sending a fissure in the direction of the most enemies.\nEnemies hit are briefly knocked up, take 100/150/3500 [AP] magic damage, and are Mana Reaved for 15.",
         "keywords": [
           {
             "name": "Blue Buff",
@@ -4275,7 +4525,11 @@
       }
     },
     {
+      "id": "s18-sett",
       "name": "Sett",
+      "iconPath": "src/assets/icons/set-18/units/s18-sett.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 4,
       "role": ["tank"],
       "damageProfile": ["physical"],
@@ -4310,6 +4564,7 @@
       },
       "ability": {
         "name": "Haymaker",
+        "iconPath": "src/assets/icons/set-18/spells/s18-sett.jpg",
         "description": "Passive: Upon falling below 40% max Health the first time each combat, gain 100 mana.\n\nActive: Wind up a big punch, rapidly healing for 225/275/2000 [Health][AP] before dealing 222/355/5233 [Health][AD] physical damage in a large cone.",
         "keywords": [],
         "breakdown": [
@@ -4340,7 +4595,11 @@
       }
     },
     {
+      "id": "s18-shen",
       "name": "Shen",
+      "iconPath": "src/assets/icons/set-18/units/s18-shen.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 2,
       "role": ["tank"],
       "damageProfile": ["magic"],
@@ -4377,7 +4636,8 @@
       },
       "ability": {
         "name": "Ki Barrier",
-        "description": "Grant 325/400/500 [AP] Shield to Shen and 200/275/375 [AP] Shield to a nearby damaged ally for 4 seconds. Both of their next 3 attacks gain 40% Attack Speed and deal 35/55/80 [AP] bonus magic damage.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-shen.png",
+        "description": "Grant 325/400/500 [AP] Shield to Shen and 200/275/375 [AP] Shield to a nearby damaged ally for 4 seconds.\nBoth of their next 3 attacks gain 40% Attack Speed and deal 35/55/80 [AP] bonus magic damage.",
         "keywords": [],
         "breakdown": [
           {
@@ -4420,7 +4680,11 @@
       }
     },
     {
+      "id": "s18-sivir",
       "name": "Sivir",
+      "iconPath": "src/assets/icons/set-18/units/s18-sivir.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 4,
       "role": ["caster"],
       "damageProfile": ["physical"],
@@ -4455,7 +4719,8 @@
       },
       "ability": {
         "name": "Boomerang Blade",
-        "description": "Throw a large crossblade that deals 170/255/1150 [AD][AP] physical damage to the current target and bounces 8 times between nearby enemies, dealing 34/51/575 [AD][AP] physical damage each bounce. When this kills an enemy, bounce 3/3/6 additional times.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-sivir.jpg",
+        "description": "Throw a large crossblade that deals 170/255/1150 [AD][AP] physical damage to the current target and bounces 8 times between nearby enemies, dealing 34/51/575 [AD][AP] physical damage each bounce.\nWhen this kills an enemy, bounce 3/3/6 additional times.",
         "keywords": [],
         "breakdown": [
           {
@@ -4498,7 +4763,11 @@
       }
     },
     {
+      "id": "s18-soraka",
       "name": "Soraka",
+      "iconPath": "src/assets/icons/set-18/units/s18-soraka.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 4,
       "role": ["caster"],
       "damageProfile": ["magic"],
@@ -4533,7 +4802,8 @@
       },
       "ability": {
         "name": "Starcall",
-        "description": "Call down a star on the current target, dealing 190/285/1000 [AP] magic damage. If a star has previously fallen on them, call down 3 additional stars that each deal 100/150/1000 [AP] magic damage.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-soraka.jpg",
+        "description": "Call down a star on the current target, dealing 190/285/1000 [AP] magic damage.\nIf a star has previously fallen on them, call down 3 additional stars that each deal 100/150/1000 [AP] magic damage.",
         "keywords": [],
         "breakdown": [
           {
@@ -4562,7 +4832,11 @@
       }
     },
     {
+      "id": "s18-taric",
       "name": "Taric",
+      "iconPath": "src/assets/icons/set-18/units/s18-taric.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 5,
       "role": ["tank"],
       "damageProfile": ["magic"],
@@ -4597,7 +4871,8 @@
       },
       "ability": {
         "name": "Emerald Radiance",
-        "description": "Passive: The first time Taric or his paired ally drops below 50% Health, unleash emerald energy from both of them, granting 406/781/14212 [Health] Shield to allies within 3 Hexes for 3/3/99 seconds.\n\nActive: Restore 225/325/3000 [AP] Health. Taric and his paired ally deal 100/150/1000 [AP] bonus magic damage on their next 2 attacks.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-taric.jpg",
+        "description": "Passive: The first time Taric or his paired ally drops below 50% Health, unleash emerald energy from both of them, granting 406/781/14212 [Health] Shield to allies within 3 Hexes for 3/3/99 seconds.\n\nActive: Restore 225/325/3000 [AP] Health.\nTaric and his paired ally deal 100/150/1000 [AP] bonus magic damage on their next 2 attacks.",
         "keywords": [],
         "breakdown": [
           {
@@ -4642,7 +4917,11 @@
       }
     },
     {
+      "id": "s18-teemo",
       "name": "Teemo",
+      "iconPath": "src/assets/icons/set-18/units/s18-teemo.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 2,
       "role": ["caster"],
       "damageProfile": ["magic"],
@@ -4679,7 +4958,8 @@
       },
       "ability": {
         "name": "Fungus Among Us",
-        "description": "Throw 2 clusters of mushrooms that deal 60/90/135 [AP] magic damage to the 3 nearest enemies. Then hurl a giant mushroom that deals 150/225/350 [AP] magic damage to target.\n\nEach cast has a 10%/12%/15% chance to forage an extra mushroom that can be collected for bonus effects.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-teemo.jpg",
+        "description": "Throw 2 clusters of mushrooms that deal 60/90/135 [AP] magic damage to the 3 nearest enemies.\nThen hurl a giant mushroom that deals 150/225/350 [AP] magic damage to target.\n\nEach cast has a 10%/12%/15% chance to forage an extra mushroom that can be collected for bonus effects.",
         "keywords": [
           {
             "name": "Red",
@@ -4734,7 +5014,11 @@
       }
     },
     {
+      "id": "s18-training-dummy",
       "name": "Training Dummy",
+      "iconPath": "src/assets/icons/set-18/units/s18-training-dummy.jpg",
+      "combat": true,
+      "requiresRunInput": false,
       "summonedBy": [
         "Found Friend",
         "Training Yard",
@@ -4742,7 +5026,6 @@
         "Petrified Dummy",
         "Dummify"
       ],
-      "combat": true,
       "stats": {
         "hp": 550,
         "attackDamage": 50,
@@ -4753,7 +5036,11 @@
       }
     },
     {
+      "id": "s18-tristana",
       "name": "Tristana",
+      "iconPath": "src/assets/icons/set-18/units/s18-tristana.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 3,
       "role": ["marksman"],
       "damageProfile": ["physical"],
@@ -4790,7 +5077,8 @@
       },
       "ability": {
         "name": "Explosive Charge",
-        "description": "Attach an explosive charge to the target that lasts 4 seconds. While active, gain infinite range and 60% [AP] Attack Speed. After the duration, the charge explodes and splits damage between all enemies within 2 hexes, dealing 200/300/480 [AD] physical damage + 10/15/25 [AD] for each attack while casting.\n\nIf an enemy with an explosive charge on them dies, it attaches to Tristana's new target.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-tristana.jpg",
+        "description": "Attach an explosive charge to the target that lasts 4 seconds.\nWhile active, gain infinite range and 60% [AP] Attack Speed.\nAfter the duration, the charge explodes and splits damage between all enemies within 2 hexes, dealing 200/300/480 [AD] physical damage + 10/15/25 [AD] for each attack while casting.\n\nIf an enemy with an explosive charge on them dies, it attaches to Tristana's new target.",
         "keywords": [],
         "breakdown": [
           {
@@ -4834,7 +5122,11 @@
       }
     },
     {
+      "id": "s18-varus",
       "name": "Varus",
+      "iconPath": "src/assets/icons/set-18/units/s18-varus.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 1,
       "role": ["caster"],
       "damageProfile": ["physical"],
@@ -4871,7 +5163,8 @@
       },
       "ability": {
         "name": "Piercing Arrow",
-        "description": "Wind up, then fire an arrow at the most enemies in line with the target. It deals 380/570/860 [AD][AP] physical damage to enemies hit, reduced by 40% for each enemy it passes through (minimum 40%).",
+        "iconPath": "src/assets/icons/set-18/spells/s18-varus.jpg",
+        "description": "Wind up, then fire an arrow at the most enemies in line with the target.\nIt deals 380/570/860 [AD][AP] physical damage to enemies hit, reduced by 40% for each enemy it passes through (minimum 40%).",
         "keywords": [],
         "breakdown": [
           {
@@ -4903,7 +5196,11 @@
       }
     },
     {
+      "id": "s18-veigar",
       "name": "Veigar",
+      "iconPath": "src/assets/icons/set-18/units/s18-veigar.png",
+      "combat": true,
+      "requiresRunInput": true,
       "cost": 1,
       "role": ["caster"],
       "damageProfile": ["magic"],
@@ -4940,6 +5237,7 @@
       },
       "ability": {
         "name": "Primordial Burst",
+        "iconPath": "src/assets/icons/set-18/spells/s18-veigar.jpg",
         "description": "Launch a giant blast at the target that deals 175/265/395 [AP] magic damage, increased to 265/400/595 [AP] if they're below 30% max Health.\n\nIf they die, permanently gain 1.5% Ability Power.\n\nCurrent bonus: % [AP]",
         "keywords": [],
         "breakdown": [
@@ -4972,7 +5270,11 @@
       }
     },
     {
+      "id": "s18-vi",
       "name": "Vi",
+      "iconPath": "src/assets/icons/set-18/units/s18-vi.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 3,
       "role": ["tank"],
       "damageProfile": ["physical"],
@@ -5009,7 +5311,8 @@
       },
       "ability": {
         "name": "Furious Fists",
-        "description": "Passive: On attack, restore 22/40/71 [Health] Health.\n\nActive: Unleash a primal roar, restoring 200/250/350 [AP] Health. Then gain 85%/100%/125% Attack Speed, 15% Durability, and is Unstoppable for 3 seconds.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-vi.jpg",
+        "description": "Passive: On attack, restore 22/40/71 [Health] Health.\n\nActive: Unleash a primal roar, restoring 200/250/350 [AP] Health.\nThen gain 85%/100%/125% Attack Speed, 15% Durability, and is Unstoppable for 3 seconds.",
         "keywords": [],
         "breakdown": [
           {
@@ -5052,7 +5355,11 @@
       }
     },
     {
+      "id": "s18-warwick",
       "name": "Warwick",
+      "iconPath": "src/assets/icons/set-18/units/s18-warwick.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 2,
       "role": ["fighter"],
       "damageProfile": ["physical"],
@@ -5089,7 +5396,8 @@
       },
       "ability": {
         "name": "Jaws of The Beast",
-        "description": "Bite the current target, dealing 180/270/405 [AD] physical damage and healing for 20% [AP] of the damage dealt. Gain 20% Attack Speed for the rest of combat.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-warwick.jpg",
+        "description": "Bite the current target, dealing 180/270/405 [AD] physical damage and healing for 20% [AP] of the damage dealt.\nGain 20% Attack Speed for the rest of combat.",
         "keywords": [],
         "breakdown": [
           {
@@ -5121,7 +5429,11 @@
       }
     },
     {
+      "id": "s18-xayah",
       "name": "Xayah",
+      "iconPath": "src/assets/icons/set-18/units/s18-xayah.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 1,
       "role": ["marksman"],
       "damageProfile": ["physical"],
@@ -5158,7 +5470,8 @@
       },
       "ability": {
         "name": "Deadly Plumage",
-        "description": "Gain 50% Attack Speed for the next 5 attacks. These attacks are replaced with feathers that deal 72/108/165 [AD] physical damage and reduce Armor by 2 [AP].",
+        "iconPath": "src/assets/icons/set-18/spells/s18-xayah.jpg",
+        "description": "Gain 50% Attack Speed for the next 5 attacks.\nThese attacks are replaced with feathers that deal 72/108/165 [AD] physical damage and reduce Armor by 2 [AP].",
         "keywords": [],
         "breakdown": [
           {
@@ -5190,7 +5503,11 @@
       }
     },
     {
+      "id": "s18-yorick",
       "name": "Yorick",
+      "iconPath": "src/assets/icons/set-18/units/s18-yorick.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 1,
       "role": ["tank"],
       "damageProfile": ["physical"],
@@ -5227,6 +5544,7 @@
       },
       "ability": {
         "name": "Last Rites",
+        "iconPath": "src/assets/icons/set-18/spells/s18-yorick.jpg",
         "description": "Passive: On death, spawn a Spirit Walker with 330/634/1121 [Health] max Health.\n\nActive: Restore 280/325/410 [AP] Health and strike the target, dealing 150/225/340 [AD] physical damage.",
         "keywords": [],
         "breakdown": [
@@ -5269,7 +5587,11 @@
       }
     },
     {
+      "id": "s18-yunara",
       "name": "Yunara",
+      "iconPath": "src/assets/icons/set-18/units/s18-yunara.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 2,
       "role": ["caster"],
       "damageProfile": ["physical"],
@@ -5306,6 +5628,7 @@
       },
       "ability": {
         "name": "Cultivation of Spirit",
+        "iconPath": "src/assets/icons/set-18/spells/s18-yunara.jpg",
         "description": "Dash, then launch an orb at the current target that deals 180/270/425 [AD][AP] physical damage and splits, dealing 63/95/149 [AD][AP] physical damage to 2 nearby enemies.",
         "keywords": [],
         "breakdown": [
@@ -5347,7 +5670,11 @@
       }
     },
     {
+      "id": "s18-zyra",
       "name": "Zyra",
+      "iconPath": "src/assets/icons/set-18/units/s18-zyra.png",
+      "combat": true,
+      "requiresRunInput": false,
       "cost": 4,
       "role": ["caster"],
       "damageProfile": ["magic"],
@@ -5382,7 +5709,8 @@
       },
       "ability": {
         "name": "Rampant Growth",
-        "description": "Spawn 2/2/4 plants around the battlefield that attack the nearest enemy 10 times. Each attack deals 33/50/225 [AP] magic damage.",
+        "iconPath": "src/assets/icons/set-18/spells/s18-zyra.jpg",
+        "description": "Spawn 2/2/4 plants around the battlefield that attack the nearest enemy 10 times.\nEach attack deals 33/50/225 [AP] magic damage.",
         "keywords": [],
         "breakdown": [
           {
@@ -5402,7 +5730,11 @@
       }
     },
     {
+      "id": "s18-deepwood-protector",
       "name": "Deepwood Protector",
+      "iconPath": "src/assets/icons/set-18/units/s18-deepwood-protector.jpg",
+      "combat": true,
+      "requiresRunInput": false,
       "summoned": true,
       "summonedBy": "Elderwood",
       "stats": {
@@ -5421,12 +5753,10 @@
           "abilityPower": 0.1
         },
         "flatBonus": 0,
-        "receivesTeamHealthBonuses": false,
-        "note": "Un champion dupliqué ne compte qu'une fois. Les bonus plats d'équipe s'ajoutent apres le scaling, pas avant."
+        "receivesTeamHealthBonuses": false
       },
       "observed": {
         "on": "2026-08-06",
-        "note": "Relevés en jeu, composition contrôlée. La formule est exacte sur chacun, aux arrondis d'affichage près.",
         "readings": [
           {
             "elderwood": 7,
@@ -5443,7 +5773,7 @@
         ]
       },
       "ability": {
-        "description": "Passive: when an Elderwood unit dies, heal 10% of current max Health and gain 80% Attack Speed for 3 seconds. Active: slam the ground, dealing magic damage to the target and to enemies within 2 hexes, knocking up and stunning the target for 0.5 seconds.",
+        "description": "Passive: when an Elderwood unit dies, heal 10% of current max Health and gain 80% Attack Speed for 3 seconds.\nActive: slam the ground, dealing magic damage to the target and to enemies within 2 hexes, knocking up and stunning the target for 0.5 seconds.",
         "breakdown": [
           {
             "label": "Slam Damage",
@@ -5482,7 +5812,10 @@
       }
     },
     {
+      "id": "s18-ghoul",
       "name": "Ghoul",
+      "combat": true,
+      "requiresRunInput": false,
       "summoned": true,
       "summonedBy": "Yorick",
       "stats": {
@@ -5514,7 +5847,6 @@
       },
       "observed": {
         "on": "2026-08-06",
-        "note": "Yorick 1★, sans Summoner. Le client donne une base de 200/400/700/1000 plus 20 % des PV de l'invocateur ; 200 + 20 % de 750 = 350.",
         "readings": [
           {
             "star": 1,
@@ -5530,7 +5862,10 @@
       }
     },
     {
+      "id": "s18-kruglette",
       "name": "Kruglette",
+      "combat": true,
+      "requiresRunInput": false,
       "summoned": true,
       "summonedBy": "Krug",
       "stats": {
@@ -5572,7 +5907,6 @@
       },
       "observed": {
         "on": "2026-08-06",
-        "note": "Base client 50/100/180/300 plus 12 % des PV de Krug. L'étoile 1 tombe exactement — 50 + 12 % de 1100 = 182 — mais pas les suivantes : 337,6 attendus contre 365, et 607,7 contre 783. La part des PV de Krug croît avec l'étoile, la règle reste à trouver.",
         "readings": [
           {
             "star": 1,
@@ -5590,7 +5924,11 @@
       }
     },
     {
+      "id": "s18-lifebloom",
       "name": "Lifebloom",
+      "iconPath": "src/assets/icons/set-18/units/s18-lifebloom.jpg",
+      "combat": true,
+      "requiresRunInput": false,
       "summoned": true,
       "summonedBy": "Elderwood",
       "stats": {
@@ -5608,12 +5946,10 @@
           "abilityPower": 0.1
         },
         "flatBonus": 0,
-        "receivesTeamHealthBonuses": true,
-        "note": "Un champion dupliqué ne compte qu'une fois. Les bonus plats d'équipe s'ajoutent apres le scaling, pas avant."
+        "receivesTeamHealthBonuses": true
       },
       "observed": {
         "on": "2026-08-06",
-        "note": "Relevés en jeu, composition contrôlée. La formule est exacte sur chacun, aux arrondis d'affichage près.",
         "readings": [
           {
             "elderwood": 5,
@@ -5654,7 +5990,7 @@
         ]
       },
       "ability": {
-        "description": "After 4 seconds of combat, grant Elderwood allies 10% Attack Damage and Ability Power. Every 4 seconds thereafter, grant an additional 3% Attack Damage and 3% Ability Power.",
+        "description": "After 4 seconds of combat, grant Elderwood allies 10% Attack Damage and Ability Power.\nEvery 4 seconds thereafter, grant an additional 3% Attack Damage and 3% Ability Power.",
         "params": {
           "startDelaySeconds": 4,
           "everySeconds": 4,
@@ -5666,7 +6002,11 @@
       }
     },
     {
+      "id": "s18-stonebark-tree",
       "name": "Stonebark Tree",
+      "iconPath": "src/assets/icons/set-18/units/s18-stonebark-tree.jpg",
+      "combat": true,
+      "requiresRunInput": false,
       "summoned": true,
       "summonedBy": "Elderwood",
       "stats": {
@@ -5684,12 +6024,10 @@
           "abilityPower": 0.1
         },
         "flatBonus": 60,
-        "receivesTeamHealthBonuses": true,
-        "note": "Un champion dupliqué ne compte qu'une fois. Les bonus plats d'équipe s'ajoutent apres le scaling, pas avant."
+        "receivesTeamHealthBonuses": true
       },
       "observed": {
         "on": "2026-08-06",
-        "note": "Relevés en jeu, composition contrôlée. La formule est exacte sur chacun, aux arrondis d'affichage près.",
         "readings": [
           {
             "elderwood": 5,

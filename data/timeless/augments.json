@@ -1,36 +1,48 @@
 {
   "entries": [
     {
+      "id": "augmented-power",
       "name": "Augmented Power",
+      "iconPath": "src/assets/icons/timeless/augments/augmented-power.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2"],
       "description": "Your next augment is one tier higher.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "backup-bows",
       "name": "Backup Bows",
+      "iconPath": "src/assets/icons/timeless/augments/backup-bows.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain a Recurve Bow. After your champions attack 1000 times, get 2 more.",
-      "combat": false
+      "description": "Gain a Recurve Bow.\nAfter your champions attack 1000 times, get 2 more.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "band-of-thieves",
       "name": "Band of Thieves",
+      "iconPath": "src/assets/icons/timeless/augments/band-of-thieves.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["2-1", "3-2", "4-2"],
       "description": "Gain 1 Thief's Gloves.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "boxing-lessons",
       "name": "Boxing Lessons",
+      "iconPath": "src/assets/icons/timeless/augments/boxing-lessons.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
       "description": "Your team gains 30 Health for each champion that starts combat in the front row.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -42,60 +54,81 @@
       ]
     },
     {
+      "id": "branching-out",
       "name": "Branching Out",
+      "iconPath": "src/assets/icons/timeless/augments/branching-out.png",
       "tier": "silver",
       "categories": ["items", "traits"],
       "apparition": ["2-1"],
       "description": "Gain a random Emblem.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "branching-out-plus",
       "name": "Branching Out+",
+      "iconPath": "src/assets/icons/timeless/augments/branching-out-plus.png",
       "tier": "silver",
       "categories": ["items", "traits"],
       "apparition": ["3-2"],
       "description": "Gain a random Emblem and a Reforger.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "called-shot",
       "name": "Called Shot",
+      "iconPath": "src/assets/icons/timeless/augments/called-shot.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Set your win streak to +4. Gain 4 gold.",
-      "combat": false
+      "description": "Set your win streak to +4.\nGain 4 gold.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "capital-gains-i",
       "name": "Capital Gains I",
+      "iconPath": "src/assets/icons/timeless/augments/capital-gains-i.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Store gold equal to 110% of the interest you earn. On 3-3, gain all the stored gold. Gain 2 gold now.",
-      "combat": false
+      "description": "Store gold equal to 110% of the interest you earn.\nOn 3-3, gain all the stored gold.\nGain 2 gold now.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "caretakers-ally",
       "name": "Caretaker's Ally",
+      "iconPath": "src/assets/icons/timeless/augments/caretakers-ally.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["2-1"],
-      "description": "Gain a random 2-cost champion now. Gain the same one again every time you level up.Champion: {Set18.Augment.CaretakersAllyChampion}",
-      "combat": false
+      "description": "Gain a random 2-cost champion now.\nGain the same one again every time you level up.Champion: {Set18.Augment.CaretakersAllyChampion}",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "carve-a-path",
       "name": "Carve a Path",
+      "iconPath": "src/assets/icons/timeless/augments/carve-a-path.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain a B.F. Sword. After your champions deal 65000 physical damage, gain 2 more.",
-      "combat": false
+      "description": "Gain a B.F. Sword.\nAfter your champions deal 65000 physical damage, gain 2 more.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "celestial-blessing-i",
       "name": "Celestial Blessing I",
+      "iconPath": "src/assets/icons/timeless/augments/celestial-blessing-i.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
-      "description": "Your team gains 12% Omnivamp. Excess healing is converted to a shield up to 200 Health.",
+      "description": "Your team gains 12% Omnivamp.\nExcess healing is converted to a shield up to 200 Health.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -109,60 +142,81 @@
       }
     },
     {
+      "id": "champ-delivery",
       "name": "Champ Delivery",
+      "iconPath": "src/assets/icons/timeless/augments/champ-delivery.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Gain 3 2-cost champions. After 4 rounds, gain 3 more.",
-      "combat": false
+      "description": "Gain 3 2-cost champions.\nAfter 4 rounds, gain 3 more.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "champ-delivery-plus",
       "name": "Champ Delivery +",
+      "iconPath": "src/assets/icons/timeless/augments/champ-delivery-plus.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
-      "description": "Gain 3 3-cost champions. After 4 rounds, gain 3 more.",
-      "combat": false
+      "description": "Gain 3 3-cost champions.\nAfter 4 rounds, gain 3 more.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "champ-delivery-plus-plus",
       "name": "Champ Delivery ++",
+      "iconPath": "src/assets/icons/timeless/augments/champ-delivery-plus-plus.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
-      "description": "Gain 3 4-cost champions. After 4 rounds, gain 3 more.",
-      "combat": false
+      "description": "Gain 3 4-cost champions.\nAfter 4 rounds, gain 3 more.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "cognitive-tax",
       "name": "Cognitive Tax",
+      "iconPath": "src/assets/icons/timeless/augments/cognitive-tax.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
       "description": "Gain 8 gold and 1 XP.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "cognitive-tax-plus",
       "name": "Cognitive Tax+",
+      "iconPath": "src/assets/icons/timeless/augments/cognitive-tax-plus.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
       "description": "Gain 12 gold and 3 XP.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "component-buffet",
       "name": "Component Buffet",
+      "iconPath": "src/assets/icons/timeless/augments/component-buffet.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["Disabled"],
-      "description": "Whenever you would get a component, gain a component anvil instead. Gain a random component.The anvil offers 4 choices.",
-      "combat": false
+      "description": "Whenever you would get a component, gain a component anvil instead.\nGain a random component.The anvil offers 4 choices.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "corrosion",
       "name": "Corrosion",
+      "iconPath": "src/assets/icons/timeless/augments/corrosion.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
       "description": "Enemies in the first two rows lose 4 Armor and Magic Resist every 2 seconds.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -178,32 +232,41 @@
       ]
     },
     {
+      "id": "crafted-crafting",
       "name": "Crafted Crafting",
+      "iconPath": "src/assets/icons/timeless/augments/crafted-crafting.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
       "description": "Whenever you craft a completed item, gain 2 rerolls.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "dummify",
       "name": "Dummify",
+      "iconPath": "src/assets/icons/timeless/augments/dummify.png",
       "tier": "silver",
       "categories": ["strategic"],
       "apparition": ["3-2"],
-      "description": "Lose all champions on your board and bench. Gain a Training Dummy with 60% of their combined health. The dummy gains 1000 Health per stage. Gain a random non-tank 2-star 2 cost champion.",
+      "description": "Lose all champions on your board and bench.\nGain a Training Dummy with 60% of their combined health.\nThe dummy gains 1000 Health per stage.\nGain a random non-tank 2-star 2 cost champion.",
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "dummyHealthShare": 0.6,
         "dummyHealthPerStage": 1000
       }
     },
     {
+      "id": "electrocharge-i",
       "name": "Electrocharge I",
+      "iconPath": "src/assets/icons/timeless/augments/electrocharge-i.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["2-1", "3-2", "4-2"],
       "description": "Every 4 attacks an ally takes, they deal 30-90 (based on current Stage) magic damage to nearby enemies (1 second cooldown).",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "enemy",
@@ -217,36 +280,48 @@
       ]
     },
     {
+      "id": "expedition",
       "name": "Expedition",
+      "iconPath": "src/assets/icons/timeless/augments/expedition.png",
       "tier": "silver",
       "categories": ["strategic"],
       "apparition": ["2-1"],
-      "description": "At the start of every round, lose the champion in the rightmost bench slot. After losing 33 gold of champions in this way, gain a powerful reward. Gain a 3-cost champion now.",
-      "combat": false
+      "description": "At the start of every round, lose the champion in the rightmost bench slot.\nAfter losing 33 gold of champions in this way, gain a powerful reward.\nGain a 3-cost champion now.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "extra-buckles",
       "name": "Extra Buckles",
+      "iconPath": "src/assets/icons/timeless/augments/extra-buckles.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain a Giant's Belt. After your champions take 75000 damage, get 2 more.",
-      "combat": false
+      "description": "Gain a Giant's Belt.\nAfter your champions take 75000 damage, get 2 more.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "feeling-lucky",
       "name": "Feeling Lucky",
+      "iconPath": "src/assets/icons/timeless/augments/feeling-lucky.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
-      "description": "Gain 12 gold, then flip a coin. If heads, gain 4 more gold.",
-      "combat": false
+      "description": "Gain 12 gold, then flip a coin.\nIf heads, gain 4 more gold.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "find-your-center",
       "name": "Find Your Center",
+      "iconPath": "src/assets/icons/timeless/augments/find-your-center.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
       "description": "Your champion that starts combat in the center of the front row gains 15% Damage Amp and 25% max Health.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "self",
@@ -261,12 +336,15 @@
       ]
     },
     {
+      "id": "flame-on",
       "name": "Flame On",
+      "iconPath": "src/assets/icons/timeless/augments/flame-on.png",
       "tier": "silver",
       "categories": ["traits"],
       "apparition": ["2-1", "3-2", "4-2"],
-      "description": "The Inferno champion that dealt the most damage last combat is On Fire, gaining 25% Attack Speed. Gain a Varus and an Akali.",
+      "description": "The Inferno champion that dealt the most damage last combat is On Fire, gaining 25% Attack Speed.\nGain a Varus and an Akali.",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "self",
@@ -281,20 +359,26 @@
       ]
     },
     {
+      "id": "flowing-tears",
       "name": "Flowing Tears",
+      "iconPath": "src/assets/icons/timeless/augments/flowing-tears.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain a Tear of the Goddess. After your champions spend 6500 Mana, gain 2 more.",
-      "combat": false
+      "description": "Gain a Tear of the Goddess.\nAfter your champions spend 6500 Mana, gain 2 more.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "focused-fire",
       "name": "Focused Fire",
+      "iconPath": "src/assets/icons/timeless/augments/focused-fire.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
-      "description": "Your team gains 10% Attack Damage. Every 5 seconds, they gain 5% more.",
+      "description": "Your team gains 10% Attack Damage.\nEvery 5 seconds, they gain 5% more.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -312,28 +396,37 @@
       ]
     },
     {
+      "id": "forge-a-friend",
       "name": "Forge A Friend",
+      "iconPath": "src/assets/icons/timeless/augments/forge-a-friend.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["4-2"],
-      "description": "The next 1-cost champion you buy is 3-star. Gain 5 gold.",
-      "combat": false
+      "description": "The next 1-cost champion you buy is 3-star.\nGain 5 gold.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "future-focused",
       "name": "Future Focused",
+      "iconPath": "src/assets/icons/timeless/augments/future-focused.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
       "description": "Your Tactician loses 20 Health, but after 5 player combats, gain 3 4-cost champions and 8 gold.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "glass-cannon-i",
       "name": "Glass Cannon I",
+      "iconPath": "src/assets/icons/timeless/augments/glass-cannon-i.png",
       "tier": "silver",
       "categories": ["strategic"],
       "apparition": ["3-2", "4-2"],
       "description": "Allies that start combat in the back row begin combat at 80% Health but gain 16% Damage Amp.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -348,20 +441,26 @@
       ]
     },
     {
+      "id": "good-for-something-i",
       "name": "Good For Something I",
+      "iconPath": "src/assets/icons/timeless/augments/good-for-something-i.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["2-1"],
       "description": "Champions that aren't holding items have a 40% chance to drop 1 gold on death.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "group-hug-i",
       "name": "Group Hug I",
+      "iconPath": "src/assets/icons/timeless/augments/group-hug-i.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
-      "description": "Combat start: Champions grant other adjacent champions 6 Armor and Magic Resist. This effect stacks.",
+      "description": "Combat start: Champions grant other adjacent champions 6 Armor and Magic Resist.\nThis effect stacks.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "ally",
@@ -377,12 +476,15 @@
       ]
     },
     {
+      "id": "healing-orbs-i",
       "name": "Healing Orbs I",
+      "iconPath": "src/assets/icons/timeless/augments/healing-orbs-i.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
       "description": "When an enemy dies, a nearby ally is healed for 250 Health.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "ally",
@@ -397,68 +499,92 @@
       ]
     },
     {
+      "id": "iron-assets",
       "name": "Iron Assets",
+      "iconPath": "src/assets/icons/timeless/augments/iron-assets.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["2-1"],
       "description": "Gain a component anvil and 3 gold.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "item-grab-bag-i",
       "name": "Item Grab Bag I",
+      "iconPath": "src/assets/icons/timeless/augments/item-grab-bag-i.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["2-1", "3-2", "4-2"],
       "description": "Gain 1 random completed item.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "kick-start",
       "name": "Kick Start",
+      "iconPath": "src/assets/icons/timeless/augments/kick-start.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
       "description": "Gain a random 2-star 2-cost champion and 1 gold.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "kingslayer",
       "name": "Kingslayer",
+      "iconPath": "src/assets/icons/timeless/augments/kingslayer.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1", "3-2"],
-      "description": "After winning player combat, gain 1 gold. If they had more health than you, gain 6 Gold instead. Gain 1 gold.",
-      "combat": false
+      "description": "After winning player combat, gain 1 gold.\nIf they had more health than you, gain 6 Gold instead.\nGain 1 gold.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "late-game-specialist",
       "name": "Late Game Specialist",
+      "iconPath": "src/assets/icons/timeless/augments/late-game-specialist.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
       "description": "When you reach Level 9, gain 27 gold.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "latent-forge",
       "name": "Latent Forge",
+      "iconPath": "src/assets/icons/timeless/augments/latent-forge.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "After 8  player combats, gain an Artifact anvil.",
-      "combat": false
+      "description": "After 8 player combats, gain an Artifact anvil.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "loaded-dice",
       "name": "Loaded Dice",
+      "iconPath": "src/assets/icons/timeless/augments/loaded-dice.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Your dice and coins are lucky.Roll a die and gain gold equal to the number rolled. Then flip a coin and gain 1 gold if you flip heads.",
-      "combat": false
+      "description": "Your dice and coins are lucky.Roll a die and gain gold equal to the number rolled.\nThen flip a coin and gain 1 gold if you flip heads.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "makeshift-armor-i",
       "name": "Makeshift Armor I",
+      "iconPath": "src/assets/icons/timeless/augments/makeshift-armor-i.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["2-1", "3-2"],
       "description": "Champions without items equipped gain 30 Armor and Magic Resist.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -473,52 +599,70 @@
       ]
     },
     {
+      "id": "missed-connections",
       "name": "Missed Connections",
+      "iconPath": "src/assets/icons/timeless/augments/missed-connections.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
       "description": "Gain a copy of each 1-cost champion.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "one-two-three",
       "name": "One Two Three",
+      "iconPath": "src/assets/icons/timeless/augments/one-two-three.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
       "description": "Gain 1 1-cost champion, 1 2-cost champion, and 1 3-cost champion.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "one-two-five",
       "name": "One, Two, Five!",
+      "iconPath": "src/assets/icons/timeless/augments/one-two-five.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
       "description": "Gain 1 random component, 2 gold, and 1 random 5-cost champion",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "pandoras-bench",
       "name": "Pandora's Bench",
+      "iconPath": "src/assets/icons/timeless/augments/pandoras-bench.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["2-1", "3-2"],
-      "description": "At the start of every round, champions on the 3 rightmost bench slots transform into random champions of the same cost. Gain 4 gold.",
-      "combat": false
+      "description": "At the start of every round, champions on the 3 rightmost bench slots transform into random champions of the same cost.\nGain 4 gold.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "pandoras-items-i",
       "name": "Pandora's Items I",
+      "iconPath": "src/assets/icons/timeless/augments/pandoras-items-i.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["2-1", "3-2", "4-2"],
-      "description": "Round start: items on your bench are randomized. Gain 1 random component.",
-      "combat": false
+      "description": "Round start: items on your bench are randomized.\nGain 1 random component.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "partial-ascension",
       "name": "Partial Ascension",
+      "iconPath": "src/assets/icons/timeless/augments/partial-ascension.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
       "description": "After 12 seconds of combat, your units gain 20% Damage Amp.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -530,36 +674,48 @@
       ]
     },
     {
+      "id": "patience-is-a-virtue",
       "name": "Patience Is A Virtue",
+      "iconPath": "src/assets/icons/timeless/augments/patience-is-a-virtue.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
       "description": "Each round, gain 2 free rerolls if you did not buy a champion last round.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "quick-streaks",
       "name": "Quick Streaks",
+      "iconPath": "src/assets/icons/timeless/augments/quick-streaks.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "You gain twice as much progress towards win and loss streaks. Gain 4 gold.",
-      "combat": false
+      "description": "You gain twice as much progress towards win and loss streaks.\nGain 4 gold.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "recombobulator",
       "name": "Recombobulator",
+      "iconPath": "src/assets/icons/timeless/augments/recombobulator.png",
       "tier": "silver",
       "categories": ["strategic"],
       "apparition": ["3-2"],
-      "description": "Champions on your board permanently transform into random champions 1 cost tier higher (max 5). Gain 2 Magnetic Removers and 3 free rerolls.",
-      "combat": false
+      "description": "Champions on your board permanently transform into random champions 1 cost tier higher (max 5).\nGain 2 Magnetic Removers and 3 free rerolls.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "residual-magic",
       "name": "Residual Magic",
+      "iconPath": "src/assets/icons/timeless/augments/residual-magic.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["2-1"],
-      "description": "Your team gains 100 Health. Each time you purchase a Wisp, increase this by 10.",
+      "description": "Your team gains 100 Health.\nEach time you purchase a Wisp, increase this by 10.",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "team",
@@ -573,12 +729,15 @@
       }
     },
     {
+      "id": "residual-magic-plus",
       "name": "Residual Magic +",
+      "iconPath": "src/assets/icons/timeless/augments/residual-magic-plus.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2"],
-      "description": "Your team gains 130 Health. Each time you purchase a Wisp, increase this by 10.",
+      "description": "Your team gains 130 Health.\nEach time you purchase a Wisp, increase this by 10.",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "team",
@@ -592,12 +751,15 @@
       }
     },
     {
+      "id": "residual-magic-plus-plus",
       "name": "Residual Magic ++",
+      "iconPath": "src/assets/icons/timeless/augments/residual-magic-plus-plus.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["4-2"],
-      "description": "Your team gains 150 Health. Each time you purchase a Wisp, increase this by 10.",
+      "description": "Your team gains 150 Health.\nEach time you purchase a Wisp, increase this by 10.",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "team",
@@ -611,76 +773,103 @@
       }
     },
     {
+      "id": "rolling-for-days",
       "name": "Rolling For Days",
+      "iconPath": "src/assets/icons/timeless/augments/rolling-for-days.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["3-2", "4-2"],
       "description": "Gain 10 free Shop rerolls.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "silver-destiny",
       "name": "Silver Destiny",
+      "iconPath": "src/assets/icons/timeless/augments/silver-destiny.png",
       "tier": "silver",
       "categories": ["strategic"],
       "apparition": ["2-1"],
       "description": "Gain a random Silver Augment and 2 gold.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "silver-destiny-plus",
       "name": "Silver Destiny+",
+      "iconPath": "src/assets/icons/timeless/augments/silver-destiny-plus.png",
       "tier": "silver",
       "categories": ["strategic"],
       "apparition": ["3-2"],
       "description": "Gain a random Silver Augment and 4 gold.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "silver-destiny-plus-plus",
       "name": "Silver Destiny++",
+      "iconPath": "src/assets/icons/timeless/augments/silver-destiny-plus-plus.png",
       "tier": "silver",
       "categories": ["strategic"],
       "apparition": ["4-2"],
       "description": "Gain a random Silver Augment and 7 gold.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "silver-spoon",
       "name": "Silver Spoon",
+      "iconPath": "src/assets/icons/timeless/augments/silver-spoon.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
       "description": "Gain 10 XP",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "slice-of-life",
       "name": "Slice of Life",
+      "iconPath": "src/assets/icons/timeless/augments/slice-of-life.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Twice per stage, gain a random champion. Its cost increases by Stage. This effect ends after receiving 1 5-cost champion.",
-      "combat": false
+      "description": "Twice per stage, gain a random champion.\nIts cost increases by Stage.\nThis effect ends after receiving 1 5-cost champion.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "slightly-magic-roll",
       "name": "Slightly Magic Roll",
+      "iconPath": "src/assets/icons/timeless/augments/slightly-magic-roll.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["2-1"],
-      "description": "Roll a die. Gain rewards based on the number rolled.{Augment.Variant.SlightlyMagicRoll.Reward}",
-      "combat": false
+      "description": "Roll a die.\nGain rewards based on the number rolled.{Augment.Variant.SlightlyMagicRoll.Reward}",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "small-grab-bag",
       "name": "Small Grab Bag",
+      "iconPath": "src/assets/icons/timeless/augments/small-grab-bag.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
       "description": "Gain 2 random item components.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "stand-united",
       "name": "Stand United",
+      "iconPath": "src/assets/icons/timeless/augments/stand-united.png",
       "tier": "silver",
       "categories": ["strategic"],
       "apparition": ["3-2", "4-2"],
       "description": "Your units gain 1.5% Attack Damage and 1.5% Ability Power for each non-unique Trait active across your team.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -693,20 +882,26 @@
       ]
     },
     {
+      "id": "team-building",
       "name": "Team Building",
+      "iconPath": "src/assets/icons/timeless/augments/team-building.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1", "3-2"],
-      "description": "Gain a Lesser Champion Duplicator. Gain another after 5 player combats.This item allows you to copy a 3-cost or less champion.",
-      "combat": false
+      "description": "Gain a Lesser Champion Duplicator.\nGain another after 5 player combats.This item allows you to copy a 3-cost or less champion.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "the-tower",
       "name": "The Tower",
+      "iconPath": "src/assets/icons/timeless/augments/the-tower.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["2-1", "3-2", "4-2"],
-      "description": "Gain a giant Training Dummy. Every 4 seconds, it zaps the 3 nearest enemies dealing 5% max Health true damage.",
+      "description": "Gain a giant Training Dummy.\nEvery 4 seconds, it zaps the 3 nearest enemies dealing 5% max Health true damage.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -719,12 +914,15 @@
       ]
     },
     {
+      "id": "twin-guardians",
       "name": "Twin Guardians",
+      "iconPath": "src/assets/icons/timeless/augments/twin-guardians.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
       "description": "If you have exactly 2 allies in your first row, grant them 100 Health, 35 Armor, and 35 Magic Resist.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "ally",
@@ -741,12 +939,15 @@
       ]
     },
     {
+      "id": "verticality-i",
       "name": "Verticality I",
+      "iconPath": "src/assets/icons/timeless/augments/verticality-i.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
       "description": "Champions gain 1.5% Attack Damage, 1.5% Ability Power, 1.5 Armor, and 1.5 Magic Resist for each ally that shares a trait with them.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -763,52 +964,70 @@
       ]
     },
     {
+      "id": "wisp-rebate",
       "name": "Wisp Rebate",
+      "iconPath": "src/assets/icons/timeless/augments/wisp-rebate.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2"],
-      "description": "Each time you purchase a Wisp, gain 2 gold. Gain 6 gold now.",
-      "combat": false
+      "description": "Each time you purchase a Wisp, gain 2 gold.\nGain 6 gold now.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "wisp-rebate-plus",
       "name": "Wisp Rebate +",
+      "iconPath": "src/assets/icons/timeless/augments/wisp-rebate-plus.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["4-2"],
-      "description": "Each time you purchase a Wisp, gain 2 gold. Gain 10 gold now.",
-      "combat": false
+      "description": "Each time you purchase a Wisp, gain 2 gold.\nGain 10 gold now.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "young-and-wild-and-free",
       "name": "Young and Wild and Free",
+      "iconPath": "src/assets/icons/timeless/augments/young-and-wild-and-free.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["2-1"],
-      "description": "You can always move freely on Carousel rounds. Gain 5 gold.",
-      "combat": false
+      "description": "You can always move freely on Carousel rounds.\nGain 5 gold.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "advanced-loan",
       "name": "Advanced Loan",
+      "iconPath": "src/assets/icons/timeless/augments/advanced-loan.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["Disabled"],
-      "description": "Gain 20 Gold. Your next augment is one tier lower.",
-      "combat": false
+      "description": "Gain 20 Gold.\nYour next augment is one tier lower.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "advanced-loan-plus",
       "name": "Advanced Loan+",
+      "iconPath": "src/assets/icons/timeless/augments/advanced-loan-plus.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
-      "description": "Gain 33 Gold. Your next augment is one tier lower.",
-      "combat": false
+      "description": "Gain 33 Gold.\nYour next augment is one tier lower.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "arcane-viktor-y",
       "name": "Arcane Viktor-y",
+      "iconPath": "src/assets/icons/timeless/augments/arcane-viktor-y.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
-      "description": "After 8 seconds of combat, stun the enemy team for 1.5 seconds. Repeat this after 18 seconds of combat.TFT Macao Open, 2024",
+      "description": "After 8 seconds of combat, stun the enemy team for 1.5 seconds.\nRepeat this after 18 seconds of combat.TFT Macao Open, 2024",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "enemy",
@@ -822,12 +1041,15 @@
       }
     },
     {
+      "id": "ascension",
       "name": "Ascension",
+      "iconPath": "src/assets/icons/timeless/augments/ascension.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
       "description": "After 12 seconds of combat, your units gain 35% Damage Amp.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -839,88 +1061,115 @@
       ]
     },
     {
+      "id": "backline-blueprint",
       "name": "Backline Blueprint",
+      "iconPath": "src/assets/icons/timeless/augments/backline-blueprint.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["2-1"],
       "description": "Gain a 3-cost non-Tank champion and an Emblem that matches their class.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "beast-within-plus-nidalee",
       "name": "Beast Within+",
+      "iconPath": "src/assets/icons/timeless/augments/beast-within-plus-nidalee.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["4-2"],
-      "description": "Primal grants an additional Blessing. Gain a Vi and a Nidalee.",
+      "description": "Primal grants an additional Blessing.\nGain a Vi and a Nidalee.",
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "extraPrimalBlessings": 1
       }
     },
     {
+      "id": "beast-within-sivir",
       "name": "Beast Within",
+      "iconPath": "src/assets/icons/timeless/augments/beast-within-sivir.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2"],
-      "description": "Primal grants an additional Blessing.  Gain a Vi now and a Sivir after 3 rounds.",
+      "description": "Primal grants an additional Blessing.\nGain a Vi now and a Sivir after 3 rounds.",
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "extraPrimalBlessings": 1
       }
     },
     {
+      "id": "beast-within-nidalee",
       "name": "Beast Within",
+      "iconPath": "src/assets/icons/timeless/augments/beast-within-nidalee.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2"],
-      "description": "Primal grants an additional Blessing. Gain a Vi now and a Nidalee after 3 rounds.",
+      "description": "Primal grants an additional Blessing.\nGain a Vi now and a Nidalee after 3 rounds.",
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "extraPrimalBlessings": 1
       }
     },
     {
+      "id": "beast-within-plus-sivir",
       "name": "Beast Within+",
+      "iconPath": "src/assets/icons/timeless/augments/beast-within-plus-sivir.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["4-2"],
-      "description": "Primal grants an additional Blessing. Gain a Vi and a Sivir.",
+      "description": "Primal grants an additional Blessing.\nGain a Vi and a Sivir.",
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "extraPrimalBlessings": 1
       }
     },
     {
+      "id": "big-grab-bag",
       "name": "Big Grab Bag",
+      "iconPath": "src/assets/icons/timeless/augments/big-grab-bag.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
       "description": "Gain 3 random components, 2 gold, and 1 Reforger.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "birthday-reunion",
       "name": "Birthday Reunion",
+      "iconPath": "src/assets/icons/timeless/augments/birthday-reunion.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["2-1"],
-      "description": "Gain a random 2-star 2-cost champion. At Level 6, gain a random item component. At Level 9, gain a random 2-star 5-cost champion.Inkborn Fables Tactician's Crown, 2024",
-      "combat": false
+      "description": "Gain a random 2-star 2-cost champion.\nAt Level 6, gain a random item component.\nAt Level 9, gain a random 2-star 5-cost champion.Inkborn Fables Tactician's Crown, 2024",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "blossoms-call",
       "name": "Blossom's Call",
+      "iconPath": "src/assets/icons/timeless/augments/blossoms-call.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["3-2"],
-      "description": "When you buy a Wisp, gain a random Blossom champion based on the Wisp's cost. Gain a Yunara, a Yorick, and a Karma.",
-      "combat": false
+      "description": "When you buy a Wisp, gain a random Blossom champion based on the Wisp's cost.\nGain a Yunara, a Yorick, and a Karma.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "bodyguard-training",
       "name": "Bodyguard Training",
+      "iconPath": "src/assets/icons/timeless/augments/bodyguard-training.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["2-1"],
       "description": "Allies gain 15 Armor and Magic Resist, increased by 2 per player level.Gizmos & Gadgets Championship, 2022",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "team",
@@ -935,52 +1184,70 @@
       }
     },
     {
+      "id": "bonus-gift",
       "name": "Bonus Gift",
+      "iconPath": "src/assets/icons/timeless/augments/bonus-gift.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Whenever you open a loot orb, you have a 30% chance to gain a gray loot orb. Gain 2 gray loot orbs.",
-      "combat": false
+      "description": "Whenever you open a loot orb, you have a 30% chance to gain a gray loot orb.\nGain 2 gray loot orbs.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "bonus-gift-plus",
       "name": "Bonus Gift +",
+      "iconPath": "src/assets/icons/timeless/augments/bonus-gift-plus.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
-      "description": "Whenever you open a loot orb, you have a 30% chance to gain a gray loot orb. Gain 3 gray loot orbs.",
-      "combat": false
+      "description": "Whenever you open a loot orb, you have a 30% chance to gain a gray loot orb.\nGain 3 gray loot orbs.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "booster-pack",
       "name": "Booster Pack",
+      "iconPath": "src/assets/icons/timeless/augments/booster-pack.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Gain 12 gold of random champions. (At least one 3-cost guaranteed!)",
-      "combat": false
+      "description": "Gain 12 gold of random champions.\n(At least one 3-cost guaranteed!)",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "booster-pack-plus",
       "name": "Booster Pack+",
+      "iconPath": "src/assets/icons/timeless/augments/booster-pack-plus.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
-      "description": "Gain 18 gold of random champions. (At least one 4-cost guaranteed!)",
-      "combat": false
+      "description": "Gain 18 gold of random champions.\n(At least one 4-cost guaranteed!)",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "booster-pack-plus-plus",
       "name": "Booster Pack++",
+      "iconPath": "src/assets/icons/timeless/augments/booster-pack-plus-plus.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
-      "description": "Gain 26 gold of random champions. (At least one 5-cost guaranteed!)",
-      "combat": false
+      "description": "Gain 26 gold of random champions.\n(At least one 5-cost guaranteed!)",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "bronze-for-life-i",
       "name": "Bronze For Life I",
+      "iconPath": "src/assets/icons/timeless/augments/bronze-for-life-i.png",
       "tier": "gold",
       "categories": ["strategic"],
       "apparition": ["3-2", "4-2"],
       "description": "Your team gains 2% Damage Amp for each Bronze-tier trait.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -992,36 +1259,48 @@
       ]
     },
     {
+      "id": "calculated-loss",
       "name": "Calculated Loss",
+      "iconPath": "src/assets/icons/timeless/augments/calculated-loss.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
       "description": "After losing your combat, gain 2 gold and a free Shop reroll.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "capital-gains-ii",
       "name": "Capital Gains II",
+      "iconPath": "src/assets/icons/timeless/augments/capital-gains-ii.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Store gold equal to 150% of the interest you earn. On 3-3, gain all the stored gold. Gain 4 gold now.",
-      "combat": false
+      "description": "Store gold equal to 150% of the interest you earn.\nOn 3-3, gain all the stored gold.\nGain 4 gold now.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "caretakers-favor",
       "name": "Caretaker's Favor",
+      "iconPath": "src/assets/icons/timeless/augments/caretakers-favor.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1"],
       "description": "Gain a component anvil when you reach level 5, 6, 7, and 8.Component anvils offer 4 choices.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "celestial-blessing-ii",
       "name": "Celestial Blessing II",
+      "iconPath": "src/assets/icons/timeless/augments/celestial-blessing-ii.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
-      "description": "Your team gains 18% Omnivamp. Excess healing is converted to a shield up to 400 Health.",
+      "description": "Your team gains 18% Omnivamp.\nExcess healing is converted to a shield up to 400 Health.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1035,12 +1314,15 @@
       }
     },
     {
+      "id": "challengers-grace",
       "name": "Challenger's Grace",
+      "iconPath": "src/assets/icons/timeless/augments/challengers-grace.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
-      "description": "At the start of combat, allies gain 25% Attack Speed for 3 seconds. On takedown, allies dash to their next target and gain this bonus again.",
+      "description": "At the start of combat, allies gain 25% Attack Speed for 3 seconds.\nOn takedown, allies dash to their next target and gain this bonus again.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1053,12 +1335,15 @@
       ]
     },
     {
+      "id": "chosen-of-the-sun",
       "name": "Chosen of the Sun",
+      "iconPath": "src/assets/icons/timeless/augments/chosen-of-the-sun.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1"],
-      "description": "Gain a Leona, a Kayle, and a Sejuani. Leona gains 60 permanent max Health each round, increased by 10 for each unique 3-star champion fielded.",
+      "description": "Gain a Leona, a Kayle, and a Sejuani.\nLeona gains 60 permanent max Health each round, increased by 10 for each unique 3-star champion fielded.",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "self",
@@ -1074,20 +1359,26 @@
       }
     },
     {
+      "id": "clear-mind",
       "name": "Clear Mind",
+      "iconPath": "src/assets/icons/timeless/augments/clear-mind.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
       "description": "If there are no champions on your bench at the end of player combat, gain 3 XP.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "clockwork-accelerator",
       "name": "Clockwork Accelerator",
+      "iconPath": "src/assets/icons/timeless/augments/clockwork-accelerator.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
       "description": "Your team gains 10% Attack Speed every 3 seconds in combat.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1099,69 +1390,90 @@
       ]
     },
     {
+      "id": "cluttered-mind",
       "name": "Cluttered Mind",
+      "iconPath": "src/assets/icons/timeless/augments/cluttered-mind.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Gain 4 1-cost champions now. If your bench is full at the end of player combat, gain 3 XP.",
-      "combat": false
+      "description": "Gain 4 1-cost champions now.\nIf your bench is full at the end of player combat, gain 3 XP.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "cognitive-overload",
       "name": "Cognitive Overload",
+      "iconPath": "src/assets/icons/timeless/augments/cognitive-overload.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
       "description": "Gain 7 gold, 1 2-star 1-cost champion, 1 2-cost champion, 2 3-cost champions, 1 XP, and 1 Shop reroll.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "construct-a-companion",
       "name": "Construct a Companion",
+      "iconPath": "src/assets/icons/timeless/augments/construct-a-companion.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2"],
-      "description": "The next 1-cost champion you buy is 3-star. Gain 2 gold.",
-      "combat": false
+      "description": "The next 1-cost champion you buy is 3-star.\nGain 2 gold.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "consuming-flora",
       "name": "Consuming Flora",
+      "iconPath": "src/assets/icons/timeless/augments/consuming-flora.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1"],
-      "description": "Gain a Flora Fatalis emblem. The champion holding the emblem gains double benefits from the Flora Fatalis trait.",
+      "description": "Gain a Flora Fatalis emblem.\nThe champion holding the emblem gains double benefits from the Flora Fatalis trait.",
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "floraFatalisMultiplier": 2
       }
     },
     {
+      "id": "consuming-flora-plus",
       "name": "Consuming Flora+",
+      "iconPath": "src/assets/icons/timeless/augments/consuming-flora-plus.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["3-2"],
-      "description": "Gain a Flora Fatalis emblem. The champion holding the emblem gains double benefits from the Flora Fatalis trait.",
+      "description": "Gain a Flora Fatalis emblem.\nThe champion holding the emblem gains double benefits from the Flora Fatalis trait.",
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "floraFatalisMultiplier": 2
       }
     },
     {
+      "id": "consuming-flora-plus-plus",
       "name": "Consuming Flora++",
+      "iconPath": "src/assets/icons/timeless/augments/consuming-flora-plus-plus.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["4-2"],
-      "description": "Gain a Flora Fatalis emblem. The champion holding the emblem gains double benefits from the Flora Fatalis trait.",
+      "description": "Gain a Flora Fatalis emblem.\nThe champion holding the emblem gains double benefits from the Flora Fatalis trait.",
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "floraFatalisMultiplier": 2
       }
     },
     {
+      "id": "cooking-pot",
       "name": "Cooking Pot",
+      "iconPath": "src/assets/icons/timeless/augments/cooking-pot.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "At the start of each turn, all allies holding a Frying Pan or Spatula item grant the nearest champion 60 permanent Health. Gain a Frying Pan.",
+      "description": "At the start of each turn, all allies holding a Frying Pan or Spatula item grant the nearest champion 60 permanent Health.\nGain a Frying Pan.",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "ally",
@@ -1176,20 +1488,26 @@
       ]
     },
     {
+      "id": "coven-acolyte",
       "name": "Coven Acolyte",
+      "iconPath": "src/assets/icons/timeless/augments/coven-acolyte.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1"],
-      "description": "When you choose to continue gathering Coven essence, heal 2 Tactician health. Gain a Camille, an Elise, and a Caitlyn.",
-      "combat": false
+      "description": "When you choose to continue gathering Coven essence, heal 2 Tactician health.\nGain a Camille, an Elise, and a Caitlyn.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "cry-me-a-river",
       "name": "Cry Me A River",
+      "iconPath": "src/assets/icons/timeless/augments/cry-me-a-river.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1", "3-2"],
-      "description": "Gain a Tear of the Goddess. Your team gains 1 Mana Regen. After 12 seconds in combat, increase this to 3.",
+      "description": "Gain a Tear of the Goddess.\nYour team gains 1 Mana Regen.\nAfter 12 seconds in combat, increase this to 3.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1207,12 +1525,15 @@
       ]
     },
     {
+      "id": "cybernetic-implants-ii",
       "name": "Cybernetic Implants II",
+      "iconPath": "src/assets/icons/timeless/augments/cybernetic-implants-ii.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
-      "description": "Your champions holding an item gain 100 Health and 15% Attack Damage. Gain a B.F. Sword.",
+      "description": "Your champions holding an item gain 100 Health and 15% Attack Damage.\nGain a B.F. Sword.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1229,12 +1550,15 @@
       ]
     },
     {
+      "id": "cybernetic-uplink-ii",
       "name": "Cybernetic Uplink II",
+      "iconPath": "src/assets/icons/timeless/augments/cybernetic-uplink-ii.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
-      "description": "Your champions holding an item gain 100 Health and 2 Mana Regen. Gain a Tear of the Goddess.",
+      "description": "Your champions holding an item gain 100 Health and 2 Mana Regen.\nGain a Tear of the Goddess.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1249,23 +1573,29 @@
       ]
     },
     {
+      "id": "dark-ritual",
       "name": "Dark Ritual",
+      "iconPath": "src/assets/icons/timeless/augments/dark-ritual.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1", "3-2"],
-      "description": "Converting Coven Essence to rewards grants Coven champions Ability Power instead of loot. Gain a Camille, an Elise, and a Caitlyn.",
+      "description": "Converting Coven Essence to rewards grants Coven champions Ability Power instead of loot.\nGain a Camille, an Elise, and a Caitlyn.",
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "abilityPowerByArmoryLevel": [8, 20, 32, 48, 80, 152, 200, 400, 1666]
       }
     },
     {
+      "id": "double-trouble",
       "name": "Double Trouble",
+      "iconPath": "src/assets/icons/timeless/augments/double-trouble.png",
       "tier": "gold",
       "categories": ["strategic", "gold-econ"],
       "apparition": ["2-1", "3-2"],
-      "description": "When you field exactly 2 copies of a champion, they both gain 30% Attack Damage and Ability Power and 30 Armor, and Magic Resist. When you 3-star, gain a 2-star copy.",
+      "description": "When you field exactly 2 copies of a champion, they both gain 30% Attack Damage and Ability Power and 30 Armor, and Magic Resist.\nWhen you 3-star, gain a 2-star copy.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "self",
@@ -1284,20 +1614,26 @@
       ]
     },
     {
+      "id": "duo-queue",
       "name": "Duo Queue",
+      "iconPath": "src/assets/icons/timeless/augments/duo-queue.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["4-2"],
       "description": "Gain 2 random 5-cost champions and 2 copies of a random component",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "early-learnings",
       "name": "Early Learnings",
+      "iconPath": "src/assets/icons/timeless/augments/early-learnings.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Your team gains 5% Attack Damage & Ability Power. This increases by 1% after each player combat. 1-cost champions gain double.",
+      "description": "Your team gains 5% Attack Damage & Ability Power.\nThis increases by 1% after each player combat. 1-cost champions gain double.",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "team",
@@ -1313,12 +1649,15 @@
       }
     },
     {
+      "id": "electrocharge-ii",
       "name": "Electrocharge II",
+      "iconPath": "src/assets/icons/timeless/augments/electrocharge-ii.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["2-1", "3-2", "4-2"],
       "description": "Every 4 attacks an ally takes, they deal 50-140 (based on current Stage) magic damage to nearby enemies (1 second cooldown).",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "enemy",
@@ -1332,12 +1671,15 @@
       ]
     },
     {
+      "id": "embiggen",
       "name": "Embiggen",
+      "iconPath": "src/assets/icons/timeless/augments/embiggen.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["2-1", "3-2", "4-2"],
-      "description": "Fae pixies are now larger and grant 50% more Attack Damage and Ability Power. Fae champions gain 10% Attack Damage and Ability Power immediately. Gain a Xayah and a Rakan.",
+      "description": "Fae pixies are now larger and grant 50% more Attack Damage and Ability Power.\nFae champions gain 10% Attack Damage and Ability Power immediately.\nGain a Xayah and a Rakan.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "traitHolders",
@@ -1355,60 +1697,81 @@
       }
     },
     {
+      "id": "epic-rolldown",
       "name": "Epic Rolldown",
+      "iconPath": "src/assets/icons/timeless/augments/epic-rolldown.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
       "description": "When you reach Level 8, gain 20 Shop rerolls.Runeterra Reforged Championship, 2023",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "epoch",
       "name": "Epoch",
+      "iconPath": "src/assets/icons/timeless/augments/epoch.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
       "description": "Now, and at the start of every stage, gain 4 XP and 2 free rerolls.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "epoch-plus",
       "name": "Epoch+",
+      "iconPath": "src/assets/icons/timeless/augments/epoch-plus.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
       "description": "Now, and at the start of every stage, gain 8 XP and 2 free rerolls.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "exclusive-customization",
       "name": "Exclusive Customization",
+      "iconPath": "src/assets/icons/timeless/augments/exclusive-customization.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
       "description": "Gain a Lucky Item Chest, a Magnetic Remover and 7 gold.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "explosive-growth",
       "name": "Explosive Growth",
+      "iconPath": "src/assets/icons/timeless/augments/explosive-growth.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
       "description": "Now and at the start of the next 3 rounds, gain 7 XP.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "explosive-growth-plus",
       "name": "Explosive Growth+",
+      "iconPath": "src/assets/icons/timeless/augments/explosive-growth-plus.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
       "description": "Now and at the start of the next 3 rounds, gain 10 XP.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "fourcing",
       "name": "FOURcing",
+      "iconPath": "src/assets/icons/timeless/augments/fourcing.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2"],
-      "description": "Gain a random 4-cost champion. For each item equipped to that champion, your team gains 85 health.",
+      "description": "Gain a random 4-cost champion.\nFor each item equipped to that champion, your team gains 85 health.",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "team",
@@ -1420,28 +1783,37 @@
       ]
     },
     {
+      "id": "frontline-foundation",
       "name": "Frontline Foundation",
+      "iconPath": "src/assets/icons/timeless/augments/frontline-foundation.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["2-1"],
       "description": "Gain a 2-star 1-cost Tank champion and an Emblem that matches their class.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "gain-21-gold",
       "name": "Gain 21 Gold",
+      "iconPath": "src/assets/icons/timeless/augments/gain-21-gold.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
       "description": "Gain 21 gold.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "gilded-steel",
       "name": "Gilded Steel",
+      "iconPath": "src/assets/icons/timeless/augments/gilded-steel.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["4-2"],
-      "description": "Gain two 5-cost champions. If you field at least one 5-cost champion, your 1 to 4-cost champions gain 8% Durability.K.O. Coliseum Tactician's Crown, 2025",
+      "description": "Gain two 5-cost champions.\nIf you field at least one 5-cost champion, your 1 to 4-cost champions gain 8% Durability.K.O. Coliseum Tactician's Crown, 2025",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "team",
@@ -1456,12 +1828,15 @@
       ]
     },
     {
+      "id": "glass-cannon-ii",
       "name": "Glass Cannon II",
+      "iconPath": "src/assets/icons/timeless/augments/glass-cannon-ii.png",
       "tier": "gold",
       "categories": ["strategic"],
       "apparition": ["3-2", "4-2"],
       "description": "Allies that start combat in the back row begin combat at 80% Health but gain 25% Damage Amp.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1476,28 +1851,37 @@
       ]
     },
     {
+      "id": "gold-destiny",
       "name": "Gold Destiny",
+      "iconPath": "src/assets/icons/timeless/augments/gold-destiny.png",
       "tier": "gold",
       "categories": ["strategic"],
       "apparition": ["2-1"],
       "description": "Gain a random Gold Augment and 3 gold.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "gold-destiny-plus",
       "name": "Gold Destiny Plus",
+      "iconPath": "src/assets/icons/timeless/augments/gold-destiny-plus.png",
       "tier": "gold",
       "categories": ["strategic"],
       "apparition": ["3-2"],
       "description": "Gain a random Gold Augment and 6 gold.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "group-hug-ii",
       "name": "Group Hug II",
+      "iconPath": "src/assets/icons/timeless/augments/group-hug-ii.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
-      "description": "Combat start: Champions grant other adjacent champions 9 Armor and Magic Resist. This effect stacks.",
+      "description": "Combat start: Champions grant other adjacent champions 9 Armor and Magic Resist.\nThis effect stacks.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "ally",
@@ -1513,20 +1897,26 @@
       ]
     },
     {
+      "id": "hard-bargain",
       "name": "Hard Bargain",
+      "iconPath": "src/assets/icons/timeless/augments/hard-bargain.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "You cannot choose your Carousel rewards. Gain an additional 6 player health and 8 gold each carousel round.When you do not pick a Carousel Reward, you are given an unpicked champion and the item it carries.",
-      "combat": false
+      "description": "You cannot choose your Carousel rewards.\nGain an additional 6 player health and 8 gold each carousel round.When you do not pick a Carousel Reward, you are given an unpicked champion and the item it carries.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "healing-orbs-ii",
       "name": "Healing Orbs II",
+      "iconPath": "src/assets/icons/timeless/augments/healing-orbs-ii.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
       "description": "When an enemy dies, a nearby ally is healed for 575 Health.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "ally",
@@ -1541,12 +1931,15 @@
       ]
     },
     {
+      "id": "heart-of-steel",
       "name": "Heart of Steel",
+      "iconPath": "src/assets/icons/timeless/augments/heart-of-steel.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain a Steadfast Heart. Every 10 seconds of combat its holder survives, Steadfast Heart gains additional 16 permanent max Health.",
+      "description": "Gain a Steadfast Heart.\nEvery 10 seconds of combat its holder survives, Steadfast Heart gains additional 16 permanent max Health.",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "holder",
@@ -1562,44 +1955,59 @@
       ]
     },
     {
+      "id": "heroic-grab-bag",
       "name": "Heroic Grab Bag",
+      "iconPath": "src/assets/icons/timeless/augments/heroic-grab-bag.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Gain 2 Lesser Champion Duplicators. Gain 4 Gold",
-      "combat": false
+      "description": "Gain 2 Lesser Champion Duplicators.\nGain 4 Gold",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "heroic-grab-bag-plus",
       "name": "Heroic Grab Bag+",
+      "iconPath": "src/assets/icons/timeless/augments/heroic-grab-bag-plus.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2"],
-      "description": "Gain 2 Lesser Champion Duplicators. Gain 8 Gold",
-      "combat": false
+      "description": "Gain 2 Lesser Champion Duplicators.\nGain 8 Gold",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "heroic-grab-bag-plus-plus",
       "name": "Heroic Grab Bag++",
+      "iconPath": "src/assets/icons/timeless/augments/heroic-grab-bag-plus-plus.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
-      "description": "Gain 2 Lesser Champion Duplicators. Gain 14 Gold",
-      "combat": false
+      "description": "Gain 2 Lesser Champion Duplicators.\nGain 14 Gold",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "hustler",
       "name": "Hustler",
+      "iconPath": "src/assets/icons/timeless/augments/hustler.png",
       "tier": "gold",
       "categories": ["gold-econ", "strategic"],
       "apparition": ["2-1"],
-      "description": "You no longer gain interest but gain 3 gold at the start of every player combat round. Gain 3 gold now.Interest is extra gold you gain per 10g saved.",
-      "combat": false
+      "description": "You no longer gain interest but gain 3 gold at the start of every player combat round.\nGain 3 gold now.Interest is extra gold you gain per 10g saved.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "infinity-protection",
       "name": "Infinity Protection",
+      "iconPath": "src/assets/icons/timeless/augments/infinity-protection.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain 3 gold now. On Stage 3-7, gain an Infinity Force. Infinity Force gives allies in the same row a 12% Health shield.Monsters Attack Championship, 2023",
+      "description": "Gain 3 gold now.\nOn Stage 3-7, gain an Infinity Force.\nInfinity Force gives allies in the same row a 12% Health shield.Monsters Attack Championship, 2023",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "ally",
@@ -1613,12 +2021,15 @@
       ]
     },
     {
+      "id": "investment-strategy-i",
       "name": "Investment Strategy I",
+      "iconPath": "src/assets/icons/timeless/augments/investment-strategy-i.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
       "description": "Your champions gain 8 permanent max health per interest you earn.",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "team",
@@ -1631,12 +2042,15 @@
       ]
     },
     {
+      "id": "its-me-baby",
       "name": "It's Me, Baby",
+      "iconPath": "src/assets/icons/timeless/augments/its-me-baby.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
-      "description": "Gain a spotlight in the bottom right corner. The champion in it gains 15% Damage Amp and 15% Attack Speed, and drops 1 gold every 4 takedowns.Runeterra Reforged Tactician's Crown, 2026",
+      "description": "Gain a spotlight in the bottom right corner.\nThe champion in it gains 15% Damage Amp and 15% Attack Speed, and drops 1 gold every 4 takedowns.Runeterra Reforged Tactician's Crown, 2026",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "self",
@@ -1651,20 +2065,26 @@
       ]
     },
     {
+      "id": "item-extraction",
       "name": "Item Extraction",
+      "iconPath": "src/assets/icons/timeless/augments/item-extraction.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1", "3-2"],
-      "description": "The first 3 times you sacrifice a champion in the Blackthorn hex, gain a copy of a random component they're holding. Gain a Veigar and a Rek'Sai.",
-      "combat": false
+      "description": "The first 3 times you sacrifice a champion in the Blackthorn hex, gain a copy of a random component they're holding.\nGain a Veigar and a Rek'Sai.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "jeweled-lotus-i",
       "name": "Jeweled Lotus I",
+      "iconPath": "src/assets/icons/timeless/augments/jeweled-lotus-i.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
-      "description": "Your team gains 10% Critical Strike Chance and PrecisionPrecision: Ability damage can critically strike. Additional Precision grants 10% Critical Strike Damage.",
+      "description": "Your team gains 10% Critical Strike Chance and PrecisionPrecision: Ability damage can critically strike.\nAdditional Precision grants 10% Critical Strike Damage.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1676,20 +2096,26 @@
       ]
     },
     {
+      "id": "jungle-pathing",
       "name": "Jungle Pathing",
+      "iconPath": "src/assets/icons/timeless/augments/jungle-pathing.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1"],
-      "description": "Gain a Pebbles, a Cinderling, a Scuttle Crab, and a Murkwolf. Each time you level up, gain a new Riftbeast and 1 gold.",
-      "combat": false
+      "description": "Gain a Pebbles, a Cinderling, a Scuttle Crab, and a Murkwolf.\nEach time you level up, gain a new Riftbeast and 1 gold.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "late-game-scaling",
       "name": "Late Game Scaling",
+      "iconPath": "src/assets/icons/timeless/augments/late-game-scaling.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Gain 2 XP at the start of player combat rounds. Your 5-cost champions gain 12% Health and 12% Attack Speed.Cyber City Tactician's Crown, 2025",
+      "description": "Gain 2 XP at the start of player combat rounds.\nYour 5-cost champions gain 12% Health and 12% Attack Speed.Cyber City Tactician's Crown, 2025",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1704,12 +2130,15 @@
       ]
     },
     {
+      "id": "legion-of-threes",
       "name": "Legion Of Threes",
+      "iconPath": "src/assets/icons/timeless/augments/legion-of-threes.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain a random Emblem. Your 3-cost champions and all allies equipped with an Emblem gain 150 Health and 12% Attack Speed.Reckoning Championship, 2021",
+      "description": "Gain a random Emblem.\nYour 3-cost champions and all allies equipped with an Emblem gain 150 Health and 12% Attack Speed.Reckoning Championship, 2021",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "team",
@@ -1727,20 +2156,26 @@
       ]
     },
     {
+      "id": "magic-roll",
       "name": "Magic Roll",
+      "iconPath": "src/assets/icons/timeless/augments/magic-roll.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2"],
-      "description": "Roll 3 dice. Gain rewards based on their total.{Augment.Variant.MagicRoll.Reward}",
-      "combat": false
+      "description": "Roll 3 dice.\nGain rewards based on their total.{Augment.Variant.MagicRoll.Reward}",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "makeshift-armor-ii",
       "name": "Makeshift Armor II",
+      "iconPath": "src/assets/icons/timeless/augments/makeshift-armor-ii.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["2-1", "3-2"],
       "description": "Champions without items equipped gain 50 Armor and Magic Resist.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1755,44 +2190,59 @@
       ]
     },
     {
+      "id": "malicious-monetization",
       "name": "Malicious Monetization",
+      "iconPath": "src/assets/icons/timeless/augments/malicious-monetization.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
-      "description": "Gain 4 gold. For the next 2 rounds, enemy champions drop 2 gold when killed.",
-      "combat": false
+      "description": "Gain 4 gold.\nFor the next 2 rounds, enemy champions drop 2 gold when killed.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "max-build",
       "name": "Max Build",
+      "iconPath": "src/assets/icons/timeless/augments/max-build.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["4-2"],
-      "description": "Gain 12 free Shop rerolls. When you reach level 9, gain 5 free Shop rerolls and a Champion Duplicator.Galaxies Championship, 2020",
-      "combat": false
+      "description": "Gain 12 free Shop rerolls.\nWhen you reach level 9, gain 5 free Shop rerolls and a Champion Duplicator.Galaxies Championship, 2020",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "money-hungry",
       "name": "Money Hungry",
+      "iconPath": "src/assets/icons/timeless/augments/money-hungry.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Gain 7 gold now, then 7 gold at the start of every stage. Picking up gold makes your Tactician larger.",
-      "combat": false
+      "description": "Gain 7 gold now, then 7 gold at the start of every stage.\nPicking up gold makes your Tactician larger.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "money-hungry-plus",
       "name": "Money Hungry+",
+      "iconPath": "src/assets/icons/timeless/augments/money-hungry-plus.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
-      "description": "Gain 10 gold now, then 7 gold at the start of every stage. Picking up gold makes your Tactician larger.",
-      "combat": false
+      "description": "Gain 10 gold now, then 7 gold at the start of every stage.\nPicking up gold makes your Tactician larger.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "no-scout-no-pivot",
       "name": "NO SCOUT NO PIVOT",
+      "iconPath": "src/assets/icons/timeless/augments/no-scout-no-pivot.png",
       "tier": "gold",
       "categories": ["strategic", "gold-econ"],
       "apparition": ["2-1"],
-      "description": "Champions that fight in player combat cannot be benched or sold. Your team gains 1% Health, and 1% Attack Damage and Ability Power after player combat.",
+      "description": "Champions that fight in player combat cannot be benched or sold.\nYour team gains 1% Health, and 1% Attack Damage and Ability Power after player combat.",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "team",
@@ -1807,12 +2257,15 @@
       ]
     },
     {
+      "id": "natures-shelter",
       "name": "Nature's Shelter",
+      "iconPath": "src/assets/icons/timeless/augments/natures-shelter.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1", "3-2", "4-2"],
-      "description": "Champions that start combat adjacent to an Elderwood plant gain 15% Attack Speed and heal 2% of their maximum Health every 2 seconds. Gain an Alistar, an Ornn, and a Xayah.",
+      "description": "Champions that start combat adjacent to an Elderwood plant gain 15% Attack Speed and heal 2% of their maximum Health every 2 seconds.\nGain an Alistar, an Ornn, and a Xayah.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1828,47 +2281,62 @@
       ]
     },
     {
+      "id": "omega-riftbeast",
       "name": "Omega Riftbeast",
+      "iconPath": "src/assets/icons/timeless/augments/omega-riftbeast.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1", "3-2", "4-2"],
-      "description": "You can now choose a second Alpha Riftbeast. Gain a Scuttlecrab, a Cinderling, and a Pebbles.",
+      "description": "You can now choose a second Alpha Riftbeast.\nGain a Scuttlecrab, a Cinderling, and a Pebbles.",
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "alphaRiftbeasts": 2
       }
     },
     {
+      "id": "pandoras-items-ii",
       "name": "Pandora's Items II",
+      "iconPath": "src/assets/icons/timeless/augments/pandoras-items-ii.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1", "3-2", "4-2"],
-      "description": "Round start: items on your bench are randomized. Gain 2 random components.",
-      "combat": false
+      "description": "Round start: items on your bench are randomized.\nGain 2 random components.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "patient-study",
       "name": "Patient Study",
+      "iconPath": "src/assets/icons/timeless/augments/patient-study.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
       "description": "After player combat, gain 2 XP if you won or 3 XP if you lost.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "pilfer",
       "name": "Pilfer",
+      "iconPath": "src/assets/icons/timeless/augments/pilfer.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
-      "description": "Each round, gain a 1-star copy of the first champion you killed last combat. The first time you gain 21 gold worth of champions in this way, gain a Thief's Gloves.",
-      "combat": false
+      "description": "Each round, gain a 1-star copy of the first champion you killed last combat.\nThe first time you gain 21 gold worth of champions in this way, gain a Thief's Gloves.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "plot-armor",
       "name": "Plot Armor",
+      "iconPath": "src/assets/icons/timeless/augments/plot-armor.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
-      "description": "Your team gains 8 Armor and Magic Resist. After falling below 50% Health, increase this to 40 for the rest of combat.",
+      "description": "Your team gains 8 Armor and Magic Resist.\nAfter falling below 50% Health, increase this to 40 for the rest of combat.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -1891,20 +2359,26 @@
       }
     },
     {
+      "id": "portable-forge",
       "name": "Portable Forge",
+      "iconPath": "src/assets/icons/timeless/augments/portable-forge.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1", "3-2", "4-2"],
-      "description": "Choose 1 of 4 Artifacts. Artifacts are more powerful items with a unique effect.",
-      "combat": false
+      "description": "Choose 1 of 4 Artifacts.\nArtifacts are more powerful items with a unique effect.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "promised-protection",
       "name": "Promised Protection",
+      "iconPath": "src/assets/icons/timeless/augments/promised-protection.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1", "3-2"],
-      "description": "Gain a Protector's Vow. Protector's Vow grants its holder 20% additional Mana from all sources and 200 max Health.",
+      "description": "Gain a Protector's Vow.\nProtector's Vow grants its holder 20% additional Mana from all sources and 200 max Health.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "holder",
@@ -1921,36 +2395,48 @@
       ]
     },
     {
+      "id": "replication",
       "name": "Replication",
+      "iconPath": "src/assets/icons/timeless/augments/replication.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1", "3-2"],
-      "description": "Choose 1 of 3 components. For the next 2 rounds, gain a copy of that component.",
-      "combat": false
+      "description": "Choose 1 of 3 components.\nFor the next 2 rounds, gain a copy of that component.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "salvage-bin",
       "name": "Salvage Bin",
+      "iconPath": "src/assets/icons/timeless/augments/salvage-bin.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain 1 random completed item now, and 1 component after 8 player combats. Selling champions breaks completed items into components (excluding Tactician's items and Emblems).",
-      "combat": false
+      "description": "Gain 1 random completed item now, and 1 component after 8 player combats.\nSelling champions breaks completed items into components (excluding Tactician's items and Emblems).",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "salvage-bin-plus",
       "name": "Salvage Bin+",
+      "iconPath": "src/assets/icons/timeless/augments/salvage-bin-plus.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
-      "description": "Gain 1 random completed item now, and 1 component after 4 player combats. Selling champions breaks completed items into components (excluding Tactician's items and Emblems).",
-      "combat": false
+      "description": "Gain 1 random completed item now, and 1 component after 4 player combats.\nSelling champions breaks completed items into components (excluding Tactician's items and Emblems).",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "seraphims-staff",
       "name": "Seraphim's Staff",
+      "iconPath": "src/assets/icons/timeless/augments/seraphims-staff.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1", "3-2"],
-      "description": "Gain an Archangel's Staff. Archangel's Staff grants 2 additional Mana Regen if its holder has 90% or more Ability Power.",
+      "description": "Gain an Archangel's Staff.\nArchangel's Staff grants 2 additional Mana Regen if its holder has 90% or more Ability Power.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "holder",
@@ -1968,40 +2454,52 @@
       }
     },
     {
+      "id": "slammin",
       "name": "Slammin'",
+      "iconPath": "src/assets/icons/timeless/augments/slammin.png",
       "tier": "gold",
       "categories": ["items", "gold-econ"],
       "apparition": ["2-1"],
-      "description": "Gain 3 gold. After each player combat, if there are no items on your bench (other than consumables), gain 2 XP.",
-      "combat": false
+      "description": "Gain 3 gold.\nAfter each player combat, if there are no items on your bench (other than consumables), gain 2 XP.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "slammin-plus",
       "name": "Slammin'+",
+      "iconPath": "src/assets/icons/timeless/augments/slammin-plus.png",
       "tier": "gold",
       "categories": ["items", "gold-econ"],
       "apparition": ["3-2"],
-      "description": "Gain 4 gold and 10 XP now. After each player combat, if there are no items on your bench (other than consumables), gain 2 XP.",
-      "combat": false
+      "description": "Gain 4 gold and 10 XP now.\nAfter each player combat, if there are no items on your bench (other than consumables), gain 2 XP.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "small-furry-friend",
       "name": "Small Furry Friend",
+      "iconPath": "src/assets/icons/timeless/augments/small-furry-friend.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1", "3-2", "4-2"],
-      "description": "While Sprykin is active, gain a second BFF summon that is 70% as powerful. Gain a Teemo, a Veigar, and a Kobuko.",
+      "description": "While Sprykin is active, gain a second BFF summon that is 70% as powerful.\nGain a Teemo, a Veigar, and a Kobuko.",
       "combat": true,
+      "requiresRunInput": true,
       "params": {
-        "secondBffEffectiveness": 0.5,
+        "secondBffEffectiveness": 0.7,
         "secondBffEffectivenessAppliesToSummonSpell": false
       }
     },
     {
+      "id": "solo-leveling",
       "name": "Solo Leveling",
+      "iconPath": "src/assets/icons/timeless/augments/solo-leveling.png",
       "tier": "gold",
       "categories": ["strategic"],
       "apparition": ["2-1"],
-      "description": "For the next 5 combats, your team size is 1, but the champion you field has massively increased stats. Gain 1 XP for every kill they get. Afterwards, gain 2 item components.",
+      "description": "For the next 5 combats, your team size is 1, but the champion you field has massively increased stats.\nGain 1 XP for every kill they get.\nAfterwards, gain 2 item components.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "self",
@@ -2027,12 +2525,15 @@
       }
     },
     {
+      "id": "solo-plate",
       "name": "Solo Plate",
+      "iconPath": "src/assets/icons/timeless/augments/solo-plate.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1", "3-2"],
-      "description": "Gain a Gargoyle Stoneplate. Combat start: Allies holding Gargoyle Stoneplate gain 17% max Health if they're the only one in their row.",
+      "description": "Gain a Gargoyle Stoneplate.\nCombat start: Allies holding Gargoyle Stoneplate gain 17% max Health if they're the only one in their row.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "holder",
@@ -2047,20 +2548,26 @@
       ]
     },
     {
+      "id": "speedy-double-kill",
       "name": "Speedy Double Kill",
+      "iconPath": "src/assets/icons/timeless/augments/speedy-double-kill.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain a Guinsoo's Rageblade. When 2 players are eliminated, gain 40 gold.Fates Championship, 2021",
-      "combat": false
+      "description": "Gain a Guinsoo's Rageblade.\nWhen 2 players are eliminated, gain 40 gold.Fates Championship, 2021",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "spirit-of-redemption",
       "name": "Spirit Of Redemption",
+      "iconPath": "src/assets/icons/timeless/augments/spirit-of-redemption.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1", "3-2"],
-      "description": "Gain a Spirit Visage. Every 5 seconds, Spirit Visage heals allies within 1 hex for 7.5% of their missing Health.",
+      "description": "Gain a Spirit Visage.\nEvery 5 seconds, Spirit Visage heals allies within 1 hex for 7.5% of their missing Health.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "ally",
@@ -2078,36 +2585,48 @@
       }
     },
     {
+      "id": "spreading-roots",
       "name": "Spreading Roots",
+      "iconPath": "src/assets/icons/timeless/augments/spreading-roots.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1"],
       "description": "Gain 2 random Emblems and 1 gold.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "spreading-roots-plus",
       "name": "Spreading Roots+",
+      "iconPath": "src/assets/icons/timeless/augments/spreading-roots-plus.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["3-2"],
       "description": "Gain 2 random Emblems, a Reforger, and 2 gold.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "staffsmith",
       "name": "Staffsmith",
+      "iconPath": "src/assets/icons/timeless/augments/staffsmith.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["4-2"],
-      "description": "Gain  2 random completed items that build from Needlessly Large Rod.",
-      "combat": false
+      "description": "Gain 2 random completed items that build from Needlessly Large Rod.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "sun-and-moon",
       "name": "Sun and Moon",
+      "iconPath": "src/assets/icons/timeless/augments/sun-and-moon.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["3-2"],
-      "description": "Your Lunar champions gain 100 Health and 8% Damage Amp for each unique Solar champion fielded. Gain a Leona, a Kayle, and a Diana.",
+      "description": "Your Lunar champions gain 100 Health and 8% Damage Amp for each unique Solar champion fielded.\nGain a Leona, a Kayle, and a Diana.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "traitHolders",
@@ -2125,12 +2644,15 @@
       ]
     },
     {
+      "id": "sun-and-moon-plus",
       "name": "Sun and Moon+",
+      "iconPath": "src/assets/icons/timeless/augments/sun-and-moon-plus.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["4-2"],
-      "description": "Your Lunar champions gain 100 Health and 8% Damage Amp for each unique Solar champion fielded. Gain a 2-star Leona, a Kayle, and an Aphelios.",
+      "description": "Your Lunar champions gain 100 Health and 8% Damage Amp for each unique Solar champion fielded.\nGain a 2-star Leona, a Kayle, and an Aphelios.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "traitHolders",
@@ -2148,20 +2670,26 @@
       ]
     },
     {
+      "id": "swordsmith",
       "name": "Swordsmith",
+      "iconPath": "src/assets/icons/timeless/augments/swordsmith.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["4-2"],
       "description": "Gain 2 random completed items that build from B.F. Sword.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "the-golden-dragon",
       "name": "The Golden Dragon",
+      "iconPath": "src/assets/icons/timeless/augments/the-golden-dragon.png",
       "tier": "gold",
       "categories": ["items", "strategic"],
       "apparition": ["3-2"],
-      "description": "Gain a Mogul's Mail. Champions holding Mogul's Mail take up +1 team slot but gain 700 Health and 20% Durability.Mogul's Mail gives gold as well as combat power.Dragonlands Championship, 2022",
+      "description": "Gain a Mogul's Mail.\nChampions holding Mogul's Mail take up +1 team slot but gain 700 Health and 20% Durability.Mogul's Mail gives gold as well as combat power.Dragonlands Championship, 2022",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "holder",
@@ -2181,20 +2709,26 @@
       }
     },
     {
+      "id": "time-skip",
       "name": "Time Skip",
+      "iconPath": "src/assets/icons/timeless/augments/time-skip.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Disable your Shop for the next 3 rounds. Then gain 32 XP.",
-      "combat": false
+      "description": "Disable your Shop for the next 3 rounds.\nThen gain 32 XP.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "tons-of-stats-gold",
       "name": "Tons of Stats!",
+      "iconPath": "src/assets/icons/timeless/augments/tons-of-stats-gold.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
       "description": "Your team gains 44 Health, 4% Attack Damage, 4% Ability Power, 4 Armor, 4 Magic Resist, 4% Attack Speed, and 4 Mana.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -2213,28 +2747,37 @@
       ]
     },
     {
+      "id": "trade-sector",
       "name": "Trade Sector",
+      "iconPath": "src/assets/icons/timeless/augments/trade-sector.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Gain a free Shop reroll every round. Gain 2 gold.",
-      "combat": false
+      "description": "Gain a free Shop reroll every round.\nGain 2 gold.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "trade-sector-plus",
       "name": "Trade Sector+",
+      "iconPath": "src/assets/icons/timeless/augments/trade-sector-plus.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
-      "description": "Gain a free Shop reroll every round. Gain 8 gold.",
-      "combat": false
+      "description": "Gain a free Shop reroll every round.\nGain 8 gold.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "urf",
       "name": "U.R.F",
+      "iconPath": "src/assets/icons/timeless/augments/urf.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1", "3-2", "4-2"],
-      "description": "Gain a Spatula. Champions holding Spatula or Frying Pan items gain 15% Attack Speed and 2 Mana Regen",
+      "description": "Gain a Spatula.\nChampions holding Spatula or Frying Pan items gain 15% Attack Speed and 2 Mana Regen",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "holder",
@@ -2251,23 +2794,29 @@
       ]
     },
     {
+      "id": "unrivaled",
       "name": "Unrivaled",
+      "iconPath": "src/assets/icons/timeless/augments/unrivaled.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1", "3-2"],
-      "description": "You can field Rengar and Kha'Zix together with no penalties, and they gain bonuses when the other casts. Gain a Rengar and a Kha'Zix.",
+      "description": "You can field Rengar and Kha'Zix together with no penalties, and they gain bonuses when the other casts.\nGain a Rengar and a Kha'Zix.",
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "rivalsFieldedTogether": 1
       }
     },
     {
+      "id": "verticality-ii",
       "name": "Verticality II",
+      "iconPath": "src/assets/icons/timeless/augments/verticality-ii.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
       "description": "Champions gain 2% Attack Damage, 2% Ability Power, 2 Armor, and 2 Magic Resist for each ally that shares a trait with them.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -2284,68 +2833,92 @@
       ]
     },
     {
+      "id": "warpath",
       "name": "Warpath",
+      "iconPath": "src/assets/icons/timeless/augments/warpath.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["2-1"],
-      "description": "Gain a 2-star 2-cost champion. After dealing 80 player damage, gain a chest of high cost champions and items.",
-      "combat": false
+      "description": "Gain a 2-star 2-cost champion.\nAfter dealing 80 player damage, gain a chest of high cost champions and items.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "weight-the-worth",
       "name": "Weight The Worth",
+      "iconPath": "src/assets/icons/timeless/augments/weight-the-worth.png",
       "tier": "gold",
       "categories": ["strategic", "gold-econ"],
       "apparition": ["3-2"],
       "description": "The first time you 3-star a champion, gain a copy of them each round for the rest of the game. 3-starring the same champion again grants additional copies.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "worth-the-wait",
       "name": "Worth the Wait",
+      "iconPath": "src/assets/icons/timeless/augments/worth-the-wait.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["2-1"],
-      "description": "Gain a random 1-cost champion. Gain another copy of them at the start of each round for the rest of the game.",
-      "combat": false
+      "description": "Gain a random 1-cost champion.\nGain another copy of them at the start of each round for the rest of the game.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "woven-magic",
       "name": "Woven Magic",
+      "iconPath": "src/assets/icons/timeless/augments/woven-magic.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain a random item component. Every 2200 Mana spent by your champions, grants an additional component (max: /3).",
-      "combat": false
+      "description": "Gain a random item component.\nEvery 2200 Mana spent by your champions, grants an additional component (max: /3).",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "band-of-thieves-ii",
       "name": "Band of Thieves II",
+      "iconPath": "src/assets/icons/timeless/augments/band-of-thieves-ii.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain 2 Thief's Gloves. After 6 player combats, gain another.",
-      "combat": false
+      "description": "Gain 2 Thief's Gloves.\nAfter 6 player combats, gain another.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "band-of-thieves-ii-plus",
       "name": "Band of Thieves II+",
+      "iconPath": "src/assets/icons/timeless/augments/band-of-thieves-ii-plus.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2"],
-      "description": "Gain 2 Thief's Gloves. After 5 player combats, gain another.",
-      "combat": false
+      "description": "Gain 2 Thief's Gloves.\nAfter 5 player combats, gain another.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "band-of-thieves-ii-plus-plus",
       "name": "Band of Thieves II++",
+      "iconPath": "src/assets/icons/timeless/augments/band-of-thieves-ii-plus-plus.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["4-2"],
-      "description": "Gain 2 Thief's Gloves. After 3 player combats, gain another.",
-      "combat": false
+      "description": "Gain 2 Thief's Gloves.\nAfter 3 player combats, gain another.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "barons-lair",
       "name": "Baron's Lair",
+      "iconPath": "src/assets/icons/timeless/augments/barons-lair.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
-      "description": "Gain a random Tank item. After 8 seconds of combat, your team gains 5% bonus Attack Damage and Ability Power every second for the rest of combat.TFT Paris Open, 2025",
+      "description": "Gain a random Tank item.\nAfter 8 seconds of combat, your team gains 5% bonus Attack Damage and Ability Power every second for the rest of combat.TFT Paris Open, 2025",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "team",
@@ -2360,12 +2933,15 @@
       ]
     },
     {
+      "id": "belt-overflow",
       "name": "Belt Overflow",
+      "iconPath": "src/assets/icons/timeless/augments/belt-overflow.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
-      "description": "Gain 4 Giant's Belts. Your Giant's Belts grant +85 bonus Health.",
+      "description": "Gain 4 Giant's Belts.\nYour Giant's Belts grant +85 bonus Health.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "holder",
@@ -2379,20 +2955,26 @@
       ]
     },
     {
+      "id": "birthday-present",
       "name": "Birthday Present",
+      "iconPath": "src/assets/icons/timeless/augments/birthday-present.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Gain a 2-star champion and 1 gold each time you level up. The champion's cost tier is your level minus 4 (max: 5-cost)",
-      "combat": false
+      "description": "Gain a 2-star champion and 1 gold each time you level up.\nThe champion's cost tier is your level minus 4 (max: 5-cost)",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "bronze-for-life-ii",
       "name": "Bronze For Life II",
+      "iconPath": "src/assets/icons/timeless/augments/bronze-for-life-ii.png",
       "tier": "prismatic",
       "categories": ["strategic"],
       "apparition": ["3-2", "4-2"],
       "description": "Your team gains 2% Damage Amp and 4 Armor and Magic Resist for each Bronze-tier trait.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -2408,36 +2990,48 @@
       ]
     },
     {
+      "id": "build-a-bud",
       "name": "Build a Bud",
+      "iconPath": "src/assets/icons/timeless/augments/build-a-bud.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
-      "description": "Gain a random 3-star 1-cost champion. Gain 10 gold.",
-      "combat": false
+      "description": "Gain a random 3-star 1-cost champion.\nGain 10 gold.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "buried-treasures-iii",
       "name": "Buried Treasures III",
+      "iconPath": "src/assets/icons/timeless/augments/buried-treasures-iii.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
       "description": "Gain a random item component now and at the start of the next 5 rounds.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "call-to-chaos",
       "name": "Call To Chaos",
+      "iconPath": "src/assets/icons/timeless/augments/call-to-chaos.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["4-2"],
       "description": "Gain a powerful and random reward.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "celestial-blessing-iii",
       "name": "Celestial Blessing III",
+      "iconPath": "src/assets/icons/timeless/augments/celestial-blessing-iii.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
-      "description": "Your team gains 25% Omnivamp. Excess healing is converted to a shield up to 1000 Health.",
+      "description": "Your team gains 25% Omnivamp.\nExcess healing is converted to a shield up to 1000 Health.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -2451,12 +3045,15 @@
       }
     },
     {
+      "id": "comeback-story",
       "name": "Comeback Story",
+      "iconPath": "src/assets/icons/timeless/augments/comeback-story.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["2-1"],
       "description": "Your team gains 4 Health and 0.4% Attack Speed per missing player Health.",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "team",
@@ -2471,28 +3068,37 @@
       ]
     },
     {
+      "id": "commerce-core",
       "name": "Commerce Core",
+      "iconPath": "src/assets/icons/timeless/augments/commerce-core.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
       "description": "Gain 16 free Shop rerolls now and 3 every round for the rest of the game.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "component-quest",
       "name": "Component Quest",
+      "iconPath": "src/assets/icons/timeless/augments/component-quest.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["2-1"],
-      "description": "Gain a random component and 1 gold. The next 7 times you win a player combat, gain a different random component. Afterwards, gain 8 gold.",
-      "combat": false
+      "description": "Gain a random component and 1 gold.\nThe next 7 times you win a player combat, gain a different random component.\nAfterwards, gain 8 gold.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "coronation",
       "name": "Coronation",
+      "iconPath": "src/assets/icons/timeless/augments/coronation.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
-      "description": "Gain a Tactician's Crown. Tactician's Crown, Cape, and Shield grant the holder 20% Attack Speed, 25% Attack Damage, and 30% Ability Power.",
+      "description": "Gain a Tactician's Crown.\nTactician's Crown, Cape, and Shield grant the holder 20% Attack Speed, 25% Attack Damage, and 30% Ability Power.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "holder",
@@ -2508,12 +3114,15 @@
       ]
     },
     {
+      "id": "cursed-crown",
       "name": "Cursed Crown",
+      "iconPath": "src/assets/icons/timeless/augments/cursed-crown.png",
       "tier": "prismatic",
       "categories": ["items", "strategic"],
       "apparition": ["2-1", "3-2"],
       "description": "Gain +2 max team size and your team gains 4% Durability, but you take double player damage when you lose a player combat.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -2527,12 +3136,15 @@
       }
     },
     {
+      "id": "deadlier-blades",
       "name": "Deadlier Blades",
+      "iconPath": "src/assets/icons/timeless/augments/deadlier-blades.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain a Deathblade. Deathblades permanently gain 1% Attack Damage whenever their holders score a takedown.",
+      "description": "Gain a Deathblade.\nDeathblades permanently gain 1% Attack Damage whenever their holders score a takedown.",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "holder",
@@ -2548,12 +3160,15 @@
       ]
     },
     {
+      "id": "deadlier-caps",
       "name": "Deadlier Caps",
+      "iconPath": "src/assets/icons/timeless/augments/deadlier-caps.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain a Rabadon's Deathcap. Rabadon's Deathcaps grant 1 Mana Regen and permanently gain 1% Ability Power whenever their holders score a takedown.",
+      "description": "Gain a Rabadon's Deathcap.\nRabadon's Deathcaps grant 1 Mana Regen and permanently gain 1% Ability Power whenever their holders score a takedown.",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "holder",
@@ -2572,12 +3187,15 @@
       ]
     },
     {
+      "id": "flexible",
       "name": "Flexible",
+      "iconPath": "src/assets/icons/timeless/augments/flexible.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain 1 random Emblem. At the start of every Stage, gain a random Emblem. Your team gains 30 Health for each Emblem they are holding.",
+      "description": "Gain 1 random Emblem.\nAt the start of every Stage, gain a random Emblem.\nYour team gains 30 Health for each Emblem they are holding.",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "team",
@@ -2589,20 +3207,26 @@
       ]
     },
     {
+      "id": "forged-in-strength",
       "name": "Forged In Strength",
+      "iconPath": "src/assets/icons/timeless/augments/forged-in-strength.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain 1 random Artifact. When you drop below 35 Health, gain 1 more random Artifact, 1 random completed item, and 1 random component.Remix Rumble Championship, 2023",
-      "combat": false
+      "description": "Gain 1 random Artifact.\nWhen you drop below 35 Health, gain 1 more random Artifact, 1 random completed item, and 1 random component.Remix Rumble Championship, 2023",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "giant-and-mighty",
       "name": "Giant and Mighty",
+      "iconPath": "src/assets/icons/timeless/augments/giant-and-mighty.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
       "description": "Your team becomes large, gaining 200 Health and 10% max Health.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -2616,60 +3240,81 @@
       ]
     },
     {
+      "id": "going-long",
       "name": "Going Long",
+      "iconPath": "src/assets/icons/timeless/augments/going-long.png",
       "tier": "prismatic",
       "categories": ["gold-econ", "strategic"],
       "apparition": ["2-1"],
-      "description": "You no longer gain interest. Gain 16 gold now. Round start: gain 4 XP.Interest is extra gold you gain per 10g saved.",
-      "combat": false
+      "description": "You no longer gain interest.\nGain 16 gold now.\nRound start: gain 4 XP.Interest is extra gold you gain per 10g saved.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "golden-gamble",
       "name": "Golden Gamble",
+      "iconPath": "src/assets/icons/timeless/augments/golden-gamble.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain 2 gold and flip a coin. If heads, gain a Radiant Lucky Item Chest. If tails, gain 2 Completed Item anvils.",
-      "combat": false
+      "description": "Gain 2 gold and flip a coin.\nIf heads, gain a Radiant Lucky Item Chest.\nIf tails, gain 2 Completed Item anvils.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "golden-gamble-plus",
       "name": "Golden Gamble +",
+      "iconPath": "src/assets/icons/timeless/augments/golden-gamble-plus.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2"],
-      "description": "Gain 3 gold and flip a coin. If heads, gain a Radiant Lucky Item Chest. If tails, gain 2 Completed Item anvils.",
-      "combat": false
+      "description": "Gain 3 gold and flip a coin.\nIf heads, gain a Radiant Lucky Item Chest.\nIf tails, gain 2 Completed Item anvils.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "golden-gamble-plus-plus",
       "name": "Golden Gamble ++",
+      "iconPath": "src/assets/icons/timeless/augments/golden-gamble-plus-plus.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["4-2"],
-      "description": "Gain 6 gold and flip a coin. If heads, gain a Radiant Lucky Item Chest. If tails, gain 2 Completed Item anvils.",
-      "combat": false
+      "description": "Gain 6 gold and flip a coin.\nIf heads, gain a Radiant Lucky Item Chest.\nIf tails, gain 2 Completed Item anvils.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "hard-commit",
       "name": "Hard Commit",
+      "iconPath": "src/assets/icons/timeless/augments/hard-commit.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain a random emblem. Now and at the start of each stage, gain a 1-star champion of that trait with a cost equal to the Stage (max 5) and 3 gold.",
-      "combat": false
+      "description": "Gain a random emblem.\nNow and at the start of each stage, gain a 1-star champion of that trait with a cost equal to the Stage (max 5) and 3 gold.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "hedge-fund",
       "name": "Hedge Fund",
+      "iconPath": "src/assets/icons/timeless/augments/hedge-fund.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Gain 22 gold. Your max interest is increased to 10.",
-      "combat": false
+      "description": "Gain 22 gold.\nYour max interest is increased to 10.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "hold-the-line",
       "name": "Hold the Line",
+      "iconPath": "src/assets/icons/timeless/augments/hold-the-line.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
       "description": "Champions in your back 2 rows gain 9% Ability Power and 8% Attack Damage for each champion that starts combat in your front row.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -2685,28 +3330,37 @@
       ]
     },
     {
+      "id": "invested-plus",
       "name": "Invested+",
+      "iconPath": "src/assets/icons/timeless/augments/invested-plus.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
-      "description": "Gain 26 gold. At the start of each round, gain 1 Shop reroll for every 10 gold above 50 (max 80 gold).",
-      "combat": false
+      "description": "Gain 26 gold.\nAt the start of each round, gain 1 Shop reroll for every 10 gold above 50 (max 80 gold).",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "invested-plus-plus",
       "name": "Invested++",
+      "iconPath": "src/assets/icons/timeless/augments/invested-plus-plus.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
-      "description": "Gain 45 gold. At the start of each round, gain 1 Shop reroll for every 10 gold above 50 (max 80 gold).",
-      "combat": false
+      "description": "Gain 45 gold.\nAt the start of each round, gain 1 Shop reroll for every 10 gold above 50 (max 80 gold).",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "investment-strategy-ii",
       "name": "Investment Strategy II",
+      "iconPath": "src/assets/icons/timeless/augments/investment-strategy-ii.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Your champions gain 8 permanent max health per interest you earn. Your max interest is increased by 2. Gain 3 gold.",
+      "description": "Your champions gain 8 permanent max health per interest you earn.\nYour max interest is increased by 2.\nGain 3 gold.",
       "combat": true,
+      "requiresRunInput": true,
       "grants": [
         {
           "to": "team",
@@ -2719,12 +3373,15 @@
       ]
     },
     {
+      "id": "jeweled-lotus-ii",
       "name": "Jeweled Lotus II",
+      "iconPath": "src/assets/icons/timeless/augments/jeweled-lotus-ii.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
-      "description": "Your team gains 25% Critical Strike Chance, 10% Critical Strike Damage, and Precision.Precision: Ability damage can critically strike. Additional Precision grants 10% Critical Strike Damage.",
+      "description": "Your team gains 25% Critical Strike Chance, 10% Critical Strike Damage, and Precision.Precision: Ability damage can critically strike.\nAdditional Precision grants 10% Critical Strike Damage.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -2737,187 +3394,250 @@
       ]
     },
     {
+      "id": "level-up",
       "name": "Level Up!",
+      "iconPath": "src/assets/icons/timeless/augments/level-up.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "When you buy XP, gain an additional 2. Gain 6 immediately.",
-      "combat": false
+      "description": "When you buy XP, gain an additional 2.\nGain 6 immediately.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "living-forge",
       "name": "Living Forge",
+      "iconPath": "src/assets/icons/timeless/augments/living-forge.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
       "description": "Gain an Artifact Anvil now and after every 9 player combats.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "lucky-gloves",
       "name": "Lucky Gloves",
+      "iconPath": "src/assets/icons/timeless/augments/lucky-gloves.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Thief's Gloves will always give your champions ideal items. Gain 2 Sparring Gloves and 4 gold.",
-      "combat": false
+      "description": "Thief's Gloves will always give your champions ideal items.\nGain 2 Sparring Gloves and 4 gold.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "lucky-gloves-plus",
       "name": "Lucky Gloves+",
+      "iconPath": "src/assets/icons/timeless/augments/lucky-gloves-plus.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
-      "description": "Thief's Gloves will always give your champions ideal items. Gain 2 Sparring Gloves now, then another after 4 player combats.",
-      "combat": false
+      "description": "Thief's Gloves will always give your champions ideal items.\nGain 2 Sparring Gloves now, then another after 4 player combats.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "luxury-subscription",
       "name": "Luxury Subscription",
+      "iconPath": "src/assets/icons/timeless/augments/luxury-subscription.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["3-2"],
       "description": "Gain a package containing a 5-cost champion, a 2-star 1-cost champion, and 7 gold.At the start of the next 2 stages, gain the package again.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "master-of-all-origins",
       "name": "Master of All Origins",
+      "iconPath": "src/assets/icons/timeless/augments/master-of-all-origins.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["4-2"],
-      "description": "Open an armory and choose one of  3 traits. Gain a Lux with that trait and a Spear of Shojin.Traits on your board are more likely to appear in the armory. Lux provides +2 to her chosen trait",
+      "description": "Open an armory and choose one of 3 traits.\nGain a Lux with that trait and a Spear of Shojin.Traits on your board are more likely to appear in the armory.\nLux provides +2 to her chosen trait",
       "combat": true,
+      "requiresRunInput": true,
       "params": {
         "traitCountBonus": 2
       }
     },
     {
+      "id": "min-max",
       "name": "Min-Max",
+      "iconPath": "src/assets/icons/timeless/augments/min-max.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2"],
       "description": "Gain a Golden Item Remover and 4 random components.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "money-monsoon",
       "name": "Money Monsoon",
+      "iconPath": "src/assets/icons/timeless/augments/money-monsoon.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
       "description": "Gain 7 gold now and every round for the rest of the game.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "nesting-anvils",
       "name": "Nesting Anvils",
+      "iconPath": "src/assets/icons/timeless/augments/nesting-anvils.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2"],
-      "description": "Gain an Artifact Anvil. After you open it, gain a Component Anvil. After you open that, gain 8 gold.",
-      "combat": false
+      "description": "Gain an Artifact Anvil.\nAfter you open it, gain a Component Anvil.\nAfter you open that, gain 8 gold.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "nesting-anvils-plus",
       "name": "Nesting Anvils +",
+      "iconPath": "src/assets/icons/timeless/augments/nesting-anvils-plus.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["4-2"],
-      "description": "Gain an Artifact Anvil. After you open it, gain a Component Anvil. After you open that, gain 12 gold.",
-      "combat": false
+      "description": "Gain an Artifact Anvil.\nAfter you open it, gain a Component Anvil.\nAfter you open that, gain 12 gold.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "nesting-dolls",
       "name": "Nesting Dolls",
+      "iconPath": "src/assets/icons/timeless/augments/nesting-dolls.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "After a champion dies in combat, spawn a copy of them one star level lower with 70% health. Gain 3 free rerolls.",
+      "description": "After a champion dies in combat, spawn a copy of them one star level lower with 70% health.\nGain 3 free rerolls.",
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "respawnHealthShare": 0.7,
         "respawnStarLevelDrop": 1
       }
     },
     {
+      "id": "nesting-dolls-plus",
       "name": "Nesting Dolls+",
+      "iconPath": "src/assets/icons/timeless/augments/nesting-dolls-plus.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
-      "description": "After a champion dies in combat, spawn a copy of them one star level lower with 50% health. Gain 3 free rerolls.",
+      "description": "After a champion dies in combat, spawn a copy of them one star level lower with 50% health.\nGain 3 free rerolls.",
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "respawnHealthShare": 0.5,
         "respawnStarLevelDrop": 1
       }
     },
     {
+      "id": "nesting-dolls-plus-plus",
       "name": "Nesting Dolls++",
+      "iconPath": "src/assets/icons/timeless/augments/nesting-dolls-plus-plus.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
-      "description": "After a champion dies in combat, spawn a copy of them one star level lower with 50% health. Gain 3 free rerolls.",
+      "description": "After a champion dies in combat, spawn a copy of them one star level lower with 50% health.\nGain 3 free rerolls.",
       "combat": true,
+      "requiresRunInput": false,
       "params": {
         "respawnHealthShare": 0.5,
         "respawnStarLevelDrop": 1
       }
     },
     {
+      "id": "one-buff-two-buff",
       "name": "One Buff Two Buff",
+      "iconPath": "src/assets/icons/timeless/augments/one-buff-two-buff.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
       "description": "Gain a Red Buff, a Blue Buff, and a Champion Duplicator.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "pandoras-items-iii",
       "name": "Pandora's Items III",
+      "iconPath": "src/assets/icons/timeless/augments/pandoras-items-iii.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1", "3-2"],
-      "description": "Round start: items on your bench are randomized. Gain 1 Radiant item.",
-      "combat": false
+      "description": "Round start: items on your bench are randomized.\nGain 1 Radiant item.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "prismatic-destiny",
       "name": "Prismatic Destiny",
+      "iconPath": "src/assets/icons/timeless/augments/prismatic-destiny.png",
       "tier": "prismatic",
       "categories": ["strategic"],
       "apparition": ["2-1"],
       "description": "Gain a random Prismatic Augment and 4 gold.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "prismatic-destiny-plus",
       "name": "Prismatic Destiny Plus",
+      "iconPath": "src/assets/icons/timeless/augments/prismatic-destiny-plus.png",
       "tier": "prismatic",
       "categories": ["strategic"],
       "apparition": ["3-2"],
       "description": "Gain a random Prismatic Augment and 10 gold.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "prismatic-ticket",
       "name": "Prismatic Ticket",
+      "iconPath": "src/assets/icons/timeless/augments/prismatic-ticket.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["2-1", "3-2"],
       "description": "Each time your shop is rerolled you have a 45% chance to gain a free reroll.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "radiant-rascal",
       "name": "Radiant Rascal",
+      "iconPath": "src/assets/icons/timeless/augments/radiant-rascal.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
-      "description": "Gain a Radiant Thief's Gloves item. This equips 2 random Radiant items every round.",
-      "combat": false
+      "description": "Gain a Radiant Thief's Gloves item.\nThis equips 2 random Radiant items every round.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "radiant-relics",
       "name": "Radiant Relics",
+      "iconPath": "src/assets/icons/timeless/augments/radiant-relics.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1", "3-2", "4-2"],
-      "description": "Choose 1 of 5 Radiant Items. Gain a Magnetic Remover.",
-      "combat": false
+      "description": "Choose 1 of 5 Radiant Items.\nGain a Magnetic Remover.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "retribution",
       "name": "Retribution",
+      "iconPath": "src/assets/icons/timeless/augments/retribution.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
-      "description": "Gain 2 Hands of Justice. Allies equipped with Hand of Justice gain Precision and 25% Critical Strike Chance.Precision: Ability damage can critically strike. Additional Precision grants 10% Critical Strike Damage.",
+      "description": "Gain 2 Hands of Justice.\nAllies equipped with Hand of Justice gain Precision and 25% Critical Strike Chance.Precision: Ability damage can critically strike.\nAdditional Precision grants 10% Critical Strike Damage.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "holder",
@@ -2932,28 +3652,37 @@
       ]
     },
     {
+      "id": "shimmerscale-essence",
       "name": "Shimmerscale Essence",
+      "iconPath": "src/assets/icons/timeless/augments/shimmerscale-essence.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain a Mogul's Mail. After 6  player combats, gain a Gamblers Blade.",
-      "combat": false
+      "description": "Gain a Mogul's Mail.\nAfter 6 player combats, gain a Gamblers Blade.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "shopping-spree",
       "name": "Shopping Spree",
+      "iconPath": "src/assets/icons/timeless/augments/shopping-spree.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "When you level up, gain a number of free shop refreshes equal to your level +1. Gain 2 gold.",
-      "combat": false
+      "description": "When you level up, gain a number of free shop refreshes equal to your level +1.\nGain 2 gold.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "soul-awakening",
       "name": "Soul Awakening",
+      "iconPath": "src/assets/icons/timeless/augments/soul-awakening.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
-      "description": "Combat start: Your team gains 1.5% Attack Damage and Ability Power per second for 10 seconds. At max stacks, deal 12% bonus true damage.",
+      "description": "Combat start: Your team gains 1.5% Attack Damage and Ability Power per second for 10 seconds.\nAt max stacks, deal 12% bonus true damage.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -2977,12 +3706,15 @@
       ]
     },
     {
+      "id": "sweet-treats",
       "name": "Sweet Treats",
+      "iconPath": "src/assets/icons/timeless/augments/sweet-treats.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
-      "description": "Gain an Artifact anvil. Your team gains 16 Health for each item equipped on champions.",
+      "description": "Gain an Artifact anvil.\nYour team gains 16 Health for each item equipped on champions.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -2994,12 +3726,15 @@
       ]
     },
     {
+      "id": "sword-overflow",
       "name": "Sword Overflow",
+      "iconPath": "src/assets/icons/timeless/augments/sword-overflow.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
-      "description": "Gain 4 BF Swords. Your BF Swords grant +4% Attack Speed.",
+      "description": "Gain 4 BF Swords.\nYour BF Swords grant +4% Attack Speed.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "holder",
@@ -3013,12 +3748,15 @@
       ]
     },
     {
+      "id": "tons-of-stats-prismatic",
       "name": "TONS of Stats!",
+      "iconPath": "src/assets/icons/timeless/augments/tons-of-stats-prismatic.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
       "description": "Your team gains 88 Health, 8% Attack Damage, 8% Ability Power, 8 Armor, 8 Magic Resist, 8% Attack Speed, and 8 Mana.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -3037,76 +3775,117 @@
       ]
     },
     {
+      "id": "tacticians-kitchen",
       "name": "Tactician's Kitchen",
+      "iconPath": "src/assets/icons/timeless/augments/tacticians-kitchen.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain a random Emblem. After 3 rounds, gain a Tactician's Cape.",
-      "combat": false
+      "description": "Gain a random Emblem.\nAfter 3 rounds, gain a Tactician's Cape.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "the-golden-egg",
       "name": "The Golden Egg",
+      "iconPath": "src/assets/icons/timeless/augments/the-golden-egg.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
-      "description": "Gain a golden egg that hatches in 11 turns for a huge amount of loot. Winning player combat speeds up the hatch timer by an extra turn.",
-      "combat": false
+      "description": "Gain a golden egg that hatches in 11 turns for a huge amount of loot.\nWinning player combat speeds up the hatch timer by an extra turn.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "the-trait-tree",
       "name": "The Trait Tree",
+      "iconPath": "src/assets/icons/timeless/augments/the-trait-tree.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
       "description": "Gain 3 random Emblems and 2 gold.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "the-trait-tree-plus",
       "name": "The Trait Tree+",
+      "iconPath": "src/assets/icons/timeless/augments/the-trait-tree-plus.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2"],
       "description": "Gain 3 random Emblems, a Reforger, and 4 gold.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "trait-ladder",
       "name": "Trait Ladder",
+      "iconPath": "src/assets/icons/timeless/augments/trait-ladder.png",
       "tier": "prismatic",
       "categories": ["strategic"],
       "apparition": ["2-1", "3-2"],
-      "description": "Gain a random emblem. After fielding 2 non-unique traits in a player combat, gain a reward. Then increase the number of traits needed and the size of the reward.",
-      "combat": false
+      "description": "Gain a random emblem.\nAfter fielding 2 non-unique traits in a player combat, gain a reward.\nThen increase the number of traits needed and the size of the reward.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "upward-mobility",
       "name": "Upward Mobility",
+      "iconPath": "src/assets/icons/timeless/augments/upward-mobility.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
-      "description": "Buying XP costs 1 less. Gain 2 Health and 1 free reroll whenever you level up.",
-      "combat": false
+      "description": "Buying XP costs 1 less.\nGain 2 Health and 1 free reroll whenever you level up.",
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "urfs-grab-bag",
       "name": "Urf's Grab Bag",
+      "iconPath": "src/assets/icons/timeless/augments/urfs-grab-bag.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
       "description": "Gain 1 Spatula, 3 random components, and 5 gold.",
-      "combat": false
+      "combat": false,
+      "requiresRunInput": false
     },
     {
+      "id": "verticality-iii",
       "name": "Verticality III",
+      "iconPath": "src/assets/icons/timeless/augments/verticality-iii.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
       "description": "Champions gain 3% Attack Damage, 3% Ability Power, 3 Armor, and 3 Magic Resist for each ally that shares a trait with them.",
-      "combat": false
+      "combat": true,
+      "requiresRunInput": false,
+      "grants": [
+        {
+          "to": "team",
+          "stats": {
+            "armor": 3,
+            "magicResist": 3
+          },
+          "percentStats": {
+            "attackDamage": 0.03,
+            "abilityPower": 0.03
+          },
+          "per": "ally-sharing-a-trait"
+        }
+      ]
     },
     {
+      "id": "wand-overflow",
       "name": "Wand Overflow",
+      "iconPath": "src/assets/icons/timeless/augments/wand-overflow.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
-      "description": "Gain 4 Needlessly Large Rods. Your Needlessly Large Rods grant +5% Attack Speed.",
+      "description": "Gain 4 Needlessly Large Rods.\nYour Needlessly Large Rods grant +5% Attack Speed.",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "holder",
@@ -3120,12 +3899,15 @@
       ]
     },
     {
+      "id": "we-stick-together",
       "name": "We Stick Together",
+      "iconPath": "src/assets/icons/timeless/augments/we-stick-together.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
-      "description": "Gain a random Emblem and a completed item anvil. Allies that share a trait with that Emblem gain 30% Attack Speed. {Augment.Variant.WeStickTogether.Tooltip} {Augment.Variant.WeStickTogether.Trait}Into The Arcane Tactician's Crown, 2025",
+      "description": "Gain a random Emblem and a completed item anvil.\nAllies that share a trait with that Emblem gain 30% Attack Speed. {Augment.Variant.WeStickTogether.Tooltip} {Augment.Variant.WeStickTogether.Trait}Into The Arcane Tactician's Crown, 2025",
       "combat": true,
+      "requiresRunInput": false,
       "grants": [
         {
           "to": "team",
@@ -3139,12 +3921,15 @@
       ]
     },
     {
+      "id": "worth-the-wait-ii",
       "name": "Worth the Wait II",
+      "iconPath": "src/assets/icons/timeless/augments/worth-the-wait-ii.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["2-1"],
-      "description": "Gain 2 copies of a random 2-cost champion. Gain another copy of them at the start of each round for the rest of the game.",
-      "combat": false
+      "description": "Gain 2 copies of a random 2-cost champion.\nGain another copy of them at the start of each round for the rest of the game.",
+      "combat": false,
+      "requiresRunInput": false
     }
   ]
 }
