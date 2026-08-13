@@ -3,6 +3,7 @@
     {
       "id": "augmented-power",
       "name": "Augmented Power",
+      "iconPath": "src/assets/icons/timeless/augments/augmented-power.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2"],
@@ -13,6 +14,7 @@
     {
       "id": "backup-bows",
       "name": "Backup Bows",
+      "iconPath": "src/assets/icons/timeless/augments/backup-bows.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -23,6 +25,7 @@
     {
       "id": "band-of-thieves",
       "name": "Band of Thieves",
+      "iconPath": "src/assets/icons/timeless/augments/band-of-thieves.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["2-1", "3-2", "4-2"],
@@ -33,6 +36,7 @@
     {
       "id": "boxing-lessons",
       "name": "Boxing Lessons",
+      "iconPath": "src/assets/icons/timeless/augments/boxing-lessons.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -52,6 +56,7 @@
     {
       "id": "branching-out",
       "name": "Branching Out",
+      "iconPath": "src/assets/icons/timeless/augments/branching-out.png",
       "tier": "silver",
       "categories": ["items", "traits"],
       "apparition": ["2-1"],
@@ -62,6 +67,7 @@
     {
       "id": "branching-out-plus",
       "name": "Branching Out+",
+      "iconPath": "src/assets/icons/timeless/augments/branching-out-plus.png",
       "tier": "silver",
       "categories": ["items", "traits"],
       "apparition": ["3-2"],
@@ -72,6 +78,7 @@
     {
       "id": "called-shot",
       "name": "Called Shot",
+      "iconPath": "src/assets/icons/timeless/augments/called-shot.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -82,6 +89,7 @@
     {
       "id": "capital-gains-i",
       "name": "Capital Gains I",
+      "iconPath": "src/assets/icons/timeless/augments/capital-gains-i.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -92,6 +100,7 @@
     {
       "id": "caretakers-ally",
       "name": "Caretaker's Ally",
+      "iconPath": "src/assets/icons/timeless/augments/caretakers-ally.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["2-1"],
@@ -102,6 +111,7 @@
     {
       "id": "carve-a-path",
       "name": "Carve a Path",
+      "iconPath": "src/assets/icons/timeless/augments/carve-a-path.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -112,6 +122,7 @@
     {
       "id": "celestial-blessing-i",
       "name": "Celestial Blessing I",
+      "iconPath": "src/assets/icons/timeless/augments/celestial-blessing-i.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -133,6 +144,7 @@
     {
       "id": "champ-delivery",
       "name": "Champ Delivery",
+      "iconPath": "src/assets/icons/timeless/augments/champ-delivery.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -143,6 +155,7 @@
     {
       "id": "champ-delivery-plus",
       "name": "Champ Delivery +",
+      "iconPath": "src/assets/icons/timeless/augments/champ-delivery-plus.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -153,6 +166,7 @@
     {
       "id": "champ-delivery-plus-plus",
       "name": "Champ Delivery ++",
+      "iconPath": "src/assets/icons/timeless/augments/champ-delivery-plus-plus.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
@@ -163,6 +177,7 @@
     {
       "id": "cognitive-tax",
       "name": "Cognitive Tax",
+      "iconPath": "src/assets/icons/timeless/augments/cognitive-tax.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -173,6 +188,7 @@
     {
       "id": "cognitive-tax-plus",
       "name": "Cognitive Tax+",
+      "iconPath": "src/assets/icons/timeless/augments/cognitive-tax-plus.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -183,6 +199,7 @@
     {
       "id": "component-buffet",
       "name": "Component Buffet",
+      "iconPath": "src/assets/icons/timeless/augments/component-buffet.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["Disabled"],
@@ -193,6 +210,7 @@
     {
       "id": "corrosion",
       "name": "Corrosion",
+      "iconPath": "src/assets/icons/timeless/augments/corrosion.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -216,6 +234,7 @@
     {
       "id": "crafted-crafting",
       "name": "Crafted Crafting",
+      "iconPath": "src/assets/icons/timeless/augments/crafted-crafting.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -226,6 +245,7 @@
     {
       "id": "dummify",
       "name": "Dummify",
+      "iconPath": "src/assets/icons/timeless/augments/dummify.png",
       "tier": "silver",
       "categories": ["strategic"],
       "apparition": ["3-2"],
@@ -240,6 +260,7 @@
     {
       "id": "electrocharge-i",
       "name": "Electrocharge I",
+      "iconPath": "src/assets/icons/timeless/augments/electrocharge-i.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["2-1", "3-2", "4-2"],
@@ -261,6 +282,7 @@
     {
       "id": "expedition",
       "name": "Expedition",
+      "iconPath": "src/assets/icons/timeless/augments/expedition.png",
       "tier": "silver",
       "categories": ["strategic"],
       "apparition": ["2-1"],
@@ -271,6 +293,7 @@
     {
       "id": "extra-buckles",
       "name": "Extra Buckles",
+      "iconPath": "src/assets/icons/timeless/augments/extra-buckles.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -281,6 +304,7 @@
     {
       "id": "feeling-lucky",
       "name": "Feeling Lucky",
+      "iconPath": "src/assets/icons/timeless/augments/feeling-lucky.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -291,6 +315,7 @@
     {
       "id": "find-your-center",
       "name": "Find Your Center",
+      "iconPath": "src/assets/icons/timeless/augments/find-your-center.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -313,6 +338,7 @@
     {
       "id": "flame-on",
       "name": "Flame On",
+      "iconPath": "src/assets/icons/timeless/augments/flame-on.png",
       "tier": "silver",
       "categories": ["traits"],
       "apparition": ["2-1", "3-2", "4-2"],
@@ -335,6 +361,7 @@
     {
       "id": "flowing-tears",
       "name": "Flowing Tears",
+      "iconPath": "src/assets/icons/timeless/augments/flowing-tears.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -345,6 +372,7 @@
     {
       "id": "focused-fire",
       "name": "Focused Fire",
+      "iconPath": "src/assets/icons/timeless/augments/focused-fire.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -370,6 +398,7 @@
     {
       "id": "forge-a-friend",
       "name": "Forge A Friend",
+      "iconPath": "src/assets/icons/timeless/augments/forge-a-friend.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["4-2"],
@@ -380,6 +409,7 @@
     {
       "id": "future-focused",
       "name": "Future Focused",
+      "iconPath": "src/assets/icons/timeless/augments/future-focused.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -390,6 +420,7 @@
     {
       "id": "glass-cannon-i",
       "name": "Glass Cannon I",
+      "iconPath": "src/assets/icons/timeless/augments/glass-cannon-i.png",
       "tier": "silver",
       "categories": ["strategic"],
       "apparition": ["3-2", "4-2"],
@@ -412,6 +443,7 @@
     {
       "id": "good-for-something-i",
       "name": "Good For Something I",
+      "iconPath": "src/assets/icons/timeless/augments/good-for-something-i.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["2-1"],
@@ -422,6 +454,7 @@
     {
       "id": "group-hug-i",
       "name": "Group Hug I",
+      "iconPath": "src/assets/icons/timeless/augments/group-hug-i.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -445,6 +478,7 @@
     {
       "id": "healing-orbs-i",
       "name": "Healing Orbs I",
+      "iconPath": "src/assets/icons/timeless/augments/healing-orbs-i.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -467,6 +501,7 @@
     {
       "id": "iron-assets",
       "name": "Iron Assets",
+      "iconPath": "src/assets/icons/timeless/augments/iron-assets.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -477,6 +512,7 @@
     {
       "id": "item-grab-bag-i",
       "name": "Item Grab Bag I",
+      "iconPath": "src/assets/icons/timeless/augments/item-grab-bag-i.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["2-1", "3-2", "4-2"],
@@ -487,6 +523,7 @@
     {
       "id": "kick-start",
       "name": "Kick Start",
+      "iconPath": "src/assets/icons/timeless/augments/kick-start.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -497,6 +534,7 @@
     {
       "id": "kingslayer",
       "name": "Kingslayer",
+      "iconPath": "src/assets/icons/timeless/augments/kingslayer.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1", "3-2"],
@@ -507,6 +545,7 @@
     {
       "id": "late-game-specialist",
       "name": "Late Game Specialist",
+      "iconPath": "src/assets/icons/timeless/augments/late-game-specialist.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -517,6 +556,7 @@
     {
       "id": "latent-forge",
       "name": "Latent Forge",
+      "iconPath": "src/assets/icons/timeless/augments/latent-forge.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -527,6 +567,7 @@
     {
       "id": "loaded-dice",
       "name": "Loaded Dice",
+      "iconPath": "src/assets/icons/timeless/augments/loaded-dice.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -537,6 +578,7 @@
     {
       "id": "makeshift-armor-i",
       "name": "Makeshift Armor I",
+      "iconPath": "src/assets/icons/timeless/augments/makeshift-armor-i.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["2-1", "3-2"],
@@ -559,6 +601,7 @@
     {
       "id": "missed-connections",
       "name": "Missed Connections",
+      "iconPath": "src/assets/icons/timeless/augments/missed-connections.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -569,6 +612,7 @@
     {
       "id": "one-two-three",
       "name": "One Two Three",
+      "iconPath": "src/assets/icons/timeless/augments/one-two-three.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -579,6 +623,7 @@
     {
       "id": "one-two-five",
       "name": "One, Two, Five!",
+      "iconPath": "src/assets/icons/timeless/augments/one-two-five.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
@@ -589,6 +634,7 @@
     {
       "id": "pandoras-bench",
       "name": "Pandora's Bench",
+      "iconPath": "src/assets/icons/timeless/augments/pandoras-bench.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["2-1", "3-2"],
@@ -599,6 +645,7 @@
     {
       "id": "pandoras-items-i",
       "name": "Pandora's Items I",
+      "iconPath": "src/assets/icons/timeless/augments/pandoras-items-i.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["2-1", "3-2", "4-2"],
@@ -609,6 +656,7 @@
     {
       "id": "partial-ascension",
       "name": "Partial Ascension",
+      "iconPath": "src/assets/icons/timeless/augments/partial-ascension.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -628,6 +676,7 @@
     {
       "id": "patience-is-a-virtue",
       "name": "Patience Is A Virtue",
+      "iconPath": "src/assets/icons/timeless/augments/patience-is-a-virtue.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -638,6 +687,7 @@
     {
       "id": "quick-streaks",
       "name": "Quick Streaks",
+      "iconPath": "src/assets/icons/timeless/augments/quick-streaks.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -648,6 +698,7 @@
     {
       "id": "recombobulator",
       "name": "Recombobulator",
+      "iconPath": "src/assets/icons/timeless/augments/recombobulator.png",
       "tier": "silver",
       "categories": ["strategic"],
       "apparition": ["3-2"],
@@ -658,6 +709,7 @@
     {
       "id": "residual-magic",
       "name": "Residual Magic",
+      "iconPath": "src/assets/icons/timeless/augments/residual-magic.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["2-1"],
@@ -679,6 +731,7 @@
     {
       "id": "residual-magic-plus",
       "name": "Residual Magic +",
+      "iconPath": "src/assets/icons/timeless/augments/residual-magic-plus.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2"],
@@ -700,6 +753,7 @@
     {
       "id": "residual-magic-plus-plus",
       "name": "Residual Magic ++",
+      "iconPath": "src/assets/icons/timeless/augments/residual-magic-plus-plus.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["4-2"],
@@ -721,6 +775,7 @@
     {
       "id": "rolling-for-days",
       "name": "Rolling For Days",
+      "iconPath": "src/assets/icons/timeless/augments/rolling-for-days.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["3-2", "4-2"],
@@ -731,6 +786,7 @@
     {
       "id": "silver-destiny",
       "name": "Silver Destiny",
+      "iconPath": "src/assets/icons/timeless/augments/silver-destiny.png",
       "tier": "silver",
       "categories": ["strategic"],
       "apparition": ["2-1"],
@@ -741,6 +797,7 @@
     {
       "id": "silver-destiny-plus",
       "name": "Silver Destiny+",
+      "iconPath": "src/assets/icons/timeless/augments/silver-destiny-plus.png",
       "tier": "silver",
       "categories": ["strategic"],
       "apparition": ["3-2"],
@@ -751,6 +808,7 @@
     {
       "id": "silver-destiny-plus-plus",
       "name": "Silver Destiny++",
+      "iconPath": "src/assets/icons/timeless/augments/silver-destiny-plus-plus.png",
       "tier": "silver",
       "categories": ["strategic"],
       "apparition": ["4-2"],
@@ -761,6 +819,7 @@
     {
       "id": "silver-spoon",
       "name": "Silver Spoon",
+      "iconPath": "src/assets/icons/timeless/augments/silver-spoon.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -771,6 +830,7 @@
     {
       "id": "slice-of-life",
       "name": "Slice of Life",
+      "iconPath": "src/assets/icons/timeless/augments/slice-of-life.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -781,6 +841,7 @@
     {
       "id": "slightly-magic-roll",
       "name": "Slightly Magic Roll",
+      "iconPath": "src/assets/icons/timeless/augments/slightly-magic-roll.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["2-1"],
@@ -791,6 +852,7 @@
     {
       "id": "small-grab-bag",
       "name": "Small Grab Bag",
+      "iconPath": "src/assets/icons/timeless/augments/small-grab-bag.png",
       "tier": "silver",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
@@ -801,6 +863,7 @@
     {
       "id": "stand-united",
       "name": "Stand United",
+      "iconPath": "src/assets/icons/timeless/augments/stand-united.png",
       "tier": "silver",
       "categories": ["strategic"],
       "apparition": ["3-2", "4-2"],
@@ -821,6 +884,7 @@
     {
       "id": "team-building",
       "name": "Team Building",
+      "iconPath": "src/assets/icons/timeless/augments/team-building.png",
       "tier": "silver",
       "categories": ["gold-econ"],
       "apparition": ["2-1", "3-2"],
@@ -831,6 +895,7 @@
     {
       "id": "the-tower",
       "name": "The Tower",
+      "iconPath": "src/assets/icons/timeless/augments/the-tower.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["2-1", "3-2", "4-2"],
@@ -851,6 +916,7 @@
     {
       "id": "twin-guardians",
       "name": "Twin Guardians",
+      "iconPath": "src/assets/icons/timeless/augments/twin-guardians.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -875,6 +941,7 @@
     {
       "id": "verticality-i",
       "name": "Verticality I",
+      "iconPath": "src/assets/icons/timeless/augments/verticality-i.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -899,6 +966,7 @@
     {
       "id": "wisp-rebate",
       "name": "Wisp Rebate",
+      "iconPath": "src/assets/icons/timeless/augments/wisp-rebate.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["3-2"],
@@ -909,6 +977,7 @@
     {
       "id": "wisp-rebate-plus",
       "name": "Wisp Rebate +",
+      "iconPath": "src/assets/icons/timeless/augments/wisp-rebate-plus.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["4-2"],
@@ -919,6 +988,7 @@
     {
       "id": "young-and-wild-and-free",
       "name": "Young and Wild and Free",
+      "iconPath": "src/assets/icons/timeless/augments/young-and-wild-and-free.png",
       "tier": "silver",
       "categories": ["combat"],
       "apparition": ["2-1"],
@@ -929,6 +999,7 @@
     {
       "id": "advanced-loan",
       "name": "Advanced Loan",
+      "iconPath": "src/assets/icons/timeless/augments/advanced-loan.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["Disabled"],
@@ -939,6 +1010,7 @@
     {
       "id": "advanced-loan-plus",
       "name": "Advanced Loan+",
+      "iconPath": "src/assets/icons/timeless/augments/advanced-loan-plus.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -949,6 +1021,7 @@
     {
       "id": "arcane-viktor-y",
       "name": "Arcane Viktor-y",
+      "iconPath": "src/assets/icons/timeless/augments/arcane-viktor-y.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -970,6 +1043,7 @@
     {
       "id": "ascension",
       "name": "Ascension",
+      "iconPath": "src/assets/icons/timeless/augments/ascension.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -989,6 +1063,7 @@
     {
       "id": "backline-blueprint",
       "name": "Backline Blueprint",
+      "iconPath": "src/assets/icons/timeless/augments/backline-blueprint.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["2-1"],
@@ -999,6 +1074,7 @@
     {
       "id": "beast-within-plus-nidalee",
       "name": "Beast Within+",
+      "iconPath": "src/assets/icons/timeless/augments/beast-within-plus-nidalee.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["4-2"],
@@ -1012,6 +1088,7 @@
     {
       "id": "beast-within-sivir",
       "name": "Beast Within",
+      "iconPath": "src/assets/icons/timeless/augments/beast-within-sivir.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2"],
@@ -1025,6 +1102,7 @@
     {
       "id": "beast-within-nidalee",
       "name": "Beast Within",
+      "iconPath": "src/assets/icons/timeless/augments/beast-within-nidalee.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2"],
@@ -1038,6 +1116,7 @@
     {
       "id": "beast-within-plus-sivir",
       "name": "Beast Within+",
+      "iconPath": "src/assets/icons/timeless/augments/beast-within-plus-sivir.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["4-2"],
@@ -1051,6 +1130,7 @@
     {
       "id": "big-grab-bag",
       "name": "Big Grab Bag",
+      "iconPath": "src/assets/icons/timeless/augments/big-grab-bag.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
@@ -1061,6 +1141,7 @@
     {
       "id": "birthday-reunion",
       "name": "Birthday Reunion",
+      "iconPath": "src/assets/icons/timeless/augments/birthday-reunion.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["2-1"],
@@ -1071,6 +1152,7 @@
     {
       "id": "blossoms-call",
       "name": "Blossom's Call",
+      "iconPath": "src/assets/icons/timeless/augments/blossoms-call.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["3-2"],
@@ -1081,6 +1163,7 @@
     {
       "id": "bodyguard-training",
       "name": "Bodyguard Training",
+      "iconPath": "src/assets/icons/timeless/augments/bodyguard-training.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["2-1"],
@@ -1103,6 +1186,7 @@
     {
       "id": "bonus-gift",
       "name": "Bonus Gift",
+      "iconPath": "src/assets/icons/timeless/augments/bonus-gift.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -1113,6 +1197,7 @@
     {
       "id": "bonus-gift-plus",
       "name": "Bonus Gift +",
+      "iconPath": "src/assets/icons/timeless/augments/bonus-gift-plus.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -1123,6 +1208,7 @@
     {
       "id": "booster-pack",
       "name": "Booster Pack",
+      "iconPath": "src/assets/icons/timeless/augments/booster-pack.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -1133,6 +1219,7 @@
     {
       "id": "booster-pack-plus",
       "name": "Booster Pack+",
+      "iconPath": "src/assets/icons/timeless/augments/booster-pack-plus.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -1143,6 +1230,7 @@
     {
       "id": "booster-pack-plus-plus",
       "name": "Booster Pack++",
+      "iconPath": "src/assets/icons/timeless/augments/booster-pack-plus-plus.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
@@ -1153,6 +1241,7 @@
     {
       "id": "bronze-for-life-i",
       "name": "Bronze For Life I",
+      "iconPath": "src/assets/icons/timeless/augments/bronze-for-life-i.png",
       "tier": "gold",
       "categories": ["strategic"],
       "apparition": ["3-2", "4-2"],
@@ -1172,6 +1261,7 @@
     {
       "id": "calculated-loss",
       "name": "Calculated Loss",
+      "iconPath": "src/assets/icons/timeless/augments/calculated-loss.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -1182,6 +1272,7 @@
     {
       "id": "capital-gains-ii",
       "name": "Capital Gains II",
+      "iconPath": "src/assets/icons/timeless/augments/capital-gains-ii.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -1192,6 +1283,7 @@
     {
       "id": "caretakers-favor",
       "name": "Caretaker's Favor",
+      "iconPath": "src/assets/icons/timeless/augments/caretakers-favor.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -1202,6 +1294,7 @@
     {
       "id": "celestial-blessing-ii",
       "name": "Celestial Blessing II",
+      "iconPath": "src/assets/icons/timeless/augments/celestial-blessing-ii.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -1223,6 +1316,7 @@
     {
       "id": "challengers-grace",
       "name": "Challenger's Grace",
+      "iconPath": "src/assets/icons/timeless/augments/challengers-grace.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -1243,6 +1337,7 @@
     {
       "id": "chosen-of-the-sun",
       "name": "Chosen of the Sun",
+      "iconPath": "src/assets/icons/timeless/augments/chosen-of-the-sun.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1"],
@@ -1266,6 +1361,7 @@
     {
       "id": "clear-mind",
       "name": "Clear Mind",
+      "iconPath": "src/assets/icons/timeless/augments/clear-mind.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -1276,6 +1372,7 @@
     {
       "id": "clockwork-accelerator",
       "name": "Clockwork Accelerator",
+      "iconPath": "src/assets/icons/timeless/augments/clockwork-accelerator.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -1295,6 +1392,7 @@
     {
       "id": "cluttered-mind",
       "name": "Cluttered Mind",
+      "iconPath": "src/assets/icons/timeless/augments/cluttered-mind.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -1305,6 +1403,7 @@
     {
       "id": "cognitive-overload",
       "name": "Cognitive Overload",
+      "iconPath": "src/assets/icons/timeless/augments/cognitive-overload.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -1315,6 +1414,7 @@
     {
       "id": "construct-a-companion",
       "name": "Construct a Companion",
+      "iconPath": "src/assets/icons/timeless/augments/construct-a-companion.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2"],
@@ -1325,6 +1425,7 @@
     {
       "id": "consuming-flora",
       "name": "Consuming Flora",
+      "iconPath": "src/assets/icons/timeless/augments/consuming-flora.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1"],
@@ -1338,6 +1439,7 @@
     {
       "id": "consuming-flora-plus",
       "name": "Consuming Flora+",
+      "iconPath": "src/assets/icons/timeless/augments/consuming-flora-plus.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["3-2"],
@@ -1351,6 +1453,7 @@
     {
       "id": "consuming-flora-plus-plus",
       "name": "Consuming Flora++",
+      "iconPath": "src/assets/icons/timeless/augments/consuming-flora-plus-plus.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["4-2"],
@@ -1364,6 +1467,7 @@
     {
       "id": "cooking-pot",
       "name": "Cooking Pot",
+      "iconPath": "src/assets/icons/timeless/augments/cooking-pot.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -1386,6 +1490,7 @@
     {
       "id": "coven-acolyte",
       "name": "Coven Acolyte",
+      "iconPath": "src/assets/icons/timeless/augments/coven-acolyte.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1"],
@@ -1396,6 +1501,7 @@
     {
       "id": "cry-me-a-river",
       "name": "Cry Me A River",
+      "iconPath": "src/assets/icons/timeless/augments/cry-me-a-river.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1", "3-2"],
@@ -1421,6 +1527,7 @@
     {
       "id": "cybernetic-implants-ii",
       "name": "Cybernetic Implants II",
+      "iconPath": "src/assets/icons/timeless/augments/cybernetic-implants-ii.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -1445,6 +1552,7 @@
     {
       "id": "cybernetic-uplink-ii",
       "name": "Cybernetic Uplink II",
+      "iconPath": "src/assets/icons/timeless/augments/cybernetic-uplink-ii.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -1467,6 +1575,7 @@
     {
       "id": "dark-ritual",
       "name": "Dark Ritual",
+      "iconPath": "src/assets/icons/timeless/augments/dark-ritual.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1", "3-2"],
@@ -1480,6 +1589,7 @@
     {
       "id": "double-trouble",
       "name": "Double Trouble",
+      "iconPath": "src/assets/icons/timeless/augments/double-trouble.png",
       "tier": "gold",
       "categories": ["strategic", "gold-econ"],
       "apparition": ["2-1", "3-2"],
@@ -1506,6 +1616,7 @@
     {
       "id": "duo-queue",
       "name": "Duo Queue",
+      "iconPath": "src/assets/icons/timeless/augments/duo-queue.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["4-2"],
@@ -1516,6 +1627,7 @@
     {
       "id": "early-learnings",
       "name": "Early Learnings",
+      "iconPath": "src/assets/icons/timeless/augments/early-learnings.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -1539,6 +1651,7 @@
     {
       "id": "electrocharge-ii",
       "name": "Electrocharge II",
+      "iconPath": "src/assets/icons/timeless/augments/electrocharge-ii.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["2-1", "3-2", "4-2"],
@@ -1560,6 +1673,7 @@
     {
       "id": "embiggen",
       "name": "Embiggen",
+      "iconPath": "src/assets/icons/timeless/augments/embiggen.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["2-1", "3-2", "4-2"],
@@ -1585,6 +1699,7 @@
     {
       "id": "epic-rolldown",
       "name": "Epic Rolldown",
+      "iconPath": "src/assets/icons/timeless/augments/epic-rolldown.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -1595,6 +1710,7 @@
     {
       "id": "epoch",
       "name": "Epoch",
+      "iconPath": "src/assets/icons/timeless/augments/epoch.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -1605,6 +1721,7 @@
     {
       "id": "epoch-plus",
       "name": "Epoch+",
+      "iconPath": "src/assets/icons/timeless/augments/epoch-plus.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -1615,6 +1732,7 @@
     {
       "id": "exclusive-customization",
       "name": "Exclusive Customization",
+      "iconPath": "src/assets/icons/timeless/augments/exclusive-customization.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
@@ -1625,6 +1743,7 @@
     {
       "id": "explosive-growth",
       "name": "Explosive Growth",
+      "iconPath": "src/assets/icons/timeless/augments/explosive-growth.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -1635,6 +1754,7 @@
     {
       "id": "explosive-growth-plus",
       "name": "Explosive Growth+",
+      "iconPath": "src/assets/icons/timeless/augments/explosive-growth-plus.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
@@ -1645,6 +1765,7 @@
     {
       "id": "fourcing",
       "name": "FOURcing",
+      "iconPath": "src/assets/icons/timeless/augments/fourcing.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2"],
@@ -1664,6 +1785,7 @@
     {
       "id": "frontline-foundation",
       "name": "Frontline Foundation",
+      "iconPath": "src/assets/icons/timeless/augments/frontline-foundation.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["2-1"],
@@ -1674,6 +1796,7 @@
     {
       "id": "gain-21-gold",
       "name": "Gain 21 Gold",
+      "iconPath": "src/assets/icons/timeless/augments/gain-21-gold.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -1684,6 +1807,7 @@
     {
       "id": "gilded-steel",
       "name": "Gilded Steel",
+      "iconPath": "src/assets/icons/timeless/augments/gilded-steel.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["4-2"],
@@ -1706,6 +1830,7 @@
     {
       "id": "glass-cannon-ii",
       "name": "Glass Cannon II",
+      "iconPath": "src/assets/icons/timeless/augments/glass-cannon-ii.png",
       "tier": "gold",
       "categories": ["strategic"],
       "apparition": ["3-2", "4-2"],
@@ -1728,6 +1853,7 @@
     {
       "id": "gold-destiny",
       "name": "Gold Destiny",
+      "iconPath": "src/assets/icons/timeless/augments/gold-destiny.png",
       "tier": "gold",
       "categories": ["strategic"],
       "apparition": ["2-1"],
@@ -1738,6 +1864,7 @@
     {
       "id": "gold-destiny-plus",
       "name": "Gold Destiny Plus",
+      "iconPath": "src/assets/icons/timeless/augments/gold-destiny-plus.png",
       "tier": "gold",
       "categories": ["strategic"],
       "apparition": ["3-2"],
@@ -1748,6 +1875,7 @@
     {
       "id": "group-hug-ii",
       "name": "Group Hug II",
+      "iconPath": "src/assets/icons/timeless/augments/group-hug-ii.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -1771,6 +1899,7 @@
     {
       "id": "hard-bargain",
       "name": "Hard Bargain",
+      "iconPath": "src/assets/icons/timeless/augments/hard-bargain.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -1781,6 +1910,7 @@
     {
       "id": "healing-orbs-ii",
       "name": "Healing Orbs II",
+      "iconPath": "src/assets/icons/timeless/augments/healing-orbs-ii.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -1803,6 +1933,7 @@
     {
       "id": "heart-of-steel",
       "name": "Heart of Steel",
+      "iconPath": "src/assets/icons/timeless/augments/heart-of-steel.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -1826,6 +1957,7 @@
     {
       "id": "heroic-grab-bag",
       "name": "Heroic Grab Bag",
+      "iconPath": "src/assets/icons/timeless/augments/heroic-grab-bag.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -1836,6 +1968,7 @@
     {
       "id": "heroic-grab-bag-plus",
       "name": "Heroic Grab Bag+",
+      "iconPath": "src/assets/icons/timeless/augments/heroic-grab-bag-plus.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2"],
@@ -1846,6 +1979,7 @@
     {
       "id": "heroic-grab-bag-plus-plus",
       "name": "Heroic Grab Bag++",
+      "iconPath": "src/assets/icons/timeless/augments/heroic-grab-bag-plus-plus.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
@@ -1856,6 +1990,7 @@
     {
       "id": "hustler",
       "name": "Hustler",
+      "iconPath": "src/assets/icons/timeless/augments/hustler.png",
       "tier": "gold",
       "categories": ["gold-econ", "strategic"],
       "apparition": ["2-1"],
@@ -1866,6 +2001,7 @@
     {
       "id": "infinity-protection",
       "name": "Infinity Protection",
+      "iconPath": "src/assets/icons/timeless/augments/infinity-protection.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -1887,6 +2023,7 @@
     {
       "id": "investment-strategy-i",
       "name": "Investment Strategy I",
+      "iconPath": "src/assets/icons/timeless/augments/investment-strategy-i.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -1907,6 +2044,7 @@
     {
       "id": "its-me-baby",
       "name": "It's Me, Baby",
+      "iconPath": "src/assets/icons/timeless/augments/its-me-baby.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -1929,6 +2067,7 @@
     {
       "id": "item-extraction",
       "name": "Item Extraction",
+      "iconPath": "src/assets/icons/timeless/augments/item-extraction.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1", "3-2"],
@@ -1939,6 +2078,7 @@
     {
       "id": "jeweled-lotus-i",
       "name": "Jeweled Lotus I",
+      "iconPath": "src/assets/icons/timeless/augments/jeweled-lotus-i.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -1958,6 +2098,7 @@
     {
       "id": "jungle-pathing",
       "name": "Jungle Pathing",
+      "iconPath": "src/assets/icons/timeless/augments/jungle-pathing.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1"],
@@ -1968,6 +2109,7 @@
     {
       "id": "late-game-scaling",
       "name": "Late Game Scaling",
+      "iconPath": "src/assets/icons/timeless/augments/late-game-scaling.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -1990,6 +2132,7 @@
     {
       "id": "legion-of-threes",
       "name": "Legion Of Threes",
+      "iconPath": "src/assets/icons/timeless/augments/legion-of-threes.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -2015,6 +2158,7 @@
     {
       "id": "magic-roll",
       "name": "Magic Roll",
+      "iconPath": "src/assets/icons/timeless/augments/magic-roll.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2"],
@@ -2025,6 +2169,7 @@
     {
       "id": "makeshift-armor-ii",
       "name": "Makeshift Armor II",
+      "iconPath": "src/assets/icons/timeless/augments/makeshift-armor-ii.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["2-1", "3-2"],
@@ -2047,6 +2192,7 @@
     {
       "id": "malicious-monetization",
       "name": "Malicious Monetization",
+      "iconPath": "src/assets/icons/timeless/augments/malicious-monetization.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
@@ -2057,6 +2203,7 @@
     {
       "id": "max-build",
       "name": "Max Build",
+      "iconPath": "src/assets/icons/timeless/augments/max-build.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["4-2"],
@@ -2067,6 +2214,7 @@
     {
       "id": "money-hungry",
       "name": "Money Hungry",
+      "iconPath": "src/assets/icons/timeless/augments/money-hungry.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -2077,6 +2225,7 @@
     {
       "id": "money-hungry-plus",
       "name": "Money Hungry+",
+      "iconPath": "src/assets/icons/timeless/augments/money-hungry-plus.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -2087,6 +2236,7 @@
     {
       "id": "no-scout-no-pivot",
       "name": "NO SCOUT NO PIVOT",
+      "iconPath": "src/assets/icons/timeless/augments/no-scout-no-pivot.png",
       "tier": "gold",
       "categories": ["strategic", "gold-econ"],
       "apparition": ["2-1"],
@@ -2109,6 +2259,7 @@
     {
       "id": "natures-shelter",
       "name": "Nature's Shelter",
+      "iconPath": "src/assets/icons/timeless/augments/natures-shelter.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1", "3-2", "4-2"],
@@ -2132,6 +2283,7 @@
     {
       "id": "omega-riftbeast",
       "name": "Omega Riftbeast",
+      "iconPath": "src/assets/icons/timeless/augments/omega-riftbeast.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1", "3-2", "4-2"],
@@ -2145,6 +2297,7 @@
     {
       "id": "pandoras-items-ii",
       "name": "Pandora's Items II",
+      "iconPath": "src/assets/icons/timeless/augments/pandoras-items-ii.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1", "3-2", "4-2"],
@@ -2155,6 +2308,7 @@
     {
       "id": "patient-study",
       "name": "Patient Study",
+      "iconPath": "src/assets/icons/timeless/augments/patient-study.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -2165,6 +2319,7 @@
     {
       "id": "pilfer",
       "name": "Pilfer",
+      "iconPath": "src/assets/icons/timeless/augments/pilfer.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -2175,6 +2330,7 @@
     {
       "id": "plot-armor",
       "name": "Plot Armor",
+      "iconPath": "src/assets/icons/timeless/augments/plot-armor.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -2205,6 +2361,7 @@
     {
       "id": "portable-forge",
       "name": "Portable Forge",
+      "iconPath": "src/assets/icons/timeless/augments/portable-forge.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1", "3-2", "4-2"],
@@ -2215,6 +2372,7 @@
     {
       "id": "promised-protection",
       "name": "Promised Protection",
+      "iconPath": "src/assets/icons/timeless/augments/promised-protection.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1", "3-2"],
@@ -2239,6 +2397,7 @@
     {
       "id": "replication",
       "name": "Replication",
+      "iconPath": "src/assets/icons/timeless/augments/replication.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1", "3-2"],
@@ -2249,6 +2408,7 @@
     {
       "id": "salvage-bin",
       "name": "Salvage Bin",
+      "iconPath": "src/assets/icons/timeless/augments/salvage-bin.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -2259,6 +2419,7 @@
     {
       "id": "salvage-bin-plus",
       "name": "Salvage Bin+",
+      "iconPath": "src/assets/icons/timeless/augments/salvage-bin-plus.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
@@ -2269,6 +2430,7 @@
     {
       "id": "seraphims-staff",
       "name": "Seraphim's Staff",
+      "iconPath": "src/assets/icons/timeless/augments/seraphims-staff.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1", "3-2"],
@@ -2294,6 +2456,7 @@
     {
       "id": "slammin",
       "name": "Slammin'",
+      "iconPath": "src/assets/icons/timeless/augments/slammin.png",
       "tier": "gold",
       "categories": ["items", "gold-econ"],
       "apparition": ["2-1"],
@@ -2304,6 +2467,7 @@
     {
       "id": "slammin-plus",
       "name": "Slammin'+",
+      "iconPath": "src/assets/icons/timeless/augments/slammin-plus.png",
       "tier": "gold",
       "categories": ["items", "gold-econ"],
       "apparition": ["3-2"],
@@ -2314,6 +2478,7 @@
     {
       "id": "small-furry-friend",
       "name": "Small Furry Friend",
+      "iconPath": "src/assets/icons/timeless/augments/small-furry-friend.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1", "3-2", "4-2"],
@@ -2328,6 +2493,7 @@
     {
       "id": "solo-leveling",
       "name": "Solo Leveling",
+      "iconPath": "src/assets/icons/timeless/augments/solo-leveling.png",
       "tier": "gold",
       "categories": ["strategic"],
       "apparition": ["2-1"],
@@ -2361,6 +2527,7 @@
     {
       "id": "solo-plate",
       "name": "Solo Plate",
+      "iconPath": "src/assets/icons/timeless/augments/solo-plate.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1", "3-2"],
@@ -2383,6 +2550,7 @@
     {
       "id": "speedy-double-kill",
       "name": "Speedy Double Kill",
+      "iconPath": "src/assets/icons/timeless/augments/speedy-double-kill.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -2393,6 +2561,7 @@
     {
       "id": "spirit-of-redemption",
       "name": "Spirit Of Redemption",
+      "iconPath": "src/assets/icons/timeless/augments/spirit-of-redemption.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1", "3-2"],
@@ -2418,6 +2587,7 @@
     {
       "id": "spreading-roots",
       "name": "Spreading Roots",
+      "iconPath": "src/assets/icons/timeless/augments/spreading-roots.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -2428,6 +2598,7 @@
     {
       "id": "spreading-roots-plus",
       "name": "Spreading Roots+",
+      "iconPath": "src/assets/icons/timeless/augments/spreading-roots-plus.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["3-2"],
@@ -2438,6 +2609,7 @@
     {
       "id": "staffsmith",
       "name": "Staffsmith",
+      "iconPath": "src/assets/icons/timeless/augments/staffsmith.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["4-2"],
@@ -2448,6 +2620,7 @@
     {
       "id": "sun-and-moon",
       "name": "Sun and Moon",
+      "iconPath": "src/assets/icons/timeless/augments/sun-and-moon.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["3-2"],
@@ -2473,6 +2646,7 @@
     {
       "id": "sun-and-moon-plus",
       "name": "Sun and Moon+",
+      "iconPath": "src/assets/icons/timeless/augments/sun-and-moon-plus.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["4-2"],
@@ -2498,6 +2672,7 @@
     {
       "id": "swordsmith",
       "name": "Swordsmith",
+      "iconPath": "src/assets/icons/timeless/augments/swordsmith.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["4-2"],
@@ -2508,6 +2683,7 @@
     {
       "id": "the-golden-dragon",
       "name": "The Golden Dragon",
+      "iconPath": "src/assets/icons/timeless/augments/the-golden-dragon.png",
       "tier": "gold",
       "categories": ["items", "strategic"],
       "apparition": ["3-2"],
@@ -2535,6 +2711,7 @@
     {
       "id": "time-skip",
       "name": "Time Skip",
+      "iconPath": "src/assets/icons/timeless/augments/time-skip.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -2545,6 +2722,7 @@
     {
       "id": "tons-of-stats-gold",
       "name": "Tons of Stats!",
+      "iconPath": "src/assets/icons/timeless/augments/tons-of-stats-gold.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -2571,6 +2749,7 @@
     {
       "id": "trade-sector",
       "name": "Trade Sector",
+      "iconPath": "src/assets/icons/timeless/augments/trade-sector.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -2581,6 +2760,7 @@
     {
       "id": "trade-sector-plus",
       "name": "Trade Sector+",
+      "iconPath": "src/assets/icons/timeless/augments/trade-sector-plus.png",
       "tier": "gold",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -2591,6 +2771,7 @@
     {
       "id": "urf",
       "name": "U.R.F",
+      "iconPath": "src/assets/icons/timeless/augments/urf.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1", "3-2", "4-2"],
@@ -2615,6 +2796,7 @@
     {
       "id": "unrivaled",
       "name": "Unrivaled",
+      "iconPath": "src/assets/icons/timeless/augments/unrivaled.png",
       "tier": "gold",
       "categories": ["traits"],
       "apparition": ["2-1", "3-2"],
@@ -2628,6 +2810,7 @@
     {
       "id": "verticality-ii",
       "name": "Verticality II",
+      "iconPath": "src/assets/icons/timeless/augments/verticality-ii.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -2652,6 +2835,7 @@
     {
       "id": "warpath",
       "name": "Warpath",
+      "iconPath": "src/assets/icons/timeless/augments/warpath.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["2-1"],
@@ -2662,6 +2846,7 @@
     {
       "id": "weight-the-worth",
       "name": "Weight The Worth",
+      "iconPath": "src/assets/icons/timeless/augments/weight-the-worth.png",
       "tier": "gold",
       "categories": ["strategic", "gold-econ"],
       "apparition": ["3-2"],
@@ -2672,6 +2857,7 @@
     {
       "id": "worth-the-wait",
       "name": "Worth the Wait",
+      "iconPath": "src/assets/icons/timeless/augments/worth-the-wait.png",
       "tier": "gold",
       "categories": ["combat"],
       "apparition": ["2-1"],
@@ -2682,6 +2868,7 @@
     {
       "id": "woven-magic",
       "name": "Woven Magic",
+      "iconPath": "src/assets/icons/timeless/augments/woven-magic.png",
       "tier": "gold",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -2692,6 +2879,7 @@
     {
       "id": "band-of-thieves-ii",
       "name": "Band of Thieves II",
+      "iconPath": "src/assets/icons/timeless/augments/band-of-thieves-ii.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -2702,6 +2890,7 @@
     {
       "id": "band-of-thieves-ii-plus",
       "name": "Band of Thieves II+",
+      "iconPath": "src/assets/icons/timeless/augments/band-of-thieves-ii-plus.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2"],
@@ -2712,6 +2901,7 @@
     {
       "id": "band-of-thieves-ii-plus-plus",
       "name": "Band of Thieves II++",
+      "iconPath": "src/assets/icons/timeless/augments/band-of-thieves-ii-plus-plus.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["4-2"],
@@ -2722,6 +2912,7 @@
     {
       "id": "barons-lair",
       "name": "Baron's Lair",
+      "iconPath": "src/assets/icons/timeless/augments/barons-lair.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -2744,6 +2935,7 @@
     {
       "id": "belt-overflow",
       "name": "Belt Overflow",
+      "iconPath": "src/assets/icons/timeless/augments/belt-overflow.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
@@ -2765,6 +2957,7 @@
     {
       "id": "birthday-present",
       "name": "Birthday Present",
+      "iconPath": "src/assets/icons/timeless/augments/birthday-present.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -2775,6 +2968,7 @@
     {
       "id": "bronze-for-life-ii",
       "name": "Bronze For Life II",
+      "iconPath": "src/assets/icons/timeless/augments/bronze-for-life-ii.png",
       "tier": "prismatic",
       "categories": ["strategic"],
       "apparition": ["3-2", "4-2"],
@@ -2798,6 +2992,7 @@
     {
       "id": "build-a-bud",
       "name": "Build a Bud",
+      "iconPath": "src/assets/icons/timeless/augments/build-a-bud.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
@@ -2808,6 +3003,7 @@
     {
       "id": "buried-treasures-iii",
       "name": "Buried Treasures III",
+      "iconPath": "src/assets/icons/timeless/augments/buried-treasures-iii.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -2818,6 +3014,7 @@
     {
       "id": "call-to-chaos",
       "name": "Call To Chaos",
+      "iconPath": "src/assets/icons/timeless/augments/call-to-chaos.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["4-2"],
@@ -2828,6 +3025,7 @@
     {
       "id": "celestial-blessing-iii",
       "name": "Celestial Blessing III",
+      "iconPath": "src/assets/icons/timeless/augments/celestial-blessing-iii.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -2849,6 +3047,7 @@
     {
       "id": "comeback-story",
       "name": "Comeback Story",
+      "iconPath": "src/assets/icons/timeless/augments/comeback-story.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["2-1"],
@@ -2871,6 +3070,7 @@
     {
       "id": "commerce-core",
       "name": "Commerce Core",
+      "iconPath": "src/assets/icons/timeless/augments/commerce-core.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
@@ -2881,6 +3081,7 @@
     {
       "id": "component-quest",
       "name": "Component Quest",
+      "iconPath": "src/assets/icons/timeless/augments/component-quest.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["2-1"],
@@ -2891,6 +3092,7 @@
     {
       "id": "coronation",
       "name": "Coronation",
+      "iconPath": "src/assets/icons/timeless/augments/coronation.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
@@ -2914,6 +3116,7 @@
     {
       "id": "cursed-crown",
       "name": "Cursed Crown",
+      "iconPath": "src/assets/icons/timeless/augments/cursed-crown.png",
       "tier": "prismatic",
       "categories": ["items", "strategic"],
       "apparition": ["2-1", "3-2"],
@@ -2935,6 +3138,7 @@
     {
       "id": "deadlier-blades",
       "name": "Deadlier Blades",
+      "iconPath": "src/assets/icons/timeless/augments/deadlier-blades.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -2958,6 +3162,7 @@
     {
       "id": "deadlier-caps",
       "name": "Deadlier Caps",
+      "iconPath": "src/assets/icons/timeless/augments/deadlier-caps.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -2984,6 +3189,7 @@
     {
       "id": "flexible",
       "name": "Flexible",
+      "iconPath": "src/assets/icons/timeless/augments/flexible.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -3003,6 +3209,7 @@
     {
       "id": "forged-in-strength",
       "name": "Forged In Strength",
+      "iconPath": "src/assets/icons/timeless/augments/forged-in-strength.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -3013,6 +3220,7 @@
     {
       "id": "giant-and-mighty",
       "name": "Giant and Mighty",
+      "iconPath": "src/assets/icons/timeless/augments/giant-and-mighty.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -3034,6 +3242,7 @@
     {
       "id": "going-long",
       "name": "Going Long",
+      "iconPath": "src/assets/icons/timeless/augments/going-long.png",
       "tier": "prismatic",
       "categories": ["gold-econ", "strategic"],
       "apparition": ["2-1"],
@@ -3044,6 +3253,7 @@
     {
       "id": "golden-gamble",
       "name": "Golden Gamble",
+      "iconPath": "src/assets/icons/timeless/augments/golden-gamble.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -3054,6 +3264,7 @@
     {
       "id": "golden-gamble-plus",
       "name": "Golden Gamble +",
+      "iconPath": "src/assets/icons/timeless/augments/golden-gamble-plus.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2"],
@@ -3064,6 +3275,7 @@
     {
       "id": "golden-gamble-plus-plus",
       "name": "Golden Gamble ++",
+      "iconPath": "src/assets/icons/timeless/augments/golden-gamble-plus-plus.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["4-2"],
@@ -3074,6 +3286,7 @@
     {
       "id": "hard-commit",
       "name": "Hard Commit",
+      "iconPath": "src/assets/icons/timeless/augments/hard-commit.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -3084,6 +3297,7 @@
     {
       "id": "hedge-fund",
       "name": "Hedge Fund",
+      "iconPath": "src/assets/icons/timeless/augments/hedge-fund.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -3094,6 +3308,7 @@
     {
       "id": "hold-the-line",
       "name": "Hold the Line",
+      "iconPath": "src/assets/icons/timeless/augments/hold-the-line.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -3117,6 +3332,7 @@
     {
       "id": "invested-plus",
       "name": "Invested+",
+      "iconPath": "src/assets/icons/timeless/augments/invested-plus.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -3127,6 +3343,7 @@
     {
       "id": "invested-plus-plus",
       "name": "Invested++",
+      "iconPath": "src/assets/icons/timeless/augments/invested-plus-plus.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
@@ -3137,6 +3354,7 @@
     {
       "id": "investment-strategy-ii",
       "name": "Investment Strategy II",
+      "iconPath": "src/assets/icons/timeless/augments/investment-strategy-ii.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -3157,6 +3375,7 @@
     {
       "id": "jeweled-lotus-ii",
       "name": "Jeweled Lotus II",
+      "iconPath": "src/assets/icons/timeless/augments/jeweled-lotus-ii.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -3177,6 +3396,7 @@
     {
       "id": "level-up",
       "name": "Level Up!",
+      "iconPath": "src/assets/icons/timeless/augments/level-up.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -3187,6 +3407,7 @@
     {
       "id": "living-forge",
       "name": "Living Forge",
+      "iconPath": "src/assets/icons/timeless/augments/living-forge.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -3197,6 +3418,7 @@
     {
       "id": "lucky-gloves",
       "name": "Lucky Gloves",
+      "iconPath": "src/assets/icons/timeless/augments/lucky-gloves.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -3207,6 +3429,7 @@
     {
       "id": "lucky-gloves-plus",
       "name": "Lucky Gloves+",
+      "iconPath": "src/assets/icons/timeless/augments/lucky-gloves-plus.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
@@ -3217,6 +3440,7 @@
     {
       "id": "luxury-subscription",
       "name": "Luxury Subscription",
+      "iconPath": "src/assets/icons/timeless/augments/luxury-subscription.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["3-2"],
@@ -3227,6 +3451,7 @@
     {
       "id": "master-of-all-origins",
       "name": "Master of All Origins",
+      "iconPath": "src/assets/icons/timeless/augments/master-of-all-origins.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["4-2"],
@@ -3240,6 +3465,7 @@
     {
       "id": "min-max",
       "name": "Min-Max",
+      "iconPath": "src/assets/icons/timeless/augments/min-max.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2"],
@@ -3250,6 +3476,7 @@
     {
       "id": "money-monsoon",
       "name": "Money Monsoon",
+      "iconPath": "src/assets/icons/timeless/augments/money-monsoon.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
@@ -3260,6 +3487,7 @@
     {
       "id": "nesting-anvils",
       "name": "Nesting Anvils",
+      "iconPath": "src/assets/icons/timeless/augments/nesting-anvils.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2"],
@@ -3270,6 +3498,7 @@
     {
       "id": "nesting-anvils-plus",
       "name": "Nesting Anvils +",
+      "iconPath": "src/assets/icons/timeless/augments/nesting-anvils-plus.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["4-2"],
@@ -3280,6 +3509,7 @@
     {
       "id": "nesting-dolls",
       "name": "Nesting Dolls",
+      "iconPath": "src/assets/icons/timeless/augments/nesting-dolls.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -3294,6 +3524,7 @@
     {
       "id": "nesting-dolls-plus",
       "name": "Nesting Dolls+",
+      "iconPath": "src/assets/icons/timeless/augments/nesting-dolls-plus.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["3-2"],
@@ -3308,6 +3539,7 @@
     {
       "id": "nesting-dolls-plus-plus",
       "name": "Nesting Dolls++",
+      "iconPath": "src/assets/icons/timeless/augments/nesting-dolls-plus-plus.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
@@ -3322,6 +3554,7 @@
     {
       "id": "one-buff-two-buff",
       "name": "One Buff Two Buff",
+      "iconPath": "src/assets/icons/timeless/augments/one-buff-two-buff.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
@@ -3332,6 +3565,7 @@
     {
       "id": "pandoras-items-iii",
       "name": "Pandora's Items III",
+      "iconPath": "src/assets/icons/timeless/augments/pandoras-items-iii.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1", "3-2"],
@@ -3342,6 +3576,7 @@
     {
       "id": "prismatic-destiny",
       "name": "Prismatic Destiny",
+      "iconPath": "src/assets/icons/timeless/augments/prismatic-destiny.png",
       "tier": "prismatic",
       "categories": ["strategic"],
       "apparition": ["2-1"],
@@ -3352,6 +3587,7 @@
     {
       "id": "prismatic-destiny-plus",
       "name": "Prismatic Destiny Plus",
+      "iconPath": "src/assets/icons/timeless/augments/prismatic-destiny-plus.png",
       "tier": "prismatic",
       "categories": ["strategic"],
       "apparition": ["3-2"],
@@ -3362,6 +3598,7 @@
     {
       "id": "prismatic-ticket",
       "name": "Prismatic Ticket",
+      "iconPath": "src/assets/icons/timeless/augments/prismatic-ticket.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["2-1", "3-2"],
@@ -3372,6 +3609,7 @@
     {
       "id": "radiant-rascal",
       "name": "Radiant Rascal",
+      "iconPath": "src/assets/icons/timeless/augments/radiant-rascal.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
@@ -3382,6 +3620,7 @@
     {
       "id": "radiant-relics",
       "name": "Radiant Relics",
+      "iconPath": "src/assets/icons/timeless/augments/radiant-relics.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1", "3-2", "4-2"],
@@ -3392,6 +3631,7 @@
     {
       "id": "retribution",
       "name": "Retribution",
+      "iconPath": "src/assets/icons/timeless/augments/retribution.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
@@ -3414,6 +3654,7 @@
     {
       "id": "shimmerscale-essence",
       "name": "Shimmerscale Essence",
+      "iconPath": "src/assets/icons/timeless/augments/shimmerscale-essence.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -3424,6 +3665,7 @@
     {
       "id": "shopping-spree",
       "name": "Shopping Spree",
+      "iconPath": "src/assets/icons/timeless/augments/shopping-spree.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -3434,6 +3676,7 @@
     {
       "id": "soul-awakening",
       "name": "Soul Awakening",
+      "iconPath": "src/assets/icons/timeless/augments/soul-awakening.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -3465,6 +3708,7 @@
     {
       "id": "sweet-treats",
       "name": "Sweet Treats",
+      "iconPath": "src/assets/icons/timeless/augments/sweet-treats.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
@@ -3484,6 +3728,7 @@
     {
       "id": "sword-overflow",
       "name": "Sword Overflow",
+      "iconPath": "src/assets/icons/timeless/augments/sword-overflow.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
@@ -3505,6 +3750,7 @@
     {
       "id": "tons-of-stats-prismatic",
       "name": "TONS of Stats!",
+      "iconPath": "src/assets/icons/timeless/augments/tons-of-stats-prismatic.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -3531,6 +3777,7 @@
     {
       "id": "tacticians-kitchen",
       "name": "Tactician's Kitchen",
+      "iconPath": "src/assets/icons/timeless/augments/tacticians-kitchen.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -3541,6 +3788,7 @@
     {
       "id": "the-golden-egg",
       "name": "The Golden Egg",
+      "iconPath": "src/assets/icons/timeless/augments/the-golden-egg.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["4-2"],
@@ -3551,6 +3799,7 @@
     {
       "id": "the-trait-tree",
       "name": "The Trait Tree",
+      "iconPath": "src/assets/icons/timeless/augments/the-trait-tree.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -3561,6 +3810,7 @@
     {
       "id": "the-trait-tree-plus",
       "name": "The Trait Tree+",
+      "iconPath": "src/assets/icons/timeless/augments/the-trait-tree-plus.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2"],
@@ -3571,6 +3821,7 @@
     {
       "id": "trait-ladder",
       "name": "Trait Ladder",
+      "iconPath": "src/assets/icons/timeless/augments/trait-ladder.png",
       "tier": "prismatic",
       "categories": ["strategic"],
       "apparition": ["2-1", "3-2"],
@@ -3581,6 +3832,7 @@
     {
       "id": "upward-mobility",
       "name": "Upward Mobility",
+      "iconPath": "src/assets/icons/timeless/augments/upward-mobility.png",
       "tier": "prismatic",
       "categories": ["gold-econ"],
       "apparition": ["2-1"],
@@ -3591,6 +3843,7 @@
     {
       "id": "urfs-grab-bag",
       "name": "Urf's Grab Bag",
+      "iconPath": "src/assets/icons/timeless/augments/urfs-grab-bag.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
@@ -3601,6 +3854,7 @@
     {
       "id": "verticality-iii",
       "name": "Verticality III",
+      "iconPath": "src/assets/icons/timeless/augments/verticality-iii.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["3-2", "4-2"],
@@ -3625,6 +3879,7 @@
     {
       "id": "wand-overflow",
       "name": "Wand Overflow",
+      "iconPath": "src/assets/icons/timeless/augments/wand-overflow.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["3-2", "4-2"],
@@ -3646,6 +3901,7 @@
     {
       "id": "we-stick-together",
       "name": "We Stick Together",
+      "iconPath": "src/assets/icons/timeless/augments/we-stick-together.png",
       "tier": "prismatic",
       "categories": ["items"],
       "apparition": ["2-1"],
@@ -3667,6 +3923,7 @@
     {
       "id": "worth-the-wait-ii",
       "name": "Worth the Wait II",
+      "iconPath": "src/assets/icons/timeless/augments/worth-the-wait-ii.png",
       "tier": "prismatic",
       "categories": ["combat"],
       "apparition": ["2-1"],

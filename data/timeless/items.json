@@ -3,6 +3,7 @@
     {
       "id": "bf-sword",
       "name": "B.F. Sword",
+      "iconPath": "src/assets/icons/timeless/items/bf-sword.png",
       "combat": true,
       "requiresRunInput": false,
       "tag": "bf",
@@ -12,8 +13,9 @@
       }
     },
     {
-      "id": "recursive-bow",
-      "name": "Recursive Bow",
+      "id": "recurve-bow",
+      "name": "Recurve Bow",
+      "iconPath": "src/assets/icons/timeless/items/recurve-bow.png",
       "combat": true,
       "requiresRunInput": false,
       "tag": "bow",
@@ -25,6 +27,7 @@
     {
       "id": "chain-vest",
       "name": "Chain Vest",
+      "iconPath": "src/assets/icons/timeless/items/chain-vest.png",
       "combat": true,
       "requiresRunInput": false,
       "tag": "chain",
@@ -36,6 +39,7 @@
     {
       "id": "negatron-cloak",
       "name": "Negatron Cloak",
+      "iconPath": "src/assets/icons/timeless/items/negatron-cloak.png",
       "combat": true,
       "requiresRunInput": false,
       "tag": "cloak",
@@ -47,6 +51,7 @@
     {
       "id": "needlessly-large-rod",
       "name": "Needlessly Large Rod",
+      "iconPath": "src/assets/icons/timeless/items/needlessly-large-rod.png",
       "combat": true,
       "requiresRunInput": false,
       "tag": "rod",
@@ -58,6 +63,7 @@
     {
       "id": "tear-of-the-goddess",
       "name": "Tear of the Goddess",
+      "iconPath": "src/assets/icons/timeless/items/tear-of-the-goddess.png",
       "combat": true,
       "requiresRunInput": false,
       "tag": "tear",
@@ -69,6 +75,7 @@
     {
       "id": "giants-belt",
       "name": "Giant's Belt",
+      "iconPath": "src/assets/icons/timeless/items/giants-belt.png",
       "combat": true,
       "requiresRunInput": false,
       "tag": "belt",
@@ -80,6 +87,7 @@
     {
       "id": "sparring-gloves",
       "name": "Sparring Gloves",
+      "iconPath": "src/assets/icons/timeless/items/sparring-gloves.png",
       "combat": true,
       "requiresRunInput": false,
       "tag": "gloves",
@@ -91,6 +99,7 @@
     {
       "id": "spatula",
       "name": "Spatula",
+      "iconPath": "src/assets/icons/timeless/items/spatula.png",
       "combat": false,
       "requiresRunInput": false,
       "tag": "spat",
@@ -100,6 +109,7 @@
     {
       "id": "frying-pan",
       "name": "Frying Pan",
+      "iconPath": "src/assets/icons/timeless/items/frying-pan.png",
       "combat": false,
       "requiresRunInput": false,
       "tag": "pan",
@@ -109,6 +119,7 @@
     {
       "id": "deathblade",
       "name": "Deathblade",
+      "iconPath": "src/assets/icons/timeless/items/deathblade.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -122,6 +133,7 @@
     {
       "id": "giant-slayer",
       "name": "Giant Slayer",
+      "iconPath": "src/assets/icons/timeless/items/giant-slayer.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -148,6 +160,7 @@
     {
       "id": "edge-of-night",
       "name": "Edge of Night",
+      "iconPath": "src/assets/icons/timeless/items/edge-of-night.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -179,6 +192,7 @@
     {
       "id": "bloodthirster",
       "name": "Bloodthirster",
+      "iconPath": "src/assets/icons/timeless/items/bloodthirster.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -208,6 +222,7 @@
     {
       "id": "hextech-gunblade",
       "name": "Hextech Gunblade",
+      "iconPath": "src/assets/icons/timeless/items/hextech-gunblade.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -232,6 +247,7 @@
     {
       "id": "spear-of-shojin",
       "name": "Spear of Shojin",
+      "iconPath": "src/assets/icons/timeless/items/spear-of-shojin.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -255,6 +271,7 @@
     {
       "id": "steraks-gage",
       "name": "Sterak's Gage",
+      "iconPath": "src/assets/icons/timeless/items/steraks-gage.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -282,6 +299,7 @@
     {
       "id": "infinity-edge",
       "name": "Infinity Edge",
+      "iconPath": "src/assets/icons/timeless/items/infinity-edge.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -301,6 +319,7 @@
     {
       "id": "red-buff",
       "name": "Red Buff",
+      "iconPath": "src/assets/icons/timeless/items/red-buff.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -323,6 +342,7 @@
     {
       "id": "void-staff",
       "name": "Void Staff",
+      "iconPath": "src/assets/icons/timeless/items/void-staff.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -346,6 +366,7 @@
     {
       "id": "last-whisper",
       "name": "Last Whisper",
+      "iconPath": "src/assets/icons/timeless/items/last-whisper.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -369,6 +390,7 @@
     {
       "id": "titans-resolve",
       "name": "Titan's Resolve",
+      "iconPath": "src/assets/icons/timeless/items/titans-resolve.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -406,6 +428,7 @@
     {
       "id": "bramble-vest",
       "name": "Bramble Vest",
+      "iconPath": "src/assets/icons/timeless/items/bramble-vest.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -443,6 +466,7 @@
     {
       "id": "gargoyle-stoneplate",
       "name": "Gargoyle Stoneplate",
+      "iconPath": "src/assets/icons/timeless/items/gargoyle-stoneplate.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -468,6 +492,7 @@
     {
       "id": "crownguard",
       "name": "Crownguard",
+      "iconPath": "src/assets/icons/timeless/items/crownguard.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -499,6 +524,7 @@
     {
       "id": "protectors-vow",
       "name": "Protector's Vow",
+      "iconPath": "src/assets/icons/timeless/items/protectors-vow.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -535,6 +561,7 @@
     {
       "id": "sunfire-cape",
       "name": "Sunfire Cape",
+      "iconPath": "src/assets/icons/timeless/items/sunfire-cape.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -569,6 +596,7 @@
     {
       "id": "steadfast-heart",
       "name": "Steadfast Heart",
+      "iconPath": "src/assets/icons/timeless/items/steadfast-heart.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -603,6 +631,7 @@
     {
       "id": "krakens-fury",
       "name": "Kraken's Fury",
+      "iconPath": "src/assets/icons/timeless/items/krakens-fury.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -639,6 +668,7 @@
     {
       "id": "dragons-claw",
       "name": "Dragon's Claw",
+      "iconPath": "src/assets/icons/timeless/items/dragons-claw.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -664,6 +694,7 @@
     {
       "id": "adaptive-helm",
       "name": "Adaptive Helm",
+      "iconPath": "src/assets/icons/timeless/items/adaptive-helm.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -705,6 +736,7 @@
     {
       "id": "quicksilver",
       "name": "Quicksilver",
+      "iconPath": "src/assets/icons/timeless/items/quicksilver.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -736,6 +768,7 @@
     {
       "id": "guinsoos-rageblade",
       "name": "Guinsoo's Rageblade",
+      "iconPath": "src/assets/icons/timeless/items/guinsoos-rageblade.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -760,6 +793,7 @@
     {
       "id": "ionic-spark",
       "name": "Ionic Spark",
+      "iconPath": "src/assets/icons/timeless/items/ionic-spark.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -791,6 +825,7 @@
     {
       "id": "rabadons-deathcap",
       "name": "Rabadon's Deathcap",
+      "iconPath": "src/assets/icons/timeless/items/rabadons-deathcap.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -804,6 +839,7 @@
     {
       "id": "archangels-staff",
       "name": "Archangel's Staff",
+      "iconPath": "src/assets/icons/timeless/items/archangels-staff.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -828,6 +864,7 @@
     {
       "id": "jeweled-gauntlet",
       "name": "Jeweled Gauntlet",
+      "iconPath": "src/assets/icons/timeless/items/jeweled-gauntlet.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -847,6 +884,7 @@
     {
       "id": "blue-buff",
       "name": "Blue Buff",
+      "iconPath": "src/assets/icons/timeless/items/blue-buff.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -870,6 +908,7 @@
     {
       "id": "nashors-tooth",
       "name": "Nashor's Tooth",
+      "iconPath": "src/assets/icons/timeless/items/nashors-tooth.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -901,6 +940,7 @@
     {
       "id": "evenshroud",
       "name": "Evenshroud",
+      "iconPath": "src/assets/icons/timeless/items/evenshroud.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -935,6 +975,7 @@
     {
       "id": "morellonomicon",
       "name": "Morellonomicon",
+      "iconPath": "src/assets/icons/timeless/items/morellonomicon.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -958,6 +999,7 @@
     {
       "id": "spirit-visage",
       "name": "Spirit Visage",
+      "iconPath": "src/assets/icons/timeless/items/spirit-visage.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -979,6 +1021,7 @@
     {
       "id": "warmogs-armor",
       "name": "Warmog's Armor",
+      "iconPath": "src/assets/icons/timeless/items/warmogs-armor.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -999,6 +1042,7 @@
     {
       "id": "strikers-flail",
       "name": "Striker's Flail",
+      "iconPath": "src/assets/icons/timeless/items/strikers-flail.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -1028,6 +1072,7 @@
     {
       "id": "hand-of-justice",
       "name": "Hand of Justice",
+      "iconPath": "src/assets/icons/timeless/items/hand-of-justice.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -1071,6 +1116,7 @@
     {
       "id": "thiefs-gloves",
       "name": "Thief's Gloves",
+      "iconPath": "src/assets/icons/timeless/items/thiefs-gloves.png",
       "combat": true,
       "requiresRunInput": true,
       "type": "craftable",
@@ -1084,6 +1130,7 @@
     {
       "id": "tacticians-crown",
       "name": "Tactician's Crown",
+      "iconPath": "src/assets/icons/timeless/items/tacticians-crown.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -1094,6 +1141,7 @@
     {
       "id": "tacticians-cape",
       "name": "Tactician's Cape",
+      "iconPath": "src/assets/icons/timeless/items/tacticians-cape.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -1104,6 +1152,7 @@
     {
       "id": "tacticians-shield",
       "name": "Tactician's Shield",
+      "iconPath": "src/assets/icons/timeless/items/tacticians-shield.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "craftable",
@@ -1114,6 +1163,7 @@
     {
       "id": "blackthorn-emblem",
       "name": "Blackthorn Emblem",
+      "iconPath": "src/assets/icons/timeless/items/blackthorn-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1129,6 +1179,7 @@
     {
       "id": "blossom-emblem",
       "name": "Blossom Emblem",
+      "iconPath": "src/assets/icons/timeless/items/blossom-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1144,6 +1195,7 @@
     {
       "id": "brawler-emblem",
       "name": "Brawler Emblem",
+      "iconPath": "src/assets/icons/timeless/items/brawler-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1167,6 +1219,7 @@
     {
       "id": "coven-emblem",
       "name": "Coven Emblem",
+      "iconPath": "src/assets/icons/timeless/items/coven-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1180,6 +1233,7 @@
     {
       "id": "defender-emblem",
       "name": "Defender Emblem",
+      "iconPath": "src/assets/icons/timeless/items/defender-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1204,6 +1258,7 @@
     {
       "id": "elderwood-emblem",
       "name": "Elderwood Emblem",
+      "iconPath": "src/assets/icons/timeless/items/elderwood-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1219,6 +1274,7 @@
     {
       "id": "executioner-emblem",
       "name": "Executioner Emblem",
+      "iconPath": "src/assets/icons/timeless/items/executioner-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1241,6 +1297,7 @@
     {
       "id": "fae-emblem",
       "name": "Fae Emblem",
+      "iconPath": "src/assets/icons/timeless/items/fae-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1256,6 +1313,7 @@
     {
       "id": "flora-fatalis-emblem",
       "name": "Flora Fatalis Emblem",
+      "iconPath": "src/assets/icons/timeless/items/flora-fatalis-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1270,6 +1328,7 @@
     {
       "id": "hunter-emblem",
       "name": "Hunter Emblem",
+      "iconPath": "src/assets/icons/timeless/items/hunter-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1293,6 +1352,7 @@
     {
       "id": "inferno-emblem",
       "name": "Inferno Emblem",
+      "iconPath": "src/assets/icons/timeless/items/inferno-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1306,6 +1366,7 @@
     {
       "id": "invoker-emblem",
       "name": "Invoker Emblem",
+      "iconPath": "src/assets/icons/timeless/items/invoker-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1326,6 +1387,7 @@
     {
       "id": "juggernaut-emblem",
       "name": "Juggernaut Emblem",
+      "iconPath": "src/assets/icons/timeless/items/juggernaut-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1348,6 +1410,7 @@
     {
       "id": "lunar-emblem",
       "name": "Lunar Emblem",
+      "iconPath": "src/assets/icons/timeless/items/lunar-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1362,6 +1425,7 @@
     {
       "id": "primal-emblem",
       "name": "Primal Emblem",
+      "iconPath": "src/assets/icons/timeless/items/primal-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1377,6 +1441,7 @@
     {
       "id": "rapidfire-emblem",
       "name": "Rapidfire Emblem",
+      "iconPath": "src/assets/icons/timeless/items/rapidfire-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1400,6 +1465,7 @@
     {
       "id": "ravager-emblem",
       "name": "Ravager Emblem",
+      "iconPath": "src/assets/icons/timeless/items/ravager-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1426,6 +1492,7 @@
     {
       "id": "spellweaver-emblem",
       "name": "Spellweaver Emblem",
+      "iconPath": "src/assets/icons/timeless/items/spellweaver-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1448,6 +1515,7 @@
     {
       "id": "sprykin-emblem",
       "name": "Sprykin Emblem",
+      "iconPath": "src/assets/icons/timeless/items/sprykin-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1478,6 +1546,7 @@
     {
       "id": "vanguard-emblem",
       "name": "Vanguard Emblem",
+      "iconPath": "src/assets/icons/timeless/items/vanguard-emblem.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "emblem",
@@ -1496,6 +1565,7 @@
     {
       "id": "aegis-of-dawn",
       "name": "Aegis of Dawn",
+      "iconPath": "src/assets/icons/timeless/items/aegis-of-dawn.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -1534,6 +1604,7 @@
     {
       "id": "aegis-of-dusk",
       "name": "Aegis of Dusk",
+      "iconPath": "src/assets/icons/timeless/items/aegis-of-dusk.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -1576,6 +1647,7 @@
     {
       "id": "blighting-jewel",
       "name": "Blighting Jewel",
+      "iconPath": "src/assets/icons/timeless/items/blighting-jewel.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -1609,6 +1681,7 @@
     {
       "id": "cappa-juice",
       "name": "Cappa Juice",
+      "iconPath": "src/assets/icons/timeless/items/cappa-juice.png",
       "combat": true,
       "requiresRunInput": true,
       "type": "artifact",
@@ -1637,6 +1710,7 @@
     {
       "id": "dawncore",
       "name": "Dawncore",
+      "iconPath": "src/assets/icons/timeless/items/dawncore.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -1669,6 +1743,7 @@
     {
       "id": "deaths-defiance",
       "name": "Death's Defiance",
+      "iconPath": "src/assets/icons/timeless/items/deaths-defiance.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -1693,6 +1768,7 @@
     {
       "id": "eternal-pact",
       "name": "Eternal Pact",
+      "iconPath": "src/assets/icons/timeless/items/eternal-pact.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -1742,6 +1818,7 @@
     {
       "id": "fishbones",
       "name": "Fishbones",
+      "iconPath": "src/assets/icons/timeless/items/fishbones.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -1761,6 +1838,7 @@
     {
       "id": "flickerblades",
       "name": "Flickerblades",
+      "iconPath": "src/assets/icons/timeless/items/flickerblades.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -1793,6 +1871,7 @@
     {
       "id": "forbidden-idol",
       "name": "Forbidden Idol",
+      "iconPath": "src/assets/icons/timeless/items/forbidden-idol.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -1815,6 +1894,7 @@
     {
       "id": "gamblers-blade",
       "name": "Gambler's Blade",
+      "iconPath": "src/assets/icons/timeless/items/gamblers-blade.png",
       "combat": true,
       "requiresRunInput": true,
       "type": "artifact",
@@ -1840,6 +1920,7 @@
     {
       "id": "gold-collector",
       "name": "Gold Collector",
+      "iconPath": "src/assets/icons/timeless/items/gold-collector.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -1865,6 +1946,7 @@
     {
       "id": "hellfire-hatchet",
       "name": "Hellfire Hatchet",
+      "iconPath": "src/assets/icons/timeless/items/hellfire-hatchet.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -1894,6 +1976,7 @@
     {
       "id": "horizon-focus",
       "name": "Horizon Focus",
+      "iconPath": "src/assets/icons/timeless/items/horizon-focus.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -1918,6 +2001,7 @@
     {
       "id": "hullcrusher",
       "name": "Hullcrusher",
+      "iconPath": "src/assets/icons/timeless/items/hullcrusher.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -1946,6 +2030,7 @@
     {
       "id": "infinity-force",
       "name": "Infinity Force",
+      "iconPath": "src/assets/icons/timeless/items/infinity-force.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -1962,6 +2047,7 @@
     {
       "id": "lich-bane",
       "name": "Lich Bane",
+      "iconPath": "src/assets/icons/timeless/items/lich-bane.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -1984,6 +2070,7 @@
     {
       "id": "lightshield-crest",
       "name": "Lightshield Crest",
+      "iconPath": "src/assets/icons/timeless/items/lightshield-crest.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -2019,6 +2106,7 @@
     {
       "id": "ludens-tempest",
       "name": "Luden's Tempest",
+      "iconPath": "src/assets/icons/timeless/items/ludens-tempest.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -2044,6 +2132,7 @@
     {
       "id": "manazane",
       "name": "Manazane",
+      "iconPath": "src/assets/icons/timeless/items/manazane.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -2067,6 +2156,7 @@
     {
       "id": "mittens",
       "name": "Mittens",
+      "iconPath": "src/assets/icons/timeless/items/mittens.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -2085,6 +2175,7 @@
     {
       "id": "moguls-mail",
       "name": "Mogul's Mail",
+      "iconPath": "src/assets/icons/timeless/items/moguls-mail.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -2116,6 +2207,7 @@
     {
       "id": "rapid-firecannon",
       "name": "Rapid Firecannon",
+      "iconPath": "src/assets/icons/timeless/items/rapid-firecannon.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -2139,6 +2231,7 @@
     {
       "id": "seekers-armguard",
       "name": "Seeker's Armguard",
+      "iconPath": "src/assets/icons/timeless/items/seekers-armguard.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -2167,6 +2260,7 @@
     {
       "id": "silvermere-dawn",
       "name": "Silvermere Dawn",
+      "iconPath": "src/assets/icons/timeless/items/silvermere-dawn.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -2196,6 +2290,7 @@
     {
       "id": "statikk-shiv",
       "name": "Statikk Shiv",
+      "iconPath": "src/assets/icons/timeless/items/statikk-shiv.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -2224,6 +2319,7 @@
     {
       "id": "talisman-of-ascension",
       "name": "Talisman of Ascension",
+      "iconPath": "src/assets/icons/timeless/items/talisman-of-ascension.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -2253,6 +2349,7 @@
     {
       "id": "the-indomitable",
       "name": "The Indomitable",
+      "iconPath": "src/assets/icons/timeless/items/the-indomitable.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -2282,6 +2379,7 @@
     {
       "id": "titanic-hydra",
       "name": "Titanic Hydra",
+      "iconPath": "src/assets/icons/timeless/items/titanic-hydra.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -2309,6 +2407,7 @@
     {
       "id": "void-gauntlet",
       "name": "Void Gauntlet",
+      "iconPath": "src/assets/icons/timeless/items/void-gauntlet.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -2346,6 +2445,7 @@
     {
       "id": "wits-end",
       "name": "Wit's End",
+      "iconPath": "src/assets/icons/timeless/items/wits-end.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -2375,6 +2475,7 @@
     {
       "id": "zhonyas-paradox",
       "name": "Zhonya's Paradox",
+      "iconPath": "src/assets/icons/timeless/items/zhonyas-paradox.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "artifact",
@@ -2408,6 +2509,7 @@
     {
       "id": "radiant-adaptive-helm",
       "name": "Radiant Adaptive Helm",
+      "iconPath": "src/assets/icons/timeless/items/radiant-adaptive-helm.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2449,6 +2551,7 @@
     {
       "id": "radiant-archangels-staff",
       "name": "Radiant Archangel's Staff",
+      "iconPath": "src/assets/icons/timeless/items/radiant-archangels-staff.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2473,6 +2576,7 @@
     {
       "id": "radiant-bloodthirster",
       "name": "Radiant Bloodthirster",
+      "iconPath": "src/assets/icons/timeless/items/radiant-bloodthirster.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2502,6 +2606,7 @@
     {
       "id": "radiant-blue-buff",
       "name": "Radiant Blue Buff",
+      "iconPath": "src/assets/icons/timeless/items/radiant-blue-buff.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2525,6 +2630,7 @@
     {
       "id": "radiant-bramble-vest",
       "name": "Radiant Bramble Vest",
+      "iconPath": "src/assets/icons/timeless/items/radiant-bramble-vest.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2562,6 +2668,7 @@
     {
       "id": "radiant-crownguard",
       "name": "Radiant Crownguard",
+      "iconPath": "src/assets/icons/timeless/items/radiant-crownguard.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2593,6 +2700,7 @@
     {
       "id": "radiant-deathblade",
       "name": "Radiant Deathblade",
+      "iconPath": "src/assets/icons/timeless/items/radiant-deathblade.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2606,6 +2714,7 @@
     {
       "id": "radiant-dragons-claw",
       "name": "Radiant Dragon's Claw",
+      "iconPath": "src/assets/icons/timeless/items/radiant-dragons-claw.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2631,6 +2740,7 @@
     {
       "id": "radiant-edge-of-night",
       "name": "Radiant Edge of Night",
+      "iconPath": "src/assets/icons/timeless/items/radiant-edge-of-night.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2662,6 +2772,7 @@
     {
       "id": "radiant-evenshroud",
       "name": "Radiant Evenshroud",
+      "iconPath": "src/assets/icons/timeless/items/radiant-evenshroud.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2696,6 +2807,7 @@
     {
       "id": "radiant-gargoyle-stoneplate",
       "name": "Radiant Gargoyle Stoneplate",
+      "iconPath": "src/assets/icons/timeless/items/radiant-gargoyle-stoneplate.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2721,6 +2833,7 @@
     {
       "id": "radiant-giant-slayer",
       "name": "Radiant Giant Slayer",
+      "iconPath": "src/assets/icons/timeless/items/radiant-giant-slayer.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2747,6 +2860,7 @@
     {
       "id": "radiant-guinsoos-rageblade",
       "name": "Radiant Guinsoo's Rageblade",
+      "iconPath": "src/assets/icons/timeless/items/radiant-guinsoos-rageblade.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2771,6 +2885,7 @@
     {
       "id": "radiant-hand-of-justice",
       "name": "Radiant Hand of Justice",
+      "iconPath": "src/assets/icons/timeless/items/radiant-hand-of-justice.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2814,6 +2929,7 @@
     {
       "id": "radiant-hextech-gunblade",
       "name": "Radiant Hextech Gunblade",
+      "iconPath": "src/assets/icons/timeless/items/radiant-hextech-gunblade.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2838,6 +2954,7 @@
     {
       "id": "radiant-infinity-edge",
       "name": "Radiant Infinity Edge",
+      "iconPath": "src/assets/icons/timeless/items/radiant-infinity-edge.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2857,6 +2974,7 @@
     {
       "id": "radiant-ionic-spark",
       "name": "Radiant Ionic Spark",
+      "iconPath": "src/assets/icons/timeless/items/radiant-ionic-spark.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2888,6 +3006,7 @@
     {
       "id": "radiant-jeweled-gauntlet",
       "name": "Radiant Jeweled Gauntlet",
+      "iconPath": "src/assets/icons/timeless/items/radiant-jeweled-gauntlet.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2907,6 +3026,7 @@
     {
       "id": "radiant-krakens-fury",
       "name": "Radiant Kraken's Fury",
+      "iconPath": "src/assets/icons/timeless/items/radiant-krakens-fury.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2943,6 +3063,7 @@
     {
       "id": "radiant-last-whisper",
       "name": "Radiant Last Whisper",
+      "iconPath": "src/assets/icons/timeless/items/radiant-last-whisper.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2966,6 +3087,7 @@
     {
       "id": "radiant-morellonomicon",
       "name": "Radiant Morellonomicon",
+      "iconPath": "src/assets/icons/timeless/items/radiant-morellonomicon.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -2989,6 +3111,7 @@
     {
       "id": "radiant-nashors-tooth",
       "name": "Radiant Nashor's Tooth",
+      "iconPath": "src/assets/icons/timeless/items/radiant-nashors-tooth.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -3020,6 +3143,7 @@
     {
       "id": "radiant-protectors-vow",
       "name": "Radiant Protector's Vow",
+      "iconPath": "src/assets/icons/timeless/items/radiant-protectors-vow.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -3056,6 +3180,7 @@
     {
       "id": "radiant-quicksilver",
       "name": "Radiant Quicksilver",
+      "iconPath": "src/assets/icons/timeless/items/radiant-quicksilver.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -3087,6 +3212,7 @@
     {
       "id": "radiant-rabadons-deathcap",
       "name": "Radiant Rabadon's Deathcap",
+      "iconPath": "src/assets/icons/timeless/items/radiant-rabadons-deathcap.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -3100,6 +3226,7 @@
     {
       "id": "radiant-red-buff",
       "name": "Radiant Red Buff",
+      "iconPath": "src/assets/icons/timeless/items/radiant-red-buff.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -3122,6 +3249,7 @@
     {
       "id": "radiant-spear-of-shojin",
       "name": "Radiant Spear of Shojin",
+      "iconPath": "src/assets/icons/timeless/items/radiant-spear-of-shojin.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -3145,6 +3273,7 @@
     {
       "id": "radiant-spirit-visage",
       "name": "Radiant Spirit Visage",
+      "iconPath": "src/assets/icons/timeless/items/radiant-spirit-visage.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -3166,6 +3295,7 @@
     {
       "id": "radiant-steadfast-heart",
       "name": "Radiant Steadfast Heart",
+      "iconPath": "src/assets/icons/timeless/items/radiant-steadfast-heart.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -3200,6 +3330,7 @@
     {
       "id": "radiant-steraks-gage",
       "name": "Radiant Sterak's Gage",
+      "iconPath": "src/assets/icons/timeless/items/radiant-steraks-gage.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -3227,6 +3358,7 @@
     {
       "id": "radiant-strikers-flail",
       "name": "Radiant Striker's Flail",
+      "iconPath": "src/assets/icons/timeless/items/radiant-strikers-flail.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -3256,6 +3388,7 @@
     {
       "id": "radiant-sunfire-cape",
       "name": "Radiant Sunfire Cape",
+      "iconPath": "src/assets/icons/timeless/items/radiant-sunfire-cape.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -3290,6 +3423,7 @@
     {
       "id": "radiant-thiefs-gloves",
       "name": "Radiant Thief's Gloves",
+      "iconPath": "src/assets/icons/timeless/items/radiant-thiefs-gloves.png",
       "combat": true,
       "requiresRunInput": true,
       "type": "radiant",
@@ -3303,6 +3437,7 @@
     {
       "id": "radiant-titans-resolve",
       "name": "Radiant Titan's Resolve",
+      "iconPath": "src/assets/icons/timeless/items/radiant-titans-resolve.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -3340,6 +3475,7 @@
     {
       "id": "radiant-void-staff",
       "name": "Radiant Void Staff",
+      "iconPath": "src/assets/icons/timeless/items/radiant-void-staff.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",
@@ -3363,6 +3499,7 @@
     {
       "id": "radiant-warmogs-armor",
       "name": "Radiant Warmog's Armor",
+      "iconPath": "src/assets/icons/timeless/items/radiant-warmogs-armor.png",
       "combat": true,
       "requiresRunInput": false,
       "type": "radiant",

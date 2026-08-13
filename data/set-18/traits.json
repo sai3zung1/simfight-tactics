@@ -3,6 +3,7 @@
     {
       "id": "s18-adaptor",
       "name": "Adaptor",
+      "iconPath": "src/assets/icons/set-18/traits/s18-adaptor.svg",
       "kind": "class",
       "combat": true,
       "requiresRunInput": false,
@@ -53,6 +54,7 @@
     {
       "id": "s18-apex-predator",
       "name": "Apex Predator",
+      "iconPath": "src/assets/icons/set-18/traits/s18-apex-predator.svg",
       "kind": "unique",
       "combat": true,
       "requiresRunInput": false,
@@ -72,6 +74,7 @@
     {
       "id": "s18-attuned",
       "name": "Attuned",
+      "iconPath": "src/assets/icons/set-18/traits/s18-attuned.svg",
       "kind": "unique",
       "combat": true,
       "requiresRunInput": false,
@@ -146,6 +149,7 @@
     {
       "id": "s18-avatar",
       "name": "Avatar",
+      "iconPath": "src/assets/icons/set-18/traits/s18-avatar.svg",
       "kind": "unique",
       "combat": false,
       "requiresRunInput": false,
@@ -175,6 +179,7 @@
     {
       "id": "s18-blackthorn",
       "name": "Blackthorn",
+      "iconPath": "src/assets/icons/set-18/traits/s18-blackthorn.svg",
       "kind": "origin",
       "combat": true,
       "requiresRunInput": false,
@@ -286,6 +291,7 @@
     {
       "id": "s18-blossom",
       "name": "Blossom",
+      "iconPath": "src/assets/icons/set-18/traits/s18-blossom.svg",
       "kind": "origin",
       "combat": true,
       "requiresRunInput": false,
@@ -371,6 +377,7 @@
     {
       "id": "s18-bounty-seeker",
       "name": "Bounty Seeker",
+      "iconPath": "src/assets/icons/set-18/traits/s18-bounty-seeker.svg",
       "kind": "unique",
       "combat": false,
       "requiresRunInput": false,
@@ -386,6 +393,7 @@
     {
       "id": "s18-brawler",
       "name": "Brawler",
+      "iconPath": "src/assets/icons/set-18/traits/s18-brawler.svg",
       "kind": "class",
       "combat": true,
       "requiresRunInput": false,
@@ -448,6 +456,7 @@
     {
       "id": "s18-caustic",
       "name": "Caustic",
+      "iconPath": "src/assets/icons/set-18/traits/s18-caustic.svg",
       "kind": "origin",
       "combat": true,
       "requiresRunInput": false,
@@ -473,6 +482,7 @@
     {
       "id": "s18-coven",
       "name": "Coven",
+      "iconPath": "src/assets/icons/set-18/traits/s18-coven.svg",
       "kind": "origin",
       "combat": false,
       "requiresRunInput": false,
@@ -527,6 +537,7 @@
     {
       "id": "s18-defender",
       "name": "Defender",
+      "iconPath": "src/assets/icons/set-18/traits/s18-defender.svg",
       "kind": "class",
       "combat": true,
       "requiresRunInput": false,
@@ -602,6 +613,7 @@
     {
       "id": "s18-eclipse",
       "name": "Eclipse",
+      "iconPath": "src/assets/icons/set-18/traits/s18-eclipse.svg",
       "kind": "origin",
       "combat": true,
       "requiresRunInput": false,
@@ -633,6 +645,7 @@
     {
       "id": "s18-elderwood",
       "name": "Elderwood",
+      "iconPath": "src/assets/icons/set-18/traits/s18-elderwood.svg",
       "kind": "origin",
       "combat": true,
       "requiresRunInput": false,
@@ -705,6 +718,7 @@
     {
       "id": "s18-emerald-aspect",
       "name": "Emerald Aspect",
+      "iconPath": "src/assets/icons/set-18/traits/s18-emerald-aspect.svg",
       "kind": "unique",
       "combat": true,
       "requiresRunInput": true,
@@ -733,6 +747,7 @@
     {
       "id": "s18-executioner",
       "name": "Executioner",
+      "iconPath": "src/assets/icons/set-18/traits/s18-executioner.svg",
       "kind": "class",
       "combat": true,
       "requiresRunInput": false,
@@ -796,6 +811,7 @@
     {
       "id": "s18-fae",
       "name": "Fae",
+      "iconPath": "src/assets/icons/set-18/traits/s18-fae.svg",
       "kind": "origin",
       "combat": true,
       "requiresRunInput": true,
@@ -856,6 +872,7 @@
     {
       "id": "s18-flora-fatalis",
       "name": "Flora Fatalis",
+      "iconPath": "src/assets/icons/set-18/traits/s18-flora-fatalis.svg",
       "kind": "unique",
       "combat": true,
       "requiresRunInput": false,
@@ -898,6 +915,7 @@
     {
       "id": "s18-greenfather",
       "name": "Greenfather",
+      "iconPath": "src/assets/icons/set-18/traits/s18-greenfather.svg",
       "kind": "unique",
       "combat": true,
       "requiresRunInput": true,
@@ -1030,6 +1048,7 @@
     {
       "id": "s18-hunter",
       "name": "Hunter",
+      "iconPath": "src/assets/icons/set-18/traits/s18-hunter.svg",
       "kind": "class",
       "combat": true,
       "requiresRunInput": false,
@@ -1133,6 +1152,7 @@
     {
       "id": "s18-inferno",
       "name": "Inferno",
+      "iconPath": "src/assets/icons/set-18/traits/s18-inferno.svg",
       "kind": "origin",
       "combat": true,
       "requiresRunInput": false,
@@ -1219,6 +1239,7 @@
     {
       "id": "s18-invoker",
       "name": "Invoker",
+      "iconPath": "src/assets/icons/set-18/traits/s18-invoker.svg",
       "kind": "class",
       "combat": true,
       "requiresRunInput": false,
@@ -1298,6 +1319,7 @@
     {
       "id": "s18-juggernaut",
       "name": "Juggernaut",
+      "iconPath": "src/assets/icons/set-18/traits/s18-juggernaut.svg",
       "kind": "class",
       "combat": true,
       "requiresRunInput": false,
@@ -1368,6 +1390,7 @@
     {
       "id": "s18-lunar",
       "name": "Lunar",
+      "iconPath": "src/assets/icons/set-18/traits/s18-lunar.svg",
       "kind": "origin",
       "combat": true,
       "requiresRunInput": false,
@@ -1467,6 +1490,7 @@
     {
       "id": "s18-monolith",
       "name": "Monolith",
+      "iconPath": "src/assets/icons/set-18/traits/s18-monolith.svg",
       "kind": "class",
       "combat": true,
       "requiresRunInput": false,
@@ -1491,6 +1515,7 @@
     {
       "id": "s18-old-growth",
       "name": "Old Growth",
+      "iconPath": "src/assets/icons/set-18/traits/s18-old-growth.svg",
       "kind": "unique",
       "combat": true,
       "requiresRunInput": true,
@@ -1521,6 +1546,7 @@
     {
       "id": "s18-primal",
       "name": "Primal",
+      "iconPath": "src/assets/icons/set-18/traits/s18-primal.svg",
       "kind": "origin",
       "combat": true,
       "requiresRunInput": true,
@@ -1598,6 +1624,7 @@
     {
       "id": "s18-rapidfire",
       "name": "Rapidfire",
+      "iconPath": "src/assets/icons/set-18/traits/s18-rapidfire.svg",
       "kind": "class",
       "combat": true,
       "requiresRunInput": false,
@@ -1685,6 +1712,7 @@
     {
       "id": "s18-ravager",
       "name": "Ravager",
+      "iconPath": "src/assets/icons/set-18/traits/s18-ravager.svg",
       "kind": "class",
       "combat": true,
       "requiresRunInput": false,
@@ -1757,6 +1785,7 @@
     {
       "id": "s18-riftbeast",
       "name": "Riftbeast",
+      "iconPath": "src/assets/icons/set-18/traits/s18-riftbeast.svg",
       "kind": "origin",
       "combat": true,
       "requiresRunInput": true,
@@ -1857,6 +1886,7 @@
     {
       "id": "s18-rival",
       "name": "Rival",
+      "iconPath": "src/assets/icons/set-18/traits/s18-rival.svg",
       "kind": "origin",
       "combat": true,
       "requiresRunInput": true,
@@ -1897,6 +1927,7 @@
     {
       "id": "s18-solar",
       "name": "Solar",
+      "iconPath": "src/assets/icons/set-18/traits/s18-solar.svg",
       "kind": "origin",
       "combat": true,
       "requiresRunInput": false,
@@ -1968,6 +1999,7 @@
     {
       "id": "s18-spellweaver",
       "name": "Spellweaver",
+      "iconPath": "src/assets/icons/set-18/traits/s18-spellweaver.svg",
       "kind": "class",
       "combat": true,
       "requiresRunInput": false,
@@ -2059,6 +2091,7 @@
     {
       "id": "s18-sprykin",
       "name": "Sprykin",
+      "iconPath": "src/assets/icons/set-18/traits/s18-sprykin.svg",
       "kind": "origin",
       "combat": true,
       "requiresRunInput": true,
@@ -2197,6 +2230,7 @@
     {
       "id": "s18-summoner",
       "name": "Summoner",
+      "iconPath": "src/assets/icons/set-18/traits/s18-summoner.svg",
       "kind": "class",
       "combat": true,
       "requiresRunInput": false,
@@ -2228,6 +2262,7 @@
     {
       "id": "s18-thornmaiden",
       "name": "Thornmaiden",
+      "iconPath": "src/assets/icons/set-18/traits/s18-thornmaiden.svg",
       "kind": "unique",
       "combat": true,
       "requiresRunInput": false,
@@ -2262,6 +2297,7 @@
     {
       "id": "s18-vanguard",
       "name": "Vanguard",
+      "iconPath": "src/assets/icons/set-18/traits/s18-vanguard.svg",
       "kind": "class",
       "combat": true,
       "requiresRunInput": false,
