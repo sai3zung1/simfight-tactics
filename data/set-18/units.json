@@ -1,6 +1,7 @@
 {
   "entries": [
     {
+      "id": "s18-ahri",
       "name": "Ahri",
       "combat": true,
       "requiresRunInput": false,
@@ -60,6 +61,7 @@
       }
     },
     {
+      "id": "s18-akali",
       "name": "Akali",
       "combat": true,
       "requiresRunInput": false,
@@ -167,6 +169,7 @@
       }
     },
     {
+      "id": "s18-alistar",
       "name": "Alistar",
       "combat": true,
       "requiresRunInput": false,
@@ -249,6 +252,7 @@
       }
     },
     {
+      "id": "s18-alune",
       "name": "Alune",
       "combat": true,
       "requiresRunInput": false,
@@ -316,6 +320,7 @@
       }
     },
     {
+      "id": "s18-amumu",
       "name": "Amumu",
       "combat": true,
       "requiresRunInput": false,
@@ -411,6 +416,7 @@
       }
     },
     {
+      "id": "s18-aphelios",
       "name": "Aphelios",
       "combat": true,
       "requiresRunInput": false,
@@ -496,6 +502,7 @@
       }
     },
     {
+      "id": "s18-ashe",
       "name": "Ashe",
       "combat": true,
       "requiresRunInput": false,
@@ -592,6 +599,7 @@
       }
     },
     {
+      "id": "s18-azir",
       "name": "Azir",
       "combat": true,
       "requiresRunInput": false,
@@ -654,6 +662,7 @@
       }
     },
     {
+      "id": "s18-brambleback",
       "name": "Brambleback",
       "combat": true,
       "requiresRunInput": false,
@@ -733,6 +742,7 @@
       }
     },
     {
+      "id": "s18-caitlyn",
       "name": "Caitlyn",
       "combat": true,
       "requiresRunInput": false,
@@ -803,6 +813,7 @@
       }
     },
     {
+      "id": "s18-camille",
       "name": "Camille",
       "combat": true,
       "requiresRunInput": false,
@@ -883,6 +894,7 @@
       }
     },
     {
+      "id": "s18-cassiopeia",
       "name": "Cassiopeia",
       "combat": true,
       "requiresRunInput": false,
@@ -945,6 +957,7 @@
       }
     },
     {
+      "id": "s18-cinderling",
       "name": "Cinderling",
       "combat": true,
       "requiresRunInput": false,
@@ -1039,6 +1052,7 @@
       }
     },
     {
+      "id": "s18-diana",
       "name": "Diana",
       "combat": true,
       "requiresRunInput": false,
@@ -1111,6 +1125,7 @@
       }
     },
     {
+      "id": "s18-draven",
       "name": "Draven",
       "combat": true,
       "requiresRunInput": false,
@@ -1180,6 +1195,7 @@
       }
     },
     {
+      "id": "s18-elder-dragon",
       "name": "Elder Dragon",
       "combat": true,
       "requiresRunInput": false,
@@ -1277,6 +1293,7 @@
       }
     },
     {
+      "id": "s18-elise",
       "name": "Elise",
       "combat": true,
       "requiresRunInput": false,
@@ -1358,6 +1375,7 @@
       }
     },
     {
+      "id": "s18-ezreal",
       "name": "Ezreal",
       "combat": true,
       "requiresRunInput": false,
@@ -1435,6 +1453,7 @@
       }
     },
     {
+      "id": "s18-fiddlesticks",
       "name": "Fiddlesticks",
       "combat": true,
       "requiresRunInput": false,
@@ -1507,6 +1526,7 @@
       }
     },
     {
+      "id": "s18-gnar",
       "name": "Gnar",
       "combat": true,
       "requiresRunInput": false,
@@ -1625,6 +1645,7 @@
       }
     },
     {
+      "id": "s18-gromp",
       "name": "Gromp",
       "combat": true,
       "requiresRunInput": false,
@@ -1761,6 +1782,7 @@
       }
     },
     {
+      "id": "s18-hecarim",
       "name": "Hecarim",
       "combat": true,
       "requiresRunInput": false,
@@ -1843,6 +1865,7 @@
       }
     },
     {
+      "id": "s18-ivern",
       "name": "Ivern",
       "combat": true,
       "requiresRunInput": false,
@@ -1925,6 +1948,7 @@
       }
     },
     {
+      "id": "s18-karma",
       "name": "Karma",
       "combat": true,
       "requiresRunInput": false,
@@ -2003,6 +2027,7 @@
       }
     },
     {
+      "id": "s18-kayle",
       "name": "Kayle",
       "combat": true,
       "requiresRunInput": false,
@@ -2081,6 +2106,7 @@
       }
     },
     {
+      "id": "s18-kennen",
       "name": "Kennen",
       "combat": true,
       "requiresRunInput": false,
@@ -2159,6 +2185,7 @@
       }
     },
     {
+      "id": "s18-khazix",
       "name": "Kha'Zix",
       "combat": true,
       "requiresRunInput": false,
@@ -2230,6 +2257,7 @@
       }
     },
     {
+      "id": "s18-kobuko",
       "name": "Kobuko",
       "combat": true,
       "requiresRunInput": false,
@@ -2301,6 +2329,7 @@
       }
     },
     {
+      "id": "s18-kogmaw",
       "name": "Kog'Maw",
       "combat": true,
       "requiresRunInput": false,
@@ -2410,6 +2439,7 @@
       }
     },
     {
+      "id": "s18-krug",
       "name": "Krug",
       "combat": true,
       "requiresRunInput": false,
@@ -2518,6 +2548,7 @@
       }
     },
     {
+      "id": "s18-leblanc",
       "name": "LeBlanc",
       "combat": true,
       "requiresRunInput": false,
@@ -2598,6 +2629,7 @@
       }
     },
     {
+      "id": "s18-leona",
       "name": "Leona",
       "combat": true,
       "requiresRunInput": false,
@@ -2669,6 +2701,7 @@
       }
     },
     {
+      "id": "s18-lillia",
       "name": "Lillia",
       "combat": true,
       "requiresRunInput": false,
@@ -2746,6 +2779,7 @@
       }
     },
     {
+      "id": "s18-lux",
       "name": "Lux",
       "combat": true,
       "requiresRunInput": false,
@@ -3016,6 +3050,7 @@
       }
     },
     {
+      "id": "s18-malphite",
       "name": "Malphite",
       "combat": true,
       "requiresRunInput": false,
@@ -3096,6 +3131,7 @@
       }
     },
     {
+      "id": "s18-mama-beak",
       "name": "Mama Beak",
       "combat": true,
       "requiresRunInput": false,
@@ -3180,6 +3216,7 @@
       }
     },
     {
+      "id": "s18-maokai",
       "name": "Maokai",
       "combat": true,
       "requiresRunInput": false,
@@ -3278,6 +3315,7 @@
       }
     },
     {
+      "id": "s18-master-yi",
       "name": "Master Yi",
       "combat": true,
       "requiresRunInput": false,
@@ -3366,6 +3404,7 @@
       }
     },
     {
+      "id": "s18-morgana",
       "name": "Morgana",
       "combat": true,
       "requiresRunInput": false,
@@ -3443,6 +3482,7 @@
       }
     },
     {
+      "id": "s18-murkwolf",
       "name": "Murkwolf",
       "combat": true,
       "requiresRunInput": false,
@@ -3537,6 +3577,7 @@
       }
     },
     {
+      "id": "s18-nidalee",
       "name": "Nidalee",
       "combat": true,
       "requiresRunInput": false,
@@ -3687,6 +3728,7 @@
       }
     },
     {
+      "id": "s18-ornn",
       "name": "Ornn",
       "combat": true,
       "requiresRunInput": false,
@@ -3758,6 +3800,7 @@
       }
     },
     {
+      "id": "s18-pebbles",
       "name": "Pebbles",
       "combat": true,
       "requiresRunInput": false,
@@ -3831,6 +3874,7 @@
       }
     },
     {
+      "id": "s18-rakan",
       "name": "Rakan",
       "combat": true,
       "requiresRunInput": false,
@@ -3902,6 +3946,7 @@
       }
     },
     {
+      "id": "s18-rammus",
       "name": "Rammus",
       "combat": true,
       "requiresRunInput": false,
@@ -3974,6 +4019,7 @@
       }
     },
     {
+      "id": "s18-reksai",
       "name": "Rek'Sai",
       "combat": true,
       "requiresRunInput": false,
@@ -4045,6 +4091,7 @@
       }
     },
     {
+      "id": "s18-rengar",
       "name": "Rengar",
       "combat": true,
       "requiresRunInput": false,
@@ -4125,6 +4172,7 @@
       }
     },
     {
+      "id": "s18-scuttlecrab",
       "name": "Scuttlecrab",
       "combat": true,
       "requiresRunInput": false,
@@ -4209,6 +4257,7 @@
       }
     },
     {
+      "id": "s18-sejuani",
       "name": "Sejuani",
       "combat": true,
       "requiresRunInput": false,
@@ -4289,6 +4338,7 @@
       }
     },
     {
+      "id": "s18-sentinel",
       "name": "Sentinel",
       "combat": true,
       "requiresRunInput": false,
@@ -4375,6 +4425,7 @@
       }
     },
     {
+      "id": "s18-sett",
       "name": "Sett",
       "combat": true,
       "requiresRunInput": false,
@@ -4442,6 +4493,7 @@
       }
     },
     {
+      "id": "s18-shen",
       "name": "Shen",
       "combat": true,
       "requiresRunInput": false,
@@ -4524,6 +4576,7 @@
       }
     },
     {
+      "id": "s18-sivir",
       "name": "Sivir",
       "combat": true,
       "requiresRunInput": false,
@@ -4604,6 +4657,7 @@
       }
     },
     {
+      "id": "s18-soraka",
       "name": "Soraka",
       "combat": true,
       "requiresRunInput": false,
@@ -4670,6 +4724,7 @@
       }
     },
     {
+      "id": "s18-taric",
       "name": "Taric",
       "combat": true,
       "requiresRunInput": false,
@@ -4752,6 +4807,7 @@
       }
     },
     {
+      "id": "s18-teemo",
       "name": "Teemo",
       "combat": true,
       "requiresRunInput": false,
@@ -4846,6 +4902,7 @@
       }
     },
     {
+      "id": "s18-training-dummy",
       "name": "Training Dummy",
       "combat": true,
       "requiresRunInput": false,
@@ -4866,6 +4923,7 @@
       }
     },
     {
+      "id": "s18-tristana",
       "name": "Tristana",
       "combat": true,
       "requiresRunInput": false,
@@ -4949,6 +5007,7 @@
       }
     },
     {
+      "id": "s18-varus",
       "name": "Varus",
       "combat": true,
       "requiresRunInput": false,
@@ -5020,6 +5079,7 @@
       }
     },
     {
+      "id": "s18-veigar",
       "name": "Veigar",
       "combat": true,
       "requiresRunInput": true,
@@ -5091,6 +5151,7 @@
       }
     },
     {
+      "id": "s18-vi",
       "name": "Vi",
       "combat": true,
       "requiresRunInput": false,
@@ -5173,6 +5234,7 @@
       }
     },
     {
+      "id": "s18-warwick",
       "name": "Warwick",
       "combat": true,
       "requiresRunInput": false,
@@ -5244,6 +5306,7 @@
       }
     },
     {
+      "id": "s18-xayah",
       "name": "Xayah",
       "combat": true,
       "requiresRunInput": false,
@@ -5315,6 +5378,7 @@
       }
     },
     {
+      "id": "s18-yorick",
       "name": "Yorick",
       "combat": true,
       "requiresRunInput": false,
@@ -5396,6 +5460,7 @@
       }
     },
     {
+      "id": "s18-yunara",
       "name": "Yunara",
       "combat": true,
       "requiresRunInput": false,
@@ -5476,6 +5541,7 @@
       }
     },
     {
+      "id": "s18-zyra",
       "name": "Zyra",
       "combat": true,
       "requiresRunInput": false,
@@ -5533,6 +5599,7 @@
       }
     },
     {
+      "id": "s18-deepwood-protector",
       "name": "Deepwood Protector",
       "combat": true,
       "requiresRunInput": false,
@@ -5613,6 +5680,7 @@
       }
     },
     {
+      "id": "s18-ghoul",
       "name": "Ghoul",
       "combat": true,
       "requiresRunInput": false,
@@ -5662,6 +5730,7 @@
       }
     },
     {
+      "id": "s18-kruglette",
       "name": "Kruglette",
       "combat": true,
       "requiresRunInput": false,
@@ -5723,6 +5792,7 @@
       }
     },
     {
+      "id": "s18-lifebloom",
       "name": "Lifebloom",
       "combat": true,
       "requiresRunInput": false,
@@ -5799,6 +5869,7 @@
       }
     },
     {
+      "id": "s18-stonebark-tree",
       "name": "Stonebark Tree",
       "combat": true,
       "requiresRunInput": false,

@@ -1,6 +1,7 @@
 {
   "entries": [
     {
+      "id": "s18-apprentice",
       "name": "Apprentice",
       "category": "champion",
       "gold": 3,
@@ -11,6 +12,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-big-guns",
       "name": "Big Guns",
       "category": "champion",
       "gold": 8,
@@ -21,6 +23,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-circle-of-elders",
       "name": "Circle of Elders",
       "category": "champion",
       "gold": 45,
@@ -31,6 +34,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-field-of-mice",
       "name": "Field of Mice",
       "category": "champion",
       "gold": 8,
@@ -41,6 +45,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-forest-guide",
       "name": "Forest Guide",
       "category": "champion",
       "gold": 5,
@@ -51,6 +56,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-forest-twins",
       "name": "Forest Twins",
       "category": "champion",
       "gold": 4,
@@ -61,6 +67,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-grandmaster",
       "name": "Grandmaster",
       "category": "champion",
       "gold": 18,
@@ -71,6 +78,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-heated-rivalry",
       "name": "Heated Rivalry",
       "category": "champion",
       "gold": 3,
@@ -81,6 +89,7 @@
       "requiresRunInput": true
     },
     {
+      "id": "s18-hero-of-prophecy",
       "name": "Hero Of Prophecy",
       "category": "champion",
       "gold": 35,
@@ -95,6 +104,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-journeyman",
       "name": "Journeyman",
       "category": "champion",
       "gold": 6,
@@ -105,6 +115,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-lost-travelers",
       "name": "Lost Travelers",
       "category": "champion",
       "gold": 3,
@@ -115,6 +126,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-mitosis",
       "name": "Mitosis",
       "category": "champion",
       "gold": 1,
@@ -125,6 +137,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-propagate",
       "name": "Propagate",
       "category": "champion",
       "gold": 2,
@@ -135,6 +148,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-smurfing",
       "name": "Smurfing",
       "category": "champion",
       "gold": 7,
@@ -145,6 +159,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-solar-gift",
       "name": "Solar Gift",
       "category": "champion",
       "gold": 5,
@@ -155,6 +170,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-three-me",
       "name": "Three Me",
       "category": "champion",
       "gold": 9,
@@ -165,6 +181,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-aftershock",
       "name": "Aftershock",
       "category": "combat",
       "gold": 2,
@@ -185,6 +202,7 @@
       }
     },
     {
+      "id": "s18-backrow-star",
       "name": "Backrow Star",
       "category": "combat",
       "gold": 4,
@@ -207,6 +225,7 @@
       ]
     },
     {
+      "id": "s18-bark-armor",
       "name": "Bark Armor",
       "category": "combat",
       "gold": 1,
@@ -226,6 +245,7 @@
       ]
     },
     {
+      "id": "s18-barrier",
       "name": "Barrier",
       "category": "combat",
       "gold": 5,
@@ -246,6 +266,7 @@
       ]
     },
     {
+      "id": "s18-bears-visit",
       "name": "Bear's Visit",
       "category": "combat",
       "gold": 3,
@@ -259,6 +280,7 @@
       }
     },
     {
+      "id": "s18-big-boom",
       "name": "Big Boom",
       "category": "combat",
       "gold": 1,
@@ -278,6 +300,7 @@
       ]
     },
     {
+      "id": "s18-blaze",
       "name": "Blaze",
       "category": "combat",
       "gold": 5,
@@ -298,6 +321,7 @@
       }
     },
     {
+      "id": "s18-booster-shot",
       "name": "Booster Shot",
       "category": "combat",
       "gold": 4,
@@ -312,6 +336,7 @@
       }
     },
     {
+      "id": "s18-borrowed-gear",
       "name": "Borrowed Gear",
       "category": "combat",
       "gold": 1,
@@ -325,6 +350,7 @@
       }
     },
     {
+      "id": "s18-bulwark",
       "name": "Bulwark",
       "category": "combat",
       "gold": 3,
@@ -350,6 +376,7 @@
       }
     },
     {
+      "id": "s18-bunch-o-belts",
       "name": "Bunch-o'-Belts",
       "category": "combat",
       "gold": 2,
@@ -363,6 +390,7 @@
       }
     },
     {
+      "id": "s18-clone-companion",
       "name": "Clone Companion",
       "category": "combat",
       "gold": 5,
@@ -376,6 +404,7 @@
       }
     },
     {
+      "id": "s18-combust",
       "name": "Combust",
       "category": "combat",
       "gold": 5,
@@ -395,6 +424,7 @@
       ]
     },
     {
+      "id": "s18-counterspell",
       "name": "Counterspell",
       "category": "combat",
       "gold": 2,
@@ -414,6 +444,7 @@
       ]
     },
     {
+      "id": "s18-crystal-ball",
       "name": "Crystal Ball",
       "category": "combat",
       "gold": 1,
@@ -432,6 +463,7 @@
       ]
     },
     {
+      "id": "s18-diversified",
       "name": "Diversified",
       "category": "combat",
       "gold": 3,
@@ -451,6 +483,7 @@
       ]
     },
     {
+      "id": "s18-downpour",
       "name": "Downpour",
       "category": "combat",
       "gold": 2,
@@ -469,6 +502,7 @@
       ]
     },
     {
+      "id": "s18-fellowship",
       "name": "Fellowship",
       "category": "combat",
       "gold": 4,
@@ -489,6 +523,7 @@
       ]
     },
     {
+      "id": "s18-flow",
       "name": "Flow",
       "category": "combat",
       "gold": 2,
@@ -509,6 +544,7 @@
       ]
     },
     {
+      "id": "s18-found-friend",
       "name": "Found Friend",
       "category": "combat",
       "gold": 1,
@@ -522,6 +558,7 @@
       }
     },
     {
+      "id": "s18-giant-growth",
       "name": "Giant Growth",
       "category": "combat",
       "gold": 4,
@@ -543,6 +580,7 @@
       ]
     },
     {
+      "id": "s18-giants-aura",
       "name": "Giant's Aura",
       "category": "combat",
       "gold": 5,
@@ -565,6 +603,7 @@
       ]
     },
     {
+      "id": "s18-hand-of-baron",
       "name": "Hand Of Baron",
       "category": "combat",
       "gold": 6,
@@ -614,6 +653,7 @@
       ]
     },
     {
+      "id": "s18-heros-entrance",
       "name": "Hero's Entrance",
       "category": "combat",
       "gold": 4,
@@ -628,6 +668,7 @@
       }
     },
     {
+      "id": "s18-heroic-sacrifice",
       "name": "Heroic Sacrifice",
       "category": "combat",
       "gold": 5,
@@ -676,6 +717,7 @@
       ]
     },
     {
+      "id": "s18-hireling",
       "name": "Hireling",
       "category": "combat",
       "gold": 5,
@@ -691,6 +733,7 @@
       }
     },
     {
+      "id": "s18-homing-fireflies",
       "name": "Homing Fireflies",
       "category": "combat",
       "gold": 2,
@@ -710,6 +753,7 @@
       ]
     },
     {
+      "id": "s18-hugify",
       "name": "Hugify",
       "category": "combat",
       "gold": 1,
@@ -731,6 +775,7 @@
       ]
     },
     {
+      "id": "s18-hummingbird",
       "name": "Hummingbird",
       "category": "combat",
       "gold": 1,
@@ -752,6 +797,7 @@
       ]
     },
     {
+      "id": "s18-improved-reach",
       "name": "Improved Reach",
       "category": "combat",
       "gold": 2,
@@ -776,6 +822,7 @@
       ]
     },
     {
+      "id": "s18-infliction",
       "name": "Infliction",
       "category": "combat",
       "gold": 5,
@@ -801,6 +848,7 @@
       ]
     },
     {
+      "id": "s18-iron-core",
       "name": "Iron Core",
       "category": "combat",
       "gold": 2,
@@ -823,6 +871,7 @@
       ]
     },
     {
+      "id": "s18-ironwood",
       "name": "Ironwood",
       "category": "combat",
       "gold": 3,
@@ -844,6 +893,7 @@
       ]
     },
     {
+      "id": "s18-killers-regret",
       "name": "Killer's Regret",
       "category": "combat",
       "gold": 2,
@@ -865,6 +915,7 @@
       }
     },
     {
+      "id": "s18-killing-frenzy",
       "name": "Killing Frenzy",
       "category": "combat",
       "gold": 3,
@@ -890,6 +941,7 @@
       }
     },
     {
+      "id": "s18-late-bloomer",
       "name": "Late Bloomer",
       "category": "combat",
       "gold": 6,
@@ -905,6 +957,7 @@
       }
     },
     {
+      "id": "s18-lightning-storm",
       "name": "Lightning Storm",
       "category": "combat",
       "gold": 5,
@@ -924,6 +977,7 @@
       ]
     },
     {
+      "id": "s18-lightning-strike",
       "name": "Lightning Strike",
       "category": "combat",
       "gold": 2,
@@ -942,6 +996,7 @@
       ]
     },
     {
+      "id": "s18-living-soil",
       "name": "Living Soil",
       "category": "combat",
       "gold": 2,
@@ -962,6 +1017,7 @@
       }
     },
     {
+      "id": "s18-mana-rich-soil",
       "name": "Mana-Rich Soil",
       "category": "combat",
       "gold": 3,
@@ -986,6 +1042,7 @@
       ]
     },
     {
+      "id": "s18-marksmens-gale",
       "name": "Marksmen's Gale",
       "category": "combat",
       "gold": 2,
@@ -1012,6 +1069,7 @@
       ]
     },
     {
+      "id": "s18-marksmens-marks",
       "name": "Marksmen's Marks",
       "category": "combat",
       "gold": 3,
@@ -1035,6 +1093,7 @@
       ]
     },
     {
+      "id": "s18-memorial-dummy",
       "name": "Memorial Dummy",
       "category": "combat",
       "gold": 3,
@@ -1048,6 +1107,7 @@
       }
     },
     {
+      "id": "s18-mercenary-force",
       "name": "Mercenary Force",
       "category": "combat",
       "gold": 3,
@@ -1067,6 +1127,7 @@
       ]
     },
     {
+      "id": "s18-moonlight-ritual",
       "name": "Moonlight Ritual",
       "category": "combat",
       "gold": 2,
@@ -1080,6 +1141,7 @@
       }
     },
     {
+      "id": "s18-moonrise",
       "name": "Moonrise",
       "category": "combat",
       "gold": 2,
@@ -1094,6 +1156,7 @@
       }
     },
     {
+      "id": "s18-natures-ally",
       "name": "Nature's Ally",
       "category": "combat",
       "gold": 2,
@@ -1107,6 +1170,7 @@
       }
     },
     {
+      "id": "s18-natures-wrath",
       "name": "Nature's Wrath",
       "category": "combat",
       "gold": 6,
@@ -1129,6 +1193,7 @@
       }
     },
     {
+      "id": "s18-petrified-dummy",
       "name": "Petrified Dummy",
       "category": "combat",
       "gold": 2,
@@ -1142,6 +1207,7 @@
       }
     },
     {
+      "id": "s18-petrify-shields",
       "name": "Petrify Shields",
       "category": "combat",
       "gold": 2,
@@ -1162,6 +1228,7 @@
       ]
     },
     {
+      "id": "s18-phantom-armor",
       "name": "Phantom Armor",
       "category": "combat",
       "gold": 2,
@@ -1175,6 +1242,7 @@
       }
     },
     {
+      "id": "s18-phantom-emblem",
       "name": "Phantom Emblem",
       "category": "combat",
       "gold": 4,
@@ -1188,6 +1256,7 @@
       }
     },
     {
+      "id": "s18-phantom-gloves",
       "name": "Phantom Gloves",
       "category": "combat",
       "gold": 3,
@@ -1201,6 +1270,7 @@
       }
     },
     {
+      "id": "s18-phantom-splash",
       "name": "Phantom Splash",
       "category": "combat",
       "gold": 2,
@@ -1214,6 +1284,7 @@
       }
     },
     {
+      "id": "s18-phantom-vest",
       "name": "Phantom Vest",
       "category": "combat",
       "gold": 2,
@@ -1227,6 +1298,7 @@
       }
     },
     {
+      "id": "s18-plated-shields",
       "name": "Plated Shields",
       "category": "combat",
       "gold": 2,
@@ -1249,6 +1321,7 @@
       ]
     },
     {
+      "id": "s18-potted-lifebloom",
       "name": "Potted Lifebloom",
       "category": "combat",
       "gold": 2,
@@ -1262,6 +1335,7 @@
       }
     },
     {
+      "id": "s18-potted-stonebark",
       "name": "Potted Stonebark",
       "category": "combat",
       "gold": 2,
@@ -1275,6 +1349,7 @@
       }
     },
     {
+      "id": "s18-preppers",
       "name": "Preppers",
       "category": "combat",
       "gold": 2,
@@ -1288,6 +1363,7 @@
       }
     },
     {
+      "id": "s18-prolific-power",
       "name": "Prolific Power",
       "category": "combat",
       "gold": 0,
@@ -1307,6 +1383,7 @@
       ]
     },
     {
+      "id": "s18-quicken",
       "name": "Quicken",
       "category": "combat",
       "gold": 3,
@@ -1327,6 +1404,7 @@
       ]
     },
     {
+      "id": "s18-radiantize",
       "name": "Radiantize",
       "category": "combat",
       "gold": 6,
@@ -1341,6 +1419,7 @@
       }
     },
     {
+      "id": "s18-rain",
       "name": "Rain",
       "category": "combat",
       "gold": 1,
@@ -1359,6 +1438,7 @@
       ]
     },
     {
+      "id": "s18-regeneration",
       "name": "Regeneration",
       "category": "combat",
       "gold": 2,
@@ -1378,6 +1458,7 @@
       ]
     },
     {
+      "id": "s18-resistant",
       "name": "Resistant",
       "category": "combat",
       "gold": 2,
@@ -1399,6 +1480,7 @@
       ]
     },
     {
+      "id": "s18-revenge",
       "name": "Revenge",
       "category": "combat",
       "gold": 3,
@@ -1419,6 +1501,7 @@
       ]
     },
     {
+      "id": "s18-scrappy",
       "name": "Scrappy",
       "category": "combat",
       "gold": 3,
@@ -1432,6 +1515,7 @@
       }
     },
     {
+      "id": "s18-snacktime",
       "name": "Snacktime!",
       "category": "combat",
       "gold": 3,
@@ -1453,6 +1537,7 @@
       }
     },
     {
+      "id": "s18-solitudes-cloak",
       "name": "Solitude's Cloak",
       "category": "combat",
       "gold": 3,
@@ -1475,6 +1560,7 @@
       ]
     },
     {
+      "id": "s18-stand-alone",
       "name": "Stand Alone",
       "category": "combat",
       "gold": 3,
@@ -1501,6 +1587,7 @@
       ]
     },
     {
+      "id": "s18-stealthy",
       "name": "Stealthy",
       "category": "combat",
       "gold": 1,
@@ -1525,6 +1612,7 @@
       }
     },
     {
+      "id": "s18-sunfire-sorcery",
       "name": "Sunfire Sorcery",
       "category": "combat",
       "gold": 2,
@@ -1547,6 +1635,7 @@
       ]
     },
     {
+      "id": "s18-supercritical",
       "name": "Supercritical",
       "category": "combat",
       "gold": 3,
@@ -1568,6 +1657,7 @@
       ]
     },
     {
+      "id": "s18-tattered-armor",
       "name": "Tattered Armor",
       "category": "combat",
       "gold": 1,
@@ -1588,6 +1678,7 @@
       ]
     },
     {
+      "id": "s18-tigers-visit",
       "name": "Tiger's Visit",
       "category": "combat",
       "gold": 3,
@@ -1601,6 +1692,7 @@
       }
     },
     {
+      "id": "s18-training-yard",
       "name": "Training Yard",
       "category": "combat",
       "gold": 3,
@@ -1614,6 +1706,7 @@
       }
     },
     {
+      "id": "s18-treetop-archers",
       "name": "Treetop Archers",
       "category": "combat",
       "gold": 5,
@@ -1637,6 +1730,7 @@
       }
     },
     {
+      "id": "s18-tremors",
       "name": "Tremors",
       "category": "combat",
       "gold": 4,
@@ -1657,6 +1751,7 @@
       }
     },
     {
+      "id": "s18-turtles-visit",
       "name": "Turtle's Visit",
       "category": "combat",
       "gold": 3,
@@ -1670,6 +1765,7 @@
       }
     },
     {
+      "id": "s18-ultra-ascension",
       "name": "Ultra Ascension",
       "category": "combat",
       "gold": 0,
@@ -1689,6 +1785,7 @@
       ]
     },
     {
+      "id": "s18-verdant-vitality",
       "name": "Verdant Vitality",
       "category": "combat",
       "gold": 0,
@@ -1707,6 +1804,7 @@
       ]
     },
     {
+      "id": "s18-wrapped-in-thorns",
       "name": "Wrapped In Thorns",
       "category": "combat",
       "gold": 2,
@@ -1730,6 +1828,7 @@
       ]
     },
     {
+      "id": "s18-yordle-spirit",
       "name": "Yordle Spirit",
       "category": "combat",
       "gold": 3,
@@ -1748,6 +1847,7 @@
       ]
     },
     {
+      "id": "s18-all-fives",
       "name": "All Fives",
       "category": "shop",
       "gold": 10,
@@ -1758,6 +1858,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-all-fours",
       "name": "All Fours",
       "category": "shop",
       "gold": 4,
@@ -1768,6 +1869,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-all-ones",
       "name": "All Ones",
       "category": "shop",
       "gold": 0,
@@ -1778,6 +1880,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-all-threes",
       "name": "All Threes",
       "category": "shop",
       "gold": 2,
@@ -1788,6 +1891,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-all-twos",
       "name": "All Twos",
       "category": "shop",
       "gold": 1,
@@ -1798,6 +1902,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-animate-shop",
       "name": "Animate Shop",
       "category": "shop",
       "gold": 8,
@@ -1808,6 +1913,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-border-village",
       "name": "Border Village",
       "category": "shop",
       "gold": 6,
@@ -1818,6 +1924,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-flash-fire",
       "name": "Flash Fire",
       "category": "shop",
       "gold": 2,
@@ -1828,6 +1935,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-freeroller",
       "name": "Freeroller",
       "category": "shop",
       "gold": 2,
@@ -1838,6 +1946,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-jungling",
       "name": "Jungling",
       "category": "shop",
       "gold": 4,
@@ -1848,6 +1957,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-lucky-7",
       "name": "Lucky 7",
       "category": "shop",
       "gold": 7,
@@ -1858,6 +1968,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-middle-path",
       "name": "Middle Path",
       "category": "shop",
       "gold": 6,
@@ -1868,6 +1979,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-refreshing-light",
       "name": "Refreshing Light",
       "category": "shop",
       "gold": 6,
@@ -1878,6 +1990,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-ride-the-wave",
       "name": "Ride the Wave",
       "category": "shop",
       "gold": 3,
@@ -1888,6 +2001,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-rolling-bones",
       "name": "Rolling Bones",
       "category": "shop",
       "gold": 3,
@@ -1898,6 +2012,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-roly-polys",
       "name": "Roly-Polys",
       "category": "shop",
       "gold": 3,
@@ -1908,6 +2023,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-search-party",
       "name": "Search Party",
       "category": "shop",
       "gold": 3,
@@ -1918,6 +2034,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-starfall",
       "name": "Starfall",
       "category": "shop",
       "gold": 1,
@@ -1928,6 +2045,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-starting-town",
       "name": "Starting Town",
       "category": "shop",
       "gold": 3,
@@ -1938,6 +2056,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-barter",
       "name": "Barter",
       "category": "gold-xp",
       "gold": 1,
@@ -1948,6 +2067,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-blood-money",
       "name": "Blood Money",
       "category": "gold-xp",
       "gold": 2,
@@ -1958,6 +2078,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-bronze-spoon",
       "name": "Bronze Spoon",
       "category": "gold-xp",
       "gold": 3,
@@ -1968,6 +2089,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-coin-flip",
       "name": "Coin Flip",
       "category": "gold-xp",
       "gold": 0,
@@ -1978,6 +2100,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-die-roll",
       "name": "Die Roll",
       "category": "gold-xp",
       "gold": 2,
@@ -1988,6 +2111,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-experienced",
       "name": "Experienced",
       "category": "gold-xp",
       "gold": 1,
@@ -1998,6 +2122,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-golden-goose",
       "name": "Golden Goose",
       "category": "gold-xp",
       "gold": 1,
@@ -2008,6 +2133,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-grow-up",
       "name": "Grow Up",
       "category": "gold-xp",
       "gold": 10,
@@ -2018,6 +2144,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-life-debt",
       "name": "Life Debt",
       "category": "gold-xp",
       "gold": 0,
@@ -2028,6 +2155,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-pocket-change",
       "name": "Pocket Change",
       "category": "gold-xp",
       "gold": 1,
@@ -2038,6 +2166,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-slow-study",
       "name": "Slow Study",
       "category": "gold-xp",
       "gold": 3,
@@ -2048,6 +2177,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-abandon-ship",
       "name": "Abandon Ship",
       "category": "risky",
       "gold": 0,
@@ -2063,6 +2193,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-cutpurse",
       "name": "Cutpurse",
       "category": "risky",
       "gold": 2,
@@ -2073,6 +2204,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-essence-theft",
       "name": "Essence Theft",
       "category": "risky",
       "gold": 1,
@@ -2083,6 +2215,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-fertilize",
       "name": "Fertilize",
       "category": "risky",
       "gold": 1,
@@ -2093,6 +2226,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-flip-frenzy",
       "name": "Flip Frenzy",
       "category": "risky",
       "gold": 1,
@@ -2103,6 +2237,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-major-polymorph",
       "name": "Major Polymorph",
       "category": "risky",
       "gold": 1,
@@ -2113,6 +2248,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-minor-polymorph",
       "name": "Minor Polymorph",
       "category": "risky",
       "gold": 1,
@@ -2123,6 +2259,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-payday",
       "name": "Payday",
       "category": "risky",
       "gold": 3,
@@ -2133,6 +2270,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-polymorph",
       "name": "Polymorph",
       "category": "risky",
       "gold": 1,
@@ -2143,6 +2281,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-trophy-hunter",
       "name": "Trophy Hunter",
       "category": "risky",
       "gold": 2,
@@ -2153,6 +2292,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-artifactinate",
       "name": "Artifactinate",
       "category": "item",
       "gold": 0,
@@ -2163,6 +2303,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-blood-and-iron",
       "name": "Blood and Iron",
       "category": "item",
       "gold": 3,
@@ -2173,6 +2314,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-curio-cart",
       "name": "Curio Cart",
       "category": "item",
       "gold": 0,
@@ -2183,6 +2325,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-idle-craftsman",
       "name": "Idle Craftsman",
       "category": "item",
       "gold": 4,
@@ -2193,6 +2336,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-peddler",
       "name": "Peddler",
       "category": "item",
       "gold": 0,
@@ -2203,6 +2347,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-blast-potion",
       "name": "Blast Potion",
       "category": "misc",
       "gold": 1,
@@ -2213,6 +2358,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-doodad-bag",
       "name": "Doodad Bag",
       "category": "misc",
       "gold": 2,
@@ -2223,6 +2369,7 @@
       "requiresRunInput": true
     },
     {
+      "id": "s18-doodad-jar",
       "name": "Doodad Jar",
       "category": "misc",
       "gold": 1,
@@ -2233,6 +2380,7 @@
       "requiresRunInput": true
     },
     {
+      "id": "s18-doodad-sack",
       "name": "Doodad Sack",
       "category": "misc",
       "gold": 3,
@@ -2243,6 +2391,7 @@
       "requiresRunInput": true
     },
     {
+      "id": "s18-early-fix",
       "name": "Early Fix",
       "category": "misc",
       "gold": 0,
@@ -2253,6 +2402,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-forest-mage",
       "name": "Forest Mage",
       "category": "misc",
       "gold": 0,
@@ -2263,6 +2413,7 @@
       "requiresRunInput": true
     },
     {
+      "id": "s18-greater-chaos",
       "name": "Greater Chaos",
       "category": "misc",
       "gold": 4,
@@ -2273,6 +2424,7 @@
       "requiresRunInput": true
     },
     {
+      "id": "s18-health-potion",
       "name": "Health Potion",
       "category": "misc",
       "gold": 1,
@@ -2283,6 +2435,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-knick-knack-bag",
       "name": "Knick-Knack Bag",
       "category": "misc",
       "gold": 2,
@@ -2293,6 +2446,7 @@
       "requiresRunInput": true
     },
     {
+      "id": "s18-knick-knack-jar",
       "name": "Knick-Knack Jar",
       "category": "misc",
       "gold": 1,
@@ -2303,6 +2457,7 @@
       "requiresRunInput": true
     },
     {
+      "id": "s18-knick-knack-sack",
       "name": "Knick-Knack Sack",
       "category": "misc",
       "gold": 3,
@@ -2313,6 +2468,7 @@
       "requiresRunInput": true
     },
     {
+      "id": "s18-lesser-chaos",
       "name": "Lesser Chaos",
       "category": "misc",
       "gold": 1,
@@ -2323,6 +2479,7 @@
       "requiresRunInput": true
     },
     {
+      "id": "s18-mana-potion",
       "name": "Mana Potion",
       "category": "misc",
       "gold": 1,
@@ -2333,6 +2490,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-potioncraft",
       "name": "Potioncraft",
       "category": "misc",
       "gold": 3,
@@ -2343,6 +2501,7 @@
       "requiresRunInput": true
     },
     {
+      "id": "s18-salvager",
       "name": "Salvager",
       "category": "misc",
       "gold": 0,
@@ -2353,6 +2512,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "s18-terraforming",
       "name": "Terraforming",
       "category": "misc",
       "gold": 2,
@@ -2366,6 +2526,7 @@
       }
     },
     {
+      "id": "s18-thingamajig-bag",
       "name": "Thingamajig Bag",
       "category": "misc",
       "gold": 2,
@@ -2376,6 +2537,7 @@
       "requiresRunInput": true
     },
     {
+      "id": "s18-thingamajig-jar",
       "name": "Thingamajig Jar",
       "category": "misc",
       "gold": 1,
@@ -2386,6 +2548,7 @@
       "requiresRunInput": true
     },
     {
+      "id": "s18-thingamajig-sack",
       "name": "Thingamajig Sack",
       "category": "misc",
       "gold": 3,

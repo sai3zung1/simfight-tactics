@@ -1,6 +1,7 @@
 {
   "entries": [
     {
+      "id": "s18-adaptor",
       "name": "Adaptor",
       "kind": "class",
       "combat": true,
@@ -50,6 +51,7 @@
       ]
     },
     {
+      "id": "s18-apex-predator",
       "name": "Apex Predator",
       "kind": "unique",
       "combat": true,
@@ -68,6 +70,7 @@
       ]
     },
     {
+      "id": "s18-attuned",
       "name": "Attuned",
       "kind": "unique",
       "combat": true,
@@ -141,6 +144,7 @@
       ]
     },
     {
+      "id": "s18-avatar",
       "name": "Avatar",
       "kind": "unique",
       "combat": false,
@@ -169,6 +173,7 @@
       ]
     },
     {
+      "id": "s18-blackthorn",
       "name": "Blackthorn",
       "kind": "origin",
       "combat": true,
@@ -279,6 +284,7 @@
       ]
     },
     {
+      "id": "s18-blossom",
       "name": "Blossom",
       "kind": "origin",
       "combat": true,
@@ -363,6 +369,7 @@
       ]
     },
     {
+      "id": "s18-bounty-seeker",
       "name": "Bounty Seeker",
       "kind": "unique",
       "combat": false,
@@ -377,6 +384,7 @@
       ]
     },
     {
+      "id": "s18-brawler",
       "name": "Brawler",
       "kind": "class",
       "combat": true,
@@ -438,6 +446,7 @@
       ]
     },
     {
+      "id": "s18-caustic",
       "name": "Caustic",
       "kind": "origin",
       "combat": true,
@@ -462,6 +471,7 @@
       ]
     },
     {
+      "id": "s18-coven",
       "name": "Coven",
       "kind": "origin",
       "combat": false,
@@ -515,6 +525,7 @@
       ]
     },
     {
+      "id": "s18-defender",
       "name": "Defender",
       "kind": "class",
       "combat": true,
@@ -589,6 +600,7 @@
       ]
     },
     {
+      "id": "s18-eclipse",
       "name": "Eclipse",
       "kind": "origin",
       "combat": true,
@@ -619,6 +631,7 @@
       ]
     },
     {
+      "id": "s18-elderwood",
       "name": "Elderwood",
       "kind": "origin",
       "combat": true,
@@ -690,6 +703,7 @@
       ]
     },
     {
+      "id": "s18-emerald-aspect",
       "name": "Emerald Aspect",
       "kind": "unique",
       "combat": true,
@@ -717,6 +731,7 @@
       ]
     },
     {
+      "id": "s18-executioner",
       "name": "Executioner",
       "kind": "class",
       "combat": true,
@@ -779,6 +794,7 @@
       ]
     },
     {
+      "id": "s18-fae",
       "name": "Fae",
       "kind": "origin",
       "combat": true,
@@ -838,6 +854,7 @@
       ]
     },
     {
+      "id": "s18-flora-fatalis",
       "name": "Flora Fatalis",
       "kind": "unique",
       "combat": true,
@@ -879,6 +896,7 @@
       ]
     },
     {
+      "id": "s18-greenfather",
       "name": "Greenfather",
       "kind": "unique",
       "combat": true,
@@ -1010,6 +1028,7 @@
       ]
     },
     {
+      "id": "s18-hunter",
       "name": "Hunter",
       "kind": "class",
       "combat": true,
@@ -1112,6 +1131,7 @@
       ]
     },
     {
+      "id": "s18-inferno",
       "name": "Inferno",
       "kind": "origin",
       "combat": true,
@@ -1197,6 +1217,7 @@
       ]
     },
     {
+      "id": "s18-invoker",
       "name": "Invoker",
       "kind": "class",
       "combat": true,
@@ -1275,6 +1296,7 @@
       ]
     },
     {
+      "id": "s18-juggernaut",
       "name": "Juggernaut",
       "kind": "class",
       "combat": true,
@@ -1344,6 +1366,7 @@
       ]
     },
     {
+      "id": "s18-lunar",
       "name": "Lunar",
       "kind": "origin",
       "combat": true,
@@ -1442,6 +1465,7 @@
       ]
     },
     {
+      "id": "s18-monolith",
       "name": "Monolith",
       "kind": "class",
       "combat": true,
@@ -1465,6 +1489,7 @@
       ]
     },
     {
+      "id": "s18-old-growth",
       "name": "Old Growth",
       "kind": "unique",
       "combat": true,
@@ -1494,6 +1519,7 @@
       ]
     },
     {
+      "id": "s18-primal",
       "name": "Primal",
       "kind": "origin",
       "combat": true,
@@ -1570,6 +1596,7 @@
       ]
     },
     {
+      "id": "s18-rapidfire",
       "name": "Rapidfire",
       "kind": "class",
       "combat": true,
@@ -1656,6 +1683,7 @@
       ]
     },
     {
+      "id": "s18-ravager",
       "name": "Ravager",
       "kind": "class",
       "combat": true,
@@ -1727,6 +1755,7 @@
       ]
     },
     {
+      "id": "s18-riftbeast",
       "name": "Riftbeast",
       "kind": "origin",
       "combat": true,
@@ -1826,6 +1855,7 @@
       ]
     },
     {
+      "id": "s18-rival",
       "name": "Rival",
       "kind": "origin",
       "combat": true,
@@ -1865,6 +1895,7 @@
       ]
     },
     {
+      "id": "s18-solar",
       "name": "Solar",
       "kind": "origin",
       "combat": true,
@@ -1935,6 +1966,7 @@
       ]
     },
     {
+      "id": "s18-spellweaver",
       "name": "Spellweaver",
       "kind": "class",
       "combat": true,
@@ -2025,6 +2057,7 @@
       ]
     },
     {
+      "id": "s18-sprykin",
       "name": "Sprykin",
       "kind": "origin",
       "combat": true,
@@ -2162,6 +2195,7 @@
       ]
     },
     {
+      "id": "s18-summoner",
       "name": "Summoner",
       "kind": "class",
       "combat": true,
@@ -2192,6 +2226,7 @@
       ]
     },
     {
+      "id": "s18-thornmaiden",
       "name": "Thornmaiden",
       "kind": "unique",
       "combat": true,
@@ -2225,6 +2260,7 @@
       ]
     },
     {
+      "id": "s18-vanguard",
       "name": "Vanguard",
       "kind": "class",
       "combat": true,

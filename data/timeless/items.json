@@ -1,6 +1,7 @@
 {
   "entries": [
     {
+      "id": "bf-sword",
       "name": "B.F. Sword",
       "combat": true,
       "requiresRunInput": false,
@@ -11,6 +12,7 @@
       }
     },
     {
+      "id": "recursive-bow",
       "name": "Recursive Bow",
       "combat": true,
       "requiresRunInput": false,
@@ -21,6 +23,7 @@
       }
     },
     {
+      "id": "chain-vest",
       "name": "Chain Vest",
       "combat": true,
       "requiresRunInput": false,
@@ -31,6 +34,7 @@
       }
     },
     {
+      "id": "negatron-cloak",
       "name": "Negatron Cloak",
       "combat": true,
       "requiresRunInput": false,
@@ -41,6 +45,7 @@
       }
     },
     {
+      "id": "needlessly-large-rod",
       "name": "Needlessly Large Rod",
       "combat": true,
       "requiresRunInput": false,
@@ -51,6 +56,7 @@
       }
     },
     {
+      "id": "tear-of-the-goddess",
       "name": "Tear of the Goddess",
       "combat": true,
       "requiresRunInput": false,
@@ -61,6 +67,7 @@
       }
     },
     {
+      "id": "giants-belt",
       "name": "Giant's Belt",
       "combat": true,
       "requiresRunInput": false,
@@ -71,6 +78,7 @@
       }
     },
     {
+      "id": "sparring-gloves",
       "name": "Sparring Gloves",
       "combat": true,
       "requiresRunInput": false,
@@ -81,6 +89,7 @@
       }
     },
     {
+      "id": "spatula",
       "name": "Spatula",
       "combat": false,
       "requiresRunInput": false,
@@ -89,6 +98,7 @@
       "stats": {}
     },
     {
+      "id": "frying-pan",
       "name": "Frying Pan",
       "combat": false,
       "requiresRunInput": false,
@@ -97,6 +107,7 @@
       "stats": {}
     },
     {
+      "id": "deathblade",
       "name": "Deathblade",
       "combat": true,
       "requiresRunInput": false,
@@ -109,6 +120,7 @@
       "description": "Perfect peace and calm for the holder - and all who face it."
     },
     {
+      "id": "giant-slayer",
       "name": "Giant Slayer",
       "combat": true,
       "requiresRunInput": false,
@@ -134,6 +146,7 @@
       ]
     },
     {
+      "id": "edge-of-night",
       "name": "Edge of Night",
       "combat": true,
       "requiresRunInput": false,
@@ -164,6 +177,7 @@
       }
     },
     {
+      "id": "bloodthirster",
       "name": "Bloodthirster",
       "combat": true,
       "requiresRunInput": false,
@@ -192,6 +206,7 @@
       }
     },
     {
+      "id": "hextech-gunblade",
       "name": "Hextech Gunblade",
       "combat": true,
       "requiresRunInput": false,
@@ -215,6 +230,7 @@
       ]
     },
     {
+      "id": "spear-of-shojin",
       "name": "Spear of Shojin",
       "combat": true,
       "requiresRunInput": false,
@@ -237,6 +253,7 @@
       ]
     },
     {
+      "id": "steraks-gage",
       "name": "Sterak's Gage",
       "combat": true,
       "requiresRunInput": false,
@@ -263,6 +280,7 @@
       }
     },
     {
+      "id": "infinity-edge",
       "name": "Infinity Edge",
       "combat": true,
       "requiresRunInput": false,
@@ -281,6 +299,7 @@
       ]
     },
     {
+      "id": "red-buff",
       "name": "Red Buff",
       "combat": true,
       "requiresRunInput": false,
@@ -302,6 +321,7 @@
       ]
     },
     {
+      "id": "void-staff",
       "name": "Void Staff",
       "combat": true,
       "requiresRunInput": false,
@@ -324,6 +344,7 @@
       ]
     },
     {
+      "id": "last-whisper",
       "name": "Last Whisper",
       "combat": true,
       "requiresRunInput": false,
@@ -346,6 +367,7 @@
       ]
     },
     {
+      "id": "titans-resolve",
       "name": "Titan's Resolve",
       "combat": true,
       "requiresRunInput": false,
@@ -382,6 +404,7 @@
       ]
     },
     {
+      "id": "bramble-vest",
       "name": "Bramble Vest",
       "combat": true,
       "requiresRunInput": false,
@@ -418,6 +441,7 @@
       ]
     },
     {
+      "id": "gargoyle-stoneplate",
       "name": "Gargoyle Stoneplate",
       "combat": true,
       "requiresRunInput": false,
@@ -442,6 +466,7 @@
       ]
     },
     {
+      "id": "crownguard",
       "name": "Crownguard",
       "combat": true,
       "requiresRunInput": false,
@@ -472,6 +497,7 @@
       ]
     },
     {
+      "id": "protectors-vow",
       "name": "Protector's Vow",
       "combat": true,
       "requiresRunInput": false,
@@ -507,6 +533,7 @@
       }
     },
     {
+      "id": "sunfire-cape",
       "name": "Sunfire Cape",
       "combat": true,
       "requiresRunInput": false,
@@ -540,6 +567,7 @@
       }
     },
     {
+      "id": "steadfast-heart",
       "name": "Steadfast Heart",
       "combat": true,
       "requiresRunInput": false,
@@ -573,6 +601,7 @@
       }
     },
     {
+      "id": "krakens-fury",
       "name": "Kraken's Fury",
       "combat": true,
       "requiresRunInput": false,
@@ -608,6 +637,7 @@
       ]
     },
     {
+      "id": "dragons-claw",
       "name": "Dragon's Claw",
       "combat": true,
       "requiresRunInput": false,
@@ -632,6 +662,7 @@
       ]
     },
     {
+      "id": "adaptive-helm",
       "name": "Adaptive Helm",
       "combat": true,
       "requiresRunInput": false,
@@ -672,6 +703,7 @@
       ]
     },
     {
+      "id": "quicksilver",
       "name": "Quicksilver",
       "combat": true,
       "requiresRunInput": false,
@@ -702,6 +734,7 @@
       ]
     },
     {
+      "id": "guinsoos-rageblade",
       "name": "Guinsoo's Rageblade",
       "combat": true,
       "requiresRunInput": false,
@@ -725,6 +758,7 @@
       ]
     },
     {
+      "id": "ionic-spark",
       "name": "Ionic Spark",
       "combat": true,
       "requiresRunInput": false,
@@ -755,6 +789,7 @@
       }
     },
     {
+      "id": "rabadons-deathcap",
       "name": "Rabadon's Deathcap",
       "combat": true,
       "requiresRunInput": false,
@@ -767,6 +802,7 @@
       "description": "This humble hat can help you make, or unmake, the world itself."
     },
     {
+      "id": "archangels-staff",
       "name": "Archangel's Staff",
       "combat": true,
       "requiresRunInput": false,
@@ -790,6 +826,7 @@
       ]
     },
     {
+      "id": "jeweled-gauntlet",
       "name": "Jeweled Gauntlet",
       "combat": true,
       "requiresRunInput": false,
@@ -808,6 +845,7 @@
       ]
     },
     {
+      "id": "blue-buff",
       "name": "Blue Buff",
       "combat": true,
       "requiresRunInput": false,
@@ -830,6 +868,7 @@
       ]
     },
     {
+      "id": "nashors-tooth",
       "name": "Nashor's Tooth",
       "combat": true,
       "requiresRunInput": false,
@@ -860,6 +899,7 @@
       ]
     },
     {
+      "id": "evenshroud",
       "name": "Evenshroud",
       "combat": true,
       "requiresRunInput": false,
@@ -893,6 +933,7 @@
       }
     },
     {
+      "id": "morellonomicon",
       "name": "Morellonomicon",
       "combat": true,
       "requiresRunInput": false,
@@ -915,6 +956,7 @@
       ]
     },
     {
+      "id": "spirit-visage",
       "name": "Spirit Visage",
       "combat": true,
       "requiresRunInput": false,
@@ -935,6 +977,7 @@
       ]
     },
     {
+      "id": "warmogs-armor",
       "name": "Warmog's Armor",
       "combat": true,
       "requiresRunInput": false,
@@ -954,6 +997,7 @@
       ]
     },
     {
+      "id": "strikers-flail",
       "name": "Striker's Flail",
       "combat": true,
       "requiresRunInput": false,
@@ -982,6 +1026,7 @@
       ]
     },
     {
+      "id": "hand-of-justice",
       "name": "Hand of Justice",
       "combat": true,
       "requiresRunInput": false,
@@ -1024,6 +1069,7 @@
       }
     },
     {
+      "id": "thiefs-gloves",
       "name": "Thief's Gloves",
       "combat": true,
       "requiresRunInput": true,
@@ -1036,6 +1082,7 @@
       "description": "Each round: Equip 2 random items\n\nConsumes 3 item slots."
     },
     {
+      "id": "tacticians-crown",
       "name": "Tactician's Crown",
       "combat": true,
       "requiresRunInput": false,
@@ -1045,6 +1092,7 @@
       "description": "Your team gains +1 maximum team size.\n\n10% chance to drop 1 gold when you win combat.\n\n...the Heart of a hero..."
     },
     {
+      "id": "tacticians-cape",
       "name": "Tactician's Cape",
       "combat": true,
       "requiresRunInput": false,
@@ -1054,6 +1102,7 @@
       "description": "Your team gains +1 maximum team size.\n\n10% chance to drop 1 gold after 10 seconds of combat.\n\n...and a bit of Luck."
     },
     {
+      "id": "tacticians-shield",
       "name": "Tactician's Shield",
       "combat": true,
       "requiresRunInput": false,
@@ -1063,6 +1112,7 @@
       "description": "Your team gains +1 maximum team size.\n\n10% chance to drop 1 gold when the holder dies.\n\nImbued with a Philosopher's wisdom..."
     },
     {
+      "id": "blackthorn-emblem",
       "name": "Blackthorn Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1077,6 +1127,7 @@
       "description": "The holder gains the Blackthorn trait."
     },
     {
+      "id": "blossom-emblem",
       "name": "Blossom Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1091,6 +1142,7 @@
       "description": "The holder gains the Blossom trait."
     },
     {
+      "id": "brawler-emblem",
       "name": "Brawler Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1113,6 +1165,7 @@
       ]
     },
     {
+      "id": "coven-emblem",
       "name": "Coven Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1125,6 +1178,7 @@
       "description": "The holder gains the Coven trait."
     },
     {
+      "id": "defender-emblem",
       "name": "Defender Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1148,6 +1202,7 @@
       ]
     },
     {
+      "id": "elderwood-emblem",
       "name": "Elderwood Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1162,6 +1217,7 @@
       "description": "The holder gains the Elderwood trait."
     },
     {
+      "id": "executioner-emblem",
       "name": "Executioner Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1183,6 +1239,7 @@
       ]
     },
     {
+      "id": "fae-emblem",
       "name": "Fae Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1197,6 +1254,7 @@
       "description": "The holder gains the Fae trait."
     },
     {
+      "id": "flora-fatalis-emblem",
       "name": "Flora Fatalis Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1210,6 +1268,7 @@
       "description": "The holder gains the Flora Fatalis trait."
     },
     {
+      "id": "hunter-emblem",
       "name": "Hunter Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1232,6 +1291,7 @@
       ]
     },
     {
+      "id": "inferno-emblem",
       "name": "Inferno Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1244,6 +1304,7 @@
       "description": "The holder gains the Inferno trait."
     },
     {
+      "id": "invoker-emblem",
       "name": "Invoker Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1263,6 +1324,7 @@
       ]
     },
     {
+      "id": "juggernaut-emblem",
       "name": "Juggernaut Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1284,6 +1346,7 @@
       ]
     },
     {
+      "id": "lunar-emblem",
       "name": "Lunar Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1297,6 +1360,7 @@
       "description": "The holder gains the Lunar trait."
     },
     {
+      "id": "primal-emblem",
       "name": "Primal Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1311,6 +1375,7 @@
       "description": "The holder gains the Primal trait."
     },
     {
+      "id": "rapidfire-emblem",
       "name": "Rapidfire Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1333,6 +1398,7 @@
       ]
     },
     {
+      "id": "ravager-emblem",
       "name": "Ravager Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1358,6 +1424,7 @@
       ]
     },
     {
+      "id": "spellweaver-emblem",
       "name": "Spellweaver Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1379,6 +1446,7 @@
       ]
     },
     {
+      "id": "sprykin-emblem",
       "name": "Sprykin Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1408,6 +1476,7 @@
       ]
     },
     {
+      "id": "vanguard-emblem",
       "name": "Vanguard Emblem",
       "combat": true,
       "requiresRunInput": false,
@@ -1425,6 +1494,7 @@
       }
     },
     {
+      "id": "aegis-of-dawn",
       "name": "Aegis of Dawn",
       "combat": true,
       "requiresRunInput": false,
@@ -1462,6 +1532,7 @@
       }
     },
     {
+      "id": "aegis-of-dusk",
       "name": "Aegis of Dusk",
       "combat": true,
       "requiresRunInput": false,
@@ -1503,6 +1574,7 @@
       }
     },
     {
+      "id": "blighting-jewel",
       "name": "Blighting Jewel",
       "combat": true,
       "requiresRunInput": false,
@@ -1535,6 +1607,7 @@
       ]
     },
     {
+      "id": "cappa-juice",
       "name": "Cappa Juice",
       "combat": true,
       "requiresRunInput": true,
@@ -1562,6 +1635,7 @@
       }
     },
     {
+      "id": "dawncore",
       "name": "Dawncore",
       "combat": true,
       "requiresRunInput": false,
@@ -1593,6 +1667,7 @@
       }
     },
     {
+      "id": "deaths-defiance",
       "name": "Death's Defiance",
       "combat": true,
       "requiresRunInput": false,
@@ -1616,6 +1691,7 @@
       }
     },
     {
+      "id": "eternal-pact",
       "name": "Eternal Pact",
       "combat": true,
       "requiresRunInput": false,
@@ -1664,6 +1740,7 @@
       ]
     },
     {
+      "id": "fishbones",
       "name": "Fishbones",
       "combat": true,
       "requiresRunInput": false,
@@ -1682,6 +1759,7 @@
       ]
     },
     {
+      "id": "flickerblades",
       "name": "Flickerblades",
       "combat": true,
       "requiresRunInput": false,
@@ -1713,6 +1791,7 @@
       ]
     },
     {
+      "id": "forbidden-idol",
       "name": "Forbidden Idol",
       "combat": true,
       "requiresRunInput": false,
@@ -1734,6 +1813,7 @@
       ]
     },
     {
+      "id": "gamblers-blade",
       "name": "Gambler's Blade",
       "combat": true,
       "requiresRunInput": true,
@@ -1758,6 +1838,7 @@
       }
     },
     {
+      "id": "gold-collector",
       "name": "Gold Collector",
       "combat": true,
       "requiresRunInput": false,
@@ -1782,6 +1863,7 @@
       }
     },
     {
+      "id": "hellfire-hatchet",
       "name": "Hellfire Hatchet",
       "combat": true,
       "requiresRunInput": false,
@@ -1810,6 +1892,7 @@
       ]
     },
     {
+      "id": "horizon-focus",
       "name": "Horizon Focus",
       "combat": true,
       "requiresRunInput": false,
@@ -1833,6 +1916,7 @@
       ]
     },
     {
+      "id": "hullcrusher",
       "name": "Hullcrusher",
       "combat": true,
       "requiresRunInput": false,
@@ -1860,6 +1944,7 @@
       ]
     },
     {
+      "id": "infinity-force",
       "name": "Infinity Force",
       "combat": true,
       "requiresRunInput": false,
@@ -1875,6 +1960,7 @@
       "description": "Tons of EVERYTHING!"
     },
     {
+      "id": "lich-bane",
       "name": "Lich Bane",
       "combat": true,
       "requiresRunInput": false,
@@ -1896,6 +1982,7 @@
       ]
     },
     {
+      "id": "lightshield-crest",
       "name": "Lightshield Crest",
       "combat": true,
       "requiresRunInput": false,
@@ -1930,6 +2017,7 @@
       ]
     },
     {
+      "id": "ludens-tempest",
       "name": "Luden's Tempest",
       "combat": true,
       "requiresRunInput": false,
@@ -1954,6 +2042,7 @@
       ]
     },
     {
+      "id": "manazane",
       "name": "Manazane",
       "combat": true,
       "requiresRunInput": false,
@@ -1976,6 +2065,7 @@
       ]
     },
     {
+      "id": "mittens",
       "name": "Mittens",
       "combat": true,
       "requiresRunInput": false,
@@ -1993,6 +2083,7 @@
       ]
     },
     {
+      "id": "moguls-mail",
       "name": "Mogul's Mail",
       "combat": true,
       "requiresRunInput": false,
@@ -2023,6 +2114,7 @@
       }
     },
     {
+      "id": "rapid-firecannon",
       "name": "Rapid Firecannon",
       "combat": true,
       "requiresRunInput": false,
@@ -2045,6 +2137,7 @@
       ]
     },
     {
+      "id": "seekers-armguard",
       "name": "Seeker's Armguard",
       "combat": true,
       "requiresRunInput": false,
@@ -2072,6 +2165,7 @@
       ]
     },
     {
+      "id": "silvermere-dawn",
       "name": "Silvermere Dawn",
       "combat": true,
       "requiresRunInput": false,
@@ -2100,6 +2194,7 @@
       ]
     },
     {
+      "id": "statikk-shiv",
       "name": "Statikk Shiv",
       "combat": true,
       "requiresRunInput": false,
@@ -2127,6 +2222,7 @@
       ]
     },
     {
+      "id": "talisman-of-ascension",
       "name": "Talisman of Ascension",
       "combat": true,
       "requiresRunInput": false,
@@ -2155,6 +2251,7 @@
       }
     },
     {
+      "id": "the-indomitable",
       "name": "The Indomitable",
       "combat": true,
       "requiresRunInput": false,
@@ -2183,6 +2280,7 @@
       }
     },
     {
+      "id": "titanic-hydra",
       "name": "Titanic Hydra",
       "combat": true,
       "requiresRunInput": false,
@@ -2209,6 +2307,7 @@
       ]
     },
     {
+      "id": "void-gauntlet",
       "name": "Void Gauntlet",
       "combat": true,
       "requiresRunInput": false,
@@ -2245,6 +2344,7 @@
       }
     },
     {
+      "id": "wits-end",
       "name": "Wit's End",
       "combat": true,
       "requiresRunInput": false,
@@ -2273,6 +2373,7 @@
       ]
     },
     {
+      "id": "zhonyas-paradox",
       "name": "Zhonya's Paradox",
       "combat": true,
       "requiresRunInput": false,
@@ -2305,6 +2406,7 @@
       }
     },
     {
+      "id": "radiant-adaptive-helm",
       "name": "Radiant Adaptive Helm",
       "combat": true,
       "requiresRunInput": false,
@@ -2345,6 +2447,7 @@
       ]
     },
     {
+      "id": "radiant-archangels-staff",
       "name": "Radiant Archangel's Staff",
       "combat": true,
       "requiresRunInput": false,
@@ -2368,6 +2471,7 @@
       ]
     },
     {
+      "id": "radiant-bloodthirster",
       "name": "Radiant Bloodthirster",
       "combat": true,
       "requiresRunInput": false,
@@ -2396,6 +2500,7 @@
       }
     },
     {
+      "id": "radiant-blue-buff",
       "name": "Radiant Blue Buff",
       "combat": true,
       "requiresRunInput": false,
@@ -2418,6 +2523,7 @@
       ]
     },
     {
+      "id": "radiant-bramble-vest",
       "name": "Radiant Bramble Vest",
       "combat": true,
       "requiresRunInput": false,
@@ -2454,6 +2560,7 @@
       ]
     },
     {
+      "id": "radiant-crownguard",
       "name": "Radiant Crownguard",
       "combat": true,
       "requiresRunInput": false,
@@ -2484,6 +2591,7 @@
       ]
     },
     {
+      "id": "radiant-deathblade",
       "name": "Radiant Deathblade",
       "combat": true,
       "requiresRunInput": false,
@@ -2496,6 +2604,7 @@
       "description": "It glows in the presence of enemies.\nOr friends.\nOr anything alive, really."
     },
     {
+      "id": "radiant-dragons-claw",
       "name": "Radiant Dragon's Claw",
       "combat": true,
       "requiresRunInput": false,
@@ -2520,6 +2629,7 @@
       ]
     },
     {
+      "id": "radiant-edge-of-night",
       "name": "Radiant Edge of Night",
       "combat": true,
       "requiresRunInput": false,
@@ -2550,6 +2660,7 @@
       }
     },
     {
+      "id": "radiant-evenshroud",
       "name": "Radiant Evenshroud",
       "combat": true,
       "requiresRunInput": false,
@@ -2583,6 +2694,7 @@
       }
     },
     {
+      "id": "radiant-gargoyle-stoneplate",
       "name": "Radiant Gargoyle Stoneplate",
       "combat": true,
       "requiresRunInput": false,
@@ -2607,6 +2719,7 @@
       ]
     },
     {
+      "id": "radiant-giant-slayer",
       "name": "Radiant Giant Slayer",
       "combat": true,
       "requiresRunInput": false,
@@ -2632,6 +2745,7 @@
       ]
     },
     {
+      "id": "radiant-guinsoos-rageblade",
       "name": "Radiant Guinsoo's Rageblade",
       "combat": true,
       "requiresRunInput": false,
@@ -2655,6 +2769,7 @@
       ]
     },
     {
+      "id": "radiant-hand-of-justice",
       "name": "Radiant Hand of Justice",
       "combat": true,
       "requiresRunInput": false,
@@ -2697,6 +2812,7 @@
       }
     },
     {
+      "id": "radiant-hextech-gunblade",
       "name": "Radiant Hextech Gunblade",
       "combat": true,
       "requiresRunInput": false,
@@ -2720,6 +2836,7 @@
       ]
     },
     {
+      "id": "radiant-infinity-edge",
       "name": "Radiant Infinity Edge",
       "combat": true,
       "requiresRunInput": false,
@@ -2738,6 +2855,7 @@
       ]
     },
     {
+      "id": "radiant-ionic-spark",
       "name": "Radiant Ionic Spark",
       "combat": true,
       "requiresRunInput": false,
@@ -2768,6 +2886,7 @@
       }
     },
     {
+      "id": "radiant-jeweled-gauntlet",
       "name": "Radiant Jeweled Gauntlet",
       "combat": true,
       "requiresRunInput": false,
@@ -2786,6 +2905,7 @@
       ]
     },
     {
+      "id": "radiant-krakens-fury",
       "name": "Radiant Kraken's Fury",
       "combat": true,
       "requiresRunInput": false,
@@ -2821,6 +2941,7 @@
       ]
     },
     {
+      "id": "radiant-last-whisper",
       "name": "Radiant Last Whisper",
       "combat": true,
       "requiresRunInput": false,
@@ -2843,6 +2964,7 @@
       ]
     },
     {
+      "id": "radiant-morellonomicon",
       "name": "Radiant Morellonomicon",
       "combat": true,
       "requiresRunInput": false,
@@ -2865,6 +2987,7 @@
       ]
     },
     {
+      "id": "radiant-nashors-tooth",
       "name": "Radiant Nashor's Tooth",
       "combat": true,
       "requiresRunInput": false,
@@ -2895,6 +3018,7 @@
       ]
     },
     {
+      "id": "radiant-protectors-vow",
       "name": "Radiant Protector's Vow",
       "combat": true,
       "requiresRunInput": false,
@@ -2930,6 +3054,7 @@
       }
     },
     {
+      "id": "radiant-quicksilver",
       "name": "Radiant Quicksilver",
       "combat": true,
       "requiresRunInput": false,
@@ -2960,6 +3085,7 @@
       ]
     },
     {
+      "id": "radiant-rabadons-deathcap",
       "name": "Radiant Rabadon's Deathcap",
       "combat": true,
       "requiresRunInput": false,
@@ -2972,6 +3098,7 @@
       "description": "It's witnessed - and unleashed - miracles and calamities both."
     },
     {
+      "id": "radiant-red-buff",
       "name": "Radiant Red Buff",
       "combat": true,
       "requiresRunInput": false,
@@ -2993,6 +3120,7 @@
       ]
     },
     {
+      "id": "radiant-spear-of-shojin",
       "name": "Radiant Spear of Shojin",
       "combat": true,
       "requiresRunInput": false,
@@ -3015,6 +3143,7 @@
       ]
     },
     {
+      "id": "radiant-spirit-visage",
       "name": "Radiant Spirit Visage",
       "combat": true,
       "requiresRunInput": false,
@@ -3035,6 +3164,7 @@
       ]
     },
     {
+      "id": "radiant-steadfast-heart",
       "name": "Radiant Steadfast Heart",
       "combat": true,
       "requiresRunInput": false,
@@ -3068,6 +3198,7 @@
       }
     },
     {
+      "id": "radiant-steraks-gage",
       "name": "Radiant Sterak's Gage",
       "combat": true,
       "requiresRunInput": false,
@@ -3094,6 +3225,7 @@
       }
     },
     {
+      "id": "radiant-strikers-flail",
       "name": "Radiant Striker's Flail",
       "combat": true,
       "requiresRunInput": false,
@@ -3122,6 +3254,7 @@
       ]
     },
     {
+      "id": "radiant-sunfire-cape",
       "name": "Radiant Sunfire Cape",
       "combat": true,
       "requiresRunInput": false,
@@ -3155,6 +3288,7 @@
       }
     },
     {
+      "id": "radiant-thiefs-gloves",
       "name": "Radiant Thief's Gloves",
       "combat": true,
       "requiresRunInput": true,
@@ -3167,6 +3301,7 @@
       "description": "Each round: Equip 2 random Radiant items\n\nConsumes 3 item slots."
     },
     {
+      "id": "radiant-titans-resolve",
       "name": "Radiant Titan's Resolve",
       "combat": true,
       "requiresRunInput": false,
@@ -3203,6 +3338,7 @@
       ]
     },
     {
+      "id": "radiant-void-staff",
       "name": "Radiant Void Staff",
       "combat": true,
       "requiresRunInput": false,
@@ -3225,6 +3361,7 @@
       ]
     },
     {
+      "id": "radiant-warmogs-armor",
       "name": "Radiant Warmog's Armor",
       "combat": true,
       "requiresRunInput": false,

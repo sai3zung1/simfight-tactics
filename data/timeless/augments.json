@@ -1,6 +1,7 @@
 {
   "entries": [
     {
+      "id": "augmented-power",
       "name": "Augmented Power",
       "tier": "silver",
       "categories": ["combat"],
@@ -10,6 +11,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "backup-bows",
       "name": "Backup Bows",
       "tier": "silver",
       "categories": ["items"],
@@ -19,6 +21,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "band-of-thieves",
       "name": "Band of Thieves",
       "tier": "silver",
       "categories": ["items"],
@@ -28,6 +31,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "boxing-lessons",
       "name": "Boxing Lessons",
       "tier": "silver",
       "categories": ["combat"],
@@ -46,6 +50,7 @@
       ]
     },
     {
+      "id": "branching-out",
       "name": "Branching Out",
       "tier": "silver",
       "categories": ["items", "traits"],
@@ -55,6 +60,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "branching-out-plus",
       "name": "Branching Out+",
       "tier": "silver",
       "categories": ["items", "traits"],
@@ -64,6 +70,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "called-shot",
       "name": "Called Shot",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -73,6 +80,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "capital-gains-i",
       "name": "Capital Gains I",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -82,6 +90,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "caretakers-ally",
       "name": "Caretaker's Ally",
       "tier": "silver",
       "categories": ["combat"],
@@ -91,6 +100,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "carve-a-path",
       "name": "Carve a Path",
       "tier": "silver",
       "categories": ["items"],
@@ -100,6 +110,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "celestial-blessing-i",
       "name": "Celestial Blessing I",
       "tier": "silver",
       "categories": ["combat"],
@@ -120,6 +131,7 @@
       }
     },
     {
+      "id": "champ-delivery",
       "name": "Champ Delivery",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -129,6 +141,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "champ-delivery-plus",
       "name": "Champ Delivery +",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -138,6 +151,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "champ-delivery-plus-plus",
       "name": "Champ Delivery ++",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -147,6 +161,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "cognitive-tax",
       "name": "Cognitive Tax",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -156,6 +171,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "cognitive-tax-plus",
       "name": "Cognitive Tax+",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -165,6 +181,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "component-buffet",
       "name": "Component Buffet",
       "tier": "silver",
       "categories": ["items"],
@@ -174,6 +191,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "corrosion",
       "name": "Corrosion",
       "tier": "silver",
       "categories": ["combat"],
@@ -196,6 +214,7 @@
       ]
     },
     {
+      "id": "crafted-crafting",
       "name": "Crafted Crafting",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -205,6 +224,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "dummify",
       "name": "Dummify",
       "tier": "silver",
       "categories": ["strategic"],
@@ -218,6 +238,7 @@
       }
     },
     {
+      "id": "electrocharge-i",
       "name": "Electrocharge I",
       "tier": "silver",
       "categories": ["combat"],
@@ -238,6 +259,7 @@
       ]
     },
     {
+      "id": "expedition",
       "name": "Expedition",
       "tier": "silver",
       "categories": ["strategic"],
@@ -247,6 +269,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "extra-buckles",
       "name": "Extra Buckles",
       "tier": "silver",
       "categories": ["items"],
@@ -256,6 +279,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "feeling-lucky",
       "name": "Feeling Lucky",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -265,6 +289,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "find-your-center",
       "name": "Find Your Center",
       "tier": "silver",
       "categories": ["combat"],
@@ -286,6 +311,7 @@
       ]
     },
     {
+      "id": "flame-on",
       "name": "Flame On",
       "tier": "silver",
       "categories": ["traits"],
@@ -307,6 +333,7 @@
       ]
     },
     {
+      "id": "flowing-tears",
       "name": "Flowing Tears",
       "tier": "silver",
       "categories": ["items"],
@@ -316,6 +343,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "focused-fire",
       "name": "Focused Fire",
       "tier": "silver",
       "categories": ["combat"],
@@ -340,6 +368,7 @@
       ]
     },
     {
+      "id": "forge-a-friend",
       "name": "Forge A Friend",
       "tier": "silver",
       "categories": ["combat"],
@@ -349,6 +378,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "future-focused",
       "name": "Future Focused",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -358,6 +388,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "glass-cannon-i",
       "name": "Glass Cannon I",
       "tier": "silver",
       "categories": ["strategic"],
@@ -379,6 +410,7 @@
       ]
     },
     {
+      "id": "good-for-something-i",
       "name": "Good For Something I",
       "tier": "silver",
       "categories": ["combat"],
@@ -388,6 +420,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "group-hug-i",
       "name": "Group Hug I",
       "tier": "silver",
       "categories": ["combat"],
@@ -410,6 +443,7 @@
       ]
     },
     {
+      "id": "healing-orbs-i",
       "name": "Healing Orbs I",
       "tier": "silver",
       "categories": ["combat"],
@@ -431,6 +465,7 @@
       ]
     },
     {
+      "id": "iron-assets",
       "name": "Iron Assets",
       "tier": "silver",
       "categories": ["items"],
@@ -440,6 +475,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "item-grab-bag-i",
       "name": "Item Grab Bag I",
       "tier": "silver",
       "categories": ["items"],
@@ -449,6 +485,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "kick-start",
       "name": "Kick Start",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -458,6 +495,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "kingslayer",
       "name": "Kingslayer",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -467,6 +505,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "late-game-specialist",
       "name": "Late Game Specialist",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -476,6 +515,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "latent-forge",
       "name": "Latent Forge",
       "tier": "silver",
       "categories": ["items"],
@@ -485,6 +525,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "loaded-dice",
       "name": "Loaded Dice",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -494,6 +535,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "makeshift-armor-i",
       "name": "Makeshift Armor I",
       "tier": "silver",
       "categories": ["combat"],
@@ -515,6 +557,7 @@
       ]
     },
     {
+      "id": "missed-connections",
       "name": "Missed Connections",
       "tier": "silver",
       "categories": ["combat"],
@@ -524,6 +567,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "one-two-three",
       "name": "One Two Three",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -533,6 +577,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "one-two-five",
       "name": "One, Two, Five!",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -542,6 +587,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "pandoras-bench",
       "name": "Pandora's Bench",
       "tier": "silver",
       "categories": ["combat"],
@@ -551,6 +597,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "pandoras-items-i",
       "name": "Pandora's Items I",
       "tier": "silver",
       "categories": ["items"],
@@ -560,6 +607,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "partial-ascension",
       "name": "Partial Ascension",
       "tier": "silver",
       "categories": ["combat"],
@@ -578,6 +626,7 @@
       ]
     },
     {
+      "id": "patience-is-a-virtue",
       "name": "Patience Is A Virtue",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -587,6 +636,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "quick-streaks",
       "name": "Quick Streaks",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -596,6 +646,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "recombobulator",
       "name": "Recombobulator",
       "tier": "silver",
       "categories": ["strategic"],
@@ -605,6 +656,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "residual-magic",
       "name": "Residual Magic",
       "tier": "silver",
       "categories": ["combat"],
@@ -625,6 +677,7 @@
       }
     },
     {
+      "id": "residual-magic-plus",
       "name": "Residual Magic +",
       "tier": "silver",
       "categories": ["combat"],
@@ -645,6 +698,7 @@
       }
     },
     {
+      "id": "residual-magic-plus-plus",
       "name": "Residual Magic ++",
       "tier": "silver",
       "categories": ["combat"],
@@ -665,6 +719,7 @@
       }
     },
     {
+      "id": "rolling-for-days",
       "name": "Rolling For Days",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -674,6 +729,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "silver-destiny",
       "name": "Silver Destiny",
       "tier": "silver",
       "categories": ["strategic"],
@@ -683,6 +739,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "silver-destiny-plus",
       "name": "Silver Destiny+",
       "tier": "silver",
       "categories": ["strategic"],
@@ -692,6 +749,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "silver-destiny-plus-plus",
       "name": "Silver Destiny++",
       "tier": "silver",
       "categories": ["strategic"],
@@ -701,6 +759,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "silver-spoon",
       "name": "Silver Spoon",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -710,6 +769,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "slice-of-life",
       "name": "Slice of Life",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -719,6 +779,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "slightly-magic-roll",
       "name": "Slightly Magic Roll",
       "tier": "silver",
       "categories": ["combat"],
@@ -728,6 +789,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "small-grab-bag",
       "name": "Small Grab Bag",
       "tier": "silver",
       "categories": ["items"],
@@ -737,6 +799,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "stand-united",
       "name": "Stand United",
       "tier": "silver",
       "categories": ["strategic"],
@@ -756,6 +819,7 @@
       ]
     },
     {
+      "id": "team-building",
       "name": "Team Building",
       "tier": "silver",
       "categories": ["gold-econ"],
@@ -765,6 +829,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "the-tower",
       "name": "The Tower",
       "tier": "silver",
       "categories": ["combat"],
@@ -784,6 +849,7 @@
       ]
     },
     {
+      "id": "twin-guardians",
       "name": "Twin Guardians",
       "tier": "silver",
       "categories": ["combat"],
@@ -807,6 +873,7 @@
       ]
     },
     {
+      "id": "verticality-i",
       "name": "Verticality I",
       "tier": "silver",
       "categories": ["combat"],
@@ -830,6 +897,7 @@
       ]
     },
     {
+      "id": "wisp-rebate",
       "name": "Wisp Rebate",
       "tier": "silver",
       "categories": ["combat"],
@@ -839,6 +907,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "wisp-rebate-plus",
       "name": "Wisp Rebate +",
       "tier": "silver",
       "categories": ["combat"],
@@ -848,6 +917,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "young-and-wild-and-free",
       "name": "Young and Wild and Free",
       "tier": "silver",
       "categories": ["combat"],
@@ -857,6 +927,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "advanced-loan",
       "name": "Advanced Loan",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -866,6 +937,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "advanced-loan-plus",
       "name": "Advanced Loan+",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -875,6 +947,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "arcane-viktor-y",
       "name": "Arcane Viktor-y",
       "tier": "gold",
       "categories": ["combat"],
@@ -895,6 +968,7 @@
       }
     },
     {
+      "id": "ascension",
       "name": "Ascension",
       "tier": "gold",
       "categories": ["combat"],
@@ -913,6 +987,7 @@
       ]
     },
     {
+      "id": "backline-blueprint",
       "name": "Backline Blueprint",
       "tier": "gold",
       "categories": ["combat"],
@@ -922,6 +997,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "beast-within-plus-nidalee",
       "name": "Beast Within+",
       "tier": "gold",
       "categories": ["combat"],
@@ -934,6 +1010,7 @@
       }
     },
     {
+      "id": "beast-within-sivir",
       "name": "Beast Within",
       "tier": "gold",
       "categories": ["combat"],
@@ -946,6 +1023,7 @@
       }
     },
     {
+      "id": "beast-within-nidalee",
       "name": "Beast Within",
       "tier": "gold",
       "categories": ["combat"],
@@ -958,6 +1036,7 @@
       }
     },
     {
+      "id": "beast-within-plus-sivir",
       "name": "Beast Within+",
       "tier": "gold",
       "categories": ["combat"],
@@ -970,6 +1049,7 @@
       }
     },
     {
+      "id": "big-grab-bag",
       "name": "Big Grab Bag",
       "tier": "gold",
       "categories": ["items"],
@@ -979,6 +1059,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "birthday-reunion",
       "name": "Birthday Reunion",
       "tier": "gold",
       "categories": ["combat"],
@@ -988,6 +1069,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "blossoms-call",
       "name": "Blossom's Call",
       "tier": "gold",
       "categories": ["traits"],
@@ -997,6 +1079,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "bodyguard-training",
       "name": "Bodyguard Training",
       "tier": "gold",
       "categories": ["combat"],
@@ -1018,6 +1101,7 @@
       }
     },
     {
+      "id": "bonus-gift",
       "name": "Bonus Gift",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1027,6 +1111,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "bonus-gift-plus",
       "name": "Bonus Gift +",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1036,6 +1121,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "booster-pack",
       "name": "Booster Pack",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1045,6 +1131,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "booster-pack-plus",
       "name": "Booster Pack+",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1054,6 +1141,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "booster-pack-plus-plus",
       "name": "Booster Pack++",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1063,6 +1151,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "bronze-for-life-i",
       "name": "Bronze For Life I",
       "tier": "gold",
       "categories": ["strategic"],
@@ -1081,6 +1170,7 @@
       ]
     },
     {
+      "id": "calculated-loss",
       "name": "Calculated Loss",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1090,6 +1180,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "capital-gains-ii",
       "name": "Capital Gains II",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1099,6 +1190,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "caretakers-favor",
       "name": "Caretaker's Favor",
       "tier": "gold",
       "categories": ["items"],
@@ -1108,6 +1200,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "celestial-blessing-ii",
       "name": "Celestial Blessing II",
       "tier": "gold",
       "categories": ["combat"],
@@ -1128,6 +1221,7 @@
       }
     },
     {
+      "id": "challengers-grace",
       "name": "Challenger's Grace",
       "tier": "gold",
       "categories": ["combat"],
@@ -1147,6 +1241,7 @@
       ]
     },
     {
+      "id": "chosen-of-the-sun",
       "name": "Chosen of the Sun",
       "tier": "gold",
       "categories": ["traits"],
@@ -1169,6 +1264,7 @@
       }
     },
     {
+      "id": "clear-mind",
       "name": "Clear Mind",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1178,6 +1274,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "clockwork-accelerator",
       "name": "Clockwork Accelerator",
       "tier": "gold",
       "categories": ["combat"],
@@ -1196,6 +1293,7 @@
       ]
     },
     {
+      "id": "cluttered-mind",
       "name": "Cluttered Mind",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1205,6 +1303,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "cognitive-overload",
       "name": "Cognitive Overload",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1214,6 +1313,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "construct-a-companion",
       "name": "Construct a Companion",
       "tier": "gold",
       "categories": ["combat"],
@@ -1223,6 +1323,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "consuming-flora",
       "name": "Consuming Flora",
       "tier": "gold",
       "categories": ["traits"],
@@ -1235,6 +1336,7 @@
       }
     },
     {
+      "id": "consuming-flora-plus",
       "name": "Consuming Flora+",
       "tier": "gold",
       "categories": ["traits"],
@@ -1247,6 +1349,7 @@
       }
     },
     {
+      "id": "consuming-flora-plus-plus",
       "name": "Consuming Flora++",
       "tier": "gold",
       "categories": ["traits"],
@@ -1259,6 +1362,7 @@
       }
     },
     {
+      "id": "cooking-pot",
       "name": "Cooking Pot",
       "tier": "gold",
       "categories": ["items"],
@@ -1280,6 +1384,7 @@
       ]
     },
     {
+      "id": "coven-acolyte",
       "name": "Coven Acolyte",
       "tier": "gold",
       "categories": ["traits"],
@@ -1289,6 +1394,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "cry-me-a-river",
       "name": "Cry Me A River",
       "tier": "gold",
       "categories": ["items"],
@@ -1313,6 +1419,7 @@
       ]
     },
     {
+      "id": "cybernetic-implants-ii",
       "name": "Cybernetic Implants II",
       "tier": "gold",
       "categories": ["combat"],
@@ -1336,6 +1443,7 @@
       ]
     },
     {
+      "id": "cybernetic-uplink-ii",
       "name": "Cybernetic Uplink II",
       "tier": "gold",
       "categories": ["combat"],
@@ -1357,6 +1465,7 @@
       ]
     },
     {
+      "id": "dark-ritual",
       "name": "Dark Ritual",
       "tier": "gold",
       "categories": ["traits"],
@@ -1369,6 +1478,7 @@
       }
     },
     {
+      "id": "double-trouble",
       "name": "Double Trouble",
       "tier": "gold",
       "categories": ["strategic", "gold-econ"],
@@ -1394,6 +1504,7 @@
       ]
     },
     {
+      "id": "duo-queue",
       "name": "Duo Queue",
       "tier": "gold",
       "categories": ["items"],
@@ -1403,6 +1514,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "early-learnings",
       "name": "Early Learnings",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1425,6 +1537,7 @@
       }
     },
     {
+      "id": "electrocharge-ii",
       "name": "Electrocharge II",
       "tier": "gold",
       "categories": ["combat"],
@@ -1445,6 +1558,7 @@
       ]
     },
     {
+      "id": "embiggen",
       "name": "Embiggen",
       "tier": "gold",
       "categories": ["combat"],
@@ -1469,6 +1583,7 @@
       }
     },
     {
+      "id": "epic-rolldown",
       "name": "Epic Rolldown",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1478,6 +1593,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "epoch",
       "name": "Epoch",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1487,6 +1603,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "epoch-plus",
       "name": "Epoch+",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1496,6 +1613,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "exclusive-customization",
       "name": "Exclusive Customization",
       "tier": "gold",
       "categories": ["items"],
@@ -1505,6 +1623,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "explosive-growth",
       "name": "Explosive Growth",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1514,6 +1633,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "explosive-growth-plus",
       "name": "Explosive Growth+",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1523,6 +1643,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "fourcing",
       "name": "FOURcing",
       "tier": "gold",
       "categories": ["combat"],
@@ -1541,6 +1662,7 @@
       ]
     },
     {
+      "id": "frontline-foundation",
       "name": "Frontline Foundation",
       "tier": "gold",
       "categories": ["combat"],
@@ -1550,6 +1672,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "gain-21-gold",
       "name": "Gain 21 Gold",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1559,6 +1682,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "gilded-steel",
       "name": "Gilded Steel",
       "tier": "gold",
       "categories": ["combat"],
@@ -1580,6 +1704,7 @@
       ]
     },
     {
+      "id": "glass-cannon-ii",
       "name": "Glass Cannon II",
       "tier": "gold",
       "categories": ["strategic"],
@@ -1601,6 +1726,7 @@
       ]
     },
     {
+      "id": "gold-destiny",
       "name": "Gold Destiny",
       "tier": "gold",
       "categories": ["strategic"],
@@ -1610,6 +1736,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "gold-destiny-plus",
       "name": "Gold Destiny Plus",
       "tier": "gold",
       "categories": ["strategic"],
@@ -1619,6 +1746,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "group-hug-ii",
       "name": "Group Hug II",
       "tier": "gold",
       "categories": ["combat"],
@@ -1641,6 +1769,7 @@
       ]
     },
     {
+      "id": "hard-bargain",
       "name": "Hard Bargain",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1650,6 +1779,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "healing-orbs-ii",
       "name": "Healing Orbs II",
       "tier": "gold",
       "categories": ["combat"],
@@ -1671,6 +1801,7 @@
       ]
     },
     {
+      "id": "heart-of-steel",
       "name": "Heart of Steel",
       "tier": "gold",
       "categories": ["items"],
@@ -1693,6 +1824,7 @@
       ]
     },
     {
+      "id": "heroic-grab-bag",
       "name": "Heroic Grab Bag",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1702,6 +1834,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "heroic-grab-bag-plus",
       "name": "Heroic Grab Bag+",
       "tier": "gold",
       "categories": ["combat"],
@@ -1711,6 +1844,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "heroic-grab-bag-plus-plus",
       "name": "Heroic Grab Bag++",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1720,6 +1854,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "hustler",
       "name": "Hustler",
       "tier": "gold",
       "categories": ["gold-econ", "strategic"],
@@ -1729,6 +1864,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "infinity-protection",
       "name": "Infinity Protection",
       "tier": "gold",
       "categories": ["items"],
@@ -1749,6 +1885,7 @@
       ]
     },
     {
+      "id": "investment-strategy-i",
       "name": "Investment Strategy I",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1768,6 +1905,7 @@
       ]
     },
     {
+      "id": "its-me-baby",
       "name": "It's Me, Baby",
       "tier": "gold",
       "categories": ["combat"],
@@ -1789,6 +1927,7 @@
       ]
     },
     {
+      "id": "item-extraction",
       "name": "Item Extraction",
       "tier": "gold",
       "categories": ["traits"],
@@ -1798,6 +1937,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "jeweled-lotus-i",
       "name": "Jeweled Lotus I",
       "tier": "gold",
       "categories": ["combat"],
@@ -1816,6 +1956,7 @@
       ]
     },
     {
+      "id": "jungle-pathing",
       "name": "Jungle Pathing",
       "tier": "gold",
       "categories": ["traits"],
@@ -1825,6 +1966,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "late-game-scaling",
       "name": "Late Game Scaling",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1846,6 +1988,7 @@
       ]
     },
     {
+      "id": "legion-of-threes",
       "name": "Legion Of Threes",
       "tier": "gold",
       "categories": ["items"],
@@ -1870,6 +2013,7 @@
       ]
     },
     {
+      "id": "magic-roll",
       "name": "Magic Roll",
       "tier": "gold",
       "categories": ["combat"],
@@ -1879,6 +2023,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "makeshift-armor-ii",
       "name": "Makeshift Armor II",
       "tier": "gold",
       "categories": ["combat"],
@@ -1900,6 +2045,7 @@
       ]
     },
     {
+      "id": "malicious-monetization",
       "name": "Malicious Monetization",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1909,6 +2055,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "max-build",
       "name": "Max Build",
       "tier": "gold",
       "categories": ["combat"],
@@ -1918,6 +2065,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "money-hungry",
       "name": "Money Hungry",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1927,6 +2075,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "money-hungry-plus",
       "name": "Money Hungry+",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -1936,6 +2085,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "no-scout-no-pivot",
       "name": "NO SCOUT NO PIVOT",
       "tier": "gold",
       "categories": ["strategic", "gold-econ"],
@@ -1957,6 +2107,7 @@
       ]
     },
     {
+      "id": "natures-shelter",
       "name": "Nature's Shelter",
       "tier": "gold",
       "categories": ["traits"],
@@ -1979,6 +2130,7 @@
       ]
     },
     {
+      "id": "omega-riftbeast",
       "name": "Omega Riftbeast",
       "tier": "gold",
       "categories": ["traits"],
@@ -1991,6 +2143,7 @@
       }
     },
     {
+      "id": "pandoras-items-ii",
       "name": "Pandora's Items II",
       "tier": "gold",
       "categories": ["items"],
@@ -2000,6 +2153,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "patient-study",
       "name": "Patient Study",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -2009,6 +2163,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "pilfer",
       "name": "Pilfer",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -2018,6 +2173,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "plot-armor",
       "name": "Plot Armor",
       "tier": "gold",
       "categories": ["combat"],
@@ -2047,6 +2203,7 @@
       }
     },
     {
+      "id": "portable-forge",
       "name": "Portable Forge",
       "tier": "gold",
       "categories": ["items"],
@@ -2056,6 +2213,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "promised-protection",
       "name": "Promised Protection",
       "tier": "gold",
       "categories": ["items"],
@@ -2079,6 +2237,7 @@
       ]
     },
     {
+      "id": "replication",
       "name": "Replication",
       "tier": "gold",
       "categories": ["items"],
@@ -2088,6 +2247,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "salvage-bin",
       "name": "Salvage Bin",
       "tier": "gold",
       "categories": ["items"],
@@ -2097,6 +2257,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "salvage-bin-plus",
       "name": "Salvage Bin+",
       "tier": "gold",
       "categories": ["items"],
@@ -2106,6 +2267,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "seraphims-staff",
       "name": "Seraphim's Staff",
       "tier": "gold",
       "categories": ["items"],
@@ -2130,6 +2292,7 @@
       }
     },
     {
+      "id": "slammin",
       "name": "Slammin'",
       "tier": "gold",
       "categories": ["items", "gold-econ"],
@@ -2139,6 +2302,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "slammin-plus",
       "name": "Slammin'+",
       "tier": "gold",
       "categories": ["items", "gold-econ"],
@@ -2148,6 +2312,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "small-furry-friend",
       "name": "Small Furry Friend",
       "tier": "gold",
       "categories": ["traits"],
@@ -2161,6 +2326,7 @@
       }
     },
     {
+      "id": "solo-leveling",
       "name": "Solo Leveling",
       "tier": "gold",
       "categories": ["strategic"],
@@ -2193,6 +2359,7 @@
       }
     },
     {
+      "id": "solo-plate",
       "name": "Solo Plate",
       "tier": "gold",
       "categories": ["items"],
@@ -2214,6 +2381,7 @@
       ]
     },
     {
+      "id": "speedy-double-kill",
       "name": "Speedy Double Kill",
       "tier": "gold",
       "categories": ["items"],
@@ -2223,6 +2391,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "spirit-of-redemption",
       "name": "Spirit Of Redemption",
       "tier": "gold",
       "categories": ["items"],
@@ -2247,6 +2416,7 @@
       }
     },
     {
+      "id": "spreading-roots",
       "name": "Spreading Roots",
       "tier": "gold",
       "categories": ["items"],
@@ -2256,6 +2426,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "spreading-roots-plus",
       "name": "Spreading Roots+",
       "tier": "gold",
       "categories": ["items"],
@@ -2265,6 +2436,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "staffsmith",
       "name": "Staffsmith",
       "tier": "gold",
       "categories": ["items"],
@@ -2274,6 +2446,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "sun-and-moon",
       "name": "Sun and Moon",
       "tier": "gold",
       "categories": ["traits"],
@@ -2298,6 +2471,7 @@
       ]
     },
     {
+      "id": "sun-and-moon-plus",
       "name": "Sun and Moon+",
       "tier": "gold",
       "categories": ["traits"],
@@ -2322,6 +2496,7 @@
       ]
     },
     {
+      "id": "swordsmith",
       "name": "Swordsmith",
       "tier": "gold",
       "categories": ["items"],
@@ -2331,6 +2506,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "the-golden-dragon",
       "name": "The Golden Dragon",
       "tier": "gold",
       "categories": ["items", "strategic"],
@@ -2357,6 +2533,7 @@
       }
     },
     {
+      "id": "time-skip",
       "name": "Time Skip",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -2366,6 +2543,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "tons-of-stats-gold",
       "name": "Tons of Stats!",
       "tier": "gold",
       "categories": ["combat"],
@@ -2391,6 +2569,7 @@
       ]
     },
     {
+      "id": "trade-sector",
       "name": "Trade Sector",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -2400,6 +2579,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "trade-sector-plus",
       "name": "Trade Sector+",
       "tier": "gold",
       "categories": ["gold-econ"],
@@ -2409,6 +2589,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "urf",
       "name": "U.R.F",
       "tier": "gold",
       "categories": ["items"],
@@ -2432,6 +2613,7 @@
       ]
     },
     {
+      "id": "unrivaled",
       "name": "Unrivaled",
       "tier": "gold",
       "categories": ["traits"],
@@ -2444,6 +2626,7 @@
       }
     },
     {
+      "id": "verticality-ii",
       "name": "Verticality II",
       "tier": "gold",
       "categories": ["combat"],
@@ -2467,6 +2650,7 @@
       ]
     },
     {
+      "id": "warpath",
       "name": "Warpath",
       "tier": "gold",
       "categories": ["combat"],
@@ -2476,6 +2660,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "weight-the-worth",
       "name": "Weight The Worth",
       "tier": "gold",
       "categories": ["strategic", "gold-econ"],
@@ -2485,6 +2670,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "worth-the-wait",
       "name": "Worth the Wait",
       "tier": "gold",
       "categories": ["combat"],
@@ -2494,6 +2680,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "woven-magic",
       "name": "Woven Magic",
       "tier": "gold",
       "categories": ["items"],
@@ -2503,6 +2690,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "band-of-thieves-ii",
       "name": "Band of Thieves II",
       "tier": "prismatic",
       "categories": ["items"],
@@ -2512,6 +2700,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "band-of-thieves-ii-plus",
       "name": "Band of Thieves II+",
       "tier": "prismatic",
       "categories": ["items"],
@@ -2521,6 +2710,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "band-of-thieves-ii-plus-plus",
       "name": "Band of Thieves II++",
       "tier": "prismatic",
       "categories": ["items"],
@@ -2530,6 +2720,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "barons-lair",
       "name": "Baron's Lair",
       "tier": "prismatic",
       "categories": ["combat"],
@@ -2551,6 +2742,7 @@
       ]
     },
     {
+      "id": "belt-overflow",
       "name": "Belt Overflow",
       "tier": "prismatic",
       "categories": ["items"],
@@ -2571,6 +2763,7 @@
       ]
     },
     {
+      "id": "birthday-present",
       "name": "Birthday Present",
       "tier": "prismatic",
       "categories": ["gold-econ"],
@@ -2580,6 +2773,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "bronze-for-life-ii",
       "name": "Bronze For Life II",
       "tier": "prismatic",
       "categories": ["strategic"],
@@ -2602,6 +2796,7 @@
       ]
     },
     {
+      "id": "build-a-bud",
       "name": "Build a Bud",
       "tier": "prismatic",
       "categories": ["gold-econ"],
@@ -2611,6 +2806,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "buried-treasures-iii",
       "name": "Buried Treasures III",
       "tier": "prismatic",
       "categories": ["items"],
@@ -2620,6 +2816,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "call-to-chaos",
       "name": "Call To Chaos",
       "tier": "prismatic",
       "categories": ["combat"],
@@ -2629,6 +2826,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "celestial-blessing-iii",
       "name": "Celestial Blessing III",
       "tier": "prismatic",
       "categories": ["combat"],
@@ -2649,6 +2847,7 @@
       }
     },
     {
+      "id": "comeback-story",
       "name": "Comeback Story",
       "tier": "prismatic",
       "categories": ["combat"],
@@ -2670,6 +2869,7 @@
       ]
     },
     {
+      "id": "commerce-core",
       "name": "Commerce Core",
       "tier": "prismatic",
       "categories": ["gold-econ"],
@@ -2679,6 +2879,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "component-quest",
       "name": "Component Quest",
       "tier": "prismatic",
       "categories": ["combat"],
@@ -2688,6 +2889,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "coronation",
       "name": "Coronation",
       "tier": "prismatic",
       "categories": ["items"],
@@ -2710,6 +2912,7 @@
       ]
     },
     {
+      "id": "cursed-crown",
       "name": "Cursed Crown",
       "tier": "prismatic",
       "categories": ["items", "strategic"],
@@ -2730,6 +2933,7 @@
       }
     },
     {
+      "id": "deadlier-blades",
       "name": "Deadlier Blades",
       "tier": "prismatic",
       "categories": ["items"],
@@ -2752,6 +2956,7 @@
       ]
     },
     {
+      "id": "deadlier-caps",
       "name": "Deadlier Caps",
       "tier": "prismatic",
       "categories": ["items"],
@@ -2777,6 +2982,7 @@
       ]
     },
     {
+      "id": "flexible",
       "name": "Flexible",
       "tier": "prismatic",
       "categories": ["items"],
@@ -2795,6 +3001,7 @@
       ]
     },
     {
+      "id": "forged-in-strength",
       "name": "Forged In Strength",
       "tier": "prismatic",
       "categories": ["items"],
@@ -2804,6 +3011,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "giant-and-mighty",
       "name": "Giant and Mighty",
       "tier": "prismatic",
       "categories": ["combat"],
@@ -2824,6 +3032,7 @@
       ]
     },
     {
+      "id": "going-long",
       "name": "Going Long",
       "tier": "prismatic",
       "categories": ["gold-econ", "strategic"],
@@ -2833,6 +3042,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "golden-gamble",
       "name": "Golden Gamble",
       "tier": "prismatic",
       "categories": ["items"],
@@ -2842,6 +3052,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "golden-gamble-plus",
       "name": "Golden Gamble +",
       "tier": "prismatic",
       "categories": ["items"],
@@ -2851,6 +3062,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "golden-gamble-plus-plus",
       "name": "Golden Gamble ++",
       "tier": "prismatic",
       "categories": ["items"],
@@ -2860,6 +3072,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "hard-commit",
       "name": "Hard Commit",
       "tier": "prismatic",
       "categories": ["items"],
@@ -2869,6 +3082,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "hedge-fund",
       "name": "Hedge Fund",
       "tier": "prismatic",
       "categories": ["gold-econ"],
@@ -2878,6 +3092,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "hold-the-line",
       "name": "Hold the Line",
       "tier": "prismatic",
       "categories": ["combat"],
@@ -2900,6 +3115,7 @@
       ]
     },
     {
+      "id": "invested-plus",
       "name": "Invested+",
       "tier": "prismatic",
       "categories": ["gold-econ"],
@@ -2909,6 +3125,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "invested-plus-plus",
       "name": "Invested++",
       "tier": "prismatic",
       "categories": ["gold-econ"],
@@ -2918,6 +3135,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "investment-strategy-ii",
       "name": "Investment Strategy II",
       "tier": "prismatic",
       "categories": ["gold-econ"],
@@ -2937,6 +3155,7 @@
       ]
     },
     {
+      "id": "jeweled-lotus-ii",
       "name": "Jeweled Lotus II",
       "tier": "prismatic",
       "categories": ["combat"],
@@ -2956,6 +3175,7 @@
       ]
     },
     {
+      "id": "level-up",
       "name": "Level Up!",
       "tier": "prismatic",
       "categories": ["gold-econ"],
@@ -2965,6 +3185,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "living-forge",
       "name": "Living Forge",
       "tier": "prismatic",
       "categories": ["items"],
@@ -2974,6 +3195,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "lucky-gloves",
       "name": "Lucky Gloves",
       "tier": "prismatic",
       "categories": ["items"],
@@ -2983,6 +3205,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "lucky-gloves-plus",
       "name": "Lucky Gloves+",
       "tier": "prismatic",
       "categories": ["items"],
@@ -2992,6 +3215,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "luxury-subscription",
       "name": "Luxury Subscription",
       "tier": "prismatic",
       "categories": ["combat"],
@@ -3001,6 +3225,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "master-of-all-origins",
       "name": "Master of All Origins",
       "tier": "prismatic",
       "categories": ["combat"],
@@ -3013,6 +3238,7 @@
       }
     },
     {
+      "id": "min-max",
       "name": "Min-Max",
       "tier": "prismatic",
       "categories": ["items"],
@@ -3022,6 +3248,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "money-monsoon",
       "name": "Money Monsoon",
       "tier": "prismatic",
       "categories": ["gold-econ"],
@@ -3031,6 +3258,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "nesting-anvils",
       "name": "Nesting Anvils",
       "tier": "prismatic",
       "categories": ["items"],
@@ -3040,6 +3268,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "nesting-anvils-plus",
       "name": "Nesting Anvils +",
       "tier": "prismatic",
       "categories": ["items"],
@@ -3049,6 +3278,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "nesting-dolls",
       "name": "Nesting Dolls",
       "tier": "prismatic",
       "categories": ["gold-econ"],
@@ -3062,6 +3292,7 @@
       }
     },
     {
+      "id": "nesting-dolls-plus",
       "name": "Nesting Dolls+",
       "tier": "prismatic",
       "categories": ["gold-econ"],
@@ -3075,6 +3306,7 @@
       }
     },
     {
+      "id": "nesting-dolls-plus-plus",
       "name": "Nesting Dolls++",
       "tier": "prismatic",
       "categories": ["gold-econ"],
@@ -3088,6 +3320,7 @@
       }
     },
     {
+      "id": "one-buff-two-buff",
       "name": "One Buff Two Buff",
       "tier": "prismatic",
       "categories": ["items"],
@@ -3097,6 +3330,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "pandoras-items-iii",
       "name": "Pandora's Items III",
       "tier": "prismatic",
       "categories": ["items"],
@@ -3106,6 +3340,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "prismatic-destiny",
       "name": "Prismatic Destiny",
       "tier": "prismatic",
       "categories": ["strategic"],
@@ -3115,6 +3350,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "prismatic-destiny-plus",
       "name": "Prismatic Destiny Plus",
       "tier": "prismatic",
       "categories": ["strategic"],
@@ -3124,6 +3360,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "prismatic-ticket",
       "name": "Prismatic Ticket",
       "tier": "prismatic",
       "categories": ["gold-econ"],
@@ -3133,6 +3370,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "radiant-rascal",
       "name": "Radiant Rascal",
       "tier": "prismatic",
       "categories": ["items"],
@@ -3142,6 +3380,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "radiant-relics",
       "name": "Radiant Relics",
       "tier": "prismatic",
       "categories": ["items"],
@@ -3151,6 +3390,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "retribution",
       "name": "Retribution",
       "tier": "prismatic",
       "categories": ["items"],
@@ -3172,6 +3412,7 @@
       ]
     },
     {
+      "id": "shimmerscale-essence",
       "name": "Shimmerscale Essence",
       "tier": "prismatic",
       "categories": ["items"],
@@ -3181,6 +3422,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "shopping-spree",
       "name": "Shopping Spree",
       "tier": "prismatic",
       "categories": ["gold-econ"],
@@ -3190,6 +3432,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "soul-awakening",
       "name": "Soul Awakening",
       "tier": "prismatic",
       "categories": ["combat"],
@@ -3220,6 +3463,7 @@
       ]
     },
     {
+      "id": "sweet-treats",
       "name": "Sweet Treats",
       "tier": "prismatic",
       "categories": ["items"],
@@ -3238,6 +3482,7 @@
       ]
     },
     {
+      "id": "sword-overflow",
       "name": "Sword Overflow",
       "tier": "prismatic",
       "categories": ["items"],
@@ -3258,6 +3503,7 @@
       ]
     },
     {
+      "id": "tons-of-stats-prismatic",
       "name": "TONS of Stats!",
       "tier": "prismatic",
       "categories": ["combat"],
@@ -3283,6 +3529,7 @@
       ]
     },
     {
+      "id": "tacticians-kitchen",
       "name": "Tactician's Kitchen",
       "tier": "prismatic",
       "categories": ["items"],
@@ -3292,6 +3539,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "the-golden-egg",
       "name": "The Golden Egg",
       "tier": "prismatic",
       "categories": ["gold-econ"],
@@ -3301,6 +3549,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "the-trait-tree",
       "name": "The Trait Tree",
       "tier": "prismatic",
       "categories": ["items"],
@@ -3310,6 +3559,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "the-trait-tree-plus",
       "name": "The Trait Tree+",
       "tier": "prismatic",
       "categories": ["items"],
@@ -3319,6 +3569,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "trait-ladder",
       "name": "Trait Ladder",
       "tier": "prismatic",
       "categories": ["strategic"],
@@ -3328,6 +3579,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "upward-mobility",
       "name": "Upward Mobility",
       "tier": "prismatic",
       "categories": ["gold-econ"],
@@ -3337,6 +3589,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "urfs-grab-bag",
       "name": "Urf's Grab Bag",
       "tier": "prismatic",
       "categories": ["items"],
@@ -3346,6 +3599,7 @@
       "requiresRunInput": false
     },
     {
+      "id": "verticality-iii",
       "name": "Verticality III",
       "tier": "prismatic",
       "categories": ["combat"],
@@ -3369,6 +3623,7 @@
       ]
     },
     {
+      "id": "wand-overflow",
       "name": "Wand Overflow",
       "tier": "prismatic",
       "categories": ["items"],
@@ -3389,6 +3644,7 @@
       ]
     },
     {
+      "id": "we-stick-together",
       "name": "We Stick Together",
       "tier": "prismatic",
       "categories": ["items"],
@@ -3409,6 +3665,7 @@
       ]
     },
     {
+      "id": "worth-the-wait-ii",
       "name": "Worth the Wait II",
       "tier": "prismatic",
       "categories": ["combat"],
