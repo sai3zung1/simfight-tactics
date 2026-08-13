@@ -2321,7 +2321,7 @@
       "combat": true,
       "requiresRunInput": true,
       "params": {
-        "secondBffEffectiveness": 0.5,
+        "secondBffEffectiveness": 0.7,
         "secondBffEffectivenessAppliesToSummonSpell": false
       }
     },
