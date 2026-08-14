@@ -2849,7 +2849,7 @@
       "name": "Lux",
       "iconPath": "src/assets/icons/set-18/units/s18-lux.png",
       "combat": true,
-      "requiresRunInput": false,
+      "requiresRunInput": true,
       "cost": 5,
       "role": ["caster"],
       "damageProfile": ["magic"],
