@@ -5747,10 +5747,18 @@
         "targetable": true
       },
       "scaling": {
-        "formula": "hp x (1 + 0.25 x elderwoodStars) + flatBonus",
+        "formula": "hp x (1 + 0.25 x elderwoodStars) x healthMultiplierByStage + flatBonus",
         "perElderwoodStar": {
           "maxHealth": 0.25,
           "abilityPower": 0.1
+        },
+        "healthMultiplierByStage": {
+          "1": 1,
+          "2": 1.15,
+          "3": 1.3,
+          "4": 1.6,
+          "5": 1.9,
+          "6": 2.2
         },
         "flatBonus": 0,
         "receivesTeamHealthBonuses": false
@@ -5762,7 +5770,8 @@
             "label": "Slam Damage",
             "scaling": ["abilityPower"],
             "values": {
-              "2": 445,
+              "1": 445,
+              "2": 670,
               "3": 670
             }
           },
@@ -5770,7 +5779,8 @@
             "label": "Slam Area Damage",
             "scaling": ["abilityPower"],
             "values": {
-              "2": 220,
+              "1": 220,
+              "2": 335,
               "3": 335
             }
           },
@@ -5778,16 +5788,19 @@
             "label": "Attack Damage",
             "scaling": ["attackDamage"],
             "values": {
-              "2": 50,
-              "3": 75,
-              "4": 112.5
+              "1": 50,
+              "2": 75,
+              "3": 112.5
             }
           }
         ],
         "params": {
           "healShareOfMaxHealth": 0.1,
-          "enrageAttackSpeed": 0.8,
-          "enrageAttackSpeedAtTier4": 1.0,
+          "enrageAttackSpeedByStar": {
+            "1": 0.8,
+            "2": 1,
+            "3": 2.5
+          },
           "enrageSeconds": 3,
           "slamHexRadius": 2,
           "knockupSeconds": 0.5
@@ -5891,10 +5904,18 @@
         "range": 4
       },
       "scaling": {
-        "formula": "hp x (1 + 0.25 x elderwoodStars) + flatBonus",
+        "formula": "hp x (1 + 0.25 x elderwoodStars) x healthMultiplierByStage + flatBonus",
         "perElderwoodStar": {
           "maxHealth": 0.25,
           "abilityPower": 0.1
+        },
+        "healthMultiplierByStage": {
+          "1": 0.75,
+          "2": 0.875,
+          "3": 1,
+          "4": 1.25,
+          "5": 1.5,
+          "6": 1.75
         },
         "flatBonus": 0,
         "receivesTeamHealthBonuses": true
@@ -5904,10 +5925,16 @@
         "params": {
           "startDelaySeconds": 4,
           "everySeconds": 4,
-          "initialPercent": 0.1,
-          "perPeriodPercent": 0.03,
-          "initialPercentAtTier4": 0.15,
-          "perPeriodPercentAtTier4": 0.05
+          "initialPercentByStar": {
+            "1": 0.1,
+            "2": 0.15,
+            "3": 0.15
+          },
+          "perPeriodPercentByStar": {
+            "1": 0.03,
+            "2": 0.05,
+            "3": 0.05
+          }
         }
       }
     },
@@ -5928,10 +5955,18 @@
         "range": 0
       },
       "scaling": {
-        "formula": "hp x (1 + 0.25 x elderwoodStars) + flatBonus",
+        "formula": "hp x (1 + 0.25 x elderwoodStars) x healthMultiplierByStage + flatBonus",
         "perElderwoodStar": {
           "maxHealth": 0.25,
           "abilityPower": 0.1
+        },
+        "healthMultiplierByStage": {
+          "1": 1,
+          "2": 1.15,
+          "3": 1.3,
+          "4": 1.75,
+          "5": 2.05,
+          "6": 2.4
         },
         "flatBonus": 60,
         "receivesTeamHealthBonuses": true
@@ -5939,8 +5974,11 @@
       "ability": {
         "description": "On death, Stun the nearest 2 enemies for 1.5 seconds.",
         "params": {
-          "stunTargets": 2,
-          "stunTargetsAtTier4": 3,
+          "stunTargetsByStar": {
+            "1": 2,
+            "2": 3,
+            "3": 3
+          },
           "stunSeconds": 1.5,
           "bonusHealthFromTier2": 150
         }
