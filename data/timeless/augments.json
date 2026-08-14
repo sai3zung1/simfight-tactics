@@ -2515,7 +2515,8 @@
             "attackSpeed": 0.5,
             "durability": 0.2,
             "damageAmp": 0.3,
-            "omnivamp": 0.2
+            "omnivamp": 0.2,
+            "critChance": 0.1
           }
         }
       ],
