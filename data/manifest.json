@@ -22,9 +22,9 @@
       "verified": "36 names against Community Dragon, no divergence either way, and 34 of the 36 breakpoint ladders identical. Rosters cover the 65 units. Every breakpoint carries its grants and its parameters, read from the tooltip"
     },
     "set-18/wisps.json": {
-      "count": 177,
+      "count": 176,
       "status": "partial",
-      "verified": "The client defines 181 charms; the published sources carried 163 of them, and gold, category and description agree on those. 84 change a fight and are decomposed into grants. The 14 the aggregators omit are economy — gold, experience, player health, streaks — and were added from the client on 2026-08-14 with their name, their cost and their values. Their category, description and appearance window stay null: those live on an object the extraction cannot name yet. Crystal Ball is ours alone and has no counterpart in the client"
+      "verified": "The client defines 181 charms; the published sources carried 163 of them, and gold, category and description agree on those. 84 change a fight and are decomposed into grants. The 14 the aggregators omit are economy — gold, experience, player health, streaks — and were added from the client on 2026-08-14 with their name, their cost and their values. Six of them get their description back by matching the curve rows the client's own text quotes; the other eight quote a row name too common to tell one charm from another, and stay null along with every category and appearance window. Crystal Ball was dropped: neither its name nor its text appears anywhere in the 14262 strings the client ships"
     },
     "timeless/augments.json": {
       "count": 257,

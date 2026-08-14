@@ -513,25 +513,6 @@
       }
     },
     {
-      "id": "s18-crystal-ball",
-      "name": "Crystal Ball",
-      "category": "combat",
-      "gold": 1,
-      "description": "Reveal your next opponent.\nYour team gains 12% Attack Speed.",
-      "appears": "4-2 to 10-1",
-      "requires": ["At least 4 players remaining"],
-      "combat": true,
-      "requiresRunInput": false,
-      "grants": [
-        {
-          "to": "team",
-          "percentStats": {
-            "attackSpeed": 0.12
-          }
-        }
-      ]
-    },
-    {
       "id": "s18-diversified",
       "name": "Diversified",
       "category": "combat",
@@ -3239,7 +3220,7 @@
       "name": "Golden Road",
       "category": null,
       "gold": 2,
-      "description": null,
+      "description": "After 3 player combats, gain 2 Gold per fight won.",
       "appears": null,
       "requires": [],
       "combat": false,
@@ -3256,7 +3237,7 @@
       "name": "Good Loss",
       "category": null,
       "gold": 5,
-      "description": null,
+      "description": "For the next 3 player combats, gain 4 XP if you lose.",
       "appears": null,
       "requires": [],
       "combat": false,
@@ -3272,7 +3253,7 @@
       "name": "Healing Pool",
       "category": null,
       "gold": 2,
-      "description": null,
+      "description": "Heal 5 Player Health.",
       "appears": null,
       "requires": [],
       "combat": false,
@@ -3333,7 +3314,7 @@
       "name": "Sinister Deal",
       "category": null,
       "gold": 0,
-      "description": null,
+      "description": "Lose 4 Player Health. Gain 2 Gold.",
       "appears": null,
       "requires": [],
       "combat": false,
@@ -3350,7 +3331,7 @@
       "name": "Take One With Ya",
       "category": null,
       "gold": 1,
-      "description": null,
+      "description": "If you lose and kill at least one enemy, gain 4 XP.",
       "appears": null,
       "requires": [],
       "combat": false,
@@ -3365,7 +3346,7 @@
       "name": "Truce",
       "category": null,
       "gold": 0,
-      "description": null,
+      "description": "Gain 1 gold. Your opponent gains 1 gold.",
       "appears": null,
       "requires": [],
       "combat": false,
