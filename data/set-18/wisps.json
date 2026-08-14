@@ -86,7 +86,11 @@
       "appears": "2-1 to 2-7",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "takedownsGranted": 3,
+        "takedownsGrantedUpgraded": 7
+      }
     },
     {
       "id": "s18-hero-of-prophecy",
@@ -2355,7 +2359,14 @@
       "appears": "3-1 to 4-7",
       "requires": [],
       "combat": true,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "knockupSeconds": 1.75,
+        "hexRadius": 3,
+        "triggersAtSecond": 8,
+        "knockupSecondsUpgraded": 2,
+        "hexRadiusUpgraded": 4
+      }
     },
     {
       "id": "s18-doodad-bag",
@@ -2366,7 +2377,11 @@
       "appears": "3-1 to 4-1",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "consumablesGranted": 2,
+        "consumablesGrantedUpgraded": 3
+      }
     },
     {
       "id": "s18-doodad-jar",
@@ -2377,7 +2392,11 @@
       "appears": "2-1 to 2-7",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "consumablesGranted": 1,
+        "consumablesGrantedUpgraded": 2
+      }
     },
     {
       "id": "s18-doodad-sack",
@@ -2388,7 +2407,11 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "consumablesGranted": 3,
+        "consumablesGrantedUpgraded": 4
+      }
     },
     {
       "id": "s18-early-fix",
@@ -2432,7 +2455,14 @@
       "appears": "3-1 to 4-7",
       "requires": [],
       "combat": true,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "healAmount": 750,
+        "triggersBelowMaxHealth": 0.5,
+        "durationSeconds": 3,
+        "healAmountUpgraded": 850,
+        "teamwideHealUpgraded": 150
+      }
     },
     {
       "id": "s18-knick-knack-bag",
@@ -2443,7 +2473,11 @@
       "appears": "3-1 to 4-1",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "consumablesGranted": 2,
+        "consumablesGrantedUpgraded": 3
+      }
     },
     {
       "id": "s18-knick-knack-jar",
@@ -2454,7 +2488,11 @@
       "appears": "2-1 to 2-7",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "consumablesGranted": 1,
+        "consumablesGrantedUpgraded": 2
+      }
     },
     {
       "id": "s18-knick-knack-sack",
@@ -2465,7 +2503,11 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "consumablesGranted": 3,
+        "consumablesGrantedUpgraded": 4
+      }
     },
     {
       "id": "s18-lesser-chaos",
@@ -2487,7 +2529,15 @@
       "appears": "3-1 to 4-7",
       "requires": [],
       "combat": true,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "manaRestore": 80,
+        "startingMana": 20,
+        "durationSeconds": 5,
+        "manaRestoreUpgraded": 90,
+        "startingManaUpgraded": 20,
+        "allyManaRestoreUpgraded": 10
+      }
     },
     {
       "id": "s18-potioncraft",
@@ -2498,7 +2548,10 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "potionsGranted": 3
+      }
     },
     {
       "id": "s18-salvager",
@@ -2534,7 +2587,11 @@
       "appears": "3-1 to 4-1",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "consumablesGranted": 2,
+        "consumablesGrantedUpgraded": 3
+      }
     },
     {
       "id": "s18-thingamajig-jar",
@@ -2545,7 +2602,11 @@
       "appears": "2-1 to 2-7",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "consumablesGranted": 1,
+        "consumablesGrantedUpgraded": 2
+      }
     },
     {
       "id": "s18-thingamajig-sack",
@@ -2556,7 +2617,11 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "consumablesGranted": 3,
+        "consumablesGrantedUpgraded": 4
+      }
     },
     {
       "id": "s18-beggars-wisp",
