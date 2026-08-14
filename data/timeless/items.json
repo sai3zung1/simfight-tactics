@@ -1136,7 +1136,11 @@
       "type": "craftable",
       "components": ["spat", "spat"],
       "stats": {},
-      "description": "Your team gains +1 maximum team size.\n\n10% chance to drop 1 gold when you win combat.\n\n...the Heart of a hero..."
+      "description": "Your team gains +1 maximum team size.\n\n10% chance to drop 1 gold when you win combat.\n\n...the Heart of a hero...",
+      "params": {
+        "goldDropChance": 0.1,
+        "goldDropped": 1
+      }
     },
     {
       "id": "tacticians-cape",
@@ -1147,7 +1151,11 @@
       "type": "craftable",
       "components": ["spat", "pan"],
       "stats": {},
-      "description": "Your team gains +1 maximum team size.\n\n10% chance to drop 1 gold after 10 seconds of combat.\n\n...and a bit of Luck."
+      "description": "Your team gains +1 maximum team size.\n\n10% chance to drop 1 gold after 10 seconds of combat.\n\n...and a bit of Luck.",
+      "params": {
+        "goldDropChance": 0.1,
+        "goldDropped": 1
+      }
     },
     {
       "id": "tacticians-shield",
@@ -1158,7 +1166,11 @@
       "type": "craftable",
       "components": ["pan", "pan"],
       "stats": {},
-      "description": "Your team gains +1 maximum team size.\n\n10% chance to drop 1 gold when the holder dies.\n\nImbued with a Philosopher's wisdom..."
+      "description": "Your team gains +1 maximum team size.\n\n10% chance to drop 1 gold when the holder dies.\n\nImbued with a Philosopher's wisdom...",
+      "params": {
+        "goldDropChance": 0.1,
+        "goldDropped": 1
+      }
     },
     {
       "id": "blackthorn-emblem",

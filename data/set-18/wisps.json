@@ -31,7 +31,10 @@
       "appears": "6-1 to 10-1",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "costUpgraded": 40
+      }
     },
     {
       "id": "s18-field-of-mice",
@@ -64,7 +67,10 @@
       "appears": "2-1 to 2-7",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "costUpgraded": 5
+      }
     },
     {
       "id": "s18-grandmaster",
@@ -86,7 +92,12 @@
       "appears": "2-1 to 2-7",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "takedownsGranted": 3,
+        "takedownsGrantedUpgraded": 7,
+        "numStacksUpgraded": 7
+      }
     },
     {
       "id": "s18-hero-of-prophecy",
@@ -101,7 +112,10 @@
         "Be level 10 or above"
       ],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "costUpgraded": 33
+      }
     },
     {
       "id": "s18-journeyman",
@@ -123,7 +137,10 @@
       "appears": "2-1 to 2-7",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "costUpgraded": 4
+      }
     },
     {
       "id": "s18-mitosis",
@@ -134,7 +151,10 @@
       "appears": "2-1 to 2-7",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "costUpgraded": 0
+      }
     },
     {
       "id": "s18-propagate",
@@ -145,7 +165,11 @@
       "appears": "2-1 to 4-1",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "numChampsUpgraded": 1,
+        "costUpgraded": 1
+      }
     },
     {
       "id": "s18-smurfing",
@@ -167,7 +191,10 @@
       "appears": "2-1 to 3-4",
       "requires": ["Have Solar active"],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "costUpgraded": 2
+      }
     },
     {
       "id": "s18-three-me",
@@ -198,7 +225,9 @@
       ],
       "params": {
         "afterSeconds": 8,
-        "stunSeconds": 1.5
+        "stunSeconds": 1.5,
+        "stunDurationUpgraded": 1.5,
+        "secondActivationDelayUpgraded": 18
       }
     },
     {
@@ -222,7 +251,11 @@
           },
           "durationSeconds": 7
         }
-      ]
+      ],
+      "params": {
+        "asMultiplierUpgraded": 2,
+        "asDurationUpgraded": 8
+      }
     },
     {
       "id": "s18-bark-armor",
@@ -242,7 +275,11 @@
           },
           "durationSeconds": 10
         }
-      ]
+      ],
+      "params": {
+        "durationUpgraded": 10,
+        "shieldAmountUpgraded": 225
+      }
     },
     {
       "id": "s18-barrier",
@@ -263,7 +300,13 @@
           "durationSeconds": 5,
           "decaying": true
         }
-      ]
+      ],
+      "params": {
+        "durationUpgraded": 9,
+        "shieldPrismatic": 7500,
+        "durationPrismatic": 30,
+        "costPrismatic": 0
+      }
     },
     {
       "id": "s18-bears-visit",
@@ -297,7 +340,10 @@
             "magicDamagePercentMaxHealth": 0.25
           }
         }
-      ]
+      ],
+      "params": {
+        "numAlliesExplodeUpgraded": 2
+      }
     },
     {
       "id": "s18-blaze",
@@ -317,7 +363,12 @@
         }
       ],
       "params": {
-        "spreadRangeMaxHexes": 8
+        "spreadRangeMaxHexes": 8,
+        "repeatIntervalUpgraded": 1,
+        "maxHealthBurnPerIntervalUpgraded": 0.015,
+        "maxHealthBurnPerIntervalPrismatic": 0.025,
+        "repeatIntervalPrismatic": 0.5,
+        "costPrismatic": 0
       }
     },
     {
@@ -332,7 +383,8 @@
       "requiresRunInput": true,
       "params": {
         "championsStarredUp": 2,
-        "starLevelGain": 1
+        "starLevelGain": 1,
+        "numChampsToStarUpUpgraded": 3
       }
     },
     {
@@ -346,7 +398,8 @@
       "combat": true,
       "requiresRunInput": true,
       "params": {
-        "temporaryItems": 1
+        "temporaryItems": 1,
+        "healthUpgraded": 250
       }
     },
     {
@@ -372,7 +425,8 @@
         }
       ],
       "params": {
-        "healthThreshold": 0.5
+        "healthThreshold": 0.5,
+        "shieldPercentHealthUpgraded": 0.3
       }
     },
     {
@@ -386,7 +440,8 @@
       "combat": true,
       "requiresRunInput": true,
       "params": {
-        "temporaryGiantsBelts": 7
+        "temporaryGiantsBelts": 7,
+        "numBeltsToGrantUpgraded": 10
       }
     },
     {
@@ -400,7 +455,11 @@
       "combat": true,
       "requiresRunInput": true,
       "params": {
-        "cloneDamageShare": 0.2
+        "cloneDamageShare": 0.2,
+        "cloneDamageMultiplierUpgraded": 0.3,
+        "costPrismatic": 0,
+        "cloneDamageMultiplierPrismatic": 1,
+        "sizeScalePrismatic": 2
       }
     },
     {
@@ -421,7 +480,12 @@
             "magicDamagePercentMaxHealth": 0.15
           }
         }
-      ]
+      ],
+      "params": {
+        "maxHealthExplosionDamageUpgraded": 0.22,
+        "maxHealthExplosionDamagePrismatic": 1,
+        "costPrismatic": 0
+      }
     },
     {
       "id": "s18-counterspell",
@@ -441,26 +505,12 @@
           },
           "until": "next-cast"
         }
-      ]
-    },
-    {
-      "id": "s18-crystal-ball",
-      "name": "Crystal Ball",
-      "category": "combat",
-      "gold": 1,
-      "description": "Reveal your next opponent.\nYour team gains 12% Attack Speed.",
-      "appears": "4-2 to 10-1",
-      "requires": ["At least 4 players remaining"],
-      "combat": true,
-      "requiresRunInput": false,
-      "grants": [
-        {
-          "to": "team",
-          "percentStats": {
-            "attackSpeed": 0.12
-          }
-        }
-      ]
+      ],
+      "params": {
+        "manaIncreaseUpgraded": 22,
+        "manaIncreasePrismatic": 150,
+        "costPrismatic": 0
+      }
     },
     {
       "id": "s18-diversified",
@@ -480,7 +530,10 @@
           },
           "per": "active-non-unique-trait"
         }
-      ]
+      ],
+      "params": {
+        "addedHealthUpgraded": 45
+      }
     },
     {
       "id": "s18-downpour",
@@ -499,7 +552,13 @@
             "manaRegen": 2
           }
         }
-      ]
+      ],
+      "params": {
+        "costUpgraded": 3,
+        "manaRegenUpgraded": 3,
+        "costPrismatic": 0,
+        "manaRegenPrismatic": 15
+      }
     },
     {
       "id": "s18-fellowship",
@@ -520,7 +579,11 @@
           },
           "per": "adjacent-ally"
         }
-      ]
+      ],
+      "params": {
+        "maxHealthShieldUpgraded": 0.06,
+        "damageAmpUpgraded": 0.06
+      }
     },
     {
       "id": "s18-flow",
@@ -541,7 +604,11 @@
           "durationSeconds": 10,
           "effect": "unstoppable"
         }
-      ]
+      ],
+      "params": {
+        "durationUpgraded": 15,
+        "attackSpeedUpgraded": 1.15
+      }
     },
     {
       "id": "s18-found-friend",
@@ -577,7 +644,11 @@
             "hp": 600
           }
         }
-      ]
+      ],
+      "params": {
+        "hpGainUpgraded": 700,
+        "numUnitsUpgraded": 2
+      }
     },
     {
       "id": "s18-giants-aura",
@@ -600,7 +671,17 @@
             "damagePercentMaxHealthPerSecond": 0.02
           }
         }
-      ]
+      ],
+      "params": {
+        "damageUpgraded": 0.03,
+        "startingSizePrismatic": 2,
+        "damageIntervalPrismatic": 1,
+        "growIntervalPrismatic": 3,
+        "costPrismatic": 0,
+        "damagePrismatic": 0.06,
+        "scalePrismatic": 1.5,
+        "healthPrismatic": 1000
+      }
     },
     {
       "id": "s18-hand-of-baron",
@@ -650,7 +731,21 @@
             "durability": 0.05
           }
         }
-      ]
+      ],
+      "params": {
+        "costUpgraded": 6,
+        "armorUpgraded": 5,
+        "magicResistUpgraded": 5,
+        "adUpgraded": 0.05,
+        "apUpgraded": 0.05,
+        "critChanceUpgraded": 0.15,
+        "manaRegenUpgraded": 0,
+        "omnivampUpgraded": 0.05,
+        "damageAmpUpgraded": 0.05,
+        "attackSpeedUpgraded": 1.05,
+        "damageReductionUpgraded": 0.95,
+        "healthUpgraded": 55
+      }
     },
     {
       "id": "s18-heros-entrance",
@@ -664,7 +759,10 @@
       "requiresRunInput": true,
       "params": {
         "afterSeconds": 8,
-        "recommendedItems": 2
+        "recommendedItems": 2,
+        "costUpgraded": 4,
+        "unitJoinDelayUpgraded": 5,
+        "numRecItemsUpgraded": 2
       }
     },
     {
@@ -682,7 +780,16 @@
       "requiresRunInput": true,
       "params": {
         "empoweredChampions": 3,
-        "maxFullyItemisedUnits": 4
+        "maxFullyItemisedUnits": 4,
+        "teamSizeUpgraded": 3,
+        "regenPercentUpgraded": 0,
+        "healthUpgraded": 1800,
+        "attackSpeedUpgraded": 1.4,
+        "armorMRUpgraded": 40,
+        "unitScaleBuffUpgraded": 0.75,
+        "costUpgraded": 5,
+        "adapUpgraded": 0.4,
+        "omnivampUpgraded": 0.12
       },
       "grants": [
         {
@@ -729,7 +836,13 @@
       "params": {
         "unitCost": 5,
         "starLevel": 1,
-        "recommendedItems": 1
+        "recommendedItems": 1,
+        "charmCostUpgraded": 5,
+        "numRecommendedItemsUpgraded": 2,
+        "starLevelPrismatic": 2,
+        "costPrismatic": 0,
+        "recommendedItemsPrismatic": 2,
+        "numUnitsPrismatic": 3
       }
     },
     {
@@ -750,7 +863,10 @@
           },
           "per": "20-mana-spent-by-a-caster"
         }
-      ]
+      ],
+      "params": {
+        "manaPerFireflyUpgraded": 15
+      }
     },
     {
       "id": "s18-hugify",
@@ -772,7 +888,13 @@
             "hp": 350
           }
         }
-      ]
+      ],
+      "params": {
+        "healthUpgraded": 600,
+        "healthPrismatic": 2500,
+        "numUnitsPrismatic": 10,
+        "costPrismatic": 0
+      }
     },
     {
       "id": "s18-hummingbird",
@@ -794,7 +916,13 @@
             "attackSpeed": 0.2
           }
         }
-      ]
+      ],
+      "params": {
+        "asGainUpgraded": 1.35,
+        "asGainPrismatic": 2,
+        "numUnitsPrismatic": 10,
+        "costPrismatic": 0
+      }
     },
     {
       "id": "s18-improved-reach",
@@ -819,7 +947,10 @@
             "range": 1
           }
         }
-      ]
+      ],
+      "params": {
+        "rangeIncreaseUpgraded": 2
+      }
     },
     {
       "id": "s18-infliction",
@@ -845,7 +976,10 @@
           },
           "durationSeconds": 8
         }
-      ]
+      ],
+      "params": {
+        "durationUpgraded": 12
+      }
     },
     {
       "id": "s18-iron-core",
@@ -868,7 +1002,10 @@
           },
           "per": "front-row-ally"
         }
-      ]
+      ],
+      "params": {
+        "maxHealthPerFrontRowUnitUpgraded": 1.06
+      }
     },
     {
       "id": "s18-ironwood",
@@ -890,7 +1027,10 @@
             "damageDealt": -0.1
           }
         }
-      ]
+      ],
+      "params": {
+        "damageReductionUpgraded": 0.18
+      }
     },
     {
       "id": "s18-killers-regret",
@@ -911,7 +1051,9 @@
       ],
       "params": {
         "allies": 3,
-        "stunSeconds": 1
+        "stunSeconds": 1,
+        "stunDurationUpgraded": 1.5,
+        "numUnitsUpgraded": 4
       }
     },
     {
@@ -937,7 +1079,9 @@
         }
       ],
       "params": {
-        "executeBelowHealth": 0.1
+        "executeBelowHealth": 0.1,
+        "executeThresholdUpgraded": 15,
+        "onKillAtkSpdAmountUpgraded": 1.4
       }
     },
     {
@@ -953,7 +1097,12 @@
       "params": {
         "unitCost": 1,
         "starLevel": 3,
-        "recommendedItems": 1
+        "recommendedItems": 1,
+        "numRecommendedItemsUpgraded": 1,
+        "numItemsPrismatic": 1,
+        "numUnitsPrismatic": 5,
+        "starLevelPrismatic": 4,
+        "costPrismatic": 0
       }
     },
     {
@@ -974,7 +1123,14 @@
           },
           "everySeconds": 1
         }
-      ]
+      ],
+      "params": {
+        "frequencyUpgraded": 1,
+        "hpPercentDamageUpgraded": 0.07,
+        "frequencyPrismatic": 0.15,
+        "costPrismatic": 0,
+        "hpPercentDamagePrismatic": 0.05
+      }
     },
     {
       "id": "s18-lightning-strike",
@@ -993,7 +1149,10 @@
             "trueDamagePercentMaxHealth": 0.1
           }
         }
-      ]
+      ],
+      "params": {
+        "hpPercentDamageUpgraded": 0.18
+      }
     },
     {
       "id": "s18-living-soil",
@@ -1013,7 +1172,8 @@
         }
       ],
       "params": {
-        "stunSeconds": 1
+        "stunSeconds": 1,
+        "rootTargetsUpgraded": 2
       }
     },
     {
@@ -1039,7 +1199,10 @@
             "maxMana": -0.15
           }
         }
-      ]
+      ],
+      "params": {
+        "maxManaMultiplierUpgraded": 0.75
+      }
     },
     {
       "id": "s18-marksmens-gale",
@@ -1066,7 +1229,10 @@
           "per": "attack",
           "stacks": true
         }
-      ]
+      ],
+      "params": {
+        "attackSpeedUpgraded": 1.05
+      }
     },
     {
       "id": "s18-marksmens-marks",
@@ -1090,7 +1256,10 @@
           "effect": "double-attack",
           "chance": 0.25
         }
-      ]
+      ],
+      "params": {
+        "doubleAttackChanceUpgraded": 0.45
+      }
     },
     {
       "id": "s18-memorial-dummy",
@@ -1103,7 +1272,8 @@
       "combat": true,
       "requiresRunInput": true,
       "params": {
-        "dummiesOnTankDeath": 1
+        "dummiesOnTankDeath": 1,
+        "dummyAmountUpgraded": 2
       }
     },
     {
@@ -1124,7 +1294,11 @@
           },
           "per": "ten-gold-held"
         }
-      ]
+      ],
+      "params": {
+        "damageAmpUpgraded": 0.045,
+        "perXGoldUpgraded": 10
+      }
     },
     {
       "id": "s18-moonlight-ritual",
@@ -1137,7 +1311,8 @@
       "combat": true,
       "requiresRunInput": true,
       "params": {
-        "starLevelGain": 1
+        "starLevelGain": 1,
+        "numChampsThatStarUpUpgraded": 2
       }
     },
     {
@@ -1152,7 +1327,8 @@
       "requiresRunInput": false,
       "params": {
         "afterSeconds": 8,
-        "lunarEffectMultiplier": 2
+        "lunarEffectMultiplier": 2,
+        "increaseRatioUpgraded": 1.75
       }
     },
     {
@@ -1166,7 +1342,14 @@
       "combat": true,
       "requiresRunInput": true,
       "params": {
-        "allyDeathsPerSummon": 3
+        "allyDeathsPerSummon": 3,
+        "championDeathsPerSummonUpgraded": 3,
+        "costUpgraded": 2,
+        "starUpChance1costUpgraded": 1,
+        "starUpChance3costUpgraded": 0.4,
+        "starUpChance4costUpgraded": 0.25,
+        "starUpChance5costUpgraded": 0.1,
+        "starUpChance2costUpgraded": 0.8
       }
     },
     {
@@ -1189,7 +1372,9 @@
         }
       ],
       "params": {
-        "afterSeconds": 8
+        "afterSeconds": 8,
+        "costUpgraded": 1,
+        "killDelayUpgraded": 8
       }
     },
     {
@@ -1203,7 +1388,8 @@
       "combat": true,
       "requiresRunInput": false,
       "params": {
-        "dummyHealth": 900
+        "dummyHealth": 900,
+        "statueHealthUpgraded": 1350
       }
     },
     {
@@ -1225,7 +1411,14 @@
           },
           "durationSeconds": 10
         }
-      ]
+      ],
+      "params": {
+        "shieldMultiplierUpgraded": 0.7,
+        "shieldMultiplierPrismatic": 0.1,
+        "costPrismatic": 0,
+        "chillAmountPrismatic": 90,
+        "durationPrismatic": 30
+      }
     },
     {
       "id": "s18-phantom-armor",
@@ -1238,7 +1431,8 @@
       "combat": true,
       "requiresRunInput": false,
       "params": {
-        "temporaryItems": 1
+        "temporaryItems": 1,
+        "costPrismatic": 0
       }
     },
     {
@@ -1252,7 +1446,8 @@
       "combat": true,
       "requiresRunInput": true,
       "params": {
-        "temporaryEmblems": 1
+        "temporaryEmblems": 1,
+        "costUpgraded": 1
       }
     },
     {
@@ -1280,7 +1475,8 @@
       "combat": true,
       "requiresRunInput": true,
       "params": {
-        "inactiveTraitsActivated": 2
+        "inactiveTraitsActivated": 2,
+        "numTraitsActivatedUpgraded": 4
       }
     },
     {
@@ -1318,7 +1514,11 @@
           },
           "durationSeconds": 10
         }
-      ]
+      ],
+      "params": {
+        "bonusShieldPercentUpgraded": 0.2,
+        "shieldAmountUpgraded": 300
+      }
     },
     {
       "id": "s18-potted-lifebloom",
@@ -1331,7 +1531,8 @@
       "combat": true,
       "requiresRunInput": false,
       "params": {
-        "plants": 1
+        "plants": 1,
+        "costUpgraded": 1
       }
     },
     {
@@ -1345,7 +1546,8 @@
       "combat": true,
       "requiresRunInput": false,
       "params": {
-        "plants": 1
+        "plants": 1,
+        "costUpgraded": 1
       }
     },
     {
@@ -1380,7 +1582,10 @@
             "abilityPower": 0.08
           }
         }
-      ]
+      ],
+      "params": {
+        "adapUpgraded": 0.15
+      }
     },
     {
       "id": "s18-quicken",
@@ -1401,7 +1606,11 @@
           },
           "durationSeconds": 3
         }
-      ]
+      ],
+      "params": {
+        "durationUpgraded": 5,
+        "attackSpeedGainUpgraded": 1.4
+      }
     },
     {
       "id": "s18-radiantize",
@@ -1415,7 +1624,9 @@
       "requiresRunInput": true,
       "params": {
         "afterSeconds": 12,
-        "itemsMadeRadiant": 1
+        "itemsMadeRadiant": 1,
+        "numItemsUpgraded": 1,
+        "delayUpgraded": 7
       }
     },
     {
@@ -1435,7 +1646,11 @@
             "manaRegen": 1
           }
         }
-      ]
+      ],
+      "params": {
+        "costUpgraded": 1,
+        "manaRegenUpgraded": 2
+      }
     },
     {
       "id": "s18-regeneration",
@@ -1455,7 +1670,10 @@
           },
           "everySeconds": 1
         }
-      ]
+      ],
+      "params": {
+        "healPerSecondUpgraded": 0.02
+      }
     },
     {
       "id": "s18-resistant",
@@ -1477,7 +1695,10 @@
             "flatDamageReduction": 15
           }
         }
-      ]
+      ],
+      "params": {
+        "flatDmgBlockUpgraded": 18
+      }
     },
     {
       "id": "s18-revenge",
@@ -1498,7 +1719,10 @@
           },
           "stacks": true
         }
-      ]
+      ],
+      "params": {
+        "damageAmpUpgraded": 0.06
+      }
     },
     {
       "id": "s18-scrappy",
@@ -1511,7 +1735,8 @@
       "combat": true,
       "requiresRunInput": true,
       "params": {
-        "championsGivenAnItem": 2
+        "championsGivenAnItem": 2,
+        "numChampsUpgraded": 3
       }
     },
     {
@@ -1519,7 +1744,7 @@
       "name": "Snacktime!",
       "category": "combat",
       "gold": 3,
-      "description": "The BFF eats enemies he damages under 12% Max Health.",
+      "description": "The BFF eats enemies he damages under 15% Max Health.",
       "appears": "4-2 to 10-1",
       "requires": ["Have Sprykin active"],
       "combat": true,
@@ -1533,7 +1758,8 @@
       ],
       "params": {
         "executeBelowHealth": 0.15,
-        "executeBelowHealthUpgraded": 0.2
+        "executeBelowHealthUpgraded": 0.2,
+        "executeThresholdUpgraded": 0.2
       }
     },
     {
@@ -1557,7 +1783,11 @@
             "damageAmp": 0.1
           }
         }
-      ]
+      ],
+      "params": {
+        "damageAmpUpgraded": 0.15,
+        "maxHPBuffUpgraded": 1.15
+      }
     },
     {
       "id": "s18-stand-alone",
@@ -1584,7 +1814,14 @@
             "damageAmp": 0.15
           }
         }
-      ]
+      ],
+      "params": {
+        "damageAmpUpgraded": 0.22,
+        "healthUpgraded": 1.22,
+        "costPrismatic": 0,
+        "damageAmpPrismatic": 1.5,
+        "healthPrismatic": 2
+      }
     },
     {
       "id": "s18-stealthy",
@@ -1608,7 +1845,9 @@
         }
       ],
       "params": {
-        "champions": 2
+        "champions": 2,
+        "untargetableDurationUpgraded": 10,
+        "numChampionsUpgraded": 2
       }
     },
     {
@@ -1632,7 +1871,10 @@
           },
           "durationSeconds": 10
         }
-      ]
+      ],
+      "params": {
+        "durationUpgraded": 15
+      }
     },
     {
       "id": "s18-supercritical",
@@ -1654,7 +1896,10 @@
             "critDamage": 0.25
           }
         }
-      ]
+      ],
+      "params": {
+        "critDamageUpgraded": 0.4
+      }
     },
     {
       "id": "s18-tattered-armor",
@@ -1675,7 +1920,14 @@
           },
           "durationSeconds": 10
         }
-      ]
+      ],
+      "params": {
+        "durationUpgraded": 15,
+        "shredSunderPercentUpgraded": 30,
+        "shredSunderPercentPrismatic": 90,
+        "durationPrismatic": 45,
+        "costPrismatic": 0
+      }
     },
     {
       "id": "s18-tigers-visit",
@@ -1688,7 +1940,8 @@
       "combat": true,
       "requiresRunInput": false,
       "params": {
-        "blessing": "tiger"
+        "blessing": "tiger",
+        "costUpgraded": 2
       }
     },
     {
@@ -1702,7 +1955,8 @@
       "combat": true,
       "requiresRunInput": true,
       "params": {
-        "trainingDummies": 2
+        "trainingDummies": 2,
+        "numDummiesUpgraded": 3
       }
     },
     {
@@ -1726,7 +1980,12 @@
       ],
       "params": {
         "targetsPerVolley": 3,
-        "totalArrows": 6
+        "totalArrows": 6,
+        "volleyFrequencyInSecondsUpgraded": 3,
+        "physicalDamagePerVolleyUpgraded": 900,
+        "volleyFrequencyinSecondsPrismatic": 0.05,
+        "costPrismatic": 0,
+        "physicalDamagePerVolleyPrismatic": 60
       }
     },
     {
@@ -1747,7 +2006,11 @@
         }
       ],
       "params": {
-        "stunSeconds": 1
+        "stunSeconds": 1,
+        "stunDurationUpgraded": 1.5,
+        "stunIntervalPrismatic": 3,
+        "costPrismatic": 0,
+        "stunDurationPrismatic": 1.5
       }
     },
     {
@@ -1782,7 +2045,11 @@
           },
           "afterSeconds": 25
         }
-      ]
+      ],
+      "params": {
+        "activationDelayUpgraded": 23,
+        "activationDelayPrismatic": 12
+      }
     },
     {
       "id": "s18-verdant-vitality",
@@ -1801,7 +2068,10 @@
             "hp": 100
           }
         }
-      ]
+      ],
+      "params": {
+        "healthAmountUpgraded": 175
+      }
     },
     {
       "id": "s18-wrapped-in-thorns",
@@ -1844,7 +2114,11 @@
           "chance": 0.99,
           "durationSeconds": 4
         }
-      ]
+      ],
+      "params": {
+        "dodgeChanceUpgraded": 99,
+        "durationUpgraded": 5
+      }
     },
     {
       "id": "s18-all-fives",
@@ -1910,7 +2184,10 @@
       "appears": "4-2 to 5-7",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "durationUpgraded": 26
+      }
     },
     {
       "id": "s18-border-village",
@@ -1932,7 +2209,11 @@
       "appears": "3-5 to 5-7",
       "requires": ["Have Inferno active"],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "costUpgraded": 2,
+        "fireSlotsUpgraded": 3
+      }
     },
     {
       "id": "s18-freeroller",
@@ -1943,7 +2224,10 @@
       "appears": "2-1 to 4-1",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "rerollsUpgraded": 3
+      }
     },
     {
       "id": "s18-jungling",
@@ -1954,7 +2238,10 @@
       "appears": "3-1 to 4-7",
       "requires": ["Have Riftbeast active"],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "costUpgraded": 3
+      }
     },
     {
       "id": "s18-lucky-7",
@@ -1965,7 +2252,12 @@
       "appears": "6-1 to 10-1",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "numRerollsUpgraded": 10,
+        "numRerollsPrismatic": 777,
+        "costSendItPrismatic": 0
+      }
     },
     {
       "id": "s18-middle-path",
@@ -1987,7 +2279,10 @@
       "appears": "3-5 to 5-7",
       "requires": ["Have Solar active"],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "costUpgraded": 5
+      }
     },
     {
       "id": "s18-ride-the-wave",
@@ -1998,7 +2293,11 @@
       "appears": "4-2 to 5-7",
       "requires": ["First 20 seconds of planning", "Have at least 20 gold"],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "costUpgraded": 3,
+        "numShopsUpgraded": 3
+      }
     },
     {
       "id": "s18-rolling-bones",
@@ -2009,7 +2308,11 @@
       "appears": "3-1 to 4-7",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "rerollsOnWinUpgraded": 1,
+        "rerollChanceOnKillUpgraded": 0.6
+      }
     },
     {
       "id": "s18-roly-polys",
@@ -2020,7 +2323,10 @@
       "appears": "3-1 to 4-1",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "waitTimeUpgraded": 16
+      }
     },
     {
       "id": "s18-search-party",
@@ -2031,7 +2337,10 @@
       "appears": "3-5 to 4-7",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "costUpgraded": 2
+      }
     },
     {
       "id": "s18-starfall",
@@ -2042,7 +2351,11 @@
       "appears": "3-1 to 4-1",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "costUpgraded": 0,
+        "shopLimitUpgraded": 8
+      }
     },
     {
       "id": "s18-starting-town",
@@ -2064,7 +2377,10 @@
       "appears": "3-5 to 5-7",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "sellMultiplierUpgraded": 2.5
+      }
     },
     {
       "id": "s18-blood-money",
@@ -2075,7 +2391,12 @@
       "appears": "3-1 to 4-7",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "baseGoldUpgraded": 1,
+        "costUpgraded": 1,
+        "goldOnDeathUpgraded": 1
+      }
     },
     {
       "id": "s18-bronze-spoon",
@@ -2086,7 +2407,11 @@
       "appears": "2-1 to 4-1",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "xpUpgraded": 4,
+        "costUpgraded": 2
+      }
     },
     {
       "id": "s18-coin-flip",
@@ -2097,7 +2422,10 @@
       "appears": "2-1 to 2-7",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "numCoinsFlippedUpgraded": 2
+      }
     },
     {
       "id": "s18-die-roll",
@@ -2108,7 +2436,10 @@
       "appears": "3-1 to 4-1",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "costUpgraded": 3
+      }
     },
     {
       "id": "s18-experienced",
@@ -2119,7 +2450,11 @@
       "appears": "2-1 to 2-7",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "xpUpgraded": 2,
+        "costUpgraded": 0
+      }
     },
     {
       "id": "s18-golden-goose",
@@ -2130,7 +2465,10 @@
       "appears": "4-2 to 5-7",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "earnGoldForEveryNDamageUpgraded": 1000
+      }
     },
     {
       "id": "s18-grow-up",
@@ -2141,7 +2479,10 @@
       "appears": "3-1 to 4-7",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "xpUpgraded": 12
+      }
     },
     {
       "id": "s18-life-debt",
@@ -2152,7 +2493,10 @@
       "appears": "5-1 to 10-1",
       "requires": ["Be missing 10 or more health"],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "healingUpgraded": 3
+      }
     },
     {
       "id": "s18-pocket-change",
@@ -2163,7 +2507,10 @@
       "appears": "3-1 to 4-1",
       "requires": ["Have at least 2 1-star champions"],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "goldGrantedUpgraded": 1
+      }
     },
     {
       "id": "s18-slow-study",
@@ -2174,7 +2521,10 @@
       "appears": "3-5 to 4-7",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "waitTimeUpgraded": 12
+      }
     },
     {
       "id": "s18-abandon-ship",
@@ -2190,7 +2540,12 @@
         "First 15 seconds of planning"
       ],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "rerollsUpgraded": 12,
+        "xpUpgraded": 12,
+        "goldUpgraded": 10
+      }
     },
     {
       "id": "s18-cutpurse",
@@ -2201,7 +2556,10 @@
       "appears": "3-5 to 4-7",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "timerUpgraded": 4
+      }
     },
     {
       "id": "s18-essence-theft",
@@ -2212,7 +2570,10 @@
       "appears": "2-1 to 4-1",
       "requires": ["Have Coven active"],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "bonusUpgraded": 0.9
+      }
     },
     {
       "id": "s18-fertilize",
@@ -2223,7 +2584,10 @@
       "appears": "2-1 to 3-4",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "baseXPUpgraded": 2
+      }
     },
     {
       "id": "s18-flip-frenzy",
@@ -2234,7 +2598,10 @@
       "appears": "3-1 to 4-1",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "costUpgraded": 0
+      }
     },
     {
       "id": "s18-major-polymorph",
@@ -2267,7 +2634,10 @@
       "appears": "3-5 to 4-7",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "goldPerSurvivorUpgraded": 3
+      }
     },
     {
       "id": "s18-polymorph",
@@ -2278,7 +2648,12 @@
       "appears": "2-1 to 4-1",
       "requires": ["Have units of the required cost"],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "minorCostUpgraded": 0,
+        "costUpgraded": 0,
+        "majorCostUpgraded": 0
+      }
     },
     {
       "id": "s18-trophy-hunter",
@@ -2289,7 +2664,10 @@
       "appears": "2-1 to 4-7",
       "requires": ["Have Rival active"],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "costUpgraded": 0
+      }
     },
     {
       "id": "s18-artifactinate",
@@ -2300,7 +2678,11 @@
       "appears": "2-1 to 3-4",
       "requires": ["Have at least 3 components"],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "numComponentsUpgraded": 3,
+        "numReforgerUpgraded": 1
+      }
     },
     {
       "id": "s18-blood-and-iron",
@@ -2311,7 +2693,10 @@
       "appears": "3-1 to 4-1",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "numDeathsToProcUpgraded": 16
+      }
     },
     {
       "id": "s18-curio-cart",
@@ -2322,7 +2707,10 @@
       "appears": "3-1 to 4-7",
       "requires": ["Have enough gold"],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "goldGainUpgraded": 2
+      }
     },
     {
       "id": "s18-idle-craftsman",
@@ -2333,7 +2721,10 @@
       "appears": "3-1 to 4-1",
       "requires": ["Have at least 1 component on the bench"],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "costUpgraded": 2
+      }
     },
     {
       "id": "s18-peddler",
@@ -2344,7 +2735,10 @@
       "appears": "4-2 to 5-7",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "goldGainUpgraded": 2
+      }
     },
     {
       "id": "s18-blast-potion",
@@ -2355,7 +2749,14 @@
       "appears": "3-1 to 4-7",
       "requires": [],
       "combat": true,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "knockupSeconds": 1.75,
+        "hexRadius": 3,
+        "triggersAtSecond": 8,
+        "knockupSecondsUpgraded": 2,
+        "hexRadiusUpgraded": 4
+      }
     },
     {
       "id": "s18-doodad-bag",
@@ -2366,7 +2767,24 @@
       "appears": "3-1 to 4-1",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "consumablesGranted": 2,
+        "consumablesGrantedUpgraded": 3,
+        "consumableOptions": [
+          {
+            "stats": {
+              "armor": 10,
+              "magicResist": 10
+            }
+          },
+          {
+            "stats": {
+              "hp": 100
+            }
+          }
+        ]
+      }
     },
     {
       "id": "s18-doodad-jar",
@@ -2377,7 +2795,24 @@
       "appears": "2-1 to 2-7",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "consumablesGranted": 1,
+        "consumablesGrantedUpgraded": 2,
+        "consumableOptions": [
+          {
+            "stats": {
+              "armor": 10,
+              "magicResist": 10
+            }
+          },
+          {
+            "stats": {
+              "hp": 100
+            }
+          }
+        ]
+      }
     },
     {
       "id": "s18-doodad-sack",
@@ -2388,7 +2823,24 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "consumablesGranted": 3,
+        "consumablesGrantedUpgraded": 4,
+        "consumableOptions": [
+          {
+            "stats": {
+              "armor": 10,
+              "magicResist": 10
+            }
+          },
+          {
+            "stats": {
+              "hp": 100
+            }
+          }
+        ]
+      }
     },
     {
       "id": "s18-early-fix",
@@ -2399,7 +2851,11 @@
       "appears": "2-1 to 2-7",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "numReforgersUpgraded": 2,
+        "numRemoversUpgraded": 0
+      }
     },
     {
       "id": "s18-forest-mage",
@@ -2421,7 +2877,11 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "goldLowerBoundUpgraded": 2,
+        "numCharmsUpgraded": 2
+      }
     },
     {
       "id": "s18-health-potion",
@@ -2432,7 +2892,14 @@
       "appears": "3-1 to 4-7",
       "requires": [],
       "combat": true,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "healAmount": 750,
+        "triggersBelowMaxHealth": 0.5,
+        "durationSeconds": 3,
+        "healAmountUpgraded": 850,
+        "teamwideHealUpgraded": 150
+      }
     },
     {
       "id": "s18-knick-knack-bag",
@@ -2443,7 +2910,23 @@
       "appears": "3-1 to 4-1",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "consumablesGranted": 2,
+        "consumablesGrantedUpgraded": 3,
+        "consumableOptions": [
+          {
+            "percentStats": {
+              "attackDamage": 0.08
+            }
+          },
+          {
+            "percentStats": {
+              "attackSpeed": 0.08
+            }
+          }
+        ]
+      }
     },
     {
       "id": "s18-knick-knack-jar",
@@ -2454,7 +2937,23 @@
       "appears": "2-1 to 2-7",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "consumablesGranted": 1,
+        "consumablesGrantedUpgraded": 2,
+        "consumableOptions": [
+          {
+            "percentStats": {
+              "attackDamage": 0.08
+            }
+          },
+          {
+            "percentStats": {
+              "attackSpeed": 0.08
+            }
+          }
+        ]
+      }
     },
     {
       "id": "s18-knick-knack-sack",
@@ -2465,7 +2964,23 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "consumablesGranted": 3,
+        "consumablesGrantedUpgraded": 4,
+        "consumableOptions": [
+          {
+            "percentStats": {
+              "attackDamage": 0.08
+            }
+          },
+          {
+            "percentStats": {
+              "attackSpeed": 0.08
+            }
+          }
+        ]
+      }
     },
     {
       "id": "s18-lesser-chaos",
@@ -2476,7 +2991,11 @@
       "appears": "2-1 to 3-4",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "goldLowerBoundUpgraded": 1,
+        "numCharmsUpgraded": 1
+      }
     },
     {
       "id": "s18-mana-potion",
@@ -2487,7 +3006,15 @@
       "appears": "3-1 to 4-7",
       "requires": [],
       "combat": true,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "manaRestore": 80,
+        "startingMana": 20,
+        "durationSeconds": 5,
+        "manaRestoreUpgraded": 90,
+        "startingManaUpgraded": 20,
+        "allyManaRestoreUpgraded": 10
+      }
     },
     {
       "id": "s18-potioncraft",
@@ -2498,7 +3025,10 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "potionsGranted": 3
+      }
     },
     {
       "id": "s18-salvager",
@@ -2509,7 +3039,11 @@
       "appears": "4-2 to 5-7",
       "requires": [],
       "combat": false,
-      "requiresRunInput": false
+      "requiresRunInput": false,
+      "params": {
+        "goldGainUpgraded": 2,
+        "costUpgraded": 0
+      }
     },
     {
       "id": "s18-terraforming",
@@ -2522,7 +3056,8 @@
       "combat": true,
       "requiresRunInput": false,
       "params": {
-        "seedsAtCombatStart": 5
+        "seedsAtCombatStart": 5,
+        "seedsUpgraded": 9
       }
     },
     {
@@ -2534,7 +3069,23 @@
       "appears": "3-1 to 4-1",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "consumablesGranted": 2,
+        "consumablesGrantedUpgraded": 3,
+        "consumableOptions": [
+          {
+            "percentStats": {
+              "abilityPower": 0.08
+            }
+          },
+          {
+            "stats": {
+              "manaRegen": 1
+            }
+          }
+        ]
+      }
     },
     {
       "id": "s18-thingamajig-jar",
@@ -2545,7 +3096,23 @@
       "appears": "2-1 to 2-7",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "consumablesGranted": 1,
+        "consumablesGrantedUpgraded": 2,
+        "consumableOptions": [
+          {
+            "percentStats": {
+              "abilityPower": 0.08
+            }
+          },
+          {
+            "stats": {
+              "manaRegen": 1
+            }
+          }
+        ]
+      }
     },
     {
       "id": "s18-thingamajig-sack",
@@ -2556,7 +3123,242 @@
       "appears": "5-1 to 10-1",
       "requires": [],
       "combat": true,
-      "requiresRunInput": true
+      "requiresRunInput": true,
+      "params": {
+        "consumablesGranted": 3,
+        "consumablesGrantedUpgraded": 4,
+        "consumableOptions": [
+          {
+            "percentStats": {
+              "abilityPower": 0.08
+            }
+          },
+          {
+            "stats": {
+              "manaRegen": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "s18-beggars-wisp",
+      "name": "Beggar's Wisp",
+      "category": null,
+      "gold": 0,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "gold": 4,
+        "goldUpgraded": 6
+      }
+    },
+    {
+      "id": "s18-blood-ritual",
+      "name": "Blood Ritual",
+      "category": null,
+      "gold": 6,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "healthLoss": 10,
+        "healthLossUpgraded": 8
+      }
+    },
+    {
+      "id": "s18-component-bounty",
+      "name": "Component Bounty",
+      "category": null,
+      "gold": 4,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "costUpgraded": 2
+      }
+    },
+    {
+      "id": "s18-drought",
+      "name": "Drought",
+      "category": null,
+      "gold": 1,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "streakAddition": 2,
+        "streakAdditionUpgraded": 3
+      }
+    },
+    {
+      "id": "s18-flood",
+      "name": "Flood",
+      "category": null,
+      "gold": 1,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "streakAddition": 1,
+        "streakAdditionUpgraded": 2
+      }
+    },
+    {
+      "id": "s18-golden-road",
+      "name": "Golden Road",
+      "category": null,
+      "gold": 2,
+      "description": "After 3 player combats, gain 2 Gold per fight won.",
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "goldPerWin": 2,
+        "goldFlat": 0,
+        "goldFlatUpgraded": 1,
+        "durationRounds": 3
+      }
+    },
+    {
+      "id": "s18-good-loss",
+      "name": "Good Loss",
+      "category": null,
+      "gold": 5,
+      "description": "For the next 3 player combats, gain 4 XP if you lose.",
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "xpPerLoss": 4,
+        "xpPerLossUpgraded": 6,
+        "durationRounds": 3
+      }
+    },
+    {
+      "id": "s18-healing-pool",
+      "name": "Healing Pool",
+      "category": null,
+      "gold": 2,
+      "description": "Heal 5 Player Health.",
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "lifeGained": 5,
+        "lifeGainedUpgraded": 7,
+        "missingHealthToSee": 10
+      }
+    },
+    {
+      "id": "s18-major-gambit",
+      "name": "Major Gambit",
+      "category": null,
+      "gold": 3,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "goldOnWin": 8,
+        "goldOnWinUpgraded": 10
+      }
+    },
+    {
+      "id": "s18-minor-blood-ritual",
+      "name": "Minor Blood Ritual",
+      "category": null,
+      "gold": 3,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "healthLoss": 3,
+        "healthLossUpgraded": 1
+      }
+    },
+    {
+      "id": "s18-minor-gambit",
+      "name": "Minor Gambit",
+      "category": null,
+      "gold": 1,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "goldOnWin": 2,
+        "goldOnWinUpgraded": 3
+      }
+    },
+    {
+      "id": "s18-sinister-deal",
+      "name": "Sinister Deal",
+      "category": null,
+      "gold": 0,
+      "description": "Lose 4 Player Health. Gain 2 Gold.",
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "gainGold": 2,
+        "gainGoldUpgraded": 3,
+        "loseHealth": 4,
+        "loseHealthUpgraded": 3
+      }
+    },
+    {
+      "id": "s18-take-one-with-ya",
+      "name": "Take One With Ya",
+      "category": null,
+      "gold": 1,
+      "description": "If you lose and kill at least one enemy, gain 4 XP.",
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "xpGain": 4,
+        "xpGainUpgraded": 6
+      }
+    },
+    {
+      "id": "s18-truce",
+      "name": "Truce",
+      "category": null,
+      "gold": 0,
+      "description": "Gain 1 gold. Your opponent gains 1 gold.",
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "goldForPlayer": 1,
+        "goldForPlayerUpgraded": 2,
+        "goldForEnemy": 1,
+        "goldForEnemyUpgraded": 1,
+        "goldForPlayerPrismatic": 100,
+        "goldForEnemyPrismatic": 1
+      }
     }
   ]
 }

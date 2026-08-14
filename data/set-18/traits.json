@@ -239,7 +239,7 @@
             }
           ],
           "params": {
-            "sacrificeDies": 1
+            "sacrificeDies": true
           }
         },
         {
@@ -253,7 +253,7 @@
             }
           ],
           "params": {
-            "sacrificeDies": 1,
+            "sacrificeDies": true,
             "traitBonusMultiplier": 1.25
           }
         },
@@ -282,8 +282,8 @@
             }
           ],
           "params": {
-            "sacrificeDies": 0,
-            "traitBonusMultiplier": 1.25
+            "sacrificeDies": false,
+            "traitBonusMultiplier": 1.5
           }
         }
       ]
