@@ -302,7 +302,10 @@
         }
       ],
       "params": {
-        "durationUpgraded": 9
+        "durationUpgraded": 9,
+        "shieldPrismatic": 7500,
+        "durationPrismatic": 30,
+        "costPrismatic": 0
       }
     },
     {
@@ -362,7 +365,10 @@
       "params": {
         "spreadRangeMaxHexes": 8,
         "repeatIntervalUpgraded": 1,
-        "maxHealthBurnPerIntervalUpgraded": 0.015
+        "maxHealthBurnPerIntervalUpgraded": 0.015,
+        "maxHealthBurnPerIntervalPrismatic": 0.025,
+        "repeatIntervalPrismatic": 0.5,
+        "costPrismatic": 0
       }
     },
     {
@@ -450,7 +456,10 @@
       "requiresRunInput": true,
       "params": {
         "cloneDamageShare": 0.2,
-        "cloneDamageMultiplierUpgraded": 0.3
+        "cloneDamageMultiplierUpgraded": 0.3,
+        "costPrismatic": 0,
+        "cloneDamageMultiplierPrismatic": 1,
+        "sizeScalePrismatic": 2
       }
     },
     {
@@ -473,7 +482,9 @@
         }
       ],
       "params": {
-        "maxHealthExplosionDamageUpgraded": 0.22
+        "maxHealthExplosionDamageUpgraded": 0.22,
+        "maxHealthExplosionDamagePrismatic": 1,
+        "costPrismatic": 0
       }
     },
     {
@@ -496,7 +507,9 @@
         }
       ],
       "params": {
-        "manaIncreaseUpgraded": 22
+        "manaIncreaseUpgraded": 22,
+        "manaIncreasePrismatic": 150,
+        "costPrismatic": 0
       }
     },
     {
@@ -561,7 +574,9 @@
       ],
       "params": {
         "costUpgraded": 3,
-        "manaRegenUpgraded": 3
+        "manaRegenUpgraded": 3,
+        "costPrismatic": 0,
+        "manaRegenPrismatic": 15
       }
     },
     {
@@ -677,7 +692,14 @@
         }
       ],
       "params": {
-        "damageUpgraded": 0.03
+        "damageUpgraded": 0.03,
+        "startingSizePrismatic": 2,
+        "damageIntervalPrismatic": 1,
+        "growIntervalPrismatic": 3,
+        "costPrismatic": 0,
+        "damagePrismatic": 0.06,
+        "scalePrismatic": 1.5,
+        "healthPrismatic": 1000
       }
     },
     {
@@ -835,7 +857,11 @@
         "starLevel": 1,
         "recommendedItems": 1,
         "charmCostUpgraded": 5,
-        "numRecommendedItemsUpgraded": 2
+        "numRecommendedItemsUpgraded": 2,
+        "starLevelPrismatic": 2,
+        "costPrismatic": 0,
+        "recommendedItemsPrismatic": 2,
+        "numUnitsPrismatic": 3
       }
     },
     {
@@ -883,7 +909,10 @@
         }
       ],
       "params": {
-        "healthUpgraded": 600
+        "healthUpgraded": 600,
+        "healthPrismatic": 2500,
+        "numUnitsPrismatic": 10,
+        "costPrismatic": 0
       }
     },
     {
@@ -908,7 +937,10 @@
         }
       ],
       "params": {
-        "asGainUpgraded": 1.35
+        "asGainUpgraded": 1.35,
+        "asGainPrismatic": 2,
+        "numUnitsPrismatic": 10,
+        "costPrismatic": 0
       }
     },
     {
@@ -1085,7 +1117,11 @@
         "unitCost": 1,
         "starLevel": 3,
         "recommendedItems": 1,
-        "numRecommendedItemsUpgraded": 1
+        "numRecommendedItemsUpgraded": 1,
+        "numItemsPrismatic": 1,
+        "numUnitsPrismatic": 5,
+        "starLevelPrismatic": 4,
+        "costPrismatic": 0
       }
     },
     {
@@ -1109,7 +1145,10 @@
       ],
       "params": {
         "frequencyUpgraded": 1,
-        "hpPercentDamageUpgraded": 0.07
+        "hpPercentDamageUpgraded": 0.07,
+        "frequencyPrismatic": 0.15,
+        "costPrismatic": 0,
+        "hpPercentDamagePrismatic": 0.05
       }
     },
     {
@@ -1393,7 +1432,11 @@
         }
       ],
       "params": {
-        "shieldMultiplierUpgraded": 0.7
+        "shieldMultiplierUpgraded": 0.7,
+        "shieldMultiplierPrismatic": 0.1,
+        "costPrismatic": 0,
+        "chillAmountPrismatic": 90,
+        "durationPrismatic": 30
       }
     },
     {
@@ -1407,7 +1450,8 @@
       "combat": true,
       "requiresRunInput": false,
       "params": {
-        "temporaryItems": 1
+        "temporaryItems": 1,
+        "costPrismatic": 0
       }
     },
     {
@@ -1792,7 +1836,10 @@
       ],
       "params": {
         "damageAmpUpgraded": 0.22,
-        "healthUpgraded": 1.22
+        "healthUpgraded": 1.22,
+        "costPrismatic": 0,
+        "damageAmpPrismatic": 1.5,
+        "healthPrismatic": 2
       }
     },
     {
@@ -1895,7 +1942,10 @@
       ],
       "params": {
         "durationUpgraded": 15,
-        "shredSunderPercentUpgraded": 30
+        "shredSunderPercentUpgraded": 30,
+        "shredSunderPercentPrismatic": 90,
+        "durationPrismatic": 45,
+        "costPrismatic": 0
       }
     },
     {
@@ -1951,7 +2001,10 @@
         "targetsPerVolley": 3,
         "totalArrows": 6,
         "volleyFrequencyInSecondsUpgraded": 3,
-        "physicalDamagePerVolleyUpgraded": 900
+        "physicalDamagePerVolleyUpgraded": 900,
+        "volleyFrequencyinSecondsPrismatic": 0.05,
+        "costPrismatic": 0,
+        "physicalDamagePerVolleyPrismatic": 60
       }
     },
     {
@@ -1973,7 +2026,10 @@
       ],
       "params": {
         "stunSeconds": 1,
-        "stunDurationUpgraded": 1.5
+        "stunDurationUpgraded": 1.5,
+        "stunIntervalPrismatic": 3,
+        "costPrismatic": 0,
+        "stunDurationPrismatic": 1.5
       }
     },
     {
@@ -2010,7 +2066,8 @@
         }
       ],
       "params": {
-        "activationDelayUpgraded": 23
+        "activationDelayUpgraded": 23,
+        "activationDelayPrismatic": 12
       }
     },
     {
@@ -2216,7 +2273,9 @@
       "combat": false,
       "requiresRunInput": false,
       "params": {
-        "numRerollsUpgraded": 10
+        "numRerollsUpgraded": 10,
+        "numRerollsPrismatic": 777,
+        "costSendItPrismatic": 0
       }
     },
     {
@@ -3315,7 +3374,9 @@
         "goldForPlayer": 1,
         "goldForPlayerUpgraded": 2,
         "goldForEnemy": 1,
-        "goldForEnemyUpgraded": 1
+        "goldForEnemyUpgraded": 1,
+        "goldForPlayerPrismatic": 100,
+        "goldForEnemyPrismatic": 1
       }
     }
   ]
