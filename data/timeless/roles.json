@@ -1,0 +1,58 @@
+{
+  "capturedOn": "2026-08-14",
+  "source": "CT_Role_Stats, read from the shipped client",
+  "note": "What a role does on its own, before any trait or item. No published source carries it: mana generation per role is what sets a unit's cast rate, so a simulation that ignores it is wrong on every fight. Riot names a role on two axes — an archetype and a damage type, Attack, Magic or Hybrid — and a resource axis on top. Only the archetype carries these numbers.",
+  "entries": [
+    {
+      "id": "tank",
+      "manaPerAttack": 5,
+      "manaShareOfDamageTaken": {
+        "preMitigation": 0.01,
+        "preShield": 0.03
+      },
+      "manaCapPerHit": {
+        "preMitigation": 50,
+        "preShield": 50
+      }
+    },
+    {
+      "id": "brawler",
+      "manaPerAttack": 10,
+      "manaShareOfDamageTaken": {
+        "preMitigation": 0.01,
+        "preShield": 0.05
+      },
+      "manaCapPerHit": {
+        "preMitigation": 50,
+        "preShield": 50
+      }
+    },
+    {
+      "id": "fighter",
+      "manaPerAttack": 10,
+      "movementSpeed": 200,
+      "attackSpeedMultiplier": {
+        "1": 1.05,
+        "3": 1.1,
+        "4": 1.2,
+        "5": 1.3,
+        "10": 1.3
+      }
+    },
+    {
+      "id": "assassin",
+      "manaPerAttack": 10,
+      "movementSpeed": 200,
+      "damageTakenShareFromNonTargets": 0.85
+    },
+    {
+      "id": "marksman",
+      "manaPerAttack": 10
+    },
+    {
+      "id": "caster",
+      "manaPerAttack": 7,
+      "manaPerSecond": 2
+    }
+  ]
+}
