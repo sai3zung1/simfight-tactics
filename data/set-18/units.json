@@ -1220,7 +1220,13 @@
           "bleedSeconds": 12,
           "procChance": 0.12,
           "bleedsOnProc": 2,
-          "axes": 2
+          "axes": 2,
+          "spinningAxeDamageMultiplier": {
+            "1": 1.5,
+            "2": 1.5,
+            "3": 10,
+            "4": 10
+          }
         }
       }
     },
@@ -5745,7 +5751,13 @@
         ],
         "variants": null,
         "params": {
-          "plantAttacks": 10
+          "plantAttacks": 10,
+          "plantsSpawned": {
+            "1": 2,
+            "2": 2,
+            "3": 4,
+            "4": 4
+          }
         }
       }
     },
