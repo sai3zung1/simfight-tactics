@@ -5755,23 +5755,6 @@
         "flatBonus": 0,
         "receivesTeamHealthBonuses": false
       },
-      "observed": {
-        "on": "2026-08-06",
-        "readings": [
-          {
-            "elderwood": 7,
-            "elderwoodStars": 12,
-            "hp": 2080,
-            "brawler2": true
-          },
-          {
-            "elderwood": 7,
-            "elderwoodStars": 13,
-            "hp": 2210,
-            "brawler2": true
-          }
-        ]
-      },
       "ability": {
         "description": "Passive: when an Elderwood unit dies, heal 10% of current max Health and gain 80% Attack Speed for 3 seconds.\nActive: slam the ground, dealing magic damage to the target and to enemies within 2 hexes, knocking up and stunning the target for 0.5 seconds.",
         "breakdown": [
@@ -5844,21 +5827,6 @@
         "params": {
           "healthShareOfSummoner": 0.2
         }
-      },
-      "observed": {
-        "on": "2026-08-06",
-        "readings": [
-          {
-            "star": 1,
-            "summoner": false,
-            "hp": 350
-          },
-          {
-            "star": 2,
-            "summoner": true,
-            "hp": 825
-          }
-        ]
       }
     },
     {
@@ -5904,23 +5872,6 @@
           "count": 2,
           "healthShareOfSummoner": 0.12
         }
-      },
-      "observed": {
-        "on": "2026-08-06",
-        "readings": [
-          {
-            "star": 1,
-            "hp": 182
-          },
-          {
-            "star": 2,
-            "hp": 365
-          },
-          {
-            "star": 3,
-            "hp": 783
-          }
-        ]
       }
     },
     {
@@ -5947,47 +5898,6 @@
         },
         "flatBonus": 0,
         "receivesTeamHealthBonuses": true
-      },
-      "observed": {
-        "on": "2026-08-06",
-        "readings": [
-          {
-            "elderwood": 5,
-            "elderwoodStars": 9,
-            "hp": 325,
-            "brawler2": false
-          },
-          {
-            "elderwood": 5,
-            "elderwoodStars": 10,
-            "hp": 350,
-            "brawler2": false
-          },
-          {
-            "elderwood": 5,
-            "elderwoodStars": 8,
-            "hp": 420,
-            "brawler2": true
-          },
-          {
-            "elderwood": 5,
-            "elderwoodStars": 9,
-            "hp": 445,
-            "brawler2": true
-          },
-          {
-            "elderwood": 7,
-            "elderwoodStars": 12,
-            "hp": 520,
-            "brawler2": true
-          },
-          {
-            "elderwood": 7,
-            "elderwoodStars": 13,
-            "hp": 545,
-            "brawler2": true
-          }
-        ]
       },
       "ability": {
         "description": "After 4 seconds of combat, grant Elderwood allies 10% Attack Damage and Ability Power.\nEvery 4 seconds thereafter, grant an additional 3% Attack Damage and 3% Ability Power.",
@@ -6025,47 +5935,6 @@
         },
         "flatBonus": 60,
         "receivesTeamHealthBonuses": true
-      },
-      "observed": {
-        "on": "2026-08-06",
-        "readings": [
-          {
-            "elderwood": 5,
-            "elderwoodStars": 9,
-            "hp": 1328,
-            "brawler2": false
-          },
-          {
-            "elderwood": 5,
-            "elderwoodStars": 10,
-            "hp": 1425,
-            "brawler2": false
-          },
-          {
-            "elderwood": 5,
-            "elderwoodStars": 8,
-            "hp": 1350,
-            "brawler2": true
-          },
-          {
-            "elderwood": 5,
-            "elderwoodStars": 9,
-            "hp": 1448,
-            "brawler2": true
-          },
-          {
-            "elderwood": 7,
-            "elderwoodStars": 12,
-            "hp": 1740,
-            "brawler2": true
-          },
-          {
-            "elderwood": 7,
-            "elderwoodStars": 13,
-            "hp": 1838,
-            "brawler2": true
-          }
-        ]
       },
       "ability": {
         "description": "On death, Stun the nearest 2 enemies for 1.5 seconds.",
