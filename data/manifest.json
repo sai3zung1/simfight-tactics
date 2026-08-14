@@ -22,9 +22,9 @@
       "verified": "36 names against Community Dragon, no divergence either way, and 34 of the 36 breakpoint ladders identical. Rosters cover the 65 units. Every breakpoint carries its grants and its parameters, read from the tooltip"
     },
     "set-18/wisps.json": {
-      "count": 163,
-      "status": "complete",
-      "verified": "lolchess, metatft and Community Dragon carry the same 163 entries, and gold, category and description agree on all of them. 84 change a fight and are decomposed into grants"
+      "count": 177,
+      "status": "partial",
+      "verified": "The client defines 181 charms; the published sources carried 163 of them, and gold, category and description agree on those. 84 change a fight and are decomposed into grants. The 14 the aggregators omit are economy — gold, experience, player health, streaks — and were added from the client on 2026-08-14 with their name, their cost and their values. Their category, description and appearance window stay null: those live on an object the extraction cannot name yet. Crystal Ball is ours alone and has no counterpart in the client"
     },
     "timeless/augments.json": {
       "count": 257,
@@ -48,6 +48,8 @@
     "manaRegen": "Mana per second.",
     "prose": "The catalog files carry data and nothing else. A remark, a caveat, an observation — anything a reader needs and a parser does not — lives here instead, keyed by what it explains. Nine note fields were lifted out of traits.json and units.json on 2026-08-11; what follows is what they said.",
     "summonScaling": "A summoned entity scales off the trait that brought it, through the formula its scaling field states. Two rules the formula does not show: a duplicated champion counts once towards the trait's star total, and flat team bonuses land after the scaling rather than before. Elderwood plants take a third factor the trait never mentions — the stage multiplies their health on a curve of its own, one per plant, so the same board reads differently at stage two and at stage six.",
+    "null": "A field set to null is a question the extraction asked and could not answer, told apart from a field that is absent because the entry has no use for it. Fourteen wisps carry three of them — category, description and appears — because the client keeps those on an object whose property names a shipped build strips out.",
+    "upgraded": "A wisp has three states: taken, upgraded, and prismatic. Blossom upgrades every wisp from three onwards, so the upgraded value is not an edge case. Where the client gives both, the second lands beside the first under the same name with an Upgraded suffix.",
     "byStar": "A plant's series is indexed by its own star level, not by the tier of the trait that summoned it. Elderwood sets that star level itself: one up to seven, two at nine, three at eleven. Series that stop before three do so because the client's curve repeats its last value, not because a value is missing.",
     "covenEssence": "The Coven trait is economy on its own. Dark Ritual and Coven Acolyte are what turn its essence into combat power.",
     "blackthorn": "traitBonusMultiplier amplifies the sacrifice table alone; the team health grant is flat per breakpoint. It grows with the breakpoint rather than repeating — 1 at two, 1.25 at four, 1.5 at six.",

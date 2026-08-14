@@ -2557,6 +2557,223 @@
       "requires": [],
       "combat": true,
       "requiresRunInput": true
+    },
+    {
+      "id": "s18-beggars-wisp",
+      "name": "Beggar's Wisp",
+      "category": null,
+      "gold": 0,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "gold": 4,
+        "goldUpgraded": 6
+      }
+    },
+    {
+      "id": "s18-blood-ritual",
+      "name": "Blood Ritual",
+      "category": null,
+      "gold": 6,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "healthLoss": 10,
+        "healthLossUpgraded": 8
+      }
+    },
+    {
+      "id": "s18-component-bounty",
+      "name": "Component Bounty",
+      "category": null,
+      "gold": 4,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "costUpgraded": 2
+      }
+    },
+    {
+      "id": "s18-drought",
+      "name": "Drought",
+      "category": null,
+      "gold": 1,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "streakAddition": 2,
+        "streakAdditionUpgraded": 3
+      }
+    },
+    {
+      "id": "s18-flood",
+      "name": "Flood",
+      "category": null,
+      "gold": 1,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "streakAddition": 1,
+        "streakAdditionUpgraded": 2
+      }
+    },
+    {
+      "id": "s18-golden-road",
+      "name": "Golden Road",
+      "category": null,
+      "gold": 2,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "goldPerWin": 2,
+        "goldFlat": 0,
+        "goldFlatUpgraded": 1,
+        "durationRounds": 3
+      }
+    },
+    {
+      "id": "s18-good-loss",
+      "name": "Good Loss",
+      "category": null,
+      "gold": 5,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "xpPerLoss": 4,
+        "xpPerLossUpgraded": 6,
+        "durationRounds": 3
+      }
+    },
+    {
+      "id": "s18-healing-pool",
+      "name": "Healing Pool",
+      "category": null,
+      "gold": 2,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "lifeGained": 5,
+        "lifeGainedUpgraded": 7,
+        "missingHealthToSee": 10
+      }
+    },
+    {
+      "id": "s18-major-gambit",
+      "name": "Major Gambit",
+      "category": null,
+      "gold": 3,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "goldOnWin": 8,
+        "goldOnWinUpgraded": 10
+      }
+    },
+    {
+      "id": "s18-minor-blood-ritual",
+      "name": "Minor Blood Ritual",
+      "category": null,
+      "gold": 3,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "healthLoss": 3,
+        "healthLossUpgraded": 1
+      }
+    },
+    {
+      "id": "s18-minor-gambit",
+      "name": "Minor Gambit",
+      "category": null,
+      "gold": 1,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "goldOnWin": 2,
+        "goldOnWinUpgraded": 3
+      }
+    },
+    {
+      "id": "s18-sinister-deal",
+      "name": "Sinister Deal",
+      "category": null,
+      "gold": 0,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "gainGold": 2,
+        "gainGoldUpgraded": 3,
+        "loseHealth": 4,
+        "loseHealthUpgraded": 3
+      }
+    },
+    {
+      "id": "s18-take-one-with-ya",
+      "name": "Take One With Ya",
+      "category": null,
+      "gold": 1,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "xpGain": 4,
+        "xpGainUpgraded": 6
+      }
+    },
+    {
+      "id": "s18-truce",
+      "name": "Truce",
+      "category": null,
+      "gold": 0,
+      "description": null,
+      "appears": null,
+      "requires": [],
+      "combat": false,
+      "requiresRunInput": false,
+      "params": {
+        "goldForPlayer": 1,
+        "goldForPlayerUpgraded": 2,
+        "goldForEnemy": 1,
+        "goldForEnemyUpgraded": 1
+      }
     }
   ]
 }
