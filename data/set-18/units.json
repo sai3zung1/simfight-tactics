@@ -5052,7 +5052,8 @@
         "magicResist": 30,
         "attackSpeed": 0.5,
         "range": [1]
-      }
+      },
+      "summoned": true
     },
     {
       "id": "s18-tristana",
@@ -5762,8 +5763,7 @@
         "armor": 65,
         "magicResist": 65,
         "attackSpeed": 0.7,
-        "range": 1,
-        "targetable": true
+        "range": 1
       },
       "scaling": {
         "formula": "hp x (1 + 0.25 x elderwoodStars) x healthMultiplierByStage + flatBonus",
@@ -5838,7 +5838,6 @@
         "attackDamage": 60,
         "attackSpeed": 0.8,
         "range": 1,
-        "targetable": true,
         "armor": 40,
         "magicResist": 40
       },
@@ -5872,7 +5871,6 @@
         "hp": 182,
         "attackSpeed": 0.6,
         "range": 1,
-        "targetable": true,
         "armor": 40,
         "magicResist": 40
       },
