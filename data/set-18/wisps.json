@@ -1744,7 +1744,7 @@
       "name": "Snacktime!",
       "category": "combat",
       "gold": 3,
-      "description": "The BFF eats enemies he damages under 12% Max Health.",
+      "description": "The BFF eats enemies he damages under 15% Max Health.",
       "appears": "4-2 to 10-1",
       "requires": ["Have Sprykin active"],
       "combat": true,
