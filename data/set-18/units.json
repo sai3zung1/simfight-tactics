@@ -3606,7 +3606,12 @@
           "params": {
             "critChance": 0.25,
             "critChanceAtLowHealth": 0.5
-          }
+          },
+          "applies": [
+            {
+              "keyword": "precision"
+            }
+          ]
         },
         "breakdown": [
           {
