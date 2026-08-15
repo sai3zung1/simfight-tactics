@@ -1,0 +1,107 @@
+{
+  "entries": [
+    {
+      "id": "bleed",
+      "name": "Bleed",
+      "text": "Deals bonus true damage over time.",
+      "polarity": "debuff",
+      "stacking": null,
+      "resolves": {
+        "kind": "damage",
+        "damageType": "true",
+        "basis": null,
+        "temporality": {
+          "kind": "periodic",
+          "interval": null
+        }
+      }
+    },
+    {
+      "id": "burn",
+      "name": "Burn",
+      "text": "Deals a percent of the target's max Health as true damage every second.",
+      "polarity": "debuff",
+      "stacking": "strongest-wins",
+      "resolves": {
+        "kind": "damage",
+        "damageType": "true",
+        "basis": "targetMaxHealth",
+        "temporality": {
+          "kind": "periodic",
+          "interval": 1
+        }
+      }
+    },
+    {
+      "id": "mana-reave",
+      "name": "Mana Reave",
+      "text": "Increase the Mana cost of the next Ability cast.",
+      "polarity": "debuff",
+      "stacking": null,
+      "resolves": null
+    },
+    {
+      "id": "precision",
+      "name": "Precision",
+      "text": "Ability damage can critically strike. Extra Precision grants 10% Critical Strike Damage.",
+      "polarity": "buff",
+      "stacking": "additive",
+      "constants": {
+        "extraCritDamage": 0.1
+      },
+      "resolves": null
+    },
+    {
+      "id": "shred",
+      "name": "Shred",
+      "text": "Reduce Magic Resist",
+      "polarity": "debuff",
+      "stacking": "strongest-wins",
+      "resolves": {
+        "kind": "stat-mod",
+        "target": "magicResist"
+      }
+    },
+    {
+      "id": "slow",
+      "name": "Slow",
+      "text": "Reduce Attack Speed",
+      "polarity": "debuff",
+      "stacking": "strongest-wins",
+      "resolves": {
+        "kind": "stat-mod",
+        "target": "attackSpeed"
+      }
+    },
+    {
+      "id": "sunder",
+      "name": "Sunder",
+      "text": "Reduce Armor",
+      "polarity": "debuff",
+      "stacking": "strongest-wins",
+      "resolves": {
+        "kind": "stat-mod",
+        "target": "armor"
+      }
+    },
+    {
+      "id": "vulnerable",
+      "name": "Vulnerable",
+      "text": "Increases damage taken",
+      "polarity": "debuff",
+      "stacking": null,
+      "resolves": {
+        "kind": "stat-mod",
+        "target": "durability"
+      }
+    },
+    {
+      "id": "wound",
+      "name": "Wound",
+      "text": "Reduces healing received.",
+      "polarity": "debuff",
+      "stacking": null,
+      "resolves": null
+    }
+  ]
+}

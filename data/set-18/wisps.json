@@ -358,15 +358,19 @@
       "grants": [
         {
           "to": "enemy",
-          "burnPercent": 0.01,
-          "everySeconds": 1
+          "applies": [
+            {
+              "keyword": "burn",
+              "value": 0.01
+            }
+          ]
         }
       ],
       "params": {
         "spreadRangeMaxHexes": 8,
         "repeatIntervalUpgraded": 1,
-        "maxHealthBurnPerIntervalUpgraded": 0.015,
-        "maxHealthBurnPerIntervalPrismatic": 0.025,
+        "burnUpgraded": 0.015,
+        "burnPrismatic": 0.025,
         "repeatIntervalPrismatic": 0.5,
         "costPrismatic": 0
       }
@@ -500,15 +504,18 @@
       "grants": [
         {
           "to": "enemy",
-          "stats": {
-            "maxMana": 15
-          },
+          "applies": [
+            {
+              "keyword": "mana-reave",
+              "value": 15
+            }
+          ],
           "until": "next-cast"
         }
       ],
       "params": {
-        "manaIncreaseUpgraded": 22,
-        "manaIncreasePrismatic": 150,
+        "manaReaveUpgraded": 22,
+        "manaReavePrismatic": 150,
         "costPrismatic": 0
       }
     },
@@ -968,12 +975,24 @@
       "grants": [
         {
           "to": "enemy",
-          "percentStats": {
-            "slow": 1,
-            "burn": 1,
-            "shred": 0.3,
-            "sunder": 0.3
-          },
+          "applies": [
+            {
+              "keyword": "slow",
+              "value": null
+            },
+            {
+              "keyword": "burn",
+              "value": null
+            },
+            {
+              "keyword": "shred",
+              "value": 0.3
+            },
+            {
+              "keyword": "sunder",
+              "value": 0.3
+            }
+          ],
           "durationSeconds": 8
         }
       ],
@@ -1405,8 +1424,13 @@
       "grants": [
         {
           "to": "enemy",
+          "applies": [
+            {
+              "keyword": "slow",
+              "value": 0.1
+            }
+          ],
           "percentStats": {
-            "slow": 0.1,
             "shieldReduction": 0.2
           },
           "durationSeconds": 10
@@ -1416,7 +1440,7 @@
         "shieldMultiplierUpgraded": 0.7,
         "shieldMultiplierPrismatic": 0.1,
         "costPrismatic": 0,
-        "chillAmountPrismatic": 90,
+        "slowPrismatic": 0.9,
         "durationPrismatic": 30
       }
     },
@@ -1865,10 +1889,16 @@
       "grants": [
         {
           "to": "enemy",
-          "percentStats": {
-            "burn": 1,
-            "wound": 1
-          },
+          "applies": [
+            {
+              "keyword": "burn",
+              "value": null
+            },
+            {
+              "keyword": "wound",
+              "value": null
+            }
+          ],
           "durationSeconds": 10
         }
       ],
@@ -1914,17 +1944,23 @@
       "grants": [
         {
           "to": "enemy",
-          "percentStats": {
-            "shred": 0.3,
-            "sunder": 0.3
-          },
+          "applies": [
+            {
+              "keyword": "shred",
+              "value": 0.3
+            },
+            {
+              "keyword": "sunder",
+              "value": 0.3
+            }
+          ],
           "durationSeconds": 10
         }
       ],
       "params": {
         "durationUpgraded": 15,
-        "shredSunderPercentUpgraded": 30,
-        "shredSunderPercentPrismatic": 90,
+        "shredSunderUpgraded": 0.3,
+        "shredSunderPrismatic": 0.9,
         "durationPrismatic": 45,
         "costPrismatic": 0
       }
