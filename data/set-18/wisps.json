@@ -504,15 +504,18 @@
       "grants": [
         {
           "to": "enemy",
-          "stats": {
-            "maxMana": 15
-          },
+          "applies": [
+            {
+              "keyword": "mana-reave",
+              "value": 15
+            }
+          ],
           "until": "next-cast"
         }
       ],
       "params": {
-        "manaIncreaseUpgraded": 22,
-        "manaIncreasePrismatic": 150,
+        "manaReaveUpgraded": 22,
+        "manaReavePrismatic": 150,
         "costPrismatic": 0
       }
     },
@@ -1427,10 +1430,10 @@
               "value": 0.1
             }
           ],
-          "durationSeconds": 10,
           "percentStats": {
             "shieldReduction": 0.2
-          }
+          },
+          "durationSeconds": 10
         }
       ],
       "params": {

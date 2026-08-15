@@ -1549,9 +1549,14 @@
         "variants": null,
         "params": {
           "targets": 3,
-          "magicResistReduction": 10,
           "drainSeconds": 2
-        }
+        },
+        "applies": [
+          {
+            "keyword": "shred",
+            "value": 10
+          }
+        ]
       }
     },
     {
@@ -3238,10 +3243,15 @@
         "riftbeastBuff": {
           "colour": "orange",
           "params": {
-            "armorReduction": 2,
-            "armorReductionMaxStacks": 10,
+            "sunderMaxStacks": 10,
             "procDamageByStage": [50, 50, 75, 150, 350]
-          }
+          },
+          "applies": [
+            {
+              "keyword": "sunder",
+              "value": 2
+            }
+          ]
         },
         "breakdown": [
           {
@@ -3934,9 +3944,15 @@
         ],
         "variants": null,
         "params": {
-          "manaDrainPerSecond": 0.35,
-          "magicResistReductionPerSecond": 3
-        }
+          "manaDrainPerSecond": 0.35
+        },
+        "applies": [
+          {
+            "keyword": "shred",
+            "value": 3,
+            "everySeconds": 1
+          }
+        ]
       }
     },
     {
