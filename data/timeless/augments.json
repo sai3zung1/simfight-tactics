@@ -2091,7 +2091,11 @@
           "percentStats": {
             "critChance": 0.1
           },
-          "grants": "precision"
+          "applies": [
+            {
+              "keyword": "precision"
+            }
+          ]
         }
       ]
     },
@@ -3390,7 +3394,11 @@
             "critChance": 0.25,
             "critDamage": 0.1
           },
-          "grants": "precision"
+          "applies": [
+            {
+              "keyword": "precision"
+            }
+          ]
         }
       ]
     },
@@ -3648,7 +3656,11 @@
           "percentStats": {
             "critChance": 0.25
           },
-          "grants": "precision"
+          "applies": [
+            {
+              "keyword": "precision"
+            }
+          ]
         }
       ]
     },

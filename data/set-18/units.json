@@ -42,7 +42,6 @@
         "name": "Spirit Bomb",
         "iconPath": "src/assets/icons/set-18/spells/s18-ahri.jpg",
         "description": "Launch a spirit bomb at the location within 4 hexes that has the most surrounding enemies.\nIt deals 485/735/3500 [AP] magic damage to enemies in a 3 hex radius, reduced by 20% per hex away from the epicenter.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Damage",
@@ -106,7 +105,6 @@
         "name": "Kunai Strike",
         "iconPath": "src/assets/icons/set-18/spells/s18-akali.jpg",
         "description": "Adaptor [AD]: Throw a volley of kunai at the target, dealing 140/210/320 [AD][AP] physical damage.\nIf the target is Burning, deal an additional 30/45/68 [AD] damage.\n\nAdaptor [AP]: If the Ability kills, cast it again.",
-        "keywords": [],
         "breakdown": [],
         "adaptor": {
           "ad": {
@@ -216,7 +214,6 @@
         "name": "Triumphant Roar",
         "iconPath": "src/assets/icons/set-18/spells/s18-alistar.jpg",
         "description": "Roar, restoring 276/397/566 [Health][AP] Health, cleansing disables, and healing the two lowest percent Health allies for 80/105/130 [AP].\nThen slam the current target, dealing 100/150/225 [AP] magic damage and Stunning them for 1.5 seconds.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Heal",
@@ -299,7 +296,6 @@
         "name": "Moonfall",
         "iconPath": "src/assets/icons/set-18/spells/s18-alune.jpg",
         "description": "Rain 9 moonshards split among the 3 nearest enemies, dealing 50/75/500 [AP] magic damage each.\n\nIf the moon is full, instead crash it onto the board, dealing 2200/3400/6500 [AP] magic damage split among all enemies.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Damage",
@@ -369,12 +365,6 @@
         "name": "Tantrum",
         "iconPath": "src/assets/icons/set-18/spells/s18-amumu.jpg",
         "description": "Passive: Every second, restore 32/57/103 [AP][Health] Health and deal 12/18/150 [AP] magic damage to enemies within 1 hex.\n\nActive: Deal 100/150/2000 [AP] magic damage to enemies within 2 hexes and Stun them for 1/1/6 seconds, increased to 3/3/13 seconds if the target is Burning.",
-        "keywords": [
-          {
-            "name": "Burn",
-            "text": "Deals a percent of the target’s max Health as true damage every second."
-          }
-        ],
         "breakdown": [
           {
             "label": "Heal",
@@ -467,7 +457,6 @@
         "name": "Moonlight's Onslaught",
         "iconPath": "src/assets/icons/set-18/spells/s18-aphelios.jpg",
         "description": "Equip Severum and swipe the target 6 [AS] times over 2 seconds, each dealing 70/105/1100 [AD] max Health physical damage.\n\nAfter the onslaught finishes, fire a blast that deals 490/735/5225 [AD][AP] physical damage split among all enemies in a 2 Hex radius.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Swipes",
@@ -555,12 +544,6 @@
         "name": "Spirit Rift",
         "iconPath": "src/assets/icons/set-18/spells/s18-ashe.jpg",
         "description": "Fire an arrow through the longest line of enemies that deals 260/400/1000 [AD] physical damage, reduced by 40% per enemy hit (minimum 20%).\n\nThe arrow leaves a trail for 4/4/20 seconds that deals 25/38/220 [AD] [AP] + 2%/3%/10% max Health physical damage per second to enemies within and 20% Slows them.",
-        "keywords": [
-          {
-            "name": "Slow",
-            "text": "Reduce Attack Speed"
-          }
-        ],
         "breakdown": [
           {
             "label": "Damage",
@@ -603,13 +586,18 @@
         "params": {
           "damageLossPerEnemy": 0.4,
           "minimumDamageShare": 0.2,
-          "trailSlowPercent": 0.2,
           "trailSeconds": {
             "1": 4,
             "2": 4,
             "3": 20
           }
-        }
+        },
+        "applies": [
+          {
+            "keyword": "slow",
+            "value": 0.2
+          }
+        ]
       }
     },
     {
@@ -656,7 +644,6 @@
         "name": "Arise!",
         "iconPath": "src/assets/icons/set-18/spells/s18-azir.jpg",
         "description": "Gain 150% Attack Speed and summon 2 soldiers for the next 6 attacks.\nThese attacks are replaced by commands which direct each soldier to deal 48/72/115 [AP] magic damage per attack.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Damage",
@@ -728,9 +715,15 @@
         "riftbeastBuff": {
           "colour": "red",
           "params": {
-            "burnSeconds": 4,
             "healPercentMaxHealth": 0.04
-          }
+          },
+          "applies": [
+            {
+              "keyword": "burn",
+              "value": 0.01,
+              "durationSeconds": 4
+            }
+          ]
         },
         "breakdown": [
           {
@@ -803,7 +796,6 @@
         "name": "Headshot",
         "iconPath": "src/assets/icons/set-18/spells/s18-caitlyn.jpg",
         "description": "Passive: Every third attack is replaced with a Headshot that deals 210/315/495 [AD][AP] physical damage.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Damage",
@@ -876,7 +868,6 @@
         "name": "Defensive Sweep",
         "iconPath": "src/assets/icons/set-18/spells/s18-camille.jpg",
         "description": "Slice the target for 170/255/385 [AD][AP] physical damage and gain 60/85/120 Shield for 2 seconds.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Damage",
@@ -959,7 +950,6 @@
         "name": "Noxious Blast",
         "iconPath": "src/assets/icons/set-18/spells/s18-cassiopeia.jpg",
         "description": "Poison the target and the nearest non-poisoned enemy, dealing 400/600/960 [AP] magic damage over 15 seconds.\nPoisons stack.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Damage",
@@ -1028,14 +1018,6 @@
           {
             "name": "Scarlet Buff",
             "text": "Cinderling gains 22% Attack Damage each cast."
-          },
-          {
-            "name": "Wound",
-            "text": "Reduces healing received."
-          },
-          {
-            "name": "Burn",
-            "text": "Deals a percent of the target's max Health as true damage every second."
           }
         ],
         "riftbeastBuff": {
@@ -1070,11 +1052,20 @@
         ],
         "variants": null,
         "params": {
-          "leaves": 5,
-          "woundPercent": 0.2,
-          "burnPercentPerSecond": 0.01,
-          "statusSeconds": 4
-        }
+          "leaves": 5
+        },
+        "applies": [
+          {
+            "keyword": "wound",
+            "value": 0.2,
+            "durationSeconds": 4
+          },
+          {
+            "keyword": "burn",
+            "value": 0.01,
+            "durationSeconds": 4
+          }
+        ]
       }
     },
     {
@@ -1121,7 +1112,6 @@
         "name": "Pale Barrier",
         "iconPath": "src/assets/icons/set-18/spells/s18-diana.jpg",
         "description": "Gain 150/225/300 shield for 2 seconds and send out a moonlight orb to the closest 3 enemies, dealing 125/190/300 [AP] magic damage.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Orb Damage",
@@ -1194,7 +1184,6 @@
         "name": "Whirling Death",
         "iconPath": "src/assets/icons/set-18/spells/s18-draven.jpg",
         "description": "Passive: Attacks target random enemies in range and apply a bleed that deals 150/225/1000 [AD] physical damage over 12 seconds.\nEvery attack has a 12% [AP] chance to deal 50%/50%/900% bonus physical damage and apply 2 bleeds instead.\n\nActive: Throw two giant axes towards the enemy with the most bleeds.\nDeal 180/270/500 [AD] physical damage to all enemies hit and consume their bleed, instantly dealing the remaining damage.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Bleed Damage",
@@ -1272,7 +1261,6 @@
         "name": "Heat Without Equal",
         "iconPath": "src/assets/icons/set-18/spells/s18-elder-dragon.jpg",
         "description": "Passive: Attacks deal 75%/75%/100% damage to enemies adjacent to the target.\n\nActive: Become untargetable and fly into the air, gaining 15%/15%/100% Omnivamp.\nUpon returning, stun all enemies for 1.25/1.25/99 seconds and Ignite them for 3/3/99 seconds.\nThen replace subsequent casts with Flame Breath and immediately cast it.\nIgnited enemies take 2%/2%/20% max Health physical damage per second.\n\nFlame Breath: Spew fire at the most enemies in a line through the target, dealing 260/390/7200 [AD] [AP] physical damage and Igniting them for 3/3/99 seconds\n\nElder Dragon Buff: Damaging an enemy below 12% Health executes them.",
-        "keywords": [],
         "riftbeastBuff": {
           "colour": "tenth",
           "params": {
@@ -1374,7 +1362,6 @@
         "name": "Spider Queen",
         "iconPath": "src/assets/icons/set-18/spells/s18-elise.jpg",
         "description": "Transform into a spider and gain 325/425/650 max Health.\nAttacks while in Spider Form deal 55/85/130 [AP] bonus magic damage and heal for 65/100/185 [AP].\nSubsequent casts grant 175% decaying Attack Speed for 4 seconds.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Spider Health",
@@ -1456,7 +1443,6 @@
         "name": "Forest's Flurry",
         "iconPath": "src/assets/icons/set-18/spells/s18-ezreal.jpg",
         "description": "Blink away from the current target, deal 225/340/900 [AD] physical damage to them, and gain 25%/25%/100% [AP] Attack Speed.\n\nEvery 4th cast consumes the Attack Speed granted from Nature's Wrath and fires a blast through the largest group of enemies that deals 385/580/2500 [AD] physical damage, reduced by 25% for each enemy it passes through (minimum 50%).",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Damage",
@@ -1538,7 +1524,6 @@
         "name": "Harvest",
         "iconPath": "src/assets/icons/set-18/spells/s18-fiddlesticks.jpg",
         "description": "Reduce the Magic Resist of the 3 nearest enemies by 10.\nThen drain life from them over 2 seconds, healing for 425/500/850 [AP] Health and dealing 70/105/170 [AP] magic damage to each over the duration.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Heal",
@@ -1611,7 +1596,6 @@
         "name": "Rage Gene",
         "iconPath": "src/assets/icons/set-18/spells/s18-gnar.jpg",
         "description": "Passive: Gain 5/5/50 Rage per second and 5 Rage per attack.\n\nActive: Transform into Mega Gnar and leap into the largest group of enemies within 3 hexes.\nThen, deal 150/225/1500 [AD] physical damage to enemies within 2/2/10 hexes, reduce their Armor and Magic Resist by 15/20/100 [AP], and Stun them for 1/1/5 second.\nMega Gnar gains 400/600/10000 Health, and replaces his Ability with Grab n' Throw.\n\nGrab n' Throw: Throw the target at the farthest enemy, dealing 380/570/9000 [AD] physical damage to them and 135/205/4500 [AD] physical damage to enemies they pass through.\nIf there's only 1 enemy left, throw them off the battlefield instead.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Leap Damage",
@@ -1785,10 +1769,15 @@
               }
             ],
             "params": {
-              "slowPercent": 0.3,
-              "slowSeconds": 3,
               "purpleBuffStat": "attackDamage"
-            }
+            },
+            "applies": [
+              {
+                "keyword": "slow",
+                "value": 0.3,
+                "durationSeconds": 3
+              }
+            ]
           },
           "ap": {
             "description": "Belch a noxious bubble at the current target that explodes on the first enemy hit, dealing 225/340/535 [AP] magic damage.\nEnemies within a 1 hex radius take 145/220/345 [AP] magic damage over 3 seconds.",
@@ -1873,7 +1862,6 @@
         "name": "Spirit of Dread",
         "iconPath": "src/assets/icons/set-18/spells/s18-hecarim.jpg",
         "description": "Gain 50 Armor and Magic Resist for 3 seconds and restore 450/550/800 [AP] Health over the duration.\nLaunch spectral riders at the 3 nearest enemies, dealing 80/120/195 [AP] magic damage and Stunning them for 1.5/1.5/1.75 seconds.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Heal",
@@ -1956,7 +1944,6 @@
         "name": "Triggerseed",
         "iconPath": "src/assets/icons/set-18/spells/s18-ivern.jpg",
         "description": "Passive: Shields from this Ability can critically strike with Precision.\n\nActive: Grant 2/2/10 allies 165/325/3000 [AP] [Damage Amp] Shield and 10%/15%/100% Damage Amp for 6 seconds.\nThen deal 140/210/2000 [AP] magic damage to enemies adjacent to them.\nAfter casting 6 times, also grant 100% stacking Attack Speed to targets.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Shield Amount",
@@ -2043,12 +2030,6 @@
         "name": "Karmic Bond",
         "iconPath": "src/assets/icons/set-18/spells/s18-karma.jpg",
         "description": "Tether the current target, dealing 260/390/585 [AP] magic damage over 1.5 seconds.\nThen release a burst of power around them, dealing 110/165/250 [AP] magic damage to all enemies in a 1 Hex radius and 30% Slowing them for 2 seconds.",
-        "keywords": [
-          {
-            "name": "Slow",
-            "text": "Reduce Attack Speed"
-          }
-        ],
         "breakdown": [
           {
             "label": "Damage",
@@ -2074,10 +2055,15 @@
         "variants": null,
         "params": {
           "tetherSeconds": 1.5,
-          "burstHexRadius": 1,
-          "slowPercent": 0.3,
-          "slowSeconds": 2
-        }
+          "burstHexRadius": 1
+        },
+        "applies": [
+          {
+            "keyword": "slow",
+            "value": 0.3,
+            "durationSeconds": 2
+          }
+        ]
       }
     },
     {
@@ -2124,12 +2110,6 @@
         "name": "Solar Judgement",
         "iconPath": "src/assets/icons/set-18/spells/s18-kayle.jpg",
         "description": "Passive: Kayle ascends based on her star level, granting her stacking bonuses.\n\n1st Ascension: Attacks deal 56/84/98 [AP] bonus magic damage.\n\n2nd Ascension: Attacks 20% Shred enemies hit for 2 seconds.\n\n3rd Ascension: Attacks fire waves, dealing 40 [AP] magic damage to all other units hit.\n\n4th Ascension: Gain infinite range.\nEvery 3rd wave is much larger.",
-        "keywords": [
-          {
-            "name": "Shred",
-            "text": "Reduce Magic Resist"
-          }
-        ],
         "breakdown": [
           {
             "label": "Damage",
@@ -2154,11 +2134,16 @@
         ],
         "variants": null,
         "params": {
-          "shredPercent": 0.2,
-          "shredSeconds": 2,
           "waveEveryNthAscension": 3,
           "ascensions": 4
-        }
+        },
+        "applies": [
+          {
+            "keyword": "shred",
+            "value": 0.2,
+            "durationSeconds": 2
+          }
+        ]
       }
     },
     {
@@ -2203,7 +2188,6 @@
         "name": "Firestorm",
         "iconPath": "src/assets/icons/set-18/spells/s18-kennen.jpg",
         "description": "Charge up, gaining 15% Ability Power per Burning enemy.\nThen, gain 225/300/3000 [AP] Shield for 2.5 seconds and rush through a nearby group of enemies, dealing 50/75/300 [AP] magic damage to each.\n\nAfter rushing, unleash a 2 Hex firestorm that deals a total of 550/825/2000 [AP] magic damage split among all enemies hit over 2 seconds.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Shield",
@@ -2286,7 +2270,6 @@
         "name": "Taste Their Fear",
         "iconPath": "src/assets/icons/set-18/spells/s18-khazix.jpg",
         "description": "Leap to the farthest enemy within 3 Hexes, dealing 210/315/475 [AP] magic damage.\nIf they have no adjacent allies, deal 255/385/575 [AP] magic damage instead and gain 10 mana.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Damage",
@@ -2360,7 +2343,6 @@
         "name": "Dance of Life",
         "iconPath": "src/assets/icons/set-18/spells/s18-kobuko.jpg",
         "description": "Restore 299/388/459 [Health][AP] Health over 2 seconds.\nThe next attack is replaced with a bash that deals 140/231/377 [Health][AP] magic damage.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Heal",
@@ -2434,7 +2416,6 @@
         "name": "Raining Artillery",
         "iconPath": "src/assets/icons/set-18/spells/s18-kogmaw.jpg",
         "description": "Adaptor [AD]: Launch acid at the target and the nearest enemy, dealing 175/265/450 [AD][AP] physical damage.\nEnemies below 50% max Health take 245/371/630 [AD][AP] physical damage instead.\n\nAdaptor [AP]: Damages enemies over time.",
-        "keywords": [],
         "breakdown": [],
         "adaptor": {
           "ad": {
@@ -2657,7 +2638,6 @@
         "name": "Mirror Image",
         "iconPath": "src/assets/icons/set-18/spells/s18-leblanc.jpg",
         "description": "Passive: After player combat, your strongest LeBlanc has a 10%/15%/40% chance to create a copy of an ally on your board, increased by 4% per takedown.\n\nActive: Launch a mirror image at the current target, dealing 250/375/565 [AP] magic damage and 85/130/190 [AP] to adjacent enemies.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Copy Chance",
@@ -2740,7 +2720,6 @@
         "name": "Shield Bash",
         "iconPath": "src/assets/icons/set-18/spells/s18-leona.jpg",
         "description": "Passive: Start combat with 60/70/80 [AP] bonus Armor and Magic Resist that decays over 10 seconds.\n\nActive: Bash the current target, dealing 60/108/162 [Armor] magic damage and Stunning them for 1.5 seconds.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Decaying Resists",
@@ -2812,7 +2791,6 @@
         "name": "Lilting Lullaby",
         "iconPath": "src/assets/icons/set-18/spells/s18-lillia.jpg",
         "description": "Restore 250/325/600 [AP] Health and send 4 butterflies at nearby enemies.\nEnemies hit take 90/135/2000 [AP] magic damage and Sleep for 1.5/1.75/8 seconds.\nIf they take 1000 damage, they wake up and take an additional 10% max Health magic damage.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Heal",
@@ -2892,7 +2870,6 @@
         "name": "Final Spark",
         "iconPath": "src/assets/icons/set-18/spells/s18-lux.jpg",
         "description": "Passive: On cast, all allies that share a trait with Lux gain 3/3/100 [AP] mana.\n\nActive: Fire a laser towards the largest group of enemies that deals 370/580/5000 [AP] magic damage, reduced by 25%/25%/10% for each enemy hit.",
-        "keywords": [],
         "breakdown": [],
         "variants": [
           {
@@ -2900,7 +2877,6 @@
             "traits": ["Avatar"],
             "statOverrides": null,
             "description": "Passive: On cast, all allies that share a trait with Lux gain 3/3/100 [AP] mana.\n\nActive: Fire a laser towards the largest group of enemies that deals 370/580/5000 [AP] magic damage, reduced by 25%/25%/10% for each enemy hit.",
-            "keywords": [],
             "breakdown": []
           },
           {
@@ -2911,7 +2887,6 @@
               "magicResist": 45
             },
             "description": "Passive: On cast, all allies that share a trait with Lux gain 3 [AP] mana.\n\nActive: Fire a laser towards the largest group of enemies that deals 370 [AP] magic damage, reduced by 25% for each enemy hit (minimum 40%).\n\nBlossom Bonus: The first target hit is dealt 10% bonus damage.",
-            "keywords": [],
             "breakdown": [
               {
                 "label": "Damage",
@@ -2935,7 +2910,6 @@
               "magicResist": 45
             },
             "description": "Passive: On cast, all allies that share a trait with Lux gain 3 [AP] mana.\n\nActive: Fire a laser towards the largest group of enemies that deals 370 [AP] magic damage, reduced by 25% for each enemy hit (minimum 40%).\n\nCoven Bonus: Reduces the Armor and Magic Resist of targets hit by 8 for the rest of combat.",
-            "keywords": [],
             "breakdown": [
               {
                 "label": "Damage",
@@ -2964,7 +2938,6 @@
               }
             },
             "description": "Passive: On cast, all allies that share a trait with Lux gain 3 [AP] mana.\n\nActive: Fire a laser towards the largest group of enemies that deals 370 [AP] magic damage, reduced by 25% for each enemy hit (minimum 40%).\n\nElderwood Bonus: Casts grant all allies 2.5% increased max Health for the rest of combat.",
-            "keywords": [],
             "breakdown": [
               {
                 "label": "Damage",
@@ -2988,7 +2961,6 @@
               "magicResist": 45
             },
             "description": "Passive: On cast, all allies that share a trait with Lux gain 3 [AP] mana.\n\nActive: Fire a laser towards the largest group of enemies that deals 370 [AP] magic damage, reduced by 25% for each enemy hit (minimum 40%).\n\nBlackthorn Bonus: Stuns targets hit for 1 second.",
-            "keywords": [],
             "breakdown": [
               {
                 "label": "Damage",
@@ -3012,7 +2984,6 @@
               "magicResist": 45
             },
             "description": "Passive: On cast, all allies that share a trait with Lux gain 3 [AP] mana.\n\nActive: Fire a laser towards the largest group of enemies that deals 370 [AP] magic damage, reduced by 25% for each enemy hit (minimum 40%).\n\nFae Bonus: Heals the lowest percent Health ally for 18% of ability damage dealt.",
-            "keywords": [],
             "breakdown": [
               {
                 "label": "Damage",
@@ -3036,7 +3007,6 @@
               "magicResist": 45
             },
             "description": "Passive: On cast, all allies that share a trait with Lux gain 3 [AP] mana.\n\nActive: Fire a laser towards the largest group of enemies that deals 370 [AP] magic damage, reduced by 25% for each enemy hit (minimum 40%).\n\nInferno Bonus: Restores 8 mana per takedown.",
-            "keywords": [],
             "breakdown": [
               {
                 "label": "Damage",
@@ -3060,12 +3030,6 @@
               "magicResist": 45
             },
             "description": "Passive: On cast, all allies that share a trait with Lux gain 3 [AP] mana.\n\nActive: Fire a laser towards the largest group of enemies that deals 370 [AP] magic damage, reduced by 25% for each enemy hit (minimum 40%).\n\nLunar Bonus: Applies 10% Vulnerable to enemies hit for 4 seconds.",
-            "keywords": [
-              {
-                "name": "Vulnerable",
-                "text": "Increases damage taken"
-              }
-            ],
             "breakdown": [
               {
                 "label": "Damage",
@@ -3077,10 +3041,14 @@
                 }
               }
             ],
-            "params": {
-              "vulnerablePercent": 0.1,
-              "vulnerableSeconds": 4
-            }
+            "params": {},
+            "applies": [
+              {
+                "keyword": "vulnerable",
+                "value": 0.1,
+                "durationSeconds": 4
+              }
+            ]
           },
           {
             "option": "Lux (Primal)",
@@ -3090,7 +3058,6 @@
               "magicResist": 45
             },
             "description": "Passive: On cast, all allies that share a trait with Lux gain 3 [AP] mana.\n\nActive: Fire a laser towards the largest group of enemies that deals 370 [AP] magic damage, reduced by 25% for each enemy hit (minimum 40%).\n\nPrimal Bonus: Gain 50% Attack Speed for 6 seconds after cast.",
-            "keywords": [],
             "breakdown": [
               {
                 "label": "Damage",
@@ -3115,12 +3082,6 @@
               "magicResist": 45
             },
             "description": "Passive: On cast, all allies that share a trait with Lux gain 3 [AP] mana.\n\nActive: Fire a laser towards the largest group of enemies that deals 370 [AP] magic damage, reduced by 25% for each enemy hit (minimum 40%).\n\nSolar Bonus: Deals 10% bonus damage for each unique 3-star champion fielded.",
-            "keywords": [
-              {
-                "name": "Weaken",
-                "text": "Reduce Damage Dealt"
-              }
-            ],
             "breakdown": [
               {
                 "label": "Damage",
@@ -3184,7 +3145,6 @@
         "name": "Petrified Bark",
         "iconPath": "src/assets/icons/set-18/spells/s18-malphite.jpg",
         "description": "Gain 700/850/2000 [AP] Shield for 4 seconds and become petrified.\nWhen the shield breaks, unleash a wave of dark energy, dealing 82/123/3399 [AP][Armor][MR] magic damage to enemies within 2/2/3 hexes.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Shield",
@@ -3354,7 +3314,6 @@
         "name": "Sow the Seeds",
         "iconPath": "src/assets/icons/set-18/spells/s18-maokai.jpg",
         "description": "Passive: After every 650/650/300 damage blocked, a sapling jumps towards a nearby enemy and deals 70/126/2430 [Health] magic damage.\nOn death, 3/5/10 saplings jump out.\n\nActive: Deal 60/108/3240 [Health] magic damage to target and restore 300/400/2000 [AP] + 8%/8%/100% missing Health.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Sapling Damage",
@@ -3457,7 +3416,6 @@
         "name": "Wuju Style",
         "iconPath": "src/assets/icons/set-18/spells/s18-master-yi.jpg",
         "description": "Passive: Every third attack is a Double Strike.\nOn takedown, gain a burst of movement speed.\n\nAdaptor [AD]: Double Strikes grant 15% [AP] stacking Attack Speed.\n\nAdaptor [AP]: Double Strikes deal bonus damage and heal.",
-        "keywords": [],
         "breakdown": [],
         "adaptor": {
           "ad": {
@@ -3546,7 +3504,6 @@
         "name": "Withering Curse",
         "iconPath": "src/assets/icons/set-18/spells/s18-morgana.jpg",
         "description": "Passive: Gain 25% Omnivamp.\n\nActive: Fire a dark blast at 3 nearby enemies, dealing 60/90/500 [AP] magic damage to them and cursing them for 4 seconds.\nThen, spawn a Hex withering zone for the same duration that deals 33/50/500 [AP] magic damage per second.\nCursed enemies take 18/27/240 [AP] more damage per curse.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Initial Damage",
@@ -3723,7 +3680,6 @@
         "name": "Javelin Toss",
         "iconPath": "src/assets/icons/set-18/spells/s18-nidalee.jpg",
         "description": "Adaptor [AP]: Gain 150% Attack Speed for the next 3 attacks.\nThese attacks are replaced with javelins that deal 135/205/2000 [AP] magic damage.\nThe 3rd attack instead targets the furthest enemy with the least items and deals 250/375/3000 [AP] magic damage.\n\nAdaptor [AD]: Transform into a Melee cougar Assassin that swipes enemies.",
-        "keywords": [],
         "breakdown": [],
         "adaptor": {
           "ad": {
@@ -3878,7 +3834,6 @@
         "name": "Bellows Breath",
         "iconPath": "src/assets/icons/set-18/spells/s18-ornn.jpg",
         "description": "Active: Gain 400/480/600 [AP] Shield for 4 seconds and deal 200/300/450 [AP] magic damage to enemies in a cone.\n\nQuest: Each player combat, Ornn stores damage blocked as Forge Power, doubled at 3-star.\nGain an Artifact Anvil each time he gains enough Forge Power.\n(Forge Power: / )",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Shield",
@@ -4028,7 +3983,6 @@
         "name": "Entrancing Dance",
         "iconPath": "src/assets/icons/set-18/spells/s18-rakan.jpg",
         "description": "Gain 250/300/375 [AP] Shield for 4 seconds.\nThen grant the ally who has dealt the most damage this combat 90%/100%/130% [AP] decaying Attack Speed for 4 seconds.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Shield",
@@ -4102,7 +4056,6 @@
         "name": "Defensive Ball Curl",
         "iconPath": "src/assets/icons/set-18/spells/s18-rammus.jpg",
         "description": "Taunt, forcing enemies to attack this champion.\nFor 4 seconds, gain 350/450/550 [AP] Shield and 60 Armor and Magic Resist.\n\nWhen the Shield breaks, deal 50/75/120 [Armor][MR] physical damage to enemies in 2 Hexes.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Shield",
@@ -4177,7 +4130,6 @@
         "name": "Uproot",
         "iconPath": "src/assets/icons/set-18/spells/s18-reksai.jpg",
         "description": "Passive: Restore 16/25/38 [Health] Health each second, tripled for 3 seconds after casting.\n\nActive: Lunge out of the ground, Stunning adjacent enemies for 1 second and dealing 70/105/160 [AP] magic damage to them.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Heal",
@@ -4251,7 +4203,6 @@
         "name": "Savagery",
         "iconPath": "src/assets/icons/set-18/spells/s18-rengar.jpg",
         "description": "Jump to the lowest percent Health enemy within 3 hexes and stab them, dealing 295/445/710 [AD] physical damage.\nThen heal for 80 [AP], increased to up to 180 [AP] based on their missing Health.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Damage",
@@ -4421,7 +4372,6 @@
         "name": "Sun's Wrath",
         "iconPath": "src/assets/icons/set-18/spells/s18-sejuani.jpg",
         "description": "Gain 315/412/567 [Health][AP] Shield for 4 seconds.\nThen, cleave in a cone dealing 40/60/90 [AP] magic damage and strike in a line, dealing 70/105/160 [AP] magic damage to enemies hit.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Shield",
@@ -4506,20 +4456,21 @@
           {
             "name": "Blue Buff",
             "text": "Each time Sentinel casts, allies gain 2 Mana Regen."
-          },
-          {
-            "name": "Mana Reave",
-            "text": "Increase the Mana cost of the next Ability cast."
           }
         ],
         "riftbeastBuff": {
           "colour": "blue",
           "params": {
             "allyManaRegen": 2,
-            "selfManaRegen": 5,
-            "chillAmount": 5,
-            "chillSeconds": 3
-          }
+            "selfManaRegen": 5
+          },
+          "applies": [
+            {
+              "keyword": "slow",
+              "value": 0.05,
+              "durationSeconds": 3
+            }
+          ]
         },
         "breakdown": [
           {
@@ -4544,9 +4495,14 @@
         "variants": null,
         "params": {
           "shieldSeconds": 4,
-          "manaReave": 15,
           "knockUp": 1
-        }
+        },
+        "applies": [
+          {
+            "keyword": "mana-reave",
+            "value": 15
+          }
+        ]
       }
     },
     {
@@ -4591,7 +4547,6 @@
         "name": "Haymaker",
         "iconPath": "src/assets/icons/set-18/spells/s18-sett.jpg",
         "description": "Passive: Upon falling below 40% max Health the first time each combat, gain 100 mana.\n\nActive: Wind up a big punch, rapidly healing for 225/275/2000 [Health][AP] before dealing 222/355/5233 [Health][AD] physical damage in a large cone.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Heal",
@@ -4663,7 +4618,6 @@
         "name": "Ki Barrier",
         "iconPath": "src/assets/icons/set-18/spells/s18-shen.png",
         "description": "Grant 325/400/500 [AP] Shield to Shen and 200/275/375 [AP] Shield to a nearby damaged ally for 4 seconds.\nBoth of their next 3 attacks gain 40% Attack Speed and deal 35/55/80 [AP] bonus magic damage.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Self Shield",
@@ -4746,7 +4700,6 @@
         "name": "Boomerang Blade",
         "iconPath": "src/assets/icons/set-18/spells/s18-sivir.jpg",
         "description": "Throw a large crossblade that deals 170/255/1150 [AD][AP] physical damage to the current target and bounces 8 times between nearby enemies, dealing 34/51/575 [AD][AP] physical damage each bounce.\nWhen this kills an enemy, bounce 3/3/6 additional times.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Damage",
@@ -4829,7 +4782,6 @@
         "name": "Starcall",
         "iconPath": "src/assets/icons/set-18/spells/s18-soraka.jpg",
         "description": "Call down a star on the current target, dealing 190/285/1000 [AP] magic damage.\nIf a star has previously fallen on them, call down 3 additional stars that each deal 100/150/1000 [AP] magic damage.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Damage",
@@ -4898,7 +4850,6 @@
         "name": "Emerald Radiance",
         "iconPath": "src/assets/icons/set-18/spells/s18-taric.jpg",
         "description": "Passive: The first time Taric or his paired ally drops below 50% Health, unleash emerald energy from both of them, granting 406/781/14212 [Health] Shield to allies within 3 Hexes for 3/3/99 seconds.\n\nActive: Restore 225/325/3000 [AP] Health.\nTaric and his paired ally deal 100/150/1000 [AP] bonus magic damage on their next 2 attacks.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Shield",
@@ -5105,7 +5056,6 @@
         "name": "Explosive Charge",
         "iconPath": "src/assets/icons/set-18/spells/s18-tristana.jpg",
         "description": "Attach an explosive charge to the target that lasts 4 seconds.\nWhile active, gain infinite range and 60% [AP] Attack Speed.\nAfter the duration, the charge explodes and splits damage between all enemies within 2 hexes, dealing 200/300/480 [AD] physical damage + 10/15/25 [AD] for each attack while casting.\n\nIf an enemy with an explosive charge on them dies, it attaches to Tristana's new target.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Attack Speed",
@@ -5191,7 +5141,6 @@
         "name": "Piercing Arrow",
         "iconPath": "src/assets/icons/set-18/spells/s18-varus.jpg",
         "description": "Wind up, then fire an arrow at the most enemies in line with the target.\nIt deals 380/570/860 [AD][AP] physical damage to enemies hit, reduced by 40% for each enemy it passes through (minimum 40%).",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Damage",
@@ -5265,7 +5214,6 @@
         "name": "Primordial Burst",
         "iconPath": "src/assets/icons/set-18/spells/s18-veigar.jpg",
         "description": "Launch a giant blast at the target that deals 175/265/395 [AP] magic damage, increased to 265/400/595 [AP] if they're below 30% max Health.\n\nIf they die, permanently gain 1.5% Ability Power.\n\nCurrent bonus: % [AP]",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Damage",
@@ -5339,7 +5287,6 @@
         "name": "Furious Fists",
         "iconPath": "src/assets/icons/set-18/spells/s18-vi.jpg",
         "description": "Passive: On attack, restore 22/40/71 [Health] Health.\n\nActive: Unleash a primal roar, restoring 200/250/350 [AP] Health.\nThen gain 85%/100%/125% Attack Speed, 15% Durability, and is Unstoppable for 3 seconds.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Passive Heal",
@@ -5424,7 +5371,6 @@
         "name": "Jaws of The Beast",
         "iconPath": "src/assets/icons/set-18/spells/s18-warwick.jpg",
         "description": "Bite the current target, dealing 180/270/405 [AD] physical damage and healing for 20% [AP] of the damage dealt.\nGain 20% Attack Speed for the rest of combat.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Damage",
@@ -5498,7 +5444,6 @@
         "name": "Deadly Plumage",
         "iconPath": "src/assets/icons/set-18/spells/s18-xayah.jpg",
         "description": "Gain 50% Attack Speed for the next 5 attacks.\nThese attacks are replaced with feathers that deal 72/108/165 [AD] physical damage and reduce Armor by 2 [AP].",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Damage",
@@ -5572,7 +5517,6 @@
         "name": "Last Rites",
         "iconPath": "src/assets/icons/set-18/spells/s18-yorick.jpg",
         "description": "Passive: On death, spawn a Spirit Walker with 330/634/1121 [Health] max Health.\n\nActive: Restore 280/325/410 [AP] Health and strike the target, dealing 150/225/340 [AD] physical damage.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Ghoul Health",
@@ -5656,7 +5600,6 @@
         "name": "Cultivation of Spirit",
         "iconPath": "src/assets/icons/set-18/spells/s18-yunara.jpg",
         "description": "Dash, then launch an orb at the current target that deals 180/270/425 [AD][AP] physical damage and splits, dealing 63/95/149 [AD][AP] physical damage to 2 nearby enemies.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Damage",
@@ -5737,7 +5680,6 @@
         "name": "Rampant Growth",
         "iconPath": "src/assets/icons/set-18/spells/s18-zyra.jpg",
         "description": "Spawn 2/2/4 plants around the battlefield that attack the nearest enemy 10 times.\nEach attack deals 33/50/225 [AP] magic damage.",
-        "keywords": [],
         "breakdown": [
           {
             "label": "Damage",

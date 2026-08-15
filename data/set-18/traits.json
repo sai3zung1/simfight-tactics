@@ -469,10 +469,16 @@
             {
               "to": "enemy",
               "trigger": "on-damage",
-              "percentStats": {
-                "shred": 0.3,
-                "sunder": 0.3
-              },
+              "applies": [
+                {
+                  "keyword": "shred",
+                  "value": 0.3
+                },
+                {
+                  "keyword": "sunder",
+                  "value": 0.3
+                }
+              ],
               "durationSeconds": 4
             }
           ]
@@ -762,7 +768,11 @@
               "percentStats": {
                 "critChance": 0.35
               },
-              "grants": "precision"
+              "applies": [
+                {
+                  "keyword": "precision"
+                }
+              ]
             }
           ]
         },
@@ -774,14 +784,21 @@
               "percentStats": {
                 "critChance": 0.35
               },
-              "grants": "precision"
+              "applies": [
+                {
+                  "keyword": "precision"
+                }
+              ]
             },
             {
               "to": "enemy",
               "trigger": "on-damage",
-              "percentStats": {
-                "bleed": 0.3
-              },
+              "applies": [
+                {
+                  "keyword": "bleed",
+                  "value": 0.3
+                }
+              ],
               "durationSeconds": 3
             }
           ]
@@ -794,14 +811,21 @@
               "percentStats": {
                 "critChance": 0.35
               },
-              "grants": "precision"
+              "applies": [
+                {
+                  "keyword": "precision"
+                }
+              ]
             },
             {
               "to": "enemy",
               "trigger": "on-damage",
-              "percentStats": {
-                "bleed": 0.5
-              },
+              "applies": [
+                {
+                  "keyword": "bleed",
+                  "value": 0.5
+                }
+              ],
               "durationSeconds": 3
             }
           ]
@@ -1172,10 +1196,16 @@
             {
               "to": "enemy",
               "trigger": "on-damage",
-              "percentStats": {
-                "burnPercentMaxHealthPerSecond": 0.01,
-                "wound": 0.33
-              },
+              "applies": [
+                {
+                  "keyword": "burn",
+                  "value": 0.01
+                },
+                {
+                  "keyword": "wound",
+                  "value": 0.33
+                }
+              ],
               "durationSeconds": 4
             }
           ],
@@ -1189,10 +1219,16 @@
             {
               "to": "enemy",
               "trigger": "on-damage",
-              "percentStats": {
-                "burnPercentMaxHealthPerSecond": 0.01,
-                "wound": 0.33
-              },
+              "applies": [
+                {
+                  "keyword": "burn",
+                  "value": 0.01
+                },
+                {
+                  "keyword": "wound",
+                  "value": 0.33
+                }
+              ],
               "durationSeconds": 4
             }
           ],
@@ -1206,10 +1242,16 @@
             {
               "to": "enemy",
               "trigger": "on-damage",
-              "percentStats": {
-                "burnPercentMaxHealthPerSecond": 0.02,
-                "wound": 0.33
-              },
+              "applies": [
+                {
+                  "keyword": "burn",
+                  "value": 0.02
+                },
+                {
+                  "keyword": "wound",
+                  "value": 0.33
+                }
+              ],
               "durationSeconds": 4
             }
           ],
@@ -1223,10 +1265,16 @@
             {
               "to": "enemy",
               "trigger": "on-damage",
-              "percentStats": {
-                "burnPercentMaxHealthPerSecond": 0.03,
-                "wound": 0.33
-              },
+              "applies": [
+                {
+                  "keyword": "burn",
+                  "value": 0.03
+                },
+                {
+                  "keyword": "wound",
+                  "value": 0.33
+                }
+              ],
               "durationSeconds": 4
             }
           ],
