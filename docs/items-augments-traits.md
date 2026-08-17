@@ -12,5 +12,6 @@ that list is drawn from one vocabulary — `docs/effect-families.md`.
 | Augment | Picked for the run, three slots at most | A tier: silver, gold or prismatic                        |
 | Trait   | A unit count reaching a breakpoint      | Breakpoints, each with its own count and its own effects |
 
-A board side names a unit, its star level, its items, its traits and its
-augments.
+A board side names its units — each with a star level, its items and its place on
+the board — the traits its composition reaches, and the augments taken for the
+game.
