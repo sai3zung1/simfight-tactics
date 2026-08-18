@@ -846,8 +846,35 @@
       "categories": ["combat"],
       "apparition": ["2-1"],
       "description": "Roll a die.\nGain rewards based on the number rolled.{Augment.Variant.SlightlyMagicRoll.Reward}",
-      "combat": false,
-      "requiresRunInput": false
+      "combat": true,
+      "requiresRunInput": true,
+      "params": {
+        "die": { "count": 1, "min": 1, "max": 6 },
+        "luckyDieMinimum": 6,
+        "rollOptions": [
+          { "roll": 1, "reward": "Rerolls", "rerolls": 6 },
+          { "roll": 2, "reward": "Gold", "gold": 10 },
+          {
+            "roll": 3,
+            "reward": "2-star 2-cost Champion",
+            "champions": [{ "cost": 2, "copies": 3 }],
+            "gold": 3
+          },
+          {
+            "roll": 4,
+            "reward": "Completed Item",
+            "completedItems": 1,
+            "reforgers": 1
+          },
+          {
+            "roll": 5,
+            "reward": "Hugeify",
+            "sizeIncrease": 0.15,
+            "grants": [{ "to": "team", "stats": { "hp": 160 } }]
+          },
+          { "roll": 6, "reward": "Random Emblem", "emblems": 1 }
+        ]
+      }
     },
     {
       "id": "small-grab-bag",
@@ -2167,8 +2194,74 @@
       "categories": ["combat"],
       "apparition": ["3-2"],
       "description": "Roll 3 dice.\nGain rewards based on their total.{Augment.Variant.MagicRoll.Reward}",
-      "combat": false,
-      "requiresRunInput": false
+      "combat": true,
+      "requiresRunInput": true,
+      "params": {
+        "die": { "count": 3, "min": 1, "max": 6 },
+        "luckyDieMinimum": 4,
+        "rollOptions": [
+          {
+            "dice": [6, 2, 6],
+            "reward": "An egg with amazing rewards?",
+            "hatchesAfterRounds": 3,
+            "hatches": {
+              "champions": [{ "cost": 5, "copies": 2 }],
+              "gold": 5,
+              "items": ["tacticians-crown"]
+            }
+          },
+          {
+            "triple": true,
+            "minTotal": 11,
+            "maxTotal": 18,
+            "reward": "Tactician's Cape",
+            "items": ["tacticians-cape"]
+          },
+          {
+            "triple": true,
+            "minTotal": 3,
+            "maxTotal": 10,
+            "reward": "3 Lesser Duplicators and gold",
+            "lesserDuplicators": 3,
+            "gold": { "min": 4, "max": 6 }
+          },
+          {
+            "triple": false,
+            "minTotal": 4,
+            "maxTotal": 8,
+            "reward": "Your champions grow larger and gain Health",
+            "sizeIncrease": 0.15,
+            "grants": [{ "to": "team", "stats": { "hp": 250 } }]
+          },
+          {
+            "triple": false,
+            "minTotal": 9,
+            "maxTotal": 11,
+            "reward": "A Pile of Champions",
+            "champions": [
+              { "cost": 1, "copies": 3 },
+              { "cost": 2, "copies": 3 },
+              { "cost": 3, "copies": 3 }
+            ]
+          },
+          {
+            "triple": false,
+            "minTotal": 12,
+            "maxTotal": 15,
+            "reward": "Four copies of a component",
+            "components": 4,
+            "reforgers": 1
+          },
+          {
+            "triple": false,
+            "minTotal": 16,
+            "maxTotal": 17,
+            "reward": "A Frying Pan and components",
+            "items": ["frying-pan"],
+            "components": 2
+          }
+        ]
+      }
     },
     {
       "id": "makeshift-armor-ii",
