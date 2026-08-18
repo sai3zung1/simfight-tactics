@@ -39,9 +39,10 @@ A delta carries the difference in inputs beside the difference in aggregates.
 Where the difference in inputs is large, no delta is shown. Two results are shown
 instead.
 
-The product states numbers. It does not name a winner and it does not word a
-verdict. What is known about an aggregate — how many iterations it took, how wide
-it came out — is stated as a number as well.
+The product states numbers, and the outcome of a fight is one of them: which side
+won, and over how many of the iterations. What it does not state is a ranking of
+two configurations against each other. What is known about an aggregate — how
+many iterations it took, how wide it came out — is stated as a number as well.
 
 ## Consequences
 

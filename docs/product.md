@@ -8,10 +8,33 @@ that is missing — a composition in, an outcome out.
 
 Everything in the product answers one question: **what is best here?**
 
+The question is the player's, and the answer is theirs. The product supplies
+figures, and the outcome of a fight is one of them: which side won, how often,
+and how wide each figure came out. What it does not supply is a ranking. It never
+points at one of two configurations and calls it the better one, because that
+reading is what the player came to do.
+
 ## Interface
 
 Scrolling is searching, and a tool that leaves you searching has not answered.
 The interface is built so there is nothing to scroll.
+
+There is one interface. It is opened before a game, after one, and during one,
+and what changes between those is how much the app fills in by itself — never
+which screen is open. `docs/adr/0006-three-moments.md` says which of them it
+imports for, and why there is one it will not read.
+
+Speed is won by removing a gesture, not by making one faster. A picker taken from
+two seconds to one saves a second per unit; a board that arrives already filled
+saves the ten.
+
+Two budgets keep that honest, and both fail silently unless something checks
+them:
+
+|              |                                                                                                                                         |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **A result** | five seconds. That is what fixes the iteration count rather than a setting, and the count is reported alongside the figures it produced |
+| **A path**   | a stated number of gestures — an empty app to a first result, a result to its variant                                                   |
 
 ## What makes the MVP valid
 
