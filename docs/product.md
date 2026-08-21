@@ -24,6 +24,11 @@ and what changes between those is how much the app fills in by itself — never
 which screen is open. `docs/adr/0006-three-moments.md` says which of them it
 imports for, and why there is one it will not read.
 
+That interface is a desktop one. Two boards, the catalog that fills them and the
+readout that comes back do not fit a phone under a rule that forbids scrolling,
+and `docs/adr/0008-desktop-is-the-surface.md` says what it would take to reopen
+the question.
+
 Speed is won by removing a gesture, not by making one faster. A picker taken from
 two seconds to one saves a second per unit; a board that arrives already filled
 saves the ten.
