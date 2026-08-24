@@ -6,20 +6,24 @@ Building the next generation of builder for TFT Theorycrafter.
 
 ## Where it is
 
-The engine resolves fights: a time-ordered event queue, auto-attacks, spells,
+The engine resolves a fight: a time-ordered event queue, auto-attacks, spells,
 mana, crowd control, shields and periodic effects, ending with an outcome and a
-reason for ending.
+reason for ending. It resolves one unit against one — boards, positions and
+multi-target combat are what the MVP still owes, and `docs/product.md` says what
+the finished thing is.
 
 There is no interface yet. `bun run dev` serves an empty shell; the components
 that exist live in Storybook.
 
 ## What is interesting in it
 
-**Nothing is rolled.** A crit is an expected value rather than a coin flip, and
-time is an integer count of milliseconds, so two events on the same instant
-compare exactly equal. The same board gives the same outcome, every run —
-`Math.random` appears nowhere in `src`.
-See `docs/adr/0002-deterministic-resolution-first.md`.
+**An outcome is a distribution.** A board that wins narrowly and one that wins
+every time share an average, and only sampling separates them — so a run is many
+runs over one board, and a seed is what makes one of them repeatable. Time is an
+integer count of milliseconds, so two events on the same instant compare exactly
+equal and their ordering is stable. The engine still resolves once and takes a
+crit as an expected value: `Math.random` appears nowhere in `src` yet.
+See `docs/adr/0004-sampled-resolution.md`.
 
 **The engine knows no set.** Every effect is a modifier drawn from one closed
 vocabulary, and a set is data handed to `simulate()` — no branch per champion,

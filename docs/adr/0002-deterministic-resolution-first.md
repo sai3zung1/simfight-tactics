@@ -1,6 +1,6 @@
 # ADR 0002 — Deterministic resolution first, sampling as a second mode
 
-**Status:** Accepted · 2026-07
+**Status:** Superseded by ADR 0004 · 2026-08
 
 ## Context
 

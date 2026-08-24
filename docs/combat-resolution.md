@@ -1,44 +1,45 @@
 # Combat resolution
 
-How a run turns two compositions into an outcome. Every number here is in the
-engine, and the ones the game fixes are shown next to what the game says.
+How two compositions become an outcome. Every number here is in the engine, and
+the ones the game fixes are shown next to what the game says.
 
-## Determinism
+## Resolution
 
-Nothing is rolled. A crit is an expected value — `1 + critChance × critDamage`
-— so every hit carries the weighted average of a nominal and a critical one.
+An outcome is a distribution. A single pass answers what a board does on average
+and never how often, and the difference is the whole question: a board that wins
+narrowly and one that wins every time share an average.
+
+Chance sits in more than one place. A crit lands or it does not. Targeting is the
+second source — a unit's role weights how likely it is to be targeted, a tank
+more and an assassin less, and equal candidates still have to be separated
+somehow. Averaging the first and picking the second by rule would settle both, by
+inventing a certainty the game does not have.
+
+A run is therefore many runs over one board, and a seed is what makes one of them
+repeatable. Repeatability comes from the seed, never from removing the chance.
+
 Time is an integer count of milliseconds, which lets two events on the same
 instant compare exactly equal and keeps their ordering stable.
 
-The same input produces the same outcome, every run.
+**None of this is wired.** The engine resolves once, taking a crit as an expected
+value — `1 + critChance × critDamage`, the weighted average of a nominal and a
+critical hit — and carries no source of chance at all: `Math.random` appears
+nowhere in `src`.
 
-## Monte Carlo
-
-A deterministic run answers what a composition does on average. Rolling each
-chance instead, many times over, answers how often — a distribution rather than
-a number. It is a mode of its own, and none of it exists yet.
-
-The shape is already right: `CritPolicy` takes a chance and a damage figure, and
-`expectedCrit` sits beside `neverCrit` and `alwaysCrit` — the two bounds — in the
-same file. A rolling policy is a fourth one.
-
-The wiring is not. `auto-attack.ts` imports `expectedCrit` directly instead of
-receiving a policy, so the choice has to travel from `simulate()` down to the
-hit. `SpellRegistry` already takes that path.
-
-One caveat on what a distribution would show today: a crit is the only chance in
-the model — `Math.random` appears nowhere in `src` — so the whole spread would
-come from that alone. Targeting adds a second source once positions exist: a
-unit's role weights how likely it is to be targeted — a tank more, an assassin
-less — and equal candidates still have to be separated somehow.
+`CritPolicy` is the seam a rolling policy lands on, beside `expectedCrit`,
+`neverCrit` and `alwaysCrit` in the same file. What is missing is the path:
+`auto-attack.ts` imports `expectedCrit` directly instead of receiving a policy,
+so the choice has to travel from `simulate()` down to the hit. `SpellRegistry`
+already takes that path.
 
 ## Time
 
-|                      |                                                                           |
-| -------------------- | ------------------------------------------------------------------------- |
-| One tick             | One millisecond                                                           |
-| Auto-attack interval | `1 / attack speed` seconds                                                |
-| Safety cap           | Sixty seconds. Only `time-to-kill` can reach it, and it reports a timeout |
+|                      |                                                                                                                                     |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| One tick             | One millisecond                                                                                                                     |
+| Auto-attack interval | `1 / attack speed` seconds                                                                                                          |
+| **Overtime**         | **Nowhere.** Past a threshold the game escalates a fight until it resolves, so no round ever runs out of time. Nothing expresses it |
+| Safety cap           | Sixty seconds, standing in for overtime. Only `time-to-kill` can reach it, and it reports a timeout — a reason the game never gives |
 
 ## Damage
 
@@ -89,10 +90,28 @@ Two things the game does and the engine does not:
 | Locks mana for about a second after a cast, longer for some units | Nothing suspends mana gain                                              |
 | Carries overflow into the next cast                               | A cast resets mana to its post-cast modifier value and drops the excess |
 
-## Ending a run
+## Ending a fight
 
-| Reason    | When                                                       |
-| --------- | ---------------------------------------------------------- |
-| `kill`    | The target's health reaches zero and the mode lets it die  |
-| `timer`   | The window closed first                                    |
-| `timeout` | `time-to-kill` reached the sixty-second cap without a kill |
+The game ends a fight three ways and only three: a winner, a loser, or a draw.
+Overtime is what guarantees it — a fight that would otherwise stall is escalated
+until one side falls, so a round never ends because time ran out.
+
+What the tool **measures** is a separate question. Asking how fast a board kills
+and asking how much damage it deals inside a window are two readings of the same
+fight, not two ways of ending one.
+
+**The engine holds the two in one type.** `StopCondition` picks a mode, and the
+mode decides the reading, the time limit and whether the target may die at all:
+
+| Mode             | Time limit       | Target dies | Reason if the limit is reached |
+| ---------------- | ---------------- | ----------- | ------------------------------ |
+| `time-to-kill`   | sixty-second cap | yes         | `timeout`                      |
+| `fixed-duration` | the given window | **no**      | `timer`                        |
+| `first-trigger`  | the given window | yes         | `timer`                        |
+
+A kill reports `kill` in all three. Two of the three reasons describe the tool
+running out of patience rather than a fight ending, and `fixed-duration` keeps
+the target alive on purpose so a kill cannot cut the measurement short.
+
+Separating the outcome from the measurement window is what this page will
+describe once the engine does it.

@@ -116,6 +116,10 @@ const bonus = ctx.caster.stats.attackSpeed * 0.3;
 Six independent choices. Everything a spell can express is a combination of
 them.
 
+Six is what the contract offers today, and one of them is short: **who it lands
+on** carries two values where the game aims at a dozen shapes.
+`docs/effect-families.md` records that axis and what it still owes.
+
 **Who it lands on** — `recipient: "self"` or `"opponent"`.
 
 **What it does** — one of seven kinds. Some carry an extra field:

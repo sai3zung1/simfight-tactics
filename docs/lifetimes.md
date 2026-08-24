@@ -3,61 +3,62 @@
 How long an effect lasts. `docs/effect-families.md` records what an effect does;
 this page records when it stops, and what has to hold it until then.
 
-The scales run past the fight. Three of them live inside one, and the engine
-expresses those; the two above it belong to a run, and nothing expresses them
-yet.
+One word first, because the game and the product spend it differently. A **run**
+here is one simulation of one fight, repeated over its iterations — what the run
+control starts. The game's own sequence of rounds is never simulated, so it is
+called a **game** on this page and nothing else is.
 
-| Scale         | What it means                                     | Where it lands                                                                                         |
-| ------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| Instant       | Lands and is done — a hit, a heal                 | `Temporality` → `instant`. Nothing to undo, so nothing to hold                                         |
-| Duration      | Runs for a number of seconds, then lifts          | `Temporality` → `duration`. The expiry is scheduled when the modifier is applied                       |
-| Periodic      | Ticks on an interval — a burn, a regeneration     | `Temporality` → `periodic`, with `instance` for a tick that lapses and `accrual` for one that does not |
-| **Combat**    | Holds to the last hit of the fight                | Convention, not a value: a modifier with no duration is never expired. Nothing says so                 |
-| **Run**       | Holds across fights, and ends with the run        | **Nowhere.** The engine is handed one fight and forgets it afterwards                                  |
-| **Permanent** | Accrues fight after fight and is never given back | **Nowhere.** Same reason, plus the total has to survive between two fights                             |
+The scales run past a fight. Three of them live inside one, and the engine
+expresses those. The two above belong to a game, and they are not the engine's to
+hold.
 
-## Why the two upper scales matter
+| Scale     | What it means                                     | Where it lands                                                                                                                     |
+| --------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Instant   | Lands and is done — a hit, a heal                 | `Temporality` → `instant`. Nothing to undo, so nothing to hold                                                                     |
+| Duration  | Runs for a number of seconds, then lifts          | `Temporality` → `duration`. The expiry is scheduled when the modifier is applied                                                   |
+| Periodic  | Ticks on an interval — a burn, a regeneration     | `Temporality` → `periodic`, with `instance` for a tick that lapses and `accrual` for one that does not                             |
+| **Fight** | Holds to the last hit                             | **Convention, not a value.** A modifier with no duration is never expired, which is right and is nowhere stated                    |
+| Game      | Holds across rounds and ends with the game        | Not resolved — **declared**. The player states what a game accumulated, and the engine reads the total                             |
+| Permanent | Accrues round after round and is never given back | Same. The difference is whether the game's end takes it back, and that difference is the player's to know rather than the engine's |
 
-The game keeps handing out effects that outlive a fight. A wisp lends an item
-for a run. A consumable is spent on a champion and stays until the run ends.
-Veigar accrues 1.5% ability power per kill and carries the total forward.
-Maokai's Old Growth banks 30 permanent health per nearby death.
+## Why the two upper scales are not the engine's
 
-They differ in one thing only — whether the run's end takes them back — and the
-model has no place for either.
+The game keeps handing out effects that outlive a fight. A wisp lends an item for
+a game. A consumable is spent on a champion and stays. Veigar accrues 1.5%
+ability power per kill and carries the total forward. Maokai's Old Growth banks
+30 permanent health per nearby death.
 
-## What that costs the player
+None of that is a fight the product simulates. Replaying the game that produced
+the total would mean simulating economy, shop and rounds — everything
+`docs/product.md` says the product does not do.
 
-An effect the app cannot expire is an effect the player has to remember.
+So the total is stated once and read. That is what `requiresRunInput` marks in
+`data/`: an entry carrying a state no calculation derives, whose options the
+catalog enumerates without designating one.
 
-Take a wisp that lends a Bramble Vest. If the app only shows the wisp as a
-picture, the player equips the vest by hand, and nothing on screen says it is on
-loan. When the run ends, the vest is still sitting on the champion. The next run
-starts from a board that is wrong, and every number it produces is wrong with
-it — quietly, because the data is intact and only the state is stale.
+## Borrowed effects
 
-Two properties follow, and they are the same property seen from both ends:
+What is lent has to be told apart from what the player placed — on screen, and in
+what the app clears.
 
-- **A borrowed effect announces its term.** Where a wisp opens a choice — one
-  option for Phantom Vest, three for Doodad Sack — the choice is taken in the
-  app rather than mimed on the board, and what it grants is marked for what it
-  is.
-- **A borrowed effect takes itself back.** The run ends, the loan lapses. No
+Two properties, and they are one property seen from both ends:
+
+- **A borrowed effect announces itself.** Where a wisp opens a choice — one
+  option for Phantom Vest, three for Doodad Sack — the choice is taken in the app
+  rather than mimed on the board, and what it grants is marked for what it is.
+- **A borrowed effect takes itself back.** The run ends, the loan lapses, and no
   step is left to the player, because the step a player has to remember is the
-  step a player forgets.
+  step a player forgets. What the player placed stays until the player clears it.
 
-Accrual is the mirror case: it never lapses, so the player states it once — the
-running total — and the engine reads it rather than replaying the game that
-produced it. That is what `requiresRunInput` marks in `data/`.
+Neither is a lifetime the engine holds. Both belong to the app, and both hold
+across the iterations of one run.
 
 ## What is missing to express it
 
-`Temporality` reaches the end of a fight and stops. Carrying the two scales above
-it takes three things it does not have:
+One scale, not three.
 
-- an **end that is not a number of seconds** — the end of a run is an event, not
-  a duration
-- a **holder that outlives a fight**, since `simulate()` is given one fight and
-  returns a result
-- a way to tell a **borrowed** effect from an **earned** one, because they are
-  written identically today and only their term differs
+`Temporality` reaches the end of a fight and stops, which is enough — the two
+scales above it are input rather than resolution. What it lacks is at the bottom
+of its own range: **the fight scale itself has no value**. A modifier with no
+duration is never expired, and nothing distinguishes one that means _for the rest
+of the fight_ from one whose duration was forgotten.
