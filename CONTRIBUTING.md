@@ -10,7 +10,7 @@ the build.
 A branch is named after the ticket it carries: `SFT-<ticket>-<slug>`. Paired
 tickets share one branch and one pull request.
 
-```
+```git
 gh issue develop <n> --base main --name "SFT-<n>-<slug>" --checkout
 ```
 
