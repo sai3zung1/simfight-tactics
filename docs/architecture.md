@@ -32,17 +32,23 @@ imports one until the catalog lands.
 ## `src/sets`
 
 Set content, as data. Reads the domain, plus `engine/spell/contract` — nothing
-else in the engine.
+else in the engine — and `data/`, the capture.
 
-One folder per set. Inside it, a registry of the spells a run can look up, and
-one file per spell carrying its parameters and the modifiers it returns.
+`capture.ts` is the only file in the tree that imports `data/`; every other
+reader goes through what it exports. That is what keeps a rotation, which
+rewrites the capture whole, from reaching past this folder.
+
+Then one folder per set: a registry of the spells a run can look up, and one
+file per spell carrying its parameters and the modifiers it returns.
 
 ## `src/ui`
 
 Components, one folder each.
 
 A contract may read the domain: `text` draws its stat keywords from the stat
-schema, so a stat the schema does not have cannot be styled.
+schema, so a stat the schema does not have cannot be styled. It never reads the
+capture: the keys in `data/` are Riot's, and a component written against them
+breaks at the rotation that renames one.
 
 ## `src/styles`
 

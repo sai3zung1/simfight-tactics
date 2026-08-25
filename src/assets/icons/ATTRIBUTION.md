@@ -30,3 +30,36 @@ Extensions follow the bytes rather than the URL: lolchess serves JPEG under a
 A spell takes the `id` of the unit that casts it, because `units.json` holds an
 ability without an id of its own while `Spell` in the domain declares one. They
 get renamed the day spells carry theirs.
+
+## Reaching the browser
+
+`iconPath` in the capture is a path from the repository root, and nothing
+serves that path. Vite's root-absolute glob is what turns one into a URL — its
+keys are those same paths with a leading slash, so `"/" + iconPath` is the
+lookup:
+
+```ts
+import.meta.glob("/src/assets/icons/**/*.{png,jpg,svg}", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+```
+
+Every path the capture names resolves through it, and every one of them exists
+here. The files none of them names are the monochrome trait variants, which an
+interface derives from the trait's own path rather than reading.
+
+Eager and `?url` on their own are a trap. Vite inlines an asset under 4096
+bytes as a data URI, which swallows every SVG and every JPG here: the entry
+chunk goes from 190 kB to 904 kB, and the browser parses that base64 before it
+paints anything. `build.assetsInlineLimit: 0` in `vite.config.ts` emits them as
+files instead and brings the chunk back to 334 kB. Measured on Vite 8.0.13.
+
+## Some of these files are the same file
+
+636 names, 561 distinct contents. Seventy-five are byte-identical copies of
+another, and one group of twenty-seven augments shares a single image — the art
+Community Dragon serves when an entry has none of its own. A bundler collapses
+them, so they cost nothing to ship; a catalogue does not, and a grid of
+twenty-seven identical tiles is a display problem rather than a capture one.
