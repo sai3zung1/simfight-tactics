@@ -1,7 +1,4 @@
 {
-  "capturedOn": "2026-08-14",
-  "source": "CT_Role_Stats, read from the shipped client",
-  "note": "What a role does on its own, before any trait or item. No published source carries it: mana generation per role is what sets a unit's cast rate, so a simulation that ignores it is wrong on every fight. Riot names a role on two axes — an archetype and a damage type, Attack, Magic or Hybrid — and a resource axis on top. Only the archetype carries these numbers.",
   "entries": [
     {
       "id": "tank",
