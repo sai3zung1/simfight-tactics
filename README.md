@@ -59,6 +59,17 @@ bun run storybook    # component workshop
 bun run gate         # what CI checks
 ```
 
+The extraction chain reads an installed game client, so it takes the path to one:
+
+```sh
+bun run capture --probe "C:/Riot Games/Teamfight Tactics/Live"
+```
+
+That reports what kind of packaging the client is made of — the container format,
+what compresses it, whether a key is needed — without opening a single asset. It
+is what says whether a reader can open a given client at all, and it is how a
+change of packaging becomes loud at a rotation instead of silent.
+
 ## Finding your way
 
 `docs/architecture.md` maps the source tree — what each area holds and what it
