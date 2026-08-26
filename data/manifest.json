@@ -3,7 +3,7 @@
   "setName": "Enchanted Wilds",
   "capturedOn": "2026-08-01",
   "normalisedOn": "2026-08-11",
-  "note": "Field names, stat keys and union values follow src/domain. Percentages are decimals. Descriptions stay verbatim. Every mechanic is also carried as values: a grant names its recipient and its stats, params carry the numbers a condition needs, and combat says whether the entry changes anything inside a fight.",
+  "note": "Field names, stat keys and union values follow src/domain. docs/adr/0009-riot-naming-is-the-vocabulary.md reverses that direction — the client's own names are the vocabulary — and this capture predates it, as it predates docs/adr/0010-riot-is-the-only-source.md, which removes the four published sources listed below. Percentages are decimals. Descriptions stay verbatim. Every mechanic is also carried as values: a grant names its recipient and its stats, params carry the numbers a condition needs, and combat says whether the entry changes anything inside a fight.",
   "sources": {
     "lolchess.gg": "units and their abilities; the Set 18 wisp and augment pools, with gold, tier, category and appearance condition",
     "metatft.com": "trait descriptions, augment stages and the augment category taxonomy",

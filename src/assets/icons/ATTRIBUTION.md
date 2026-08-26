@@ -14,6 +14,11 @@ belongs to, so a missing icon and an orphan file are both a machine check away.
 | Items    | Community Dragon, `assets/maps/particles/tft`                     | PNG           |
 | Augments | Community Dragon, `assets/maps/particles/tft/item_icons/augments` | PNG           |
 
+Every row of that table is superseded by
+`docs/adr/0010-riot-is-the-only-source.md`: none of these files comes from the
+client, and all of them are re-taken from it. The table records where the art
+came from before that record, and therefore what has to be replaced.
+
 Community Dragon publishes what the game ships. Riot allows its assets to be
 used in a non-commercial project that does not claim endorsement; the terms are
 theirs to state and ours to respect.

@@ -47,8 +47,10 @@ Components, one folder each.
 
 A contract may read the domain: `text` draws its stat keywords from the stat
 schema, so a stat the schema does not have cannot be styled. It never reads the
-capture: the keys in `data/` are Riot's, and a component written against them
-breaks at the rotation that renames one.
+capture: `docs/adr/0009-riot-naming-is-the-vocabulary.md` makes the domain carry
+the client's own names, so the two agree on what a key is called — what still
+separates them is that a capture is a file and the domain is a type the compiler
+checks.
 
 ## `src/styles`
 
