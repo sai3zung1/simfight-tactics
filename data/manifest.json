@@ -24,12 +24,12 @@
     "set-18/wisps.json": {
       "count": 176,
       "status": "partial",
-      "verified": "The client defines 181 charms; the published sources carried 163 of them, and gold, category and description agree on those. 84 change a fight and are decomposed into grants. The 14 the aggregators omit are economy — gold, experience, player health, streaks — and were added from the client on 2026-08-14 with their name, their cost and their values. Six of them get their description back by matching the curve rows the client's own text quotes; the other eight quote a row name too common to tell one charm from another, and stay null along with every category and appearance window. Crystal Ball was dropped: neither its name nor its text appears anywhere in the 14262 strings the client ships"
+      "verified": "The client defines 181 charms; the published sources carried 163 of them, and gold, category and description agree on those. 100 change a fight, and 55 of those are decomposed into grants; the rest name a mechanic no block computes yet. The 14 the aggregators omit are economy — gold, experience, player health, streaks — and were added from the client on 2026-08-14 with their name, their cost and their values. Six of them get their description back by matching the curve rows the client's own text quotes; the other eight quote a row name too common to tell one charm from another, and stay null along with every category and appearance window. Crystal Ball was dropped: neither its name nor its text appears anywhere in the 14262 strings the client ships"
     },
     "timeless/augments.json": {
       "count": 257,
       "status": "complete",
-      "verified": "255 distinct augments across 257 rows: Beast Within and Beast Within+ each appear twice, same tier and same apparition, differing only in the champion they hand out — Sivir or Nidalee. lolchess and metatft agree on every name and every tier. 240 matched to Riot Set 18 entries; 99 carry combat effects and are decomposed into grants"
+      "verified": "255 distinct augments across 257 rows: Beast Within and Beast Within+ each appear twice, same tier and same apparition, differing only in the champion they hand out — Sivir or Nidalee. lolchess and metatft agree on every name and every tier. 240 matched to Riot Set 18 entries; 102 carry combat effects, and 84 of those are decomposed into grants"
     },
     "timeless/items.json": {
       "count": 137,
