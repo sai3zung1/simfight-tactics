@@ -46,7 +46,6 @@ try
     // path-wide, case-blind match turns `CT_` into every texture whose name
     // happens to hold "impact_".
     var matches = provider.Files.Keys
-        .Where(path => path.EndsWith(".uasset", StringComparison.OrdinalIgnoreCase))
         .Where(path => Path.GetFileName(path).Contains(pattern, StringComparison.Ordinal))
         .OrderBy(path => path, StringComparer.Ordinal)
         .ToList();
@@ -61,7 +60,8 @@ try
     Directory.CreateDirectory(output);
 
     var written = 0;
-    foreach (var path in matches)
+    foreach (var path in matches.Where(
+        p => p.EndsWith(".uasset", StringComparison.OrdinalIgnoreCase)))
     {
         // #195 will make a single unreadable asset a refusal of its own. Until
         // it lands, one that cannot be read stops the run — and it says why.
