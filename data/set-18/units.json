@@ -5030,8 +5030,7 @@
         "magicResist": 30,
         "attackSpeed": 0.5,
         "range": [1]
-      },
-      "summoned": true
+      }
     },
     {
       "id": "s18-tristana",
