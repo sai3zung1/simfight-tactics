@@ -182,6 +182,31 @@ value the player knows and the app never asked for. Which options exist is read
 from the client; which one applies is the player's, and the capture never
 designates one.
 
+## When a capture lands in `data/`
+
+`docs/product.md` settles where a patch is applied: in one place, `data/`,
+through a capture or by hand. So the chain writes `data/` in the end, and the
+directory it writes first holds the raw reading rather than the result.
+
+It merges rather than overwrites, because `data/` holds what no chain produces.
+The rule is readable off the tables above, and it is the whole rule:
+
+- **The chain owns every row that names a client source.** A run replaces those,
+  every time, without asking.
+- **It preserves every row marked never.** `combat` and `requiresRunInput` are
+  readings a person makes, on all 677 entries, and a run leaves them exactly
+  where it found them.
+- **It preserves every block waiting on a property schema.** The grants and
+  applies the tables mark as stripped objects are hand-written until #206, and a
+  run that cannot read them must not remove them either.
+- **A field the chain owns and cannot read on a given run is a refusal, not an
+  erasure.** #195 makes the reader refuse rather than guess; a merge that wrote
+  an absence would guess by deleting.
+
+An entry the chain reads and `data/` does not hold is added. An entry `data/`
+holds and the chain does not read is a question, not a deletion: a set retires
+content, and so does a reader that stopped reaching it.
+
 ## Mechanics that have to be deciphered
 
 One-time, every one of them. A description states what an entry does and never
