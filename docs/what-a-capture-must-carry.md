@@ -182,6 +182,34 @@ value the player knows and the app never asked for. Which options exist is read
 from the client; which one applies is the player's, and the capture never
 designates one.
 
+## What the index gives without the schema
+
+A container's file index is not behind the property block. It mounts and lists
+whatever the schema is missing, and on the Live client it lists 250 489 paths.
+That is enough for a real share of this page, measured rather than hoped:
+
+- **The set's inventory, by folder.** `TFT/Plugins/GameFeatures/Set_18/Content/`
+  holds `Champions` — 66 folders, one per champion — beside `Charms`, `Traits`,
+  `Augments`, `Items`, `Minions`, `Encounters`, `Armies`, `Carousel`, `Shop` and
+  `Rounds`. #196 asks a capture to enumerate what a set holds, and this
+  enumerates it.
+- **Riot's identifiers.** 99 distinct `TFT18_*` names appear in the paths, one
+  per champion among them. #201 asks for the join key, and the key is in the
+  path.
+- **The shape of the packaging**, which the probe already reports without
+  opening anything.
+
+And it disagrees with `data/` already, which is what makes it worth reading:
+three champion folders — `CrimsonRaptor`, `NunuWillump`, `Sentry` — have no
+entry, and two entries — Mama Beak, Pebbles — have no folder.
+
+What the index does **not** give is anything inside an object: a value, a
+breakpoint, a grant, a description. Nor the text — no `.locres` is indexed at
+all, and `Set_18/Content/L10n` is voice lines, 362 assets and their bulk data.
+
+So the line falls between naming a thing and reading it. A capture can say what a
+set holds and what Riot calls it; it cannot say what any of it does.
+
 ## When a capture lands in `data/`
 
 `docs/product.md` settles where a patch is applied: in one place, `data/`,
