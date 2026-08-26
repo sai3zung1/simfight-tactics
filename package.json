@@ -12,6 +12,7 @@
     "format:check": "prettier --check .",
     "typecheck": "tsc -b",
     "test": "bun test",
+    "capture": "bun tools/capture/capture.ts",
     "test:stories": "vitest run --project=storybook --passWithNoTests",
     "gate": "bun run typecheck && bun run lint && bun run format:check && bun test && bun run test:stories",
     "storybook": "storybook dev -p 6006",

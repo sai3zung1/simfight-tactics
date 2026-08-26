@@ -26,6 +26,9 @@ dist-ssr
 
 # Local tooling, not part of the project
 scripts/
+
+# Extraction output: derived from an installed client, never versioned
+captures/
 *.tsbuildinfo
 .vite/
 vite.config.js.timestamp-*

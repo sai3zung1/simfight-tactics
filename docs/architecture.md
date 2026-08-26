@@ -57,6 +57,23 @@ place: type, spacing, radii, easing, and a palette that runs down to the domain
 — one colour per damage type, per unit cost, per augment tier. `fonts.css`
 carries the faces.
 
+## `tools`
+
+The extraction chain, which reads an installed game client and writes a capture.
+It is not part of the application: nothing under `src/` imports it, and it never
+reaches a browser.
+
+|            |                                                                                                                            |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `capture/` | the `bun run capture` command — resolving an install, reporting the shape of its containers, and reading a set out of them |
+
+Its output lands in `captures/`, which is not versioned: a capture is derived
+from a shipped client, and `docs/adr/0003-empty-mechanics-come-from-the-client.md`
+keeps shipped files out of this repository. `data/` stays the capture the project
+carries, and the chain never writes to it —
+`docs/product.md` makes it the one place a patch is applied, by hand or by
+capture.
+
 ## Root
 
 `index.html` and `src/main.tsx` mount `src/app.tsx`. Configuration sits at the
