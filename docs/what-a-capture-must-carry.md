@@ -169,13 +169,13 @@ on 81 of the 677 across the capture.
 Marking an entry is one half. The options it offers are the other, and they have
 no common home.
 
-| Family   | Entries marked | The options they offer                                                                        | Extraction |
-| -------- | -------------- | --------------------------------------------------------------------------------------------- | ---------- |
-| Wisps    | 34             | `consumableOptions` under `params` on nine of them; nothing on the other twenty-five          | continuous |
-| Augments | 33             | **no field** — the entries carry `params` and `grants` and nothing naming what is picked from | continuous |
-| Traits   | 8              | one key each, trait-specific — `blessings`, `alphaTargets`, `khazixTraits`, `hexes`, `mount`  | continuous |
-| Items    | 4              | **no field**                                                                                  | continuous |
-| Units    | 2              | **no field**                                                                                  | continuous |
+| Family   | Entries marked | The options they offer                                                                                                                                                                                    | Extraction |
+| -------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| Wisps    | 34             | `consumableOptions` under `params` on nine of them; nothing on the other twenty-five                                                                                                                      | continuous |
+| Augments | 33             | `rollOptions` under `params` on two of them — Magic Roll and Slightly Magic Roll; nothing on the other thirty-one                                                                                         | continuous |
+| Traits   | 8              | no key named for options; each carries one key of its own — `blessings`, `alphaTargets`, `khazixTraits`, `hexes`, `mount` — and whether those enumerate what a player picks is a reading, not established | continuous |
+| Items    | 4              | **no field**                                                                                                                                                                                              | continuous |
+| Units    | 2              | **no field**                                                                                                                                                                                              | continuous |
 
 An entry that needs a declaration and enumerates nothing is simulated against a
 value the player knows and the app never asked for. Which options exist is read
