@@ -140,20 +140,24 @@ unit asks for.
 Every file is re-taken from the client under ADR 0010. Measured in
 `src/assets/icons/`, and matching the 636 that `ATTRIBUTION.md` records.
 
-| Family   | In the tree today                                                                                     | Read by                                                                  | Readings a component asks for                |
-| -------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | -------------------------------------------- |
-| Units    | 69 — 65 PNG at 128 × 128, 4 JPG                                                                       | #187 card, #170 board cell, #320 picker, #240 result panel, #188 tooltip | card · board cell · picker · tooltip         |
-| Spells   | 65 — 64 JPG, 1 PNG, named by the unit's id because the ability carries no id of its own               | #188 tooltip, #278                                                       | tooltip                                      |
-| Traits   | 108 — 36 × (base + two monochrome), all SVG, and **lolchess's vectorisations rather than Riot files** | #221 trait panel, #320 picker                                            | panel · picker · the two monochrome readings |
-| Items    | 137 PNG at 128 × 128                                                                                  | #220 item slot, #320 picker, #188 tooltip                                | slot · picker · tooltip                      |
-| Augments | 257 PNG                                                                                               | #322 augment row, #320 picker                                            | row · picker                                 |
-| Wisps    | none, and none is wanted — a wisp is text                                                             | #322, #324                                                               | —                                            |
+| Family   | In the tree today                                                                                     | Read by                                                                  | Readings a component asks for                                                                                     |
+| -------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| Units    | 69 — 65 PNG at 128 × 128, 4 JPG, every one of them cropped to the head; **no splash art at all**      | #187 card, #170 board cell, #320 picker, #240 result panel, #188 tooltip | the cropped portrait for the board cell, the picker and the result panel; the splash for the card and the tooltip |
+| Spells   | 65 — 64 JPG, 1 PNG, named by the unit's id because the ability carries no id of its own               | #188 tooltip, #278                                                       | tooltip                                                                                                           |
+| Traits   | 108 — 36 × (base + two monochrome), all SVG, and **lolchess's vectorisations rather than Riot files** | #221 trait panel, #320 picker                                            | panel · picker · the two monochrome readings                                                                      |
+| Items    | 137 PNG at 128 × 128                                                                                  | #220 item slot, #320 picker, #188 tooltip                                | slot · picker · tooltip                                                                                           |
+| Augments | 257 PNG                                                                                               | #322 augment row, #320 picker                                            | row · picker                                                                                                      |
+| Wisps    | none, and none is wanted — a wisp is text                                                             | #322, #324                                                               | —                                                                                                                 |
 
-One square raster per entry is what exists. Every reading in the last column
-beyond the card is served by that same file resized, and no ticket states a
-size. **Which readings need their own file, and at what dimensions, is not in
-the repository** — it follows from the screens, and it is the one row of this
-page that cannot be measured.
+**A unit needs two artworks, not one image at two sizes.** What sits in the tree
+is cropped to the champion's head, which serves a dense context — a board cell,
+a picker row — and cannot be enlarged into a card, because the art it would need
+is not in the file. The splash is the other one: rectangular, far larger, and
+absent from the tree entirely. Neither derives from the other, so the chain
+fetches both.
+
+Every other family carries one artwork, and the readings a component asks for
+are that file at the size the screen draws it.
 
 ## What the player declares
 
@@ -207,6 +211,7 @@ Demanded by a ticket, produced by none.
 - **Riot's character identifier**, absent on all 71 — #201. Continuous.
 - **The labels behind the hashed taxonomy** — #200, which ADR 0010 makes the only source of a taxonomy at all. Continuous.
 - **Text as templates rather than as substituted numbers** — #199, on the 41 units carrying a value frozen at one reading. Continuous.
+- **A unit's splash art** — #187 and #188 draw a card and a tooltip that the cropped portrait cannot fill, and no file in `src/assets/icons/` is one. Continuous.
 - Everything in the section above it, which is the one-time half of the same list.
 
 ## Unsourced
