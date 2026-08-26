@@ -63,9 +63,9 @@ The extraction chain, which reads an installed game client and writes a capture.
 It is not part of the application: nothing under `src/` imports it, and it never
 reaches a browser.
 
-|            |                                                                                                                            |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `capture/` | the `bun run capture` command — resolving an install, reporting the shape of its containers, and reading a set out of them |
+|            |                                                                                                |
+| ---------- | ---------------------------------------------------------------------------------------------- |
+| `capture/` | the `bun run capture` command — resolving an install and reporting the shape of its containers |
 
 Its output lands in `captures/`, which is not versioned: a capture is derived
 from a shipped client, and `docs/adr/0003-empty-mechanics-come-from-the-client.md`
