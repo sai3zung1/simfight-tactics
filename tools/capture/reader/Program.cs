@@ -1,10 +1,11 @@
 using CUE4Parse.Compression;
 using CUE4Parse.FileProvider;
 using CUE4Parse.UE4.Versions;
+using Newtonsoft.Json;
 
-if (args.Length != 1)
+if (args.Length is 0 or > 3)
 {
-    Console.Error.WriteLine("usage: reader <paks directory>");
+    Console.Error.WriteLine("usage: reader <paks> [pattern [output directory]]");
     return 2;
 }
 
@@ -34,7 +35,50 @@ try
         return 1;
     }
 
-    Console.WriteLine(provider.Files.Count);
+    if (args.Length == 1)
+    {
+        Console.WriteLine(provider.Files.Count);
+        return 0;
+    }
+
+    var pattern = args[1];
+    // The pattern reads against the asset's own name and keeps its case: a
+    // path-wide, case-blind match turns `CT_` into every texture whose name
+    // happens to hold "impact_".
+    var matches = provider.Files.Keys
+        .Where(path => path.EndsWith(".uasset", StringComparison.OrdinalIgnoreCase))
+        .Where(path => Path.GetFileName(path).Contains(pattern, StringComparison.Ordinal))
+        .OrderBy(path => path, StringComparer.Ordinal)
+        .ToList();
+
+    if (args.Length == 2)
+    {
+        foreach (var path in matches) Console.WriteLine(path);
+        return 0;
+    }
+
+    var output = args[2];
+    Directory.CreateDirectory(output);
+
+    var written = 0;
+    foreach (var path in matches)
+    {
+        // #195 will make a single unreadable asset a refusal of its own. Until
+        // it lands, one that cannot be read stops the run — and it says why.
+        var package = provider.LoadPackage(path);
+
+        var exports = package.ExportsLazy.Select(export => export.Value).ToArray();
+        var name = path
+            .Replace('/', '.')
+            .Replace(".uasset", string.Empty, StringComparison.OrdinalIgnoreCase);
+
+        File.WriteAllText(
+            Path.Combine(output, $"{name}.json"),
+            JsonConvert.SerializeObject(exports, Formatting.Indented));
+        written++;
+    }
+
+    Console.WriteLine(written);
     return 0;
 }
 catch (Exception error)
