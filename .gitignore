@@ -29,6 +29,10 @@ scripts/
 
 # Extraction output: derived from an installed client, never versioned
 captures/
+
+# .NET build output
+bin/
+obj/
 *.tsbuildinfo
 .vite/
 vite.config.js.timestamp-*

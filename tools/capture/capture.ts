@@ -1,13 +1,24 @@
 import { readInstalledClient } from "./client";
 import { formatShape, probe } from "./probe";
+import { countReadableFiles } from "./reader";
 
-const USAGE = "usage: bun run capture --probe <install root>";
+const USAGE = "usage: bun run capture (--probe | --read) <install root>";
 
 export function run(args: readonly string[]): string {
-  if (args[0] !== "--probe" || !args[1]) {
+  const [mode, installRoot] = args;
+  if (!installRoot) {
     throw new Error(USAGE);
   }
-  return formatShape(probe(readInstalledClient(args[1])));
+
+  const client = readInstalledClient(installRoot);
+  switch (mode) {
+    case "--probe":
+      return formatShape(probe(client));
+    case "--read":
+      return `${client.branch} — ${countReadableFiles(client)} files the reader can see`;
+    default:
+      throw new Error(USAGE);
+  }
 }
 
 if (import.meta.main) {
