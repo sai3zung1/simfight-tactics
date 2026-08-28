@@ -5,16 +5,20 @@ import type { CurveTablesRead } from "./reader";
 
 export const CAPTURES = "captures";
 
-export function captureDirName(set: string, on: Date): string {
-  return `set-${set}-${on.toISOString().slice(0, 10)}`;
+// The branch is part of what a capture is: PBE and Live ship different builds of
+// the same set, so a name that leaves it out makes the second one of a day
+// collide with the first.
+export function captureDirName(set: string, branch: string, on: Date): string {
+  return `set-${set}-${branch}-${on.toISOString().slice(0, 10)}`;
 }
 
 export function createCaptureDir(
   set: string,
+  branch: string,
   on: Date,
   into: string = CAPTURES,
 ): string {
-  const path = join(into, captureDirName(set, on));
+  const path = join(into, captureDirName(set, branch, on));
   if (existsSync(path)) {
     throw new Error(`a capture already sits at ${path}`);
   }

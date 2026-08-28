@@ -21,7 +21,7 @@ export function run(args: readonly string[]): string {
       return `${client.branch} — ${countReadableFiles(client)} files the reader can see`;
     case "--capture": {
       if (!set) throw new Error(USAGE);
-      const path = createCaptureDir(set, new Date());
+      const path = createCaptureDir(set, client.branch, new Date());
       const read = decodeCurveTables(client, join(path, "curve-tables"));
       writeCaptureRecord(path, client, set, read);
       return `${path} — ${read.written} curve tables, ${read.refused} refused`;
