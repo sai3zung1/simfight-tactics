@@ -1,11 +1,13 @@
+import { createCaptureDir } from "./capture-dir";
 import { readInstalledClient } from "./client";
 import { formatShape, probe } from "./probe";
 import { countReadableFiles } from "./reader";
 
-const USAGE = "usage: bun run capture (--probe | --read) <install root>";
+const USAGE =
+  "usage: bun run capture (--probe <install root> | --read <install root> | --capture <install root> <set>)";
 
 export function run(args: readonly string[]): string {
-  const [mode, installRoot] = args;
+  const [mode, installRoot, set] = args;
   if (!installRoot) {
     throw new Error(USAGE);
   }
@@ -16,6 +18,9 @@ export function run(args: readonly string[]): string {
       return formatShape(probe(client));
     case "--read":
       return `${client.branch} — ${countReadableFiles(client)} files the reader can see`;
+    case "--capture":
+      if (!set) throw new Error(USAGE);
+      return createCaptureDir(client, set, new Date());
     default:
       throw new Error(USAGE);
   }

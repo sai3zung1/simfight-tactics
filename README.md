@@ -70,6 +70,14 @@ what compresses it, whether a key is needed — without opening a single asset. 
 is what says whether a reader can open a given client at all, and it is how a
 change of packaging becomes loud at a rotation instead of silent.
 
+```sh
+bun run capture --capture "C:/Riot Games/Teamfight Tactics/Live" 18
+```
+
+That opens a dated capture for a set under `captures/`, which is not versioned,
+and records which client it was taken from. It refuses rather than overwrite a
+capture already taken that day.
+
 ## Finding your way
 
 `docs/architecture.md` maps the source tree — what each area holds and what it
