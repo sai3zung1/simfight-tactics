@@ -2,6 +2,7 @@ using CUE4Parse.Compression;
 using CUE4Parse.FileProvider;
 using CUE4Parse.UE4.Versions;
 using Newtonsoft.Json;
+using Sft.Capture.Reader;
 
 if (args.Length is 0 or > 3)
 {
@@ -24,6 +25,12 @@ try
         new VersionContainer(EGame.GAME_UE5_7),
         StringComparer.OrdinalIgnoreCase);
 
+    var mappings = Environment.GetEnvironmentVariable("SFT_MAPPINGS");
+    if (!string.IsNullOrEmpty(mappings))
+    {
+        provider.MappingsContainer = new WrittenMappings(mappings);
+    }
+
     provider.Initialize();
     provider.Mount();
 
@@ -41,12 +48,11 @@ try
         return 0;
     }
 
-    var pattern = args[1];
     // The pattern reads against the asset's own name and keeps its case: a
     // path-wide, case-blind match turns `CT_` into every texture whose name
     // happens to hold "impact_".
     var matches = provider.Files.Keys
-        .Where(path => Path.GetFileName(path).Contains(pattern, StringComparison.Ordinal))
+        .Where(path => Path.GetFileName(path).Contains(args[1], StringComparison.Ordinal))
         .OrderBy(path => path, StringComparer.Ordinal)
         .ToList();
 
@@ -59,26 +65,30 @@ try
     var output = args[2];
     Directory.CreateDirectory(output);
 
-    var written = 0;
+    int written = 0, refused = 0;
     foreach (var path in matches.Where(
         p => p.EndsWith(".uasset", StringComparison.OrdinalIgnoreCase)))
     {
-        // #195 will make a single unreadable asset a refusal of its own. Until
-        // it lands, one that cannot be read stops the run — and it says why.
-        var package = provider.LoadPackage(path);
-
-        var exports = package.ExportsLazy.Select(export => export.Value).ToArray();
-        var name = path
-            .Replace('/', '.')
-            .Replace(".uasset", string.Empty, StringComparison.OrdinalIgnoreCase);
+        var rows = CurveTable.Read(provider, path);
+        if (rows is null)
+        {
+            // Refusing one asset and carrying on is #195. Until it lands, what
+            // is refused is counted rather than guessed at.
+            refused++;
+            continue;
+        }
 
         File.WriteAllText(
-            Path.Combine(output, $"{name}.json"),
-            JsonConvert.SerializeObject(exports, Formatting.Indented));
+            // Named for its whole path: two folders ship a CT_Ascension, and a
+            // capture that keeps one of them silently keeps the wrong one.
+            Path.Combine(output, path.Replace('/', '.').Replace(".uasset", ".json", StringComparison.OrdinalIgnoreCase)),
+            JsonConvert.SerializeObject(
+                rows.ToDictionary(r => r.Name, r => r.Series),
+                Formatting.Indented));
         written++;
     }
 
-    Console.WriteLine(written);
+    Console.WriteLine($"{written} {refused}");
     return 0;
 }
 catch (Exception error)

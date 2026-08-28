@@ -1,7 +1,8 @@
-import { createCaptureDir } from "./capture-dir";
+import { join } from "node:path";
+import { createCaptureDir, writeCaptureRecord } from "./capture-dir";
 import { readInstalledClient } from "./client";
 import { formatShape, probe } from "./probe";
-import { countReadableFiles } from "./reader";
+import { countReadableFiles, decodeCurveTables } from "./reader";
 
 const USAGE =
   "usage: bun run capture (--probe <install root> | --read <install root> | --capture <install root> <set>)";
@@ -18,9 +19,13 @@ export function run(args: readonly string[]): string {
       return formatShape(probe(client));
     case "--read":
       return `${client.branch} — ${countReadableFiles(client)} files the reader can see`;
-    case "--capture":
+    case "--capture": {
       if (!set) throw new Error(USAGE);
-      return createCaptureDir(client, set, new Date());
+      const path = createCaptureDir(set, new Date());
+      const read = decodeCurveTables(client, join(path, "curve-tables"));
+      writeCaptureRecord(path, client, set, read);
+      return `${path} — ${read.written} curve tables, ${read.refused} refused`;
+    }
     default:
       throw new Error(USAGE);
   }

@@ -1,6 +1,7 @@
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type { InstalledClient } from "./client";
+import type { CurveTablesRead } from "./reader";
 
 export const CAPTURES = "captures";
 
@@ -9,7 +10,6 @@ export function captureDirName(set: string, on: Date): string {
 }
 
 export function createCaptureDir(
-  client: InstalledClient,
   set: string,
   on: Date,
   into: string = CAPTURES,
@@ -20,9 +20,23 @@ export function createCaptureDir(
   }
 
   mkdirSync(path, { recursive: true });
+  return path;
+}
+
+export function writeCaptureRecord(
+  path: string,
+  client: InstalledClient,
+  set: string,
+  read: CurveTablesRead,
+): void {
+  const record = {
+    set,
+    branch: client.branch,
+    build: client.build,
+    curveTables: { read: read.written, refused: read.refused },
+  };
   writeFileSync(
     join(path, "capture.json"),
-    `${JSON.stringify({ set, branch: client.branch, build: client.build }, null, 2)}\n`,
+    `${JSON.stringify(record, null, 2)}\n`,
   );
-  return path;
 }

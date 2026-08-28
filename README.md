@@ -75,8 +75,9 @@ bun run capture --capture "C:/Riot Games/Teamfight Tactics/Live" 18
 ```
 
 That opens a dated capture for a set under `captures/`, which is not versioned,
-and records which client it was taken from. It refuses rather than overwrite a
-capture already taken that day.
+reads the client's curve tables into it, and records which client it was taken
+from along with how many tables were read and how many were refused. It refuses
+rather than overwrite a capture already taken that day.
 
 ## Finding your way
 
