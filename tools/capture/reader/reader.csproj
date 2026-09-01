@@ -12,6 +12,9 @@
 
   <ItemGroup>
     <PackageReference Include="CUE4Parse" Version="1.2.2.202608" />
+    <!-- The block decoders, from the same author and version line. [F] settled
+         taking them rather than owning a thousand lines of block decoding. -->
+    <PackageReference Include="CUE4Parse-Conversion" Version="1.2.2.202608" />
     <!-- CUE4Parse pulls 9.0.0 in, which carries GHSA-73j8-2gch-69rq -->
     <PackageReference Include="Microsoft.Bcl.Memory" Version="10.0.11" />
   </ItemGroup>

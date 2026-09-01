@@ -7,9 +7,9 @@ using Newtonsoft.Json.Serialization;
 using Sft.Capture.Reader;
 
 const string usage =
-    "usage: reader <paks> [curve-tables <output directory> | inventory <set> | text <inventory file> | identifiers <inventory file> | tags <inventory file>]";
+    "usage: reader <paks> [curve-tables <output directory> | inventory <set> | text <inventory file> | identifiers <inventory file> | tags <inventory file> | textures <inventory file> <output directory>]";
 
-if (args.Length is 0 or 2 or > 3)
+if (args.Length is 0 or 2 or > 4)
 {
     Console.Error.WriteLine(usage);
     return 2;
@@ -60,6 +60,7 @@ try
         "text" => PrintText(provider, args[2]),
         "identifiers" => PrintIdentifiers(provider, args[2]),
         "tags" => PrintTags(provider, args[2]),
+        "textures" when args.Length == 4 => WriteTextures(provider, args[2], args[3]),
         _ => Refuse(),
     };
 
@@ -205,6 +206,70 @@ static int PrintTags(AbstractFileProvider provider, string inventory)
 
     Console.WriteLine(Written(tags));
     return 0;
+}
+
+static int WriteTextures(AbstractFileProvider provider, string inventory, string output)
+{
+    Directory.CreateDirectory(output);
+
+    var index = Entries.Index(provider);
+    var held = new List<Texture.Held>();
+    var written = new Dictionary<string, Texture.Held>(StringComparer.Ordinal);
+    var seen = new HashSet<string>(StringComparer.Ordinal);
+
+    foreach (var entry in Entries.From(inventory))
+    {
+        // An entry names its art softly, so the paths are in its name map rather
+        // than among the packages it hard-depends on: Ahri hard-depends on five
+        // things and none is a picture.
+        foreach (var name in provider.LoadPackage(entry.Path).NameMap)
+        {
+            if (name.Name is not { } named || named.Length == 0 || named[0] != '/') continue;
+
+            var id = named[(named.LastIndexOf('/') + 1)..];
+            // A texture two entries share is read, written and refused once.
+            if (!seen.Add(id) && !written.ContainsKey(id)) continue;
+            if (written.TryGetValue(id, out var already))
+            {
+                // The client shares art on purpose: one file, and both entries
+                // reference it.
+                held.Add(already with { Entry = entry.Id });
+                continue;
+            }
+            if (!index.TryGetValue(named, out var file) || !IsTexture(provider, file)) continue;
+
+            var image = Texture.Read(provider, file, out var why);
+            if (image is null)
+            {
+                if (why is not null) Console.Error.WriteLine(new Refusal(id, why).ToString());
+                continue;
+            }
+
+            File.WriteAllBytes(Path.Combine(output, $"{id}.png"), image.Png);
+            var one = new Texture.Held(entry.Id, $"{id}.png", image.Width, image.Height, image.Format);
+            written[id] = one;
+            held.Add(one);
+        }
+    }
+
+    held.Sort((a, b) =>
+    {
+        var byEntry = string.CompareOrdinal(a.Entry, b.Entry);
+        return byEntry != 0 ? byEntry : string.CompareOrdinal(a.File, b.File);
+    });
+    Console.WriteLine(Written(held));
+    return 0;
+}
+
+static bool IsTexture(AbstractFileProvider provider, string path)
+{
+    if (provider.LoadPackage(path) is not CUE4Parse.UE4.Assets.IoPackage io) return false;
+
+    foreach (var export in io.ExportsLazy)
+    {
+        if (export.Value.ExportType == "Texture2D") return true;
+    }
+    return false;
 }
 
 static string Written(object value) =>

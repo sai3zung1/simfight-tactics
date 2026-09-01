@@ -48,7 +48,7 @@ public static class Inventory
         var refusals = new List<Refusal>();
         refused = refusals;
 
-        var index = Index(provider);
+        var index = Entries.Index(provider);
         var setData = Find(provider, $"DA_SetData_Standard{set}")
             ?? throw new FileNotFoundException(
                 $"no DA_SetData_Standard{set} here, so this client does not hold set {set}");
@@ -188,27 +188,4 @@ public static class Inventory
             .FirstOrDefault();
     }
 
-    /// An import names a package — `/Set_18/Champions/Ahri/DA_18_Ahri` — and the
-    /// provider is keyed by file — `TFT/Plugins/GameFeatures/Set_18/Content/…`.
-    /// The two meet at the content root, which is the segment before `/Content/`.
-    private static Dictionary<string, string> Index(AbstractFileProvider provider)
-    {
-        const string content = "/Content/";
-        var index = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-
-        foreach (var key in provider.Files.Keys)
-        {
-            if (!key.EndsWith(".uasset", StringComparison.OrdinalIgnoreCase)) continue;
-
-            var at = key.IndexOf(content, StringComparison.Ordinal);
-            if (at < 0) continue;
-
-            var root = key[..at];
-            var slash = root.LastIndexOf('/');
-            if (slash >= 0) root = root[(slash + 1)..];
-
-            index[$"/{root}/{key[(at + content.Length)..^".uasset".Length]}"] = key;
-        }
-        return index;
-    }
 }

@@ -1,3 +1,4 @@
+using CUE4Parse.FileProvider;
 using Newtonsoft.Json;
 
 namespace Sft.Capture.Reader;
@@ -28,5 +29,29 @@ public static class Entries
 
         named.Sort((a, b) => string.CompareOrdinal(a.Id, b.Id));
         return named;
+    }
+
+    /// An import names a package — `/Set_18/Champions/Ahri/DA_18_Ahri` — and the
+    /// provider is keyed by file — `TFT/Plugins/GameFeatures/Set_18/Content/…`.
+    /// The two meet at the content root, which is the segment before `/Content/`.
+    public static Dictionary<string, string> Index(AbstractFileProvider provider)
+    {
+        const string content = "/Content/";
+        var index = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+        foreach (var key in provider.Files.Keys)
+        {
+            if (!key.EndsWith(".uasset", StringComparison.OrdinalIgnoreCase)) continue;
+
+            var at = key.IndexOf(content, StringComparison.Ordinal);
+            if (at < 0) continue;
+
+            var root = key[..at];
+            var slash = root.LastIndexOf('/');
+            if (slash >= 0) root = root[(slash + 1)..];
+
+            index[$"/{root}/{key[(at + content.Length)..^".uasset".Length]}"] = key;
+        }
+        return index;
     }
 }

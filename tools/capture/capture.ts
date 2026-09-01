@@ -8,6 +8,7 @@ import { writeRefusals } from "./refusals";
 import { readIdentifiers, writeIdentifiers } from "./identifier";
 import { readTags, tagged, writeTags } from "./tags";
 import { lines, readText, writeText } from "./text";
+import { files, readTextures, writeImageIndex } from "./textures";
 import { countReadableFiles, decodeCurveTables } from "./reader";
 
 const USAGE =
@@ -43,6 +44,9 @@ export function run(args: readonly string[]): string {
       const classed = readTags(client, join(path, INVENTORY));
       writeTags(path, classed.tags);
 
+      const drawn = readTextures(client, join(path, INVENTORY), path);
+      writeImageIndex(path, drawn.images);
+
       const read = decodeCurveTables(client, join(path, "curve-tables"));
       if (read.written === 0) {
         // A capture that read nothing is not a capture, and the count alone
@@ -55,6 +59,7 @@ export function run(args: readonly string[]): string {
         ...said.refusals,
         ...stated.refusals,
         ...classed.refusals,
+        ...drawn.refusals,
         ...read.refusals,
       ]);
       // The digest covers the reading; the record carries the moment, which is
@@ -70,6 +75,7 @@ export function run(args: readonly string[]): string {
           read: Object.keys(stated.identifiers).length,
           refused: stated.refusals.length,
         },
+        assets: { read: files(drawn.images), refused: drawn.refusals.length },
         tags: { read: tagged(classed.tags), refused: classed.refusals.length },
         text: { read: lines(said.text), refused: said.refusals.length },
       });
@@ -78,8 +84,9 @@ export function run(args: readonly string[]): string {
         said.refusals.length +
         stated.refusals.length +
         classed.refusals.length +
+        drawn.refusals.length +
         read.refused;
-      return `${path} — ${counted(held.inventory)} entries, ${lines(said.text)} texts, ${read.written} curve tables, ${refused} refused`;
+      return `${path} — ${counted(held.inventory)} entries, ${lines(said.text)} texts, ${files(drawn.images)} images, ${read.written} curve tables, ${refused} refused`;
     }
     default:
       throw new Error(USAGE);
