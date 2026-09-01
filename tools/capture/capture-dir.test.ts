@@ -18,7 +18,7 @@ const CLIENT: InstalledClient = {
 
 const ON = new Date("2026-08-26T13:00:00Z");
 
-const READ = { written: 997, refused: 92 };
+const READ = { written: 667, refused: 0 };
 
 function writeRecordAt(path: string): string {
   writeCaptureRecord(path, CLIENT, "18", READ);
@@ -40,7 +40,7 @@ test("writes the branch and the build the capture came from", () => {
     set: "18",
     branch: "Live",
     build: "++tft+rls-18.1.0",
-    curveTables: { read: 997, refused: 92 },
+    curveTables: { read: 667, refused: 0 },
   });
 });
 

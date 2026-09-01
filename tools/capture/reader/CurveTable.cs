@@ -15,6 +15,26 @@ public static class CurveTable
 {
     public sealed record Row(string Name, IReadOnlyDictionary<float, float> Series);
 
+    /// Whether the package carries a curve table at all.
+    ///
+    /// A file name is a cheap way to narrow a quarter of a million files; it is
+    /// not what an asset is. 1091 of them are named `CT_` here and only 667 are
+    /// curve tables — the rest are colour curves, textures and effect systems,
+    /// and reading those wrote 332 empty files and refused 92 more, neither
+    /// number saying anything about the client. Of 3000 assets sampled from the
+    /// 202 621 the name excludes, none carried a curve table, so the name stays
+    /// the pre-filter and this is the decision.
+    public static bool Holds(AbstractFileProvider provider, string path)
+    {
+        if (provider.LoadPackage(path) is not CUE4Parse.UE4.Assets.IoPackage io) return false;
+
+        foreach (var export in io.ExportsLazy)
+        {
+            if (export.Value.ExportType == "CurveTable") return true;
+        }
+        return false;
+    }
+
     public static IReadOnlyList<Row>? Read(AbstractFileProvider provider, string path)
     {
         var bytes = provider.SaveAsset(path);

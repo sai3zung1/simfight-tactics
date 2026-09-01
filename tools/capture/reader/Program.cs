@@ -69,6 +69,11 @@ try
     foreach (var path in matches.Where(
         p => p.EndsWith(".uasset", StringComparison.OrdinalIgnoreCase)))
     {
+        // An asset the pattern caught and that holds no curve table was never
+        // this run's to read, so it is neither written nor refused: counting it
+        // either way makes the totals describe the naming rather than the client.
+        if (!CurveTable.Holds(provider, path)) continue;
+
         var rows = CurveTable.Read(provider, path);
         if (rows is null)
         {
