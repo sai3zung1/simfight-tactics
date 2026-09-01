@@ -151,9 +151,22 @@ Every file is re-taken from the client under ADR 0010. Measured in
 **A unit needs two artworks, not one image at two sizes.** What sits in the tree
 is cropped to the champion's head, which serves a dense context — a board cell,
 a picker row — and cannot be enlarged into a card, because the art it would need
-is not in the file. The splash is the other one: rectangular, far larger, and
-absent from the tree entirely. Neither derives from the other, so the chain
-fetches both.
+is not in the file. Neither derives from the other, so the chain fetches both.
+
+The client ships both, and more. Ahri names five: `_Square` at 128 × 128 is the
+head crop the tree already holds, `_Mobile` at 512 × 512 is the whole
+illustration, `_TeamPlanner_Splash` at 256 × 256 is that same framing at half
+the size, `_PC` at 256 × 152 is a wide crop of it, and `_Ability` at 64 × 64 is
+the spell icon. Of the 96 champions the set names, 88 carry an artwork at 256 or
+more and 87 carry two or more small squares — a portrait and a spell icon. The
+five that carry none are summons and a debug entry, which no card draws.
+
+**No naming rule reaches them.** A spell icon is `_Ability` on Ahri,
+`_SpellIcon` on Veigar, and the spell's own name on Alistar — `_Triumphant_Roar`
+— and on Rammus — `_Shell`. A portrait is `_Square` on 50 champions and
+`_TeamPlanner_Portrait` on 16. So the capture takes every texture an entry names
+and designates none of them; which file a screen draws is a reading `data/`
+carries, and #334 is where it is written down.
 
 Every other family carries one artwork, and the readings a component asks for
 are that file at the size the screen draws it.
