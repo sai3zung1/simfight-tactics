@@ -1,9 +1,11 @@
-import { existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 import type { InstalledClient } from "./client";
+import { writeJson } from "./digest";
 import type { CurveTablesRead } from "./reader";
 
 export const CAPTURES = "captures";
+export const RECORD = "capture.json";
 
 // The branch is part of what a capture is: PBE and Live ship different builds of
 // the same set, so a name that leaves it out makes the second one of a day
@@ -39,8 +41,5 @@ export function writeCaptureRecord(
     build: client.build,
     curveTables: { read: read.written, refused: read.refused },
   };
-  writeFileSync(
-    join(path, "capture.json"),
-    `${JSON.stringify(record, null, 2)}\n`,
-  );
+  writeJson(join(path, RECORD), record);
 }

@@ -1,6 +1,7 @@
 import { join } from "node:path";
-import { createCaptureDir, writeCaptureRecord } from "./capture-dir";
+import { createCaptureDir, RECORD, writeCaptureRecord } from "./capture-dir";
 import { readInstalledClient } from "./client";
+import { writeDigest } from "./digest";
 import { formatShape, probe } from "./probe";
 import { countReadableFiles, decodeCurveTables } from "./reader";
 
@@ -23,6 +24,9 @@ export function run(args: readonly string[]): string {
       if (!set) throw new Error(USAGE);
       const path = createCaptureDir(set, client.branch, new Date());
       const read = decodeCurveTables(client, join(path, "curve-tables"));
+      // The digest covers the reading; the record carries the moment, which is
+      // the one thing two runs of one client are meant to differ in.
+      writeDigest(path, [RECORD]);
       writeCaptureRecord(path, client, set, read);
       return `${path} — ${read.written} curve tables, ${read.refused} refused`;
     }

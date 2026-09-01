@@ -1,3 +1,4 @@
+using System.Globalization;
 using CUE4Parse.Compression;
 using CUE4Parse.FileProvider;
 using CUE4Parse.UE4.Versions;
@@ -87,8 +88,19 @@ try
             // Named for its whole path: two folders ship a CT_Ascension, and a
             // capture that keeps one of them silently keeps the wrong one.
             Path.Combine(output, path.Replace('/', '.').Replace(".uasset", ".json", StringComparison.OrdinalIgnoreCase)),
+            // Sorted on the way out, rows and keys alike: the order an asset
+            // happens to carry is the library's, and the chain's own files have
+            // to be a function of the client rather than of how it was walked.
             JsonConvert.SerializeObject(
-                rows.ToDictionary(r => r.Name, r => r.Series),
+                rows.OrderBy(r => r.Name, StringComparer.Ordinal)
+                    .ToDictionary(
+                        r => r.Name,
+                        r => r.Series
+                            .ToDictionary(
+                                k => k.Key.ToString(CultureInfo.InvariantCulture),
+                                k => k.Value)
+                            .OrderBy(k => k.Key, StringComparer.Ordinal)
+                            .ToDictionary(k => k.Key, k => k.Value)),
                 Formatting.Indented));
         written++;
     }
