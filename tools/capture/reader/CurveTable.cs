@@ -50,7 +50,9 @@ public static class CurveTable
             return null;
         }
 
-        var payload = bytes.Length - io.ExportMap.Sum(e => (long) e.CookedSerialSize);
+        // The same base every other reading uses, and four bytes of header
+        // before the count — `Packed` carries where an export begins.
+        var payload = Packed.Base(io, bytes.Length) + 2;
         if (payload < 0 || payload + 7 > bytes.Length)
         {
             refused = $"the exports leave no payload in {bytes.Length} bytes";

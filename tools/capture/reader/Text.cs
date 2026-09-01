@@ -23,9 +23,8 @@ public static class Text
     // namespace, key, source. The client leaves the namespace empty and lets the
     // editor generate the key, which comes out as 32 hex digits — and that is
     // what makes a text findable without knowing where in the export it sits,
-    // and so without a property schema. A length counts the terminator.
+    // and so without a property schema.
     private const int KeyLength = 32;
-    private const int Longest = 8192;
 
     public static IReadOnlyList<Line> Read(
         AbstractFileProvider provider, string path, out string? refused)
@@ -38,41 +37,17 @@ public static class Text
             return [];
         }
 
-        var payload = bytes.Length - io.ExportMap.Sum(e => (long) e.CookedSerialSize);
-        if (payload < 0)
-        {
-            refused = $"the exports leave no payload in {bytes.Length} bytes";
-            return [];
-        }
+        var exports = Packed.Exports(io, bytes.Length, out refused);
+        if (exports is null) return [];
 
         var lines = new List<Line>();
-        for (var e = 0; e < io.ExportMap.Length; e++)
+        foreach (var export in exports)
         {
-            var export = io.ExportMap[e];
-            var from = (int) (payload + (long) export.CookedSerialOffset);
-            var to = from + (int) export.CookedSerialSize;
-            if (from < 0 || to > bytes.Length)
+            for (var at = export.From; at + 12 < export.To; at++)
             {
-                refused = $"export {e} of {io.ExportMap.Length} falls outside the file";
-                return [];
-            }
+                if (!Held(bytes, at, export.To, out var key, out var source, out var next)) continue;
 
-            string component;
-            try
-            {
-                component = io.ExportsLazy[e].Value.ExportType ?? "";
-            }
-            catch (Exception error)
-            {
-                refused = $"export {e} would not name its class: {error.Message}";
-                return [];
-            }
-
-            for (var at = from; at + 12 < to; at++)
-            {
-                if (!Held(bytes, at, to, out var key, out var source, out var next)) continue;
-
-                lines.Add(new Line(component, key, source));
+                lines.Add(new Line(export.Component, key, source));
                 at = next - 1;
             }
         }
@@ -87,9 +62,9 @@ public static class Text
         next = at;
 
         // The namespace, empty on every text the client ships.
-        if (!Reads(bytes, ref at, to, out var space) || space.Length > 0) return false;
-        if (!Reads(bytes, ref at, to, out key) || !IsKey(key)) return false;
-        if (!Reads(bytes, ref at, to, out source) || source.Length == 0) return false;
+        if (!Packed.Reads(bytes, ref at, to, out var space) || space.Length > 0) return false;
+        if (!Packed.Reads(bytes, ref at, to, out key) || !IsKey(key)) return false;
+        if (!Packed.Reads(bytes, ref at, to, out source) || source.Length == 0) return false;
 
         next = at;
         return true;
@@ -108,32 +83,6 @@ public static class Text
             var hex = c is >= '0' and <= '9' or >= 'A' and <= 'F' or >= 'a' and <= 'f';
             if (!hex) return false;
         }
-        return true;
-    }
-
-    private static bool Reads(byte[] bytes, ref int at, int to, out string read)
-    {
-        read = "";
-        if (at + 4 > to) return false;
-
-        var length = BitConverter.ToInt32(bytes, at);
-        at += 4;
-        if (length == 0) return true;
-        if (length is > Longest or < -Longest) return false;
-
-        var wide = length < 0;
-        var count = wide ? -length : length;
-        var span = wide ? count * 2 : count;
-        if (at + span > to) return false;
-
-        // A length counts the terminator, and the terminator is there.
-        var end = at + span;
-        if (wide ? BitConverter.ToUInt16(bytes, end - 2) != 0 : bytes[end - 1] != 0) return false;
-
-        read = wide
-            ? System.Text.Encoding.Unicode.GetString(bytes, at, span - 2)
-            : System.Text.Encoding.UTF8.GetString(bytes, at, span - 1);
-        at = end;
         return true;
     }
 }

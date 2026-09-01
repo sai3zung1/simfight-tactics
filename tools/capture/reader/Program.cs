@@ -7,7 +7,7 @@ using Newtonsoft.Json.Serialization;
 using Sft.Capture.Reader;
 
 const string usage =
-    "usage: reader <paks> [curve-tables <output directory> | inventory <set> | text <inventory file>]";
+    "usage: reader <paks> [curve-tables <output directory> | inventory <set> | text <inventory file> | identifiers <inventory file>]";
 
 if (args.Length is 0 or 2 or > 3)
 {
@@ -58,6 +58,7 @@ try
         "curve-tables" => WriteCurveTables(provider, args[2]),
         "inventory" => PrintInventory(provider, args[2]),
         "text" => PrintText(provider, args[2]),
+        "identifiers" => PrintIdentifiers(provider, args[2]),
         _ => Refuse(),
     };
 
@@ -157,6 +158,37 @@ static int PrintText(AbstractFileProvider provider, string inventory)
     }
 
     Console.WriteLine(Written(text));
+    return 0;
+}
+
+static int PrintIdentifiers(AbstractFileProvider provider, string inventory)
+{
+    var identifiers = new Dictionary<string, string>(StringComparer.Ordinal);
+    var stated = new Dictionary<string, string>(StringComparer.Ordinal);
+
+    foreach (var entry in Entries.From(inventory))
+    {
+        var read = Identifier.Read(provider, entry.Path, out var why);
+        if (read is null)
+        {
+            // No entry gets a blank or a derived identifier: the ticket exists
+            // because a derived key does not join, and a derived one joins wrongly.
+            // An entry carrying no component states nothing, and stating nothing
+            // is not a failure to read.
+            if (why is not null) Console.Error.WriteLine(new Refusal(entry.Id, why).ToString());
+            continue;
+        }
+        if (stated.TryGetValue(read, out var already))
+        {
+            // A join key that repeats joins the wrong rows.
+            Console.Error.WriteLine($"{entry.Id} and {already} both state {read}");
+            return 1;
+        }
+        stated[read] = entry.Id;
+        identifiers[entry.Id] = read;
+    }
+
+    Console.WriteLine(Written(identifiers));
     return 0;
 }
 
