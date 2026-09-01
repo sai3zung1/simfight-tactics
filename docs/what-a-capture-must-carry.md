@@ -95,27 +95,26 @@ unit asks for.
 
 ## Items — 137 entries
 
-| What                  | Demanded by      | In `data/` today                           | What has to be read                      | Extraction |
-| --------------------- | ---------------- | ------------------------------------------ | ---------------------------------------- | ---------- |
-| Id, name, description | #225, #220       | 137, 137, 127                              | the text table                           | continuous |
-| Type                  | #225, #321       | 137                                        | the item object                          | continuous |
-| Stats                 | #225, #222, #232 | 137                                        | curve tables                             | continuous |
-| Components            | #225             | 59 — the eight-by-eight grid               | the item object                          | continuous |
-| Grants, parameters    | #225             | 107, 34                                    | stripped objects until #206              | continuous |
-| Stacks, max stacks    | #225             | 12, 7                                      | curve tables                             | continuous |
-| An emblem's trait     | #225             | 20                                         | the item object                          | continuous |
-| Taxonomy tag          | #200, #321       | 10, and they are **hashes** — `{b72bd3bf}` | the hash resolved against the text table | continuous |
-| How a hash is made    | #200             | nothing                                    | the algorithm behind the fingerprint     | one-time   |
+| What                  | Demanded by      | In `data/` today                                           | What has to be read                                              | Extraction |
+| --------------------- | ---------------- | ---------------------------------------------------------- | ---------------------------------------------------------------- | ---------- |
+| Id, name, description | #225, #220       | 137, 137, 127                                              | the text table                                                   | continuous |
+| Type                  | #225, #321       | 137                                                        | the item object                                                  | continuous |
+| Stats                 | #225, #222, #232 | 137                                                        | curve tables                                                     | continuous |
+| Components            | #225             | 59 — the eight-by-eight grid                               | the item object                                                  | continuous |
+| Grants, parameters    | #225             | 107, 34                                                    | stripped objects until #206                                      | continuous |
+| Stacks, max stacks    | #225             | 12, 7                                                      | curve tables                                                     | continuous |
+| An emblem's trait     | #225             | 20                                                         | the item object                                                  | continuous |
+| Taxonomy tag          | #200, #321       | 10, as words — the hashes belonged to the published bundle | the entry's own gameplay tags: `Item.Equippable.Category.Attack` | continuous |
 
 ## Augments — 257 rows
 
-| What                  | Demanded by | In `data/` today                       | What has to be read                                                                              | Extraction |
-| --------------------- | ----------- | -------------------------------------- | ------------------------------------------------------------------------------------------------ | ---------- |
-| Id, name, description | #227, #323  | 257                                    | the text table                                                                                   | continuous |
-| Tier                  | #227, #77   | 257                                    | the augment object                                                                               | continuous |
-| Apparition            | #227        | 257                                    | the augment object                                                                               | continuous |
-| Categories            | #321        | 257, and they are **metatft's scheme** | nothing — the scheme leaves with ADR 0010, and #200 puts Riot's own hashed taxonomy in its place | continuous |
-| Grants, parameters    | #227        | 84, 35                                 | stripped objects until #206                                                                      | continuous |
+| What                  | Demanded by | In `data/` today                       | What has to be read                                                                                  | Extraction |
+| --------------------- | ----------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------- |
+| Id, name, description | #227, #323  | 257                                    | the text table                                                                                       | continuous |
+| Tier                  | #227, #77   | 257                                    | the augment object                                                                                   | continuous |
+| Apparition            | #227        | 257                                    | the augment object                                                                                   | continuous |
+| Categories            | #321        | 257, and they are **metatft's scheme** | Riot's own `Augment.Category.*`, on 167 of the 251 — the other 84 carry none, and stay uncategorised | continuous |
+| Grants, parameters    | #227        | 84, 35                                 | stripped objects until #206                                                                          | continuous |
 
 ## Wisps — 176 entries, against the 181 the client defines
 

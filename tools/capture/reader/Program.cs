@@ -7,7 +7,7 @@ using Newtonsoft.Json.Serialization;
 using Sft.Capture.Reader;
 
 const string usage =
-    "usage: reader <paks> [curve-tables <output directory> | inventory <set> | text <inventory file> | identifiers <inventory file>]";
+    "usage: reader <paks> [curve-tables <output directory> | inventory <set> | text <inventory file> | identifiers <inventory file> | tags <inventory file>]";
 
 if (args.Length is 0 or 2 or > 3)
 {
@@ -59,6 +59,7 @@ try
         "inventory" => PrintInventory(provider, args[2]),
         "text" => PrintText(provider, args[2]),
         "identifiers" => PrintIdentifiers(provider, args[2]),
+        "tags" => PrintTags(provider, args[2]),
         _ => Refuse(),
     };
 
@@ -189,6 +190,20 @@ static int PrintIdentifiers(AbstractFileProvider provider, string inventory)
     }
 
     Console.WriteLine(Written(identifiers));
+    return 0;
+}
+
+static int PrintTags(AbstractFileProvider provider, string inventory)
+{
+    var tags = new Dictionary<string, IReadOnlyList<string>>(StringComparer.Ordinal);
+    foreach (var entry in Entries.From(inventory))
+    {
+        // An entry with no tag gets an empty list rather than a refusal: the
+        // client genuinely tags nothing on some entries, and that is a reading.
+        tags[entry.Id] = Tags.Read(provider, entry.Path);
+    }
+
+    Console.WriteLine(Written(tags));
     return 0;
 }
 

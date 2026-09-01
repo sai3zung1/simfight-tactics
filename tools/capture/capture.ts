@@ -6,6 +6,7 @@ import { counted, INVENTORY, readInventory, writeInventory } from "./inventory";
 import { formatShape, probe } from "./probe";
 import { writeRefusals } from "./refusals";
 import { readIdentifiers, writeIdentifiers } from "./identifier";
+import { readTags, tagged, writeTags } from "./tags";
 import { lines, readText, writeText } from "./text";
 import { countReadableFiles, decodeCurveTables } from "./reader";
 
@@ -39,6 +40,9 @@ export function run(args: readonly string[]): string {
       const stated = readIdentifiers(client, join(path, INVENTORY));
       writeIdentifiers(path, stated.identifiers);
 
+      const classed = readTags(client, join(path, INVENTORY));
+      writeTags(path, classed.tags);
+
       const read = decodeCurveTables(client, join(path, "curve-tables"));
       if (read.written === 0) {
         // A capture that read nothing is not a capture, and the count alone
@@ -50,6 +54,7 @@ export function run(args: readonly string[]): string {
         ...held.refusals,
         ...said.refusals,
         ...stated.refusals,
+        ...classed.refusals,
         ...read.refusals,
       ]);
       // The digest covers the reading; the record carries the moment, which is
@@ -65,12 +70,14 @@ export function run(args: readonly string[]): string {
           read: Object.keys(stated.identifiers).length,
           refused: stated.refusals.length,
         },
+        tags: { read: tagged(classed.tags), refused: classed.refusals.length },
         text: { read: lines(said.text), refused: said.refusals.length },
       });
       const refused =
         held.refusals.length +
         said.refusals.length +
         stated.refusals.length +
+        classed.refusals.length +
         read.refused;
       return `${path} — ${counted(held.inventory)} entries, ${lines(said.text)} texts, ${read.written} curve tables, ${refused} refused`;
     }
