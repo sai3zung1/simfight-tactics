@@ -22,12 +22,17 @@ export function run(args: readonly string[]): string {
       return `${client.branch} — ${countReadableFiles(client)} files the reader can see`;
     case "--capture": {
       if (!set) throw new Error(USAGE);
-      const path = createCaptureDir(set, client.branch, new Date());
+      // One instant for the whole run. Two writers reading the clock is the
+      // fault `data/manifest.json` records: one date, several readings.
+      const on = new Date();
+      const path = createCaptureDir(set, client.branch, on);
       const read = decodeCurveTables(client, join(path, "curve-tables"));
       // The digest covers the reading; the record carries the moment, which is
       // the one thing two runs of one client are meant to differ in.
       writeDigest(path, [RECORD]);
-      writeCaptureRecord(path, client, set, read);
+      writeCaptureRecord(path, client, set, on, {
+        curveTables: { read: read.written, refused: read.refused },
+      });
       return `${path} — ${read.written} curve tables, ${read.refused} refused`;
     }
     default:
