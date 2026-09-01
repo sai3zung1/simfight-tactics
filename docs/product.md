@@ -96,3 +96,9 @@ Seven days is enough to compose a kind of effect. It is not enough to invent
 one — which is why the vocabulary has to be complete before the first rotation
 rather than after it. `docs/what-changes-between-sets.md` says which families a
 rotation rewrites.
+
+A patch is applied in one place. TFT ships a balance change as a number, and the
+only thing that moves for it is `data/` — through a capture or by hand. Nothing
+under `src/` is edited to follow a patch note, and a value that cannot be
+corrected without touching code is a value in the wrong place. That is what
+keeps a patch a job of minutes rather than a release.

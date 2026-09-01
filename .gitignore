@@ -26,6 +26,13 @@ dist-ssr
 
 # Local tooling, not part of the project
 scripts/
+
+# Extraction output: derived from an installed client, never versioned
+captures/
+
+# .NET build output
+bin/
+obj/
 *.tsbuildinfo
 .vite/
 vite.config.js.timestamp-*

@@ -1,6 +1,7 @@
 # ADR 0003 — Empty mechanics come from the client, not from published data
 
-**Status:** Accepted · 2026-08
+**Status:** Accepted · 2026-08 — its second decision clause superseded by
+`docs/adr/0010-riot-is-the-only-source.md`
 
 ## Context
 

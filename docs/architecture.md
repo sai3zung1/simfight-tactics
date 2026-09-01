@@ -47,8 +47,10 @@ Components, one folder each.
 
 A contract may read the domain: `text` draws its stat keywords from the stat
 schema, so a stat the schema does not have cannot be styled. It never reads the
-capture: the keys in `data/` are Riot's, and a component written against them
-breaks at the rotation that renames one.
+capture: `docs/adr/0009-riot-naming-is-the-vocabulary.md` makes the domain carry
+the client's own names, so the two agree on what a key is called — what still
+separates them is that a capture is a file and the domain is a type the compiler
+checks.
 
 ## `src/styles`
 
@@ -56,6 +58,23 @@ breaks at the rotation that renames one.
 place: type, spacing, radii, easing, and a palette that runs down to the domain
 — one colour per damage type, per unit cost, per augment tier. `fonts.css`
 carries the faces.
+
+## `tools`
+
+The extraction chain, which reads an installed game client and writes a capture.
+It is not part of the application: nothing under `src/` imports it, and it never
+reaches a browser.
+
+|            |                                                                                                |
+| ---------- | ---------------------------------------------------------------------------------------------- |
+| `capture/` | the `bun run capture` command — resolving an install and reporting the shape of its containers |
+
+Its output lands in `captures/`, which is not versioned: a capture is derived
+from a shipped client, and `docs/adr/0003-empty-mechanics-come-from-the-client.md`
+keeps shipped files out of this repository. `data/` stays the capture the project
+carries, and the chain never writes to it —
+`docs/product.md` makes it the one place a patch is applied, by hand or by
+capture.
 
 ## Root
 

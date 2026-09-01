@@ -3,7 +3,7 @@
   "setName": "Enchanted Wilds",
   "capturedOn": "2026-08-01",
   "normalisedOn": "2026-08-11",
-  "note": "Field names, stat keys and union values follow src/domain. Percentages are decimals. Descriptions stay verbatim. Every mechanic is also carried as values: a grant names its recipient and its stats, params carry the numbers a condition needs, and combat says whether the entry changes anything inside a fight.",
+  "note": "Field names, stat keys and union values follow src/domain. docs/adr/0009-riot-naming-is-the-vocabulary.md reverses that direction — the client's own names are the vocabulary — and this capture predates it, as it predates docs/adr/0010-riot-is-the-only-source.md, which removes the four published sources listed below. Percentages are decimals. Descriptions stay verbatim. Every mechanic is also carried as values: a grant names its recipient and its stats, params carry the numbers a condition needs, and combat says whether the entry changes anything inside a fight.",
   "sources": {
     "lolchess.gg": "units and their abilities; the Set 18 wisp and augment pools, with gold, tier, category and appearance condition",
     "metatft.com": "trait descriptions, augment stages and the augment category taxonomy",
@@ -14,7 +14,7 @@
     "set-18/units.json": {
       "count": 71,
       "status": "complete",
-      "verified": "65 units, 14/13/14/14/10 by cost, plus six summoned entities. Traits agree with traits.json in both directions. Kobuko and Alune match Community Dragon on every stat. Every ability carries the numbers its tooltip states outside the breakdown. Four stars are a 1-, 2- and 3-cost affair: all 41 of them carry a fourth value, none of the 4- and 5-costs does"
+      "verified": "65 units, 14/13/14/14/10 by cost, plus six entries nobody drafts — five of them summoned, and the Training Dummy, which is placed. Traits agree with traits.json in both directions. Kobuko and Alune match Community Dragon on every stat. Every ability carries the numbers its tooltip states outside the breakdown. Four stars are a 1-, 2- and 3-cost affair: all 41 of them carry a fourth value, none of the 4- and 5-costs does"
     },
     "set-18/traits.json": {
       "count": 36,
@@ -24,12 +24,12 @@
     "set-18/wisps.json": {
       "count": 176,
       "status": "partial",
-      "verified": "The client defines 181 charms; the published sources carried 163 of them, and gold, category and description agree on those. 84 change a fight and are decomposed into grants. The 14 the aggregators omit are economy — gold, experience, player health, streaks — and were added from the client on 2026-08-14 with their name, their cost and their values. Six of them get their description back by matching the curve rows the client's own text quotes; the other eight quote a row name too common to tell one charm from another, and stay null along with every category and appearance window. Crystal Ball was dropped: neither its name nor its text appears anywhere in the 14262 strings the client ships"
+      "verified": "The client defines 181 charms; the published sources carried 163 of them, and gold, category and description agree on those. 100 change a fight, and 55 of those are decomposed into grants; the rest name a mechanic no block computes yet. The 14 the aggregators omit are economy — gold, experience, player health, streaks — and were added from the client on 2026-08-14 with their name, their cost and their values. Six of them get their description back by matching the curve rows the client's own text quotes; the other eight quote a row name too common to tell one charm from another, and stay null along with every category and appearance window. Crystal Ball was dropped: neither its name nor its text appears anywhere in the 14262 strings the client ships"
     },
     "timeless/augments.json": {
       "count": 257,
       "status": "complete",
-      "verified": "255 distinct augments across 257 rows: Beast Within and Beast Within+ each appear twice, same tier and same apparition, differing only in the champion they hand out — Sivir or Nidalee. lolchess and metatft agree on every name and every tier. 240 matched to Riot Set 18 entries; 99 carry combat effects and are decomposed into grants"
+      "verified": "255 distinct augments across 257 rows: Beast Within and Beast Within+ each appear twice, same tier and same apparition, differing only in the champion they hand out — Sivir or Nidalee. lolchess and metatft agree on every name and every tier. 240 matched to Riot Set 18 entries; 102 carry combat effects, and 84 of those are decomposed into grants"
     },
     "timeless/items.json": {
       "count": 137,
@@ -57,7 +57,7 @@
     "resource": "What a unit's bar counts before it casts. Most count mana. Caitlyn and Master Yi count attacks, Kayle counts nothing and casts on another rule, Gnar fills with rage on a timer as well as on attacks. The client keeps a fourth kind, time, and no unit here has been tied to it.",
     "combat": "True when the engine can read the entry and produce an exact number from it. The Coven trait is false: holding it grants no combat bonus, only essence. The Coven Acolyte augment is true. Composition effects are false — Apex Predator takes team slots, Avatar counts double towards breakpoints, neither lands inside a fight.",
     "requiresRunInput": "True when the entry carries a state no calculation derives and no player can reproduce on demand: a choice taken during a run, or a counter carried across rounds. The user declares it before the fight, and the data enumerates the options without designating one. What each entry expects is written beside it here.",
-    "summoned": "A summoned entity comes out of a trait or a spell and is never placed, so it belongs in no catalogue the player picks from. That is what summoned marks, and it is the only field that does: combat is true on every entry here and cost is merely absent. targetable used to sit on three of the six and was dropped — being in this file is what makes a unit targetable, and whether it shows in an interface is not a combat question.",
+    "summoned": "summoned marks an entry the player never picks from a catalogue, because it only ever comes out of a trait or a spell. summonedBy is separate and records what summons an entry, so the two do not always travel together: the Training Dummy is summoned by five things and is still placed by hand, which docs/product.md requires when it keeps a dummy selectable on the opposing board rather than making it a mode. Five entries carry summoned; six carry summonedBy. On every one of them combat is true and cost is merely absent. targetable used to sit on three of the six and was dropped — being in this file is what makes a unit targetable, and whether it shows in an interface is not a combat question.",
     "team": "A grant to team excludes the trait holders. Juggernaut at six gives its Juggernauts 34% durability and everyone else 8% — never the sum.",
     "manaRegen": "Mana per second.",
     "null": "A field set to null is a question the extraction asked and could not answer, told apart from a field that is absent because the entry has no use for it. Fourteen wisps carry category and appears as null, eight of them description as well, because the client keeps those on an object whose property names a shipped build strips out.",
