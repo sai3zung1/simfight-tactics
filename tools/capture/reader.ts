@@ -51,16 +51,32 @@ function reader(client: InstalledClient, rest: readonly string[]) {
   );
 }
 
-export function countReadableFiles(client: InstalledClient): number {
-  const run = reader(client, []);
+export type ReaderSaid = {
+  readonly printed: string;
+  readonly refusals: readonly Refusal[];
+};
+
+// One door onto the reader: what it printed, and what it refused. Every mode
+// answers on those two streams and nothing reads them separately.
+export function readReader(
+  client: InstalledClient,
+  rest: readonly string[],
+): ReaderSaid {
+  const run = reader(client, rest);
   if (run.exitCode !== 0) {
     throw new Error(
       said(run.stderr) ||
         `the reader exited with ${run.exitCode} and said nothing`,
     );
   }
+  return {
+    printed: said(run.stdout),
+    refusals: readRefusals(said(run.stderr)),
+  };
+}
 
-  const printed = said(run.stdout);
+export function countReadableFiles(client: InstalledClient): number {
+  const printed = readReader(client, []).printed;
   const count = Number(printed);
   if (!Number.isInteger(count)) {
     throw new Error(`the reader printed ${printed} where a file count was due`);
@@ -78,26 +94,18 @@ export function decodeCurveTables(
   client: InstalledClient,
   into: string,
 ): CurveTablesRead {
-  const run = reader(client, ["CT_", into]);
-  if (run.exitCode !== 0) {
-    throw new Error(
-      said(run.stderr) ||
-        `the reader exited with ${run.exitCode} and said nothing`,
-    );
-  }
-
-  const [written, refused] = said(run.stdout).split(/\s+/).map(Number);
+  const heard = readReader(client, ["curve-tables", into]);
+  const [written, refused] = heard.printed.split(/\s+/).map(Number);
   if (!Number.isInteger(written) || !Number.isInteger(refused)) {
     throw new Error(
-      `the reader printed ${said(run.stdout)} where two counts were due`,
+      `the reader printed ${heard.printed} where two counts were due`,
     );
   }
-  const refusals = readRefusals(said(run.stderr));
-  if (refusals.length !== refused) {
+  if (heard.refusals.length !== refused) {
     // One of the two is wrong and neither can be preferred over the other.
     throw new Error(
-      `the reader counted ${refused} refusals and named ${refusals.length}`,
+      `the reader counted ${refused} refusals and named ${heard.refusals.length}`,
     );
   }
-  return { written, refused, refusals };
+  return { written, refused, refusals: heard.refusals };
 }

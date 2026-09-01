@@ -2,6 +2,7 @@ import { join } from "node:path";
 import { createCaptureDir, RECORD, writeCaptureRecord } from "./capture-dir";
 import { readInstalledClient } from "./client";
 import { writeDigest } from "./digest";
+import { counted, readInventory, writeInventory } from "./inventory";
 import { formatShape, probe } from "./probe";
 import { writeRefusals } from "./refusals";
 import { countReadableFiles, decodeCurveTables } from "./reader";
@@ -27,6 +28,9 @@ export function run(args: readonly string[]): string {
       // fault `data/manifest.json` records: one date, several readings.
       const on = new Date();
       const path = createCaptureDir(set, client.branch, on);
+      const held = readInventory(client, set);
+      writeInventory(path, held.inventory);
+
       const read = decodeCurveTables(client, join(path, "curve-tables"));
       if (read.written === 0) {
         // A capture that read nothing is not a capture, and the count alone
@@ -34,14 +38,18 @@ export function run(args: readonly string[]): string {
         throw new Error(`nothing was read from ${client.paks}`);
       }
 
-      writeRefusals(path, read.refusals);
+      writeRefusals(path, [...held.refusals, ...read.refusals]);
       // The digest covers the reading; the record carries the moment, which is
       // the one thing two runs of one client are meant to differ in.
       writeDigest(path, [RECORD]);
       writeCaptureRecord(path, client, set, on, {
         curveTables: { read: read.written, refused: read.refused },
+        inventory: {
+          read: counted(held.inventory),
+          refused: held.refusals.length,
+        },
       });
-      return `${path} — ${read.written} curve tables, ${read.refused} refused`;
+      return `${path} — ${counted(held.inventory)} entries, ${read.written} curve tables, ${read.refused} refused`;
     }
     default:
       throw new Error(USAGE);
