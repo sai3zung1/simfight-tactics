@@ -65,6 +65,11 @@ The extraction chain, which reads an installed game client and writes a capture.
 It is not part of the application: nothing under `src/` imports it, and it never
 reaches a browser.
 
+It reads two things of the application's, and nothing else: `src/domain` for its
+types alone, so the check that puts a capture against the domain is derived from
+the domain rather than a second copy of it; and `src/sets/capture.ts`, which
+stays the only file that opens `data/`.
+
 |            |                                                                                                |
 | ---------- | ---------------------------------------------------------------------------------------------- |
 | `capture/` | the `bun run capture` command — resolving an install and reporting the shape of its containers |
