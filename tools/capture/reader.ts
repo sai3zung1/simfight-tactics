@@ -1,5 +1,6 @@
 import { join } from "node:path";
 import type { InstalledClient } from "./client";
+import { readRefusals, type Refusal } from "./refusals";
 
 const PROJECT = join("tools", "capture", "reader", "reader.csproj");
 const BUILT = join("tools", "capture", "reader", "bin", "capture");
@@ -70,6 +71,7 @@ export function countReadableFiles(client: InstalledClient): number {
 export type CurveTablesRead = {
   readonly written: number;
   readonly refused: number;
+  readonly refusals: readonly Refusal[];
 };
 
 export function decodeCurveTables(
@@ -90,5 +92,12 @@ export function decodeCurveTables(
       `the reader printed ${said(run.stdout)} where two counts were due`,
     );
   }
-  return { written, refused };
+  const refusals = readRefusals(said(run.stderr));
+  if (refusals.length !== refused) {
+    // One of the two is wrong and neither can be preferred over the other.
+    throw new Error(
+      `the reader counted ${refused} refusals and named ${refusals.length}`,
+    );
+  }
+  return { written, refused, refusals };
 }

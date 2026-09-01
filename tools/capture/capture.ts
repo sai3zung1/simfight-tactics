@@ -3,6 +3,7 @@ import { createCaptureDir, RECORD, writeCaptureRecord } from "./capture-dir";
 import { readInstalledClient } from "./client";
 import { writeDigest } from "./digest";
 import { formatShape, probe } from "./probe";
+import { writeRefusals } from "./refusals";
 import { countReadableFiles, decodeCurveTables } from "./reader";
 
 const USAGE =
@@ -27,6 +28,13 @@ export function run(args: readonly string[]): string {
       const on = new Date();
       const path = createCaptureDir(set, client.branch, on);
       const read = decodeCurveTables(client, join(path, "curve-tables"));
+      if (read.written === 0) {
+        // A capture that read nothing is not a capture, and the count alone
+        // would not say so.
+        throw new Error(`nothing was read from ${client.paks}`);
+      }
+
+      writeRefusals(path, read.refusals);
       // The digest covers the reading; the record carries the moment, which is
       // the one thing two runs of one client are meant to differ in.
       writeDigest(path, [RECORD]);

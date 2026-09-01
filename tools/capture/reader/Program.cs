@@ -75,11 +75,20 @@ try
         // either way makes the totals describe the naming rather than the client.
         if (!CurveTable.Holds(provider, path)) continue;
 
-        var rows = CurveTable.Read(provider, path);
+        var rows = CurveTable.Read(provider, path, out var why);
         if (rows is null)
         {
-            // Refusing one asset and carrying on is #195. Until it lands, what
-            // is refused is counted rather than guessed at.
+            if (string.IsNullOrEmpty(why))
+            {
+                // An unnamed refusal is a guess about why, and the count would
+                // carry it as though it were a reading.
+                Console.Error.WriteLine($"{path} was refused and no check said why");
+                return 1;
+            }
+
+            // Refusals travel on stderr and counts on stdout. Mixing the two is
+            // what made `dotnet run` unusable here: a warning read as a result.
+            Console.Error.WriteLine(new Refusal(path, why).ToString());
             refused++;
             continue;
         }

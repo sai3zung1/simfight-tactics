@@ -35,33 +35,62 @@ public static class CurveTable
         return false;
     }
 
-    public static IReadOnlyList<Row>? Read(AbstractFileProvider provider, string path)
+    /// The rows, or null and the check that refused them. `refused` is non-null
+    /// exactly when the return is null: what stopped a reading is as much a
+    /// result as the reading.
+    public static IReadOnlyList<Row>? Read(
+        AbstractFileProvider provider, string path, out string? refused)
     {
+        refused = null;
         var bytes = provider.SaveAsset(path);
         var package = provider.LoadPackage(path);
-        if (package is not CUE4Parse.UE4.Assets.IoPackage io) return null;
+        if (package is not CUE4Parse.UE4.Assets.IoPackage io)
+        {
+            refused = "not an IoStore package";
+            return null;
+        }
 
         var payload = bytes.Length - io.ExportMap.Sum(e => (long) e.CookedSerialSize);
-        if (payload < 0 || payload + 7 > bytes.Length) return null;
+        if (payload < 0 || payload + 7 > bytes.Length)
+        {
+            refused = $"the exports leave no payload in {bytes.Length} bytes";
+            return null;
+        }
 
         var names = package.NameMap;
         var at = (int) payload + 2;
         var count = BitConverter.ToInt32(bytes, at);
         at += 5; // the row count, then the table's curve mode
-        if (count < 0 || count > names.Length) return null;
+        if (count < 0 || count > names.Length)
+        {
+            refused = $"a row count of {count} against {names.Length} names";
+            return null;
+        }
 
         var rows = new List<Row>(count);
         for (var r = 0; r < count; r++)
         {
-            if (at + 15 > bytes.Length) return null;
+            if (at + 15 > bytes.Length)
+            {
+                refused = $"row {r} of {count} runs past the end of the file";
+                return null;
+            }
 
             var index = BitConverter.ToInt32(bytes, at);
-            if (index < 0 || index >= names.Length) return null;
+            if (index < 0 || index >= names.Length)
+            {
+                refused = $"row {r} names name {index} of {names.Length}";
+                return null;
+            }
             at += 8 + 3; // the name and its number, then the curve settings
 
             var keys = BitConverter.ToInt32(bytes, at);
             at += 4;
-            if (keys < 0 || at + keys * 8 > bytes.Length) return null;
+            if (keys < 0 || at + keys * 8 > bytes.Length)
+            {
+                refused = $"row {r} claims {keys} keys, which run past the file";
+                return null;
+            }
 
             var series = new Dictionary<float, float>(keys);
             for (var k = 0; k < keys; k++)
@@ -72,7 +101,11 @@ public static class CurveTable
             at += 6; // the curve's default value, and the two bytes that close a row
 
             var name = names[index].Name;
-            if (name is null) return null;
+            if (name is null)
+            {
+                refused = $"row {r} names name {index}, which the package leaves empty";
+                return null;
+            }
             rows.Add(new Row(name, series));
         }
 
