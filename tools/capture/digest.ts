@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
-import { readdirSync, readFileSync, writeFileSync } from "node:fs";
-import { join, relative, sep } from "node:path";
+import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, join, relative, sep } from "node:path";
 
 export const DIGEST = "digest.json";
 
@@ -10,6 +10,7 @@ export type Digest = Readonly<Record<string, string>>;
 // the sorted order rather than the order a reader happened to produce, so two
 // runs of one client write the same bytes.
 export function writeJson(path: string, value: unknown): void {
+  mkdirSync(dirname(path), { recursive: true });
   writeFileSync(path, `${JSON.stringify(value, sorted, 2)}\n`);
 }
 

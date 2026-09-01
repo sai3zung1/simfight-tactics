@@ -7,7 +7,7 @@ using Newtonsoft.Json.Serialization;
 using Sft.Capture.Reader;
 
 const string usage =
-    "usage: reader <paks> [curve-tables <output directory> | inventory <set>]";
+    "usage: reader <paks> [curve-tables <output directory> | inventory <set> | text <inventory file>]";
 
 if (args.Length is 0 or 2 or > 3)
 {
@@ -57,6 +57,7 @@ try
     {
         "curve-tables" => WriteCurveTables(provider, args[2]),
         "inventory" => PrintInventory(provider, args[2]),
+        "text" => PrintText(provider, args[2]),
         _ => Refuse(),
     };
 
@@ -135,18 +136,55 @@ static int WriteCurveTables(AbstractFileProvider provider, string output)
     return 0;
 }
 
+static int PrintText(AbstractFileProvider provider, string inventory)
+{
+    var text = new Dictionary<string, IReadOnlyList<Text.Line>>(StringComparer.Ordinal);
+    foreach (var entry in Entries.From(inventory))
+    {
+        var lines = Text.Read(provider, entry.Path, out var why);
+        if (why is not null)
+        {
+            Console.Error.WriteLine(new Refusal(entry.Id, why).ToString());
+            continue;
+        }
+        if (lines.Count == 0)
+        {
+            // A nameless entry is a read that failed, not an entry without a name.
+            Console.Error.WriteLine(new Refusal(entry.Id, "carries no text at all").ToString());
+            continue;
+        }
+        text[entry.Id] = lines;
+    }
+
+    Console.WriteLine(Written(text));
+    return 0;
+}
+
+static string Written(object value) =>
+    // Written the way the rest of a capture is written: lower camel keys, and a
+    // value that is absent rather than null.
+    JsonConvert.SerializeObject(value, Formatting.Indented,
+        new JsonSerializerSettings
+        {
+            // Property names are ours and read as camel case; a dictionary key is
+            // the client's own word for a family or an entry, and ADR 0009 keeps it.
+            ContractResolver = new CamelCasePropertyNamesContractResolver
+            {
+                NamingStrategy = { ProcessDictionaryKeys = false },
+            },
+            NullValueHandling = NullValueHandling.Ignore,
+            // Riot writes a bullet as a bare 0x07 inside a description, and the
+            // default escaping leaves it raw, which is not JSON any reader will
+            // parse. Escaping everything outside plain ASCII keeps the byte and
+            // keeps the file readable.
+            StringEscapeHandling = StringEscapeHandling.EscapeNonAscii,
+        });
+
 static int PrintInventory(AbstractFileProvider provider, string set)
 {
     var families = Inventory.Read(provider, set, out var refused);
     foreach (var refusal in refused) Console.Error.WriteLine(refusal.ToString());
 
-    // Written the way the rest of a capture is written: lower camel keys, and a
-    // cost that is absent rather than null where the shop does not sell.
-    Console.WriteLine(JsonConvert.SerializeObject(families, Formatting.Indented,
-        new JsonSerializerSettings
-        {
-            ContractResolver = new CamelCasePropertyNamesContractResolver(),
-            NullValueHandling = NullValueHandling.Ignore,
-        }));
+    Console.WriteLine(Written(families));
     return 0;
 }

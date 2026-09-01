@@ -2,9 +2,10 @@ import { join } from "node:path";
 import { createCaptureDir, RECORD, writeCaptureRecord } from "./capture-dir";
 import { readInstalledClient } from "./client";
 import { writeDigest } from "./digest";
-import { counted, readInventory, writeInventory } from "./inventory";
+import { counted, INVENTORY, readInventory, writeInventory } from "./inventory";
 import { formatShape, probe } from "./probe";
 import { writeRefusals } from "./refusals";
+import { lines, readText, writeText } from "./text";
 import { countReadableFiles, decodeCurveTables } from "./reader";
 
 const USAGE =
@@ -31,6 +32,9 @@ export function run(args: readonly string[]): string {
       const held = readInventory(client, set);
       writeInventory(path, held.inventory);
 
+      const said = readText(client, join(path, INVENTORY));
+      writeText(path, said.text);
+
       const read = decodeCurveTables(client, join(path, "curve-tables"));
       if (read.written === 0) {
         // A capture that read nothing is not a capture, and the count alone
@@ -38,7 +42,11 @@ export function run(args: readonly string[]): string {
         throw new Error(`nothing was read from ${client.paks}`);
       }
 
-      writeRefusals(path, [...held.refusals, ...read.refusals]);
+      writeRefusals(path, [
+        ...held.refusals,
+        ...said.refusals,
+        ...read.refusals,
+      ]);
       // The digest covers the reading; the record carries the moment, which is
       // the one thing two runs of one client are meant to differ in.
       writeDigest(path, [RECORD]);
@@ -48,8 +56,11 @@ export function run(args: readonly string[]): string {
           read: counted(held.inventory),
           refused: held.refusals.length,
         },
+        text: { read: lines(said.text), refused: said.refusals.length },
       });
-      return `${path} — ${counted(held.inventory)} entries, ${read.written} curve tables, ${read.refused} refused`;
+      const refused =
+        held.refusals.length + said.refusals.length + read.refused;
+      return `${path} — ${counted(held.inventory)} entries, ${lines(said.text)} texts, ${read.written} curve tables, ${refused} refused`;
     }
     default:
       throw new Error(USAGE);
