@@ -4,7 +4,7 @@ import { writeJson } from "./digest";
 import { readReader } from "./reader";
 import type { Refusal } from "./refusals";
 
-export const TAGS = join("entries", "tags.json");
+export const TAGS = "entries/tags.json";
 
 export type Tags = Readonly<Record<string, readonly string[]>>;
 

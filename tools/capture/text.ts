@@ -4,7 +4,9 @@ import { writeJson } from "./digest";
 import { readReader } from "./reader";
 import type { Refusal } from "./refusals";
 
-export const TEXT = join("entries", "text.json");
+// Forward slashes: a path inside a capture is what `digest.json` keys on, and
+// it is the same string on every machine. `join` still resolves it for writing.
+export const TEXT = "entries/text.json";
 
 export type EntryText = {
   readonly component: string;

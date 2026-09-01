@@ -5,7 +5,7 @@ import { readReader } from "./reader";
 import type { Refusal } from "./refusals";
 
 export const ASSETS = "assets";
-export const INDEX = join(ASSETS, "index.json");
+export const INDEX = `${ASSETS}/index.json`;
 
 export type CapturedImage = {
   readonly entry: string;

@@ -1,6 +1,7 @@
 import { join } from "node:path";
 import { createCaptureDir, RECORD, writeCaptureRecord } from "./capture-dir";
 import { checkAgainstDomain, kinds, whatDataCarries } from "./against-domain";
+import { compare, formatChanges } from "./compare";
 import { readInstalledClient } from "./client";
 import { writeDigest } from "./digest";
 import { counted, INVENTORY, readInventory, writeInventory } from "./inventory";
@@ -13,10 +14,16 @@ import { files, readTextures, writeImageIndex } from "./textures";
 import { countReadableFiles, decodeCurveTables } from "./reader";
 
 const USAGE =
-  "usage: bun run capture (--probe <install root> | --read <install root> | --capture <install root> <set> | --against-domain)";
+  "usage: bun run capture (--probe <install root> | --read <install root> | --capture <install root> <set> | --against-domain | --compare <before> <after>)";
 
 export function run(args: readonly string[]): string {
   const [mode, installRoot, set] = args;
+
+  if (mode === "--compare") {
+    const [, before, after] = args;
+    if (!before || !after) throw new Error(USAGE);
+    return formatChanges(compare(before, after));
+  }
 
   if (mode === "--against-domain") {
     // What the app reads is `src/domain`, and what it reads it from is `data/`.

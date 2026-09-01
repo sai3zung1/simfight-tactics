@@ -75,9 +75,26 @@ bun run capture --capture "C:/Riot Games/Teamfight Tactics/Live" 18
 ```
 
 That opens a dated capture for a set under `captures/`, which is not versioned,
-reads the client's curve tables into it, and records which client it was taken
-from along with how many tables were read and how many were refused. It refuses
-rather than overwrite a capture already taken that day.
+reads what the set holds into it — its entries, their text, their tags, their
+identifiers, their art and their curve tables — and records which client it was
+taken from along with how much of each was read and refused. It refuses rather
+than overwrite a capture already taken that day.
+
+```sh
+bun run capture --compare captures/set-18-Live-2026-09-01 captures/set-18-PBE-2026-09-01
+```
+
+That reads what moved between two captures of one set: entries gained and lost,
+values that changed, and where. It is how a patch is read — the two above differ
+in 32 places, and the run takes under a second because the digests say which
+files to open.
+
+```sh
+bun run capture --against-domain
+```
+
+That says where `data/` and `src/domain` disagree, by entry and by field. It
+changes neither side.
 
 ## Finding your way
 
