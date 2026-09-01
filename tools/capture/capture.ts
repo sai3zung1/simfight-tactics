@@ -2,6 +2,12 @@ import { join } from "node:path";
 import { createCaptureDir, RECORD, writeCaptureRecord } from "./capture-dir";
 import { checkAgainstDomain, kinds, whatDataCarries } from "./against-domain";
 import { compare, formatChanges } from "./compare";
+import {
+  coverageIn,
+  coverageOf,
+  formatCoverage,
+  writeCoverage,
+} from "./coverage";
 import { readInstalledClient } from "./client";
 import { writeDigest } from "./digest";
 import { counted, INVENTORY, readInventory, writeInventory } from "./inventory";
@@ -14,7 +20,7 @@ import { files, readTextures, writeImageIndex } from "./textures";
 import { countReadableFiles, decodeCurveTables } from "./reader";
 
 const USAGE =
-  "usage: bun run capture (--probe <install root> | --read <install root> | --capture <install root> <set> | --against-domain | --compare <before> <after>)";
+  "usage: bun run capture (--probe <install root> | --read <install root> | --capture <install root> <set> | --against-domain | --compare <before> <after> | --coverage <capture>)";
 
 export function run(args: readonly string[]): string {
   const [mode, installRoot, set] = args;
@@ -23,6 +29,12 @@ export function run(args: readonly string[]): string {
     const [, before, after] = args;
     if (!before || !after) throw new Error(USAGE);
     return formatChanges(compare(before, after));
+  }
+
+  if (mode === "--coverage") {
+    const [, capture] = args;
+    if (!capture) throw new Error(USAGE);
+    return formatCoverage(coverageIn(capture));
   }
 
   if (mode === "--against-domain") {
@@ -84,10 +96,7 @@ export function run(args: readonly string[]): string {
         ...drawn.refusals,
         ...read.refusals,
       ]);
-      // The digest covers the reading; the record carries the moment, which is
-      // the one thing two runs of one client are meant to differ in.
-      writeDigest(path, [RECORD]);
-      writeCaptureRecord(path, client, set, on, {
+      const counts = {
         curveTables: { read: read.written, refused: read.refused },
         inventory: {
           read: counted(held.inventory),
@@ -100,7 +109,14 @@ export function run(args: readonly string[]): string {
         assets: { read: files(drawn.images), refused: drawn.refusals.length },
         tags: { read: tagged(classed.tags), refused: classed.refusals.length },
         text: { read: lines(said.text), refused: said.refusals.length },
-      });
+      };
+      writeCoverage(path, coverageOf(path, counts.curveTables));
+
+      // The digest covers the reading; the record carries the moment, which is
+      // the one thing two runs of one client are meant to differ in, and it is
+      // written last because its presence is what marks the capture complete.
+      writeDigest(path, [RECORD]);
+      writeCaptureRecord(path, client, set, on, counts);
       const refused =
         held.refusals.length +
         said.refusals.length +

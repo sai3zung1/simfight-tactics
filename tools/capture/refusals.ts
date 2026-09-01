@@ -5,13 +5,17 @@ export const REFUSALS = "refusals.json";
 
 export type Refusal = {
   readonly path: string;
+  readonly reading: string;
   readonly reason: string;
 };
 
 // The reader writes one `path<TAB>reason` line per refusal to stderr. Anything
 // else on that stream after a successful run is not a refusal anybody made, so
 // it is a fault rather than a row.
-export function readRefusals(said: string): readonly Refusal[] {
+export function readRefusals(
+  said: string,
+  reading: string,
+): readonly Refusal[] {
   return said
     .split(/\r?\n/)
     .filter((line) => line.length > 0)
@@ -20,7 +24,7 @@ export function readRefusals(said: string): readonly Refusal[] {
       if (!path || !reason || rest.length > 0) {
         throw new Error(`the reader said ${line}, which is not a refusal`);
       }
-      return { path, reason };
+      return { path, reading, reason };
     })
     .sort((a, b) => (a.path < b.path ? -1 : a.path > b.path ? 1 : 0));
 }

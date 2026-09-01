@@ -90,6 +90,15 @@ in 32 places, and the run takes under a second because the digests say which
 files to open.
 
 ```sh
+bun run capture --coverage captures/set-18-PBE-2026-09-01
+```
+
+That says what share of the set each reading reached, family by family, and what
+the chain does not attempt at all. Read plus refused plus silent equals what the
+inventory found, always — a reading that lost track of an entry fails the run
+rather than reporting a share it cannot back.
+
+```sh
 bun run capture --against-domain
 ```
 

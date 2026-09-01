@@ -71,7 +71,8 @@ export function readReader(
   }
   return {
     printed: said(run.stdout),
-    refusals: readRefusals(said(run.stderr)),
+    // The mode is the reading, so a refusal carries what refused it.
+    refusals: readRefusals(said(run.stderr), rest[0] ?? "files"),
   };
 }
 
